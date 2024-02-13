@@ -65,11 +65,42 @@ services:
       - PGADMIN_DEFAULT_EMAIL=dev@merqconsultancy.org
       - PGADMIN_DEFAULT_PASSWORD=merqderejadev
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
     depends_on:
       - postgres
     networks:
       - merqderejadevnet
 
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: merqderejadev
+      MONGO_INITDB_ROOT_PASSWORD: merqderejadev
+    networks:
+      - merqderejadevnet
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: merqderejadev
+      ME_CONFIG_MONGODB_ADMINPASSWORD: merqderejadev
+      ME_CONFIG_MONGODB_URL: mongodb://merqderejadev:merqderejadev@mongo:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: merqderejauser
+      ME_CONFIG_BASICAUTH_PASSWORD: merqderejauser
+      ME_CONFIG_SSL_ENABLED: 'false'
+      #ME_CONFIG_SSL_CRT_PATH: /etc/ssl/certs/server.crt
+      #ME_CONFIG_SSL_KEY_PATH: /etc/ssl/certs/server.key
+    #volumes: 
+    #- ./certs:/etc/ssl/certs
+    networks: 
+      - merqderejadevnet
+
 networks:
   merqderejadevnet:
+
+volumes:
+  pgadmin-data:
