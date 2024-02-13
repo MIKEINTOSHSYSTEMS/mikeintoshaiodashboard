@@ -6,17 +6,20 @@ services:
     container_name: merq_derja_viz
     hostname: metabase
     volumes:
-      - /dev/urandom:/dev/random:ro
+      - ./merqderejaviz:/dev/random:ro
     ports:
       - 4000:3000
     environment:
-      MB_DB_FILE: merqdereja.db
+      MB_DB_FILE: ./merqderejaviz/merqdereja.db
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: merqderejadb
       MB_DB_PORT: 5432
       MB_DB_USER: merqderejadb
       MB_DB_PASS: merqderejadb
       MB_DB_HOST: postgres
+      MB_ADMIN_EMAIL: dev@merqconsultancy.org
+      MB_ADMIN_FIRST_NAME: MERQ
+      MB_ADMIN_PASSWORD: merqderejadev0
     networks:
       - merqderejadevnet
 
@@ -94,8 +97,9 @@ services:
       ME_CONFIG_SSL_ENABLED: 'false'
       #ME_CONFIG_SSL_CRT_PATH: /etc/ssl/certs/server.crt
       #ME_CONFIG_SSL_KEY_PATH: /etc/ssl/certs/server.key
-    #volumes: 
+    volumes: 
     #- ./certs:/etc/ssl/certs
+    - ./mongodata/db:/data/db
     networks: 
       - merqderejadevnet
 
@@ -103,4 +107,6 @@ networks:
   merqderejadevnet:
 
 volumes:
+  merqderejaviz: 
   pgadmin-data:
+  mongodata:
