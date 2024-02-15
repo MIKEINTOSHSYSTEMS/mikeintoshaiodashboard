@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'training_profile' => array( 'displayPreview' => 1,
 'previewPageId' => 'list' ) ),
+'master' => array( 'candidate_profile' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'First Name',
 'Middle Name',

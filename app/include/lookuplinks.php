@@ -40,13 +40,13 @@ function InitLookupLinks()
 
 	$lookupTableLinks = array();
 
-		if( !isset( $lookupTableLinks["event_profile"] ) ) {
-			$lookupTableLinks["event_profile"] = array();
+		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
+			$lookupTableLinks["candidate_profile"] = array();
 		}
-		if( !isset( $lookupTableLinks["event_profile"]["training_profile.ID"] )) {
-			$lookupTableLinks["event_profile"]["training_profile.ID"] = array();
+		if( !isset( $lookupTableLinks["candidate_profile"]["training_profile.ID"] )) {
+			$lookupTableLinks["candidate_profile"]["training_profile.ID"] = array();
 		}
-		$lookupTableLinks["event_profile"]["training_profile.ID"]["edit"] = array("table" => "training_profile", "field" => "ID", "page" => "edit");
+		$lookupTableLinks["candidate_profile"]["training_profile.ID"]["edit"] = array("table" => "training_profile", "field" => "ID", "page" => "edit");
 		if( !isset( $lookupTableLinks["training_profile"] ) ) {
 			$lookupTableLinks["training_profile"] = array();
 		}
@@ -54,6 +54,13 @@ function InitLookupLinks()
 			$lookupTableLinks["training_profile"]["event_profile.ID"] = array();
 		}
 		$lookupTableLinks["training_profile"]["event_profile.ID"]["edit"] = array("table" => "event_profile", "field" => "ID", "page" => "edit");
+		if( !isset( $lookupTableLinks["training_profile"] ) ) {
+			$lookupTableLinks["training_profile"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_profile"]["candidate_profile.ID"] )) {
+			$lookupTableLinks["training_profile"]["candidate_profile.ID"] = array();
+		}
+		$lookupTableLinks["training_profile"]["candidate_profile.ID"]["edit"] = array("table" => "candidate_profile", "field" => "ID", "page" => "edit");
 }
 
 ?>

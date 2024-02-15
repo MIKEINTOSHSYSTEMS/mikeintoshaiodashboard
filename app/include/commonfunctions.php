@@ -189,6 +189,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("event_profile" == $shortTName )
 		return true;
+	if ("candidate_profile" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -257,6 +259,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="event_profile";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidate_profile");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidate_profile";
+	}
 	return $arr;
 }
 
@@ -268,6 +279,7 @@ function GetTablesListWithoutSecurity()
 	$arr = array();
 	$arr[]="training_profile";
 	$arr[]="event_profile";
+	$arr[]="candidate_profile";
 	return $arr;
 }
 
@@ -984,6 +996,12 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="event_profile" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidate_profile" )
 	{
 //	default permissions
 		// grant all by default

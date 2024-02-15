@@ -1,5 +1,6 @@
 <?php
-			$optionsArray = array( 'master' => array( 'event_profile' => array( 'preview' => false ) ),
+			$optionsArray = array( 'master' => array( 'event_profile' => array( 'preview' => false ),
+'candidate_profile' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'First Name',
 'Middle Name',

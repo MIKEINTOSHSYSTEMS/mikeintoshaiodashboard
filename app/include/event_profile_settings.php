@@ -195,7 +195,7 @@ $tdataevent_profile[".addPageEvents"] = false;
 $tdataevent_profile[".isUseTimeForSearch"] = false;
 
 
-$tdataevent_profile[".badgeColor"] = "5F9EA0";
+$tdataevent_profile[".badgeColor"] = "5f9ea0";
 
 
 $tdataevent_profile[".allSearchFields"] = array();
@@ -3023,6 +3023,50 @@ $masterTablesData["event_profile"] = array();
 
 
 
+	
+				$strOriginalDetailsTable="candidate_profile";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidate_profile";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidate_profile";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["event_profile"][0] = $masterParams;
+				$masterTablesData["event_profile"][0]["masterKeys"] = array();
+	$masterTablesData["event_profile"][0]["masterKeys"][]="ID";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Facility or Organization Type";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Organization Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Home Address";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Email Address";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="First Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Last Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Sex";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Region";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="City";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Field of Study";
+				$masterTablesData["event_profile"][0]["detailKeys"] = array();
+	$masterTablesData["event_profile"][0]["detailKeys"][]="ID";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Type";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Home Address";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Email Address";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="First Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Last Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Sex";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Region";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="City";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Field of Study";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

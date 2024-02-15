@@ -4,5 +4,8 @@
 [data-page=".global_menu"][data-itemid="welcome_item1"] > .bs-welcome-header {
   background-color: #5F9EA0;
 }
+[data-page=".global_menu"][data-itemid="welcome_item2"] > .bs-welcome-header {
+  background-color: #B22222;
+}
 
 

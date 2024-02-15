@@ -32,6 +32,21 @@
 
 		</td>
 		{END item2_menulink}
+			
+		{BEGIN item3_menulink}
+		<td id="item3" view="topitem" class="Leaf">
+			<table cellpadding="0">
+	<tr class="runner-menutab{BEGIN item3_current} current{END item3_current}">
+		<td class="runner-cl"><img src="images/spacer.gif"></td>
+		<td class="runner-cc">	
+			<a {$item3_menulink_attrs} {BEGIN item3_current}class="curlink"{END item3_current}>{$item3_title}</a>
+		</td>
+		<td class="runner-cr"><img src="images/spacer.gif"></td>
+	</tr>
+</table>	
+
+		</td>
+		{END item3_menulink}
 				{END simpleTypeMenu}
 
 	{BEGIN adminAreaTypeMenu}

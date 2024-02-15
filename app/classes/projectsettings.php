@@ -3214,6 +3214,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "training_profile" ] = "training_profile";
 	$projectEntities[ "event_profile" ] = array( "url" => "event_profile", "type" => 0 );
 	$projectEntitiesReverse[ "event_profile" ] = "event_profile";
+	$projectEntities[ "candidate_profile" ] = array( "url" => "candidate_profile", "type" => 0 );
+	$projectEntitiesReverse[ "candidate_profile" ] = "candidate_profile";
 }
 
 function findTable( $table ) {

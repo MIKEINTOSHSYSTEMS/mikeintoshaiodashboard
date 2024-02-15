@@ -952,6 +952,10 @@ function GetDefaultValue($field, $ptype, $table="")
 	{
 		return now();
 	}
+				if($table=="candidate_profile" && $field=="ID")
+	{
+		return $_SESSION["UserID"];
+	}
 	return "";
 }
 
@@ -964,6 +968,10 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 	if(!$table)
 		$table=$strTableName;
 				if($table=="training_profile" && $field=="ID")
+	{
+		return $_SESSION["UserID"];
+	}
+				if($table=="candidate_profile" && $field=="ID")
 	{
 		return $_SESSION["UserID"];
 	}
