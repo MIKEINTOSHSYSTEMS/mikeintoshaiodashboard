@@ -2536,8 +2536,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 	$edata["weekdays"] = "[]";
 
 
-		$edata["strEditMask"] = "999-999-9999";
-
+	
 	
 
 
@@ -2555,7 +2554,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
+			$edata["HTML5InuptType"] = "tel";
 
 		$edata["EditParams"] = "";
 			$edata["EditParams"].= " maxlength=13";

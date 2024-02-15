@@ -102,5 +102,7 @@ array( 'cell' => 'c2' ) ),
 'type' => 0 ),
 'background' => '#5F9EA0' ) ),
 'dbProps' => array(  ),
-'version' => 4 );
+'version' => 4,
+'pageAlign' => 'center',
+'fixedTopbar' => true );
 		?>
