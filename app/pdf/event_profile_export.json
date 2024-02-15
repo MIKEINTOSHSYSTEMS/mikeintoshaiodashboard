@@ -1,0 +1,174 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel event_profile export}","hidden":"{$item_hide_export_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
+					]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+			heights: [
+								
+			"%",
+			 
+				],
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_export_field}","text":{$ID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field1}","text":{$First_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field2}","text":{$Middle_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field3}","text":{$Last_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field4}","text":{$Sex_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field5}","text":{$Event_start_date_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field6}","text":{$Event_end_date_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field7}","text":{$Event_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field8}","text":{$Region_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field9}","text":{$City_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field10}","text":{$Participant_Profession_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field11}","text":{$Participant_Field_of_Study_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field12}","text":{$Participant_Organization_Type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field13}","text":{$Participant_Organization_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field14}","text":{$Participant_Home_Address_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field15}","text":{$Phone_Number_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field16}","text":{$Email_Address_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field17}","text":{$Disablity_Status_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
+					]
+	}
+}
+,
+		
+					]
+}
+  

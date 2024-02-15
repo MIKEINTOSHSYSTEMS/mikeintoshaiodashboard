@@ -1,0 +1,1542 @@
+<?php
+$tdata##@TABLE.strShortTableName## = array();
+$tdata##@TABLE.strShortTableName##[".searchableFields"] = array();
+$tdata##@TABLE.strShortTableName##[".ShortName"] = "##@TABLE.strShortTableName##";
+$tdata##@TABLE.strShortTableName##[".OwnerID"] = "##@TABLE.strMainTableOwnerID s##";
+##if @TABLE.strOriginalTable##
+$tdata##@TABLE.strShortTableName##[".OriginalTable"] = "##@TABLE.strOriginalTable s##";
+##else##
+$tdata##@TABLE.strShortTableName##[".OriginalTable"] = "##@TABLE.strDataSourceTable s##";
+##endif##
+
+
+$tdata##@TABLE.strShortTableName##[".pagesByType"] = my_json_decode( "##page_list @TABLE.strDataSourceTable##" );
+$tdata##@TABLE.strShortTableName##[".originalPagesByType"] = $tdata##@TABLE.strShortTableName##[".pagesByType"];
+$tdata##@TABLE.strShortTableName##[".pages"] = types2pages( my_json_decode( "##page_list @TABLE.strDataSourceTable##" ) );
+$tdata##@TABLE.strShortTableName##[".originalPages"] = $tdata##@TABLE.strShortTableName##[".pages"];
+$tdata##@TABLE.strShortTableName##[".defaultPages"] = my_json_decode( "##page_default @TABLE.strDataSourceTable##" );
+$tdata##@TABLE.strShortTableName##[".originalDefaultPages"] = $tdata##@TABLE.strShortTableName##[".defaultPages"];
+
+//	field labels
+$fieldLabels##@TABLE.strShortTableName## = array();
+$fieldToolTips##@TABLE.strShortTableName## = array();
+$pageTitles##@TABLE.strShortTableName## = array();
+$placeHolders##@TABLE.strShortTableName## = array();
+
+##foreach @BUILDER.ProjectLabels.arrLanguageLabels as @l##
+if(mlang_getcurrentlang()=="##@l.strLanguage s##")
+{
+	$fieldLabels##@TABLE.strShortTableName##["##@l.strLanguage s##"] = array();
+	$fieldToolTips##@TABLE.strShortTableName##["##@l.strLanguage s##"] = array();
+	$placeHolders##@TABLE.strShortTableName##["##@l.strLanguage s##"] = array();
+	$pageTitles##@TABLE.strShortTableName##["##@l.strLanguage s##"] = array();
+	##foreach @l.arrTableLabels as @t filter @t.strTableName==@TABLE.strDataSourceTable##
+	##foreach @t.arrFieldLabels as @f##
+	$fieldLabels##@TABLE.strShortTableName##["##@l.strLanguage s##"]["##@f.strField g##"] = "##@f.strLabel 8s##";
+	$fieldToolTips##@TABLE.strShortTableName##["##@l.strLanguage s##"]["##@f.strField g##"] = "##@f.strTooltip 8s##";
+	$placeHolders##@TABLE.strShortTableName##["##@l.strLanguage s##"]["##@f.strField g##"] = "##@f.strPlaceholder 8s##";
+	##endfor##
+	##foreach @t.arrPageTitleLabels as @p##
+	$pageTitles##@TABLE.strShortTableName##["##@l.strLanguage s##"]["##@p.strPage s##"] = "##@p.strTitle 8s##";
+	##endfor##
+	##endfor##
+	if (count($fieldToolTips##@TABLE.strShortTableName##["##@l.strLanguage s##"]))
+		$tdata##@TABLE.strShortTableName##[".isUseToolTips"] = true;
+}
+##endfor##
+
+
+##if !@TABLE.bCSSearch##
+	$tdata##@TABLE.strShortTableName##[".NCSearch"] = true;
+##endif##
+
+##if @TABLE.nType==titCHART##
+##if @TABLE.bAutoUpdate##
+	$tdata##@TABLE.strShortTableName##[".ChartRefreshTime"] = ##@TABLE.nAutoUpdateIntervalMin##;
+##else##
+	$tdata##@TABLE.strShortTableName##[".ChartRefreshTime"] = 0;
+##endif##
+##endif##
+
+##if @TABLE.bListScroll && !IsAdminTable(@TABLE)##
+	$tdata##@TABLE.strShortTableName##[".scrollGridBody"] = true;
+##endif##
+
+$tdata##@TABLE.strShortTableName##[".shortTableName"] = "##@TABLE.strShortTableName s##";
+$tdata##@TABLE.strShortTableName##[".nSecOptions"] = ##@TABLE.nSecOptions s##;
+
+##if @TABLE.nLimitRecords > 0##
+$tdata##@TABLE.strShortTableName##[".recsLimit"] = ##@TABLE.nLimitRecords s##;
+##endif##
+$tdata##@TABLE.strShortTableName##[".mainTableOwnerID"] = "##@TABLE.strMainTableOwnerID s##";
+$tdata##@TABLE.strShortTableName##[".entityType"] = ##@TABLE.nType##;
+$tdata##@TABLE.strShortTableName##[".connId"] = "##@TABLE.strConnectionID s##";
+
+
+##if @TABLE.strOriginalTable##
+$tdata##@TABLE.strShortTableName##[".strOriginalTableName"] = "##@TABLE.strOriginalTable s##";
+##else##
+$tdata##@TABLE.strShortTableName##[".strOriginalTableName"] = "##@TABLE.strDataSourceTable s##";
+##endif##
+
+##if !@BUILDER.arrEncryptInfo{@TABLE.strConnectionID}.empty##
+	##if @BUILDER.arrEncryptInfo{@TABLE.strConnectionID}.nEncryptMode != 0##
+	 ##if @TABLE.strDataSourceTable=="admin_users" && @BUILDER.bCreateLoginPage && @BUILDER.m_nLoginMethod == SECURITY_TABLE && @BUILDER.strLoginDataSource.len##
+	  ##if (@BUILDER.Tables{@BUILDER.strLoginDataSource}.m_arrFieldObj[bEncrypted].len || Fields[bEncrypted].len)##
+	   $tdata##@TABLE.strShortTableName##[".hasEncryptedFields"] = true;
+	  ##endif##
+	 ##elseif Fields[bEncrypted].len##
+	  $tdata##@TABLE.strShortTableName##[".hasEncryptedFields"] = true;
+	 ##endif##
+	##endif##
+##endif##
+
+##if Fields[viewFormats[strViewFormat == FORMAT_AUDIO || strViewFormat == FORMAT_DATABASE_AUDIO].len].len##
+$tdata##@TABLE.strShortTableName##[".isUseAudio"] = true;
+##endif##
+
+
+##if Fields[viewFormats[strViewFormat == FORMAT_VIDEO || strViewFormat == FORMAT_DATABASE_VIDEO].len].len##
+$tdata##@TABLE.strShortTableName##[".isUseVideo"] = true;
+##endif##
+
+##if @TABLE.bAddPopup && @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+$tdata##@TABLE.strShortTableName##[".showAddInPopup"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".showAddInPopup"] = false;
+##endif##
+
+##if @TABLE.bEditPopup && @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+$tdata##@TABLE.strShortTableName##[".showEditInPopup"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".showEditInPopup"] = false;
+##endif##
+
+##if @TABLE.bViewPopup && @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+$tdata##@TABLE.strShortTableName##[".showViewInPopup"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".showViewInPopup"] = false;
+##endif##
+
+//page's base css files names
+$popupPagesLayoutNames = array();
+##if @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+##if @TABLE.bAddPopup##
+##processLayoutName TYPE_PAGE_ADD @TABLE.strDatasourceTable##;
+$popupPagesLayoutNames["##TYPE_PAGE_ADD##"] = "##@processLayoutName_result##";
+##endif##
+##if @TABLE.bEditPopup##
+##processLayoutName TYPE_PAGE_EDIT @TABLE.strDatasourceTable##;
+$popupPagesLayoutNames["##TYPE_PAGE_EDIT##"] = "##@processLayoutName_result##";
+##endif##
+##if @TABLE.bViewPopup##
+##processLayoutName TYPE_PAGE_VIEW @TABLE.strDatasourceTable##;
+$popupPagesLayoutNames["##TYPE_PAGE_VIEW##"] = "##@processLayoutName_result##";
+##endif##
+##endif##
+$tdata##@TABLE.strShortTableName##[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
+
+
+##if @TABLE.bListAJAX && @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+	$tdata##@TABLE.strShortTableName##[".listAjax"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".listAjax"] = false;
+##endif##
+//	temporary
+$tdata##@TABLE.strShortTableName##[".listAjax"] = false;
+
+##if @TABLE.bLogModifications##
+	$tdata##@TABLE.strShortTableName##[".audit"] = true;
+##else##
+	$tdata##@TABLE.strShortTableName##[".audit"] = false;
+##endif##
+
+##if @TABLE.bBlocking##
+	$tdata##@TABLE.strShortTableName##[".locking"] = true;
+##else##
+	$tdata##@TABLE.strShortTableName##[".locking"] = false;
+##endif##
+
+
+$pages = $tdata##@TABLE.strShortTableName##[".defaultPages"];
+
+if( $pages[PAGE_EDIT] ) {
+	$tdata##@TABLE.strShortTableName##[".edit"] = true;
+	$tdata##@TABLE.strShortTableName##[".afterEditAction"] = ##@TABLE.nAfterEditAction##;
+	$tdata##@TABLE.strShortTableName##[".closePopupAfterEdit"] = ##@TABLE.bClosePopupAfterEdit##;
+	$tdata##@TABLE.strShortTableName##[".afterEditActionDetTable"] = "##@TABLE.strAfterEditDetail s##";
+}
+
+if( $pages[PAGE_ADD] ) {
+$tdata##@TABLE.strShortTableName##[".add"] = true;
+$tdata##@TABLE.strShortTableName##[".afterAddAction"] = ##@TABLE.nAfterAddAction##;
+$tdata##@TABLE.strShortTableName##[".closePopupAfterAdd"] = ##@TABLE.bClosePopupAfterAdd##;
+$tdata##@TABLE.strShortTableName##[".afterAddActionDetTable"] = "##@TABLE.strAfterAddDetail s##";
+}
+
+if( $pages[PAGE_LIST] ) {
+	$tdata##@TABLE.strShortTableName##[".list"] = true;
+}
+
+##if exists(@TABLE.bEnableUpdateSelected)##
+$tdata##@TABLE.strShortTableName##[".updateSelected"] = true;
+##endif##
+
+
+$tdata##@TABLE.strShortTableName##[".strSortControlSettingsJSON"] = "##@TABLE.strSortControlSettingsJSON s##";
+
+##if @TABLE.strClickActionSettingsJSON##
+$tdata##@TABLE.strShortTableName##[".strClickActionJSON"] = "##@TABLE.strClickActionSettingsJSON s##";
+##endif##
+
+
+
+if( $pages[PAGE_VIEW] ) {
+$tdata##@TABLE.strShortTableName##[".view"] = true;
+}
+
+if( $pages[PAGE_IMPORT] ) {
+$tdata##@TABLE.strShortTableName##[".import"] = true;
+}
+
+if( $pages[PAGE_EXPORT] ) {
+$tdata##@TABLE.strShortTableName##[".exportTo"] = true;
+}
+
+if( $pages[PAGE_PRINT] ) {
+$tdata##@TABLE.strShortTableName##[".printFriendly"] = true;
+}
+
+
+
+$tdata##@TABLE.strShortTableName##[".showSimpleSearchOptions"] = true; // temp fix #13449
+
+// Allow Show/Hide Fields in GRID
+$tdata##@TABLE.strShortTableName##[".allowShowHideFields"] = true; // temp fix #13449
+//
+
+// Allow Fields Reordering in GRID
+$tdata##@TABLE.strShortTableName##[".allowFieldsReordering"] = true; // temp fix #13449
+//
+
+##if @TABLE.bSearchSuggest##
+$tdata##@TABLE.strShortTableName##[".isUseAjaxSuggest"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".isUseAjaxSuggest"] = false;
+##endif##
+
+##if ListEntity( @TABLE )##
+##if @TABLE.bRowHighlite##
+$tdata##@TABLE.strShortTableName##[".rowHighlite"] = true;
+##endif##
+##endif##
+
+##set @tableHasEventAjax=0##
+##set @tableHasButtons=0##
+##foreach @BUILDER.controlHandlers as @c filter @c.strEventID=="EVENT_BUTTON" || @c.strEventID=="EVENT_AJAX" || @c.strEventID=="EVENT_FIELD"##
+	##if Fields[editFormats[arrFieldEventLinks[strHandlerID == @c.strName]].len].len##
+	##set @tableHasButtons=1##
+	##endif##
+	##if Fields[viewFormats[arrFieldEventLinks[strHandlerID == @c.strName]].len].len##
+	##set @tableHasButtons=1##
+	##endif##
+	##if @TABLE.controlLinks[id==@c.strName].len##
+		##set @tableHasButtons=1##
+		##if @c.strEventID=="EVENT_AJAX"##
+			##set @tableHasEventAjax=1##
+		##endif##
+	##else##
+		##foreach @TABLE.arrMasterTables as @m##
+			##if @BUILDER.tables{@m.strMasterTable}.controlLinks[id==@c.strName && page==PAGE_MASTER_INFO_LIST].len##
+				##set @tableHasButtons=1##
+			##endif##
+		##endfor##
+	##endif##
+##endfor##
+
+
+##if @tableHasEventAjax##
+$tdata##@TABLE.strShortTableName##[".ajaxCodeSnippetAdded"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".ajaxCodeSnippetAdded"] = false;
+##endif##
+
+##if @tableHasButtons##
+$tdata##@TABLE.strShortTableName##[".buttonsAdded"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".buttonsAdded"] = false;
+##endif##
+
+##if @tableHasButtons || @TABLE.arrEventHandlers[strEventID == "EVENT_JS_ONLOAD"].len##
+$tdata##@TABLE.strShortTableName##[".addPageEvents"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".addPageEvents"] = false;
+##endif##
+
+// use timepicker for search panel
+##if Fields[editFormats[useTimePicker].len].len##
+$tdata##@TABLE.strShortTableName##[".isUseTimeForSearch"] = true;
+##else##
+$tdata##@TABLE.strShortTableName##[".isUseTimeForSearch"] = false;
+##endif##
+
+##if @TABLE.arrFieldObj[viewFormats[strViewFormat==FORMAT_MAP].len].len##
+$tdata##@TABLE.strShortTableName##[".isUseFieldsMaps"] = true;
+##endif##
+
+##if @TABLE.strChildColor.len##
+$tdata##@TABLE.strShortTableName##[".badgeColor"] = "##@TABLE.strChildColor##";
+##endif##
+
+##if 1=0##
+##if @TABLE.nLinksOnList != dlSINGLE##
+$tdata##@TABLE.strShortTableName##[".detailsLinksOnList"] = "##@TABLE.nLinksOnList##";
+##endif##
+##endif##
+
+$tdata##@TABLE.strShortTableName##[".allSearchFields"] = array();
+$tdata##@TABLE.strShortTableName##[".filterFields"] = array();
+$tdata##@TABLE.strShortTableName##[".requiredSearchFields"] = array();
+
+##foreach Fields as @f filter @f.bGoogleLikeSearch && !IsBinaryField(@f)##
+##if @first##
+$tdata##@TABLE.strShortTableName##[".googleLikeFields"] = array();
+##endif##
+$tdata##@TABLE.strShortTableName##[".googleLikeFields"][] = "##@f.strName s##";
+##endfor##
+
+
+
+##if IsTable(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".tableType"] = "list";
+##elseif IsReport(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".tableType"] = "report";
+##elseif IsChart(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".tableType"] = "chart";
+##endif##
+
+$tdata##@TABLE.strShortTableName##[".printerPageOrientation"] = ##@TABLE.m_nPrinterPageOrientation##;
+##if !@TABLE.bPrinterPageFitToPage##
+$tdata##@TABLE.strShortTableName##[".isPrinterPageFitToPage"] = 0;
+##endif##
+$tdata##@TABLE.strShortTableName##[".nPrinterPageScale"] = ##@TABLE.nPrinterPageScale##;
+
+$tdata##@TABLE.strShortTableName##[".nPrinterSplitRecords"] = ##@TABLE.nPrintRecordsPerPage##;
+
+##if @TABLE.GeocodingSettings.bGeocodingEnabled != 0##
+$tdata##@TABLE.strShortTableName##[".geocodingEnabled"] = true;
+$tdata##@TABLE.strShortTableName##[".geocodingData"] = array();
+$tdata##@TABLE.strShortTableName##[".geocodingData"]["latField"] = "##@TABLE.GeocodingSettings.strLatField##";
+$tdata##@TABLE.strShortTableName##[".geocodingData"]["lngField"] = "##@TABLE.GeocodingSettings.strLonField##";
+$tdata##@TABLE.strShortTableName##[".geocodingData"]["addressFields"] = array();
+##foreach @TABLE.GeocodingSettings.arrAddressFields as @af##
+	$tdata##@TABLE.strShortTableName##[".geocodingData"]["addressFields"][] = "##@af##";
+##endfor##
+##else##
+$tdata##@TABLE.strShortTableName##[".geocodingEnabled"] = false;
+##endif##
+
+##if IsReport(@TABLE)##
+//report settings
+##if @TABLE.bReportCrossTab##
+$tdata##@TABLE.strShortTableName##[".crossTabReport"] = true;
+##else##
+##if @TABLE.nReportLayout != REPORT_STEPPED##
+$tdata##@TABLE.strShortTableName##[".printReportLayout"] = ##@TABLE.nReportLayout##;
+##endif##
+
+##if @TABLE.arrReportGroupFields.len##
+$tdata##@TABLE.strShortTableName##[".reportPrintPartitionType"] = 1;
+$tdata##@TABLE.strShortTableName##[".reportPrintGroupsPerPage"] = ##@TABLE.nReportPrintGroupsPerPage##;
+##else##
+$tdata##@TABLE.strShortTableName##[".reportPrintPartitionType"] = 1;
+$tdata##@TABLE.strShortTableName##[".reportPrintGroupsPerPage"] = ##@TABLE.nPrintRecordsPerPage##;
+##endif##
+$tdata##@TABLE.strShortTableName##[".lowGroup"] = ##@TABLE.arrReportGroupFields.len##;
+
+
+##endif##
+
+##if @TABLE.arrReportGroupFields.len##
+$tdata##@TABLE.strShortTableName##[".reportGroupFields"] = true;
+$tdata##@TABLE.strShortTableName##[".pageSize"] = ##@TABLE.nNumberOfGroups##;
+##if @TABLE.arrReportGroupFields[bShowGroupSummary].len##
+$tdata##@TABLE.strShortTableName##[".showGroupSummaryCount"] = true;
+##endif##
+$reportGroupFieldsList = array();
+$reportGroupFields = array();
+##foreach @TABLE.arrReportGroupFields as @g##
+	$reportGroupFieldsList []= "##@g.strGroupField s##";
+
+	$rgroupField = array();
+	$rgroupField['strGroupField'] = "##@g.strGroupField s##";
+	$rgroupField['groupInterval'] = ##@g.nGroupInterval##;
+	$rgroupField['groupOrder'] = ##@index##;
+	$rgroupField['showGroupSummary'] = "##if @first || @last##1##else####@g.bShowGroupSummary####endif##";
+	$rgroupField['crossTabAxis'] = "##@g.nCrossTabAxis##";
+	$reportGroupFields[] = $rgroupField;
+##endfor##
+$tdata##@TABLE.strShortTableName##[".reportGroupFieldsData"] = $reportGroupFields;
+$tdata##@TABLE.strShortTableName##[".reportGroupFieldsList"] = $reportGroupFieldsList;
+##else##
+$tdata##@TABLE.strShortTableName##[".pageSize"] = ##@TABLE.nNumberOfRecords##;
+##endif##
+
+##if @TABLE.bReportHorizontalSummary##
+$tdata##@TABLE.strShortTableName##[".reportHorizontalSummary"] = true;
+##endif##
+
+##if @TABLE.arrFieldObj[bSum || bAvg || bMin || bMax].len##
+$tdata##@TABLE.strShortTableName##[".isExistTotalFields"] = true;
+##endif##
+
+##if @TABLE.bReportVerticalSummary##
+$tdata##@TABLE.strShortTableName##[".reportVerticalSummary"] = true;
+##endif##
+
+##if @TABLE.bReportPageSummary##
+$tdata##@TABLE.strShortTableName##[".reportPageSummary"] = true;
+##endif##
+
+##if @TABLE.bReportGlobalSummary##
+$tdata##@TABLE.strShortTableName##[".reportGlobalSummary"] = true;
+##endif##
+
+##if @TABLE.bReportShowDetails || !@TABLE.arrReportGroupFields.len##
+$tdata##@TABLE.strShortTableName##[".repShowDet"] = true;
+##endif##
+
+$tdata##@TABLE.strShortTableName##[".reportLayout"] = ##@TABLE.nReportLayout##;
+
+//end of report settings
+##endif##
+
+
+##if IsChart(@TABLE)##
+// chart settings
+$tdata##@TABLE.strShortTableName##[".chartType"] = "##@TABLE.strChartType##";
+// end of chart settings
+##endif##
+
+##if @TABLE.displayLoading##
+$tdata##@TABLE.strShortTableName##[".isDisplayLoading"] = true;
+##endif##
+
+##if @TABLE.resizeColumns && @TABLE.strDataSourceTable!="admin_members" && @TABLE.strDataSourceTable!="admin_rights"##
+$tdata##@TABLE.strShortTableName##[".isResizeColumns"] = true;
+##endif##
+
+##if @TABLE.bRequireSearchFilter##
+$tdata##@TABLE.strShortTableName##[".searchIsRequiredForFilters"] = true;
+##endif##
+
+##if @TABLE.bNoRecordsFirstPage##
+$tdata##@TABLE.strShortTableName##[".noRecordsFirstPage"] = true;
+##endif##
+
+
+
+##if ListEntity( @TABLE )##
+$tdata##@TABLE.strShortTableName##[".pageSize"] = ##@TABLE.nNumberOfRecords s##;
+
+##if @TABLE.bWarnLeavingPages##
+$tdata##@TABLE.strShortTableName##[".warnLeavingPages"] = true;
+##endif##
+
+##if @TABLE.bHideEmptyFieldsOnView##
+$tdata##@TABLE.strShortTableName##[".hideEmptyFieldsOnView"] = true;
+##endif##
+
+##endif##
+
+$tstrOrderBy = "##@TABLE.strOrderBy s##";
+if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
+	$tstrOrderBy = "order by ".$tstrOrderBy;
+$tdata##@TABLE.strShortTableName##[".strOrderBy"] = $tstrOrderBy;
+
+$tdata##@TABLE.strShortTableName##[".orderindexes"] = array();
+##if @TABLE.nType==titTABLE || @TABLE.nType==titVIEW || @TABLE.nType==titREPORT || @TABLE.nType==titCHART##
+	##foreach @TABLE.arrOrderIndexes as @o order @o.nOrderIndex##
+##if @o.nIndex##
+	$tdata##@TABLE.strShortTableName##[".orderindexes"][] = array(##@o.nIndex##, (##@o.bAsc## ? "ASC" : "DESC"), "##@o.strOrderField s##");
+##else##
+	$tdata##@TABLE.strShortTableName##[".orderindexes"][] = array(0, (""), "##@o.strOrderField s##");
+##endif##
+
+	##endfor##
+##endif##
+
+
+$tdata##@TABLE.strShortTableName##[".sqlHead"] = "##@TABLE.sqlHead ls##";
+$tdata##@TABLE.strShortTableName##[".sqlFrom"] = "##@TABLE.sqlFrom ls##";
+$tdata##@TABLE.strShortTableName##[".sqlWhereExpr"] = "##@TABLE.sqlWhere ls##";
+$tdata##@TABLE.strShortTableName##[".sqlTail"] = "##@TABLE.sqlTail ls##";
+
+##if @TABLE.arrWhereTabs.len##
+//fill array of tabs for list page
+$arrGridTabs = array();
+##foreach @TABLE.arrWhereTabs as @tab##
+$arrGridTabs[] = array(
+	'tabId' => "##@tab.strID s##",
+	'name' => "##@tab.strTitle.text s##",
+	'nameType' => '##@tab.strTitle.nameType##',
+	'where' => "##@tab.strWhere s##",
+	'showRowCount' => ##iif(@tab.bShowRowCount,1,0)##,
+	'hideEmpty' => ##iif(@tab.bHideEmpty,1,0)##,
+);
+##endfor##
+$tdata##@TABLE.strShortTableName##[".arrGridTabs"] = $arrGridTabs;
+##endif##
+
+
+
+
+##if AddPageMultistep(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".addMultistep"] = true;
+##endif##
+
+##if EditPageMultistep(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".editMultistep"] = true;
+##endif##
+
+##if ViewPageMultistep(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".viewMultistep"] = true;
+##endif##
+
+##if RegisterPageMultistep(@TABLE)##
+$tdata##@TABLE.strShortTableName##[".registerMultistep"] = true;
+##endif##
+
+
+##if @TABLE.arrRecsPerPage.len##
+//fill array of records per page for list and report without group fields
+$arrRPP = array();
+##foreach @TABLE.arrRecsPerPage as @r##
+$arrRPP[] = ##@r##;
+##endfor##
+$tdata##@TABLE.strShortTableName##[".arrRecsPerPage"] = $arrRPP;
+##endif##
+
+##if @TABLE.arrGroupsPerPage.len##
+//fill array of groups per page for report with group fields
+$arrGPP = array();
+##foreach @TABLE.arrGroupsPerPage as @g##
+$arrGPP[] = ##@g##;
+##endfor##
+$tdata##@TABLE.strShortTableName##[".arrGroupsPerPage"] = $arrGPP;
+##endif##
+
+##if @TABLE.bHighlightSearchResults##
+$tdata##@TABLE.strShortTableName##[".highlightSearchResults"] = true;
+##endif##
+
+$tableKeys##@TABLE.strShortTableName## = array();
+##foreach @TABLE.arrKeyFields as @k##
+$tableKeys##@TABLE.strShortTableName##[] = "##@k s##";
+##endfor##
+$tdata##@TABLE.strShortTableName##[".Keys"] = $tableKeys##@TABLE.strShortTableName##;
+
+
+$tdata##@TABLE.strShortTableName##[".hideMobileList"] = array();
+##repeat 5 @n##
+	##foreach Fields as @f filter @f.arrListOfDevicesWithHiddenFields[@element == @n]##
+		##if @first##
+$tdata##@TABLE.strShortTableName##[".hideMobileList"][##eval @n##] = array();
+		##endif##
+$tdata##@TABLE.strShortTableName##[".hideMobileList"][##eval @n##]["##@f.strName s##"] = true;
+	##endfor##
+##endrepeat##
+
+
+
+
+##foreach Fields as @f##
+//	##@f.strName##
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = ##@index##;
+	$fdata["strName"] = "##@f.strName s##";
+	$fdata["GoodName"] = "##@f.strName g##";
+	$fdata["ownerTable"] = "##@f.strTable s##";
+	$fdata["Label"] = ##label @TABLE.strDataSourceTable @f.strName##;
+	$fdata["FieldType"] = ##@f.nDataType##;
+
+	##if IsReport(@TABLE)##
+	// report field settings
+	##if @f.bMin##
+	$fdata["isTotalMin"] = true;
+	##endif##
+	##if @f.bAvg##
+	$fdata["isTotalAvg"] = true;
+	##endif##
+	##if @f.bMax##
+	$fdata["isTotalMax"] = true;
+	##endif##
+	##if @f.bSum##
+	$fdata["isTotalSum"] = true;
+	##endif##
+	// end of report field settings
+	##endif##
+
+	##if @f.bAutoInc##
+	$fdata["AutoInc"] = true;
+	##endif##
+
+	##if @f.strOraSequenceName##
+	$fdata["OraSequenceName"] = "##@f.strOraSequenceName##";
+	##endif##
+
+	##if !@BUILDER.arrEncryptInfo{@TABLE.strConnectionID}.empty##
+		##if @BUILDER.arrEncryptInfo{@TABLE.strConnectionID}.nEncryptMode != 0##
+			##if @BUILDER.bCreateLoginPage && @BUILDER.m_nLoginMethod == SECURITY_TABLE && @TABLE.strDataSourceTable=="admin_users" && @BUILDER.strLoginDataSource.len##
+				##foreach @BUILDER.Tables{@BUILDER.strLoginDataSource}.m_arrFieldObj as @g##
+					##if @g.strField==@f.strField && (@g.m_bEncrypted || @f.m_bEncrypted)##
+						$fdata["bIsEncrypted"] = true;
+					##endif##
+				##endfor##
+			##else##
+				##if @f.m_bEncrypted##
+				$fdata["bIsEncrypted"] = true;
+				##endif##
+			##endif##
+		##endif##
+	##endif##
+
+
+	##if @f.strField##
+	$fdata["strField"] = "##@f.strField s##";
+	##endif##
+
+	##if @f.strSourceSingle##
+	$fdata["sourceSingle"] = "##@f.strSourceSingle s##";
+	##endif##
+
+	##if @f.strSQLExpression##
+	$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "##@f.strSQLExpression ls##";
+	##else##
+	$fdata["FullName"] = "##@f.strName s##";
+	##endif##
+
+	##if @f.bDeleteFile##
+	$fdata["DeleteAssociatedFile"] = true;
+	##endif##
+
+	##if @f.bCompatibilityMode##
+	$fdata["CompatibilityMode"] = true;
+	##endif##
+
+	##if @f.bUploadCodeExpression##
+	$fdata["UploadCodeExpression"] = true;
+	##else##
+		##if @f.strUploadFolder##
+	$fdata["UploadFolder"] = "##@f.strUploadFolder s##";
+		##endif##
+	##endif##
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	##foreach @f.viewFormats as @vf##
+	$vdata = array("ViewFormat" => "##@vf.strViewFormat s##");
+
+	##if @vf.strFilename##
+	$vdata["Filename"] = "##@vf.strFilename s##";
+	##endif##
+
+	##if @vf.strhlPrefix##
+	$vdata["LinkPrefix"] ="##@vf.strhlPrefix s##";
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_FILE_IMAGE || @vf.strViewFormat==FORMAT_DATABASE_IMAGE##
+		##if @vf.bShowThumbnail##
+	$vdata["ShowThumbnail"] = true;
+	$vdata["ThumbWidth"] = ##@vf.nThumbWidth##;
+	$vdata["ThumbHeight"] = ##@vf.nThumbHeight##;
+		##endif##
+	$vdata["ImageWidth"] = ##@vf.nImageWidth##;
+	$vdata["ImageHeight"] = ##@vf.nImageHeight##;
+
+		##if @vf.strViewFormat==FORMAT_FILE_IMAGE##
+	$vdata["multipleImgMode"] = ##@vf.nMultipleImages##;
+	$vdata["maxImages"] = ##@vf.nMaxImages##;
+		##endif##
+
+		##if @vf.bShowGallery##
+	$vdata["showGallery"] = true;
+	$vdata["galleryMode"] = ##@TABLE.nGalleryMode##;
+	$vdata["captionMode"] = ##@vf.nImageCaptions##;
+	$vdata["captionField"] = "##@vf.strCaptionField s##";
+		##endif##
+
+	$vdata["imageBorder"] = ##@vf.bImageBorder##;
+	$vdata["imageFullWidth"] = ##@vf.bImageFullWidth##;
+
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_FILE##
+		##if @vf.bShowThumbnail##
+	$vdata["ShowThumbnail"] = true;
+		##endif##
+		##if @vf.bShowFileSize##
+	$vdata["ShowFileSize"] = true;
+		##endif##
+		##if @vf.bShowIcon##
+	$vdata["ShowIcon"] = true;
+		##endif##
+		##if @vf.bShowCustomExpr##
+	$vdata["ShowCustomExpr"] = true;
+		##endif##
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_HYPERLINK##
+		##if @vf.bhlNewWindow##
+	$vdata["hlNewWindow"] = true;
+		##endif##
+	$vdata["hlType"] = ##@vf.nhlDisplay##;
+	$vdata["hlLinkWordNameType"] = "##@vf.linkWord.nameType s##";
+	$vdata["hlLinkWordText"] = "##@vf.linkWord.text s##";
+	$vdata["hlTitleField"] = "##@vf.strhlParam s##";
+	##endif##
+
+	##if @vf.strFilename##
+	$vdata["strFilename"] = "##@vf.strFilename s##";
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_NUMBER##
+	$vdata["DecimalDigits"] = ##@vf.nDecimalDigits##;
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_AUDIO && @vf.bFieldContainsFileURL##
+	$vdata["fieldIsVideoUrl"] = true;
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_FILE_IMAGE && @vf.bImageURL##
+	$vdata["fieldIsImageUrl"] = true;
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_AUDIO || @vf.strViewFormat==FORMAT_DATABASE_AUDIO##
+	$vdata["audioTitleField"] = "##@vf.strTitleField s##";
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_VIDEO || @vf.strViewFormat==FORMAT_DATABASE_VIDEO##
+	$vdata["videoTitleField"] = "##@vf.strTitleField s##";
+		##if @vf.bFieldContainsFileURL##
+	$vdata["fieldIsVideoUrl"] = true;
+		##endif##
+
+		##if @vf.nVideoHeight##
+	$vdata["videoHeight"] = ##@vf.nVideoHeight##;
+		##else##
+	$vdata["videoHeight"] = 200;
+		##endif##
+
+	##if @vf.bRewindEnabled##
+	$vdata["RewindEnabled"] = true;
+	##endif##
+
+		##if @vf.nVideoWidth##
+	$vdata["videoWidth"] = ##@vf.nVideoWidth##;
+		##else##
+	$vdata["videoWidth"] = 300;
+		##endif##
+	##endif##
+
+	##if @vf.strViewFormat==FORMAT_MAP##
+	$vdata["mapData"] = array();
+	$vdata["mapData"]['width'] = ##@vf.nMapWidth##;
+	$vdata["mapData"]['height'] = ##@vf.nMapHeight##;
+	$vdata["mapData"]['address'] = "##@vf.sAddressField s##";
+	$vdata["mapData"]['lat'] = "##@vf.sLatField s##";
+	$vdata["mapData"]['lng'] = "##@vf.sLonField s##";
+	$vdata["mapData"]['desc'] = "##@vf.sMapDescription s##";
+	$vdata["mapData"]['mapIcon'] = "##@vf.strMarkerIcon s##";
+	$vdata["mapData"]['isMapIconCustom'] = ##@vf.bUseMarkerIconExpr s##;
+	##if @vf.sMapZoom##
+	$vdata["mapData"]['zoom'] = ##@vf.sMapZoom##;
+	##endif##
+	##endif##
+
+	##if NeedEncode(@f, @vf.page)##
+	$vdata["NeedEncode"] = true;
+	##endif##
+
+	##if @vf.arrFieldEventLinks##
+	$eventsData = array();
+	##foreach @vf.arrFieldEventLinks as @evData##
+	$eventsData[] = array( "name" => "##@evData.strHandlerID j##", "type" => "##@evData.strEventName s##" );
+	##endfor##
+	$vdata["fieldViewEvents"] = $eventsData;
+	##endif##
+
+	##if @vf.bShowFirst##
+	$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = ##@vf.nNumberOfChars##;
+	##endif##
+
+	$fdata["ViewFormats"]["##@vf.page##"] = $vdata;
+	##endfor##
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	##foreach @f.editFormats as @ef##
+	$edata = array("EditFormat" => "##@ef.strEditFormat s##");
+
+	##if @ef.bShowTime && ( @ef.nDateEditType == EDIT_DATE_SIMPLE || @ef.nDateEditType == EDIT_DATE_SIMPLE_DP ||@ef.nDateEditType == EDIT_DATE_SIMPLE_INLINE )##
+	$edata["ShowTime"] = true;
+	##endif##
+
+	##if @ef.allowedDays##
+	$edata["weekdayMessage"] = array("message" => "##@ef.strNotAllowedDaysMessage.text 8s##", "messageType" => "##@ef.strNotAllowedDaysMessage.nameType s##");
+	$edata["weekdays"] = "##@ef.allowedDays s##";
+	##endif##
+
+
+	##if @ef.strEditMask##
+	$edata["strEditMask"] = "##@ef.strEditMask##";
+	##endif##
+
+	##if @ef.arrFieldEventLinks##
+	$eventsData = array();
+	##foreach @ef.arrFieldEventLinks as @evData##
+	$eventsData[] = array( "name" => "##@evData.strHandlerID j##", "type" => "##@evData.strEventName s##" );
+	##endfor##
+	$edata["fieldEvents"] = $eventsData;
+	##endif##
+
+
+##if @ef.strEditFormat==EDIT_FORMAT_LOOKUP_WIZARD || @ef.strEditFormat==EDIT_FORMAT_RADIO##
+// Begin Lookup settings
+	##if @ef.pLookupObj.nLookupType==LT_LISTOFVALUES##
+	$edata["LookupType"] = ##eval LT_LISTOFVALUES##;
+	##else##
+		##if IsLTQuery(@ef)##
+	$edata["LookupType"] = ##eval LT_QUERY##;
+	$edata["LookupTable"] = "##@BUILDER.tables{@ef.pLookupObj.strTable}.strDataSourceTable s##";
+		##else##
+	$edata["LookupType"] = ##eval LT_LOOKUPTABLE##;
+	$edata["LookupTable"] = "##@ef.pLookupObj.strTable s##";
+	$edata["LookupConnId"] = "##@ef.pLookupObj.m_strConnectionID s##";
+		##endif##
+	##endif##
+	##if @ef.pLookupObj.strListPageId##
+	$edata["listPageId"] = "##@ef.pLookupObj.strListPageId s##";
+	##endif##
+	##if @ef.pLookupObj.nControlType==LCT_AJAX && @ef.pLookupObj.bAllowFreeInput##
+	$edata["freeInput"] = true;
+	##endif##
+	$edata["autoCompleteFieldsOnEdit"] = ##@ef.pLookupObj.bAutofillEdit##;
+	$edata["autoCompleteFields"] = array();
+	##if @ef.pLookupObj.nControlType != LCT_CBLIST && !@ef.bAllowMultipleSelection##
+	##foreach @ef.pLookupObj.arrLookupAutocompletionPairs as @a##
+	$edata["autoCompleteFields"][] = array('masterF'=>"##@a.strMasterField s##", 'lookupF'=>"##@a.strLookupField s##");
+	##endfor##
+	##endif##
+	$edata["LCType"] = ##@ef.pLookupObj.nControlType##;
+
+	##if @ef.pLookupObj.horizontalLayout##
+	$edata["HorizontalLookup"] = true;
+	##endif##
+
+	##if IsLTTable(@ef) || IsLTQuery(@ef)##
+	##if @ef.pLookupObj.bUnique##
+	$edata["LookupUnique"] = true;
+	##endif##
+
+	$edata["LinkField"] = "##@ef.pLookupObj.strLinkField s##";
+	$edata["LinkFieldType"] = ##@ef.pLookupObj.nLinkFieldType##;
+	$edata["DisplayField"] = "##@ef.pLookupObj.strDisplayField sl##";
+
+	##if @ef.pLookupObj.strWhere##
+		##if iscodeexpression(@ef.pLookupObj.strWhere)##
+	$edata["LookupWhereCode"] = true;
+		##else##
+	$edata["LookupWhere"] = "##@ef.pLookupObj.strWhere s##";
+		##endif##
+	##endif##
+
+
+	##if @ef.pLookupObj.bCustomDisplay##
+	$edata["CustomDisplay"] = "true";
+	##endif##
+
+	$edata["LookupOrderBy"] = "##@ef.pLookupObj.strOrderBy s##";
+
+	##if @ef.pLookupObj.bDesc##
+	$edata["LookupDesc"] = true;
+	##endif##
+
+	##if @ef.pLookupObj.bUseCategory##
+	$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	##foreach @ef.pLookupObj.arrDependentFields as @df##
+	$edata["categoryFields"][] = array( "main" => "##@df.strMasterField s##", "lookup" => "##@df.strLookupField s##" );
+	##endfor##
+	##endif##
+
+	##if @ef.pLookupObj.bAllowToAdd##
+	$edata["AllowToAdd"] = true;
+		##if @ef.pLookupObj.strAddPageId##
+	$edata["addPageId"] = "##@ef.pLookupObj.strAddPageId s##";
+		##endif##
+	##endif##
+
+	##if !@BUILDER.Tables{@ef.pLookupObj.strTable}##
+	$edata["SimpleAdd"] = true;
+	##endif##
+
+	##foreach Fields as @d##
+		##foreach @d.editFormats as @ed filter @ed.strEditFormat==EDIT_FORMAT_LOOKUP_WIZARD
+			&& (IsLTTable(@ed) || IsLTQuery(@ed))
+			&& @ed.pLookupObj.bUseCategory
+			&& @ed.pLookupObj.arrDependentFields[strMasterField == @f.strName].len##
+			##if @first##
+	//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+			##endif##
+	$edata["DependentLookups"][] = "##@d.strName s##";
+		##endfor##
+	##endfor##
+	##endif##
+
+	##if @ef.pLookupObj.nLookupType==LT_LISTOFVALUES##
+	$edata["LookupValues"] = array();
+	##foreach @ef.pLookupObj.arrListOfValues as @val##
+	$edata["LookupValues"][] = "##@val s##";
+	##endfor##
+	##endif##
+
+	##if @ef.bAllowMultipleSelection || @ef.pLookupObj.nControlType == LCT_CBLIST##
+	$edata["Multiselect"] = true;
+	##endif##
+
+	##if @ef.pLookupObj.nControlType == LCT_DROPDOWN##
+	$edata["SelectSize"] = ##@ef.nSelectSize##;
+	##endif##
+
+// End Lookup Settings
+##endif##
+
+
+	##if @ef.bRequired##
+	$edata["IsRequired"] = true;
+	##endif##
+
+	##if @ef.bInsertNull##
+	$edata["insertNull"] = true;
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_TEXT_AREA && @ef.bUseRTE##
+	$edata["UseRTE"] = true;
+	##endif##
+
+	##if @ef.bTimestamp##
+	$edata["UseTimestamp"] = true;
+	##endif##
+
+	##if @ef.allowedFileTypes.len##
+		##foreach @ef.allowedFileTypes as @ft##
+			##if @first##
+			$edata["acceptFileTypes"] = "##@ft s##";
+			$edata["acceptFileTypesHtml"] = ".##@ft s##";
+			##else##
+			$edata["acceptFileTypes"] .= "|##@ft s##";
+			$edata["acceptFileTypesHtml"] .= ",.##@ft s##";
+			##endif##
+		##endfor##
+		$edata["acceptFileTypes"] = "(".$edata["acceptFileTypes"].")$";
+	##else##
+		$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+	##endif##
+
+	##if @ef.MaxNumberOfFiles || @ef.MaxNumberOfFiles == 0##
+	$edata["maxNumberOfFiles"] = ##@ef.MaxNumberOfFiles##;
+	##endif##
+
+	##if @ef.MaxFileSize##
+	$edata["maxFileSize"] = ##@ef.MaxFileSize##;
+	##endif##
+
+	##if @ef.TotalFilesSize##
+	$edata["maxTotalFilesSize"] = ##@ef.TotalFilesSize##;
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_DATE##
+	$edata["DateEditType"] = ##@ef.nDateEditType##;
+	$edata["InitialYearFactor"] = ##@ef.nInitialYearFactor##;
+	$edata["LastYearFactor"] = ##@ef.nLastYearFactor##;
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_TEXT_AREA##
+		##if @ef.nRows>0##
+	$edata["nRows"] = ##@ef.nRows##;
+		##endif##
+		##if @ef.nCols>0##
+	$edata["nCols"] = ##@ef.nCols##;
+		##endif##
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_TEXT_FIELD##
+	##if @ef.nHTML5InputType == HTML5_NUMBER##
+	$edata["HTML5InuptType"] = "number";
+	##elseif @ef.nHTML5InputType == HTML5_TEL##
+	$edata["HTML5InuptType"] = "tel";
+	##elseif @ef.nHTML5InputType == HTML5_EMAIL##
+	$edata["HTML5InuptType"] = "email";
+	##elseif @ef.nHTML5InputType == HTML5_URL##
+	$edata["HTML5InuptType"] = "url";
+	##else##
+	$edata["HTML5InuptType"] = "text";
+	##endif##
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_TEXT_FIELD || @ef.strEditFormat==EDIT_FORMAT_PASSWORD || @ef.strEditFormat==EDIT_FORMAT_TIME##
+	$edata["EditParams"] = "";
+		##if @ef.nMaxLength>0##
+	$edata["EditParams"].= " maxlength=##@ef.nMaxLength##";
+		##endif##
+	##endif##
+
+	##if @ef.nSize>0##
+	$edata["controlWidth"] = ##@ef.nSize##;
+	##endif##
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	##if NeedValidation(@f, @ef.page)##
+		##if @ef.strValidateAs && (@ef.strEditFormat==EDIT_FORMAT_TEXT_FIELD || @ef.strEditFormat==EDIT_FORMAT_TIME || @ef.strEditFormat==EDIT_FORMAT_PASSWORD)##
+	$edata["validateAs"]["basicValidate"][] = getJsValidatorName("##@ef.strValidateAs##");
+			##if @ef.strValidateAs==VALIDATE_AS_REGEXP##
+	$edata["validateAs"]["regExp"] = "##@ef.strRegex s##";
+	$edata["validateAs"]["customMessages"]["RegExp"] = array("message" => "##@ef.strRegexMessage.text 8s##", "messageType" => "##@ef.strRegexMessage.nameType s##");
+			##endif##
+		##endif##
+		##if @ef.bRequired && @ef.strEditFormat!=EDIT_FORMAT_READONLY##
+	$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		##endif##
+		##if DenyDyplicatesSet(@f, @ef.page)##
+	$edata["validateAs"]["basicValidate"][] = "DenyDuplicated";
+	$edata["validateAs"]["customMessages"]["DenyDuplicated"] = array("message" => "##@ef.strDenyMessage.text s##", "messageType" => "##@ef.strDenyMessage.nameType s##");
+		##endif##
+	##endif##
+
+	##if @ef.strAutoUpdateValue.len##
+	$edata["autoUpdatable"] = true;
+	##endif##
+
+	##if @BUILDER.bCreateLoginPage && @BUILDER.Registration.bNewUserPage && @BUILDER.nLoginMethod==SECURITY_TABLE && @TABLE.strDataSourceTable == @BUILDER.strLoginDataSource##
+		##if @f.strName == @BUILDER.strUserNameField || @f.strName == @BUILDER.strPasswordField##
+	if(count($edata["validateAs"]) && !in_array('IsRequired', $edata["validateAs"]['basicValidate']))
+		$edata["validateAs"]['basicValidate'][] = 'IsRequired';
+		##endif##
+		##if @BUILDER.Registration.strUserEmailField && @f.strName == @BUILDER.Registration.strUserEmailField##
+	if(count($edata["validateAs"]) && !in_array('IsEmail', $edata["validateAs"]['basicValidate']))
+		$edata["validateAs"]['basicValidate'][] = 'IsEmail';
+		##endif##
+	##endif##
+//	End validation
+
+	##if @ef.bCreateThumbnail##
+	$edata["CreateThumbnail"] = true;
+	$edata["StrThumbnail"] = "##@ef.strThumbnail s##";
+		##if @ef.nThumbnailSize##
+	$edata["ThumbnailSize"] = ##@ef.nThumbnailSize##;
+		##else##
+	$edata["ThumbnailSize"] = 150;
+		##endif##
+	##endif##
+
+	##if ListEntity( @TABLE )##
+		##if @ef.bResizeOnUpload##
+	$edata["ResizeImage"] = true;
+			##if @ef.nNewSize##
+	$edata["NewSize"] = ##@ef.nNewSize##;
+			##else##
+	$edata["NewSize"] = 600;
+			##endif##
+		##endif##
+	##endif##
+
+	##if @ef.strEditFormat==EDIT_FORMAT_TIME##
+		##if @ef.timeConvention==0##
+	$hours = 12;
+		##else##
+	$hours = 24;
+		##endif##
+	$edata["FormatTimeAttrs"] = array("useTimePicker" => ##@ef.useTimePicker##,
+									  "hours" => $hours,
+									  "minutes" => ##@ef.minutes##,
+									  "showSeconds" => ##@ef.showSeconds##);
+	##endif##
+
+	##if DenyDyplicatesSet(@f, @ef.page)##
+	$edata["denyDuplicates"] = true;
+	##endif##
+
+	##if @f.bUpdateLatLng##
+	$edata["UpdateLatLng"] = true;
+	##endif##
+
+	$fdata["EditFormats"]["##@ef.page##"] = $edata;
+	##endfor##
+//	End Edit Formats
+
+
+##if @f.bSeparateEditAndView##
+	$fdata["isSeparate"] = true;
+##else##
+	$fdata["isSeparate"] = false;
+##endif##
+
+
+##if @f.bAbsolute##
+	$fdata["Absolute"] = true;
+##endif##
+
+
+// the field's search options settings
+	##if @f.strSearchOption##
+	$fdata["defaultSearchOption"] = "##@f.strSearchOption s##";
+	##endif##
+
+	##if @f.searchOptions.len && !@f.bAllSearchOptionsSelected##
+		// the user's search options list
+		$fdata["searchOptionsList"] = array();
+		##foreach @f.searchOptions as @sOption##
+		$fdata["searchOptionsList"][] = "##@sOption s##";
+		##endfor##
+	##elseif !@f.searchOptions.len && !@f.bAllSearchOptionsSelected##
+		// the default search options list
+		##if IsDateField(@f)##
+		$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+		##else##
+		$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+		##endif##
+	##endif##
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = ##@f.pFilterFormatObj.nFilterTotals##;
+	##if @f.pFilterFormatObj.strFilterFormat != IntervalSliderFilterFormat && @f.pFilterFormatObj.strFilterFormat != BooleanFilterFormat##
+	$fdata["filterMultiSelect"] = ##@f.pFilterFormatObj.nFilterMultiselect##;
+	##endif##
+	##if @f.pFilterFormatObj.strFilterTotalsField##
+	$fdata["filterTotalFields"] = "##@f.pFilterFormatObj.strFilterTotalsField s##";
+	##endif##
+	##if @f.pFilterFormatObj.strFilterFormat == IntervalistFilterFormat && !@f.pFilterFormatObj.arrFilterIntervals.len##
+	$fdata["filterFormat"] = "##ValuesListFilterFormat##";
+	##else##
+	$fdata["filterFormat"] = "##@f.pFilterFormatObj.strFilterFormat s##";
+	##endif##
+	##if @f.pFilterFormatObj.bHideControl##
+	$fdata["showCollapsed"] = true;
+	##else##
+	$fdata["showCollapsed"] = false;
+	##endif##
+
+	##if @f.pFilterFormatObj.strFilterFormat ==	ValuesListFilterFormat || @f.pFilterFormatObj.strFilterFormat == IntervalistFilterFormat && !@f.pFilterFormatObj.arrFilterIntervals.len##
+	$fdata["sortValueType"] = ##@f.pFilterFormatObj.nSortValueType##;
+	##if @f.pFilterFormatObj.bDescendingOrder##
+	$fdata["descendingOrder"] = true;
+	##endif##
+	$fdata["numberOfVisibleItems"] = ##@f.pFilterFormatObj.nFirstVisibleItems##;
+	##endif##
+
+	##if @f.pFilterFormatObj.strFilterFormat == ValuesListFilterFormat##
+	$fdata["filterBy"] = ##@f.pFilterFormatObj.m_nFilterBy##;
+
+	##if @f.m_strParentFilter##
+	$fdata["parentFilterField"] = "##@f.m_strParentFilter s##";
+	##endif##
+
+	##endif##
+
+	##if @f.pFilterFormatObj.strFilterFormat == IntervalistFilterFormat && @f.pFilterFormatObj.arrFilterIntervals.len##
+	//intervals' settings
+	$fdata["showWithNoRecords"] = ##@f.pFilterFormatObj.bShowWithNoRecords##;
+	$fdata["filterIntervals"] =  array();
+	##foreach @f.pFilterFormatObj.arrFilterIntervals as @Interval##
+
+		//interval settings
+		$intervalData = array();
+		$intervalData["lowerLimitType"] = ##@Interval.nLowerLimitType##;
+		$intervalData["upperLimitType"] = ##@Interval.nUpperLimitType##;
+
+		##if @Interval.nLowerLimitType == FIL_REMAINDER && @Interval.nUpperLimitType == FIL_REMAINDER##
+		$intervalData["remainder"] = true;
+		##else##
+		$intervalData["remainder"] = false;
+		##endif##
+		##if @Interval.nLowerLimitType == FIL_NONE && @Interval.nUpperLimitType == FIL_NONE##
+		$intervalData["noLimits"] = true;
+		##else##
+		$intervalData["noLimits"] = false;
+		##endif##
+
+		$intervalData["intervalLabelNameType"] = "##@Interval.strMutilangIntervalText.nameType s##";
+		$intervalData["intervalLabelText"] = "##@Interval.strMutilangIntervalText.text s##";
+		##if !@Interval.bLowerUsesExpression##
+		$intervalData["lowerLimit"] = "##@Interval.strLowerLimit##";
+		##endif##
+		##if !@Interval.bUpperUsesExpression##
+		$intervalData["upperLimit"] = "##@Interval.strUpperLimit##";
+		##endif##
+		##if @Interval.bLowerUsesExpression##
+		$intervalData["lowerUsesExpression"] = true;
+		##else##
+		$intervalData["lowerUsesExpression"] = false;
+		##endif##
+		##if @Interval.bUpperUsesExpression##
+		$intervalData["upperUsesExpression"] = true;
+		##else##
+		$intervalData["upperUsesExpression"] = false;
+		##endif##
+		##if @Interval.bCaseInsensitiveFiltering##
+		$intervalData["caseSensetive"] = false;
+		##else##
+		$intervalData["caseSensetive"] = true;
+		##endif##
+		$intervalData["index"] = ##@index##;
+
+		$fdata["filterIntervals"][] = $intervalData;
+	##endfor##
+	##endif##
+
+	##if @f.pFilterFormatObj.strFilterFormat == BooleanFilterFormat##
+	$fdata["filterCheckedMessageType"] = "##@f.pFilterFormatObj.strMultilangCheckedMessage.nameType s##";
+	$fdata["filterCheckedMessageText"] = "##@f.pFilterFormatObj.strMultilangCheckedMessage.text s##";
+	$fdata["filterUncheckedMessageType"] = "##@f.pFilterFormatObj.strMultilangUncheckedMessage.nameType s##";
+	$fdata["filterUncheckedMessageText"] = "##@f.pFilterFormatObj.strMultilangUncheckedMessage.text s##";
+	##endif##
+
+	##if @f.pFilterFormatObj.strFilterFormat == IntervalSliderFilterFormat##
+
+	$fdata["filterKnobsType"] = ##@f.pFilterFormatObj.nSliderKnobs##;
+	##if @f.pFilterFormatObj.bAddApplyButton##
+	$fdata["filterApplyBtn"] = true;
+	##endif##
+	$fdata["filterSliderStepType"] = ##@f.pFilterFormatObj.nSliderStepType##;
+	$fdata["filterSliderStepValue"] = ##@f.pFilterFormatObj.mixSliderStepValue##;
+	##endif##
+//end of Filters settings
+
+
+	$tdata##@TABLE.strShortTableName##["##@f.strName s##"] = $fdata;
+	##if !IsBinaryField(@f)##
+	$tdata##@TABLE.strShortTableName##[".searchableFields"][] = "##@f.strName s##";
+	##endif##
+##endfor##
+
+##if @TABLE.nType==titCHART##
+##if (@TABLE.strChartLabelField=="" || @TABLE.arrChartDataSeries.len==0) && @TABLE.strChartID!="gauge" && @TABLE.strChartID!="ohlc" && @TABLE.strChartID!="candle"##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] = "";
+##else##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] = '<chart>
+		<attr value="tables">
+			<attr value="0">##@TABLE.strDatasourceTable xq##</attr>
+		</attr>
+		<attr value="chart_type">
+			<attr value="type">##@TABLE.strChartID##</attr>
+		</attr>
+
+		<attr value="parameters">';
+##if @TABLE.strChartID!="ohlc" && @TABLE.strChartID!="candle"##
+##foreach @TABLE.arrChartDataSeries as @field filter @field.strDataField!=""##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index-1##">
+			<attr value="name">##@field.strDataField xq##</attr>';
+##if @TABLE.strChartID=="gauge"##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="gaugeMinValue">##@field.strMinValue##</attr>
+			<attr value="gaugeMaxValue">##@field.strMaxValue##</attr>
+			<attr value="gaugeColorZone">';
+##foreach @field.arrGaugeColorZones as @colorzone##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index-1##">
+			<attr value="gaugeBeginColor">##@colorzone.strBegin##</attr>
+			<attr value="gaugeEndColor">##@colorzone.strEnd##</attr>
+			<attr value="gaugeColor">##@colorzone.strColor##</attr>
+		</attr>';
+##endfor##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>';
+##endif##
+##if @TABLE.strChartID=="bubble"##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="size">##@field.strBubbleSize xq##</attr>';
+##endif##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>';
+##if @last##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index##">
+		<attr value="name">##@TABLE.strChartLabelField xq##</attr>
+	</attr>';
+##endif##
+##endfor##
+##else##
+##foreach @TABLE.arrChartDataSeries as @field##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index-1##">
+			<attr value="ohlcOpen">##@field.strOpen xq##</attr>
+			<attr value="ohlcClose">##@field.strClose xq##</attr>
+			<attr value="ohlcHigh">##@field.strHigh xq##</attr>
+			<attr value="ohlcLow">##@field.strLow xq##</attr>';
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>';
+##if @last##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index##">
+			<attr value="name">##@TABLE.strChartLabelField xq##</attr>
+		</attr>';
+##endif##
+##endfor##
+##endif##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>
+			<attr value="appearance">';
+
+
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="head">'.xmlencode(##multitext @TABLE.strChartHeader##).'</attr>
+<attr value="foot">'.xmlencode(##multitext @TABLE.strChartFooter##).'</attr>
+<attr value="y_axis_label">'.xmlencode(##multitext @TABLE.strChartYAxisLabel##).'</attr>
+
+
+<attr value="slegend">##if @TABLE.bChartLegend##true##else##false##endif##</attr>
+<attr value="sgrid">##if @TABLE.bChartGrid##true##else##false##endif##</attr>
+<attr value="sname">##if @TABLE.bChartNames##true##else##false##endif##</attr>
+<attr value="sval">##if @TABLE.bChartValues##true##else##false##endif##</attr>
+<attr value="sanim">##if @TABLE.bAnimation##true##else##false##endif##</attr>
+<attr value="sstacked">##if @TABLE.b100Stacked##true##else##false##endif##</attr>
+<attr value="slog">##if @TABLE.bLogarithmic##true##else##false##endif##</attr>
+<attr value="aqua">##@TABLE.strChartStyle xq##</attr>
+<attr value="cview">##@TABLE.strChartShape xq##</attr>
+<attr value="is3d">##@TABLE.bIsChart3D##</attr>
+<attr value="isstacked">##@TABLE.bIsChartStacked##</attr>
+<attr value="linestyle">##@TABLE.LineChartStyle##</attr>
+<attr value="autoupdate">##@TABLE.bAutoUpdate##</attr>
+<attr value="autoupmin">##@TABLE.nAutoUpdateIntervalMin##</attr>';
+##if @TABLE.strChartID=="bubble"##
+$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="bubbletransp">##@TABLE.bBubbleTransparent##</attr>';
+##endif##
+##if @TABLE.strChartID=="funnel"##
+$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="accumulstyle">##@TABLE.AccumulationAppearance##</attr>
+<attr value="accumulinvert">##@TABLE.bAccumInverted##</attr>';
+##endif##
+##if @TABLE.strChartID=="gauge"##
+$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="gaugestyle">##@TABLE.GaugeAppearance##</attr>';
+##endif##
+$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>
+
+<attr value="fields">';
+##foreach @TABLE.arrFieldObj as @f##
+	$tdata##@TABLE.strShortTableName##[".chartXml"] .= '<attr value="##eval @index-1##">
+		<attr value="name">##@f.strName xq##</attr>
+		<attr value="label">'.xmlencode(##label @TABLE.strDataSourceTable @f.strName##).'</attr>
+		<attr value="search"></attr>
+	</attr>';
+##endfor##
+$tdata##@TABLE.strShortTableName##[".chartXml"] .= '</attr>
+
+
+<attr value="settings">
+<attr value="name">##@TABLE.strDataSourceTable xq##</attr>
+<attr value="short_table_name">##@TABLE.strShortTableName s##</attr>
+</attr>
+
+</chart>';
+##endif##
+##endif##
+
+$tables_data["##@TABLE.strDataSourceTable s##"]=&$tdata##@TABLE.strShortTableName##;
+$field_labels["##@TABLE.strDataSourceTable g##"] = &$fieldLabels##@TABLE.strShortTableName##;
+$fieldToolTips["##@TABLE.strDataSourceTable g##"] = &$fieldToolTips##@TABLE.strShortTableName##;
+$placeHolders["##@TABLE.strDataSourceTable g##"] = &$placeHolders##@TABLE.strShortTableName##;
+$page_titles["##@TABLE.strDataSourceTable g##"] = &$pageTitles##@TABLE.strShortTableName##;
+
+// -----------------start  prepare master-details data arrays ------------------------------//
+// tables which are detail tables for current table (master)
+##if !@TABLE.bReportCrossTab##
+$detailsTablesData["##@TABLE.strDataSourceTable s##"] = array();
+##foreach @TABLE.arrDetailTables as @dt##
+//	##@dt##
+	##set @t=@BUILDER.Tables{@dt}##
+	##set @master=@t.arrMasterTables[strMasterTable=@TABLE.strDataSourceTable]##
+
+	##if @master##
+	$dIndex = ##eval @index-1##;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="##@t.strDataSourceTable s##";
+	##if @t.strOriginalTable##
+	$detailsParam["dOriginalTable"] = "##@t.strOriginalTable s##";
+	##else##
+	$detailsParam["dOriginalTable"] = "##@t.strDataSourceTable s##";
+	##endif##
+
+
+	##if 1=0##
+
+	##if @master.bproceedLink##
+	$detailsParam["proceedLink"] = true;
+	##else##
+	$detailsParam["proceedLink"] = false;
+	##endif##
+
+	##endif##
+
+	##if @t.nType == titREPORT##
+	$detailsParam["dType"]=PAGE_REPORT;
+	##endif##
+	##if @t.nType == titCHART##
+	$detailsParam["dType"]=PAGE_CHART;
+	##endif##
+
+	##if ListEntity( @t )##
+	$detailsParam["dType"]=PAGE_LIST;
+	##endif##
+	$detailsParam["dShortTable"] = "##@t.strShortTableName##";
+	$detailsParam["dCaptionTable"] = GetTableCaption("##@t.strDataSourceTable g##");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+	##if 1=0##
+
+	##if @t.bList##
+		##if @TABLE.nLinksOnList != dlNONE##
+			$detailsParam["previewOnList"] = "##@master.nDetailPreview##";
+		##endif##
+		$detailsParam["previewOnAdd"] = ##@master.childOnAdd##;
+		$detailsParam["previewOnEdit"] = ##@master.childOnEdit##;
+		$detailsParam["previewOnView"] = ##@master.childOnView##;
+	##else##
+		$detailsParam["previewOnList"] = DP_NONE;
+	##endif##
+
+	##endif##
+
+	##if @t.arrFieldObj[viewFormats[strViewFormat == FORMAT_AUDIO || strViewFormat == FORMAT_DATABASE_AUDIO].len].len##
+	$detailsParam["isUseAudio"] = true;
+	##endif##
+	##if @t.arrFieldObj[viewFormats[strViewFormat == FORMAT_AUDIO || strViewFormat == FORMAT_DATABASE_AUDIO].len].len##
+	$detailsParam["isUseAudio"] = true;
+	##endif##
+
+	$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex] = $detailsParam;
+
+	##if 1=0##
+	##if @master.childOnAdd && !@t.bInlineAdd && !@t.bAdd##
+		$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex]["previewOnAdd"] = false;
+	##endif##
+	##endif##
+
+		##foreach @master.arrMasterKeys as @mk##
+##if @first##
+		$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex]["masterKeys"] = array();
+		##endif##
+
+	$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex]["masterKeys"][]="##@mk s##";
+		##endfor##
+		##foreach @master.arrDetailKeys as @dk##
+
+		##if @first##
+		$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex]["detailKeys"] = array();
+		##endif##
+
+	$detailsTablesData["##@TABLE.strDataSourceTable s##"][$dIndex]["detailKeys"][]="##@dk s##";
+		##endfor##
+	##endif##
+##endfor##
+##endif##
+
+// tables which are master tables for current table (detail)
+$masterTablesData["##@TABLE.strDataSourceTable s##"] = array();
+
+
+##set @mIndex=0##
+##foreach @TABLE.arrMasterTables as @m##
+	##set @t=@BUILDER.tables{@m.strMasterTable}##
+	##if !@t.bReportCrossTab##
+		##if @t.strOriginalTable##
+	$strOriginalDetailsTable="##@t.strOriginalTable s##";
+		##else##
+	$strOriginalDetailsTable="##@m.strMasterTable s##";
+		##endif##
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="##@m.strMasterTable s##";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "##@t.strShortTableName##";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+		##if @t.nType == titCHART##
+	$masterParams["type"] = PAGE_CHART;
+		##endif##
+		##if @t.nType == titREPORT##
+	$masterParams["type"] = PAGE_REPORT;
+		##endif##
+	$masterTablesData["##@TABLE.strDataSourceTable s##"][##@mIndex##] = $masterParams;
+		##foreach @m.arrMasterKeys as @mk##
+			##if @first##
+	$masterTablesData["##@TABLE.strDataSourceTable s##"][##@mIndex##]["masterKeys"] = array();
+			##endif##
+	$masterTablesData["##@TABLE.strDataSourceTable s##"][##@mIndex##]["masterKeys"][]="##@mk s##";
+		##endfor##
+		##foreach @m.arrDetailKeys as @dk##
+			##if @first##
+	$masterTablesData["##@TABLE.strDataSourceTable s##"][##@mIndex##]["detailKeys"] = array();
+			##endif##
+	$masterTablesData["##@TABLE.strDataSourceTable s##"][##@mIndex##]["detailKeys"][]="##@dk s##";
+		##endfor##
+		##set @mIndex=@mIndex+1##
+	##endif##
+##endfor##
+// -----------------end  prepare master-details data arrays ------------------------------//
+
+
+##if @TABLE.nType==titSQL || @TABLE.nType==titREST##
+require_once( getabspath( "include/##@TABLE.strShortTableName##_ops.##@ext##" ) );
+##endif##
+
+##if TableBasedEntity(@TABLE)##
+require_once(getabspath("classes/sql.php"));
+
+##include include/query.php##
+##endif##
+
+
+##checkAnyEncryptionUsing()##;
+
+##if @BUILDER.bCreateLoginPage && @BUILDER.m_nLoginMethod == SECURITY_TABLE && @TABLE.strDataSourceTable=="admin_users" && @BUILDER.strLoginDataSource.len##
+	##foreach @BUILDER.Tables{@BUILDER.strLoginDataSource}.m_arrFieldObj as @g##
+		##if @anyEncryptionUsed != 0 && @g.m_bEncrypted##
+			 $queryData_##@TABLE.strShortTableName##->m_fieldlist[##eval @index-1##]->m_isEncrypted = true;
+		##endif##
+	##endfor##
+##endif##
+##foreach Fields as @f##
+	##if @anyEncryptionUsed && @f.m_bEncrypted##
+		 $queryData_##@TABLE.strShortTableName##->m_fieldlist[##eval @index-1##]->m_isEncrypted = true;
+	##endif##
+##endfor##
+
+
+$tdata##@TABLE.strShortTableName##[".sqlquery"] = $queryData_##@TABLE.strShortTableName##;
+
+
+
+##if @TABLE.arrEventHandlers.len || @TABLE.controlLinks.len
+	|| @TABLE.strDataSourceTable=="admin_members" && @BUILDER.controlLinks[page==PAGE_ADMIN_MEMBERS].len
+	|| @TABLE.strDataSourceTable=="admin_rights" && @BUILDER.controlLinks[page==PAGE_ADMIN_RIGHTS].len##
+include_once(getabspath("include/##@TABLE.strShortTableName##_events.php"));
+$tableEvents["##@TABLE.strDataSourceTable s##"] = new eventclass_##@TABLE.strShortTableName##;
+$tdata##@TABLE.strShortTableName##[".hasEvents"] = true;
+##else##
+$tableEvents["##@TABLE.strDataSourceTable s##"] = new eventsBase;
+$tdata##@TABLE.strShortTableName##[".hasEvents"] = false;
+##endif##
+
+##foreach @TABLE.arrEventHandlers as @eh filter @eh.strEventID=="EVENT_INIT_TABLE"##
+$query = &$queryData_##@TABLE.strShortTableName##;
+$table = "##@TABLE.strDataSourceTable s##";
+// here goes EVENT_INIT_TABLE event
+##@eh.strEventCode e##
+;
+unset($query);
+##endfor##
+?>
