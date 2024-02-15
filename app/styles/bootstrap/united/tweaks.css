@@ -1,0 +1,40 @@
+@media (min-width:768px) {
+	.navbar.navbar-default .breadcrumb > li > a,
+	.navbar.navbar-default .breadcrumb>li+li:before {
+		color: white;
+	}
+
+	.navbar.navbar-default .btn-primary {
+		background: #ae3910;
+		border-color: #a5360f;
+	}	
+
+}
+
+.navbar.navbar-default .navbar-brand {
+	color: white;
+}
+
+@media (max-width: 767px) {
+	.navbar .navbar-form .dropdown-menu a
+	{
+		color: #333333;
+	}
+	
+	.bs-sidebarlogo a {
+		color: white;
+	}
+}
+
+.sidebar-menu   li.active.active.active.active.active > a {
+	background: #bf3e11;
+}
+
+.sidebar-menu.sidebar-menu a {
+/*	color:#dd4814;*/
+	color:#666;
+}
+
+.btn.disabled:not(:hover), .btn[disabled]:not(:hover) {
+	color: #aaa;
+}

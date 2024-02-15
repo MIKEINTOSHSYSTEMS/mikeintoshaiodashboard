@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
-'details' => array( 'training_profile' => array( 'displayPreview' => 1 ) ),
+'details' => array( 'training_profile' => array( 'displayPreview' => 1,
+'previewPageId' => 'print' ) ),
 'totals' => array( 'ID' => array( 'totalsType' => '' ),
 'First Name' => array( 'totalsType' => '' ),
 'Middle Name' => array( 'totalsType' => '' ),
@@ -996,7 +997,8 @@ array( 'cell' => 'footcell_field17' ) ) ) ),
 'details_preview' => array( 'type' => 'details_preview',
 'table' => 'training_profile',
 'items' => array(  ),
-'popup' => false ) ),
+'popup' => false,
+'pageId' => 'print' ) ),
 'dbProps' => array(  ),
 'version' => 4 );
 		?>
