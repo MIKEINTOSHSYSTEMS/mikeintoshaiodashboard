@@ -242,7 +242,49 @@ pdfDocument = {
 							stack: [
 
 																										
-''
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
+					]
+	}
+}
 ,
 								
 																										
@@ -1783,10 +1825,10 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_grid_alldetails_link}"},
 				
 				
-			{"text":"","hidden":"{$item_hide_grid_details_link}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link}"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -3093,14 +3135,14 @@ pdfDocument = {
 			"stack": [
 		
 				
-			 {BEGIN details_event_profile}
-			{$displayDetailTable_event_profile }
-		{END details_event_profile},
-				
-				
 			 {BEGIN details_training_profile}
 			{$displayDetailTable_training_profile }
 		{END details_training_profile},
+				
+				
+			 {BEGIN details_event_profile}
+			{$displayDetailTable_event_profile }
+		{END details_event_profile},
 				
 		  ],
   "border": [ true, true, true, true ],

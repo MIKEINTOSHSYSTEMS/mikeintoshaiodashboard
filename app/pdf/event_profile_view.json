@@ -175,11 +175,6 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel event_profile Disablity_Status }","bold":true},{"text":{$Disablity_Status_pdfvalue}}],"margin":[0,0,0,15]},
 				
-				
-			 {BEGIN details_training_profile}
-			{$displayDetailTable_training_profile }
-		{END details_training_profile},
-				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

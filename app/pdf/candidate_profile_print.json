@@ -274,6 +274,32 @@ pdfDocument = {
   },
 
 											],
+								[
+												{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
 					]
 	}
 }
@@ -2913,14 +2939,14 @@ pdfDocument = {
 			"stack": [
 		
 				
-			 {BEGIN details_event_profile}
-			{$displayDetailTable_event_profile }
-		{END details_event_profile},
-				
-				
 			 {BEGIN details_training_profile}
 			{$displayDetailTable_training_profile }
 		{END details_training_profile},
+				
+				
+			 {BEGIN details_event_profile}
+			{$displayDetailTable_event_profile }
+		{END details_event_profile},
 				
 		  ],
   "border": [ true, true, true, true ],

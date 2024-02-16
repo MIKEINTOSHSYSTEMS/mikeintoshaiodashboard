@@ -2917,106 +2917,6 @@ $page_titles["event_profile"] = &$pageTitlesevent_profile;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["event_profile"] = array();
-//	training_profile
-	
-	
-
-		$dIndex = 0;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="training_profile";
-		$detailsParam["dOriginalTable"] = "training_profile";
-
-
-
-		
-		$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "training_profile";
-	$detailsParam["dCaptionTable"] = GetTableCaption("training_profile");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["event_profile"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["event_profile"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="ID";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Participant Organization Type";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Participant Organization Name";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Participant Home Address";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Phone Number";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Email Address";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Disablity Status";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="First Name";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Middle Name";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Last Name";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Sex";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Region";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="City";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Participant Profession";
-
-	$detailsTablesData["event_profile"][$dIndex]["masterKeys"][]="Participant Field of Study";
-
-				$detailsTablesData["event_profile"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="ID";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Participant Facility or Organization Type";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Participant Organization Name";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Participant Home Address";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Phone Number";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Email Address";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Disablity Status";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="First Name";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Middle Name";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Last Name";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Sex";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Region";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="City";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Participant Profession";
-
-		
-	$detailsTablesData["event_profile"][$dIndex]["detailKeys"][]="Participant Field of Study";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["event_profile"] = array();
@@ -3036,6 +2936,8 @@ $masterTablesData["event_profile"] = array();
 					$masterTablesData["event_profile"][0] = $masterParams;
 				$masterTablesData["event_profile"][0]["masterKeys"] = array();
 	$masterTablesData["event_profile"][0]["masterKeys"][]="ID";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Field of Study";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Facility or Organization Type";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Organization Name";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Home Address";
@@ -3048,10 +2950,10 @@ $masterTablesData["event_profile"] = array();
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Sex";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Region";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="City";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Field of Study";
 				$masterTablesData["event_profile"][0]["detailKeys"] = array();
 	$masterTablesData["event_profile"][0]["detailKeys"][]="ID";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Field of Study";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Type";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Name";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Home Address";
@@ -3064,8 +2966,48 @@ $masterTablesData["event_profile"] = array();
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Sex";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Region";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="City";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Field of Study";
+		
+	
+				$strOriginalDetailsTable="training_profile";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="training_profile";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "training_profile";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["event_profile"][1] = $masterParams;
+				$masterTablesData["event_profile"][1]["masterKeys"] = array();
+	$masterTablesData["event_profile"][1]["masterKeys"][]="ID";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Field of Study";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Facility or Organization Type";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Organization Name";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="First Name";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Last Name";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Sex";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Region";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="City";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][1]["masterKeys"][]="Email Address";
+				$masterTablesData["event_profile"][1]["detailKeys"] = array();
+	$masterTablesData["event_profile"][1]["detailKeys"][]="ID";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Profession";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Field of Study";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Organization Type";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Organization Name";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="First Name";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Last Name";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Sex";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Region";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="City";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][1]["detailKeys"][]="Email Address";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 

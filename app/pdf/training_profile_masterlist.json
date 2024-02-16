@@ -145,12 +145,6 @@ pdfDocument = {
 										{BEGIN col_grid_28}
 					"%",
 					{END col_grid_28}
-										{BEGIN col_grid_29}
-					"%",
-					{END col_grid_29}
-										{BEGIN col_grid_30}
-					"%",
-					{END col_grid_30}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -161,13 +155,10 @@ pdfDocument = {
 													{BEGIN row_grid_1}
 							"%",
 							{END row_grid_1}
+													{END grid_row}
 																								{BEGIN row_grid_2}
 							"%",
 							{END row_grid_2}
-													{END grid_row}
-																								{BEGIN row_grid_3}
-							"%",
-							{END row_grid_3}
 															],
 							
 				body: [
@@ -195,7 +186,7 @@ pdfDocument = {
 				
 					[
 												{
-	cellId: 'c2',
+	cellId: 'c1',
 	col:0,
 	row:0,
 			style: 'cell',
@@ -209,9 +200,10 @@ pdfDocument = {
 			"text": [
 		
 				
-			{BEGIN mastertable_block}
-			{$showmasterfile}
-		{END mastertable_block},
+			{"text":""},
+				
+				
+			{"text":"{$jspagetitlelabel training_profile masterlist}","hidden":"{$item_hide_masterlist_header}","fontSize":30},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -234,7 +226,6 @@ pdfDocument = {
 		
 		widths: [
 								"*", 
-											"*", 
 					 ],	
 		
 	
@@ -256,51 +247,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_add}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_inline_add}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_inline_save_all}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_inline_cancel_all}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_delete}"},
 				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
-  },
-
-																			{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			style: 'cell',
-		
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"Displaying %first% - %last% of %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
-				
-				
-			{"text":"","hidden":"{$item_hide_page_size}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_print_panel}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-          "alignment": 'right',
   },
 
 											],
@@ -342,56 +293,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_icons}
-																			{BEGIN cellblock_grid_headcell_checkbox}
-{
-	cellId: 'headcell_checkbox',
-	col:0,
-	row:0,
-			style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox_head}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_headcell_checkbox}
-																			{BEGIN cellblock_grid_headcell_details}
-{
-	cellId: 'headcell_details',
-	col:0,
-	row:0,
-			style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_headcell_details}
 																			{BEGIN cellblock_grid_headcell_field}
 {
 	cellId: 'headcell_field',
@@ -540,11 +441,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel training_profile Region }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field33}","text":"{$jslabel training_profile Training_Organizer }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Region_align}',
+          "alignment": '{$Training_Organizer_align}',
   },
 
 {END cellblock_grid_headcell_field5}
@@ -566,11 +467,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel training_profile City }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field34}","text":"{$jslabel training_profile Training_Type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$City_align}',
+          "alignment": '{$Training_Type_align}',
   },
 
 {END cellblock_grid_headcell_field6}
@@ -592,11 +493,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel training_profile Participant_Profession }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field35}","text":"{$jslabel training_profile Program_Area }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Profession_align}',
+          "alignment": '{$Program_Area_align}',
   },
 
 {END cellblock_grid_headcell_field7}
@@ -618,11 +519,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel training_profile Participant_Field_of_Study }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field36}","text":"{$jslabel training_profile Training_City_Town }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Field_of_Study_align}',
+          "alignment": '{$Training_City_Town_align}',
   },
 
 {END cellblock_grid_headcell_field8}
@@ -644,11 +545,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel training_profile Participant_Organization_Name }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field37}","text":"{$jslabel training_profile Training_Venue }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Organization_Name_align}',
+          "alignment": '{$Training_Venue_align}',
   },
 
 {END cellblock_grid_headcell_field9}
@@ -670,11 +571,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel training_profile Participant_Home_Address }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel training_profile Training_start_date }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Home_Address_align}',
+          "alignment": '{$Training_start_date_align}',
   },
 
 {END cellblock_grid_headcell_field10}
@@ -696,11 +597,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel training_profile Phone_Number }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel training_profile Training_end_date }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_align}',
+          "alignment": '{$Training_end_date_align}',
   },
 
 {END cellblock_grid_headcell_field11}
@@ -722,11 +623,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel training_profile Email_Address }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel training_profile Training_Title }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Email_Address_align}',
+          "alignment": '{$Training_Title_align}',
   },
 
 {END cellblock_grid_headcell_field12}
@@ -748,11 +649,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel training_profile Disablity_Status }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel training_profile Region }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disablity_Status_align}',
+          "alignment": '{$Region_align}',
   },
 
 {END cellblock_grid_headcell_field13}
@@ -774,11 +675,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel training_profile Training_Organizer }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel training_profile City }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Organizer_align}',
+          "alignment": '{$City_align}',
   },
 
 {END cellblock_grid_headcell_field14}
@@ -800,11 +701,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel training_profile Training_Type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel training_profile Zone }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Type_align}',
+          "alignment": '{$Zone_align}',
   },
 
 {END cellblock_grid_headcell_field15}
@@ -826,11 +727,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel training_profile Program_Area }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel training_profile Sub_City }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Program_Area_align}',
+          "alignment": '{$Sub_City_align}',
   },
 
 {END cellblock_grid_headcell_field16}
@@ -852,11 +753,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel training_profile Training_City_Town }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel training_profile Participant_Profession }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_City_Town_align}',
+          "alignment": '{$Participant_Profession_align}',
   },
 
 {END cellblock_grid_headcell_field17}
@@ -878,11 +779,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel training_profile Training_Venue }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel training_profile Participant_Field_of_Study }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Venue_align}',
+          "alignment": '{$Participant_Field_of_Study_align}',
   },
 
 {END cellblock_grid_headcell_field18}
@@ -904,11 +805,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel training_profile Training_start_date }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel training_profile Participant_Facility_or_Organization_Type }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_start_date_align}',
+          "alignment": '{$Participant_Facility_or_Organization_Type_align}',
   },
 
 {END cellblock_grid_headcell_field19}
@@ -930,11 +831,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel training_profile Training_end_date }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel training_profile Participant_Organization_Name }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_end_date_align}',
+          "alignment": '{$Participant_Organization_Name_align}',
   },
 
 {END cellblock_grid_headcell_field20}
@@ -956,11 +857,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel training_profile Training_Title }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel training_profile Participant_Home_Address }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Title_align}',
+          "alignment": '{$Participant_Home_Address_align}',
   },
 
 {END cellblock_grid_headcell_field21}
@@ -982,11 +883,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel training_profile Zone }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel training_profile Phone_Number }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Zone_align}',
+          "alignment": '{$Phone_Number_align}',
   },
 
 {END cellblock_grid_headcell_field22}
@@ -1008,11 +909,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel training_profile Sub_City }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel training_profile Email_Address }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sub_City_align}',
+          "alignment": '{$Email_Address_align}',
   },
 
 {END cellblock_grid_headcell_field23}
@@ -1034,11 +935,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel training_profile Participant_Facility_or_Organization_Type }","bold":true},
+			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel training_profile Disablity_Status }","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Facility_or_Organization_Type_align}',
+          "alignment": '{$Disablity_Status_align}',
   },
 
 {END cellblock_grid_headcell_field24}
@@ -1122,7 +1023,7 @@ pdfDocument = {
 {END cellblock_grid_headcell_field27}
 											],
 				{END row_grid_0}
-									
+								
 		{BEGIN grid_row}
 	{BEGIN grid_record}
 				
@@ -1146,16 +1047,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_grid_edit}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_grid_inline_save}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_grid_view}"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1163,61 +1055,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_icons}
-																			{BEGIN cellblock_grid_cell_checkbox}
-{
-	cellId: 'cell_checkbox',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_cell_checkbox}
-																			{BEGIN cellblock_grid_cell_details}
-{
-	cellId: 'cell_details',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_alldetails_link}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_grid_details_link}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_cell_details}
 																			{BEGIN cellblock_grid_cell_field}
 {
 	cellId: 'cell_field',
@@ -1366,240 +1203,6 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field8}","text":{$Region_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Region_align}',
-  },
-
-{END cellblock_grid_cell_field5}
-																			{BEGIN cellblock_grid_cell_field6}
-{
-	cellId: 'cell_field6',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field9}","text":{$City_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$City_align}',
-  },
-
-{END cellblock_grid_cell_field6}
-																			{BEGIN cellblock_grid_cell_field7}
-{
-	cellId: 'cell_field7',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field10}","text":{$Participant_Profession_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Profession_align}',
-  },
-
-{END cellblock_grid_cell_field7}
-																			{BEGIN cellblock_grid_cell_field8}
-{
-	cellId: 'cell_field8',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field11}","text":{$Participant_Field_of_Study_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Field_of_Study_align}',
-  },
-
-{END cellblock_grid_cell_field8}
-																			{BEGIN cellblock_grid_cell_field9}
-{
-	cellId: 'cell_field9',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field13}","text":{$Participant_Organization_Name_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Organization_Name_align}',
-  },
-
-{END cellblock_grid_cell_field9}
-																			{BEGIN cellblock_grid_cell_field10}
-{
-	cellId: 'cell_field10',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field14}","text":{$Participant_Home_Address_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Home_Address_align}',
-  },
-
-{END cellblock_grid_cell_field10}
-																			{BEGIN cellblock_grid_cell_field11}
-{
-	cellId: 'cell_field11',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field15}","text":{$Phone_Number_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_align}',
-  },
-
-{END cellblock_grid_cell_field11}
-																			{BEGIN cellblock_grid_cell_field12}
-{
-	cellId: 'cell_field12',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field16}","text":{$Email_Address_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Email_Address_align}',
-  },
-
-{END cellblock_grid_cell_field12}
-																			{BEGIN cellblock_grid_cell_field13}
-{
-	cellId: 'cell_field13',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field17}","text":{$Disablity_Status_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$Disablity_Status_align}',
-  },
-
-{END cellblock_grid_cell_field13}
-																			{BEGIN cellblock_grid_cell_field14}
-{
-	cellId: 'cell_field14',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
 			{"hidden":"{$item_hide_simple_grid_field5}","text":{$Training_Organizer_pdfvalue}},
 				
 		  ],
@@ -1607,10 +1210,10 @@ pdfDocument = {
           "alignment": '{$Training_Organizer_align}',
   },
 
-{END cellblock_grid_cell_field14}
-																			{BEGIN cellblock_grid_cell_field15}
+{END cellblock_grid_cell_field5}
+																			{BEGIN cellblock_grid_cell_field6}
 {
-	cellId: 'cell_field15',
+	cellId: 'cell_field6',
 	col:0,
 	row:0,
 			style: 'bodycell',
@@ -1633,10 +1236,10 @@ pdfDocument = {
           "alignment": '{$Training_Type_align}',
   },
 
-{END cellblock_grid_cell_field15}
-																			{BEGIN cellblock_grid_cell_field16}
+{END cellblock_grid_cell_field6}
+																			{BEGIN cellblock_grid_cell_field7}
 {
-	cellId: 'cell_field16',
+	cellId: 'cell_field7',
 	col:0,
 	row:0,
 			style: 'bodycell',
@@ -1659,6 +1262,240 @@ pdfDocument = {
           "alignment": '{$Program_Area_align}',
   },
 
+{END cellblock_grid_cell_field7}
+																			{BEGIN cellblock_grid_cell_field8}
+{
+	cellId: 'cell_field8',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field8}","text":{$Training_City_Town_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Training_City_Town_align}',
+  },
+
+{END cellblock_grid_cell_field8}
+																			{BEGIN cellblock_grid_cell_field9}
+{
+	cellId: 'cell_field9',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field9}","text":{$Training_Venue_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Training_Venue_align}',
+  },
+
+{END cellblock_grid_cell_field9}
+																			{BEGIN cellblock_grid_cell_field10}
+{
+	cellId: 'cell_field10',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field10}","text":{$Training_start_date_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Training_start_date_align}',
+  },
+
+{END cellblock_grid_cell_field10}
+																			{BEGIN cellblock_grid_cell_field11}
+{
+	cellId: 'cell_field11',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field11}","text":{$Training_end_date_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Training_end_date_align}',
+  },
+
+{END cellblock_grid_cell_field11}
+																			{BEGIN cellblock_grid_cell_field12}
+{
+	cellId: 'cell_field12',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field12}","text":{$Training_Title_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Training_Title_align}',
+  },
+
+{END cellblock_grid_cell_field12}
+																			{BEGIN cellblock_grid_cell_field13}
+{
+	cellId: 'cell_field13',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field13}","text":{$Region_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Region_align}',
+  },
+
+{END cellblock_grid_cell_field13}
+																			{BEGIN cellblock_grid_cell_field14}
+{
+	cellId: 'cell_field14',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field14}","text":{$City_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$City_align}',
+  },
+
+{END cellblock_grid_cell_field14}
+																			{BEGIN cellblock_grid_cell_field15}
+{
+	cellId: 'cell_field15',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field15}","text":{$Zone_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Zone_align}',
+  },
+
+{END cellblock_grid_cell_field15}
+																			{BEGIN cellblock_grid_cell_field16}
+{
+	cellId: 'cell_field16',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_simple_grid_field16}","text":{$Sub_City_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$Sub_City_align}',
+  },
+
 {END cellblock_grid_cell_field16}
 																			{BEGIN cellblock_grid_cell_field17}
 {
@@ -1678,11 +1515,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field12}","text":{$Training_City_Town_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field17}","text":{$Participant_Profession_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_City_Town_align}',
+          "alignment": '{$Participant_Profession_align}',
   },
 
 {END cellblock_grid_cell_field17}
@@ -1704,11 +1541,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field18}","text":{$Training_Venue_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field18}","text":{$Participant_Field_of_Study_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Venue_align}',
+          "alignment": '{$Participant_Field_of_Study_align}',
   },
 
 {END cellblock_grid_cell_field18}
@@ -1730,11 +1567,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field19}","text":{$Training_start_date_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field19}","text":{$Participant_Facility_or_Organization_Type_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_start_date_align}',
+          "alignment": '{$Participant_Facility_or_Organization_Type_align}',
   },
 
 {END cellblock_grid_cell_field19}
@@ -1756,11 +1593,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field20}","text":{$Training_end_date_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field20}","text":{$Participant_Organization_Name_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_end_date_align}',
+          "alignment": '{$Participant_Organization_Name_align}',
   },
 
 {END cellblock_grid_cell_field20}
@@ -1782,11 +1619,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field21}","text":{$Training_Title_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field21}","text":{$Participant_Home_Address_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Training_Title_align}',
+          "alignment": '{$Participant_Home_Address_align}',
   },
 
 {END cellblock_grid_cell_field21}
@@ -1808,11 +1645,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":{$Zone_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field22}","text":{$Phone_Number_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Zone_align}',
+          "alignment": '{$Phone_Number_align}',
   },
 
 {END cellblock_grid_cell_field22}
@@ -1834,11 +1671,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":{$Sub_City_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field23}","text":{$Email_Address_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sub_City_align}',
+          "alignment": '{$Email_Address_align}',
   },
 
 {END cellblock_grid_cell_field23}
@@ -1860,11 +1697,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field24}","text":{$Participant_Facility_or_Organization_Type_pdfvalue}},
+			{"hidden":"{$item_hide_simple_grid_field24}","text":{$Disablity_Status_pdfvalue}},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Participant_Facility_or_Organization_Type_align}',
+          "alignment": '{$Disablity_Status_align}',
   },
 
 {END cellblock_grid_cell_field24}
@@ -1948,226 +1785,11 @@ pdfDocument = {
 {END cellblock_grid_cell_field27}
 											],
 				{END row_grid_1}
-								{BEGIN row_grid_2}
-				[
-												{BEGIN cellblock_grid_cell_dpreview}
-{
-	cellId: 'cell_dpreview',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-					{BEGIN colspan_grid_cell_dpreview}
-			colSpan: {$colspan_grid_cell_dpreview},
-			{END colspan_grid_cell_dpreview}
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			 {BEGIN details_event_profile}
-			{$displayDetailTable_event_profile }
-		{END details_event_profile},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_cell_dpreview}
-																		{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  2,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  3,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  4,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  5,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  6,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  7,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  8,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  9,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  10,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  11,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  12,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  13,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  14,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  15,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  16,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  17,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  18,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  19,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  20,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  21,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  22,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  23,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  24,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  25,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  26,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  27,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  28,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  29,
-				text: ''
-			},
-														{ 
-				cellId: 'cell_dpreview',
-				row:  0,
-				col:  30,
-				text: ''
-			},
-							],
-				{END row_grid_2}
 						{END grid_record}
 	{END grid_row}
 			
 					
-								{BEGIN row_grid_3}
+							{BEGIN row_grid_2}
 				[
 												{BEGIN cellblock_grid_footcell_icons}
 {
@@ -2193,54 +1815,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_footcell_icons}
-																			{BEGIN cellblock_grid_footcell_checkbox}
-{
-	cellId: 'footcell_checkbox',
-	col:0,
-	row:0,
-			style: 'footcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_footcell_checkbox}
-																			{BEGIN cellblock_grid_footcell_details}
-{
-	cellId: 'footcell_details',
-	col:0,
-	row:0,
-			style: 'footcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_footcell_details}
 																			{BEGIN cellblock_grid_footcell_field}
 {
 	cellId: 'footcell_field',
@@ -2914,7 +2488,7 @@ pdfDocument = {
 
 {END cellblock_grid_footcell_field27}
 											],
-				{END row_grid_3}
+				{END row_grid_2}
 							
 									]
 			

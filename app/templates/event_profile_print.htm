@@ -101,7 +101,7 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  rnr-b-grid rnr-gridtable" 
 	cellpadding="0" 
-	data-body-height="2"
+	data-body-height="1"
 >
 						<thead>
 			{BEGIN grid_header}
@@ -565,7 +565,6 @@
 							</tr>
 					 
 					 
-					 
 					
 					{END grid_header}
 			</thead>
@@ -994,31 +993,6 @@
 	{END cellblock_grid_cell_field17}
 							</tr>
 					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
-								
-							">
-				 
-					{BEGIN cellblock_grid_cell_dpreview}
-	<td
-	
-	{$cell_grid_cell_dpreview}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN details_training_profile}
-{$displayDetailTable_training_profile}
-{END details_training_profile}
-	
-	</td>
-	{END cellblock_grid_cell_dpreview}
-							</tr>
-					 
 					
 											</tbody>
 					{END grid_row}
@@ -1027,8 +1001,7 @@
 		 
 					 
 					 
-					 
-						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
+						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
 									{$gridFooter_class}
 									
 								r-gridrow

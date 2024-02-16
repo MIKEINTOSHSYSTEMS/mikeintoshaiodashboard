@@ -288,7 +288,7 @@ $tdatacandidate_profile[".addPageEvents"] = false;
 $tdatacandidate_profile[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidate_profile[".badgeColor"] = "B22222";
+$tdatacandidate_profile[".badgeColor"] = "5f9ea0";
 
 
 $tdatacandidate_profile[".allSearchFields"] = array();
@@ -360,6 +360,7 @@ $tdatacandidate_profile[".geocodingEnabled"] = false;
 
 
 
+$tdatacandidate_profile[".isDisplayLoading"] = true;
 
 
 
@@ -7362,111 +7363,11 @@ $page_titles["candidate_profile"] = &$pageTitlescandidate_profile;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["candidate_profile"] = array();
-//	event_profile
-	
-	
-
-		$dIndex = 0;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="event_profile";
-		$detailsParam["dOriginalTable"] = "event_profile";
-
-
-
-		
-		$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "event_profile";
-	$detailsParam["dCaptionTable"] = GetTableCaption("event_profile");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="ID";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Facility or Organization Type";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Organization Name";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Home Address";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Phone Number";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Email Address";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Disablity Status";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="First Name";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Middle Name";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Last Name";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Sex";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Region";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="City";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Profession";
-
-	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Field of Study";
-
-				$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="ID";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Organization Type";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Organization Name";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Home Address";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Phone Number";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Email Address";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Disablity Status";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="First Name";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Middle Name";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Last Name";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Sex";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Region";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="City";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Profession";
-
-		
-	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Field of Study";
 //	training_profile
 	
 	
 
-		$dIndex = 1;
+		$dIndex = 0;
 	$detailsParam = array();
 	$detailsParam["dDataSourceTable"]="training_profile";
 		$detailsParam["dOriginalTable"] = "training_profile";
@@ -7622,6 +7523,106 @@ $detailsTablesData["candidate_profile"] = array();
 
 		
 	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Sub City";
+//	event_profile
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="event_profile";
+		$detailsParam["dOriginalTable"] = "event_profile";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "event_profile";
+	$detailsParam["dCaptionTable"] = GetTableCaption("event_profile");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="ID";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Profession";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Field of Study";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Facility or Organization Type";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Organization Name";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Participant Home Address";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Phone Number";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Email Address";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Disablity Status";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="First Name";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Middle Name";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Last Name";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Sex";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="Region";
+
+	$detailsTablesData["candidate_profile"][$dIndex]["masterKeys"][]="City";
+
+				$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="ID";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Profession";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Field of Study";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Organization Type";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Organization Name";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Participant Home Address";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Phone Number";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Email Address";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Disablity Status";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="First Name";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Middle Name";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Last Name";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Sex";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="Region";
+
+		
+	$detailsTablesData["candidate_profile"][$dIndex]["detailKeys"][]="City";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["candidate_profile"] = array();

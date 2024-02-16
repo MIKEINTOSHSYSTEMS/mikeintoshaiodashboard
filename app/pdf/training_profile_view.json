@@ -251,6 +251,11 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field27}","stack":[{"text":"{$jslabel training_profile Post_Test_Score }","bold":true},{"text":{$Post_Test_Score_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			 {BEGIN details_event_profile}
+			{$displayDetailTable_event_profile }
+		{END details_event_profile},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
