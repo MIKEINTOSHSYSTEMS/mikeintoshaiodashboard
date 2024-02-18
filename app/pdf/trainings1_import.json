@@ -110,6 +110,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_import_field1}","text":{$TrainingTitle_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_import_field2}","text":{$Training_Start_Date_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field3}","text":{$Training_End_Date_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

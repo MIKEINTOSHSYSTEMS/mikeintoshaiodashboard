@@ -1,5 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'event_participants' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'dereja_event_services' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'EventName' ),

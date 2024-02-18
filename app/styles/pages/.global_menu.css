@@ -13,5 +13,71 @@
 [data-page=".global_menu"][data-itemid="welcome_item4"] > .bs-welcome-header {
   background-color: #00C2C5;
 }
+[data-page=".global_menu"][data-itemid="welcome_item5"] > .bs-welcome-header {
+  background-color: #E07878;
+}
+[data-page=".global_menu"][data-itemid="welcome_item6"] > .bs-welcome-header {
+  background-color: #5F9EA0;
+}
+[data-page=".global_menu"][data-itemid="welcome_item7"] > .bs-welcome-header {
+  background-color: #B22222;
+}
+[data-page=".global_menu"][data-itemid="welcome_item8"] > .bs-welcome-header {
+  background-color: #E07878;
+}
+[data-page=".global_menu"][data-itemid="welcome_item9"] > .bs-welcome-header {
+  background-color: #BC8F8F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item10"] > .bs-welcome-header {
+  background-color: #EDCA00;
+}
+[data-page=".global_menu"][data-itemid="welcome_item11"] > .bs-welcome-header {
+  background-color: #D2AF80;
+}
+[data-page=".global_menu"][data-itemid="welcome_item12"] > .bs-welcome-header {
+  background-color: #4682B4;
+}
+[data-page=".global_menu"][data-itemid="welcome_item13"] > .bs-welcome-header {
+  background-color: #DC143C;
+}
+[data-page=".global_menu"][data-itemid="welcome_item14"] > .bs-welcome-header {
+  background-color: #E67349;
+}
+[data-page=".global_menu"][data-itemid="welcome_item15"] > .bs-welcome-header {
+  background-color: #DB7093;
+}
+[data-page=".global_menu"][data-itemid="welcome_item16"] > .bs-welcome-header {
+  background-color: #D2691E;
+}
+[data-page=".global_menu"][data-itemid="welcome_item17"] > .bs-welcome-header {
+  background-color: #2F4F4F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item18"] > .bs-welcome-header {
+  background-color: #EDCA00;
+}
+[data-page=".global_menu"][data-itemid="welcome_item19"] > .bs-welcome-header {
+  background-color: #E07878;
+}
+[data-page=".global_menu"][data-itemid="welcome_item20"] > .bs-welcome-header {
+  background-color: #B22222;
+}
+[data-page=".global_menu"][data-itemid="welcome_item21"] > .bs-welcome-header {
+  background-color: #2F4F4F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item22"] > .bs-welcome-header {
+  background-color: #6B8E23;
+}
+[data-page=".global_menu"][data-itemid="welcome_item23"] > .bs-welcome-header {
+  background-color: #BC8F8F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item24"] > .bs-welcome-header {
+  background-color: #DAA520;
+}
+[data-page=".global_menu"][data-itemid="welcome_item25"] > .bs-welcome-header {
+  background-color: #EDCA00;
+}
+[data-page=".global_menu"][data-itemid="welcome_item26"] > .bs-welcome-header {
+  background-color: #4169E1;
+}
 
 

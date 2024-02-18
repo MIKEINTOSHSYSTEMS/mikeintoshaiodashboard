@@ -79,6 +79,72 @@ pdfDocument = {
 				
 			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item2}"},
 				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item5}"},
+				
+				
+			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item6}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item7}"},
+				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item8}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item9}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item10}"},
+				
+				
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item11}"},
+				
+				
+			{"text":"","background":"#4682B4","hidden":"{$item_hide_welcome_item12}"},
+				
+				
+			{"text":"","background":"#DC143C","hidden":"{$item_hide_welcome_item13}"},
+				
+				
+			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item14}"},
+				
+				
+			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item15}"},
+				
+				
+			{"text":"","background":"#D2691E","hidden":"{$item_hide_welcome_item16}"},
+				
+				
+			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item17}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item18}"},
+				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item19}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item20}"},
+				
+				
+			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item21}"},
+				
+				
+			{"text":"","background":"#6B8E23","hidden":"{$item_hide_welcome_item22}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item23}"},
+				
+				
+			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item24}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item25}"},
+				
+				
+			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item26}"},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

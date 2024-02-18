@@ -379,6 +379,13 @@
 					Event Participants				</label>
 			</div>
 			{END print_details_event_participants}
+														{BEGIN print_details_dereja_event_services}
+			<div>
+				<label for="printDetailsdereja_event_services{$id}">
+					<input type="checkbox" value="dereja_event_services" id="printDetailsdereja_event_services{$id}" checked>
+					Dereja Event Services				</label>
+			</div>
+			{END print_details_dereja_event_services}
 						</div>
 </div>
 {END print_details}
@@ -718,17 +725,20 @@
 	>
 
 	 
-				<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders=",event_participants"
-			data-details-			data-details-event_participants	>
+					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders=",event_participants,dereja_event_services"
+			data-details-			data-details-event_participants			data-details-dereja_event_services	>
 		<span data-details-inside data-short-table="">
 			</span>
 		<span data-details-inside data-short-table="event_participants">
+			</span>
+		<span data-details-inside data-short-table="dereja_event_services">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			
 	</td>
 	{END cellblock_grid_cell_dpreview}

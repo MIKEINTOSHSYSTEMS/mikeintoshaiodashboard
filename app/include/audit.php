@@ -322,6 +322,94 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="cities")
+		{
+			return false;
+		}
+		if($table=="regions")
+		{
+			return false;
+		}
+		if($table=="sub_cities")
+		{
+			return false;
+		}
+		if($table=="zones")
+		{
+			return false;
+		}
+		if($table=="dereja_services")
+		{
+			return false;
+		}
+		if($table=="dereja_event_services")
+		{
+			return false;
+		}
+		if($table=="dereja_training_services")
+		{
+			return false;
+		}
+		if($table=="institution_types")
+		{
+			return false;
+		}
+		if($table=="departments")
+		{
+			return false;
+		}
+		if($table=="education_levels")
+		{
+			return false;
+		}
+		if($table=="minor_major")
+		{
+			return false;
+		}
+		if($table=="skills")
+		{
+			return false;
+		}
+		if($table=="dereja_information_sources")
+		{
+			return false;
+		}
+		if($table=="it_related_skills")
+		{
+			return false;
+		}
+		if($table=="industry_specific_skills")
+		{
+			return false;
+		}
+		if($table=="training_types")
+		{
+			return false;
+		}
+		if($table=="professions")
+		{
+			return false;
+		}
+		if($table=="participant_organization_types")
+		{
+			return false;
+		}
+		if($table=="training_venues")
+		{
+			return false;
+		}
+		if($table=="training_organizers")
+		{
+			return false;
+		}
+		if($table=="training_city_towns")
+		{
+			return false;
+		}
+		if($table=="program_areas")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -647,6 +735,94 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="training_participants")
+		{
+			return false;
+		}
+		if($table=="cities")
+		{
+			return false;
+		}
+		if($table=="regions")
+		{
+			return false;
+		}
+		if($table=="sub_cities")
+		{
+			return false;
+		}
+		if($table=="zones")
+		{
+			return false;
+		}
+		if($table=="dereja_services")
+		{
+			return false;
+		}
+		if($table=="dereja_event_services")
+		{
+			return false;
+		}
+		if($table=="dereja_training_services")
+		{
+			return false;
+		}
+		if($table=="institution_types")
+		{
+			return false;
+		}
+		if($table=="departments")
+		{
+			return false;
+		}
+		if($table=="education_levels")
+		{
+			return false;
+		}
+		if($table=="minor_major")
+		{
+			return false;
+		}
+		if($table=="skills")
+		{
+			return false;
+		}
+		if($table=="dereja_information_sources")
+		{
+			return false;
+		}
+		if($table=="it_related_skills")
+		{
+			return false;
+		}
+		if($table=="industry_specific_skills")
+		{
+			return false;
+		}
+		if($table=="training_types")
+		{
+			return false;
+		}
+		if($table=="professions")
+		{
+			return false;
+		}
+		if($table=="participant_organization_types")
+		{
+			return false;
+		}
+		if($table=="training_venues")
+		{
+			return false;
+		}
+		if($table=="training_organizers")
+		{
+			return false;
+		}
+		if($table=="training_city_towns")
+		{
+			return false;
+		}
+		if($table=="program_areas")
 		{
 			return false;
 		}

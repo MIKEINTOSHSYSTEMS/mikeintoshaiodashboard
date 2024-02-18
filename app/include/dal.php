@@ -48,10 +48,32 @@ function DBLookup($sql)
 class tDAL
 {
 	var $tblderedevatderejadevmerqconsulta__candidates;
+	var $tblderedevatderejadevmerqconsulta__cities;
+	var $tblderedevatderejadevmerqconsulta__departments;
+	var $tblderedevatderejadevmerqconsulta__dereja_event_services;
+	var $tblderedevatderejadevmerqconsulta__dereja_information_sources;
+	var $tblderedevatderejadevmerqconsulta__dereja_services;
+	var $tblderedevatderejadevmerqconsulta__dereja_training_services;
+	var $tblderedevatderejadevmerqconsulta__education_levels;
 	var $tblderedevatderejadevmerqconsulta__event_participants;
 	var $tblderedevatderejadevmerqconsulta__events;
+	var $tblderedevatderejadevmerqconsulta__industry_specific_skills;
+	var $tblderedevatderejadevmerqconsulta__institution_types;
+	var $tblderedevatderejadevmerqconsulta__it_related_skills;
+	var $tblderedevatderejadevmerqconsulta__minor_major;
+	var $tblderedevatderejadevmerqconsulta__participant_organization_types;
+	var $tblderedevatderejadevmerqconsulta__professions;
+	var $tblderedevatderejadevmerqconsulta__program_areas;
+	var $tblderedevatderejadevmerqconsulta__regions;
+	var $tblderedevatderejadevmerqconsulta__skills;
+	var $tblderedevatderejadevmerqconsulta__sub_cities;
+	var $tblderedevatderejadevmerqconsulta__training_city_towns;
+	var $tblderedevatderejadevmerqconsulta__training_organizers;
 	var $tblderedevatderejadevmerqconsulta__training_participants;
+	var $tblderedevatderejadevmerqconsulta__training_types;
+	var $tblderedevatderejadevmerqconsulta__training_venues;
 	var $tblderedevatderejadevmerqconsulta__trainings;
+	var $tblderedevatderejadevmerqconsulta__zones;
 	var $lstTables;
 	var $Table = array();
 
@@ -60,10 +82,32 @@ class tDAL
 		if($this->lstTables)
 			return;
 		$this->lstTables[] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "cities", "varname" => "deredevatderejadevmerqconsulta__cities", "altvarname" => "cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "departments", "varname" => "deredevatderejadevmerqconsulta__departments", "altvarname" => "departments", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "dereja_event_services", "varname" => "deredevatderejadevmerqconsulta__dereja_event_services", "altvarname" => "dereja_event_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "dereja_information_sources", "varname" => "deredevatderejadevmerqconsulta__dereja_information_sources", "altvarname" => "dereja_information_sources", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "dereja_services", "varname" => "deredevatderejadevmerqconsulta__dereja_services", "altvarname" => "dereja_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "dereja_training_services", "varname" => "deredevatderejadevmerqconsulta__dereja_training_services", "altvarname" => "dereja_training_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "education_levels", "varname" => "deredevatderejadevmerqconsulta__education_levels", "altvarname" => "education_levels", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "event_participants", "varname" => "deredevatderejadevmerqconsulta__event_participants", "altvarname" => "event_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "events", "varname" => "deredevatderejadevmerqconsulta__events", "altvarname" => "events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "industry_specific_skills", "varname" => "deredevatderejadevmerqconsulta__industry_specific_skills", "altvarname" => "industry_specific_skills", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "institution_types", "varname" => "deredevatderejadevmerqconsulta__institution_types", "altvarname" => "institution_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "it_related_skills", "varname" => "deredevatderejadevmerqconsulta__it_related_skills", "altvarname" => "it_related_skills", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "minor_major", "varname" => "deredevatderejadevmerqconsulta__minor_major", "altvarname" => "minor_major", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "participant_organization_types", "varname" => "deredevatderejadevmerqconsulta__participant_organization_types", "altvarname" => "participant_organization_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "professions", "varname" => "deredevatderejadevmerqconsulta__professions", "altvarname" => "professions", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "program_areas", "varname" => "deredevatderejadevmerqconsulta__program_areas", "altvarname" => "program_areas", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "regions", "varname" => "deredevatderejadevmerqconsulta__regions", "altvarname" => "regions", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "skills", "varname" => "deredevatderejadevmerqconsulta__skills", "altvarname" => "skills", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "sub_cities", "varname" => "deredevatderejadevmerqconsulta__sub_cities", "altvarname" => "sub_cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "training_city_towns", "varname" => "deredevatderejadevmerqconsulta__training_city_towns", "altvarname" => "training_city_towns", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "training_organizers", "varname" => "deredevatderejadevmerqconsulta__training_organizers", "altvarname" => "training_organizers", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_participants", "varname" => "deredevatderejadevmerqconsulta__training_participants", "altvarname" => "training_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "training_types", "varname" => "deredevatderejadevmerqconsulta__training_types", "altvarname" => "training_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "training_venues", "varname" => "deredevatderejadevmerqconsulta__training_venues", "altvarname" => "training_venues", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "trainings", "varname" => "deredevatderejadevmerqconsulta__trainings", "altvarname" => "trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "zones", "varname" => "deredevatderejadevmerqconsulta__zones", "altvarname" => "zones", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 	}
 
 	/**

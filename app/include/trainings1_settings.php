@@ -31,6 +31,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelstrainings1["English"]["TrainingTitle"] = "Training Title";
 	$fieldToolTipstrainings1["English"]["TrainingTitle"] = "";
 	$placeHolderstrainings1["English"]["TrainingTitle"] = "";
+	$fieldLabelstrainings1["English"]["Training_Start_Date"] = "Training Start Date";
+	$fieldToolTipstrainings1["English"]["Training_Start_Date"] = "";
+	$placeHolderstrainings1["English"]["Training_Start_Date"] = "";
+	$fieldLabelstrainings1["English"]["Training_End_Date"] = "Training End Date";
+	$fieldToolTipstrainings1["English"]["Training_End_Date"] = "";
+	$placeHolderstrainings1["English"]["Training_End_Date"] = "";
 	if (count($fieldToolTipstrainings1["English"]))
 		$tdatatrainings1[".isUseToolTips"] = true;
 }
@@ -156,6 +162,8 @@ $tdatatrainings1[".requiredSearchFields"] = array();
 
 $tdatatrainings1[".googleLikeFields"] = array();
 $tdatatrainings1[".googleLikeFields"][] = "TrainingID";
+$tdatatrainings1[".googleLikeFields"][] = "Training_Start_Date";
+$tdatatrainings1[".googleLikeFields"][] = "Training_End_Date";
 $tdatatrainings1[".googleLikeFields"][] = "TrainingTitle";
 
 
@@ -193,7 +201,7 @@ $tdatatrainings1[".strOrderBy"] = $tstrOrderBy;
 $tdatatrainings1[".orderindexes"] = array();
 
 
-$tdatatrainings1[".sqlHead"] = "SELECT TrainingID,  	TrainingTitle";
+$tdatatrainings1[".sqlHead"] = "SELECT TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle";
 $tdatatrainings1[".sqlFrom"] = "FROM trainings";
 $tdatatrainings1[".sqlWhereExpr"] = "";
 $tdatatrainings1[".sqlTail"] = "";
@@ -380,10 +388,284 @@ $tdatatrainings1[".hideMobileList"] = array();
 
 	$tdatatrainings1["TrainingID"] = $fdata;
 		$tdatatrainings1[".searchableFields"][] = "TrainingID";
-//	TrainingTitle
+//	Training_Start_Date
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 2;
+	$fdata["strName"] = "Training_Start_Date";
+	$fdata["GoodName"] = "Training_Start_Date";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","Training_Start_Date");
+	$fdata["FieldType"] = 7;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Training_Start_Date";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Training_Start_Date";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["Training_Start_Date"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "Training_Start_Date";
+//	Training_End_Date
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 3;
+	$fdata["strName"] = "Training_End_Date";
+	$fdata["GoodName"] = "Training_End_Date";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","Training_End_Date");
+	$fdata["FieldType"] = 7;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Training_End_Date";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Training_End_Date";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["Training_End_Date"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "Training_End_Date";
+//	TrainingTitle
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 4;
 	$fdata["strName"] = "TrainingTitle";
 	$fdata["GoodName"] = "TrainingTitle";
 	$fdata["ownerTable"] = "trainings";
@@ -558,6 +840,36 @@ $detailsTablesData["trainings"] = array();
 				$detailsTablesData["trainings"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="TrainingID";
+//	dereja_training_services
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="dereja_training_services";
+		$detailsParam["dOriginalTable"] = "dereja_training_services";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "dereja_training_services";
+	$detailsParam["dCaptionTable"] = GetTableCaption("dereja_training_services");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["trainings"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["trainings"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["trainings"][$dIndex]["masterKeys"][]="TrainingID";
+
+				$detailsTablesData["trainings"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="TrainingID";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["trainings"] = array();
@@ -584,7 +896,7 @@ function createSqlQuery_trainings1()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "TrainingID,  	TrainingTitle";
+$proto0["m_strFieldList"] = "TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle";
 $proto0["m_strFrom"] = "FROM trainings";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -640,50 +952,80 @@ $obj = new SQLFieldListItem($proto6);
 $proto0["m_fieldlist"][]=$obj;
 						$proto8=array();
 			$obj = new SQLField(array(
-	"m_strName" => "TrainingTitle",
+	"m_strName" => "Training_Start_Date",
 	"m_strTable" => "trainings",
 	"m_srcTableName" => "trainings"
 ));
 
-$proto8["m_sql"] = "TrainingTitle";
+$proto8["m_sql"] = "Training_Start_Date";
 $proto8["m_srcTableName"] = "trainings";
 $proto8["m_expr"]=$obj;
 $proto8["m_alias"] = "";
 $obj = new SQLFieldListItem($proto8);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto10=array();
-$proto10["m_link"] = "SQLL_MAIN";
-			$proto11=array();
-$proto11["m_strName"] = "trainings";
-$proto11["m_srcTableName"] = "trainings";
-$proto11["m_columns"] = array();
-$proto11["m_columns"][] = "TrainingID";
-$proto11["m_columns"][] = "TrainingTitle";
-$obj = new SQLTable($proto11);
+						$proto10=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Training_End_Date",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
 
-$proto10["m_table"] = $obj;
-$proto10["m_sql"] = "trainings";
-$proto10["m_alias"] = "";
+$proto10["m_sql"] = "Training_End_Date";
 $proto10["m_srcTableName"] = "trainings";
-$proto12=array();
-$proto12["m_sql"] = "";
-$proto12["m_uniontype"] = "SQLL_UNKNOWN";
+$proto10["m_expr"]=$obj;
+$proto10["m_alias"] = "";
+$obj = new SQLFieldListItem($proto10);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto12=array();
+			$obj = new SQLField(array(
+	"m_strName" => "TrainingTitle",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto12["m_sql"] = "TrainingTitle";
+$proto12["m_srcTableName"] = "trainings";
+$proto12["m_expr"]=$obj;
+$proto12["m_alias"] = "";
+$obj = new SQLFieldListItem($proto12);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto14=array();
+$proto14["m_link"] = "SQLL_MAIN";
+			$proto15=array();
+$proto15["m_strName"] = "trainings";
+$proto15["m_srcTableName"] = "trainings";
+$proto15["m_columns"] = array();
+$proto15["m_columns"][] = "TrainingID";
+$proto15["m_columns"][] = "Training_Start_Date";
+$proto15["m_columns"][] = "Training_End_Date";
+$proto15["m_columns"][] = "TrainingTitle";
+$obj = new SQLTable($proto15);
+
+$proto14["m_table"] = $obj;
+$proto14["m_sql"] = "trainings";
+$proto14["m_alias"] = "";
+$proto14["m_srcTableName"] = "trainings";
+$proto16=array();
+$proto16["m_sql"] = "";
+$proto16["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto12["m_column"]=$obj;
-$proto12["m_contained"] = array();
-$proto12["m_strCase"] = "";
-$proto12["m_havingmode"] = false;
-$proto12["m_inBrackets"] = false;
-$proto12["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto12);
+$proto16["m_column"]=$obj;
+$proto16["m_contained"] = array();
+$proto16["m_strCase"] = "";
+$proto16["m_havingmode"] = false;
+$proto16["m_inBrackets"] = false;
+$proto16["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto16);
 
-$proto10["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto10);
+$proto14["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto14);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -699,7 +1041,7 @@ $queryData_trainings1 = createSqlQuery_trainings1();
 	
 		;
 
-		
+				
 
 $tdatatrainings1[".sqlquery"] = $queryData_trainings1;
 

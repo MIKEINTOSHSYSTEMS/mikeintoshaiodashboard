@@ -448,6 +448,50 @@ class Chart
 			return true;
 		if("training_participants" == $this->chrt_array['tables'][0])
 			return true;
+		if("cities" == $this->chrt_array['tables'][0])
+			return true;
+		if("regions" == $this->chrt_array['tables'][0])
+			return true;
+		if("sub_cities" == $this->chrt_array['tables'][0])
+			return true;
+		if("zones" == $this->chrt_array['tables'][0])
+			return true;
+		if("dereja_services" == $this->chrt_array['tables'][0])
+			return true;
+		if("dereja_event_services" == $this->chrt_array['tables'][0])
+			return true;
+		if("dereja_training_services" == $this->chrt_array['tables'][0])
+			return true;
+		if("institution_types" == $this->chrt_array['tables'][0])
+			return true;
+		if("departments" == $this->chrt_array['tables'][0])
+			return true;
+		if("education_levels" == $this->chrt_array['tables'][0])
+			return true;
+		if("minor_major" == $this->chrt_array['tables'][0])
+			return true;
+		if("skills" == $this->chrt_array['tables'][0])
+			return true;
+		if("dereja_information_sources" == $this->chrt_array['tables'][0])
+			return true;
+		if("it_related_skills" == $this->chrt_array['tables'][0])
+			return true;
+		if("industry_specific_skills" == $this->chrt_array['tables'][0])
+			return true;
+		if("training_types" == $this->chrt_array['tables'][0])
+			return true;
+		if("professions" == $this->chrt_array['tables'][0])
+			return true;
+		if("participant_organization_types" == $this->chrt_array['tables'][0])
+			return true;
+		if("training_venues" == $this->chrt_array['tables'][0])
+			return true;
+		if("training_organizers" == $this->chrt_array['tables'][0])
+			return true;
+		if("training_city_towns" == $this->chrt_array['tables'][0])
+			return true;
+		if("program_areas" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

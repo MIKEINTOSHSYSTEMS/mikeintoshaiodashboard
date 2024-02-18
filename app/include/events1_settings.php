@@ -558,6 +558,36 @@ $detailsTablesData["events"] = array();
 				$detailsTablesData["events"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["events"][$dIndex]["detailKeys"][]="EventID";
+//	dereja_event_services
+	
+	
+
+		$dIndex = 1;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="dereja_event_services";
+		$detailsParam["dOriginalTable"] = "dereja_event_services";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "dereja_event_services";
+	$detailsParam["dCaptionTable"] = GetTableCaption("dereja_event_services");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["events"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["events"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["events"][$dIndex]["masterKeys"][]="EventID";
+
+				$detailsTablesData["events"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["events"][$dIndex]["detailKeys"][]="EventID";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["events"] = array();

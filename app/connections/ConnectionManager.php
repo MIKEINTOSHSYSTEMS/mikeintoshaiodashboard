@@ -321,6 +321,28 @@ class ConnectionManager
 		$connectionsIds["candidates"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["event_participants"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["training_participants"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["cities"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["regions"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["sub_cities"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["zones"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_services"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_event_services"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_training_services"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["institution_types"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["departments"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["education_levels"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["minor_major"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["skills"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_information_sources"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["it_related_skills"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["industry_specific_skills"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_types"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["professions"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["participant_organization_types"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_venues"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_organizers"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_city_towns"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["program_areas"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 	

@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "36_1708271826";
+$projectBuildKey = "39_1708281934";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "36";
+$projectBuildNumber = "39";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -670,6 +670,28 @@ $tableCaptions["English"]["trainings"] = "Trainings";
 $tableCaptions["English"]["candidates"] = "Candidates";
 $tableCaptions["English"]["event_participants"] = "Event Participants";
 $tableCaptions["English"]["training_participants"] = "Training Participants";
+$tableCaptions["English"]["cities"] = "Cities";
+$tableCaptions["English"]["regions"] = "Regions";
+$tableCaptions["English"]["sub_cities"] = "Sub Cities";
+$tableCaptions["English"]["zones"] = "Zones";
+$tableCaptions["English"]["dereja_services"] = "Dereja Services";
+$tableCaptions["English"]["dereja_event_services"] = "Dereja Event Services";
+$tableCaptions["English"]["dereja_training_services"] = "Dereja Training Services";
+$tableCaptions["English"]["institution_types"] = "Institution Types";
+$tableCaptions["English"]["departments"] = "Departments";
+$tableCaptions["English"]["education_levels"] = "Education Levels";
+$tableCaptions["English"]["minor_major"] = "Minor Major";
+$tableCaptions["English"]["skills"] = "Skills";
+$tableCaptions["English"]["dereja_information_sources"] = "Dereja Information Sources";
+$tableCaptions["English"]["it_related_skills"] = "It Related Skills";
+$tableCaptions["English"]["industry_specific_skills"] = "Industry Specific Skills";
+$tableCaptions["English"]["training_types"] = "Training Types";
+$tableCaptions["English"]["professions"] = "Professions";
+$tableCaptions["English"]["participant_organization_types"] = "Participant Organization Types";
+$tableCaptions["English"]["training_venues"] = "Training Venues";
+$tableCaptions["English"]["training_organizers"] = "Training Organizers";
+$tableCaptions["English"]["training_city_towns"] = "Training City Towns";
+$tableCaptions["English"]["program_areas"] = "Program Areas";
 
 
 $globalEvents = new class_GlobalEvents;
