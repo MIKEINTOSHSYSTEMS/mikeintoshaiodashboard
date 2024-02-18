@@ -191,6 +191,10 @@ function checkTableName($shortTName )
 		return true;
 	if ("candidate_profile" == $shortTName )
 		return true;
+	if ("events" == $shortTName )
+		return true;
+	if ("trainings" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -268,6 +272,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="candidate_profile";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Events");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Events";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Trainings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Trainings";
+	}
 	return $arr;
 }
 
@@ -280,6 +302,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="training_profile";
 	$arr[]="event_profile";
 	$arr[]="candidate_profile";
+	$arr[]="Events";
+	$arr[]="Trainings";
 	return $arr;
 }
 
@@ -1002,6 +1026,18 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="candidate_profile" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Events" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Trainings" )
 	{
 //	default permissions
 		// grant all by default

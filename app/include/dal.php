@@ -49,7 +49,9 @@ class tDAL
 {
 	var $tblderedevatderejadevmerqconsulta__candidate_profile;
 	var $tblderedevatderejadevmerqconsulta__event_profile;
+	var $tblderedevatderejadevmerqconsulta__Events;
 	var $tblderedevatderejadevmerqconsulta__training_profile;
+	var $tblderedevatderejadevmerqconsulta__Trainings;
 	var $lstTables;
 	var $Table = array();
 
@@ -59,7 +61,9 @@ class tDAL
 			return;
 		$this->lstTables[] = array("name" => "candidate_profile", "varname" => "deredevatderejadevmerqconsulta__candidate_profile", "altvarname" => "candidate_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "event_profile", "varname" => "deredevatderejadevmerqconsulta__event_profile", "altvarname" => "event_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "Events", "varname" => "deredevatderejadevmerqconsulta__Events", "altvarname" => "Events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_profile", "varname" => "deredevatderejadevmerqconsulta__training_profile", "altvarname" => "training_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "Trainings", "varname" => "deredevatderejadevmerqconsulta__Trainings", "altvarname" => "Trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 	}
 
 	/**

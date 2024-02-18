@@ -1,6 +1,8 @@
 <?php
 $dalTableevent_profile = array();
-$dalTableevent_profile["ID"] = array("type"=>3,"varname"=>"ID", "name" => "ID");
+$dalTableevent_profile["EventID"] = array("type"=>3,"varname"=>"EventID", "name" => "EventID");
+$dalTableevent_profile["CandidateID"] = array("type"=>3,"varname"=>"CandidateID", "name" => "CandidateID");
+$dalTableevent_profile["TrainingID"] = array("type"=>3,"varname"=>"TrainingID", "name" => "TrainingID");
 $dalTableevent_profile["First Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First Name");
 $dalTableevent_profile["Middle Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle Name");
 $dalTableevent_profile["Last Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last Name");
@@ -18,7 +20,7 @@ $dalTableevent_profile["Participant Home Address"] = array("type"=>200,"varname"
 $dalTableevent_profile["Phone Number"] = array("type"=>200,"varname"=>"Phone_Number", "name" => "Phone Number");
 $dalTableevent_profile["Email Address"] = array("type"=>200,"varname"=>"Email_Address", "name" => "Email Address");
 $dalTableevent_profile["Disablity Status"] = array("type"=>200,"varname"=>"Disablity_Status", "name" => "Disablity Status");
-	$dalTableevent_profile["ID"]["key"]=true;
+	$dalTableevent_profile["EventID"]["key"]=true;
 
 $dal_info["deredevatderejadevmerqconsulta__event_profile"] = &$dalTableevent_profile;
 ?>

@@ -143,25 +143,6 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN ID_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_ID}  r-vertical-field" data-fieldname="ID" data-signal-error-for="ID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="ID" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_ID}">
-		
-		{BEGIN ID_label}{$label candidate_profile ID }{END ID_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$ID_value}	</div>
-
-		
-</div>
-
-
-{END ID_fieldblock}
-											
 {BEGIN First_Name_fieldblock}
 
 
@@ -1073,29 +1054,68 @@
 
 
 {END Post_Test_Score_fieldblock}
+											
+{BEGIN CandidateID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
+		
+		{BEGIN CandidateID_label}{$label candidate_profile CandidateID }{END CandidateID_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$CandidateID_value}	</div>
+
+		
+</div>
+
+
+{END CandidateID_fieldblock}
+											
+{BEGIN EventID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EventID}  r-vertical-field" data-fieldname="EventID" data-signal-error-for="EventID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field49" {$item_integrated_edit_field49} data-pageid="{$pageid}" data-field="EventID" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_EventID}">
+		
+		{BEGIN EventID_label}{$label candidate_profile EventID }{END EventID_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$EventID_value}	</div>
+
+		
+</div>
+
+
+{END EventID_fieldblock}
+											
+{BEGIN TrainingID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_TrainingID}  r-vertical-field" data-fieldname="TrainingID" data-signal-error-for="TrainingID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field50" {$item_integrated_edit_field50} data-pageid="{$pageid}" data-field="TrainingID" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_TrainingID}">
+		
+		{BEGIN TrainingID_label}{$label candidate_profile TrainingID }{END TrainingID_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$TrainingID_value}	</div>
+
+		
+</div>
+
+
+{END TrainingID_fieldblock}
 										</td>
 			{END cellblock_grid_c3}
 										</tr>
 										</tbody></table>
 				
-{BEGIN details_training_profile}
-<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$caption training_profile }				
-							<span>
-					{$detailslButtons_training_profile}
-																															</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_training_profile}
-		</div>
-	</div>
-</div>
-{END details_training_profile}
-											
 {BEGIN details_event_profile}
 <div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
 	<div class="panel panel-info details-grid">
@@ -1113,6 +1133,24 @@
 	</div>
 </div>
 {END details_event_profile}
+											
+{BEGIN details_training_profile}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption training_profile }				
+							<span>
+					{$detailslButtons_training_profile}
+																															</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_training_profile}
+		</div>
+	</div>
+</div>
+{END details_training_profile}
 	
 				{END grid_block}
 						</div>

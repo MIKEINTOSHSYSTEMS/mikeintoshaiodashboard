@@ -212,6 +212,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel event_profile Disablity_Status }","bold":true},{"text":{$Disablity_Status_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel event_profile CandidateID }","bold":true},{"text":{$CandidateID_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
@@ -258,6 +261,9 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_edit_save}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_update_records}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_edit_back_list}"},

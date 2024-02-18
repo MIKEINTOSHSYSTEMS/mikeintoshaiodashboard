@@ -136,7 +136,11 @@
 
  
 	 
-												<table 
+												{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}											<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
@@ -1270,24 +1274,6 @@
 										</tr>
 										</tbody></table>
 				
-{BEGIN details_training_profile}
-<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$caption training_profile }				
-							<span>
-					{$detailslButtons_training_profile}
-																															</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_training_profile}
-		</div>
-	</div>
-</div>
-{END details_training_profile}
-											
 {BEGIN details_event_profile}
 <div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
 	<div class="panel panel-info details-grid">
@@ -1305,6 +1291,24 @@
 	</div>
 </div>
 {END details_event_profile}
+											
+{BEGIN details_training_profile}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption training_profile }				
+							<span>
+					{$detailslButtons_training_profile}
+																															</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_training_profile}
+		</div>
+	</div>
+</div>
+{END details_training_profile}
 	
 				{END grid_block}
 						</div>

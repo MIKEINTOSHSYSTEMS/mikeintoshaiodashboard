@@ -319,6 +319,8 @@ class ConnectionManager
 		$connectionsIds["training_profile"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["event_profile"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidate_profile"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Events"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Trainings"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 	

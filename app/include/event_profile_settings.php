@@ -25,9 +25,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsevent_profile["English"] = array();
 	$placeHoldersevent_profile["English"] = array();
 	$pageTitlesevent_profile["English"] = array();
-	$fieldLabelsevent_profile["English"]["ID"] = "ID";
-	$fieldToolTipsevent_profile["English"]["ID"] = "";
-	$placeHoldersevent_profile["English"]["ID"] = "";
 	$fieldLabelsevent_profile["English"]["First_Name"] = "First Name";
 	$fieldToolTipsevent_profile["English"]["First_Name"] = "";
 	$placeHoldersevent_profile["English"]["First_Name"] = "";
@@ -79,6 +76,15 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsevent_profile["English"]["Disablity_Status"] = "Disablity Status";
 	$fieldToolTipsevent_profile["English"]["Disablity_Status"] = "";
 	$placeHoldersevent_profile["English"]["Disablity_Status"] = "";
+	$fieldLabelsevent_profile["English"]["EventID"] = "Event ID";
+	$fieldToolTipsevent_profile["English"]["EventID"] = "";
+	$placeHoldersevent_profile["English"]["EventID"] = "";
+	$fieldLabelsevent_profile["English"]["CandidateID"] = "Candidate ID";
+	$fieldToolTipsevent_profile["English"]["CandidateID"] = "";
+	$placeHoldersevent_profile["English"]["CandidateID"] = "";
+	$fieldLabelsevent_profile["English"]["TrainingID"] = "Training ID";
+	$fieldToolTipsevent_profile["English"]["TrainingID"] = "";
+	$placeHoldersevent_profile["English"]["TrainingID"] = "";
 	if (count($fieldToolTipsevent_profile["English"]))
 		$tdataevent_profile[".isUseToolTips"] = true;
 }
@@ -203,7 +209,9 @@ $tdataevent_profile[".filterFields"] = array();
 $tdataevent_profile[".requiredSearchFields"] = array();
 
 $tdataevent_profile[".googleLikeFields"] = array();
-$tdataevent_profile[".googleLikeFields"][] = "ID";
+$tdataevent_profile[".googleLikeFields"][] = "EventID";
+$tdataevent_profile[".googleLikeFields"][] = "CandidateID";
+$tdataevent_profile[".googleLikeFields"][] = "TrainingID";
 $tdataevent_profile[".googleLikeFields"][] = "First Name";
 $tdataevent_profile[".googleLikeFields"][] = "Middle Name";
 $tdataevent_profile[".googleLikeFields"][] = "Last Name";
@@ -257,7 +265,7 @@ $tdataevent_profile[".strOrderBy"] = $tstrOrderBy;
 $tdataevent_profile[".orderindexes"] = array();
 
 
-$tdataevent_profile[".sqlHead"] = "SELECT ID,  	`First Name`,  	`Middle Name`,  	`Last Name`,  	Sex,  	`Event start date`,  	`Event end date`,  	`Event Name`,  	Region,  	City,  	`Participant Profession`,  	`Participant Field of Study`,  	`Participant Organization Type`,  	`Participant Organization Name`,  	`Participant Home Address`,  	`Phone Number`,  	`Email Address`,  	`Disablity Status`";
+$tdataevent_profile[".sqlHead"] = "SELECT EventID,  	CandidateID,  	TrainingID,  	`First Name`,  	`Middle Name`,  	`Last Name`,  	Sex,  	`Event start date`,  	`Event end date`,  	`Event Name`,  	Region,  	City,  	`Participant Profession`,  	`Participant Field of Study`,  	`Participant Organization Type`,  	`Participant Organization Name`,  	`Participant Home Address`,  	`Phone Number`,  	`Email Address`,  	`Disablity Status`";
 $tdataevent_profile[".sqlFrom"] = "FROM event_profile";
 $tdataevent_profile[".sqlWhereExpr"] = "";
 $tdataevent_profile[".sqlTail"] = "";
@@ -296,7 +304,7 @@ $tdataevent_profile[".arrGroupsPerPage"] = $arrGPP;
 $tdataevent_profile[".highlightSearchResults"] = true;
 
 $tableKeysevent_profile = array();
-$tableKeysevent_profile[] = "ID";
+$tableKeysevent_profile[] = "EventID";
 $tdataevent_profile[".Keys"] = $tableKeysevent_profile;
 
 
@@ -305,14 +313,14 @@ $tdataevent_profile[".hideMobileList"] = array();
 
 
 
-//	ID
+//	EventID
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 1;
-	$fdata["strName"] = "ID";
-	$fdata["GoodName"] = "ID";
+	$fdata["strName"] = "EventID";
+	$fdata["GoodName"] = "EventID";
 	$fdata["ownerTable"] = "event_profile";
-	$fdata["Label"] = GetFieldLabel("event_profile","ID");
+	$fdata["Label"] = GetFieldLabel("event_profile","EventID");
 	$fdata["FieldType"] = 3;
 
 	
@@ -321,11 +329,11 @@ $tdataevent_profile[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "ID";
+		$fdata["strField"] = "EventID";
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "ID";
+	$fdata["FullName"] = "EventID";
 
 	
 	
@@ -334,7 +342,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "Number");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -342,8 +350,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 	
 	
 	
-		$vdata["DecimalDigits"] = 0;
-
+	
 	
 	
 	
@@ -374,36 +381,31 @@ $tdataevent_profile[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "training_profile";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["LookupTable"] = "candidate_profile";
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["autoCompleteFields"][] = array('masterF'=>"First Name", 'lookupF'=>"First Name");
+		$edata["autoCompleteFields"][] = array('masterF'=>"CandidateID", 'lookupF'=>"CandidateID");
+	$edata["autoCompleteFields"][] = array('masterF'=>"First Name", 'lookupF'=>"First Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Middle Name", 'lookupF'=>"Middle Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Last Name", 'lookupF'=>"Last Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Sex", 'lookupF'=>"Sex");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Region", 'lookupF'=>"Region");
 	$edata["autoCompleteFields"][] = array('masterF'=>"City", 'lookupF'=>"City");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Profession", 'lookupF'=>"Participant Profession");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Field of Study", 'lookupF'=>"Participant Field of Study");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Organization Type", 'lookupF'=>"Participant Facility or Organization Type");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Organization Name", 'lookupF'=>"Participant Organization Name");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Home Address", 'lookupF'=>"Participant Home Address");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Phone Number", 'lookupF'=>"Phone Number");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Email Address", 'lookupF'=>"Email Address");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Disablity Status", 'lookupF'=>"Disablity Status");
 	$edata["LCType"] = 0;
 
 	
-			$edata["LookupUnique"] = true;
-
-	$edata["LinkField"] = "ID";
+		
+	$edata["LinkField"] = "CandidateID";
 	$edata["LinkFieldType"] = 0;
-	$edata["DisplayField"] = "ID";
+	$edata["DisplayField"] = "CandidateID";
 
 	
 
 	
-	$edata["LookupOrderBy"] = "ID";
+	$edata["LookupOrderBy"] = "";
 
 	
 	
@@ -469,8 +471,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //Filters settings
 	$fdata["filterTotals"] = 0;
 		$fdata["filterMultiSelect"] = 0;
-		$fdata["filterTotalFields"] = "ID";
-		$fdata["filterFormat"] = "Values list";
+			$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -485,12 +486,325 @@ $tdataevent_profile[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataevent_profile["ID"] = $fdata;
-		$tdataevent_profile[".searchableFields"][] = "ID";
-//	First Name
+	$tdataevent_profile["EventID"] = $fdata;
+		$tdataevent_profile[".searchableFields"][] = "EventID";
+//	CandidateID
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 2;
+	$fdata["strName"] = "CandidateID";
+	$fdata["GoodName"] = "CandidateID";
+	$fdata["ownerTable"] = "event_profile";
+	$fdata["Label"] = GetFieldLabel("event_profile","CandidateID");
+	$fdata["FieldType"] = 3;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "CandidateID";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "CandidateID";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "candidate_profile";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["autoCompleteFields"][] = array('masterF'=>"First Name", 'lookupF'=>"First Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Middle Name", 'lookupF'=>"Middle Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Last Name", 'lookupF'=>"Last Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Sex", 'lookupF'=>"Sex");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Region", 'lookupF'=>"Region");
+	$edata["autoCompleteFields"][] = array('masterF'=>"City", 'lookupF'=>"City");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Field of Study", 'lookupF'=>"Participant Field of Study");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Organization Type", 'lookupF'=>"Participant Facility or Organization Type");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Organization Name", 'lookupF'=>"Participant Organization Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Participant Home Address", 'lookupF'=>"Participant Home Address");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Phone Number", 'lookupF'=>"Phone Number");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Email Address", 'lookupF'=>"Email Address");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Disablity Status", 'lookupF'=>"Disablity Status");
+	$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "CandidateID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "CandidateID";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+		$edata["autoUpdatable"] = true;
+
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataevent_profile["CandidateID"] = $fdata;
+		$tdataevent_profile[".searchableFields"][] = "CandidateID";
+//	TrainingID
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 3;
+	$fdata["strName"] = "TrainingID";
+	$fdata["GoodName"] = "TrainingID";
+	$fdata["ownerTable"] = "event_profile";
+	$fdata["Label"] = GetFieldLabel("event_profile","TrainingID");
+	$fdata["FieldType"] = 3;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "TrainingID";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "TrainingID";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataevent_profile["TrainingID"] = $fdata;
+		$tdataevent_profile[".searchableFields"][] = "TrainingID";
+//	First Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 4;
 	$fdata["strName"] = "First Name";
 	$fdata["GoodName"] = "First_Name";
 	$fdata["ownerTable"] = "event_profile";
@@ -627,7 +941,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Middle Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 3;
+	$fdata["Index"] = 5;
 	$fdata["strName"] = "Middle Name";
 	$fdata["GoodName"] = "Middle_Name";
 	$fdata["ownerTable"] = "event_profile";
@@ -764,7 +1078,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Last Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 4;
+	$fdata["Index"] = 6;
 	$fdata["strName"] = "Last Name";
 	$fdata["GoodName"] = "Last_Name";
 	$fdata["ownerTable"] = "event_profile";
@@ -901,7 +1215,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Sex
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 5;
+	$fdata["Index"] = 7;
 	$fdata["strName"] = "Sex";
 	$fdata["GoodName"] = "Sex";
 	$fdata["ownerTable"] = "event_profile";
@@ -1051,7 +1365,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Event start date
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 6;
+	$fdata["Index"] = 8;
 	$fdata["strName"] = "Event start date";
 	$fdata["GoodName"] = "Event_start_date";
 	$fdata["ownerTable"] = "event_profile";
@@ -1188,7 +1502,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Event end date
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 7;
+	$fdata["Index"] = 9;
 	$fdata["strName"] = "Event end date";
 	$fdata["GoodName"] = "Event_end_date";
 	$fdata["ownerTable"] = "event_profile";
@@ -1325,7 +1639,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Event Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 8;
+	$fdata["Index"] = 10;
 	$fdata["strName"] = "Event Name";
 	$fdata["GoodName"] = "Event_Name";
 	$fdata["ownerTable"] = "event_profile";
@@ -1377,7 +1691,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1387,6 +1701,34 @@ $tdataevent_profile[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Events";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "EventNameID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "SetEventName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "EventNameID";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -1402,11 +1744,8 @@ $tdataevent_profile[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=200";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -1432,7 +1771,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1462,7 +1801,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Region
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 9;
+	$fdata["Index"] = 11;
 	$fdata["strName"] = "Region";
 	$fdata["GoodName"] = "Region";
 	$fdata["ownerTable"] = "event_profile";
@@ -1625,7 +1964,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	City
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 10;
+	$fdata["Index"] = 12;
 	$fdata["strName"] = "City";
 	$fdata["GoodName"] = "City";
 	$fdata["ownerTable"] = "event_profile";
@@ -1762,7 +2101,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Participant Profession
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 11;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "Participant Profession";
 	$fdata["GoodName"] = "Participant_Profession";
 	$fdata["ownerTable"] = "event_profile";
@@ -1913,7 +2252,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Participant Field of Study
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 12;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "Participant Field of Study";
 	$fdata["GoodName"] = "Participant_Field_of_Study";
 	$fdata["ownerTable"] = "event_profile";
@@ -2050,7 +2389,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Participant Organization Type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 13;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "Participant Organization Type";
 	$fdata["GoodName"] = "Participant_Organization_Type";
 	$fdata["ownerTable"] = "event_profile";
@@ -2203,7 +2542,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Participant Organization Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 14;
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "Participant Organization Name";
 	$fdata["GoodName"] = "Participant_Organization_Name";
 	$fdata["ownerTable"] = "event_profile";
@@ -2340,7 +2679,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Participant Home Address
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 17;
 	$fdata["strName"] = "Participant Home Address";
 	$fdata["GoodName"] = "Participant_Home_Address";
 	$fdata["ownerTable"] = "event_profile";
@@ -2477,7 +2816,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Phone Number
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "Phone Number";
 	$fdata["GoodName"] = "Phone_Number";
 	$fdata["ownerTable"] = "event_profile";
@@ -2566,17 +2905,14 @@ $tdataevent_profile[".hideMobileList"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-								$edata["validateAs"]["basicValidate"][] = "DenyDuplicated";
-	$edata["validateAs"]["customMessages"]["DenyDuplicated"] = array("message" => "Value %value% already exists", "messageType" => "Text");
-
+							
 	
 	//	End validation
 
 	
 			
 	
-		$edata["denyDuplicates"] = true;
-
+	
 	
 	$fdata["EditFormats"]["edit"] = $edata;
 //	End Edit Formats
@@ -2619,7 +2955,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Email Address
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "Email Address";
 	$fdata["GoodName"] = "Email_Address";
 	$fdata["ownerTable"] = "event_profile";
@@ -2707,17 +3043,14 @@ $tdataevent_profile[".hideMobileList"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Email");
-								$edata["validateAs"]["basicValidate"][] = "DenyDuplicated";
-	$edata["validateAs"]["customMessages"]["DenyDuplicated"] = array("message" => "Value %value% already exists", "messageType" => "Text");
-
+							
 	
 	//	End validation
 
 	
 			
 	
-		$edata["denyDuplicates"] = true;
-
+	
 	
 	$fdata["EditFormats"]["edit"] = $edata;
 //	End Edit Formats
@@ -2759,7 +3092,7 @@ $tdataevent_profile[".hideMobileList"] = array();
 //	Disablity Status
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "Disablity Status";
 	$fdata["GoodName"] = "Disablity_Status";
 	$fdata["ownerTable"] = "event_profile";
@@ -2935,79 +3268,47 @@ $masterTablesData["event_profile"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["event_profile"][0] = $masterParams;
 				$masterTablesData["event_profile"][0]["masterKeys"] = array();
-	$masterTablesData["event_profile"][0]["masterKeys"][]="ID";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Field of Study";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Facility or Organization Type";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Organization Name";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Participant Home Address";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Phone Number";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Email Address";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Disablity Status";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="First Name";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Middle Name";
-				$masterTablesData["event_profile"][0]["masterKeys"][]="Last Name";
+	$masterTablesData["event_profile"][0]["masterKeys"][]="CandidateID";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Sex";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="Region";
 				$masterTablesData["event_profile"][0]["masterKeys"][]="City";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Email Address";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="EventID";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="TrainingID";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="First Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][0]["masterKeys"][]="Last Name";
 				$masterTablesData["event_profile"][0]["detailKeys"] = array();
-	$masterTablesData["event_profile"][0]["detailKeys"][]="ID";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Field of Study";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Type";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Organization Name";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Participant Home Address";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Phone Number";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Email Address";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Disablity Status";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="First Name";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Middle Name";
-				$masterTablesData["event_profile"][0]["detailKeys"][]="Last Name";
+	$masterTablesData["event_profile"][0]["detailKeys"][]="CandidateID";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Sex";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="Region";
 				$masterTablesData["event_profile"][0]["detailKeys"][]="City";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Phone Number";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Email Address";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Disablity Status";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="EventID";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="TrainingID";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="First Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Middle Name";
+				$masterTablesData["event_profile"][0]["detailKeys"][]="Last Name";
 		
 	
-				$strOriginalDetailsTable="training_profile";
+				$strOriginalDetailsTable="Events";
 	$masterParams = array();
-	$masterParams["mDataSourceTable"]="training_profile";
+	$masterParams["mDataSourceTable"]="Events";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
-	$masterParams["mShortTable"]= "training_profile";
+	$masterParams["mShortTable"]= "events";
 	$masterParams["masterKeys"]= array();
 	$masterParams["detailKeys"]= array();
 
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["event_profile"][1] = $masterParams;
 				$masterTablesData["event_profile"][1]["masterKeys"] = array();
-	$masterTablesData["event_profile"][1]["masterKeys"][]="ID";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Disablity Status";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Field of Study";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Facility or Organization Type";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Participant Organization Name";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="First Name";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Middle Name";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Last Name";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Sex";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Region";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="City";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Phone Number";
-				$masterTablesData["event_profile"][1]["masterKeys"][]="Email Address";
+	$masterTablesData["event_profile"][1]["masterKeys"][]="SetEventName";
 				$masterTablesData["event_profile"][1]["detailKeys"] = array();
-	$masterTablesData["event_profile"][1]["detailKeys"][]="ID";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Disablity Status";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Profession";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Field of Study";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Organization Type";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Participant Organization Name";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="First Name";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Middle Name";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Last Name";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Sex";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Region";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="City";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Phone Number";
-				$masterTablesData["event_profile"][1]["detailKeys"][]="Email Address";
+	$masterTablesData["event_profile"][1]["detailKeys"][]="Event Name";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
@@ -3029,7 +3330,7 @@ function createSqlQuery_event_profile()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ID,  	`First Name`,  	`Middle Name`,  	`Last Name`,  	Sex,  	`Event start date`,  	`Event end date`,  	`Event Name`,  	Region,  	City,  	`Participant Profession`,  	`Participant Field of Study`,  	`Participant Organization Type`,  	`Participant Organization Name`,  	`Participant Home Address`,  	`Phone Number`,  	`Email Address`,  	`Disablity Status`";
+$proto0["m_strFieldList"] = "EventID,  	CandidateID,  	TrainingID,  	`First Name`,  	`Middle Name`,  	`Last Name`,  	Sex,  	`Event start date`,  	`Event end date`,  	`Event Name`,  	Region,  	City,  	`Participant Profession`,  	`Participant Field of Study`,  	`Participant Organization Type`,  	`Participant Organization Name`,  	`Participant Home Address`,  	`Phone Number`,  	`Email Address`,  	`Disablity Status`";
 $proto0["m_strFrom"] = "FROM event_profile";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -3071,12 +3372,12 @@ $proto0["m_having"] = $obj;
 $proto0["m_fieldlist"] = array();
 						$proto6=array();
 			$obj = new SQLField(array(
-	"m_strName" => "ID",
+	"m_strName" => "EventID",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto6["m_sql"] = "ID";
+$proto6["m_sql"] = "EventID";
 $proto6["m_srcTableName"] = "event_profile";
 $proto6["m_expr"]=$obj;
 $proto6["m_alias"] = "";
@@ -3085,12 +3386,12 @@ $obj = new SQLFieldListItem($proto6);
 $proto0["m_fieldlist"][]=$obj;
 						$proto8=array();
 			$obj = new SQLField(array(
-	"m_strName" => "First Name",
+	"m_strName" => "CandidateID",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto8["m_sql"] = "`First Name`";
+$proto8["m_sql"] = "CandidateID";
 $proto8["m_srcTableName"] = "event_profile";
 $proto8["m_expr"]=$obj;
 $proto8["m_alias"] = "";
@@ -3099,12 +3400,12 @@ $obj = new SQLFieldListItem($proto8);
 $proto0["m_fieldlist"][]=$obj;
 						$proto10=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Middle Name",
+	"m_strName" => "TrainingID",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto10["m_sql"] = "`Middle Name`";
+$proto10["m_sql"] = "TrainingID";
 $proto10["m_srcTableName"] = "event_profile";
 $proto10["m_expr"]=$obj;
 $proto10["m_alias"] = "";
@@ -3113,12 +3414,12 @@ $obj = new SQLFieldListItem($proto10);
 $proto0["m_fieldlist"][]=$obj;
 						$proto12=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Last Name",
+	"m_strName" => "First Name",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto12["m_sql"] = "`Last Name`";
+$proto12["m_sql"] = "`First Name`";
 $proto12["m_srcTableName"] = "event_profile";
 $proto12["m_expr"]=$obj;
 $proto12["m_alias"] = "";
@@ -3127,12 +3428,12 @@ $obj = new SQLFieldListItem($proto12);
 $proto0["m_fieldlist"][]=$obj;
 						$proto14=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Sex",
+	"m_strName" => "Middle Name",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto14["m_sql"] = "Sex";
+$proto14["m_sql"] = "`Middle Name`";
 $proto14["m_srcTableName"] = "event_profile";
 $proto14["m_expr"]=$obj;
 $proto14["m_alias"] = "";
@@ -3141,12 +3442,12 @@ $obj = new SQLFieldListItem($proto14);
 $proto0["m_fieldlist"][]=$obj;
 						$proto16=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Event start date",
+	"m_strName" => "Last Name",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto16["m_sql"] = "`Event start date`";
+$proto16["m_sql"] = "`Last Name`";
 $proto16["m_srcTableName"] = "event_profile";
 $proto16["m_expr"]=$obj;
 $proto16["m_alias"] = "";
@@ -3155,12 +3456,12 @@ $obj = new SQLFieldListItem($proto16);
 $proto0["m_fieldlist"][]=$obj;
 						$proto18=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Event end date",
+	"m_strName" => "Sex",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto18["m_sql"] = "`Event end date`";
+$proto18["m_sql"] = "Sex";
 $proto18["m_srcTableName"] = "event_profile";
 $proto18["m_expr"]=$obj;
 $proto18["m_alias"] = "";
@@ -3169,12 +3470,12 @@ $obj = new SQLFieldListItem($proto18);
 $proto0["m_fieldlist"][]=$obj;
 						$proto20=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Event Name",
+	"m_strName" => "Event start date",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto20["m_sql"] = "`Event Name`";
+$proto20["m_sql"] = "`Event start date`";
 $proto20["m_srcTableName"] = "event_profile";
 $proto20["m_expr"]=$obj;
 $proto20["m_alias"] = "";
@@ -3183,12 +3484,12 @@ $obj = new SQLFieldListItem($proto20);
 $proto0["m_fieldlist"][]=$obj;
 						$proto22=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Region",
+	"m_strName" => "Event end date",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto22["m_sql"] = "Region";
+$proto22["m_sql"] = "`Event end date`";
 $proto22["m_srcTableName"] = "event_profile";
 $proto22["m_expr"]=$obj;
 $proto22["m_alias"] = "";
@@ -3197,12 +3498,12 @@ $obj = new SQLFieldListItem($proto22);
 $proto0["m_fieldlist"][]=$obj;
 						$proto24=array();
 			$obj = new SQLField(array(
-	"m_strName" => "City",
+	"m_strName" => "Event Name",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto24["m_sql"] = "City";
+$proto24["m_sql"] = "`Event Name`";
 $proto24["m_srcTableName"] = "event_profile";
 $proto24["m_expr"]=$obj;
 $proto24["m_alias"] = "";
@@ -3211,12 +3512,12 @@ $obj = new SQLFieldListItem($proto24);
 $proto0["m_fieldlist"][]=$obj;
 						$proto26=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant Profession",
+	"m_strName" => "Region",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto26["m_sql"] = "`Participant Profession`";
+$proto26["m_sql"] = "Region";
 $proto26["m_srcTableName"] = "event_profile";
 $proto26["m_expr"]=$obj;
 $proto26["m_alias"] = "";
@@ -3225,12 +3526,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant Field of Study",
+	"m_strName" => "City",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto28["m_sql"] = "`Participant Field of Study`";
+$proto28["m_sql"] = "City";
 $proto28["m_srcTableName"] = "event_profile";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -3239,12 +3540,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant Organization Type",
+	"m_strName" => "Participant Profession",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto30["m_sql"] = "`Participant Organization Type`";
+$proto30["m_sql"] = "`Participant Profession`";
 $proto30["m_srcTableName"] = "event_profile";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -3253,12 +3554,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant Organization Name",
+	"m_strName" => "Participant Field of Study",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto32["m_sql"] = "`Participant Organization Name`";
+$proto32["m_sql"] = "`Participant Field of Study`";
 $proto32["m_srcTableName"] = "event_profile";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -3267,12 +3568,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant Home Address",
+	"m_strName" => "Participant Organization Type",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto34["m_sql"] = "`Participant Home Address`";
+$proto34["m_sql"] = "`Participant Organization Type`";
 $proto34["m_srcTableName"] = "event_profile";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -3281,12 +3582,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Phone Number",
+	"m_strName" => "Participant Organization Name",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto36["m_sql"] = "`Phone Number`";
+$proto36["m_sql"] = "`Participant Organization Name`";
 $proto36["m_srcTableName"] = "event_profile";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -3295,12 +3596,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Email Address",
+	"m_strName" => "Participant Home Address",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto38["m_sql"] = "`Email Address`";
+$proto38["m_sql"] = "`Participant Home Address`";
 $proto38["m_srcTableName"] = "event_profile";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -3309,66 +3610,96 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Disablity Status",
+	"m_strName" => "Phone Number",
 	"m_strTable" => "event_profile",
 	"m_srcTableName" => "event_profile"
 ));
 
-$proto40["m_sql"] = "`Disablity Status`";
+$proto40["m_sql"] = "`Phone Number`";
 $proto40["m_srcTableName"] = "event_profile";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
 $obj = new SQLFieldListItem($proto40);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto42=array();
-$proto42["m_link"] = "SQLL_MAIN";
-			$proto43=array();
-$proto43["m_strName"] = "event_profile";
-$proto43["m_srcTableName"] = "event_profile";
-$proto43["m_columns"] = array();
-$proto43["m_columns"][] = "ID";
-$proto43["m_columns"][] = "First Name";
-$proto43["m_columns"][] = "Middle Name";
-$proto43["m_columns"][] = "Last Name";
-$proto43["m_columns"][] = "Sex";
-$proto43["m_columns"][] = "Event start date";
-$proto43["m_columns"][] = "Event end date";
-$proto43["m_columns"][] = "Event Name";
-$proto43["m_columns"][] = "Region";
-$proto43["m_columns"][] = "City";
-$proto43["m_columns"][] = "Participant Profession";
-$proto43["m_columns"][] = "Participant Field of Study";
-$proto43["m_columns"][] = "Participant Organization Type";
-$proto43["m_columns"][] = "Participant Organization Name";
-$proto43["m_columns"][] = "Participant Home Address";
-$proto43["m_columns"][] = "Phone Number";
-$proto43["m_columns"][] = "Email Address";
-$proto43["m_columns"][] = "Disablity Status";
-$obj = new SQLTable($proto43);
+						$proto42=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Email Address",
+	"m_strTable" => "event_profile",
+	"m_srcTableName" => "event_profile"
+));
 
-$proto42["m_table"] = $obj;
-$proto42["m_sql"] = "event_profile";
-$proto42["m_alias"] = "";
+$proto42["m_sql"] = "`Email Address`";
 $proto42["m_srcTableName"] = "event_profile";
-$proto44=array();
-$proto44["m_sql"] = "";
-$proto44["m_uniontype"] = "SQLL_UNKNOWN";
+$proto42["m_expr"]=$obj;
+$proto42["m_alias"] = "";
+$obj = new SQLFieldListItem($proto42);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto44=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Disablity Status",
+	"m_strTable" => "event_profile",
+	"m_srcTableName" => "event_profile"
+));
+
+$proto44["m_sql"] = "`Disablity Status`";
+$proto44["m_srcTableName"] = "event_profile";
+$proto44["m_expr"]=$obj;
+$proto44["m_alias"] = "";
+$obj = new SQLFieldListItem($proto44);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto46=array();
+$proto46["m_link"] = "SQLL_MAIN";
+			$proto47=array();
+$proto47["m_strName"] = "event_profile";
+$proto47["m_srcTableName"] = "event_profile";
+$proto47["m_columns"] = array();
+$proto47["m_columns"][] = "EventID";
+$proto47["m_columns"][] = "CandidateID";
+$proto47["m_columns"][] = "TrainingID";
+$proto47["m_columns"][] = "First Name";
+$proto47["m_columns"][] = "Middle Name";
+$proto47["m_columns"][] = "Last Name";
+$proto47["m_columns"][] = "Sex";
+$proto47["m_columns"][] = "Event start date";
+$proto47["m_columns"][] = "Event end date";
+$proto47["m_columns"][] = "Event Name";
+$proto47["m_columns"][] = "Region";
+$proto47["m_columns"][] = "City";
+$proto47["m_columns"][] = "Participant Profession";
+$proto47["m_columns"][] = "Participant Field of Study";
+$proto47["m_columns"][] = "Participant Organization Type";
+$proto47["m_columns"][] = "Participant Organization Name";
+$proto47["m_columns"][] = "Participant Home Address";
+$proto47["m_columns"][] = "Phone Number";
+$proto47["m_columns"][] = "Email Address";
+$proto47["m_columns"][] = "Disablity Status";
+$obj = new SQLTable($proto47);
+
+$proto46["m_table"] = $obj;
+$proto46["m_sql"] = "event_profile";
+$proto46["m_alias"] = "";
+$proto46["m_srcTableName"] = "event_profile";
+$proto48=array();
+$proto48["m_sql"] = "";
+$proto48["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto44["m_column"]=$obj;
-$proto44["m_contained"] = array();
-$proto44["m_strCase"] = "";
-$proto44["m_havingmode"] = false;
-$proto44["m_inBrackets"] = false;
-$proto44["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto44);
+$proto48["m_column"]=$obj;
+$proto48["m_contained"] = array();
+$proto48["m_strCase"] = "";
+$proto48["m_havingmode"] = false;
+$proto48["m_inBrackets"] = false;
+$proto48["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto48);
 
-$proto42["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto42);
+$proto46["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto46);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -3384,7 +3715,7 @@ $queryData_event_profile = createSqlQuery_event_profile();
 	
 		;
 
-																		
+																				
 
 $tdataevent_profile[".sqlquery"] = $queryData_event_profile;
 

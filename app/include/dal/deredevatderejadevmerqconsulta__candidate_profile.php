@@ -1,6 +1,8 @@
 <?php
 $dalTablecandidate_profile = array();
-$dalTablecandidate_profile["ID"] = array("type"=>3,"varname"=>"ID", "name" => "ID");
+$dalTablecandidate_profile["CandidateID"] = array("type"=>3,"varname"=>"CandidateID", "name" => "CandidateID");
+$dalTablecandidate_profile["EventID"] = array("type"=>3,"varname"=>"EventID", "name" => "EventID");
+$dalTablecandidate_profile["TrainingID"] = array("type"=>3,"varname"=>"TrainingID", "name" => "TrainingID");
 $dalTablecandidate_profile["First Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First Name");
 $dalTablecandidate_profile["Middle Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle Name");
 $dalTablecandidate_profile["Last Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last Name");
@@ -49,7 +51,7 @@ $dalTablecandidate_profile["Disablity Status"] = array("type"=>200,"varname"=>"D
 $dalTablecandidate_profile["Pre-Test Score"] = array("type"=>3,"varname"=>"Pre_Test_Score", "name" => "Pre-Test Score");
 $dalTablecandidate_profile["Skill Test"] = array("type"=>200,"varname"=>"Skill_Test", "name" => "Skill Test");
 $dalTablecandidate_profile["Post-Test Score"] = array("type"=>3,"varname"=>"Post_Test_Score", "name" => "Post-Test Score");
-	$dalTablecandidate_profile["ID"]["key"]=true;
+	$dalTablecandidate_profile["CandidateID"]["key"]=true;
 
 $dal_info["deredevatderejadevmerqconsulta__candidate_profile"] = &$dalTablecandidate_profile;
 ?>

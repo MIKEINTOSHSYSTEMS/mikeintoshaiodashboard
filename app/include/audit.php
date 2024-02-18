@@ -314,6 +314,14 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Events")
+		{
+			return false;
+		}
+		if($table=="Trainings")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -631,6 +639,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="candidate_profile")
+		{
+			return false;
+		}
+		if($table=="Events")
+		{
+			return false;
+		}
+		if($table=="Trainings")
 		{
 			return false;
 		}

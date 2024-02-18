@@ -117,9 +117,6 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$ID_pdfvalue}},
-				
-				
 			{"hidden":"{$item_hide_integrated_search_field1}","text":{$First_Name_pdfvalue}},
 				
 				
@@ -199,6 +196,15 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_search_field27}","text":{$Post_Test_Score_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field}","text":{$TrainingID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field28}","text":{$CandidateID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field29}","text":{$EventID_pdfvalue}},
 				
 		  ],
   "border": [ false, false, false, false ],

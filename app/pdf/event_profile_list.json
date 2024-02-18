@@ -118,6 +118,12 @@ pdfDocument = {
 										{BEGIN col_grid_19}
 					"%",
 					{END col_grid_19}
+										{BEGIN col_grid_20}
+					"%",
+					{END col_grid_20}
+										{BEGIN col_grid_21}
+					"%",
+					{END col_grid_21}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -234,6 +240,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_delete}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_update_selected}"},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
@@ -332,32 +341,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_checkbox}
-																			{BEGIN cellblock_grid_headcell_field}
-{
-	cellId: 'headcell_field',
-	col:0,
-	row:0,
-			style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field18}","text":"{$jslabel event_profile ID }","bold":true},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$ID_align}',
-  },
-
-{END cellblock_grid_headcell_field}
 																			{BEGIN cellblock_grid_headcell_field1}
 {
 	cellId: 'headcell_field1',
@@ -800,6 +783,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_headcell_field17}
+																			{BEGIN cellblock_grid_headcell_field}
+{
+	cellId: 'headcell_field',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field_label}","text":"{$jslabel event_profile EventID }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$EventID_align}',
+  },
+
+{END cellblock_grid_headcell_field}
+																			{BEGIN cellblock_grid_headcell_field18}
+{
+	cellId: 'headcell_field18',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field_label1}","text":"{$jslabel event_profile CandidateID }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$CandidateID_align}',
+  },
+
+{END cellblock_grid_headcell_field18}
+																			{BEGIN cellblock_grid_headcell_field19}
+{
+	cellId: 'headcell_field19',
+	col:0,
+	row:0,
+			style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field_label2}","text":"{$jslabel event_profile TrainingID }","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$TrainingID_align}',
+  },
+
+{END cellblock_grid_headcell_field19}
 											],
 				{END row_grid_0}
 								
@@ -827,6 +888,9 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_grid_edit}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_inline_edit}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_grid_inline_save}"},
@@ -869,32 +933,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_checkbox}
-																			{BEGIN cellblock_grid_cell_field}
-{
-	cellId: 'cell_field',
-	col:0,
-	row:0,
-			style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"hidden":"{$item_hide_simple_grid_field}","text":{$ID_pdfvalue}},
-				
-		  ],
-  "border": [ true, true, true, true ],
-          "alignment": '{$ID_align}',
-  },
-
-{END cellblock_grid_cell_field}
 																			{BEGIN cellblock_grid_cell_field1}
 {
 	cellId: 'cell_field1',
@@ -1337,6 +1375,84 @@ pdfDocument = {
   },
 
 {END cellblock_grid_cell_field17}
+																			{BEGIN cellblock_grid_cell_field}
+{
+	cellId: 'cell_field',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field}","text":{$EventID_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$EventID_align}',
+  },
+
+{END cellblock_grid_cell_field}
+																			{BEGIN cellblock_grid_cell_field18}
+{
+	cellId: 'cell_field18',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field1}","text":{$CandidateID_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$CandidateID_align}',
+  },
+
+{END cellblock_grid_cell_field18}
+																			{BEGIN cellblock_grid_cell_field19}
+{
+	cellId: 'cell_field19',
+	col:0,
+	row:0,
+			style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"hidden":"{$item_hide_grid_field2}","text":{$TrainingID_pdfvalue}},
+				
+		  ],
+  "border": [ true, true, true, true ],
+          "alignment": '{$TrainingID_align}',
+  },
+
+{END cellblock_grid_cell_field19}
 											],
 				{END row_grid_1}
 						{END grid_record}
@@ -1393,30 +1509,6 @@ pdfDocument = {
   },
 
 {END cellblock_grid_footcell_checkbox}
-																			{BEGIN cellblock_grid_footcell_field}
-{
-	cellId: 'footcell_field',
-	col:0,
-	row:0,
-			style: 'footcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
-
-{END cellblock_grid_footcell_field}
 																			{BEGIN cellblock_grid_footcell_field1}
 {
 	cellId: 'footcell_field1',
@@ -1825,6 +1917,78 @@ pdfDocument = {
   },
 
 {END cellblock_grid_footcell_field17}
+																			{BEGIN cellblock_grid_footcell_field}
+{
+	cellId: 'footcell_field',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          "alignment": 'left',
+  },
+
+{END cellblock_grid_footcell_field}
+																			{BEGIN cellblock_grid_footcell_field18}
+{
+	cellId: 'footcell_field18',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          "alignment": 'left',
+  },
+
+{END cellblock_grid_footcell_field18}
+																			{BEGIN cellblock_grid_footcell_field19}
+{
+	cellId: 'footcell_field19',
+	col:0,
+	row:0,
+			style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+          "alignment": 'left',
+  },
+
+{END cellblock_grid_footcell_field19}
 											],
 				{END row_grid_2}
 							

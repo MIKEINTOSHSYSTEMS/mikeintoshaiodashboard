@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "18_1708021312";
+$projectBuildKey = "33_1708194919";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "18";
+$projectBuildNumber = "33";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -668,6 +668,8 @@ $tableCaptions["English"][""] = "";
 $tableCaptions["English"]["training_profile"] = "Training Profile";
 $tableCaptions["English"]["event_profile"] = "Event Profile";
 $tableCaptions["English"]["candidate_profile"] = "Candidate Profile";
+$tableCaptions["English"]["Events"] = "Events";
+$tableCaptions["English"]["Trainings"] = "Trainings";
 
 
 $globalEvents = new class_GlobalEvents;

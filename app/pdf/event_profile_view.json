@@ -122,9 +122,6 @@ pdfDocument = {
 		{END mastertable_block},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel event_profile ID }","bold":true},{"text":{$ID_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel event_profile First_Name }","bold":true},{"text":{$First_Name_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
@@ -174,6 +171,15 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel event_profile Disablity_Status }","bold":true},{"text":{$Disablity_Status_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel event_profile EventID }","bold":true},{"text":{$EventID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel event_profile CandidateID }","bold":true},{"text":{$CandidateID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel event_profile TrainingID }","bold":true},{"text":{$TrainingID_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

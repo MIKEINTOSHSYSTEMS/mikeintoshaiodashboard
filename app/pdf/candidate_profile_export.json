@@ -105,9 +105,6 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_export_field}","text":{$ID_pdfvalue}},
-				
-				
 			{"hidden":"{$item_hide_export_field1}","text":{$First_Name_pdfvalue}},
 				
 				
@@ -250,6 +247,15 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_export_field48}","text":{$Post_Test_Score_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field}","text":{$CandidateID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field49}","text":{$EventID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field50}","text":{$TrainingID_pdfvalue}},
 				
 		  ],
   "border": [ false, false, false, false ],

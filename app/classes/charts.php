@@ -444,6 +444,10 @@ class Chart
 			return true;
 		if("candidate_profile" == $this->chrt_array['tables'][0])
 			return true;
+		if("Events" == $this->chrt_array['tables'][0])
+			return true;
+		if("Trainings" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

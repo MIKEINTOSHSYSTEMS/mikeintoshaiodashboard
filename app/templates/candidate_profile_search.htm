@@ -123,31 +123,6 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN ID_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_ID}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="ID" 
-	
-	data-signal-error-for="ID{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="ID" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_ID}">
-		{$label candidate_profile ID }	</label>
-	<div class="r-search-option">
-		{$searchtype_ID}
-	</div>
-	<div class="r-search-field">
-		{$ID_editcontrol}	</div>
-	<div class="r-search-field">
-		{$ID_editcontrol1}
-	</div>
-	
-</div>
-
-{END ID_fieldblock}
-											
 {BEGIN First_Name_fieldblock}
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-horizontal-field form-horizontal" 
@@ -1347,6 +1322,81 @@
 </div>
 
 {END Post_Test_Score_fieldblock}
+											
+{BEGIN CandidateID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="CandidateID" 
+	
+	data-signal-error-for="CandidateID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="CandidateID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_CandidateID}">
+		{$label candidate_profile CandidateID }	</label>
+	<div class="r-search-option">
+		{$searchtype_CandidateID}
+	</div>
+	<div class="r-search-field">
+		{$CandidateID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$CandidateID_editcontrol1}
+	</div>
+	
+</div>
+
+{END CandidateID_fieldblock}
+											
+{BEGIN EventID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EventID}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="EventID" 
+	
+	data-signal-error-for="EventID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field49" {$item_integrated_search_field49} data-pageid="{$pageid}" data-field="EventID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_EventID}">
+		{$label candidate_profile EventID }	</label>
+	<div class="r-search-option">
+		{$searchtype_EventID}
+	</div>
+	<div class="r-search-field">
+		{$EventID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$EventID_editcontrol1}
+	</div>
+	
+</div>
+
+{END EventID_fieldblock}
+											
+{BEGIN TrainingID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_TrainingID}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="TrainingID" 
+	
+	data-signal-error-for="TrainingID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field50" {$item_integrated_search_field50} data-pageid="{$pageid}" data-field="TrainingID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_TrainingID}">
+		{$label candidate_profile TrainingID }	</label>
+	<div class="r-search-option">
+		{$searchtype_TrainingID}
+	</div>
+	<div class="r-search-field">
+		{$TrainingID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$TrainingID_editcontrol1}
+	</div>
+	
+</div>
+
+{END TrainingID_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

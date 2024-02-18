@@ -113,6 +113,45 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_Certifications}</span>
 						</div>
 		{END searchCtrlBlock_Certifications}
+																{BEGIN searchCtrlBlock_TrainingID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_TrainingID}" {$filterRow_attrs_TrainingID}>
+			<label>{$label candidate_profile TrainingID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_TrainingID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_TrainingID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_TrainingID}</span>
+						</div>
+		{END searchCtrlBlock_TrainingID}
+																{BEGIN searchCtrlBlock_EventID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_EventID}" {$filterRow_attrs_EventID}>
+			<label>{$label candidate_profile EventID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_EventID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_EventID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_EventID}</span>
+						</div>
+		{END searchCtrlBlock_EventID}
+																{BEGIN searchCtrlBlock_CandidateID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
+			<label>{$label candidate_profile CandidateID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
+						</div>
+		{END searchCtrlBlock_CandidateID}
 																{BEGIN searchCtrlBlock_Zone}
 
 
@@ -542,19 +581,6 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_IT_Related_Skills}</span>
 						</div>
 		{END searchCtrlBlock_IT_Related_Skills}
-																{BEGIN searchCtrlBlock_ID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_ID}" {$filterRow_attrs_ID}>
-			<label>{$label candidate_profile ID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_ID}</span>
-						</div>
-		{END searchCtrlBlock_ID}
 																{BEGIN searchCtrlBlock_House_No}
 
 
@@ -749,6 +775,6838 @@
 <!-- End Search panel content -->
 			</div>
 		
+ 
+
+			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="filter_panel" {$item_filter_panel} data-topcell-item-type="filter_panel" >
+				<div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
+<!--
+	<button type="button" class="btn btn-info bs-togglebutton bottom-margin collapsed" data-runner-toggle="collapse" data-target=".filterPanelContainer">	
+		<span class="glyphicon glyphicon-filter"><span> Filter	
+	</button>
+-->	
+	<div class="filterPanelContainer {$filterPanelStateClass}">
+
+
+
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Post_Test_Score}
+		<div class="panel panel-info filter-field filter-Post_Test_Score-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Post_Test_Score }</label>
+
+				{BEGIN clearLink_Post_Test_Score}
+				<a href="#" class="filter-clear filter-clear-Post_Test_Score">Clear</a>
+				{END clearLink_Post_Test_Score}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Post_Test_Score}
+				<li class="list-group-item filter-values filter-values-Post_Test_Score {$collapsedClass_Post_Test_Score} {$visibilityClass_Post_Test_Score}">
+					{$Post_Test_Score_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Post_Test_Score}
+
+							{BEGIN filter_button_showmore_Post_Test_Score}
+				<li class="list-group-item filter-show-more {$collapsedClass_Post_Test_Score} {$showMoreBtnClass_Post_Test_Score}">
+					<a class="filter-show-more-link filterShowMore_Post_Test_Score" href="#">{$show_n_more_Post_Test_Score}</a>
+				</li>
+				{END filter_button_showmore_Post_Test_Score}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Post_Test_Score}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Skill_Test}
+		<div class="panel panel-info filter-field filter-Skill_Test-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Skill_Test }</label>
+
+				{BEGIN clearLink_Skill_Test}
+				<a href="#" class="filter-clear filter-clear-Skill_Test">Clear</a>
+				{END clearLink_Skill_Test}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Skill_Test}
+				<li class="list-group-item filter-values filter-values-Skill_Test {$collapsedClass_Skill_Test} {$visibilityClass_Skill_Test}">
+					{$Skill_Test_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Skill_Test}
+
+							{BEGIN filter_button_showmore_Skill_Test}
+				<li class="list-group-item filter-show-more {$collapsedClass_Skill_Test} {$showMoreBtnClass_Skill_Test}">
+					<a class="filter-show-more-link filterShowMore_Skill_Test" href="#">{$show_n_more_Skill_Test}</a>
+				</li>
+				{END filter_button_showmore_Skill_Test}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Skill_Test}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Pre_Test_Score}
+		<div class="panel panel-info filter-field filter-Pre_Test_Score-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Pre_Test_Score }</label>
+
+				{BEGIN clearLink_Pre_Test_Score}
+				<a href="#" class="filter-clear filter-clear-Pre_Test_Score">Clear</a>
+				{END clearLink_Pre_Test_Score}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Pre_Test_Score}
+				<li class="list-group-item filter-values filter-values-Pre_Test_Score {$collapsedClass_Pre_Test_Score} {$visibilityClass_Pre_Test_Score}">
+					{$Pre_Test_Score_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Pre_Test_Score}
+
+							{BEGIN filter_button_showmore_Pre_Test_Score}
+				<li class="list-group-item filter-show-more {$collapsedClass_Pre_Test_Score} {$showMoreBtnClass_Pre_Test_Score}">
+					<a class="filter-show-more-link filterShowMore_Pre_Test_Score" href="#">{$show_n_more_Pre_Test_Score}</a>
+				</li>
+				{END filter_button_showmore_Pre_Test_Score}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Pre_Test_Score}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Disablity_Status}
+		<div class="panel panel-info filter-field filter-Disablity_Status-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Disablity_Status }</label>
+
+				{BEGIN clearLink_Disablity_Status}
+				<a href="#" class="filter-clear filter-clear-Disablity_Status">Clear</a>
+				{END clearLink_Disablity_Status}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Disablity_Status}
+				<li class="list-group-item filter-values filter-values-Disablity_Status {$collapsedClass_Disablity_Status} {$visibilityClass_Disablity_Status}">
+					{$Disablity_Status_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Disablity_Status}
+
+							{BEGIN filter_button_showmore_Disablity_Status}
+				<li class="list-group-item filter-show-more {$collapsedClass_Disablity_Status} {$showMoreBtnClass_Disablity_Status}">
+					<a class="filter-show-more-link filterShowMore_Disablity_Status" href="#">{$show_n_more_Disablity_Status}</a>
+				</li>
+				{END filter_button_showmore_Disablity_Status}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Disablity_Status}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Participant_Home_Address}
+		<div class="panel panel-info filter-field filter-Participant_Home_Address-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Participant_Home_Address }</label>
+
+				{BEGIN clearLink_Participant_Home_Address}
+				<a href="#" class="filter-clear filter-clear-Participant_Home_Address">Clear</a>
+				{END clearLink_Participant_Home_Address}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Participant_Home_Address}
+				<li class="list-group-item filter-values filter-values-Participant_Home_Address {$collapsedClass_Participant_Home_Address} {$visibilityClass_Participant_Home_Address}">
+					{$Participant_Home_Address_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Participant_Home_Address}
+
+							{BEGIN filter_button_showmore_Participant_Home_Address}
+				<li class="list-group-item filter-show-more {$collapsedClass_Participant_Home_Address} {$showMoreBtnClass_Participant_Home_Address}">
+					<a class="filter-show-more-link filterShowMore_Participant_Home_Address" href="#">{$show_n_more_Participant_Home_Address}</a>
+				</li>
+				{END filter_button_showmore_Participant_Home_Address}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Participant_Home_Address}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Participant_Organization_Name}
+		<div class="panel panel-info filter-field filter-Participant_Organization_Name-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Participant_Organization_Name }</label>
+
+				{BEGIN clearLink_Participant_Organization_Name}
+				<a href="#" class="filter-clear filter-clear-Participant_Organization_Name">Clear</a>
+				{END clearLink_Participant_Organization_Name}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Participant_Organization_Name}
+				<li class="list-group-item filter-values filter-values-Participant_Organization_Name {$collapsedClass_Participant_Organization_Name} {$visibilityClass_Participant_Organization_Name}">
+					{$Participant_Organization_Name_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Participant_Organization_Name}
+
+							{BEGIN filter_button_showmore_Participant_Organization_Name}
+				<li class="list-group-item filter-show-more {$collapsedClass_Participant_Organization_Name} {$showMoreBtnClass_Participant_Organization_Name}">
+					<a class="filter-show-more-link filterShowMore_Participant_Organization_Name" href="#">{$show_n_more_Participant_Organization_Name}</a>
+				</li>
+				{END filter_button_showmore_Participant_Organization_Name}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Participant_Organization_Name}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Participant_Facility_or_Organization_Type}
+		<div class="panel panel-info filter-field filter-Participant_Facility_or_Organization_Type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Participant_Facility_or_Organization_Type }</label>
+
+				{BEGIN clearLink_Participant_Facility_or_Organization_Type}
+				<a href="#" class="filter-clear filter-clear-Participant_Facility_or_Organization_Type">Clear</a>
+				{END clearLink_Participant_Facility_or_Organization_Type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Participant_Facility_or_Organization_Type}
+				<li class="list-group-item filter-values filter-values-Participant_Facility_or_Organization_Type {$collapsedClass_Participant_Facility_or_Organization_Type} {$visibilityClass_Participant_Facility_or_Organization_Type}">
+					{$Participant_Facility_or_Organization_Type_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Participant_Facility_or_Organization_Type}
+
+							{BEGIN filter_button_showmore_Participant_Facility_or_Organization_Type}
+				<li class="list-group-item filter-show-more {$collapsedClass_Participant_Facility_or_Organization_Type} {$showMoreBtnClass_Participant_Facility_or_Organization_Type}">
+					<a class="filter-show-more-link filterShowMore_Participant_Facility_or_Organization_Type" href="#">{$show_n_more_Participant_Facility_or_Organization_Type}</a>
+				</li>
+				{END filter_button_showmore_Participant_Facility_or_Organization_Type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Participant_Facility_or_Organization_Type}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Participant_Field_of_Study}
+		<div class="panel panel-info filter-field filter-Participant_Field_of_Study-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Participant_Field_of_Study }</label>
+
+				{BEGIN clearLink_Participant_Field_of_Study}
+				<a href="#" class="filter-clear filter-clear-Participant_Field_of_Study">Clear</a>
+				{END clearLink_Participant_Field_of_Study}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Participant_Field_of_Study}
+				<li class="list-group-item filter-values filter-values-Participant_Field_of_Study {$collapsedClass_Participant_Field_of_Study} {$visibilityClass_Participant_Field_of_Study}">
+					{$Participant_Field_of_Study_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Participant_Field_of_Study}
+
+							{BEGIN filter_button_showmore_Participant_Field_of_Study}
+				<li class="list-group-item filter-show-more {$collapsedClass_Participant_Field_of_Study} {$showMoreBtnClass_Participant_Field_of_Study}">
+					<a class="filter-show-more-link filterShowMore_Participant_Field_of_Study" href="#">{$show_n_more_Participant_Field_of_Study}</a>
+				</li>
+				{END filter_button_showmore_Participant_Field_of_Study}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Participant_Field_of_Study}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Participant_Profession}
+		<div class="panel panel-info filter-field filter-Participant_Profession-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Participant_Profession }</label>
+
+				{BEGIN clearLink_Participant_Profession}
+				<a href="#" class="filter-clear filter-clear-Participant_Profession">Clear</a>
+				{END clearLink_Participant_Profession}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Participant_Profession}
+				<li class="list-group-item filter-values filter-values-Participant_Profession {$collapsedClass_Participant_Profession} {$visibilityClass_Participant_Profession}">
+					{$Participant_Profession_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Participant_Profession}
+
+							{BEGIN filter_button_showmore_Participant_Profession}
+				<li class="list-group-item filter-show-more {$collapsedClass_Participant_Profession} {$showMoreBtnClass_Participant_Profession}">
+					<a class="filter-show-more-link filterShowMore_Participant_Profession" href="#">{$show_n_more_Participant_Profession}</a>
+				</li>
+				{END filter_button_showmore_Participant_Profession}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Participant_Profession}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_Title}
+		<div class="panel panel-info filter-field filter-Training_Title-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_Title }</label>
+
+				{BEGIN clearLink_Training_Title}
+				<a href="#" class="filter-clear filter-clear-Training_Title">Clear</a>
+				{END clearLink_Training_Title}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_Title}
+				<li class="list-group-item filter-values filter-values-Training_Title {$collapsedClass_Training_Title} {$visibilityClass_Training_Title}">
+					{$Training_Title_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_Title}
+
+							{BEGIN filter_button_showmore_Training_Title}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_Title} {$showMoreBtnClass_Training_Title}">
+					<a class="filter-show-more-link filterShowMore_Training_Title" href="#">{$show_n_more_Training_Title}</a>
+				</li>
+				{END filter_button_showmore_Training_Title}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_Title}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_end_date}
+		<div class="panel panel-info filter-field filter-Training_end_date-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_end_date }</label>
+
+				{BEGIN clearLink_Training_end_date}
+				<a href="#" class="filter-clear filter-clear-Training_end_date">Clear</a>
+				{END clearLink_Training_end_date}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_end_date}
+				<li class="list-group-item filter-values filter-values-Training_end_date {$collapsedClass_Training_end_date} {$visibilityClass_Training_end_date}">
+					{$Training_end_date_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_end_date}
+
+							{BEGIN filter_button_showmore_Training_end_date}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_end_date} {$showMoreBtnClass_Training_end_date}">
+					<a class="filter-show-more-link filterShowMore_Training_end_date" href="#">{$show_n_more_Training_end_date}</a>
+				</li>
+				{END filter_button_showmore_Training_end_date}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_end_date}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_start_date}
+		<div class="panel panel-info filter-field filter-Training_start_date-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_start_date }</label>
+
+				{BEGIN clearLink_Training_start_date}
+				<a href="#" class="filter-clear filter-clear-Training_start_date">Clear</a>
+				{END clearLink_Training_start_date}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_start_date}
+				<li class="list-group-item filter-values filter-values-Training_start_date {$collapsedClass_Training_start_date} {$visibilityClass_Training_start_date}">
+					{$Training_start_date_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_start_date}
+
+							{BEGIN filter_button_showmore_Training_start_date}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_start_date} {$showMoreBtnClass_Training_start_date}">
+					<a class="filter-show-more-link filterShowMore_Training_start_date" href="#">{$show_n_more_Training_start_date}</a>
+				</li>
+				{END filter_button_showmore_Training_start_date}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_start_date}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_Venue}
+		<div class="panel panel-info filter-field filter-Training_Venue-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_Venue }</label>
+
+				{BEGIN clearLink_Training_Venue}
+				<a href="#" class="filter-clear filter-clear-Training_Venue">Clear</a>
+				{END clearLink_Training_Venue}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_Venue}
+				<li class="list-group-item filter-values filter-values-Training_Venue {$collapsedClass_Training_Venue} {$visibilityClass_Training_Venue}">
+					{$Training_Venue_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_Venue}
+
+							{BEGIN filter_button_showmore_Training_Venue}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_Venue} {$showMoreBtnClass_Training_Venue}">
+					<a class="filter-show-more-link filterShowMore_Training_Venue" href="#">{$show_n_more_Training_Venue}</a>
+				</li>
+				{END filter_button_showmore_Training_Venue}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_Venue}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_City_Town}
+		<div class="panel panel-info filter-field filter-Training_City_Town-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_City_Town }</label>
+
+				{BEGIN clearLink_Training_City_Town}
+				<a href="#" class="filter-clear filter-clear-Training_City_Town">Clear</a>
+				{END clearLink_Training_City_Town}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_City_Town}
+				<li class="list-group-item filter-values filter-values-Training_City_Town {$collapsedClass_Training_City_Town} {$visibilityClass_Training_City_Town}">
+					{$Training_City_Town_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_City_Town}
+
+							{BEGIN filter_button_showmore_Training_City_Town}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_City_Town} {$showMoreBtnClass_Training_City_Town}">
+					<a class="filter-show-more-link filterShowMore_Training_City_Town" href="#">{$show_n_more_Training_City_Town}</a>
+				</li>
+				{END filter_button_showmore_Training_City_Town}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_City_Town}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Program_Area}
+		<div class="panel panel-info filter-field filter-Program_Area-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Program_Area }</label>
+
+				{BEGIN clearLink_Program_Area}
+				<a href="#" class="filter-clear filter-clear-Program_Area">Clear</a>
+				{END clearLink_Program_Area}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Program_Area}
+				<li class="list-group-item filter-values filter-values-Program_Area {$collapsedClass_Program_Area} {$visibilityClass_Program_Area}">
+					{$Program_Area_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Program_Area}
+
+							{BEGIN filter_button_showmore_Program_Area}
+				<li class="list-group-item filter-show-more {$collapsedClass_Program_Area} {$showMoreBtnClass_Program_Area}">
+					<a class="filter-show-more-link filterShowMore_Program_Area" href="#">{$show_n_more_Program_Area}</a>
+				</li>
+				{END filter_button_showmore_Program_Area}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Program_Area}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_Type}
+		<div class="panel panel-info filter-field filter-Training_Type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_Type }</label>
+
+				{BEGIN clearLink_Training_Type}
+				<a href="#" class="filter-clear filter-clear-Training_Type">Clear</a>
+				{END clearLink_Training_Type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_Type}
+				<li class="list-group-item filter-values filter-values-Training_Type {$collapsedClass_Training_Type} {$visibilityClass_Training_Type}">
+					{$Training_Type_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_Type}
+
+							{BEGIN filter_button_showmore_Training_Type}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_Type} {$showMoreBtnClass_Training_Type}">
+					<a class="filter-show-more-link filterShowMore_Training_Type" href="#">{$show_n_more_Training_Type}</a>
+				</li>
+				{END filter_button_showmore_Training_Type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_Type}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Training_Organizer}
+		<div class="panel panel-info filter-field filter-Training_Organizer-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Training_Organizer }</label>
+
+				{BEGIN clearLink_Training_Organizer}
+				<a href="#" class="filter-clear filter-clear-Training_Organizer">Clear</a>
+				{END clearLink_Training_Organizer}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Training_Organizer}
+				<li class="list-group-item filter-values filter-values-Training_Organizer {$collapsedClass_Training_Organizer} {$visibilityClass_Training_Organizer}">
+					{$Training_Organizer_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Training_Organizer}
+
+							{BEGIN filter_button_showmore_Training_Organizer}
+				<li class="list-group-item filter-show-more {$collapsedClass_Training_Organizer} {$showMoreBtnClass_Training_Organizer}">
+					<a class="filter-show-more-link filterShowMore_Training_Organizer" href="#">{$show_n_more_Training_Organizer}</a>
+				</li>
+				{END filter_button_showmore_Training_Organizer}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Training_Organizer}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Dereja_Information_Source}
+		<div class="panel panel-info filter-field filter-Dereja_Information_Source-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Dereja_Information_Source }</label>
+
+				{BEGIN clearLink_Dereja_Information_Source}
+				<a href="#" class="filter-clear filter-clear-Dereja_Information_Source">Clear</a>
+				{END clearLink_Dereja_Information_Source}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Dereja_Information_Source}
+				<li class="list-group-item filter-values filter-values-Dereja_Information_Source {$collapsedClass_Dereja_Information_Source} {$visibilityClass_Dereja_Information_Source}">
+					{$Dereja_Information_Source_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Dereja_Information_Source}
+
+							{BEGIN filter_button_showmore_Dereja_Information_Source}
+				<li class="list-group-item filter-show-more {$collapsedClass_Dereja_Information_Source} {$showMoreBtnClass_Dereja_Information_Source}">
+					<a class="filter-show-more-link filterShowMore_Dereja_Information_Source" href="#">{$show_n_more_Dereja_Information_Source}</a>
+				</li>
+				{END filter_button_showmore_Dereja_Information_Source}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Dereja_Information_Source}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Dereja_web_profile_completion}
+		<div class="panel panel-info filter-field filter-Dereja_web_profile_completion-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Dereja_web_profile_completion }</label>
+
+				{BEGIN clearLink_Dereja_web_profile_completion}
+				<a href="#" class="filter-clear filter-clear-Dereja_web_profile_completion">Clear</a>
+				{END clearLink_Dereja_web_profile_completion}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Dereja_web_profile_completion}
+				<li class="list-group-item filter-values filter-values-Dereja_web_profile_completion {$collapsedClass_Dereja_web_profile_completion} {$visibilityClass_Dereja_web_profile_completion}">
+					{$Dereja_web_profile_completion_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Dereja_web_profile_completion}
+
+							{BEGIN filter_button_showmore_Dereja_web_profile_completion}
+				<li class="list-group-item filter-show-more {$collapsedClass_Dereja_web_profile_completion} {$showMoreBtnClass_Dereja_web_profile_completion}">
+					<a class="filter-show-more-link filterShowMore_Dereja_web_profile_completion" href="#">{$show_n_more_Dereja_web_profile_completion}</a>
+				</li>
+				{END filter_button_showmore_Dereja_web_profile_completion}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Dereja_web_profile_completion}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Dereja_Event_Services}
+		<div class="panel panel-info filter-field filter-Dereja_Event_Services-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Dereja_Event_Services }</label>
+
+				{BEGIN clearLink_Dereja_Event_Services}
+				<a href="#" class="filter-clear filter-clear-Dereja_Event_Services">Clear</a>
+				{END clearLink_Dereja_Event_Services}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Dereja_Event_Services}
+				<li class="list-group-item filter-values filter-values-Dereja_Event_Services {$collapsedClass_Dereja_Event_Services} {$visibilityClass_Dereja_Event_Services}">
+					{$Dereja_Event_Services_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Dereja_Event_Services}
+
+							{BEGIN filter_button_showmore_Dereja_Event_Services}
+				<li class="list-group-item filter-show-more {$collapsedClass_Dereja_Event_Services} {$showMoreBtnClass_Dereja_Event_Services}">
+					<a class="filter-show-more-link filterShowMore_Dereja_Event_Services" href="#">{$show_n_more_Dereja_Event_Services}</a>
+				</li>
+				{END filter_button_showmore_Dereja_Event_Services}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Dereja_Event_Services}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Dereja_Training_Services}
+		<div class="panel panel-info filter-field filter-Dereja_Training_Services-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Dereja_Training_Services }</label>
+
+				{BEGIN clearLink_Dereja_Training_Services}
+				<a href="#" class="filter-clear filter-clear-Dereja_Training_Services">Clear</a>
+				{END clearLink_Dereja_Training_Services}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Dereja_Training_Services}
+				<li class="list-group-item filter-values filter-values-Dereja_Training_Services {$collapsedClass_Dereja_Training_Services} {$visibilityClass_Dereja_Training_Services}">
+					{$Dereja_Training_Services_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Dereja_Training_Services}
+
+							{BEGIN filter_button_showmore_Dereja_Training_Services}
+				<li class="list-group-item filter-show-more {$collapsedClass_Dereja_Training_Services} {$showMoreBtnClass_Dereja_Training_Services}">
+					<a class="filter-show-more-link filterShowMore_Dereja_Training_Services" href="#">{$show_n_more_Dereja_Training_Services}</a>
+				</li>
+				{END filter_button_showmore_Dereja_Training_Services}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Dereja_Training_Services}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Dereja_Services}
+		<div class="panel panel-info filter-field filter-Dereja_Services-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Dereja_Services }</label>
+
+				{BEGIN clearLink_Dereja_Services}
+				<a href="#" class="filter-clear filter-clear-Dereja_Services">Clear</a>
+				{END clearLink_Dereja_Services}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Dereja_Services}
+				<li class="list-group-item filter-values filter-values-Dereja_Services {$collapsedClass_Dereja_Services} {$visibilityClass_Dereja_Services}">
+					{$Dereja_Services_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Dereja_Services}
+
+							{BEGIN filter_button_showmore_Dereja_Services}
+				<li class="list-group-item filter-show-more {$collapsedClass_Dereja_Services} {$showMoreBtnClass_Dereja_Services}">
+					<a class="filter-show-more-link filterShowMore_Dereja_Services" href="#">{$show_n_more_Dereja_Services}</a>
+				</li>
+				{END filter_button_showmore_Dereja_Services}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Dereja_Services}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Joined_Dereja_Services}
+		<div class="panel panel-info filter-field filter-Joined_Dereja_Services-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Joined_Dereja_Services }</label>
+
+				{BEGIN clearLink_Joined_Dereja_Services}
+				<a href="#" class="filter-clear filter-clear-Joined_Dereja_Services">Clear</a>
+				{END clearLink_Joined_Dereja_Services}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Joined_Dereja_Services}
+				<li class="list-group-item filter-values filter-values-Joined_Dereja_Services {$collapsedClass_Joined_Dereja_Services} {$visibilityClass_Joined_Dereja_Services}">
+					{$Joined_Dereja_Services_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Joined_Dereja_Services}
+
+							{BEGIN filter_button_showmore_Joined_Dereja_Services}
+				<li class="list-group-item filter-show-more {$collapsedClass_Joined_Dereja_Services} {$showMoreBtnClass_Joined_Dereja_Services}">
+					<a class="filter-show-more-link filterShowMore_Joined_Dereja_Services" href="#">{$show_n_more_Joined_Dereja_Services}</a>
+				</li>
+				{END filter_button_showmore_Joined_Dereja_Services}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Joined_Dereja_Services}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Work_Experience}
+		<div class="panel panel-info filter-field filter-Work_Experience-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Work_Experience }</label>
+
+				{BEGIN clearLink_Work_Experience}
+				<a href="#" class="filter-clear filter-clear-Work_Experience">Clear</a>
+				{END clearLink_Work_Experience}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Work_Experience}
+				<li class="list-group-item filter-values filter-values-Work_Experience {$collapsedClass_Work_Experience} {$visibilityClass_Work_Experience}">
+					{$Work_Experience_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Work_Experience}
+
+							{BEGIN filter_button_showmore_Work_Experience}
+				<li class="list-group-item filter-show-more {$collapsedClass_Work_Experience} {$showMoreBtnClass_Work_Experience}">
+					<a class="filter-show-more-link filterShowMore_Work_Experience" href="#">{$show_n_more_Work_Experience}</a>
+				</li>
+				{END filter_button_showmore_Work_Experience}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Work_Experience}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Year_of_graduation}
+		<div class="panel panel-info filter-field filter-Year_of_graduation-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Year_of_graduation }</label>
+
+				{BEGIN clearLink_Year_of_graduation}
+				<a href="#" class="filter-clear filter-clear-Year_of_graduation">Clear</a>
+				{END clearLink_Year_of_graduation}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Year_of_graduation}
+				<li class="list-group-item filter-values filter-values-Year_of_graduation {$collapsedClass_Year_of_graduation} {$visibilityClass_Year_of_graduation}">
+					{$Year_of_graduation_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Year_of_graduation}
+
+							{BEGIN filter_button_showmore_Year_of_graduation}
+				<li class="list-group-item filter-show-more {$collapsedClass_Year_of_graduation} {$showMoreBtnClass_Year_of_graduation}">
+					<a class="filter-show-more-link filterShowMore_Year_of_graduation" href="#">{$show_n_more_Year_of_graduation}</a>
+				</li>
+				{END filter_button_showmore_Year_of_graduation}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Year_of_graduation}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Certifications}
+		<div class="panel panel-info filter-field filter-Certifications-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Certifications }</label>
+
+				{BEGIN clearLink_Certifications}
+				<a href="#" class="filter-clear filter-clear-Certifications">Clear</a>
+				{END clearLink_Certifications}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Certifications}
+				<li class="list-group-item filter-values filter-values-Certifications {$collapsedClass_Certifications} {$visibilityClass_Certifications}">
+					{$Certifications_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Certifications}
+
+							{BEGIN filter_button_showmore_Certifications}
+				<li class="list-group-item filter-show-more {$collapsedClass_Certifications} {$showMoreBtnClass_Certifications}">
+					<a class="filter-show-more-link filterShowMore_Certifications" href="#">{$show_n_more_Certifications}</a>
+				</li>
+				{END filter_button_showmore_Certifications}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Certifications}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_IT_Related_Skills}
+		<div class="panel panel-info filter-field filter-IT_Related_Skills-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile IT_Related_Skills }</label>
+
+				{BEGIN clearLink_IT_Related_Skills}
+				<a href="#" class="filter-clear filter-clear-IT_Related_Skills">Clear</a>
+				{END clearLink_IT_Related_Skills}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_IT_Related_Skills}
+				<li class="list-group-item filter-values filter-values-IT_Related_Skills {$collapsedClass_IT_Related_Skills} {$visibilityClass_IT_Related_Skills}">
+					{$IT_Related_Skills_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_IT_Related_Skills}
+
+							{BEGIN filter_button_showmore_IT_Related_Skills}
+				<li class="list-group-item filter-show-more {$collapsedClass_IT_Related_Skills} {$showMoreBtnClass_IT_Related_Skills}">
+					<a class="filter-show-more-link filterShowMore_IT_Related_Skills" href="#">{$show_n_more_IT_Related_Skills}</a>
+				</li>
+				{END filter_button_showmore_IT_Related_Skills}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_IT_Related_Skills}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Industry_Specific_Skills}
+		<div class="panel panel-info filter-field filter-Industry_Specific_Skills-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Industry_Specific_Skills }</label>
+
+				{BEGIN clearLink_Industry_Specific_Skills}
+				<a href="#" class="filter-clear filter-clear-Industry_Specific_Skills">Clear</a>
+				{END clearLink_Industry_Specific_Skills}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Industry_Specific_Skills}
+				<li class="list-group-item filter-values filter-values-Industry_Specific_Skills {$collapsedClass_Industry_Specific_Skills} {$visibilityClass_Industry_Specific_Skills}">
+					{$Industry_Specific_Skills_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Industry_Specific_Skills}
+
+							{BEGIN filter_button_showmore_Industry_Specific_Skills}
+				<li class="list-group-item filter-show-more {$collapsedClass_Industry_Specific_Skills} {$showMoreBtnClass_Industry_Specific_Skills}">
+					<a class="filter-show-more-link filterShowMore_Industry_Specific_Skills" href="#">{$show_n_more_Industry_Specific_Skills}</a>
+				</li>
+				{END filter_button_showmore_Industry_Specific_Skills}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Industry_Specific_Skills}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_English_Proficiency_Level}
+		<div class="panel panel-info filter-field filter-English_Proficiency_Level-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile English_Proficiency_Level }</label>
+
+				{BEGIN clearLink_English_Proficiency_Level}
+				<a href="#" class="filter-clear filter-clear-English_Proficiency_Level">Clear</a>
+				{END clearLink_English_Proficiency_Level}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_English_Proficiency_Level}
+				<li class="list-group-item filter-values filter-values-English_Proficiency_Level {$collapsedClass_English_Proficiency_Level} {$visibilityClass_English_Proficiency_Level}">
+					{$English_Proficiency_Level_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_English_Proficiency_Level}
+
+							{BEGIN filter_button_showmore_English_Proficiency_Level}
+				<li class="list-group-item filter-show-more {$collapsedClass_English_Proficiency_Level} {$showMoreBtnClass_English_Proficiency_Level}">
+					<a class="filter-show-more-link filterShowMore_English_Proficiency_Level" href="#">{$show_n_more_English_Proficiency_Level}</a>
+				</li>
+				{END filter_button_showmore_English_Proficiency_Level}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_English_Proficiency_Level}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Skills}
+		<div class="panel panel-info filter-field filter-Skills-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Skills }</label>
+
+				{BEGIN clearLink_Skills}
+				<a href="#" class="filter-clear filter-clear-Skills">Clear</a>
+				{END clearLink_Skills}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Skills}
+				<li class="list-group-item filter-values filter-values-Skills {$collapsedClass_Skills} {$visibilityClass_Skills}">
+					{$Skills_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Skills}
+
+							{BEGIN filter_button_showmore_Skills}
+				<li class="list-group-item filter-show-more {$collapsedClass_Skills} {$showMoreBtnClass_Skills}">
+					<a class="filter-show-more-link filterShowMore_Skills" href="#">{$show_n_more_Skills}</a>
+				</li>
+				{END filter_button_showmore_Skills}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Skills}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Major}
+		<div class="panel panel-info filter-field filter-Major-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Major }</label>
+
+				{BEGIN clearLink_Major}
+				<a href="#" class="filter-clear filter-clear-Major">Clear</a>
+				{END clearLink_Major}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Major}
+				<li class="list-group-item filter-values filter-values-Major {$collapsedClass_Major} {$visibilityClass_Major}">
+					{$Major_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Major}
+
+							{BEGIN filter_button_showmore_Major}
+				<li class="list-group-item filter-show-more {$collapsedClass_Major} {$showMoreBtnClass_Major}">
+					<a class="filter-show-more-link filterShowMore_Major" href="#">{$show_n_more_Major}</a>
+				</li>
+				{END filter_button_showmore_Major}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Major}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Minor}
+		<div class="panel panel-info filter-field filter-Minor-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Minor }</label>
+
+				{BEGIN clearLink_Minor}
+				<a href="#" class="filter-clear filter-clear-Minor">Clear</a>
+				{END clearLink_Minor}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Minor}
+				<li class="list-group-item filter-values filter-values-Minor {$collapsedClass_Minor} {$visibilityClass_Minor}">
+					{$Minor_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Minor}
+
+							{BEGIN filter_button_showmore_Minor}
+				<li class="list-group-item filter-show-more {$collapsedClass_Minor} {$showMoreBtnClass_Minor}">
+					<a class="filter-show-more-link filterShowMore_Minor" href="#">{$show_n_more_Minor}</a>
+				</li>
+				{END filter_button_showmore_Minor}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Minor}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Department}
+		<div class="panel panel-info filter-field filter-Department-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Department }</label>
+
+				{BEGIN clearLink_Department}
+				<a href="#" class="filter-clear filter-clear-Department">Clear</a>
+				{END clearLink_Department}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Department}
+				<li class="list-group-item filter-values filter-values-Department {$collapsedClass_Department} {$visibilityClass_Department}">
+					{$Department_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Department}
+
+							{BEGIN filter_button_showmore_Department}
+				<li class="list-group-item filter-show-more {$collapsedClass_Department} {$showMoreBtnClass_Department}">
+					<a class="filter-show-more-link filterShowMore_Department" href="#">{$show_n_more_Department}</a>
+				</li>
+				{END filter_button_showmore_Department}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Department}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Education_Level}
+		<div class="panel panel-info filter-field filter-Education_Level-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Education_Level }</label>
+
+				{BEGIN clearLink_Education_Level}
+				<a href="#" class="filter-clear filter-clear-Education_Level">Clear</a>
+				{END clearLink_Education_Level}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Education_Level}
+				<li class="list-group-item filter-values filter-values-Education_Level {$collapsedClass_Education_Level} {$visibilityClass_Education_Level}">
+					{$Education_Level_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Education_Level}
+
+							{BEGIN filter_button_showmore_Education_Level}
+				<li class="list-group-item filter-show-more {$collapsedClass_Education_Level} {$showMoreBtnClass_Education_Level}">
+					<a class="filter-show-more-link filterShowMore_Education_Level" href="#">{$show_n_more_Education_Level}</a>
+				</li>
+				{END filter_button_showmore_Education_Level}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Education_Level}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Institution_Type}
+		<div class="panel panel-info filter-field filter-Institution_Type-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Institution_Type }</label>
+
+				{BEGIN clearLink_Institution_Type}
+				<a href="#" class="filter-clear filter-clear-Institution_Type">Clear</a>
+				{END clearLink_Institution_Type}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Institution_Type}
+				<li class="list-group-item filter-values filter-values-Institution_Type {$collapsedClass_Institution_Type} {$visibilityClass_Institution_Type}">
+					{$Institution_Type_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Institution_Type}
+
+							{BEGIN filter_button_showmore_Institution_Type}
+				<li class="list-group-item filter-show-more {$collapsedClass_Institution_Type} {$showMoreBtnClass_Institution_Type}">
+					<a class="filter-show-more-link filterShowMore_Institution_Type" href="#">{$show_n_more_Institution_Type}</a>
+				</li>
+				{END filter_button_showmore_Institution_Type}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Institution_Type}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Email_Address}
+		<div class="panel panel-info filter-field filter-Email_Address-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Email_Address }</label>
+
+				{BEGIN clearLink_Email_Address}
+				<a href="#" class="filter-clear filter-clear-Email_Address">Clear</a>
+				{END clearLink_Email_Address}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Email_Address}
+				<li class="list-group-item filter-values filter-values-Email_Address {$collapsedClass_Email_Address} {$visibilityClass_Email_Address}">
+					{$Email_Address_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Email_Address}
+
+							{BEGIN filter_button_showmore_Email_Address}
+				<li class="list-group-item filter-show-more {$collapsedClass_Email_Address} {$showMoreBtnClass_Email_Address}">
+					<a class="filter-show-more-link filterShowMore_Email_Address" href="#">{$show_n_more_Email_Address}</a>
+				</li>
+				{END filter_button_showmore_Email_Address}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Email_Address}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Phone_Number_Family}
+		<div class="panel panel-info filter-field filter-Phone_Number_Family-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Phone_Number_Family }</label>
+
+				{BEGIN clearLink_Phone_Number_Family}
+				<a href="#" class="filter-clear filter-clear-Phone_Number_Family">Clear</a>
+				{END clearLink_Phone_Number_Family}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Phone_Number_Family}
+				<li class="list-group-item filter-values filter-values-Phone_Number_Family {$collapsedClass_Phone_Number_Family} {$visibilityClass_Phone_Number_Family}">
+					{$Phone_Number_Family_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Phone_Number_Family}
+
+							{BEGIN filter_button_showmore_Phone_Number_Family}
+				<li class="list-group-item filter-show-more {$collapsedClass_Phone_Number_Family} {$showMoreBtnClass_Phone_Number_Family}">
+					<a class="filter-show-more-link filterShowMore_Phone_Number_Family" href="#">{$show_n_more_Phone_Number_Family}</a>
+				</li>
+				{END filter_button_showmore_Phone_Number_Family}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Phone_Number_Family}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Phone_Number}
+		<div class="panel panel-info filter-field filter-Phone_Number-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Phone_Number }</label>
+
+				{BEGIN clearLink_Phone_Number}
+				<a href="#" class="filter-clear filter-clear-Phone_Number">Clear</a>
+				{END clearLink_Phone_Number}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Phone_Number}
+				<li class="list-group-item filter-values filter-values-Phone_Number {$collapsedClass_Phone_Number} {$visibilityClass_Phone_Number}">
+					{$Phone_Number_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Phone_Number}
+
+							{BEGIN filter_button_showmore_Phone_Number}
+				<li class="list-group-item filter-show-more {$collapsedClass_Phone_Number} {$showMoreBtnClass_Phone_Number}">
+					<a class="filter-show-more-link filterShowMore_Phone_Number" href="#">{$show_n_more_Phone_Number}</a>
+				</li>
+				{END filter_button_showmore_Phone_Number}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Phone_Number}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_House_No}
+		<div class="panel panel-info filter-field filter-House_No-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile House_No }</label>
+
+				{BEGIN clearLink_House_No}
+				<a href="#" class="filter-clear filter-clear-House_No">Clear</a>
+				{END clearLink_House_No}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_House_No}
+				<li class="list-group-item filter-values filter-values-House_No {$collapsedClass_House_No} {$visibilityClass_House_No}">
+					{$House_No_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_House_No}
+
+							{BEGIN filter_button_showmore_House_No}
+				<li class="list-group-item filter-show-more {$collapsedClass_House_No} {$showMoreBtnClass_House_No}">
+					<a class="filter-show-more-link filterShowMore_House_No" href="#">{$show_n_more_House_No}</a>
+				</li>
+				{END filter_button_showmore_House_No}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_House_No}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Zone}
+		<div class="panel panel-info filter-field filter-Zone-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Zone }</label>
+
+				{BEGIN clearLink_Zone}
+				<a href="#" class="filter-clear filter-clear-Zone">Clear</a>
+				{END clearLink_Zone}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Zone}
+				<li class="list-group-item filter-values filter-values-Zone {$collapsedClass_Zone} {$visibilityClass_Zone}">
+					{$Zone_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Zone}
+
+							{BEGIN filter_button_showmore_Zone}
+				<li class="list-group-item filter-show-more {$collapsedClass_Zone} {$showMoreBtnClass_Zone}">
+					<a class="filter-show-more-link filterShowMore_Zone" href="#">{$show_n_more_Zone}</a>
+				</li>
+				{END filter_button_showmore_Zone}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Zone}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Sub_City}
+		<div class="panel panel-info filter-field filter-Sub_City-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Sub_City }</label>
+
+				{BEGIN clearLink_Sub_City}
+				<a href="#" class="filter-clear filter-clear-Sub_City">Clear</a>
+				{END clearLink_Sub_City}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Sub_City}
+				<li class="list-group-item filter-values filter-values-Sub_City {$collapsedClass_Sub_City} {$visibilityClass_Sub_City}">
+					{$Sub_City_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Sub_City}
+
+							{BEGIN filter_button_showmore_Sub_City}
+				<li class="list-group-item filter-show-more {$collapsedClass_Sub_City} {$showMoreBtnClass_Sub_City}">
+					<a class="filter-show-more-link filterShowMore_Sub_City" href="#">{$show_n_more_Sub_City}</a>
+				</li>
+				{END filter_button_showmore_Sub_City}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Sub_City}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_City}
+		<div class="panel panel-info filter-field filter-City-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile City }</label>
+
+				{BEGIN clearLink_City}
+				<a href="#" class="filter-clear filter-clear-City">Clear</a>
+				{END clearLink_City}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_City}
+				<li class="list-group-item filter-values filter-values-City {$collapsedClass_City} {$visibilityClass_City}">
+					{$City_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_City}
+
+							{BEGIN filter_button_showmore_City}
+				<li class="list-group-item filter-show-more {$collapsedClass_City} {$showMoreBtnClass_City}">
+					<a class="filter-show-more-link filterShowMore_City" href="#">{$show_n_more_City}</a>
+				</li>
+				{END filter_button_showmore_City}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_City}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Region}
+		<div class="panel panel-info filter-field filter-Region-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Region }</label>
+
+				{BEGIN clearLink_Region}
+				<a href="#" class="filter-clear filter-clear-Region">Clear</a>
+				{END clearLink_Region}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Region}
+				<li class="list-group-item filter-values filter-values-Region {$collapsedClass_Region} {$visibilityClass_Region}">
+					{$Region_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Region}
+
+							{BEGIN filter_button_showmore_Region}
+				<li class="list-group-item filter-show-more {$collapsedClass_Region} {$showMoreBtnClass_Region}">
+					<a class="filter-show-more-link filterShowMore_Region" href="#">{$show_n_more_Region}</a>
+				</li>
+				{END filter_button_showmore_Region}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Region}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_DOB}
+		<div class="panel panel-info filter-field filter-DOB-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile DOB }</label>
+
+				{BEGIN clearLink_DOB}
+				<a href="#" class="filter-clear filter-clear-DOB">Clear</a>
+				{END clearLink_DOB}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_DOB}
+				<li class="list-group-item filter-values filter-values-DOB {$collapsedClass_DOB} {$visibilityClass_DOB}">
+					{$DOB_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_DOB}
+
+							{BEGIN filter_button_showmore_DOB}
+				<li class="list-group-item filter-show-more {$collapsedClass_DOB} {$showMoreBtnClass_DOB}">
+					<a class="filter-show-more-link filterShowMore_DOB" href="#">{$show_n_more_DOB}</a>
+				</li>
+				{END filter_button_showmore_DOB}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_DOB}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Sex}
+		<div class="panel panel-info filter-field filter-Sex-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Sex }</label>
+
+				{BEGIN clearLink_Sex}
+				<a href="#" class="filter-clear filter-clear-Sex">Clear</a>
+				{END clearLink_Sex}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Sex}
+				<li class="list-group-item filter-values filter-values-Sex {$collapsedClass_Sex} {$visibilityClass_Sex}">
+					{$Sex_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Sex}
+
+							{BEGIN filter_button_showmore_Sex}
+				<li class="list-group-item filter-show-more {$collapsedClass_Sex} {$showMoreBtnClass_Sex}">
+					<a class="filter-show-more-link filterShowMore_Sex" href="#">{$show_n_more_Sex}</a>
+				</li>
+				{END filter_button_showmore_Sex}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Sex}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Last_Name}
+		<div class="panel panel-info filter-field filter-Last_Name-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Last_Name }</label>
+
+				{BEGIN clearLink_Last_Name}
+				<a href="#" class="filter-clear filter-clear-Last_Name">Clear</a>
+				{END clearLink_Last_Name}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Last_Name}
+				<li class="list-group-item filter-values filter-values-Last_Name {$collapsedClass_Last_Name} {$visibilityClass_Last_Name}">
+					{$Last_Name_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Last_Name}
+
+							{BEGIN filter_button_showmore_Last_Name}
+				<li class="list-group-item filter-show-more {$collapsedClass_Last_Name} {$showMoreBtnClass_Last_Name}">
+					<a class="filter-show-more-link filterShowMore_Last_Name" href="#">{$show_n_more_Last_Name}</a>
+				</li>
+				{END filter_button_showmore_Last_Name}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Last_Name}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_Middle_Name}
+		<div class="panel panel-info filter-field filter-Middle_Name-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile Middle_Name }</label>
+
+				{BEGIN clearLink_Middle_Name}
+				<a href="#" class="filter-clear filter-clear-Middle_Name">Clear</a>
+				{END clearLink_Middle_Name}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_Middle_Name}
+				<li class="list-group-item filter-values filter-values-Middle_Name {$collapsedClass_Middle_Name} {$visibilityClass_Middle_Name}">
+					{$Middle_Name_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_Middle_Name}
+
+							{BEGIN filter_button_showmore_Middle_Name}
+				<li class="list-group-item filter-show-more {$collapsedClass_Middle_Name} {$showMoreBtnClass_Middle_Name}">
+					<a class="filter-show-more-link filterShowMore_Middle_Name" href="#">{$show_n_more_Middle_Name}</a>
+				</li>
+				{END filter_button_showmore_Middle_Name}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_Middle_Name}
+	 
+			
+	 	
+
+		
+		 
+		 
+
+		 	
+
+		{BEGIN filter_control_First_Name}
+		<div class="panel panel-info filter-field filter-First_Name-container">
+			<div class="panel-heading filter-expander">
+																	<span class="filter-indicator glyphicon glyphicon-triangle-bottom"></span>	
+
+			
+				<label>{$label candidate_profile First_Name }</label>
+
+				{BEGIN clearLink_First_Name}
+				<a href="#" class="filter-clear filter-clear-First_Name">Clear</a>
+				{END clearLink_First_Name}				
+			</div>
+
+			<ul class="list-group">
+				{BEGIN filterCtrlBlock_First_Name}
+				<li class="list-group-item filter-values filter-values-First_Name {$collapsedClass_First_Name} {$visibilityClass_First_Name}">
+					{$First_Name_filter}
+								
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				</li>				
+				{END filterCtrlBlock_First_Name}
+
+							{BEGIN filter_button_showmore_First_Name}
+				<li class="list-group-item filter-show-more {$collapsedClass_First_Name} {$showMoreBtnClass_First_Name}">
+					<a class="filter-show-more-link filterShowMore_First_Name" href="#">{$show_n_more_First_Name}</a>
+				</li>
+				{END filter_button_showmore_First_Name}			
+			
+
+
+			
+
+				
+	
+			</ul>			
+		</div>
+		{END filter_control_First_Name}
+	 
+	</div>
+</div>			</div>
+		
     {END left_block}
 </div>				</div>	
 			<div class="r-content-col" data-resize-left="leftbar">
@@ -885,7 +7743,7 @@
 {END supertop_block}
 						{$locking}
 				</div>	
-				<div class="r-body" data-resize-top="topbar" data-body-width="compact">
+				<div class="r-body" data-resize-top="topbar" data-body-width="full">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
@@ -923,7 +7781,7 @@
 		{BEGIN add_link}
 <span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
-	" {$addlink_attrs} href="candidate_profile_add.php{$stateLink_full}" >
+	" {$addlink_attrs} href="candidate_profile_add.php{$stateLink_full}" data-popup >
 							Add new			</a>
 </span>
 {END add_link}
@@ -1037,20 +7895,20 @@
 		<input type="checkbox" id="printDetailsToggler{$id}">
 		Print details	</label>
 	<div  id="printdetailstables{$id}" style="display:none;">
-											{BEGIN print_details_event_profile}
-			<div>
-				<label for="printDetailsevent_profile{$id}">
-					<input type="checkbox" value="event_profile" id="printDetailsevent_profile{$id}" checked>
-					Event Profile				</label>
-			</div>
-			{END print_details_event_profile}
-														{BEGIN print_details_training_profile}
+											{BEGIN print_details_training_profile}
 			<div>
 				<label for="printDetailstraining_profile{$id}">
 					<input type="checkbox" value="training_profile" id="printDetailstraining_profile{$id}" checked>
 					Training Profile				</label>
 			</div>
 			{END print_details_training_profile}
+														{BEGIN print_details_event_profile}
+			<div>
+				<label for="printDetailsevent_profile{$id}">
+					<input type="checkbox" value="event_profile" id="printDetailsevent_profile{$id}" checked>
+					Event Profile				</label>
+			</div>
+			{END print_details_event_profile}
 						</div>
 </div>
 {END print_details}
@@ -1099,8 +7957,14 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
 @media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="ID"]:before {
-		content: "{$label candidate_profile ID}";
+		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="CandidateID"]:before {
+		content: "{$label candidate_profile CandidateID}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="EventID"]:before {
+		content: "{$label candidate_profile EventID}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="TrainingID"]:before {
+		content: "{$label candidate_profile TrainingID}";
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="First_Name"]:before {
 		content: "{$label candidate_profile First_Name}";
@@ -1317,33 +8181,6 @@
 	
 	</th>
 	{END cellblock_grid_headcell_details}
-				 
-					{BEGIN cellblock_grid_headcell_field}
-	<th
-	
-	{$cell_grid_headcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$ID_class}
-			"
-
-			data-field="ID"
-	
-	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN ID_fieldheadercolumn}
-	{BEGIN ID_fieldheader}
-	<SPAN {$ID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field49" {$item_simple_grid_field49} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ID">
-	{$label candidate_profile ID }	{$arrow_icon_ID}
-	</SPAN>
-	{END ID_fieldheader}
-{END ID_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field}
 				 
 					{BEGIN cellblock_grid_headcell_field1}
 	<th
@@ -2640,6 +9477,87 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field48}
+				 
+					{BEGIN cellblock_grid_headcell_field}
+	<th
+	
+	{$cell_grid_headcell_field}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$CandidateID_class}
+			"
+
+			data-field="CandidateID"
+	
+	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CandidateID_fieldheadercolumn}
+	{BEGIN CandidateID_fieldheader}
+	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="grid_field_label" {$item_grid_field_label} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID">
+	{$label candidate_profile CandidateID }	{$arrow_icon_CandidateID}
+	</SPAN>
+	{END CandidateID_fieldheader}
+{END CandidateID_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field}
+				 
+					{BEGIN cellblock_grid_headcell_field49}
+	<th
+	
+	{$cell_grid_headcell_field49}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$EventID_class}
+			"
+
+			data-field="EventID"
+	
+	data-cellId="grid_headcell_field49" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN EventID_fieldheadercolumn}
+	{BEGIN EventID_fieldheader}
+	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="grid_field_label1" {$item_grid_field_label1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID">
+	{$label candidate_profile EventID }	{$arrow_icon_EventID}
+	</SPAN>
+	{END EventID_fieldheader}
+{END EventID_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field49}
+				 
+					{BEGIN cellblock_grid_headcell_field50}
+	<th
+	
+	{$cell_grid_headcell_field50}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingID_class}
+			"
+
+			data-field="TrainingID"
+	
+	data-cellId="grid_headcell_field50" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingID_fieldheadercolumn}
+	{BEGIN TrainingID_fieldheader}
+	<SPAN {$TrainingID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="grid_field_label2" {$item_grid_field_label2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID">
+	{$label candidate_profile TrainingID }	{$arrow_icon_TrainingID}
+	</SPAN>
+	{END TrainingID_fieldheader}
+{END TrainingID_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field50}
 							</tr>
 					 
 					 
@@ -2776,27 +9694,8 @@
 	 
 		
 		
-	{BEGIN training_profile_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$training_profile_link_attrs} data-short-details="training_profile"
-		class="{$training_profile_dlink_class}" 
-		title="{$caption training_profile }"	>
-								
-									{BEGIN training_profile_childcount}
-				<span class="details-badge badge training_profile_badge" {$training_profile_childnumber_attr}>
-					{$training_profile_childnumber}				
-				</span>
-				{END training_profile_childcount}
-						</a>
-	</span>
-	{END training_profile_dtable_link}
-
-
-	 
-		
-		
 	{BEGIN event_profile_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$event_profile_link_attrs} data-short-details="event_profile"
 		class="{$event_profile_dlink_class}" 
 		title="{$caption event_profile }"	>
@@ -2811,32 +9710,28 @@
 	{END event_profile_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN training_profile_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$training_profile_link_attrs} data-short-details="training_profile"
+		class="{$training_profile_dlink_class}" 
+		title="{$caption training_profile }"	>
+								
+									{BEGIN training_profile_childcount}
+				<span class="details-badge badge training_profile_badge" {$training_profile_childnumber_attr}>
+					{$training_profile_childnumber}				
+				</span>
+				{END training_profile_childcount}
+						</a>
+	</span>
+	{END training_profile_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
-				 
-					{BEGIN cellblock_grid_cell_field}
-	<td
-	
-	{$cell_grid_cell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$ID_class}
-			"
-
-			data-field="ID"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN ID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ID" data-default-width >
-{$ID_value}
-</span>
-{END ID_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
 				 
 					{BEGIN cellblock_grid_cell_field1}
 	<td
@@ -3941,6 +10836,75 @@
 {END Post_Test_Score_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field48}
+				 
+					{BEGIN cellblock_grid_cell_field}
+	<td
+	
+	{$cell_grid_cell_field}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$CandidateID_class}
+			"
+
+			data-field="CandidateID"
+	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CandidateID_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field" {$item_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-default-width >
+{$CandidateID_value}
+</span>
+{END CandidateID_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field}
+				 
+					{BEGIN cellblock_grid_cell_field49}
+	<td
+	
+	{$cell_grid_cell_field49}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$EventID_class}
+			"
+
+			data-field="EventID"
+	
+	data-cellId="grid_cell_field49" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN EventID_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field1" {$item_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-default-width >
+{$EventID_value}
+</span>
+{END EventID_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field49}
+				 
+					{BEGIN cellblock_grid_cell_field50}
+	<td
+	
+	{$cell_grid_cell_field50}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingID_class}
+			"
+
+			data-field="TrainingID"
+	
+	data-cellId="grid_cell_field50" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingID_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field2" {$item_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID" data-default-width >
+{$TrainingID_value}
+</span>
+{END TrainingID_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field50}
 							</tr>
 					 
 						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
@@ -3961,11 +10925,11 @@
 
 	 
 				<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="training_profile,event_profile"
-			data-details-training_profile			data-details-event_profile	>
-		<span data-details-inside data-short-table="training_profile">
-			</span>
+	data-orders="event_profile,training_profile"
+			data-details-event_profile			data-details-training_profile	>
 		<span data-details-inside data-short-table="event_profile">
+			</span>
+		<span data-details-inside data-short-table="training_profile">
 			</span>
 		<div data-details-preview>
 	</div>
@@ -4038,22 +11002,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_details}
-				 
-					{BEGIN cellblock_grid_footcell_field}
-	<td
-	
-	{$cell_grid_footcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidate_profile_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field}
 				 
 					{BEGIN cellblock_grid_footcell_field1}
 	<td
@@ -4822,6 +11770,54 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field48}
+				 
+					{BEGIN cellblock_grid_footcell_field}
+	<td
+	
+	{$cell_grid_footcell_field}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidate_profile_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field}
+				 
+					{BEGIN cellblock_grid_footcell_field49}
+	<td
+	
+	{$cell_grid_footcell_field49}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field49" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidate_profile_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field49}
+				 
+					{BEGIN cellblock_grid_footcell_field50}
+	<td
+	
+	{$cell_grid_footcell_field50}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field50" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidate_profile_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field50}
 							</tr>
 					
 					</tfoot>
