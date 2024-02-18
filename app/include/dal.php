@@ -47,11 +47,11 @@ function DBLookup($sql)
   */
 class tDAL
 {
-	var $tblderedevatderejadevmerqconsulta__candidate_profile;
-	var $tblderedevatderejadevmerqconsulta__event_profile;
-	var $tblderedevatderejadevmerqconsulta__Events;
-	var $tblderedevatderejadevmerqconsulta__training_profile;
-	var $tblderedevatderejadevmerqconsulta__Trainings;
+	var $tblderedevatderejadevmerqconsulta__candidates;
+	var $tblderedevatderejadevmerqconsulta__event_participants;
+	var $tblderedevatderejadevmerqconsulta__events;
+	var $tblderedevatderejadevmerqconsulta__training_participants;
+	var $tblderedevatderejadevmerqconsulta__trainings;
 	var $lstTables;
 	var $Table = array();
 
@@ -59,11 +59,11 @@ class tDAL
 	{
 		if($this->lstTables)
 			return;
-		$this->lstTables[] = array("name" => "candidate_profile", "varname" => "deredevatderejadevmerqconsulta__candidate_profile", "altvarname" => "candidate_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "event_profile", "varname" => "deredevatderejadevmerqconsulta__event_profile", "altvarname" => "event_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "Events", "varname" => "deredevatderejadevmerqconsulta__Events", "altvarname" => "Events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "training_profile", "varname" => "deredevatderejadevmerqconsulta__training_profile", "altvarname" => "training_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "Trainings", "varname" => "deredevatderejadevmerqconsulta__Trainings", "altvarname" => "Trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "event_participants", "varname" => "deredevatderejadevmerqconsulta__event_participants", "altvarname" => "event_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "events", "varname" => "deredevatderejadevmerqconsulta__events", "altvarname" => "events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "training_participants", "varname" => "deredevatderejadevmerqconsulta__training_participants", "altvarname" => "training_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "trainings", "varname" => "deredevatderejadevmerqconsulta__trainings", "altvarname" => "trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 	}
 
 	/**

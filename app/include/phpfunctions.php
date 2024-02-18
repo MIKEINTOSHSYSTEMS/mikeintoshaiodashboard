@@ -940,34 +940,6 @@ function GetDefaultValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
-				if($table=="training_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="event_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="event_profile" && $field=="Event start date")
-	{
-		return now();
-	}
-				if($table=="event_profile" && $field=="Event end date")
-	{
-		return now();
-	}
-				if($table=="candidate_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="candidate_profile" && $field=="DOB")
-	{
-		return now();;
-	}
-				if($table=="candidate_profile" && $field=="Email Address")
-	{
-		return $_SESSION["UserName"];
-	}
 	return "";
 }
 
@@ -979,22 +951,6 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
-				if($table=="training_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="event_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="candidate_profile" && $field=="CandidateID")
-	{
-		return $_SESSION["UserID"];
-	}
-				if($table=="candidate_profile" && $field=="Email Address")
-	{
-		return $_SESSION["UserName"];
-	}
 	return "";
 }
 

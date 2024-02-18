@@ -40,69 +40,34 @@ function InitLookupLinks()
 
 	$lookupTableLinks = array();
 
-		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
-			$lookupTableLinks["candidate_profile"] = array();
+		if( !isset( $lookupTableLinks["events"] ) ) {
+			$lookupTableLinks["events"] = array();
 		}
-		if( !isset( $lookupTableLinks["candidate_profile"]["training_profile.TrainingID"] )) {
-			$lookupTableLinks["candidate_profile"]["training_profile.TrainingID"] = array();
+		if( !isset( $lookupTableLinks["events"]["event_participants.EventID"] )) {
+			$lookupTableLinks["events"]["event_participants.EventID"] = array();
 		}
-		$lookupTableLinks["candidate_profile"]["training_profile.TrainingID"]["edit"] = array("table" => "training_profile", "field" => "TrainingID", "page" => "edit");
-		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
-			$lookupTableLinks["candidate_profile"] = array();
+		$lookupTableLinks["events"]["event_participants.EventID"]["edit"] = array("table" => "event_participants", "field" => "EventID", "page" => "edit");
+		if( !isset( $lookupTableLinks["candidates"] ) ) {
+			$lookupTableLinks["candidates"] = array();
 		}
-		if( !isset( $lookupTableLinks["candidate_profile"]["training_profile.CandidateID"] )) {
-			$lookupTableLinks["candidate_profile"]["training_profile.CandidateID"] = array();
+		if( !isset( $lookupTableLinks["candidates"]["event_participants.CandidateID"] )) {
+			$lookupTableLinks["candidates"]["event_participants.CandidateID"] = array();
 		}
-		$lookupTableLinks["candidate_profile"]["training_profile.CandidateID"]["edit"] = array("table" => "training_profile", "field" => "CandidateID", "page" => "edit");
-		if( !isset( $lookupTableLinks["Trainings"] ) ) {
-			$lookupTableLinks["Trainings"] = array();
+		$lookupTableLinks["candidates"]["event_participants.CandidateID"]["edit"] = array("table" => "event_participants", "field" => "CandidateID", "page" => "edit");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
 		}
-		if( !isset( $lookupTableLinks["Trainings"]["training_profile.Training Title"] )) {
-			$lookupTableLinks["Trainings"]["training_profile.Training Title"] = array();
+		if( !isset( $lookupTableLinks["trainings"]["training_participants.TrainingID"] )) {
+			$lookupTableLinks["trainings"]["training_participants.TrainingID"] = array();
 		}
-		$lookupTableLinks["Trainings"]["training_profile.Training Title"]["edit"] = array("table" => "training_profile", "field" => "Training Title", "page" => "edit");
-		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
-			$lookupTableLinks["candidate_profile"] = array();
+		$lookupTableLinks["trainings"]["training_participants.TrainingID"]["edit"] = array("table" => "training_participants", "field" => "TrainingID", "page" => "edit");
+		if( !isset( $lookupTableLinks["candidates"] ) ) {
+			$lookupTableLinks["candidates"] = array();
 		}
-		if( !isset( $lookupTableLinks["candidate_profile"]["event_profile.EventID"] )) {
-			$lookupTableLinks["candidate_profile"]["event_profile.EventID"] = array();
+		if( !isset( $lookupTableLinks["candidates"]["training_participants.CandidateID"] )) {
+			$lookupTableLinks["candidates"]["training_participants.CandidateID"] = array();
 		}
-		$lookupTableLinks["candidate_profile"]["event_profile.EventID"]["edit"] = array("table" => "event_profile", "field" => "EventID", "page" => "edit");
-		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
-			$lookupTableLinks["candidate_profile"] = array();
-		}
-		if( !isset( $lookupTableLinks["candidate_profile"]["event_profile.CandidateID"] )) {
-			$lookupTableLinks["candidate_profile"]["event_profile.CandidateID"] = array();
-		}
-		$lookupTableLinks["candidate_profile"]["event_profile.CandidateID"]["edit"] = array("table" => "event_profile", "field" => "CandidateID", "page" => "edit");
-		if( !isset( $lookupTableLinks["Events"] ) ) {
-			$lookupTableLinks["Events"] = array();
-		}
-		if( !isset( $lookupTableLinks["Events"]["event_profile.Event Name"] )) {
-			$lookupTableLinks["Events"]["event_profile.Event Name"] = array();
-		}
-		$lookupTableLinks["Events"]["event_profile.Event Name"]["edit"] = array("table" => "event_profile", "field" => "Event Name", "page" => "edit");
-		if( !isset( $lookupTableLinks["candidate_profile"] ) ) {
-			$lookupTableLinks["candidate_profile"] = array();
-		}
-		if( !isset( $lookupTableLinks["candidate_profile"]["candidate_profile.CandidateID"] )) {
-			$lookupTableLinks["candidate_profile"]["candidate_profile.CandidateID"] = array();
-		}
-		$lookupTableLinks["candidate_profile"]["candidate_profile.CandidateID"]["edit"] = array("table" => "candidate_profile", "field" => "CandidateID", "page" => "edit");
-		if( !isset( $lookupTableLinks["event_profile"] ) ) {
-			$lookupTableLinks["event_profile"] = array();
-		}
-		if( !isset( $lookupTableLinks["event_profile"]["candidate_profile.EventID"] )) {
-			$lookupTableLinks["event_profile"]["candidate_profile.EventID"] = array();
-		}
-		$lookupTableLinks["event_profile"]["candidate_profile.EventID"]["edit"] = array("table" => "candidate_profile", "field" => "EventID", "page" => "edit");
-		if( !isset( $lookupTableLinks["training_profile"] ) ) {
-			$lookupTableLinks["training_profile"] = array();
-		}
-		if( !isset( $lookupTableLinks["training_profile"]["candidate_profile.TrainingID"] )) {
-			$lookupTableLinks["training_profile"]["candidate_profile.TrainingID"] = array();
-		}
-		$lookupTableLinks["training_profile"]["candidate_profile.TrainingID"]["edit"] = array("table" => "candidate_profile", "field" => "TrainingID", "page" => "edit");
+		$lookupTableLinks["candidates"]["training_participants.CandidateID"]["edit"] = array("table" => "training_participants", "field" => "CandidateID", "page" => "edit");
 }
 
 ?>

@@ -316,11 +316,11 @@ class ConnectionManager
 	protected function _setTablesConnectionIds()
 	{
 		$connectionsIds = array();
-		$connectionsIds["training_profile"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["event_profile"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["candidate_profile"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["Events"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["Trainings"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["events"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["trainings"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidates"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["event_participants"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_participants"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 	

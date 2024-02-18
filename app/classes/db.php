@@ -404,11 +404,11 @@ class DB
 		$dalTables[ $conn->connId ] = array();
 		if( "deredevatderejadevmerqconsulta" == $conn->connId )
 		{
-			$dalTables[$conn->connId][] = array("name" => "candidate_profile", "varname" => "deredevatderejadevmerqconsulta__candidate_profile", "altvarname" => "candidate_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-			$dalTables[$conn->connId][] = array("name" => "event_profile", "varname" => "deredevatderejadevmerqconsulta__event_profile", "altvarname" => "event_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-			$dalTables[$conn->connId][] = array("name" => "Events", "varname" => "deredevatderejadevmerqconsulta__Events", "altvarname" => "Events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-			$dalTables[$conn->connId][] = array("name" => "training_profile", "varname" => "deredevatderejadevmerqconsulta__training_profile", "altvarname" => "training_profile", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-			$dalTables[$conn->connId][] = array("name" => "Trainings", "varname" => "deredevatderejadevmerqconsulta__Trainings", "altvarname" => "Trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "event_participants", "varname" => "deredevatderejadevmerqconsulta__event_participants", "altvarname" => "event_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "events", "varname" => "deredevatderejadevmerqconsulta__events", "altvarname" => "events", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "training_participants", "varname" => "deredevatderejadevmerqconsulta__training_participants", "altvarname" => "training_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "trainings", "varname" => "deredevatderejadevmerqconsulta__trainings", "altvarname" => "trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		}
 	}
 

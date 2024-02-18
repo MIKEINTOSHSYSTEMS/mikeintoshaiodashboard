@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "33_1708194919";
+$projectBuildKey = "36_1708271826";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "33";
+$projectBuildNumber = "36";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -665,11 +665,11 @@ $menuTreelikeFlags["main"] = 1;
 $tableCaptions = array();
 $tableCaptions["English"] = array();
 $tableCaptions["English"][""] = "";
-$tableCaptions["English"]["training_profile"] = "Training Profile";
-$tableCaptions["English"]["event_profile"] = "Event Profile";
-$tableCaptions["English"]["candidate_profile"] = "Candidate Profile";
-$tableCaptions["English"]["Events"] = "Events";
-$tableCaptions["English"]["Trainings"] = "Trainings";
+$tableCaptions["English"]["events"] = "Events";
+$tableCaptions["English"]["trainings"] = "Trainings";
+$tableCaptions["English"]["candidates"] = "Candidates";
+$tableCaptions["English"]["event_participants"] = "Event Participants";
+$tableCaptions["English"]["training_participants"] = "Training Participants";
 
 
 $globalEvents = new class_GlobalEvents;

@@ -438,15 +438,15 @@ class Chart
 		if( !$this->webchart )
 			return true;
 			
-		if("training_profile" == $this->chrt_array['tables'][0])
+		if("events" == $this->chrt_array['tables'][0])
 			return true;
-		if("event_profile" == $this->chrt_array['tables'][0])
+		if("trainings" == $this->chrt_array['tables'][0])
 			return true;
-		if("candidate_profile" == $this->chrt_array['tables'][0])
+		if("candidates" == $this->chrt_array['tables'][0])
 			return true;
-		if("Events" == $this->chrt_array['tables'][0])
+		if("event_participants" == $this->chrt_array['tables'][0])
 			return true;
-		if("Trainings" == $this->chrt_array['tables'][0])
+		if("training_participants" == $this->chrt_array['tables'][0])
 			return true;
 		return false;
 	}

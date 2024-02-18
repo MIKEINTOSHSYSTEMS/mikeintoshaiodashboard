@@ -1,11 +1,11 @@
 [data-page=".global_menu"][data-itemid="welcome_item"] > .bs-welcome-header {
-  background-color: #7B68EE;
+  background-color: #D2AF80;
 }
 [data-page=".global_menu"][data-itemid="welcome_item1"] > .bs-welcome-header {
-  background-color: #5F9EA0;
+  background-color: #E67349;
 }
 [data-page=".global_menu"][data-itemid="welcome_item2"] > .bs-welcome-header {
-  background-color: #B22222;
+  background-color: #4169E1;
 }
 [data-page=".global_menu"][data-itemid="welcome_item3"] > .bs-welcome-header {
   background-color: #DAA520;

@@ -3210,16 +3210,16 @@ function fillProjectEntites()
 	global $projectEntities, $projectEntitiesReverse, $tablesByGoodName, $tablesByUpperCase, $tablesByUpperGoodname;
 	if( count( $projectEntities ) )
 		return;
-	$projectEntities[ "training_profile" ] = array( "url" => "training_profile", "type" => 0 );
-	$projectEntitiesReverse[ "training_profile" ] = "training_profile";
-	$projectEntities[ "event_profile" ] = array( "url" => "event_profile", "type" => 0 );
-	$projectEntitiesReverse[ "event_profile" ] = "event_profile";
-	$projectEntities[ "candidate_profile" ] = array( "url" => "candidate_profile", "type" => 0 );
-	$projectEntitiesReverse[ "candidate_profile" ] = "candidate_profile";
-	$projectEntities[ "Events" ] = array( "url" => "events", "type" => 0 );
-	$projectEntitiesReverse[ "events" ] = "Events";
-	$projectEntities[ "Trainings" ] = array( "url" => "trainings", "type" => 0 );
-	$projectEntitiesReverse[ "trainings" ] = "Trainings";
+	$projectEntities[ "events" ] = array( "url" => "events1", "type" => 0 );
+	$projectEntitiesReverse[ "events1" ] = "events";
+	$projectEntities[ "trainings" ] = array( "url" => "trainings1", "type" => 0 );
+	$projectEntitiesReverse[ "trainings1" ] = "trainings";
+	$projectEntities[ "candidates" ] = array( "url" => "candidates", "type" => 0 );
+	$projectEntitiesReverse[ "candidates" ] = "candidates";
+	$projectEntities[ "event_participants" ] = array( "url" => "event_participants", "type" => 0 );
+	$projectEntitiesReverse[ "event_participants" ] = "event_participants";
+	$projectEntities[ "training_participants" ] = array( "url" => "training_participants", "type" => 0 );
+	$projectEntitiesReverse[ "training_participants" ] = "training_participants";
 }
 
 function findTable( $table ) {

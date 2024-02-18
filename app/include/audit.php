@@ -302,23 +302,23 @@ class AuditTrailTable
 	
 	function logValueEnable($table)
 	{
-		if($table=="training_profile")
+		if($table=="events")
 		{
 			return false;
 		}
-		if($table=="event_profile")
+		if($table=="trainings")
 		{
 			return false;
 		}
-		if($table=="candidate_profile")
+		if($table=="candidates")
 		{
 			return false;
 		}
-		if($table=="Events")
+		if($table=="event_participants")
 		{
 			return false;
 		}
-		if($table=="Trainings")
+		if($table=="training_participants")
 		{
 			return false;
 		}
@@ -630,23 +630,23 @@ class AuditTrailFile
 	
 	function logValueEnable($table)
 	{
-		if($table=="training_profile")
+		if($table=="events")
 		{
 			return false;
 		}
-		if($table=="event_profile")
+		if($table=="trainings")
 		{
 			return false;
 		}
-		if($table=="candidate_profile")
+		if($table=="candidates")
 		{
 			return false;
 		}
-		if($table=="Events")
+		if($table=="event_participants")
 		{
 			return false;
 		}
-		if($table=="Trainings")
+		if($table=="training_participants")
 		{
 			return false;
 		}
