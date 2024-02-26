@@ -65,13 +65,13 @@ pdfDocument = {
 			"text": [
 		
 				
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item}"},
+				
+				
 			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item3}"},
 				
 				
 			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item4}"},
-				
-				
-			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item}"},
 				
 				
 			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item1}"},
@@ -131,10 +131,10 @@ pdfDocument = {
 			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item21}"},
 				
 				
-			{"text":"","background":"#6B8E23","hidden":"{$item_hide_welcome_item22}"},
-				
-				
 			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item23}"},
+				
+				
+			{"text":"","background":"#6B8E23","hidden":"{$item_hide_welcome_item22}"},
 				
 				
 			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item24}"},
