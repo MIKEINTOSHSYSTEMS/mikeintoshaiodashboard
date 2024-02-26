@@ -248,7 +248,7 @@ $themeDark = $themeMode === 'theme-dark';
                                 'url' => '#navbar-help',
                                 'items' => [
                                     [
-                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item', 'href' => 'https://docs.easyforms.dev/'],
+                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item', 'href' => 'https://merqconsultancy.org'],//https://docs.easyforms.dev/
                                         'template' => '
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -259,10 +259,10 @@ $themeDark = $themeMode === 'theme-dark';
                                             </svg>&nbsp;
                                             {label}',
                                         'label' => Yii::t('app', 'Documentation'),
-                                        'url' => 'https://docs.easyforms.dev/',
+                                        'url' => 'https://merqconsultancy.org',//https://docs.easyforms.dev/
                                     ],
                                     [
-                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item', 'href' => 'https://support.easyforms.dev/'],
+                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item', 'href' => 'https://merqconsultancy.org/contact'],//https://support.easyforms.dev/
                                         'template' => '
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -272,10 +272,10 @@ $themeDark = $themeMode === 'theme-dark';
                                             </svg>&nbsp;
                                             {label}',
                                         'label' => Yii::t('app', 'Help Center'),
-                                        'url' => 'https://support.easyforms.dev/',
+                                        'url' => 'https://merqconsultancy.org/contact',//https://support.easyforms.dev/
                                     ],
                                     [
-                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item text-pink', 'href' => 'https://www.youtube.com/@easyforms'],
+                                        'options' => ['tag' => 'a', 'class' => 'dropdown-item text-pink', 'href' => 'https://www.youtube.com/channel/UCsbBCwi2SrMQYAXhrfknoCg'],//https://www.youtube.com/@easyforms
                                         'template' => '
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -284,7 +284,7 @@ $themeDark = $themeMode === 'theme-dark';
                                             </svg>&nbsp;
                                             {label}',
                                         'label' => Yii::t('app', 'Videos'),
-                                        'url' => 'https://www.youtube.com/@easyforms',
+                                        'url' => 'https://www.youtube.com/channel/UCsbBCwi2SrMQYAXhrfknoCg',//https://www.youtube.com/channel/UCsbBCwi2SrMQYAXhrfknoCg
                                     ],
                                 ]
                             ],
