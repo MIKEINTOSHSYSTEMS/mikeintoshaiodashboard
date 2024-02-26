@@ -1,0 +1,43 @@
+/**
+ * Submissions page
+ */
+body {
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size : 11pt !important;
+    overflow-y : visible !important;
+    line-height: 1.15;
+    color: #000 !important;
+}
+.grid-view .card-header {
+    padding: 0 0 20px 0 !important;
+}
+.grid-view .card-header .card-title {
+    font-weight: bold !important;
+}
+.submissions-page .panel>.table-detail > tbody > tr .removeFile {
+    display: none;
+}
+.submissions-page .commentBox {
+    display: none;
+}
+.submissions-page .emptyFields {
+    display: none;
+}
+.report-page .data-count a {
+    display: none;
+}
+.report-page .grid-stack-item {
+    position: initial !important;
+    inset: unset !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+    break-inside: avoid;
+}
+.report-page .grid-stack-item-content {
+    position: initial !important;
+}
+.report-page .grid-stack-item .chart {
+    width: 100% !important;
+}

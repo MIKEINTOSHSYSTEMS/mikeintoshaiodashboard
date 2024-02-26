@@ -1,0 +1,17 @@
+{{ if (field.containerClass) { }}<!-- Email -->
+<div class="{{= field.containerClass }}">
+    <div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+        {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+        <input type="email" id="{{= field.id }}" name="{{= field.id }}" value="{{= field.predefinedValue }}" data-alias="{{= field.alias }}"{{ if (field.minlength) { }} minlength="{{= field.minlength }}"{{ } }}{{ if (field.maxlength) { }} maxlength="{{= field.maxlength }}"{{ } }}{{ if (field.pattern) { }} pattern="{{= field.pattern }}"{{ } }}{{ if (field.placeholder) { }} placeholder="{{= field.placeholder }}"{{ } }}{{ if (field.checkdns) { }} data-check-dns="true"{{ } }}{{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }}{{ if (field.multiple) { }} multiple{{ } }}{{ if(field.required) {}} required{{ } }}{{ if (field.unique) { }} data-unique="{{= field.unique }}"{{ } }}{{ if(field.readOnly) { }} readOnly{{ } }}{{ if(field.disabled) { }} disabled{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    </div>
+</div>
+{{ } else { }}<!-- Email -->
+<div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+    {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    <input type="email" id="{{= field.id }}" name="{{= field.id }}" value="{{= field.predefinedValue }}" data-alias="{{= field.alias }}"{{ if (field.minlength) { }} minlength="{{= field.minlength }}"{{ } }}{{ if (field.maxlength) { }} maxlength="{{= field.maxlength }}"{{ } }}{{ if (field.pattern) { }} pattern="{{= field.pattern }}"{{ } }}{{ if (field.placeholder) { }} placeholder="{{= field.placeholder }}"{{ } }}{{ if (field.checkdns) { }} data-check-dns="true"{{ } }}{{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }}{{ if (field.multiple) { }} multiple{{ } }}{{ if(field.required) {}} required{{ } }}{{ if (field.unique) { }} data-unique="{{= field.unique }}"{{ } }}{{ if(field.readOnly) { }} readOnly{{ } }}{{ if(field.disabled) { }} disabled{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+</div>
+{{ } }}

@@ -1,0 +1,152 @@
+/**
+ * This file is used in public forms
+ */
+
+
+
+
+/**************************
+ * Don't remove these lines
+ **************************/
+
+body {
+    height: auto;
+    min-height: auto;
+    background-color: #ffffff;
+}
+
+/*
+ * Submit button
+ */
+
+.form-group, .form-action {
+    margin-bottom: 15px;
+}
+
+/*
+ * Progress bar
+ */
+
+.progress {
+    margin-bottom: 15px;
+}
+.progress-bar {
+    flex-direction: row;
+    align-items: center;
+}
+.progress-bar span {
+    margin: 3px;
+}
+
+/*
+ * Matrix field
+ */
+
+.table-matrix {
+    caption-side: top;
+}
+.table-matrix caption {
+    padding: 0;
+}
+
+/**
+ * Alerts
+ */
+
+.alert {
+    color: #ffffff;
+    font-size: 18px;
+    border-left-width: 1px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+.alert div {
+    line-height: 1.275em;
+}
+.alert-success {
+    background-color: #41ad49;
+    border-color: #3a9a41;
+}
+.alert-danger {
+    background-color: #ff0000;
+    border: 0;
+}
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox,
+.has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label,
+.has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+    color: #ff0000;
+}
+.has-error .form-control {
+    border-color: #ff0000;
+}
+
+/*
+ * Validation
+ */
+
+.required .form-label:after,
+.required-control .form-label:after {
+    content: " *";
+    color: var(--tblr-form-invalid-color);
+}
+.is-invalid~.invalid-feedback,
+.is-invalid~.invalid-tooltip,
+.was-validated :invalid~.invalid-feedback,
+.was-validated :invalid~.invalid-tooltip {
+    display: block;
+}
+
+/**
+ * Utilities
+ */
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #ecf0f1;
+    border: 1px solid #d7e0e2;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+.label {
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+.label-default {
+    background-color: #6e8292;
+}
+
+/*
+ * Hide all except first Fieldset (Multistep Forms)
+ */
+#form-app fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*
+ * Clear floating columns in multi-column forms
+ */
+#form-app .snippet {
+    display: block;
+    clear:both;
+}
+
+/**
+ * Fix iOS bug
+ */
+@supports (-webkit-overflow-scrolling: touch) {
+    iframe {
+        max-width: 100% !important; /* Limits width to 100% of container */
+        width: 100vw !important; /* Sets width to 100% of the viewport width while respecting the max-width above */
+    }
+}

@@ -1,0 +1,23 @@
+{{ if (field.containerClass) { }}<!-- Select List -->
+<div class="{{= field.containerClass }}">
+    <div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+        {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+        <select id="{{= field.id }}" name="{{= field.id }}[]" data-alias="{{= field.alias }}"{{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }}{{ if (field.required) { }} required{{ } }}{{ if (field.readOnly) { }} readOnly{{ } }}{{ if (field.disabled) { }} disabled{{ } }}{{ if (field.multiple) { }} multiple{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if(field.placeholder) { }}
+            <option value="" disabled selected>{{= field.placeholder }}</option>{{ } }}{{ var lastIndex = field.options.length - 1; var groups = []; _.each(field.options, function(option, index) { var items = option.split("|"); var last = items[items.length-1]; var selected = (last==="selected"||last==="select"|last==="check"); var option = items[0]; var value = ((items.length == 3 && selected) || (items.length == 2) && !selected) ? items[1] : items[0]; }}
+            {{ if (typeof value === 'string' && (value.substring(0, 2) === '[[') && (value.substring(value.length-2, value.length) === ']]')) { }} {{ if (groups.length !== 0) { }}</optgroup>{{ } }}<optgroup label="{{= value.substring(2, value.length - 2) }}">{{ groups.push(index); } else { }} <option value="{{= value }}" {{ if (selected) { }} selected{{ } }}>{{= option }}</option> {{ } }}   {{ if (lastIndex === index && groups.length > 0) { }}</optgroup>{{ } }} {{ }); }}
+        </select>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    </div>
+</div>
+{{ } else { }}<!-- Select List -->
+<div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+    {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    <select id="{{= field.id }}" name="{{= field.id }}[]" data-alias="{{= field.alias }}" {{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }}{{ if(field.required) { }} required{{ } }}{{ if (field.readOnly) { }} readOnly{{ } }}{{ if (field.disabled) { }} disabled{{ } }}{{ if (field.multiple) { }} multiple{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if(field.placeholder) { }}
+        <option value="" disabled selected>{{= field.placeholder }}</option>{{ } }}{{ var lastIndex = field.options.length - 1; var groups = []; _.each(field.options, function(option, index) { var items = option.split("|"); var last = items[items.length-1]; var selected = (last==="selected"||last==="select"|last==="check"); var option = items[0]; var value = ((items.length == 3 && selected) || (items.length == 2) && !selected) ? items[1] : items[0]; }}
+        {{ if (typeof value === 'string' && (value.substring(0, 2) === '[[') && (value.substring(value.length-2, value.length) === ']]')) { }} {{ if (groups.length !== 0) { }}</optgroup>{{ } }}<optgroup label="{{= value.substring(2, value.length - 2) }}">{{ groups.push(index); } else { }} <option value="{{= value }}" {{ if (selected) { }} selected{{ } }}>{{= option }}</option> {{ } }}   {{ if (lastIndex === index && groups.length > 0) { }}</optgroup>{{ } }} {{ }); }}
+    </select>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+</div>
+{{ } }}

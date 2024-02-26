@@ -1,0 +1,17 @@
+{{ if (field.containerClass) { }}<!-- Number -->
+<div class="{{= field.containerClass }}">
+    <div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+        {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+        <input type="{{= field.inputType }}" id="{{= field.id }}" name="{{= field.id }}" value="{{= field.predefinedValue }}" data-alias="{{= field.alias }}"{{ if (field.min) { }} min="{{= field.min }}"{{ } }}{{ if (field.max) { }} max="{{= field.max }}"{{ } }}{{ if (field.step) { }} step="{{= field.step }}"{{ } }}{{ if (field.integerOnly) { }} data-integer-only="{{= field.integerOnly }}"{{ } }}{{ if (field.integerPattern) { }} data-integer-pattern="{{= field.integerPattern }}"{{ } }}{{ if (field.numberPattern) { }} data-number-pattern="{{= field.numberPattern }}"{{ } }}{{ if (field.placeholder) { }} placeholder="{{= field.placeholder }}"{{ } }} {{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }} {{ if(field.required) { }} required{{ } }}{{ if (field.unique) { }} data-unique="{{= field.unique }}"{{ } }}{{ if(field.readOnly) { }} readOnly{{ } }}{{ if(field.disabled) { }} disabled{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+        <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    </div>
+</div>
+{{ } else { }}<!-- Text -->
+<div class="form-group{{ if(field.required) { }} required-control{{ } }}">
+    {{ if (field.label) { }}<label {{ if (field.labelClass) { }} class="{{= field.labelClass }}"{{ } }} for="{{= field.id }}">{{= field.label }}</label>{{ } }}{{ if (field.helpText && field.helpTextPlacement === "above") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+    <input type="{{= field.inputType }}" id="{{= field.id }}" name="{{= field.id }}" value="{{= field.predefinedValue }}" data-alias="{{= field.alias }}"{{ if (field.min) { }} min="{{= field.min }}"{{ } }}{{ if (field.max) { }} max="{{= field.max }}"{{ } }}{{ if (field.step) { }} step="{{= field.step }}"{{ } }}{{ if (field.integerOnly) { }} data-integer-only="{{= field.integerOnly }}"{{ } }}{{ if (field.integerPattern) { }} data-integer-pattern="{{= field.integerPattern }}"{{ } }}{{ if (field.numberPattern) { }} data-number-pattern="{{= field.numberPattern }}"{{ } }}{{ if (field.placeholder) { }} placeholder="{{= field.placeholder }}"{{ } }} {{ if (field.cssClass) { }} class="{{= field.cssClass }}"{{ } }} {{ if(field.required) { }} required{{ } }}{{ if (field.unique) { }} data-unique="{{= field.unique }}"{{ } }}{{ if(field.readOnly) { }} readOnly{{ } }}{{ if(field.disabled) { }} disabled{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>{{ if (field.helpText && field.helpTextPlacement === "below") { }}
+    <p class="form-text">{{= field.helpText }}</p>{{ } }}
+</div>
+{{ } }}

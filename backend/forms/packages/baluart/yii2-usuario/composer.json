@@ -1,0 +1,94 @@
+{
+    "name": "baluart/yii2-usuario",
+    "description": "Highly customizable and extensible user management, authentication, and authorization Yii2 extension",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/2amigos/yii2-usuario/issues?state=open",
+        "forum": "https://gitter.im/2amigos/yii2-usuario",
+        "source": "https://github.com/2amigos/yii2-usuario"
+    },
+    "keywords": [
+        "2amigos",
+        "yii",
+        "yii2",
+        "yii 2",
+        "yii framework",
+        "user",
+        "access",
+        "rbac",
+        "acl",
+        "backend",
+        "yii2-user",
+        "yii2 user",
+        "user management"
+    ],
+    "authors": [
+        {
+            "name": "2amigOS! Consulting Group",
+            "email": "hola@2amigos.us",
+            "homepage": "http://2amigos.us",
+            "role": "Developer"
+        },
+        {
+            "name": "Antonio Ramirez Cobos",
+            "email": "hola@2amigos.us",
+            "homepage": "http://2amigos.us",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5",
+        "yiisoft/yii2-authclient": "^2.1",
+        "yiisoft/yii2-httpclient": "^2.0"
+    },
+    "suggest": {
+        "2amigos/2fa-library": "Needed if you want to enable 2 Factor Authentication. Require version ^1.0",
+        "2amigos/qrcode-library": "Needed if you want to enable 2FA with QR Code generation. Require version ^1.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.3",
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "@stable",
+        "codeception/verify": "^0.3.3",
+        "codeception/codeception": "*",
+        "roave/security-advisories": "dev-master",
+        "codeception/module-filesystem": "^1.0",
+        "codeception/module-yii2": "^1.1",
+        "codeception/module-asserts": "^1.1",
+        "codeception/module-db": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Da\\User\\": "./src/User"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Da\\User\\": "./src/User"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "auto"
+        },
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "conflict": {
+        "dektrium/yii2-rbac": "*",
+        "dektrium/yii2-user": "*"
+    },
+    "extra": {
+        "bootstrap": "Da\\User\\Bootstrap"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

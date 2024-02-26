@@ -1,0 +1,12 @@
+/*@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);*/
+@font-face {
+    font-family: 'Kaushan Script';
+    src: url('../fonts/kaushan-script/KaushanScript-Regular.ttf');
+    src: url('../fonts/kaushan-script/KaushanScript-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/kaushan-script/KaushanScript-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'Glyphicons Regular';
+    src: url('../fonts/glyphicons-regular.eot');
+    src: url('../fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-regular.woff2') format('woff2'), url('../fonts/glyphicons-regular.woff') format('woff'), url('../fonts/glyphicons-regular.ttf') format('truetype'), url('../fonts/glyphicons-regular.svg#glyphiconsregular') format('svg');
+}

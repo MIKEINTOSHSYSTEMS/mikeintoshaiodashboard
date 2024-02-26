@@ -1,0 +1,45 @@
+<!-- Net Promoter® Score -->
+{{ if (field.containerClass) { }}<div class="{{= field.containerClass }}">{{ } }}
+    <div class="form-group nps-question{{ if(field.required) { }} required-control{{ } }}">
+        <label for="{{= field.id }}"{{ if (field.questionClass) { }} class="{{= field.questionClass }}"{{ } }}>{{= field.question }}</label>
+        <span id="{{= field.id }}"></span>
+        {{ if (field.helpText && field.helpTextPlacement === "above") { }}<p class="form-text">{{= field.helpText }}</p>{{ } }}
+        <div class="answer-container">
+            <table class="table table-nps">
+                <tbody>{{ if (field.labelPlacement === "above") { }}
+                <tr>
+                    <td colspan="11">
+                        <table class="table">
+                            <tr>{{ _.each(field.labels, function(label, labelIdx) { var items = label.split("|"); var last = items[items.length-1]; var selected = (last==="selected"||last==="select"|last==="check"); label = items[0]; var labelPosition = ['text-left', 'text-center', 'text-right']; }}
+                                <td class="{{= labelPosition[labelIdx] }}{{ if (field.labelClass) { }} {{= field.labelClass }}{{ } }}">
+                                    {{ if (selected) { }}{{= label }}{{ } }}
+                                </td>{{ }); }}
+                            </tr>
+                        </table>
+                    </td>
+                </tr>{{ } }}
+                <tr>{{ _.each([1,2,3,4,5,6,7,8,9,10], function(number, i) { }}
+                    <td class="answer-input">
+                        <input type="radio" name="{{= field.id }}" id="{{= field.id+'_'+i }}" value="{{= number }}" data-alias="{{= field.alias }}" class="form-check-input{{ if (field.cssClass) { }} {{= field.cssClass }}{{ } }}"{{ if(field.required){ }} required{{ } }}{{ if(field.disabled) {}} disabled{{ } }}{{ _.each(field.customAttributes, function(attribute, i){ var attrs = attribute.split("|"); var attr = attrs[0]; var value = (attrs.length > 1) ? attrs[1] : attrs[0]; }}{{ if (attr) { }} {{- attr }}="{{- value }}"{{ } }}{{ }) }}>
+                        <label for="{{= field.id+'_'+i }}" class="{{= field.buttonClass }}" {{ if(field.readOnly) { }} readOnly{{ } }}{{ if(field.disabled) { }} disabled{{ } }}>
+                            <span>{{= number }}</span>
+                        </label>
+                    </td>{{ }); }}
+                </tr>{{ if (field.labelPlacement === "below") { }}
+                <tr>
+                    <td colspan="11">
+                        <table class="table">
+                            <tr>{{ _.each(field.labels, function(label, labelIdx) { var items = label.split("|"); var last = items[items.length-1]; var selected = (last==="selected"||last==="select"|last==="check"); label = items[0]; var labelPosition = ['text-left', 'text-center', 'text-right']; }}
+                                <td class="{{= labelPosition[labelIdx] }}{{ if (field.labelClass) { }} {{= field.labelClass }}{{ } }}">
+                                    {{ if (selected) { }}{{= label }}{{ } }}
+                                </td>{{ }); }}
+                            </tr>
+                        </table>
+                    </td>
+                </tr>{{ } }}
+                </tbody>
+            </table>
+        </div>
+        {{ if (field.helpText && field.helpTextPlacement === "below") { }}<p class="form-text">{{= field.helpText }}</p>{{ } }}
+    </div>
+{{ if (field.containerClass) { }}</div>{{ } }}

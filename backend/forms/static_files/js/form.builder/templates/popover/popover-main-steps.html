@@ -1,0 +1,19 @@
+<form class="form">
+    <div class="popover-content-settings">
+        {{= basicFields }}
+        {{ if (advancedFields) { }}
+        <div>
+            {{= advancedFields }}
+        </div>
+        {{ } }}
+    </div>
+    <hr/>
+    <div class="popover-content-actions">
+        <button id="save" class="btn btn-primary" title="{{= polyglot.t('popover.save') }}">
+            <i class="far fa-check me-1"></i> {{= polyglot.t('popover.save') }}
+        </button>
+        <button id="cancel" class="btn btn-icon btn-secondary" title="{{= polyglot.t('popover.cancel') }}">
+            <i class="far fa-times"></i>
+        </button>
+    </div>
+</form>
