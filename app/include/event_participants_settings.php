@@ -489,7 +489,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 		
 	$edata["LinkField"] = "CandidateID";
 	$edata["LinkFieldType"] = 3;
-	$edata["DisplayField"] = "First_Name";
+	$edata["DisplayField"] = "CandidateID";
 
 	
 
