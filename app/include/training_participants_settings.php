@@ -52,6 +52,21 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelstraining_participants["English"]["Training_End_Date"] = "Training End Date";
 	$fieldToolTipstraining_participants["English"]["Training_End_Date"] = "";
 	$placeHolderstraining_participants["English"]["Training_End_Date"] = "";
+	$fieldLabelstraining_participants["English"]["First_Name"] = "First Name";
+	$fieldToolTipstraining_participants["English"]["First_Name"] = "";
+	$placeHolderstraining_participants["English"]["First_Name"] = "";
+	$fieldLabelstraining_participants["English"]["Middle_Name"] = "Middle Name";
+	$fieldToolTipstraining_participants["English"]["Middle_Name"] = "";
+	$placeHolderstraining_participants["English"]["Middle_Name"] = "";
+	$fieldLabelstraining_participants["English"]["Last_Name"] = "Last Name";
+	$fieldToolTipstraining_participants["English"]["Last_Name"] = "";
+	$placeHolderstraining_participants["English"]["Last_Name"] = "";
+	$fieldLabelstraining_participants["English"]["Email"] = "Email";
+	$fieldToolTipstraining_participants["English"]["Email"] = "";
+	$placeHolderstraining_participants["English"]["Email"] = "";
+	$fieldLabelstraining_participants["English"]["Phone"] = "Phone";
+	$fieldToolTipstraining_participants["English"]["Phone"] = "";
+	$placeHolderstraining_participants["English"]["Phone"] = "";
 	if (count($fieldToolTipstraining_participants["English"]))
 		$tdatatraining_participants[".isUseToolTips"] = true;
 }
@@ -185,6 +200,11 @@ $tdatatraining_participants[".googleLikeFields"][] = "Training_City_Town";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_Venue";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_Start_Date";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_End_Date";
+$tdatatraining_participants[".googleLikeFields"][] = "First_Name";
+$tdatatraining_participants[".googleLikeFields"][] = "Middle_Name";
+$tdatatraining_participants[".googleLikeFields"][] = "Last_Name";
+$tdatatraining_participants[".googleLikeFields"][] = "Email";
+$tdatatraining_participants[".googleLikeFields"][] = "Phone";
 
 
 
@@ -200,6 +220,7 @@ $tdatatraining_participants[".geocodingEnabled"] = false;
 
 
 
+$tdatatraining_participants[".isDisplayLoading"] = true;
 
 
 
@@ -220,7 +241,7 @@ $tdatatraining_participants[".strOrderBy"] = $tstrOrderBy;
 $tdatatraining_participants[".orderindexes"] = array();
 
 
-$tdatatraining_participants[".sqlHead"] = "SELECT TrainingID,  	CandidateID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date";
+$tdatatraining_participants[".sqlHead"] = "SELECT TrainingID,  	CandidateID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	First_Name,  	Middle_Name,  	Last_Name,  	Email,  	Phone";
 $tdatatraining_participants[".sqlFrom"] = "FROM training_participants";
 $tdatatraining_participants[".sqlWhereExpr"] = "";
 $tdatatraining_participants[".sqlTail"] = "";
@@ -354,11 +375,14 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
-	
+		$edata["Multiselect"] = true;
+
 		$edata["SelectSize"] = 1;
 
 // End Lookup Settings
@@ -406,7 +430,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -503,7 +527,12 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["LookupTable"] = "candidates";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Middle_Name", 'lookupF'=>"Middle_Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Last_Name", 'lookupF'=>"Last_Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Email", 'lookupF'=>"Email_Address");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Phone", 'lookupF'=>"Phone_Number");
+	$edata["LCType"] = 0;
 
 	
 		
@@ -671,7 +700,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "OrganizerName";
+	$edata["LinkField"] = "OrganizerID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "OrganizerName";
 
@@ -833,7 +862,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "TypeName";
+	$edata["LinkField"] = "TypeID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "TypeName";
 
@@ -995,7 +1024,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "AreaName";
+	$edata["LinkField"] = "AreaID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "AreaName";
 
@@ -1157,7 +1186,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "CityTownName";
+	$edata["LinkField"] = "CityTownID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "CityTownName";
 
@@ -1319,7 +1348,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "VenueName";
+	$edata["LinkField"] = "VenueID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "VenueName";
 
@@ -1481,7 +1510,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "Training_Start_Date";
+	$edata["LinkField"] = "TrainingID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "Training_Start_Date";
 
@@ -1643,7 +1672,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "Training_End_Date";
+	$edata["LinkField"] = "TrainingID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "Training_End_Date";
 
@@ -1731,6 +1760,691 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	$tdatatraining_participants["Training_End_Date"] = $fdata;
 		$tdatatraining_participants[".searchableFields"][] = "Training_End_Date";
+//	First_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 10;
+	$fdata["strName"] = "First_Name";
+	$fdata["GoodName"] = "First_Name";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","First_Name");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "First_Name";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "First_Name";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["First_Name"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "First_Name";
+//	Middle_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 11;
+	$fdata["strName"] = "Middle_Name";
+	$fdata["GoodName"] = "Middle_Name";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","Middle_Name");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Middle_Name";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Middle_Name";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["Middle_Name"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "Middle_Name";
+//	Last_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 12;
+	$fdata["strName"] = "Last_Name";
+	$fdata["GoodName"] = "Last_Name";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","Last_Name");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Last_Name";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Last_Name";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["Last_Name"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "Last_Name";
+//	Email
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 13;
+	$fdata["strName"] = "Email";
+	$fdata["GoodName"] = "Email";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","Email");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Email";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Email";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["Email"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "Email";
+//	Phone
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 14;
+	$fdata["strName"] = "Phone";
+	$fdata["GoodName"] = "Phone";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","Phone");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Phone";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Phone";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["Phone"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "Phone";
 
 
 $tables_data["training_participants"]=&$tdatatraining_participants;
@@ -1800,7 +2514,7 @@ function createSqlQuery_training_participants()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "TrainingID,  	CandidateID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date";
+$proto0["m_strFieldList"] = "TrainingID,  	CandidateID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	First_Name,  	Middle_Name,  	Last_Name,  	Email,  	Phone";
 $proto0["m_strFrom"] = "FROM training_participants";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -1966,45 +2680,120 @@ $proto22["m_alias"] = "";
 $obj = new SQLFieldListItem($proto22);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto24=array();
-$proto24["m_link"] = "SQLL_MAIN";
-			$proto25=array();
-$proto25["m_strName"] = "training_participants";
-$proto25["m_srcTableName"] = "training_participants";
-$proto25["m_columns"] = array();
-$proto25["m_columns"][] = "TrainingID";
-$proto25["m_columns"][] = "CandidateID";
-$proto25["m_columns"][] = "Training_Organizer";
-$proto25["m_columns"][] = "Training_Type";
-$proto25["m_columns"][] = "Program_Area";
-$proto25["m_columns"][] = "Training_City_Town";
-$proto25["m_columns"][] = "Training_Venue";
-$proto25["m_columns"][] = "Training_Start_Date";
-$proto25["m_columns"][] = "Training_End_Date";
-$obj = new SQLTable($proto25);
+						$proto24=array();
+			$obj = new SQLField(array(
+	"m_strName" => "First_Name",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
 
-$proto24["m_table"] = $obj;
-$proto24["m_sql"] = "training_participants";
-$proto24["m_alias"] = "";
+$proto24["m_sql"] = "First_Name";
 $proto24["m_srcTableName"] = "training_participants";
-$proto26=array();
-$proto26["m_sql"] = "";
-$proto26["m_uniontype"] = "SQLL_UNKNOWN";
+$proto24["m_expr"]=$obj;
+$proto24["m_alias"] = "";
+$obj = new SQLFieldListItem($proto24);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto26=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Middle_Name",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
+
+$proto26["m_sql"] = "Middle_Name";
+$proto26["m_srcTableName"] = "training_participants";
+$proto26["m_expr"]=$obj;
+$proto26["m_alias"] = "";
+$obj = new SQLFieldListItem($proto26);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto28=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Last_Name",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
+
+$proto28["m_sql"] = "Last_Name";
+$proto28["m_srcTableName"] = "training_participants";
+$proto28["m_expr"]=$obj;
+$proto28["m_alias"] = "";
+$obj = new SQLFieldListItem($proto28);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto30=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Email",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
+
+$proto30["m_sql"] = "Email";
+$proto30["m_srcTableName"] = "training_participants";
+$proto30["m_expr"]=$obj;
+$proto30["m_alias"] = "";
+$obj = new SQLFieldListItem($proto30);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto32=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Phone",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
+
+$proto32["m_sql"] = "Phone";
+$proto32["m_srcTableName"] = "training_participants";
+$proto32["m_expr"]=$obj;
+$proto32["m_alias"] = "";
+$obj = new SQLFieldListItem($proto32);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto34=array();
+$proto34["m_link"] = "SQLL_MAIN";
+			$proto35=array();
+$proto35["m_strName"] = "training_participants";
+$proto35["m_srcTableName"] = "training_participants";
+$proto35["m_columns"] = array();
+$proto35["m_columns"][] = "TrainingID";
+$proto35["m_columns"][] = "CandidateID";
+$proto35["m_columns"][] = "Training_Organizer";
+$proto35["m_columns"][] = "Training_Type";
+$proto35["m_columns"][] = "Program_Area";
+$proto35["m_columns"][] = "Training_City_Town";
+$proto35["m_columns"][] = "Training_Venue";
+$proto35["m_columns"][] = "Training_Start_Date";
+$proto35["m_columns"][] = "Training_End_Date";
+$proto35["m_columns"][] = "First_Name";
+$proto35["m_columns"][] = "Middle_Name";
+$proto35["m_columns"][] = "Last_Name";
+$proto35["m_columns"][] = "Email";
+$proto35["m_columns"][] = "Phone";
+$obj = new SQLTable($proto35);
+
+$proto34["m_table"] = $obj;
+$proto34["m_sql"] = "training_participants";
+$proto34["m_alias"] = "";
+$proto34["m_srcTableName"] = "training_participants";
+$proto36=array();
+$proto36["m_sql"] = "";
+$proto36["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto26["m_column"]=$obj;
-$proto26["m_contained"] = array();
-$proto26["m_strCase"] = "";
-$proto26["m_havingmode"] = false;
-$proto26["m_inBrackets"] = false;
-$proto26["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto26);
+$proto36["m_column"]=$obj;
+$proto36["m_contained"] = array();
+$proto36["m_strCase"] = "";
+$proto36["m_havingmode"] = false;
+$proto36["m_inBrackets"] = false;
+$proto36["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto36);
 
-$proto24["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto24);
+$proto34["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto34);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -2020,7 +2809,7 @@ $queryData_training_participants = createSqlQuery_training_participants();
 	
 		;
 
-									
+														
 
 $tdatatraining_participants[".sqlquery"] = $queryData_training_participants;
 

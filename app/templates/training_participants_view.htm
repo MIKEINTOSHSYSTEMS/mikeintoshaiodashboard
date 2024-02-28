@@ -309,6 +309,101 @@
 
 
 {END Training_End_Date_fieldblock}
+											
+{BEGIN First_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="First_Name" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
+		
+		{BEGIN First_Name_label}{$label training_participants First_Name }{END First_Name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$First_Name_value}	</div>
+
+		
+</div>
+
+
+{END First_Name_fieldblock}
+											
+{BEGIN Middle_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Middle_Name" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
+		
+		{BEGIN Middle_Name_label}{$label training_participants Middle_Name }{END Middle_Name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Middle_Name_value}	</div>
+
+		
+</div>
+
+
+{END Middle_Name_fieldblock}
+											
+{BEGIN Last_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Last_Name" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
+		
+		{BEGIN Last_Name_label}{$label training_participants Last_Name }{END Last_Name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Last_Name_value}	</div>
+
+		
+</div>
+
+
+{END Last_Name_fieldblock}
+											
+{BEGIN Email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Email" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Email}">
+		
+		{BEGIN Email_label}{$label training_participants Email }{END Email_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Email_value}	</div>
+
+		
+</div>
+
+
+{END Email_fieldblock}
+											
+{BEGIN Phone_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" data-fieldname="Phone" data-signal-error-for="Phone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Phone" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Phone}">
+		
+		{BEGIN Phone_label}{$label training_participants Phone }{END Phone_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Phone_value}	</div>
+
+		
+</div>
+
+
+{END Phone_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -346,10 +441,24 @@
 		</div>			 
 				<div 
 	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
-	class="r-align-right r-ori-vert			col-md-6
+	class="r-align-right			col-md-6
 	
 ">
 		 
+		<span data-itemtype="prev" data-itemid="prev" {$item_prev} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$prevbutton_class}" {$prevbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-left"></span>
+										</a>
+</span>
+	 
+		<span data-itemtype="next" data-itemid="next" {$item_next} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$nextbutton_class}" {$nextbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-right"></span>
+										</a>
+</span>
+	 
 		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown dropup">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		

@@ -292,6 +292,7 @@ $tdatacandidates[".geocodingEnabled"] = false;
 
 
 
+$tdatacandidates[".isDisplayLoading"] = true;
 
 
 

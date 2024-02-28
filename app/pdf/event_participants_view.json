@@ -128,6 +128,21 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel event_participants Event_End_Date }","bold":true},{"text":{$Event_End_Date_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel event_participants First_Name }","bold":true},{"text":{$First_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel event_participants Middle_Name }","bold":true},{"text":{$Middle_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel event_participants Last_Name }","bold":true},{"text":{$Last_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel event_participants Phone }","bold":true},{"text":{$Phone_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel event_participants Email }","bold":true},{"text":{$Email_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
@@ -197,6 +212,12 @@ pdfDocument = {
 	
 			"text": [
 		
+				
+			{"text":""},
+				
+				
+			{"text":""},
+				
 				
 			{"text":""},
 				

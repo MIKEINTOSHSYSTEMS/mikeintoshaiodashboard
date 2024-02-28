@@ -116,6 +116,21 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_export_field3}","text":{$Event_End_Date_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_export_field4}","text":{$First_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field5}","text":{$Middle_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field6}","text":{$Last_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field7}","text":{$Phone_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field8}","text":{$Email_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
