@@ -343,6 +343,12 @@ class ConnectionManager
 		$connectionsIds["training_organizers"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["training_city_towns"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["program_areas"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Candidate_Employment_Tracker"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Companies"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Jobs"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Job_Categories"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Job_Types"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["CompanySectors"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 	

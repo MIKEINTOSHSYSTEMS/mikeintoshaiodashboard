@@ -3264,6 +3264,18 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "training_city_towns" ] = "training_city_towns";
 	$projectEntities[ "program_areas" ] = array( "url" => "program_areas", "type" => 0 );
 	$projectEntitiesReverse[ "program_areas" ] = "program_areas";
+	$projectEntities[ "Candidate_Employment_Tracker" ] = array( "url" => "candidate_employment_tracker", "type" => 0 );
+	$projectEntitiesReverse[ "candidate_employment_tracker" ] = "Candidate_Employment_Tracker";
+	$projectEntities[ "Companies" ] = array( "url" => "companies", "type" => 0 );
+	$projectEntitiesReverse[ "companies" ] = "Companies";
+	$projectEntities[ "Jobs" ] = array( "url" => "jobs", "type" => 0 );
+	$projectEntitiesReverse[ "jobs" ] = "Jobs";
+	$projectEntities[ "Job_Categories" ] = array( "url" => "job_categories", "type" => 0 );
+	$projectEntitiesReverse[ "job_categories" ] = "Job_Categories";
+	$projectEntities[ "Job_Types" ] = array( "url" => "job_types", "type" => 0 );
+	$projectEntitiesReverse[ "job_types" ] = "Job_Types";
+	$projectEntities[ "CompanySectors" ] = array( "url" => "companysectors", "type" => 0 );
+	$projectEntitiesReverse[ "companysectors" ] = "CompanySectors";
 }
 
 function findTable( $table ) {

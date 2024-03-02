@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "51_1709147071";
+$projectBuildKey = "59_1709398443";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "51";
+$projectBuildNumber = "59";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -692,6 +692,12 @@ $tableCaptions["English"]["training_venues"] = "Training Venues";
 $tableCaptions["English"]["training_organizers"] = "Training Organizers";
 $tableCaptions["English"]["training_city_towns"] = "Training City Towns";
 $tableCaptions["English"]["program_areas"] = "Program Areas";
+$tableCaptions["English"]["Candidate_Employment_Tracker"] = "Candidate Employment Tracker";
+$tableCaptions["English"]["Companies"] = "Companies";
+$tableCaptions["English"]["Jobs"] = "Jobs";
+$tableCaptions["English"]["Job_Categories"] = "Job Categories";
+$tableCaptions["English"]["Job_Types"] = "Job Types";
+$tableCaptions["English"]["CompanySectors"] = "Company Sectors";
 
 
 $globalEvents = new class_GlobalEvents;

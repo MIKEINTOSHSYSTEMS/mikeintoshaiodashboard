@@ -3,6 +3,8 @@
 'details' => array( 'event_participants' => array( 'displayPreview' => 2,
 'previewPageId' => '' ),
 'training_participants' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'Candidate_Employment_Tracker' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'fields' => array( 'gridFields' => array( 'CandidateID',
 'First_Name',

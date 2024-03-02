@@ -239,6 +239,18 @@ function checkTableName($shortTName )
 		return true;
 	if ("program_areas" == $shortTName )
 		return true;
+	if ("candidate_employment_tracker" == $shortTName )
+		return true;
+	if ("companies" == $shortTName )
+		return true;
+	if ("jobs" == $shortTName )
+		return true;
+	if ("job_categories" == $shortTName )
+		return true;
+	if ("job_types" == $shortTName )
+		return true;
+	if ("companysectors" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -532,6 +544,60 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="program_areas";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Candidate_Employment_Tracker");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Candidate_Employment_Tracker";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Companies");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Companies";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Jobs");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Jobs";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Job_Categories");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Job_Categories";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Job_Types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Job_Types";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("CompanySectors");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="CompanySectors";
+	}
 	return $arr;
 }
 
@@ -568,6 +634,12 @@ function GetTablesListWithoutSecurity()
 	$arr[]="training_organizers";
 	$arr[]="training_city_towns";
 	$arr[]="program_areas";
+	$arr[]="Candidate_Employment_Tracker";
+	$arr[]="Companies";
+	$arr[]="Jobs";
+	$arr[]="Job_Categories";
+	$arr[]="Job_Types";
+	$arr[]="CompanySectors";
 	return $arr;
 }
 
@@ -1434,6 +1506,42 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="program_areas" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Candidate_Employment_Tracker" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Companies" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Jobs" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Job_Categories" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Job_Types" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="CompanySectors" )
 	{
 //	default permissions
 		// grant all by default

@@ -2164,6 +2164,11 @@ pdfDocument = {
 			{$displayDetailTable_training_participants }
 		{END details_training_participants},
 				
+				
+			 {BEGIN details_candidate_employment_tracker}
+			{$displayDetailTable_candidate_employment_tracker }
+		{END details_candidate_employment_tracker},
+				
 		  ],
   "border": [ true, true, true, true ],
           "alignment": 'left',

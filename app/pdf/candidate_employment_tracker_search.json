@@ -1,0 +1,225 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Candidate_Employment_Tracker search}","hidden":"{$item_hide_search_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
+					]
+	}
+}
+,
+		
+								
+''
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+				],
+	
+		body: [
+				
+					{BEGIN row_grid_0}
+				[
+												{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_search_field}","text":{$CandidateID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field1}","text":{$JobID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field2}","text":{$Referral_from_Dereja_service_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field3}","text":{$Company_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field4}","text":{$Company_Phone_Number_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field5}","text":{$Sector_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field6}","text":{$Job_Position_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field7}","text":{$Job_Type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field8}","text":{$Job_Placement_Date_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field9}","text":{$Employment_End_Date_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field10}","text":{$First_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field11}","text":{$Middle_Name_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_integrated_search_field12}","text":{$Last_Name_pdfvalue}},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+{END cellblock_grid_c3}
+											],
+				{END row_grid_0}
+					]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+					[
+												{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			style: 'cell',
+		
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":""},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_cancel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+          "alignment": 'left',
+  },
+
+											],
+					]
+	}
+}
+,
+			]
+}
+  

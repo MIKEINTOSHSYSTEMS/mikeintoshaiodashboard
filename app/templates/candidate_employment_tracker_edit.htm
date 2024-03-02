@@ -1,0 +1,570 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-edit" {$bodyattrs}>
+	{BEGIN body}
+		<style>
+		{$containerCss}
+		</style>
+		<div class="r-vbar-page">
+			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo1" {$item_logo1}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo1" {$item_logo1} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main}			</div>
+		
+    {END left_block}
+</div>				</div>	
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div  class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  r-ori-vert navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+							 
+													</nav>
+{END supertop_block}
+						{$locking}
+				</div>	
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+									{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel Candidate_Employment_Tracker edit}</h2>
+		</div>					</div>
+	</div>		
+{END top_block}
+						</div>
+					<div class="r-above">
+										{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
+	{END back_button}
+{BEGIN view_page_button}
+	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>View</button>
+{END view_page_button}
+</div>
+</div>
+			{END firstAboveGridCell}	
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+						</div>
+					<div class="r-grid">
+										{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN CandidateID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" 
+	data-fieldname="CandidateID" 
+	data-signal-error-for="CandidateID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_CandidateID}">
+		{BEGIN CandidateID_label}{$label Candidate_Employment_Tracker CandidateID }{END CandidateID_label}
+	</label>
+	<div class="r-edit-field">
+		{$CandidateID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="CandidateID">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker CandidateID }		</div>
+	</div>
+</div>
+
+
+{END CandidateID_fieldblock}
+											
+{BEGIN JobID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" 
+	data-fieldname="JobID" 
+	data-signal-error-for="JobID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_JobID}">
+		{BEGIN JobID_label}{$label Candidate_Employment_Tracker JobID }{END JobID_label}
+	</label>
+	<div class="r-edit-field">
+		{$JobID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="JobID">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker JobID }		</div>
+	</div>
+</div>
+
+
+{END JobID_fieldblock}
+											
+{BEGIN Referral_from_Dereja_service_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" 
+	data-fieldname="Referral_from_Dereja_service" 
+	data-signal-error-for="Referral_from_Dereja_service{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Referral_from_Dereja_service}">
+		{BEGIN Referral_from_Dereja_service_label}{$label Candidate_Employment_Tracker Referral_from_Dereja_service }{END Referral_from_Dereja_service_label}
+	</label>
+	<div class="r-edit-field">
+		{$Referral_from_Dereja_service_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Referral_from_Dereja_service">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Referral_from_Dereja_service }		</div>
+	</div>
+</div>
+
+
+{END Referral_from_Dereja_service_fieldblock}
+											
+{BEGIN Company_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-vertical-field" 
+	data-fieldname="Company_Name" 
+	data-signal-error-for="Company_Name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Company_Name" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Company_Name}">
+		{BEGIN Company_Name_label}{$label Candidate_Employment_Tracker Company_Name }{END Company_Name_label}
+	</label>
+	<div class="r-edit-field">
+		{$Company_Name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Company_Name">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Company_Name }		</div>
+	</div>
+</div>
+
+
+{END Company_Name_fieldblock}
+											
+{BEGIN Company_Phone_Number_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" 
+	data-fieldname="Company_Phone_Number" 
+	data-signal-error-for="Company_Phone_Number{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Company_Phone_Number}">
+		{BEGIN Company_Phone_Number_label}{$label Candidate_Employment_Tracker Company_Phone_Number }{END Company_Phone_Number_label}
+	</label>
+	<div class="r-edit-field">
+		{$Company_Phone_Number_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Company_Phone_Number">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Company_Phone_Number }		</div>
+	</div>
+</div>
+
+
+{END Company_Phone_Number_fieldblock}
+											
+{BEGIN Sector_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" 
+	data-fieldname="Sector" 
+	data-signal-error-for="Sector{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Sector}">
+		{BEGIN Sector_label}{$label Candidate_Employment_Tracker Sector }{END Sector_label}
+	</label>
+	<div class="r-edit-field">
+		{$Sector_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Sector">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Sector }		</div>
+	</div>
+</div>
+
+
+{END Sector_fieldblock}
+											
+{BEGIN Job_Position_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-vertical-field" 
+	data-fieldname="Job_Position" 
+	data-signal-error-for="Job_Position{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Job_Position" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Job_Position}">
+		{BEGIN Job_Position_label}{$label Candidate_Employment_Tracker Job_Position }{END Job_Position_label}
+	</label>
+	<div class="r-edit-field">
+		{$Job_Position_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Job_Position">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Job_Position }		</div>
+	</div>
+</div>
+
+
+{END Job_Position_fieldblock}
+											
+{BEGIN Job_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" 
+	data-fieldname="Job_Type" 
+	data-signal-error-for="Job_Type{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Job_Type}">
+		{BEGIN Job_Type_label}{$label Candidate_Employment_Tracker Job_Type }{END Job_Type_label}
+	</label>
+	<div class="r-edit-field">
+		{$Job_Type_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Job_Type">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Job_Type }		</div>
+	</div>
+</div>
+
+
+{END Job_Type_fieldblock}
+											
+{BEGIN Job_Placement_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-vertical-field" 
+	data-fieldname="Job_Placement_Date" 
+	data-signal-error-for="Job_Placement_Date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Job_Placement_Date}">
+		{BEGIN Job_Placement_Date_label}{$label Candidate_Employment_Tracker Job_Placement_Date }{END Job_Placement_Date_label}
+	</label>
+	<div class="r-edit-field">
+		{$Job_Placement_Date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Job_Placement_Date">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Job_Placement_Date }		</div>
+	</div>
+</div>
+
+
+{END Job_Placement_Date_fieldblock}
+											
+{BEGIN Employment_End_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-vertical-field" 
+	data-fieldname="Employment_End_Date" 
+	data-signal-error-for="Employment_End_Date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Employment_End_Date}">
+		{BEGIN Employment_End_Date_label}{$label Candidate_Employment_Tracker Employment_End_Date }{END Employment_End_Date_label}
+	</label>
+	<div class="r-edit-field">
+		{$Employment_End_Date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Employment_End_Date">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Employment_End_Date }		</div>
+	</div>
+</div>
+
+
+{END Employment_End_Date_fieldblock}
+											
+{BEGIN First_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" 
+	data-fieldname="First_Name" 
+	data-signal-error-for="First_Name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="First_Name" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_First_Name}">
+		{BEGIN First_Name_label}{$label Candidate_Employment_Tracker First_Name }{END First_Name_label}
+	</label>
+	<div class="r-edit-field">
+		{$First_Name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="First_Name">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker First_Name }		</div>
+	</div>
+</div>
+
+
+{END First_Name_fieldblock}
+											
+{BEGIN Middle_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" 
+	data-fieldname="Middle_Name" 
+	data-signal-error-for="Middle_Name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Middle_Name" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Middle_Name}">
+		{BEGIN Middle_Name_label}{$label Candidate_Employment_Tracker Middle_Name }{END Middle_Name_label}
+	</label>
+	<div class="r-edit-field">
+		{$Middle_Name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Middle_Name">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Middle_Name }		</div>
+	</div>
+</div>
+
+
+{END Middle_Name_fieldblock}
+											
+{BEGIN Last_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" 
+	data-fieldname="Last_Name" 
+	data-signal-error-for="Last_Name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Last_Name" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Last_Name}">
+		{BEGIN Last_Name_label}{$label Candidate_Employment_Tracker Last_Name }{END Last_Name_label}
+	</label>
+	<div class="r-edit-field">
+		{$Last_Name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Last_Name">
+		<div class="text-muted" >
+		{$tooltip Candidate_Employment_Tracker Last_Name }		</div>
+	</div>
+</div>
+
+
+{END Last_Name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+						</div>
+					<div class="r-below">
+										{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	
+">
+		 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+{END save_edit}
+	 
+		{BEGIN save_update}
+<span data-itemtype="update_records" data-itemid="update_records" {$item_update_records} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+				 
+			{$update_records_label}	
+			</a>
+</span>
+{END save_update}
+	 
+		{BEGIN back_button}
+<span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$closebutton_attrs} >
+							Cancel			</a>
+</span>
+{END close_button}
+		</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right			col-md-6
+	
+">
+		 
+		<span data-itemtype="prev" data-itemid="prev" {$item_prev} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$prevbutton_class}" {$prevbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-left"></span>
+										</a>
+</span>
+	 
+		<span data-itemtype="next" data-itemid="next" {$item_next} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$nextbutton_class}" {$nextbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-right"></span>
+										</a>
+</span>
+	 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="edit_reset" data-itemid="edit_reset" {$item_edit_reset} data-pageid="{$pageid}" data-small >
+				<a  {$resetbutton_attrs}  title="" >
+				
+		Reset		
+		</a>
+	</li>
+							{BEGIN view_page_button}
+	<li data-itemtype="edit_view" data-itemid="edit_view" {$item_edit_view} data-pageid="{$pageid}" data-small >
+				<a  href="candidate_employment_tracker_view.php?{$editlink}" {$view_page_button_attrs}  title="" >
+				
+		View		
+		</a>
+	</li>
+{END view_page_button}
+					</ul>
+	</span>
+</span>
+		</div>					</div>
+	</div>		
+{END below-grid_block}
+						</div>
+					{$footer}
+				</div>	
+			</div>	
+		</div>
+	{END body}
+	</body>
+</html>

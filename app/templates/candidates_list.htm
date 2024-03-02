@@ -816,6 +816,13 @@
 					Training Participants				</label>
 			</div>
 			{END print_details_training_participants}
+														{BEGIN print_details_candidate_employment_tracker}
+			<div>
+				<label for="printDetailscandidate_employment_tracker{$id}">
+					<input type="checkbox" value="candidate_employment_tracker" id="printDetailscandidate_employment_tracker{$id}" checked>
+					Candidate Employment Tracker				</label>
+			</div>
+			{END print_details_candidate_employment_tracker}
 						</div>
 </div>
 {END print_details}
@@ -2793,17 +2800,20 @@
 	>
 
 	 
-				<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants"
-			data-details-event_participants			data-details-training_participants	>
+					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
+			</span>
+		<span data-details-inside data-short-table="candidate_employment_tracker">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			
 	</td>
 	{END cellblock_grid_cell_dpreview}

@@ -410,6 +410,30 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Candidate_Employment_Tracker")
+		{
+			return false;
+		}
+		if($table=="Companies")
+		{
+			return false;
+		}
+		if($table=="Jobs")
+		{
+			return false;
+		}
+		if($table=="Job_Categories")
+		{
+			return false;
+		}
+		if($table=="Job_Types")
+		{
+			return false;
+		}
+		if($table=="CompanySectors")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -823,6 +847,30 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="program_areas")
+		{
+			return false;
+		}
+		if($table=="Candidate_Employment_Tracker")
+		{
+			return false;
+		}
+		if($table=="Companies")
+		{
+			return false;
+		}
+		if($table=="Jobs")
+		{
+			return false;
+		}
+		if($table=="Job_Categories")
+		{
+			return false;
+		}
+		if($table=="Job_Types")
+		{
+			return false;
+		}
+		if($table=="CompanySectors")
 		{
 			return false;
 		}

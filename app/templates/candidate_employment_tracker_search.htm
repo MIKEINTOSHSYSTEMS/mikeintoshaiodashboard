@@ -1,0 +1,496 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+	<body class="{$stylename} function-search" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+							 
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main horizontal}			</span>
+							 
+													</nav>
+{END supertop_block}
+					{$locking}
+			</div>	
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel Candidate_Employment_Tracker search}</h2>
+		</div>					</div>
+	</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+										{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	</div>		
+{END above-grid_block}
+							
+						<div class="r-grid">
+										{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN CandidateID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="CandidateID" 
+	
+	data-signal-error-for="CandidateID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="CandidateID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_CandidateID}">
+		{$label Candidate_Employment_Tracker CandidateID }	</label>
+	<div class="r-search-option">
+		{$searchtype_CandidateID}
+	</div>
+	<div class="r-search-field">
+		{$CandidateID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$CandidateID_editcontrol1}
+	</div>
+	
+</div>
+
+{END CandidateID_fieldblock}
+											
+{BEGIN JobID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="JobID" 
+	
+	data-signal-error-for="JobID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="JobID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_JobID}">
+		{$label Candidate_Employment_Tracker JobID }	</label>
+	<div class="r-search-option">
+		{$searchtype_JobID}
+	</div>
+	<div class="r-search-field">
+		{$JobID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$JobID_editcontrol1}
+	</div>
+	
+</div>
+
+{END JobID_fieldblock}
+											
+{BEGIN Referral_from_Dereja_service_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Referral_from_Dereja_service" 
+	
+	data-signal-error-for="Referral_from_Dereja_service{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Referral_from_Dereja_service}">
+		{$label Candidate_Employment_Tracker Referral_from_Dereja_service }	</label>
+	<div class="r-search-option">
+		{$searchtype_Referral_from_Dereja_service}
+	</div>
+	<div class="r-search-field">
+		{$Referral_from_Dereja_service_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Referral_from_Dereja_service_editcontrol1}
+	</div>
+	
+</div>
+
+{END Referral_from_Dereja_service_fieldblock}
+											
+{BEGIN Company_Name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Company_Name" 
+	
+	data-signal-error-for="Company_Name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="Company_Name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Company_Name}">
+		{$label Candidate_Employment_Tracker Company_Name }	</label>
+	<div class="r-search-option">
+		{$searchtype_Company_Name}
+	</div>
+	<div class="r-search-field">
+		{$Company_Name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Company_Name_editcontrol1}
+	</div>
+	
+</div>
+
+{END Company_Name_fieldblock}
+											
+{BEGIN Company_Phone_Number_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Company_Phone_Number" 
+	
+	data-signal-error-for="Company_Phone_Number{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Company_Phone_Number}">
+		{$label Candidate_Employment_Tracker Company_Phone_Number }	</label>
+	<div class="r-search-option">
+		{$searchtype_Company_Phone_Number}
+	</div>
+	<div class="r-search-field">
+		{$Company_Phone_Number_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Company_Phone_Number_editcontrol1}
+	</div>
+	
+</div>
+
+{END Company_Phone_Number_fieldblock}
+											
+{BEGIN Sector_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Sector" 
+	
+	data-signal-error-for="Sector{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="Sector" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Sector}">
+		{$label Candidate_Employment_Tracker Sector }	</label>
+	<div class="r-search-option">
+		{$searchtype_Sector}
+	</div>
+	<div class="r-search-field">
+		{$Sector_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Sector_editcontrol1}
+	</div>
+	
+</div>
+
+{END Sector_fieldblock}
+											
+{BEGIN Job_Position_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Job_Position" 
+	
+	data-signal-error-for="Job_Position{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="Job_Position" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Job_Position}">
+		{$label Candidate_Employment_Tracker Job_Position }	</label>
+	<div class="r-search-option">
+		{$searchtype_Job_Position}
+	</div>
+	<div class="r-search-field">
+		{$Job_Position_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Job_Position_editcontrol1}
+	</div>
+	
+</div>
+
+{END Job_Position_fieldblock}
+											
+{BEGIN Job_Type_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Job_Type" 
+	
+	data-signal-error-for="Job_Type{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="Job_Type" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Job_Type}">
+		{$label Candidate_Employment_Tracker Job_Type }	</label>
+	<div class="r-search-option">
+		{$searchtype_Job_Type}
+	</div>
+	<div class="r-search-field">
+		{$Job_Type_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Job_Type_editcontrol1}
+	</div>
+	
+</div>
+
+{END Job_Type_fieldblock}
+											
+{BEGIN Job_Placement_Date_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Job_Placement_Date" 
+	
+	data-signal-error-for="Job_Placement_Date{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Job_Placement_Date}">
+		{$label Candidate_Employment_Tracker Job_Placement_Date }	</label>
+	<div class="r-search-option">
+		{$searchtype_Job_Placement_Date}
+	</div>
+	<div class="r-search-field">
+		{$Job_Placement_Date_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Job_Placement_Date_editcontrol1}
+	</div>
+	
+</div>
+
+{END Job_Placement_Date_fieldblock}
+											
+{BEGIN Employment_End_Date_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Employment_End_Date" 
+	
+	data-signal-error-for="Employment_End_Date{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Employment_End_Date}">
+		{$label Candidate_Employment_Tracker Employment_End_Date }	</label>
+	<div class="r-search-option">
+		{$searchtype_Employment_End_Date}
+	</div>
+	<div class="r-search-field">
+		{$Employment_End_Date_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Employment_End_Date_editcontrol1}
+	</div>
+	
+</div>
+
+{END Employment_End_Date_fieldblock}
+											
+{BEGIN First_Name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="First_Name" 
+	
+	data-signal-error-for="First_Name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="First_Name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_First_Name}">
+		{$label Candidate_Employment_Tracker First_Name }	</label>
+	<div class="r-search-option">
+		{$searchtype_First_Name}
+	</div>
+	<div class="r-search-field">
+		{$First_Name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$First_Name_editcontrol1}
+	</div>
+	
+</div>
+
+{END First_Name_fieldblock}
+											
+{BEGIN Middle_Name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Middle_Name" 
+	
+	data-signal-error-for="Middle_Name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="Middle_Name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Middle_Name}">
+		{$label Candidate_Employment_Tracker Middle_Name }	</label>
+	<div class="r-search-option">
+		{$searchtype_Middle_Name}
+	</div>
+	<div class="r-search-field">
+		{$Middle_Name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Middle_Name_editcontrol1}
+	</div>
+	
+</div>
+
+{END Middle_Name_fieldblock}
+											
+{BEGIN Last_Name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-horizontal-field form-horizontal" 
+	
+		data-fieldname="Last_Name" 
+	
+	data-signal-error-for="Last_Name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="Last_Name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Last_Name}">
+		{$label Candidate_Employment_Tracker Last_Name }	</label>
+	<div class="r-search-option">
+		{$searchtype_Last_Name}
+	</div>
+	<div class="r-search-field">
+		{$Last_Name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Last_Name_editcontrol1}
+	</div>
+	
+</div>
+
+{END Last_Name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+							</div>
+						
+										{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	
+">
+		 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+		</div>					</div>
+	</div>		
+{END below-grid_block}
+							
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

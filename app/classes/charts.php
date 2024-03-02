@@ -492,6 +492,18 @@ class Chart
 			return true;
 		if("program_areas" == $this->chrt_array['tables'][0])
 			return true;
+		if("Candidate_Employment_Tracker" == $this->chrt_array['tables'][0])
+			return true;
+		if("Companies" == $this->chrt_array['tables'][0])
+			return true;
+		if("Jobs" == $this->chrt_array['tables'][0])
+			return true;
+		if("Job_Categories" == $this->chrt_array['tables'][0])
+			return true;
+		if("Job_Types" == $this->chrt_array['tables'][0])
+			return true;
+		if("CompanySectors" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	
