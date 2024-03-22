@@ -764,6 +764,29 @@
 
 
 {END Post_Test_Score_fieldblock}
+											
+{BEGIN Sex_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" 
+	data-fieldname="Sex" 
+	data-signal-error-for="Sex{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="Sex" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_Sex}">
+		{BEGIN Sex_label}{$label training_participants Sex }{END Sex_label}
+	</label>
+	<div class="r-edit-field">
+		{$Sex_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Sex">
+		<div class="text-muted" >
+		{$tooltip training_participants Sex }		</div>
+	</div>
+</div>
+
+
+{END Sex_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

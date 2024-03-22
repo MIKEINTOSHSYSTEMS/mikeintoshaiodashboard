@@ -194,6 +194,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_search_field25}","text":{$Post_Test_Score_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_integrated_search_field26}","text":{$Sex_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

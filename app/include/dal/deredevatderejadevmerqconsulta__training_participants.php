@@ -13,6 +13,7 @@ $dalTabletraining_participants["Training_End_Date"] = array("type"=>7,"varname"=
 $dalTabletraining_participants["First_Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First_Name");
 $dalTabletraining_participants["Middle_Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle_Name");
 $dalTabletraining_participants["Last_Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last_Name");
+$dalTabletraining_participants["Sex"] = array("type"=>200,"varname"=>"Sex", "name" => "Sex");
 $dalTabletraining_participants["Email"] = array("type"=>200,"varname"=>"Email", "name" => "Email");
 $dalTabletraining_participants["Phone"] = array("type"=>200,"varname"=>"Phone", "name" => "Phone");
 $dalTabletraining_participants["Disability_Status"] = array("type"=>200,"varname"=>"Disability_Status", "name" => "Disability_Status");

@@ -234,6 +234,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field25}","stack":[{"text":"{$jslabel training_participants Post_Test_Score }","bold":true},{"text":{$Post_Test_Score_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field26}","stack":[{"text":"{$jslabel training_participants Sex }","bold":true},{"text":{$Sex_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
