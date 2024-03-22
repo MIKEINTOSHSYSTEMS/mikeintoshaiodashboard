@@ -32,7 +32,11 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="image" {$item_image} data-topcell-item-type="image" >
+				<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_menu" />
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -43,11 +47,11 @@
 					<span class="icon-bar"></span>					
 				</button>				
 			</span>
-		 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
-				{$menu main horizontal}			</span>
 							 
-													</nav>
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-right r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
+				{$menu main horizontal}			</span>
+								</nav>
 {END supertop_block}
 					{$locking}
 			</div>	
@@ -133,19 +137,19 @@
 	</div>
 
  
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item27" {$item_welcome_item27} data-pageid="{$pageid}" data-page=".global_menu">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item28" {$item_welcome_item28} data-pageid="{$pageid}" data-page=".global_menu">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="candidate_employment_tracker_list.php">
-							<span class="fa fa-dashboard"></span>Candidate Employment Tracker					</a>
+		<a id="itemlink" href="companies_list.php">
+							<span class="fa fa-suitcase"></span>Companies					</a>
 	</div>
 
 		</div>
 
  
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item28" {$item_welcome_item28} data-pageid="{$pageid}" data-page=".global_menu">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item27" {$item_welcome_item27} data-pageid="{$pageid}" data-page=".global_menu">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="companies_list.php">
-							<span class="fa fa-suitcase"></span>Companies					</a>
+		<a id="itemlink" href="candidate_employment_tracker_list.php">
+							<span class="fa fa-dashboard"></span>Candidate Employment Tracker					</a>
 	</div>
 
 		</div>
@@ -388,11 +392,18 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item33" {$item_welcome_item33} data-pageid="{$pageid}" data-page=".global_menu">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="disability_types_list.php">
-							Disability Types					</a>
+							<span class="fa fa-wheelchair"></span>Disability Types					</a>
 	</div>
 
 		</div>
 
+</td>
+							</tr>
+											<tr>
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="grid_c" data-pageid="{$pageid}">
 </td>
 							</tr>
 					

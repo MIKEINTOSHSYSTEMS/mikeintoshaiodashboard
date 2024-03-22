@@ -124,5 +124,9 @@
 [data-cellid="grid_cell_details"][data-page="candidates_list"][data-cellid="grid_cell_details"][data-page="candidates_list"][data-cellid="grid_cell_details"][data-page="candidates_list"] {
   white-space: nowrap;
 }
+[data-page="candidates_list"][data-itemid="image"] {
+  width: 50px;
+  height: 50px;
+}
 
 

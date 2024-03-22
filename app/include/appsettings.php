@@ -549,7 +549,7 @@ $globalSettings["LandingURL"] = "";
 $globalSettings["LandingPageId"] = "";
 
 $globalSettings["ProjectLogo"] = array();
-$globalSettings["ProjectLogo"]["English"] = "merqderejadev";
+$globalSettings["ProjectLogo"]["English"] = "<p style=\"text-align: center;\"><a href=\"/\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>";
 
 $globalSettings["CookieBanner"] = array();
 
@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "60_1711126403";
+$projectBuildKey = "65_1711126403";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "60";
+$projectBuildNumber = "65";
 
 $mlang_messages = array();
 $mlang_charsets = array();

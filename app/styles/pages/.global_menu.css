@@ -1,3 +1,18 @@
+[data-cellid="supertop_c1"][data-page=".global_menu"][data-cellid="supertop_c1"][data-page=".global_menu"][data-cellid="supertop_c1"][data-page=".global_menu"] {
+  font-weight: bold;
+}
+[data-cellid="supertop_c2"][data-page=".global_menu"][data-cellid="supertop_c2"][data-page=".global_menu"][data-cellid="supertop_c2"][data-page=".global_menu"] {
+  color: #ffc007;
+  font-weight: bold;
+  font-size: 7px;
+}
+[data-page=".global_menu"][data-itemid="menu"] > .nav {
+  background-color: #f7f7f7;
+}
+[data-page=".global_menu"][data-itemid="menu"] > .nav > * > a {
+  color: #700000;
+  font-weight: bold;
+}
 [data-page=".global_menu"][data-itemid="welcome_item"] > .bs-welcome-header {
   background-color: #D2AF80;
 }
@@ -99,6 +114,10 @@
 }
 [data-page=".global_menu"][data-itemid="welcome_item33"] > .bs-welcome-header {
   background-color: #6DA5C8;
+}
+[data-page=".global_menu"][data-itemid="image"] {
+  width: 50px;
+  height: 50px;
 }
 
 
