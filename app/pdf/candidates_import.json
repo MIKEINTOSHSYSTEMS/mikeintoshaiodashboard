@@ -200,6 +200,24 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_import_field31}","text":{$Dereja_Information_Source_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_import_field32}","text":{$StudentID_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field33}","text":{$Disability_Status_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field34}","text":{$Disability_Type_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field35}","text":{$Disability_Type_Other_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field36}","text":{$Field_Of_Study_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_import_field37}","text":{$GPA_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

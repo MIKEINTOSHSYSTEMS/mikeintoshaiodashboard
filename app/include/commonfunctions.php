@@ -251,6 +251,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("companysectors" == $shortTName )
 		return true;
+	if ("disability_types" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -598,6 +600,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="CompanySectors";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Disability_Types");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Disability_Types";
+	}
 	return $arr;
 }
 
@@ -640,6 +651,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Job_Categories";
 	$arr[]="Job_Types";
 	$arr[]="CompanySectors";
+	$arr[]="Disability_Types";
 	return $arr;
 }
 
@@ -1542,6 +1554,12 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="CompanySectors" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Disability_Types" )
 	{
 //	default permissions
 		// grant all by default

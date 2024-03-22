@@ -3276,6 +3276,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "job_types" ] = "Job_Types";
 	$projectEntities[ "CompanySectors" ] = array( "url" => "companysectors", "type" => 0 );
 	$projectEntitiesReverse[ "companysectors" ] = "CompanySectors";
+	$projectEntities[ "Disability_Types" ] = array( "url" => "disability_types", "type" => 0 );
+	$projectEntitiesReverse[ "disability_types" ] = "Disability_Types";
 }
 
 function findTable( $table ) {

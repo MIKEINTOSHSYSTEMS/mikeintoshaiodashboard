@@ -1,6 +1,7 @@
 <?php
 $dalTablecandidates = array();
 $dalTablecandidates["CandidateID"] = array("type"=>3,"varname"=>"CandidateID", "name" => "CandidateID");
+$dalTablecandidates["StudentID"] = array("type"=>200,"varname"=>"StudentID", "name" => "StudentID");
 $dalTablecandidates["First_Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First_Name");
 $dalTablecandidates["Middle_Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle_Name");
 $dalTablecandidates["Last_Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last_Name");
@@ -14,6 +15,9 @@ $dalTablecandidates["House_No"] = array("type"=>200,"varname"=>"House_No", "name
 $dalTablecandidates["Phone_Number"] = array("type"=>200,"varname"=>"Phone_Number", "name" => "Phone_Number");
 $dalTablecandidates["Phone_Number_Family"] = array("type"=>200,"varname"=>"Phone_Number_Family", "name" => "Phone_Number_Family");
 $dalTablecandidates["Email_Address"] = array("type"=>200,"varname"=>"Email_Address", "name" => "Email_Address");
+$dalTablecandidates["Disability_Status"] = array("type"=>200,"varname"=>"Disability_Status", "name" => "Disability_Status");
+$dalTablecandidates["Disability_Type"] = array("type"=>200,"varname"=>"Disability_Type", "name" => "Disability_Type");
+$dalTablecandidates["Disability_Type_Other"] = array("type"=>200,"varname"=>"Disability_Type_Other", "name" => "Disability_Type_Other");
 $dalTablecandidates["Institution_Type"] = array("type"=>200,"varname"=>"Institution_Type", "name" => "Institution_Type");
 $dalTablecandidates["Education_Level"] = array("type"=>200,"varname"=>"Education_Level", "name" => "Education_Level");
 $dalTablecandidates["Department"] = array("type"=>200,"varname"=>"Department", "name" => "Department");
@@ -25,6 +29,8 @@ $dalTablecandidates["Industry_Specific_Skills"] = array("type"=>200,"varname"=>"
 $dalTablecandidates["IT_Related_Skills"] = array("type"=>200,"varname"=>"IT_Related_Skills", "name" => "IT_Related_Skills");
 $dalTablecandidates["Certifications"] = array("type"=>200,"varname"=>"Certifications", "name" => "Certifications");
 $dalTablecandidates["Year_of_graduation"] = array("type"=>7,"varname"=>"Year_of_graduation", "name" => "Year_of_graduation");
+$dalTablecandidates["Field_Of_Study"] = array("type"=>200,"varname"=>"Field_Of_Study", "name" => "Field_Of_Study");
+$dalTablecandidates["GPA"] = array("type"=>5,"varname"=>"GPA", "name" => "GPA");
 $dalTablecandidates["Work_Experience"] = array("type"=>200,"varname"=>"Work_Experience", "name" => "Work_Experience");
 $dalTablecandidates["Joined_Dereja_Services"] = array("type"=>200,"varname"=>"Joined_Dereja_Services", "name" => "Joined_Dereja_Services");
 $dalTablecandidates["Dereja_Services"] = array("type"=>200,"varname"=>"Dereja_Services", "name" => "Dereja_Services");

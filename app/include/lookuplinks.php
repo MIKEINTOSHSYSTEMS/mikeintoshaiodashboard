@@ -61,6 +61,13 @@ function InitLookupLinks()
 			$lookupTableLinks["sub_cities"]["candidates.Sub_City"] = array();
 		}
 		$lookupTableLinks["sub_cities"]["candidates.Sub_City"]["edit"] = array("table" => "candidates", "field" => "Sub_City", "page" => "edit");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["candidates.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["candidates.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["candidates.Disability_Type"]["edit"] = array("table" => "candidates", "field" => "Disability_Type", "page" => "edit");
 		if( !isset( $lookupTableLinks["institution_types"] ) ) {
 			$lookupTableLinks["institution_types"] = array();
 		}
@@ -159,6 +166,13 @@ function InitLookupLinks()
 			$lookupTableLinks["candidates"]["event_participants.CandidateID"] = array();
 		}
 		$lookupTableLinks["candidates"]["event_participants.CandidateID"]["edit"] = array("table" => "event_participants", "field" => "CandidateID", "page" => "edit");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["event_participants.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["event_participants.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["event_participants.Disability_Type"]["edit"] = array("table" => "event_participants", "field" => "Disability_Type", "page" => "edit");
 		if( !isset( $lookupTableLinks["trainings"] ) ) {
 			$lookupTableLinks["trainings"] = array();
 		}
@@ -222,6 +236,13 @@ function InitLookupLinks()
 			$lookupTableLinks["trainings"]["training_participants.Training_End_Date"] = array();
 		}
 		$lookupTableLinks["trainings"]["training_participants.Training_End_Date"]["edit"] = array("table" => "training_participants", "field" => "Training_End_Date", "page" => "edit");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["training_participants.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["training_participants.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["training_participants.Disability_Type"]["edit"] = array("table" => "training_participants", "field" => "Disability_Type", "page" => "edit");
 		if( !isset( $lookupTableLinks["regions"] ) ) {
 			$lookupTableLinks["regions"] = array();
 		}

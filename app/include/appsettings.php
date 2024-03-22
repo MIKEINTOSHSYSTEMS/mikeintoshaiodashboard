@@ -642,9 +642,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "59_1709398443";
+$projectBuildKey = "60_1711126403";
 $wizardBuildKey = "34702";
-$projectBuildNumber = "59";
+$projectBuildNumber = "60";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -698,6 +698,7 @@ $tableCaptions["English"]["Jobs"] = "Jobs";
 $tableCaptions["English"]["Job_Categories"] = "Job Categories";
 $tableCaptions["English"]["Job_Types"] = "Job Types";
 $tableCaptions["English"]["CompanySectors"] = "Company Sectors";
+$tableCaptions["English"]["Disability_Types"] = "Disability Types";
 
 
 $globalEvents = new class_GlobalEvents;

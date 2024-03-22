@@ -121,6 +121,24 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelscandidates["English"]["Dereja_Information_Source"] = "Dereja Information Source";
 	$fieldToolTipscandidates["English"]["Dereja_Information_Source"] = "";
 	$placeHolderscandidates["English"]["Dereja_Information_Source"] = "";
+	$fieldLabelscandidates["English"]["StudentID"] = "Student ID";
+	$fieldToolTipscandidates["English"]["StudentID"] = "";
+	$placeHolderscandidates["English"]["StudentID"] = "";
+	$fieldLabelscandidates["English"]["Disability_Status"] = "Disability Status";
+	$fieldToolTipscandidates["English"]["Disability_Status"] = "";
+	$placeHolderscandidates["English"]["Disability_Status"] = "";
+	$fieldLabelscandidates["English"]["Disability_Type"] = "Disability Type";
+	$fieldToolTipscandidates["English"]["Disability_Type"] = "";
+	$placeHolderscandidates["English"]["Disability_Type"] = "";
+	$fieldLabelscandidates["English"]["Disability_Type_Other"] = "Disability Type Other";
+	$fieldToolTipscandidates["English"]["Disability_Type_Other"] = "";
+	$placeHolderscandidates["English"]["Disability_Type_Other"] = "";
+	$fieldLabelscandidates["English"]["Field_Of_Study"] = "Field Of Study";
+	$fieldToolTipscandidates["English"]["Field_Of_Study"] = "";
+	$placeHolderscandidates["English"]["Field_Of_Study"] = "";
+	$fieldLabelscandidates["English"]["GPA"] = "GPA";
+	$fieldToolTipscandidates["English"]["GPA"] = "";
+	$placeHolderscandidates["English"]["GPA"] = "";
 	if (count($fieldToolTipscandidates["English"]))
 		$tdatacandidates[".isUseToolTips"] = true;
 }
@@ -246,6 +264,7 @@ $tdatacandidates[".requiredSearchFields"] = array();
 
 $tdatacandidates[".googleLikeFields"] = array();
 $tdatacandidates[".googleLikeFields"][] = "CandidateID";
+$tdatacandidates[".googleLikeFields"][] = "StudentID";
 $tdatacandidates[".googleLikeFields"][] = "First_Name";
 $tdatacandidates[".googleLikeFields"][] = "Middle_Name";
 $tdatacandidates[".googleLikeFields"][] = "Last_Name";
@@ -259,6 +278,9 @@ $tdatacandidates[".googleLikeFields"][] = "House_No";
 $tdatacandidates[".googleLikeFields"][] = "Phone_Number";
 $tdatacandidates[".googleLikeFields"][] = "Phone_Number_Family";
 $tdatacandidates[".googleLikeFields"][] = "Email_Address";
+$tdatacandidates[".googleLikeFields"][] = "Disability_Status";
+$tdatacandidates[".googleLikeFields"][] = "Disability_Type";
+$tdatacandidates[".googleLikeFields"][] = "Disability_Type_Other";
 $tdatacandidates[".googleLikeFields"][] = "Institution_Type";
 $tdatacandidates[".googleLikeFields"][] = "Education_Level";
 $tdatacandidates[".googleLikeFields"][] = "Department";
@@ -270,6 +292,8 @@ $tdatacandidates[".googleLikeFields"][] = "Industry_Specific_Skills";
 $tdatacandidates[".googleLikeFields"][] = "IT_Related_Skills";
 $tdatacandidates[".googleLikeFields"][] = "Certifications";
 $tdatacandidates[".googleLikeFields"][] = "Year_of_graduation";
+$tdatacandidates[".googleLikeFields"][] = "Field_Of_Study";
+$tdatacandidates[".googleLikeFields"][] = "GPA";
 $tdatacandidates[".googleLikeFields"][] = "Work_Experience";
 $tdatacandidates[".googleLikeFields"][] = "Joined_Dereja_Services";
 $tdatacandidates[".googleLikeFields"][] = "Dereja_Services";
@@ -313,11 +337,22 @@ $tdatacandidates[".strOrderBy"] = $tstrOrderBy;
 $tdatacandidates[".orderindexes"] = array();
 
 
-$tdatacandidates[".sqlHead"] = "SELECT CandidateID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	House_No,  	Phone_Number,  	Phone_Number_Family,  	Email_Address,  	Institution_Type,  	Education_Level,  	Department,  	Minor,  	Major,  	Skills,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source";
+$tdatacandidates[".sqlHead"] = "SELECT CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	House_No,  	Phone_Number,  	Phone_Number_Family,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Education_Level,  	Department,  	Minor,  	Major,  	Skills,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source";
 $tdatacandidates[".sqlFrom"] = "FROM candidates";
 $tdatacandidates[".sqlWhereExpr"] = "";
 $tdatacandidates[".sqlTail"] = "";
 
+//fill array of tabs for list page
+$arrGridTabs = array();
+$arrGridTabs[] = array(
+	'tabId' => "",
+	'name' => "All data",
+	'nameType' => 'Text',
+	'where' => "",
+	'showRowCount' => 0,
+	'hideEmpty' => 0,
+);
+$tdatacandidates[".arrGridTabs"] = $arrGridTabs;
 
 
 
@@ -501,10 +536,147 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	$tdatacandidates["CandidateID"] = $fdata;
 		$tdatacandidates[".searchableFields"][] = "CandidateID";
-//	First_Name
+//	StudentID
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 2;
+	$fdata["strName"] = "StudentID";
+	$fdata["GoodName"] = "StudentID";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","StudentID");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "StudentID";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "StudentID";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["StudentID"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "StudentID";
+//	First_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 3;
 	$fdata["strName"] = "First_Name";
 	$fdata["GoodName"] = "First_Name";
 	$fdata["ownerTable"] = "candidates";
@@ -641,7 +813,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Middle_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 3;
+	$fdata["Index"] = 4;
 	$fdata["strName"] = "Middle_Name";
 	$fdata["GoodName"] = "Middle_Name";
 	$fdata["ownerTable"] = "candidates";
@@ -778,7 +950,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Last_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 4;
+	$fdata["Index"] = 5;
 	$fdata["strName"] = "Last_Name";
 	$fdata["GoodName"] = "Last_Name";
 	$fdata["ownerTable"] = "candidates";
@@ -915,7 +1087,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Sex
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 5;
+	$fdata["Index"] = 6;
 	$fdata["strName"] = "Sex";
 	$fdata["GoodName"] = "Sex";
 	$fdata["ownerTable"] = "candidates";
@@ -1065,7 +1237,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	DOB
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 6;
+	$fdata["Index"] = 7;
 	$fdata["strName"] = "DOB";
 	$fdata["GoodName"] = "DOB";
 	$fdata["ownerTable"] = "candidates";
@@ -1202,7 +1374,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Region
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 7;
+	$fdata["Index"] = 8;
 	$fdata["strName"] = "Region";
 	$fdata["GoodName"] = "Region";
 	$fdata["ownerTable"] = "candidates";
@@ -1364,7 +1536,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	City
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 8;
+	$fdata["Index"] = 9;
 	$fdata["strName"] = "City";
 	$fdata["GoodName"] = "City";
 	$fdata["ownerTable"] = "candidates";
@@ -1526,7 +1698,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Sub_City
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 9;
+	$fdata["Index"] = 10;
 	$fdata["strName"] = "Sub_City";
 	$fdata["GoodName"] = "Sub_City";
 	$fdata["ownerTable"] = "candidates";
@@ -1688,7 +1860,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Zone
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 10;
+	$fdata["Index"] = 11;
 	$fdata["strName"] = "Zone";
 	$fdata["GoodName"] = "Zone";
 	$fdata["ownerTable"] = "candidates";
@@ -1825,7 +1997,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	House_No
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 11;
+	$fdata["Index"] = 12;
 	$fdata["strName"] = "House_No";
 	$fdata["GoodName"] = "House_No";
 	$fdata["ownerTable"] = "candidates";
@@ -1962,7 +2134,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Phone_Number
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 12;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "Phone_Number";
 	$fdata["GoodName"] = "Phone_Number";
 	$fdata["ownerTable"] = "candidates";
@@ -2099,7 +2271,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Phone_Number_Family
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 13;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "Phone_Number_Family";
 	$fdata["GoodName"] = "Phone_Number_Family";
 	$fdata["ownerTable"] = "candidates";
@@ -2236,7 +2408,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Email_Address
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 14;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "Email_Address";
 	$fdata["GoodName"] = "Email_Address";
 	$fdata["ownerTable"] = "candidates";
@@ -2370,10 +2542,459 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	$tdatacandidates["Email_Address"] = $fdata;
 		$tdatacandidates[".searchableFields"][] = "Email_Address";
+//	Disability_Status
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 16;
+	$fdata["strName"] = "Disability_Status";
+	$fdata["GoodName"] = "Disability_Status";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","Disability_Status");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Disability_Status";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Disability_Status";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+		$edata["LookupType"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+	
+		$edata["LookupValues"] = array();
+	$edata["LookupValues"][] = "Yes";
+	$edata["LookupValues"][] = "No";
+
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["Disability_Status"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "Disability_Status";
+//	Disability_Type
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 17;
+	$fdata["strName"] = "Disability_Type";
+	$fdata["GoodName"] = "Disability_Type";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","Disability_Type");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Disability_Type";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Disability_Type";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Disability_Types";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "DisabilityID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "Disability_Type";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["Disability_Type"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "Disability_Type";
+//	Disability_Type_Other
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 18;
+	$fdata["strName"] = "Disability_Type_Other";
+	$fdata["GoodName"] = "Disability_Type_Other";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","Disability_Type_Other");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Disability_Type_Other";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Disability_Type_Other";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["Disability_Type_Other"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "Disability_Type_Other";
 //	Institution_Type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "Institution_Type";
 	$fdata["GoodName"] = "Institution_Type";
 	$fdata["ownerTable"] = "candidates";
@@ -2535,7 +3156,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Education_Level
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "Education_Level";
 	$fdata["GoodName"] = "Education_Level";
 	$fdata["ownerTable"] = "candidates";
@@ -2697,7 +3318,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Department
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "Department";
 	$fdata["GoodName"] = "Department";
 	$fdata["ownerTable"] = "candidates";
@@ -2859,7 +3480,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Minor
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "Minor";
 	$fdata["GoodName"] = "Minor";
 	$fdata["ownerTable"] = "candidates";
@@ -3021,7 +3642,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Major
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "Major";
 	$fdata["GoodName"] = "Major";
 	$fdata["ownerTable"] = "candidates";
@@ -3183,7 +3804,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Skills
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "Skills";
 	$fdata["GoodName"] = "Skills";
 	$fdata["ownerTable"] = "candidates";
@@ -3346,7 +3967,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	English_Proficiency_Level
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 25;
 	$fdata["strName"] = "English_Proficiency_Level";
 	$fdata["GoodName"] = "English_Proficiency_Level";
 	$fdata["ownerTable"] = "candidates";
@@ -3483,7 +4104,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Industry_Specific_Skills
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 26;
 	$fdata["strName"] = "Industry_Specific_Skills";
 	$fdata["GoodName"] = "Industry_Specific_Skills";
 	$fdata["ownerTable"] = "candidates";
@@ -3646,7 +4267,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	IT_Related_Skills
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "IT_Related_Skills";
 	$fdata["GoodName"] = "IT_Related_Skills";
 	$fdata["ownerTable"] = "candidates";
@@ -3809,7 +4430,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Certifications
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "Certifications";
 	$fdata["GoodName"] = "Certifications";
 	$fdata["ownerTable"] = "candidates";
@@ -3945,7 +4566,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Year_of_graduation
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 29;
 	$fdata["strName"] = "Year_of_graduation";
 	$fdata["GoodName"] = "Year_of_graduation";
 	$fdata["ownerTable"] = "candidates";
@@ -4079,10 +4700,285 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	$tdatacandidates["Year_of_graduation"] = $fdata;
 		$tdatacandidates[".searchableFields"][] = "Year_of_graduation";
+//	Field_Of_Study
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 30;
+	$fdata["strName"] = "Field_Of_Study";
+	$fdata["GoodName"] = "Field_Of_Study";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","Field_Of_Study");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Field_Of_Study";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Field_Of_Study";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=200";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["Field_Of_Study"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "Field_Of_Study";
+//	GPA
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 31;
+	$fdata["strName"] = "GPA";
+	$fdata["GoodName"] = "GPA";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates","GPA");
+	$fdata["FieldType"] = 5;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "GPA";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "GPA";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Number");
+
+	
+	
+	
+	
+	
+	
+		$vdata["DecimalDigits"] = 0;
+
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates["GPA"] = $fdata;
+		$tdatacandidates[".searchableFields"][] = "GPA";
 //	Work_Experience
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 32;
 	$fdata["strName"] = "Work_Experience";
 	$fdata["GoodName"] = "Work_Experience";
 	$fdata["ownerTable"] = "candidates";
@@ -4218,7 +5114,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Joined_Dereja_Services
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 27;
+	$fdata["Index"] = 33;
 	$fdata["strName"] = "Joined_Dereja_Services";
 	$fdata["GoodName"] = "Joined_Dereja_Services";
 	$fdata["ownerTable"] = "candidates";
@@ -4368,7 +5264,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Dereja_Services
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 28;
+	$fdata["Index"] = 34;
 	$fdata["strName"] = "Dereja_Services";
 	$fdata["GoodName"] = "Dereja_Services";
 	$fdata["ownerTable"] = "candidates";
@@ -4531,7 +5427,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Dereja_Training_Services
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 29;
+	$fdata["Index"] = 35;
 	$fdata["strName"] = "Dereja_Training_Services";
 	$fdata["GoodName"] = "Dereja_Training_Services";
 	$fdata["ownerTable"] = "candidates";
@@ -4694,7 +5590,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Dereja_Event_Services
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 30;
+	$fdata["Index"] = 36;
 	$fdata["strName"] = "Dereja_Event_Services";
 	$fdata["GoodName"] = "Dereja_Event_Services";
 	$fdata["ownerTable"] = "candidates";
@@ -4857,7 +5753,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Dereja_web_profile_completion
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 31;
+	$fdata["Index"] = 37;
 	$fdata["strName"] = "Dereja_web_profile_completion";
 	$fdata["GoodName"] = "Dereja_web_profile_completion";
 	$fdata["ownerTable"] = "candidates";
@@ -4994,7 +5890,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Dereja_Information_Source
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 32;
+	$fdata["Index"] = 38;
 	$fdata["strName"] = "Dereja_Information_Source";
 	$fdata["GoodName"] = "Dereja_Information_Source";
 	$fdata["ownerTable"] = "candidates";
@@ -5280,7 +6176,7 @@ function createSqlQuery_candidates()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "CandidateID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	House_No,  	Phone_Number,  	Phone_Number_Family,  	Email_Address,  	Institution_Type,  	Education_Level,  	Department,  	Minor,  	Major,  	Skills,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source";
+$proto0["m_strFieldList"] = "CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	House_No,  	Phone_Number,  	Phone_Number_Family,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Education_Level,  	Department,  	Minor,  	Major,  	Skills,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source";
 $proto0["m_strFrom"] = "FROM candidates";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -5336,12 +6232,12 @@ $obj = new SQLFieldListItem($proto6);
 $proto0["m_fieldlist"][]=$obj;
 						$proto8=array();
 			$obj = new SQLField(array(
-	"m_strName" => "First_Name",
+	"m_strName" => "StudentID",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto8["m_sql"] = "First_Name";
+$proto8["m_sql"] = "StudentID";
 $proto8["m_srcTableName"] = "candidates";
 $proto8["m_expr"]=$obj;
 $proto8["m_alias"] = "";
@@ -5350,12 +6246,12 @@ $obj = new SQLFieldListItem($proto8);
 $proto0["m_fieldlist"][]=$obj;
 						$proto10=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Middle_Name",
+	"m_strName" => "First_Name",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto10["m_sql"] = "Middle_Name";
+$proto10["m_sql"] = "First_Name";
 $proto10["m_srcTableName"] = "candidates";
 $proto10["m_expr"]=$obj;
 $proto10["m_alias"] = "";
@@ -5364,12 +6260,12 @@ $obj = new SQLFieldListItem($proto10);
 $proto0["m_fieldlist"][]=$obj;
 						$proto12=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Last_Name",
+	"m_strName" => "Middle_Name",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto12["m_sql"] = "Last_Name";
+$proto12["m_sql"] = "Middle_Name";
 $proto12["m_srcTableName"] = "candidates";
 $proto12["m_expr"]=$obj;
 $proto12["m_alias"] = "";
@@ -5378,12 +6274,12 @@ $obj = new SQLFieldListItem($proto12);
 $proto0["m_fieldlist"][]=$obj;
 						$proto14=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Sex",
+	"m_strName" => "Last_Name",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto14["m_sql"] = "Sex";
+$proto14["m_sql"] = "Last_Name";
 $proto14["m_srcTableName"] = "candidates";
 $proto14["m_expr"]=$obj;
 $proto14["m_alias"] = "";
@@ -5392,12 +6288,12 @@ $obj = new SQLFieldListItem($proto14);
 $proto0["m_fieldlist"][]=$obj;
 						$proto16=array();
 			$obj = new SQLField(array(
-	"m_strName" => "DOB",
+	"m_strName" => "Sex",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto16["m_sql"] = "DOB";
+$proto16["m_sql"] = "Sex";
 $proto16["m_srcTableName"] = "candidates";
 $proto16["m_expr"]=$obj;
 $proto16["m_alias"] = "";
@@ -5406,12 +6302,12 @@ $obj = new SQLFieldListItem($proto16);
 $proto0["m_fieldlist"][]=$obj;
 						$proto18=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Region",
+	"m_strName" => "DOB",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto18["m_sql"] = "Region";
+$proto18["m_sql"] = "DOB";
 $proto18["m_srcTableName"] = "candidates";
 $proto18["m_expr"]=$obj;
 $proto18["m_alias"] = "";
@@ -5420,12 +6316,12 @@ $obj = new SQLFieldListItem($proto18);
 $proto0["m_fieldlist"][]=$obj;
 						$proto20=array();
 			$obj = new SQLField(array(
-	"m_strName" => "City",
+	"m_strName" => "Region",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto20["m_sql"] = "City";
+$proto20["m_sql"] = "Region";
 $proto20["m_srcTableName"] = "candidates";
 $proto20["m_expr"]=$obj;
 $proto20["m_alias"] = "";
@@ -5434,12 +6330,12 @@ $obj = new SQLFieldListItem($proto20);
 $proto0["m_fieldlist"][]=$obj;
 						$proto22=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Sub_City",
+	"m_strName" => "City",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto22["m_sql"] = "Sub_City";
+$proto22["m_sql"] = "City";
 $proto22["m_srcTableName"] = "candidates";
 $proto22["m_expr"]=$obj;
 $proto22["m_alias"] = "";
@@ -5448,12 +6344,12 @@ $obj = new SQLFieldListItem($proto22);
 $proto0["m_fieldlist"][]=$obj;
 						$proto24=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Zone",
+	"m_strName" => "Sub_City",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto24["m_sql"] = "`Zone`";
+$proto24["m_sql"] = "Sub_City";
 $proto24["m_srcTableName"] = "candidates";
 $proto24["m_expr"]=$obj;
 $proto24["m_alias"] = "";
@@ -5462,12 +6358,12 @@ $obj = new SQLFieldListItem($proto24);
 $proto0["m_fieldlist"][]=$obj;
 						$proto26=array();
 			$obj = new SQLField(array(
-	"m_strName" => "House_No",
+	"m_strName" => "Zone",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto26["m_sql"] = "House_No";
+$proto26["m_sql"] = "`Zone`";
 $proto26["m_srcTableName"] = "candidates";
 $proto26["m_expr"]=$obj;
 $proto26["m_alias"] = "";
@@ -5476,12 +6372,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Phone_Number",
+	"m_strName" => "House_No",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto28["m_sql"] = "Phone_Number";
+$proto28["m_sql"] = "House_No";
 $proto28["m_srcTableName"] = "candidates";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -5490,12 +6386,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Phone_Number_Family",
+	"m_strName" => "Phone_Number",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto30["m_sql"] = "Phone_Number_Family";
+$proto30["m_sql"] = "Phone_Number";
 $proto30["m_srcTableName"] = "candidates";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -5504,12 +6400,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Email_Address",
+	"m_strName" => "Phone_Number_Family",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto32["m_sql"] = "Email_Address";
+$proto32["m_sql"] = "Phone_Number_Family";
 $proto32["m_srcTableName"] = "candidates";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -5518,12 +6414,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Institution_Type",
+	"m_strName" => "Email_Address",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto34["m_sql"] = "Institution_Type";
+$proto34["m_sql"] = "Email_Address";
 $proto34["m_srcTableName"] = "candidates";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -5532,12 +6428,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Education_Level",
+	"m_strName" => "Disability_Status",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto36["m_sql"] = "Education_Level";
+$proto36["m_sql"] = "Disability_Status";
 $proto36["m_srcTableName"] = "candidates";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -5546,12 +6442,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Department",
+	"m_strName" => "Disability_Type",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto38["m_sql"] = "Department";
+$proto38["m_sql"] = "Disability_Type";
 $proto38["m_srcTableName"] = "candidates";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -5560,12 +6456,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Minor",
+	"m_strName" => "Disability_Type_Other",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto40["m_sql"] = "Minor";
+$proto40["m_sql"] = "Disability_Type_Other";
 $proto40["m_srcTableName"] = "candidates";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -5574,12 +6470,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Major",
+	"m_strName" => "Institution_Type",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto42["m_sql"] = "Major";
+$proto42["m_sql"] = "Institution_Type";
 $proto42["m_srcTableName"] = "candidates";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -5588,12 +6484,12 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Skills",
+	"m_strName" => "Education_Level",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto44["m_sql"] = "Skills";
+$proto44["m_sql"] = "Education_Level";
 $proto44["m_srcTableName"] = "candidates";
 $proto44["m_expr"]=$obj;
 $proto44["m_alias"] = "";
@@ -5602,12 +6498,12 @@ $obj = new SQLFieldListItem($proto44);
 $proto0["m_fieldlist"][]=$obj;
 						$proto46=array();
 			$obj = new SQLField(array(
-	"m_strName" => "English_Proficiency_Level",
+	"m_strName" => "Department",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto46["m_sql"] = "English_Proficiency_Level";
+$proto46["m_sql"] = "Department";
 $proto46["m_srcTableName"] = "candidates";
 $proto46["m_expr"]=$obj;
 $proto46["m_alias"] = "";
@@ -5616,12 +6512,12 @@ $obj = new SQLFieldListItem($proto46);
 $proto0["m_fieldlist"][]=$obj;
 						$proto48=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Industry_Specific_Skills",
+	"m_strName" => "Minor",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto48["m_sql"] = "Industry_Specific_Skills";
+$proto48["m_sql"] = "Minor";
 $proto48["m_srcTableName"] = "candidates";
 $proto48["m_expr"]=$obj;
 $proto48["m_alias"] = "";
@@ -5630,12 +6526,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "IT_Related_Skills",
+	"m_strName" => "Major",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto50["m_sql"] = "IT_Related_Skills";
+$proto50["m_sql"] = "Major";
 $proto50["m_srcTableName"] = "candidates";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -5644,12 +6540,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Certifications",
+	"m_strName" => "Skills",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto52["m_sql"] = "Certifications";
+$proto52["m_sql"] = "Skills";
 $proto52["m_srcTableName"] = "candidates";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -5658,12 +6554,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Year_of_graduation",
+	"m_strName" => "English_Proficiency_Level",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto54["m_sql"] = "Year_of_graduation";
+$proto54["m_sql"] = "English_Proficiency_Level";
 $proto54["m_srcTableName"] = "candidates";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -5672,12 +6568,12 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Work_Experience",
+	"m_strName" => "Industry_Specific_Skills",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto56["m_sql"] = "Work_Experience";
+$proto56["m_sql"] = "Industry_Specific_Skills";
 $proto56["m_srcTableName"] = "candidates";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
@@ -5686,12 +6582,12 @@ $obj = new SQLFieldListItem($proto56);
 $proto0["m_fieldlist"][]=$obj;
 						$proto58=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Joined_Dereja_Services",
+	"m_strName" => "IT_Related_Skills",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto58["m_sql"] = "Joined_Dereja_Services";
+$proto58["m_sql"] = "IT_Related_Skills";
 $proto58["m_srcTableName"] = "candidates";
 $proto58["m_expr"]=$obj;
 $proto58["m_alias"] = "";
@@ -5700,12 +6596,12 @@ $obj = new SQLFieldListItem($proto58);
 $proto0["m_fieldlist"][]=$obj;
 						$proto60=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Dereja_Services",
+	"m_strName" => "Certifications",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto60["m_sql"] = "Dereja_Services";
+$proto60["m_sql"] = "Certifications";
 $proto60["m_srcTableName"] = "candidates";
 $proto60["m_expr"]=$obj;
 $proto60["m_alias"] = "";
@@ -5714,12 +6610,12 @@ $obj = new SQLFieldListItem($proto60);
 $proto0["m_fieldlist"][]=$obj;
 						$proto62=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Dereja_Training_Services",
+	"m_strName" => "Year_of_graduation",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto62["m_sql"] = "Dereja_Training_Services";
+$proto62["m_sql"] = "Year_of_graduation";
 $proto62["m_srcTableName"] = "candidates";
 $proto62["m_expr"]=$obj;
 $proto62["m_alias"] = "";
@@ -5728,12 +6624,12 @@ $obj = new SQLFieldListItem($proto62);
 $proto0["m_fieldlist"][]=$obj;
 						$proto64=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Dereja_Event_Services",
+	"m_strName" => "Field_Of_Study",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto64["m_sql"] = "Dereja_Event_Services";
+$proto64["m_sql"] = "Field_Of_Study";
 $proto64["m_srcTableName"] = "candidates";
 $proto64["m_expr"]=$obj;
 $proto64["m_alias"] = "";
@@ -5742,12 +6638,12 @@ $obj = new SQLFieldListItem($proto64);
 $proto0["m_fieldlist"][]=$obj;
 						$proto66=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Dereja_web_profile_completion",
+	"m_strName" => "GPA",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto66["m_sql"] = "Dereja_web_profile_completion";
+$proto66["m_sql"] = "GPA";
 $proto66["m_srcTableName"] = "candidates";
 $proto66["m_expr"]=$obj;
 $proto66["m_alias"] = "";
@@ -5756,80 +6652,170 @@ $obj = new SQLFieldListItem($proto66);
 $proto0["m_fieldlist"][]=$obj;
 						$proto68=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Dereja_Information_Source",
+	"m_strName" => "Work_Experience",
 	"m_strTable" => "candidates",
 	"m_srcTableName" => "candidates"
 ));
 
-$proto68["m_sql"] = "Dereja_Information_Source";
+$proto68["m_sql"] = "Work_Experience";
 $proto68["m_srcTableName"] = "candidates";
 $proto68["m_expr"]=$obj;
 $proto68["m_alias"] = "";
 $obj = new SQLFieldListItem($proto68);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto70=array();
-$proto70["m_link"] = "SQLL_MAIN";
-			$proto71=array();
-$proto71["m_strName"] = "candidates";
-$proto71["m_srcTableName"] = "candidates";
-$proto71["m_columns"] = array();
-$proto71["m_columns"][] = "CandidateID";
-$proto71["m_columns"][] = "First_Name";
-$proto71["m_columns"][] = "Middle_Name";
-$proto71["m_columns"][] = "Last_Name";
-$proto71["m_columns"][] = "Sex";
-$proto71["m_columns"][] = "DOB";
-$proto71["m_columns"][] = "Region";
-$proto71["m_columns"][] = "City";
-$proto71["m_columns"][] = "Sub_City";
-$proto71["m_columns"][] = "Zone";
-$proto71["m_columns"][] = "House_No";
-$proto71["m_columns"][] = "Phone_Number";
-$proto71["m_columns"][] = "Phone_Number_Family";
-$proto71["m_columns"][] = "Email_Address";
-$proto71["m_columns"][] = "Institution_Type";
-$proto71["m_columns"][] = "Education_Level";
-$proto71["m_columns"][] = "Department";
-$proto71["m_columns"][] = "Minor";
-$proto71["m_columns"][] = "Major";
-$proto71["m_columns"][] = "Skills";
-$proto71["m_columns"][] = "English_Proficiency_Level";
-$proto71["m_columns"][] = "Industry_Specific_Skills";
-$proto71["m_columns"][] = "IT_Related_Skills";
-$proto71["m_columns"][] = "Certifications";
-$proto71["m_columns"][] = "Year_of_graduation";
-$proto71["m_columns"][] = "Work_Experience";
-$proto71["m_columns"][] = "Joined_Dereja_Services";
-$proto71["m_columns"][] = "Dereja_Services";
-$proto71["m_columns"][] = "Dereja_Training_Services";
-$proto71["m_columns"][] = "Dereja_Event_Services";
-$proto71["m_columns"][] = "Dereja_web_profile_completion";
-$proto71["m_columns"][] = "Dereja_Information_Source";
-$obj = new SQLTable($proto71);
+						$proto70=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Joined_Dereja_Services",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
 
-$proto70["m_table"] = $obj;
-$proto70["m_sql"] = "candidates";
-$proto70["m_alias"] = "";
+$proto70["m_sql"] = "Joined_Dereja_Services";
 $proto70["m_srcTableName"] = "candidates";
-$proto72=array();
-$proto72["m_sql"] = "";
-$proto72["m_uniontype"] = "SQLL_UNKNOWN";
+$proto70["m_expr"]=$obj;
+$proto70["m_alias"] = "";
+$obj = new SQLFieldListItem($proto70);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto72=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Dereja_Services",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
+
+$proto72["m_sql"] = "Dereja_Services";
+$proto72["m_srcTableName"] = "candidates";
+$proto72["m_expr"]=$obj;
+$proto72["m_alias"] = "";
+$obj = new SQLFieldListItem($proto72);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto74=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Dereja_Training_Services",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
+
+$proto74["m_sql"] = "Dereja_Training_Services";
+$proto74["m_srcTableName"] = "candidates";
+$proto74["m_expr"]=$obj;
+$proto74["m_alias"] = "";
+$obj = new SQLFieldListItem($proto74);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto76=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Dereja_Event_Services",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
+
+$proto76["m_sql"] = "Dereja_Event_Services";
+$proto76["m_srcTableName"] = "candidates";
+$proto76["m_expr"]=$obj;
+$proto76["m_alias"] = "";
+$obj = new SQLFieldListItem($proto76);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto78=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Dereja_web_profile_completion",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
+
+$proto78["m_sql"] = "Dereja_web_profile_completion";
+$proto78["m_srcTableName"] = "candidates";
+$proto78["m_expr"]=$obj;
+$proto78["m_alias"] = "";
+$obj = new SQLFieldListItem($proto78);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto80=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Dereja_Information_Source",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates"
+));
+
+$proto80["m_sql"] = "Dereja_Information_Source";
+$proto80["m_srcTableName"] = "candidates";
+$proto80["m_expr"]=$obj;
+$proto80["m_alias"] = "";
+$obj = new SQLFieldListItem($proto80);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto82=array();
+$proto82["m_link"] = "SQLL_MAIN";
+			$proto83=array();
+$proto83["m_strName"] = "candidates";
+$proto83["m_srcTableName"] = "candidates";
+$proto83["m_columns"] = array();
+$proto83["m_columns"][] = "CandidateID";
+$proto83["m_columns"][] = "StudentID";
+$proto83["m_columns"][] = "First_Name";
+$proto83["m_columns"][] = "Middle_Name";
+$proto83["m_columns"][] = "Last_Name";
+$proto83["m_columns"][] = "Sex";
+$proto83["m_columns"][] = "DOB";
+$proto83["m_columns"][] = "Region";
+$proto83["m_columns"][] = "City";
+$proto83["m_columns"][] = "Sub_City";
+$proto83["m_columns"][] = "Zone";
+$proto83["m_columns"][] = "House_No";
+$proto83["m_columns"][] = "Phone_Number";
+$proto83["m_columns"][] = "Phone_Number_Family";
+$proto83["m_columns"][] = "Email_Address";
+$proto83["m_columns"][] = "Disability_Status";
+$proto83["m_columns"][] = "Disability_Type";
+$proto83["m_columns"][] = "Disability_Type_Other";
+$proto83["m_columns"][] = "Institution_Type";
+$proto83["m_columns"][] = "Education_Level";
+$proto83["m_columns"][] = "Department";
+$proto83["m_columns"][] = "Minor";
+$proto83["m_columns"][] = "Major";
+$proto83["m_columns"][] = "Skills";
+$proto83["m_columns"][] = "English_Proficiency_Level";
+$proto83["m_columns"][] = "Industry_Specific_Skills";
+$proto83["m_columns"][] = "IT_Related_Skills";
+$proto83["m_columns"][] = "Certifications";
+$proto83["m_columns"][] = "Year_of_graduation";
+$proto83["m_columns"][] = "Field_Of_Study";
+$proto83["m_columns"][] = "GPA";
+$proto83["m_columns"][] = "Work_Experience";
+$proto83["m_columns"][] = "Joined_Dereja_Services";
+$proto83["m_columns"][] = "Dereja_Services";
+$proto83["m_columns"][] = "Dereja_Training_Services";
+$proto83["m_columns"][] = "Dereja_Event_Services";
+$proto83["m_columns"][] = "Dereja_web_profile_completion";
+$proto83["m_columns"][] = "Dereja_Information_Source";
+$obj = new SQLTable($proto83);
+
+$proto82["m_table"] = $obj;
+$proto82["m_sql"] = "candidates";
+$proto82["m_alias"] = "";
+$proto82["m_srcTableName"] = "candidates";
+$proto84=array();
+$proto84["m_sql"] = "";
+$proto84["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto72["m_column"]=$obj;
-$proto72["m_contained"] = array();
-$proto72["m_strCase"] = "";
-$proto72["m_havingmode"] = false;
-$proto72["m_inBrackets"] = false;
-$proto72["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto72);
+$proto84["m_column"]=$obj;
+$proto84["m_contained"] = array();
+$proto84["m_strCase"] = "";
+$proto84["m_havingmode"] = false;
+$proto84["m_inBrackets"] = false;
+$proto84["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto84);
 
-$proto70["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto70);
+$proto82["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto82);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -5845,7 +6831,7 @@ $queryData_candidates = createSqlQuery_candidates();
 	
 		;
 
-																																
+																																						
 
 $tdatacandidates[".sqlquery"] = $queryData_candidates;
 

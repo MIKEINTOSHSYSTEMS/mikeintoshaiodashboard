@@ -242,6 +242,17 @@ $tdatacandidate_employment_tracker[".sqlFrom"] = "FROM Candidate_Employment_Trac
 $tdatacandidate_employment_tracker[".sqlWhereExpr"] = "";
 $tdatacandidate_employment_tracker[".sqlTail"] = "";
 
+//fill array of tabs for list page
+$arrGridTabs = array();
+$arrGridTabs[] = array(
+	'tabId' => "",
+	'name' => "All data",
+	'nameType' => 'Text',
+	'where' => "",
+	'showRowCount' => 0,
+	'hideEmpty' => 0,
+);
+$tdatacandidate_employment_tracker[".arrGridTabs"] = $arrGridTabs;
 
 
 

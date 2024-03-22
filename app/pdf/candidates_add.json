@@ -249,6 +249,24 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field30}","stack":[{"text":"{$jslabel candidates Dereja_Information_Source }","bold":true},{"text":{$Dereja_Information_Source_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field31}","stack":[{"text":"{$jslabel candidates StudentID }","bold":true},{"text":{$StudentID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field32}","stack":[{"text":"{$jslabel candidates Disability_Status }","bold":true},{"text":{$Disability_Status_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field33}","stack":[{"text":"{$jslabel candidates Disability_Type }","bold":true},{"text":{$Disability_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field34}","stack":[{"text":"{$jslabel candidates Disability_Type_Other }","bold":true},{"text":{$Disability_Type_Other_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field35}","stack":[{"text":"{$jslabel candidates Field_Of_Study }","bold":true},{"text":{$Field_Of_Study_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field36}","stack":[{"text":"{$jslabel candidates GPA }","bold":true},{"text":{$GPA_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

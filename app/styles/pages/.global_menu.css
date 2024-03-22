@@ -97,5 +97,8 @@
 [data-page=".global_menu"][data-itemid="welcome_item32"] > .bs-welcome-header {
   background-color: #E67349;
 }
+[data-page=".global_menu"][data-itemid="welcome_item33"] > .bs-welcome-header {
+  background-color: #6DA5C8;
+}
 
 

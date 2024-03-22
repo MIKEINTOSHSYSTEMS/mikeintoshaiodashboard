@@ -158,6 +158,42 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel training_participants Phone }","bold":true},{"text":{$Phone_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel training_participants StudentID }","bold":true},{"text":{$StudentID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel training_participants Disability_Status }","bold":true},{"text":{$Disability_Status_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel training_participants Disability_Type }","bold":true},{"text":{$Disability_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel training_participants Disability_Type_Other }","bold":true},{"text":{$Disability_Type_Other_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel training_participants Participant_Profession }","bold":true},{"text":{$Participant_Profession_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel training_participants Participant_Field_of_Study }","bold":true},{"text":{$Participant_Field_of_Study_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel training_participants Participant_Facility_Organization_Type }","bold":true},{"text":{$Participant_Facility_Organization_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel training_participants Participant_Organization_Name }","bold":true},{"text":{$Participant_Organization_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field22}","stack":[{"text":"{$jslabel training_participants Participants_Home_Address }","bold":true},{"text":{$Participants_Home_Address_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field23}","stack":[{"text":"{$jslabel training_participants PreTest_Score }","bold":true},{"text":{$PreTest_Score_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field24}","stack":[{"text":"{$jslabel training_participants Skill_Test }","bold":true},{"text":{$Skill_Test_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field25}","stack":[{"text":"{$jslabel training_participants Post_Test_Score }","bold":true},{"text":{$Post_Test_Score_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',
