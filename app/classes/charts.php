@@ -506,6 +506,8 @@ class Chart
 			return true;
 		if("Disability_Types" == $this->chrt_array['tables'][0])
 			return true;
+		if("Trainer" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

@@ -122,6 +122,11 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel training_organizers OrganizerName }","bold":true},{"text":{$OrganizerName_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			 {BEGIN details_trainer}
+			{$displayDetailTable_trainer }
+		{END details_trainer},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

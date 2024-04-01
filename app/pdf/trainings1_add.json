@@ -170,6 +170,35 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel trainings Training_End_Date }","bold":true},{"text":{$Training_End_Date_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel trainings TypeName }","bold":true},{"text":{$TypeName_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel trainings OrganizerName }","bold":true},{"text":{$OrganizerName_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel trainings CityTownName }","bold":true},{"text":{$CityTownName_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel trainings VenueName }","bold":true},{"text":{$VenueName_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel trainings Trainer_FullName }","bold":true},{"text":{$Trainer_FullName_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel trainings TrainingRound }","bold":true},{"text":{$TrainingRound_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel trainings TrainingNote }","bold":true},{"text":{$TrainingNote_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel trainings program_areas }","bold":true},{"text":{$program_areas_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			 {BEGIN details_training_participants}
+			{$displayDetailTable_training_participants }
+		{END details_training_participants},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

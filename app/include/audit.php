@@ -438,6 +438,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Trainer")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -879,6 +883,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Disability_Types")
+		{
+			return false;
+		}
+		if($table=="Trainer")
 		{
 			return false;
 		}

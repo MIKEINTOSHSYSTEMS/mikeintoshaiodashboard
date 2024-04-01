@@ -222,7 +222,7 @@ $tdatatraining_participants[".addPageEvents"] = false;
 $tdatatraining_participants[".isUseTimeForSearch"] = false;
 
 
-$tdatatraining_participants[".badgeColor"] = "4169E1";
+$tdatatraining_participants[".badgeColor"] = "4169e1";
 
 
 $tdatatraining_participants[".allSearchFields"] = array();
@@ -410,9 +410,16 @@ $tdatatraining_participants[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "trainings";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["autoCompleteFields"][] = array('masterF'=>"Training_Organizer", 'lookupF'=>"OrganizerName");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Type", 'lookupF'=>"TypeName");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Program_Area", 'lookupF'=>"program_areas");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_City_Town", 'lookupF'=>"CityTownName");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Venue", 'lookupF'=>"VenueName");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Start_Date", 'lookupF'=>"Training_Start_Date");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_End_Date", 'lookupF'=>"Training_End_Date");
+	$edata["LCType"] = 0;
 
 	
 		
@@ -433,8 +440,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 
 	
-		$edata["Multiselect"] = true;
-
+	
 		$edata["SelectSize"] = 1;
 
 // End Lookup Settings
@@ -582,8 +588,10 @@ $tdatatraining_participants[".hideMobileList"] = array();
 		$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Middle_Name", 'lookupF'=>"Middle_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Last_Name", 'lookupF'=>"Last_Name");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Sex", 'lookupF'=>"Sex");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Email", 'lookupF'=>"Email_Address");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Phone", 'lookupF'=>"Phone_Number");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Participant_Field_of_Study", 'lookupF'=>"Field_Of_Study");
 	$edata["LCType"] = 0;
 
 	
@@ -1693,9 +1701,11 @@ $tdatatraining_participants[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "trainings";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["autoCompleteFields"][] = array('masterF'=>"TrainingID", 'lookupF'=>"TrainingID");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_End_Date", 'lookupF'=>"Training_End_Date");
+	$edata["LCType"] = 0;
 
 	
 		
@@ -1855,9 +1865,11 @@ $tdatatraining_participants[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "trainings";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["autoCompleteFields"][] = array('masterF'=>"TrainingID", 'lookupF'=>"TrainingID");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Start_Date", 'lookupF'=>"Training_Start_Date");
+	$edata["LCType"] = 0;
 
 	
 		
@@ -4375,8 +4387,12 @@ $masterTablesData["training_participants"] = array();
 					$masterTablesData["training_participants"][1] = $masterParams;
 				$masterTablesData["training_participants"][1]["masterKeys"] = array();
 	$masterTablesData["training_participants"][1]["masterKeys"][]="TrainingID";
+				$masterTablesData["training_participants"][1]["masterKeys"][]="Training_Start_Date";
+				$masterTablesData["training_participants"][1]["masterKeys"][]="Training_End_Date";
 				$masterTablesData["training_participants"][1]["detailKeys"] = array();
 	$masterTablesData["training_participants"][1]["detailKeys"][]="TrainingID";
+				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_Start_Date";
+				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_End_Date";
 		
 // -----------------end  prepare master-details data arrays ------------------------------//
 

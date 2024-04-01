@@ -154,7 +154,6 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
@@ -185,12 +184,30 @@
 
 
 {END OrganizerName_fieldblock}
-	
-								</td>
+										</td>
 			{END cellblock_grid_c3}
-								</tr>
-			</tbody></table>
-{END grid_block}
+										</tr>
+										</tbody></table>
+				
+{BEGIN details_trainer}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$caption Trainer }				
+							<span>
+					{$detailslButtons_trainer}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_trainer}
+		</div>
+	</div>
+</div>
+{END details_trainer}
+	
+				{END grid_block}
 						</div>
 					<div class="r-below">
 										{BEGIN below-grid_block}

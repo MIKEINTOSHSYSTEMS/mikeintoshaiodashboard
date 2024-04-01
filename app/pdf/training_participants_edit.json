@@ -178,12 +178,6 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel training_participants Training_Venue }","bold":true},{"text":{$Training_Venue_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel training_participants Training_Start_Date }","bold":true},{"text":{$Training_Start_Date_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel training_participants Training_End_Date }","bold":true},{"text":{$Training_End_Date_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel training_participants First_Name }","bold":true},{"text":{$First_Name_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				

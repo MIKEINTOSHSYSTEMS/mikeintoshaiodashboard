@@ -368,6 +368,29 @@
 				 
 					<li class="container-fluid 
 										">
+									{BEGIN print_details}
+<div>
+	<label for="printDetailsToggler{$id}">
+		<input type="checkbox" id="printDetailsToggler{$id}">
+		Print details	</label>
+	<div  id="printdetailstables{$id}" style="display:none;">
+											{BEGIN print_details_trainer}
+			<div>
+				<label for="printDetailstrainer{$id}">
+					<input type="checkbox" value="trainer" id="printDetailstrainer{$id}" checked>
+					Trainer				</label>
+			</div>
+			{END print_details_trainer}
+						</div>
+</div>
+{END print_details}
+				 
+					</li>
+											<li class="divider" role="separator"></li>
+																				 
+				 
+					<li class="container-fluid 
+										">
 									<div>
 	<label for="printPerPage{$id}">
 					Records Per Page							
@@ -416,7 +439,7 @@
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
 	cellpadding="0" 
-	data-body-height="1"
+	data-body-height="2"
 >
 						<thead>
 			{BEGIN grid_header}
@@ -467,6 +490,22 @@
 	
 	</th>
 	{END cellblock_grid_headcell_checkbox}
+				 
+					{BEGIN cellblock_grid_headcell_details}
+	<th
+	
+	{$cell_grid_headcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_details}
 				 
 					{BEGIN cellblock_grid_headcell_field}
 	<th
@@ -522,6 +561,7 @@
 	</th>
 	{END cellblock_grid_headcell_field1}
 							</tr>
+					 
 					 
 					 
 					
@@ -600,6 +640,41 @@
 	</td>
 	{END cellblock_grid_cell_checkbox}
 				 
+					{BEGIN cellblock_grid_cell_details}
+	<td
+	
+	{$cell_grid_cell_details}
+	{$recordattrs}
+	class="
+					"
+
+	
+	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="training_organizers_list"		data-control-cell
+	
+	>
+
+	 
+			 
+		
+	{BEGIN dtables_link}
+				<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+		<a 
+			{$trainer_link_attrs} 
+			class="{$dtables_link_class} details-badge badge trainer_badge" 
+			title="Show details"
+		>
+							<span class="glyphicon glyphicon-th-list"></span>
+									<span class="{$trainer_cntspan_class}" {$trainer_childnumber_attr}>
+				{$trainer_childnumber}				
+			</span>
+		</a>
+		</span>
+	{END dtables_link}
+
+	
+	</td>
+	{END cellblock_grid_cell_details}
+				 
 					{BEGIN cellblock_grid_cell_field}
 	<td
 	
@@ -647,6 +722,36 @@
 	{END cellblock_grid_cell_field1}
 							</tr>
 					 
+						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+								
+							">
+				 
+					{BEGIN cellblock_grid_cell_dpreview}
+	<td
+	
+	{$cell_grid_cell_dpreview}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+			<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="trainer"
+			data-details-trainer	>
+		<span data-details-inside data-short-table="trainer">
+			</span>
+		<div data-details-preview>
+	</div>
+</div>
+	
+	</td>
+	{END cellblock_grid_cell_dpreview}
+							</tr>
+					 
 					
 											{END grid_row}
 					</tbody>
@@ -655,7 +760,8 @@
 		 
 					 
 					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+					 
+						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
 									{$gridFooter_class}
 									
 								r-gridrow
@@ -692,6 +798,22 @@
 	
 	</td>
 	{END cellblock_grid_footcell_checkbox}
+				 
+					{BEGIN cellblock_grid_footcell_details}
+	<td
+	
+	{$cell_grid_footcell_details}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_details}
 				 
 					{BEGIN cellblock_grid_footcell_field}
 	<td

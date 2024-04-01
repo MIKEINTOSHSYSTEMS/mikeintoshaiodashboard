@@ -74,6 +74,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__regions;
 	var $tblderedevatderejadevmerqconsulta__skills;
 	var $tblderedevatderejadevmerqconsulta__sub_cities;
+	var $tblderedevatderejadevmerqconsulta__Trainer;
 	var $tblderedevatderejadevmerqconsulta__training_city_towns;
 	var $tblderedevatderejadevmerqconsulta__training_organizers;
 	var $tblderedevatderejadevmerqconsulta__training_participants;
@@ -115,6 +116,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "regions", "varname" => "deredevatderejadevmerqconsulta__regions", "altvarname" => "regions", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "skills", "varname" => "deredevatderejadevmerqconsulta__skills", "altvarname" => "skills", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "sub_cities", "varname" => "deredevatderejadevmerqconsulta__sub_cities", "altvarname" => "sub_cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "Trainer", "varname" => "deredevatderejadevmerqconsulta__Trainer", "altvarname" => "Trainer", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_city_towns", "varname" => "deredevatderejadevmerqconsulta__training_city_towns", "altvarname" => "training_city_towns", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_organizers", "varname" => "deredevatderejadevmerqconsulta__training_organizers", "altvarname" => "training_organizers", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_participants", "varname" => "deredevatderejadevmerqconsulta__training_participants", "altvarname" => "training_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

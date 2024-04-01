@@ -17,6 +17,25 @@
 		<div class="panel-body">
 							{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="panel-only" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		{BEGIN inlineadd_link}
+<span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$inlineaddlink_attrs} >
+							Inline Add			</a>
+</span>
+{END inlineadd_link}
+			{END firstAboveGridCell}	
+	</div>					</div>
 	</div>		
 {END above-grid_block}
 								{BEGIN grid_block}
@@ -41,6 +60,23 @@
 								r-gridrow
 							">
 				 
+					{BEGIN cellblock_grid_headcell_icons}
+	<th
+	
+	{$cell_grid_headcell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_headcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"		data-control-cell
+	
+	>
+
+	
+	</th>
+	{END cellblock_grid_headcell_icons}
+				 
 					{BEGIN cellblock_grid_headcell_field}
 	<th
 	
@@ -58,7 +94,7 @@
 	 
 		{BEGIN TrainingID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID">
 	{$label trainings TrainingID }	</span>
 {END TrainingID_fieldheadercolumn}
 
@@ -83,7 +119,7 @@
 	 
 		{BEGIN TrainingTitle_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingTitle">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingTitle">
 	{$label trainings TrainingTitle }	</span>
 {END TrainingTitle_fieldheadercolumn}
 
@@ -108,7 +144,7 @@
 	 
 		{BEGIN Training_Start_Date_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_Start_Date">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_Start_Date">
 	{$label trainings Training_Start_Date }	</span>
 {END Training_Start_Date_fieldheadercolumn}
 
@@ -133,13 +169,213 @@
 	 
 		{BEGIN Training_End_Date_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_End_Date">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_End_Date">
 	{$label trainings Training_End_Date }	</span>
 {END Training_End_Date_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
+				 
+					{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TypeName_class}
+			"
+
+			data-field="TypeName"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TypeName_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName">
+	{$label trainings TypeName }	</span>
+{END TypeName_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
+				 
+					{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$OrganizerName_class}
+			"
+
+			data-field="OrganizerName"
+	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN OrganizerName_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerName">
+	{$label trainings OrganizerName }	</span>
+{END OrganizerName_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field5}
+				 
+					{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$CityTownName_class}
+			"
+
+			data-field="CityTownName"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CityTownName_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CityTownName">
+	{$label trainings CityTownName }	</span>
+{END CityTownName_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
+				 
+					{BEGIN cellblock_grid_headcell_field7}
+	<th
+	
+	{$cell_grid_headcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$VenueName_class}
+			"
+
+			data-field="VenueName"
+	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN VenueName_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="VenueName">
+	{$label trainings VenueName }	</span>
+{END VenueName_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field7}
+				 
+					{BEGIN cellblock_grid_headcell_field8}
+	<th
+	
+	{$cell_grid_headcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$Trainer_FullName_class}
+			"
+
+			data-field="Trainer_FullName"
+	
+	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Trainer_FullName_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName">
+	{$label trainings Trainer_FullName }	</span>
+{END Trainer_FullName_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field8}
+				 
+					{BEGIN cellblock_grid_headcell_field9}
+	<th
+	
+	{$cell_grid_headcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingRound_class}
+			"
+
+			data-field="TrainingRound"
+	
+	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingRound_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingRound">
+	{$label trainings TrainingRound }	</span>
+{END TrainingRound_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+				 
+					{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingNote_class}
+			"
+
+			data-field="TrainingNote"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingNote_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingNote">
+	{$label trainings TrainingNote }	</span>
+{END TrainingNote_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
+				 
+					{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$program_areas_class}
+			"
+
+			data-field="program_areas"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN program_areas_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="program_areas">
+	{$label trainings program_areas }	</span>
+{END program_areas_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
 							</tr>
 					 
 					 
@@ -155,6 +391,32 @@
 								
 								r-gridrow
 							">
+				 
+					{BEGIN cellblock_grid_cell_icons}
+	<td
+	
+	{$cell_grid_cell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"		data-control-cell
+	
+	>
+
+	 
+		{BEGIN inline_cancel}
+<span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Cancel" class="btn-link   
+	 glyphicon glyphicon-remove" {$inlinerevertlink_attrs} title="Cancel" >		
+				
+								</a>
+</span>
+{END inline_cancel}
+	
+	</td>
+	{END cellblock_grid_cell_icons}
 				 
 					{BEGIN cellblock_grid_cell_field}
 	<td
@@ -247,6 +509,190 @@
 {END Training_End_Date_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
+				 
+					{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TypeName_class}
+			"
+
+			data-field="TypeName"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TypeName_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName" data-default-width >
+{$TypeName_value}
+</span>
+{END TypeName_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
+				 
+					{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$OrganizerName_class}
+			"
+
+			data-field="OrganizerName"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN OrganizerName_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerName" data-default-width >
+{$OrganizerName_value}
+</span>
+{END OrganizerName_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+				 
+					{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$CityTownName_class}
+			"
+
+			data-field="CityTownName"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CityTownName_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CityTownName" data-default-width >
+{$CityTownName_value}
+</span>
+{END CityTownName_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+				 
+					{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$VenueName_class}
+			"
+
+			data-field="VenueName"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN VenueName_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="VenueName" data-default-width >
+{$VenueName_value}
+</span>
+{END VenueName_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
+				 
+					{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$Trainer_FullName_class}
+			"
+
+			data-field="Trainer_FullName"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Trainer_FullName_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName" data-default-width >
+{$Trainer_FullName_value}
+</span>
+{END Trainer_FullName_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+				 
+					{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingRound_class}
+			"
+
+			data-field="TrainingRound"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingRound_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingRound" data-default-width >
+{$TrainingRound_value}
+</span>
+{END TrainingRound_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+				 
+					{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$TrainingNote_class}
+			"
+
+			data-field="TrainingNote"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN TrainingNote_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingNote" data-default-width >
+{$TrainingNote_value}
+</span>
+{END TrainingNote_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+				 
+					{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$program_areas_class}
+			"
+
+			data-field="program_areas"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN program_areas_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="program_areas" data-default-width >
+{$program_areas_value}
+</span>
+{END program_areas_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
 							</tr>
 					 
 					
@@ -262,6 +708,22 @@
 									
 								r-gridrow
 							">
+				 
+					{BEGIN cellblock_grid_footcell_icons}
+	<td
+	
+	{$cell_grid_footcell_icons}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_icons}
 				 
 					{BEGIN cellblock_grid_footcell_field}
 	<td
@@ -326,6 +788,134 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
+				 
+					{BEGIN cellblock_grid_footcell_field4}
+	<td
+	
+	{$cell_grid_footcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field4}
+				 
+					{BEGIN cellblock_grid_footcell_field5}
+	<td
+	
+	{$cell_grid_footcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field5}
+				 
+					{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
+				 
+					{BEGIN cellblock_grid_footcell_field7}
+	<td
+	
+	{$cell_grid_footcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field7}
+				 
+					{BEGIN cellblock_grid_footcell_field8}
+	<td
+	
+	{$cell_grid_footcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field8}
+				 
+					{BEGIN cellblock_grid_footcell_field9}
+	<td
+	
+	{$cell_grid_footcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field9}
+				 
+					{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
+				 
+					{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainings1_masterprint"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					</tfoot>

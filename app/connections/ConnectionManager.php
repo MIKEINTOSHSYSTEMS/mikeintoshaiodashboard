@@ -350,6 +350,7 @@ class ConnectionManager
 		$connectionsIds["Job_Types"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["CompanySectors"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Disability_Types"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Trainer"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 	

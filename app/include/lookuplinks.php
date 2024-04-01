@@ -40,6 +40,48 @@ function InitLookupLinks()
 
 	$lookupTableLinks = array();
 
+		if( !isset( $lookupTableLinks["training_types"] ) ) {
+			$lookupTableLinks["training_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_types"]["trainings1.TypeName"] )) {
+			$lookupTableLinks["training_types"]["trainings1.TypeName"] = array();
+		}
+		$lookupTableLinks["training_types"]["trainings1.TypeName"]["edit"] = array("table" => "trainings", "field" => "TypeName", "page" => "edit");
+		if( !isset( $lookupTableLinks["training_organizers"] ) ) {
+			$lookupTableLinks["training_organizers"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_organizers"]["trainings1.OrganizerName"] )) {
+			$lookupTableLinks["training_organizers"]["trainings1.OrganizerName"] = array();
+		}
+		$lookupTableLinks["training_organizers"]["trainings1.OrganizerName"]["edit"] = array("table" => "trainings", "field" => "OrganizerName", "page" => "edit");
+		if( !isset( $lookupTableLinks["training_city_towns"] ) ) {
+			$lookupTableLinks["training_city_towns"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_city_towns"]["trainings1.CityTownName"] )) {
+			$lookupTableLinks["training_city_towns"]["trainings1.CityTownName"] = array();
+		}
+		$lookupTableLinks["training_city_towns"]["trainings1.CityTownName"]["edit"] = array("table" => "trainings", "field" => "CityTownName", "page" => "edit");
+		if( !isset( $lookupTableLinks["training_venues"] ) ) {
+			$lookupTableLinks["training_venues"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_venues"]["trainings1.VenueName"] )) {
+			$lookupTableLinks["training_venues"]["trainings1.VenueName"] = array();
+		}
+		$lookupTableLinks["training_venues"]["trainings1.VenueName"]["edit"] = array("table" => "trainings", "field" => "VenueName", "page" => "edit");
+		if( !isset( $lookupTableLinks["Trainer"] ) ) {
+			$lookupTableLinks["Trainer"] = array();
+		}
+		if( !isset( $lookupTableLinks["Trainer"]["trainings1.Trainer_FullName"] )) {
+			$lookupTableLinks["Trainer"]["trainings1.Trainer_FullName"] = array();
+		}
+		$lookupTableLinks["Trainer"]["trainings1.Trainer_FullName"]["edit"] = array("table" => "trainings", "field" => "Trainer_FullName", "page" => "edit");
+		if( !isset( $lookupTableLinks["program_areas"] ) ) {
+			$lookupTableLinks["program_areas"] = array();
+		}
+		if( !isset( $lookupTableLinks["program_areas"]["trainings1.program_areas"] )) {
+			$lookupTableLinks["program_areas"]["trainings1.program_areas"] = array();
+		}
+		$lookupTableLinks["program_areas"]["trainings1.program_areas"]["edit"] = array("table" => "trainings", "field" => "program_areas", "page" => "edit");
 		if( !isset( $lookupTableLinks["regions"] ) ) {
 			$lookupTableLinks["regions"] = array();
 		}
@@ -383,6 +425,27 @@ function InitLookupLinks()
 			$lookupTableLinks["Companies"]["jobs.CompanyName"] = array();
 		}
 		$lookupTableLinks["Companies"]["jobs.CompanyName"]["edit"] = array("table" => "Jobs", "field" => "CompanyName", "page" => "edit");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["trainer.TrainingID"] )) {
+			$lookupTableLinks["trainings"]["trainer.TrainingID"] = array();
+		}
+		$lookupTableLinks["trainings"]["trainer.TrainingID"]["edit"] = array("table" => "Trainer", "field" => "TrainingID", "page" => "edit");
+		if( !isset( $lookupTableLinks["training_organizers"] ) ) {
+			$lookupTableLinks["training_organizers"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_organizers"]["trainer.OrganizerID"] )) {
+			$lookupTableLinks["training_organizers"]["trainer.OrganizerID"] = array();
+		}
+		$lookupTableLinks["training_organizers"]["trainer.OrganizerID"]["edit"] = array("table" => "Trainer", "field" => "OrganizerID", "page" => "edit");
+		if( !isset( $lookupTableLinks["Trainer"] ) ) {
+			$lookupTableLinks["Trainer"] = array();
+		}
+		if( !isset( $lookupTableLinks["Trainer"]["trainer.Trainer_Skills"] )) {
+			$lookupTableLinks["Trainer"]["trainer.Trainer_Skills"] = array();
+		}
+		$lookupTableLinks["Trainer"]["trainer.Trainer_Skills"]["edit"] = array("table" => "Trainer", "field" => "Trainer_Skills", "page" => "edit");
 }
 
 ?>

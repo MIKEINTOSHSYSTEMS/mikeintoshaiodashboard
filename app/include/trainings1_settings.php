@@ -37,6 +37,30 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelstrainings1["English"]["Training_End_Date"] = "Training End Date";
 	$fieldToolTipstrainings1["English"]["Training_End_Date"] = "";
 	$placeHolderstrainings1["English"]["Training_End_Date"] = "";
+	$fieldLabelstrainings1["English"]["TypeName"] = "Type Name";
+	$fieldToolTipstrainings1["English"]["TypeName"] = "";
+	$placeHolderstrainings1["English"]["TypeName"] = "";
+	$fieldLabelstrainings1["English"]["OrganizerName"] = "Organizer Name";
+	$fieldToolTipstrainings1["English"]["OrganizerName"] = "";
+	$placeHolderstrainings1["English"]["OrganizerName"] = "";
+	$fieldLabelstrainings1["English"]["CityTownName"] = "City Town Name";
+	$fieldToolTipstrainings1["English"]["CityTownName"] = "";
+	$placeHolderstrainings1["English"]["CityTownName"] = "";
+	$fieldLabelstrainings1["English"]["VenueName"] = "Venue Name";
+	$fieldToolTipstrainings1["English"]["VenueName"] = "";
+	$placeHolderstrainings1["English"]["VenueName"] = "";
+	$fieldLabelstrainings1["English"]["Trainer_FullName"] = "Trainer FullName";
+	$fieldToolTipstrainings1["English"]["Trainer_FullName"] = "";
+	$placeHolderstrainings1["English"]["Trainer_FullName"] = "";
+	$fieldLabelstrainings1["English"]["TrainingRound"] = "Training Round";
+	$fieldToolTipstrainings1["English"]["TrainingRound"] = "";
+	$placeHolderstrainings1["English"]["TrainingRound"] = "";
+	$fieldLabelstrainings1["English"]["TrainingNote"] = "Training Note";
+	$fieldToolTipstrainings1["English"]["TrainingNote"] = "";
+	$placeHolderstrainings1["English"]["TrainingNote"] = "";
+	$fieldLabelstrainings1["English"]["program_areas"] = "Program Areas";
+	$fieldToolTipstrainings1["English"]["program_areas"] = "";
+	$placeHolderstrainings1["English"]["program_areas"] = "";
 	if (count($fieldToolTipstrainings1["English"]))
 		$tdatatrainings1[".isUseToolTips"] = true;
 }
@@ -153,7 +177,7 @@ $tdatatrainings1[".addPageEvents"] = false;
 $tdatatrainings1[".isUseTimeForSearch"] = false;
 
 
-$tdatatrainings1[".badgeColor"] = "00C2C5";
+$tdatatrainings1[".badgeColor"] = "00c2c5";
 
 
 $tdatatrainings1[".allSearchFields"] = array();
@@ -165,6 +189,14 @@ $tdatatrainings1[".googleLikeFields"][] = "TrainingID";
 $tdatatrainings1[".googleLikeFields"][] = "Training_Start_Date";
 $tdatatrainings1[".googleLikeFields"][] = "Training_End_Date";
 $tdatatrainings1[".googleLikeFields"][] = "TrainingTitle";
+$tdatatrainings1[".googleLikeFields"][] = "TypeName";
+$tdatatrainings1[".googleLikeFields"][] = "OrganizerName";
+$tdatatrainings1[".googleLikeFields"][] = "CityTownName";
+$tdatatrainings1[".googleLikeFields"][] = "VenueName";
+$tdatatrainings1[".googleLikeFields"][] = "Trainer_FullName";
+$tdatatrainings1[".googleLikeFields"][] = "TrainingRound";
+$tdatatrainings1[".googleLikeFields"][] = "TrainingNote";
+$tdatatrainings1[".googleLikeFields"][] = "program_areas";
 
 
 
@@ -201,7 +233,7 @@ $tdatatrainings1[".strOrderBy"] = $tstrOrderBy;
 $tdatatrainings1[".orderindexes"] = array();
 
 
-$tdatatrainings1[".sqlHead"] = "SELECT TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle";
+$tdatatrainings1[".sqlHead"] = "SELECT TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle,  	TypeName,  	OrganizerName,  	CityTownName,  	VenueName,  	Trainer_FullName,  	TrainingRound,  	TrainingNote,  	program_areas";
 $tdatatrainings1[".sqlFrom"] = "FROM trainings";
 $tdatatrainings1[".sqlWhereExpr"] = "";
 $tdatatrainings1[".sqlTail"] = "";
@@ -800,6 +832,1252 @@ $tdatatrainings1[".hideMobileList"] = array();
 
 	$tdatatrainings1["TrainingTitle"] = $fdata;
 		$tdatatrainings1[".searchableFields"][] = "TrainingTitle";
+//	TypeName
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 5;
+	$fdata["strName"] = "TypeName";
+	$fdata["GoodName"] = "TypeName";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","TypeName");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "TypeName";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "TypeName";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "training_types";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "TypeID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "TypeName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["TypeName"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "TypeName";
+//	OrganizerName
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 6;
+	$fdata["strName"] = "OrganizerName";
+	$fdata["GoodName"] = "OrganizerName";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","OrganizerName");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "OrganizerName";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "OrganizerName";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "training_organizers";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "OrganizerID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "OrganizerName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["OrganizerName"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "OrganizerName";
+//	CityTownName
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 7;
+	$fdata["strName"] = "CityTownName";
+	$fdata["GoodName"] = "CityTownName";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","CityTownName");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "CityTownName";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "CityTownName";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "training_city_towns";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "CityTownID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "CityTownName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["CityTownName"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "CityTownName";
+//	VenueName
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 8;
+	$fdata["strName"] = "VenueName";
+	$fdata["GoodName"] = "VenueName";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","VenueName");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "VenueName";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "VenueName";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "training_venues";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "VenueID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "VenueName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["VenueName"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "VenueName";
+//	Trainer_FullName
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 9;
+	$fdata["strName"] = "Trainer_FullName";
+	$fdata["GoodName"] = "Trainer_FullName";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","Trainer_FullName");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "Trainer_FullName";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Trainer_FullName";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Trainer";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "TrainerID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "Trainer_FullName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+		$edata["Multiselect"] = true;
+
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["Trainer_FullName"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "Trainer_FullName";
+//	TrainingRound
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 10;
+	$fdata["strName"] = "TrainingRound";
+	$fdata["GoodName"] = "TrainingRound";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","TrainingRound");
+	$fdata["FieldType"] = 3;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "TrainingRound";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "TrainingRound";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["TrainingRound"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "TrainingRound";
+//	TrainingNote
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 11;
+	$fdata["strName"] = "TrainingNote";
+	$fdata["GoodName"] = "TrainingNote";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","TrainingNote");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "TrainingNote";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "TrainingNote";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text area");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+				$edata["nRows"] = 100;
+			$edata["nCols"] = 200;
+
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["TrainingNote"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "TrainingNote";
+//	program_areas
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 12;
+	$fdata["strName"] = "program_areas";
+	$fdata["GoodName"] = "program_areas";
+	$fdata["ownerTable"] = "trainings";
+	$fdata["Label"] = GetFieldLabel("trainings","program_areas");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "program_areas";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "program_areas";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "program_areas";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "AreaID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "AreaName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatrainings1["program_areas"] = $fdata;
+		$tdatatrainings1[".searchableFields"][] = "program_areas";
 
 
 $tables_data["trainings"]=&$tdatatrainings1;
@@ -838,9 +2116,19 @@ $detailsTablesData["trainings"] = array();
 
 	$detailsTablesData["trainings"][$dIndex]["masterKeys"][]="TrainingID";
 
+	$detailsTablesData["trainings"][$dIndex]["masterKeys"][]="Training_Start_Date";
+
+	$detailsTablesData["trainings"][$dIndex]["masterKeys"][]="Training_End_Date";
+
 				$detailsTablesData["trainings"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="TrainingID";
+
+		
+	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="Training_Start_Date";
+
+		
+	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="Training_End_Date";
 //	dereja_training_services
 	
 	
@@ -877,6 +2165,22 @@ $masterTablesData["trainings"] = array();
 
 
 
+	
+				$strOriginalDetailsTable="Trainer";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Trainer";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "trainer";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["trainings"][0] = $masterParams;
+				$masterTablesData["trainings"][0]["masterKeys"] = array();
+	$masterTablesData["trainings"][0]["masterKeys"][]="TrainingID";
+				$masterTablesData["trainings"][0]["detailKeys"] = array();
+	$masterTablesData["trainings"][0]["detailKeys"][]="TrainingID";
+		
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -897,7 +2201,7 @@ function createSqlQuery_trainings1()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle";
+$proto0["m_strFieldList"] = "TrainingID,  	Training_Start_Date,  	Training_End_Date,  	TrainingTitle,  	TypeName,  	OrganizerName,  	CityTownName,  	VenueName,  	Trainer_FullName,  	TrainingRound,  	TrainingNote,  	program_areas";
 $proto0["m_strFrom"] = "FROM trainings";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -993,40 +2297,160 @@ $proto12["m_alias"] = "";
 $obj = new SQLFieldListItem($proto12);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto14=array();
-$proto14["m_link"] = "SQLL_MAIN";
-			$proto15=array();
-$proto15["m_strName"] = "trainings";
-$proto15["m_srcTableName"] = "trainings";
-$proto15["m_columns"] = array();
-$proto15["m_columns"][] = "TrainingID";
-$proto15["m_columns"][] = "Training_Start_Date";
-$proto15["m_columns"][] = "Training_End_Date";
-$proto15["m_columns"][] = "TrainingTitle";
-$obj = new SQLTable($proto15);
+						$proto14=array();
+			$obj = new SQLField(array(
+	"m_strName" => "TypeName",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
 
-$proto14["m_table"] = $obj;
-$proto14["m_sql"] = "trainings";
-$proto14["m_alias"] = "";
+$proto14["m_sql"] = "TypeName";
 $proto14["m_srcTableName"] = "trainings";
-$proto16=array();
-$proto16["m_sql"] = "";
-$proto16["m_uniontype"] = "SQLL_UNKNOWN";
+$proto14["m_expr"]=$obj;
+$proto14["m_alias"] = "";
+$obj = new SQLFieldListItem($proto14);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto16=array();
+			$obj = new SQLField(array(
+	"m_strName" => "OrganizerName",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto16["m_sql"] = "OrganizerName";
+$proto16["m_srcTableName"] = "trainings";
+$proto16["m_expr"]=$obj;
+$proto16["m_alias"] = "";
+$obj = new SQLFieldListItem($proto16);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto18=array();
+			$obj = new SQLField(array(
+	"m_strName" => "CityTownName",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto18["m_sql"] = "CityTownName";
+$proto18["m_srcTableName"] = "trainings";
+$proto18["m_expr"]=$obj;
+$proto18["m_alias"] = "";
+$obj = new SQLFieldListItem($proto18);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto20=array();
+			$obj = new SQLField(array(
+	"m_strName" => "VenueName",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto20["m_sql"] = "VenueName";
+$proto20["m_srcTableName"] = "trainings";
+$proto20["m_expr"]=$obj;
+$proto20["m_alias"] = "";
+$obj = new SQLFieldListItem($proto20);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto22=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Trainer_FullName",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto22["m_sql"] = "Trainer_FullName";
+$proto22["m_srcTableName"] = "trainings";
+$proto22["m_expr"]=$obj;
+$proto22["m_alias"] = "";
+$obj = new SQLFieldListItem($proto22);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto24=array();
+			$obj = new SQLField(array(
+	"m_strName" => "TrainingRound",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto24["m_sql"] = "TrainingRound";
+$proto24["m_srcTableName"] = "trainings";
+$proto24["m_expr"]=$obj;
+$proto24["m_alias"] = "";
+$obj = new SQLFieldListItem($proto24);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto26=array();
+			$obj = new SQLField(array(
+	"m_strName" => "TrainingNote",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto26["m_sql"] = "TrainingNote";
+$proto26["m_srcTableName"] = "trainings";
+$proto26["m_expr"]=$obj;
+$proto26["m_alias"] = "";
+$obj = new SQLFieldListItem($proto26);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto28=array();
+			$obj = new SQLField(array(
+	"m_strName" => "program_areas",
+	"m_strTable" => "trainings",
+	"m_srcTableName" => "trainings"
+));
+
+$proto28["m_sql"] = "program_areas";
+$proto28["m_srcTableName"] = "trainings";
+$proto28["m_expr"]=$obj;
+$proto28["m_alias"] = "";
+$obj = new SQLFieldListItem($proto28);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto30=array();
+$proto30["m_link"] = "SQLL_MAIN";
+			$proto31=array();
+$proto31["m_strName"] = "trainings";
+$proto31["m_srcTableName"] = "trainings";
+$proto31["m_columns"] = array();
+$proto31["m_columns"][] = "TrainingID";
+$proto31["m_columns"][] = "Training_Start_Date";
+$proto31["m_columns"][] = "Training_End_Date";
+$proto31["m_columns"][] = "TrainingTitle";
+$proto31["m_columns"][] = "TypeName";
+$proto31["m_columns"][] = "OrganizerName";
+$proto31["m_columns"][] = "CityTownName";
+$proto31["m_columns"][] = "VenueName";
+$proto31["m_columns"][] = "Trainer_FullName";
+$proto31["m_columns"][] = "TrainingRound";
+$proto31["m_columns"][] = "TrainingNote";
+$proto31["m_columns"][] = "program_areas";
+$obj = new SQLTable($proto31);
+
+$proto30["m_table"] = $obj;
+$proto30["m_sql"] = "trainings";
+$proto30["m_alias"] = "";
+$proto30["m_srcTableName"] = "trainings";
+$proto32=array();
+$proto32["m_sql"] = "";
+$proto32["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto16["m_column"]=$obj;
-$proto16["m_contained"] = array();
-$proto16["m_strCase"] = "";
-$proto16["m_havingmode"] = false;
-$proto16["m_inBrackets"] = false;
-$proto16["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto16);
+$proto32["m_column"]=$obj;
+$proto32["m_contained"] = array();
+$proto32["m_strCase"] = "";
+$proto32["m_havingmode"] = false;
+$proto32["m_inBrackets"] = false;
+$proto32["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto32);
 
-$proto14["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto14);
+$proto30["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto30);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -1042,7 +2466,7 @@ $queryData_trainings1 = createSqlQuery_trainings1();
 	
 		;
 
-				
+												
 
 $tdatatrainings1[".sqlquery"] = $queryData_trainings1;
 

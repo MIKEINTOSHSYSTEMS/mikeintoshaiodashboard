@@ -116,6 +116,30 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_export_field3}","text":{$Training_End_Date_pdfvalue}},
 				
+				
+			{"hidden":"{$item_hide_export_field4}","text":{$TypeName_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field5}","text":{$OrganizerName_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field6}","text":{$CityTownName_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field7}","text":{$VenueName_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field8}","text":{$Trainer_FullName_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field9}","text":{$TrainingRound_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field10}","text":{$TrainingNote_pdfvalue}},
+				
+				
+			{"hidden":"{$item_hide_export_field11}","text":{$program_areas_pdfvalue}},
+				
 		  ],
   "border": [ false, false, false, false ],
           "alignment": 'left',

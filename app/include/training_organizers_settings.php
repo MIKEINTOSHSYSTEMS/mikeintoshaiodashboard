@@ -6,11 +6,11 @@ $tdatatraining_organizers[".OwnerID"] = "";
 $tdatatraining_organizers[".OriginalTable"] = "training_organizers";
 
 
-$tdatatraining_organizers[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatatraining_organizers[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatatraining_organizers[".originalPagesByType"] = $tdatatraining_organizers[".pagesByType"];
-$tdatatraining_organizers[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatatraining_organizers[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatatraining_organizers[".originalPages"] = $tdatatraining_organizers[".pages"];
-$tdatatraining_organizers[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
+$tdatatraining_organizers[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatatraining_organizers[".originalDefaultPages"] = $tdatatraining_organizers[".defaultPages"];
 
 //	field labels
@@ -528,6 +528,36 @@ $page_titles["training_organizers"] = &$pageTitlestraining_organizers;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["training_organizers"] = array();
+//	Trainer
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Trainer";
+		$detailsParam["dOriginalTable"] = "Trainer";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "trainer";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Trainer");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["training_organizers"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["training_organizers"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["training_organizers"][$dIndex]["masterKeys"][]="OrganizerID";
+
+				$detailsTablesData["training_organizers"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["training_organizers"][$dIndex]["detailKeys"][]="OrganizerID";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["training_organizers"] = array();
