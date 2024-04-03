@@ -54,11 +54,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jspagetitlelabel  register}","hidden":"{$item_hide_register_header}","fontSize":30},
+			{"text":"Welcome To Dereja Monitoring and Evaluation System","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":30,"bold":true,"isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
@@ -100,11 +100,36 @@ pdfDocument = {
 			"text": [
 		
 				
+			{"text":"{$jspagetitlelabel  register}","hidden":"{$item_hide_register_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
 			{"text":"","hidden":"{$item_hide_register_message}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
@@ -160,7 +185,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel _global fullname }","bold":true},{"text":{$fullname_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field}","bold":true,"stack":[{"text":"{$jslabel _global fullname }","bold":true},{"text":{$fullname_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel _global email }","bold":true},{"text":{$email_pdfvalue}}],"margin":[0,0,0,15]},

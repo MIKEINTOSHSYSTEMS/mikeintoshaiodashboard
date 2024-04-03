@@ -16,7 +16,7 @@
 			
 	</head>
 
-	<body class="{$stylename} function-changepwd_success" >
+	<body class="{$stylename} function-remind_success" >
 	{BEGIN body}
 		{$header}
 		<style>
@@ -33,9 +33,7 @@
 	class="r-align-center r-ori-vert			col-md-12
 	
 ">
-		 
-		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
-		</div>					</div>
+			</div>					</div>
 			</div>		
 {END supertop_block}
 					<div class="bs-pagepanel panel panel-primary">
@@ -50,7 +48,7 @@
 	
 ">
 		 
-		<h3 class="panel-title" data-itemtype="changepwd_success_header" data-itemid="changepwd_success_header" {$item_changepwd_success_header} data-pageid="{$pageid}" >{$pagetitlelabel  changepwd_success}</h3>
+		<h3 class="panel-title" data-itemtype="remind_header" data-itemid="remind_header" {$item_remind_header} data-pageid="{$pageid}" >{$pagetitlelabel  remind_success}</h3>
 		</div>			</div>		
 {END top_block}
 						</div>
@@ -68,8 +66,8 @@
 			
 									data-cellId="grid_c1" data-pageid="{$pageid}"		>
 			<div edit-form-cell class="clearfix">
-								<div class="alert alert-success" data-itemtype="changepwd_success_message" data-itemid="changepwd_success_message" {$item_changepwd_success_message} data-pageid="{$pageid}" data-small > 
-	Password was changed</div>
+								<div class="alert alert-success" data-itemtype="remind_success_message" data-itemid="remind_success_message" {$item_remind_success_message} data-pageid="{$pageid}" data-small > 
+	Login and password were sent to your email address.</div>
 					</div>
 		</td>
 			</tr>
@@ -87,10 +85,10 @@
 	
 ">
 		 
-		<span data-itemtype="changepwd_success_back" data-itemid="changepwd_success_back" {$item_changepwd_success_back} data-pageid="{$pageid}" data-small data-button-item>
+		<span data-itemtype="remind_success_submit" data-itemid="remind_success_submit" {$item_remind_success_submit} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
-	" {$backlink_attrs} >
-							Back			</a>
+	" href="#" {$closewindow_attrs} >
+							Close window			</a>
 </span>
 		</div>					</div>
 			</div>		

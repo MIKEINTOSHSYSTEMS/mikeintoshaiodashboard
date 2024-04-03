@@ -54,7 +54,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jspagetitlelabel  register_success}","hidden":"{$item_hide_register_success_header}","fontSize":30},
+			{"text":"{$jspagetitlelabel  remind_success}","hidden":"{$item_hide_remind_header}","fontSize":30},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -70,52 +70,7 @@ pdfDocument = {
 }
 ,
 		
-								
-{
-	table: {
-	
 				
-		location: 'above-grid',
-		
-		
-		widths: [
-								"*", 
-					 ],	
-		
-	
-		body: [
-				
-				[
-																{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":{$pdf_image images/dereja.png undefined 0},"hidden":"{$item_hide_image}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-											],
-		
-		]
-	}
-}
-,
-		
 								
 {
 	table: {
@@ -138,7 +93,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c2',
+	cellId: 'c1',
 	col:0,
 	row:0,
 			
@@ -151,10 +106,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":""},
-				
-				
-			{"text":""},
+			{"text":"Login and password were sent to your email address.","hidden":"{$item_hide_remind_success_message}","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],

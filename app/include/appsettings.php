@@ -619,7 +619,7 @@ $globalSettings["LandingURL"] = "";
 $globalSettings["LandingPageId"] = "";
 
 $globalSettings["ProjectLogo"] = array();
-$globalSettings["ProjectLogo"]["English"] = "<p style=\"text-align: center;\"><a href=\"/\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>";
+$globalSettings["ProjectLogo"]["English"] = "<p style=\"text-align: center;\"><a href=\"./menu.php\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>";
 
 $globalSettings["CookieBanner"] = array();
 
@@ -737,9 +737,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "82_1712159860";
+$projectBuildKey = "93_1712159860";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "82";
+$projectBuildNumber = "93";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -747,6 +747,7 @@ $mlang_charsets = array();
 
 $projectMenus = array();
 $projectMenus[] = "main";
+$projectMenus[] = "mikeintosh";
 $projectMenus[] = "secondary";
 
 
@@ -754,6 +755,7 @@ $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
 
+$menuTreelikeFlags["mikeintosh"] = 1;
 $menuTreelikeFlags["secondary"] = 1;
 
 

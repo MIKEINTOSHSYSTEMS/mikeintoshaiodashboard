@@ -26,7 +26,49 @@ pdfDocument = {
 	"content": [
 				
 								
-''
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":{$pdf_image images/dereja.png 47 47},"hidden":"{$item_hide_image}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
 ,
 		
 								
@@ -42,9 +84,6 @@ pdfDocument = {
 					 ],	
 		
 			heights: [
-								
-			"%",
-			 
 								
 			"%",
 			 
@@ -168,28 +207,6 @@ pdfDocument = {
 				
 			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item33}"},
 				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-											],
-						[
-																{
-	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
 				
 			{"text":"","background":"#CD853F","hidden":"{$item_hide_welcome_item34}"},
 				

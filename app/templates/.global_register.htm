@@ -25,7 +25,7 @@
 					background: white;
 				}
 				.r-pretty-login-page > .r-sideimage {
-					background: #f2f2f2;
+					background: #ffffff;
 				}
 		</style>
 
@@ -40,11 +40,12 @@
 			 
 				<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
-	class=" r-ori-vert			col-md-12
+	class="r-align-center r-ori-vert			col-md-12
 	
 ">
 		 
-		<h2 data-itemtype="register_header" data-itemid="register_header" {$item_register_header} data-pageid="{$pageid}" >{$pagetitlelabel  register}</h2>
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page=".global_register" data-small > 
+	Welcome To Dereja Monitoring and Evaluation System</span>
 		</div>					</div>
 			</div>		
 {END top_block}
@@ -55,16 +56,27 @@
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class=" r-ori-vert			col-md-12
+	class="r-align-center r-ori-vert			col-md-12
 	
 ">
 		{BEGIN firstAboveGridCell}
 		 
+		<h2 data-itemtype="register_header" data-itemid="register_header" {$item_register_header} data-pageid="{$pageid}" >{$pagetitlelabel  register}</h2>
+			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+		 
 		<div data-itemtype="register_message" data-itemid="register_message" {$item_register_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
 <h5>{$message}</h5>
 </div>
-			{END firstAboveGridCell}	
-	</div>					</div>
+		</div>					</div>
 			</div>		
 {END above-grid_block}
 									{BEGIN grid_block}
@@ -83,7 +95,7 @@
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_fullname}  r-vertical-field" 
 	data-signal-error-for="fullname{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="fullname" data-fieldname="fullname" >
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-page=".global_register" data-field="fullname" data-fieldname="fullname" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_fullname}">
 		{BEGIN fullname_label}{$label derejame_users fullname }{END fullname_label}
@@ -226,6 +238,34 @@
 </span>
 </td>
 							</tr>
+											<tr {$row_footer_1} >
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="footer_c4" data-pageid="{$pageid}">
+</td>
+									<td 
+	class="r-align-right r-ori-vert			"
+			 
+	data-cellId="footer_c5" data-pageid="{$pageid}">
+</td>
+							</tr>
+											<tr {$row_footer_2} >
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="footer_c" data-pageid="{$pageid}">
+ 
+<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page=".global_register" data-small > 
+	This Application is for Internal Use only!
+It can only be accessed by an authorized personel!</span>
+</td>
+									<td 
+	class="r-align-right r-ori-vert			"
+			 
+	data-cellId="footer_c3" data-pageid="{$pageid}">
+</td>
+							</tr>
 					
 					</tbody>
 				</table>
@@ -234,7 +274,7 @@
 			</div>
 			<div class="r-sideimage">
 							<div class="r-image"  >
-					<img data-itemtype="page_image" data-itemid="page_image_ash8f23hr" {$item_page_image_ash8f23hr} data-pageid="{$pageid}" data-page=".global_register" src="images/clipart/drawing/race-cars-on-the-road-publicdomainvectors.org.png" />
+					<img data-itemtype="page_image" data-itemid="page_image_ash8f23hr" {$item_page_image_ash8f23hr} data-pageid="{$pageid}" data-page=".global_register" src="images/dereja.png" />
 				</div>
 						</div>
 		</div>

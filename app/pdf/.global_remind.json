@@ -54,7 +54,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jspagetitlelabel  register_success}","hidden":"{$item_hide_register_success_header}","fontSize":30},
+			{"text":"{$jspagetitlelabel  remind}","hidden":"{$item_hide_remind_header}","fontSize":30},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -97,14 +97,14 @@ pdfDocument = {
 			
 	
 	
-			"stack": [
+			"text": [
 		
 				
-			{"text":{$pdf_image images/dereja.png undefined 0},"hidden":"{$item_hide_image}"},
+			{"text":"","hidden":"{$item_hide_message}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'left',
      
       
       },
@@ -126,6 +126,7 @@ pdfDocument = {
 		
 		widths: [
 								"%", 
+											"%", 
 					 ],	
 		
 			heights: [
@@ -151,14 +152,34 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":""},
-				
-				
-			{"text":""},
+			{"text":"Enter username or email:","hidden":"{$item_hide_username_email_label}","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'right',
+     
+      
+      },
+
+																							{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_username_email}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
      
       
       },

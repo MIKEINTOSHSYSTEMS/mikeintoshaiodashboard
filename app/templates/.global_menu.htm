@@ -33,11 +33,7 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="image" {$item_image} data-topcell-item-type="image" >
-				<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_menu" />
-			</span>
-		 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-left navbar-collapse" data-itemid="logo" {$item_logo}>
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-left r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -51,13 +47,14 @@
 							 
 							 
 				<span data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-right navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
-				{$menu main horizontal}			</span>
+				{$menu secondary horizontal}			</span>
 		 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
 				{BEGIN guestloginbutton}
-<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
 	" href="#" {$guestloginlink_attrs} >
+					<span class="glyphicon glyphicon-log-in"></span>
 							Login			</a>
 </span>
 {END guestloginbutton}
@@ -65,9 +62,9 @@
 		 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
 				{BEGIN loggedas_message}
-<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+		<button type="button" title="" class="btn btn-primary   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
 			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
 						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
 		</button>
@@ -122,7 +119,20 @@
 											<div class="r-above">
 					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
-	</div>		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_menu" />
+			{END firstAboveGridCell}	
+	</div>					</div>
+			</div>		
 {END above-grid_block}
 	</div>
 <div class="r-grid">
@@ -496,15 +506,6 @@
 
 	</div>
 
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_1} >
-									<td 
-	
-			 
-	data-cellId="grid_c" data-pageid="{$pageid}">
-<div class="r-welcome-align">
  
 
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item34" {$item_welcome_item34} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">

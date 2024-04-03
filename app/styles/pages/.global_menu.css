@@ -2,9 +2,7 @@
   font-weight: bold;
 }
 [data-cellid="supertop_c2"][data-page=".global_menu"][data-cellid="supertop_c2"][data-page=".global_menu"][data-cellid="supertop_c2"][data-page=".global_menu"] {
-  color: #ffc007;
   font-weight: bold;
-  font-size: 7px;
 }
 [data-page=".global_menu"][data-itemid="menu"] > .nav {
   background-color: #f7f7f7;
@@ -116,11 +114,19 @@
   background-color: #6DA5C8;
 }
 [data-page=".global_menu"][data-itemid="image"] {
-  width: 50px;
-  height: 50px;
+  width: 47px;
+  height: 47px;
 }
 [data-page=".global_menu"][data-itemid="welcome_item34"] > .bs-welcome-header {
   background-color: #CD853F;
+}
+[data-page=".global_menu"][data-itemid="username_button"] > .btn {
+  font-weight: bold;
+}
+[data-page=".global_menu"][data-itemid="loginform_login"] > .btn {
+  text-shadow: none;
+  color: #ffffff;
+  font-weight: bold;
 }
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;

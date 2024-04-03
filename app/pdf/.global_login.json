@@ -34,7 +34,6 @@ pdfDocument = {
 		
 		widths: [
 								"*", 
-											"*", 
 					 ],	
 		
 	
@@ -42,7 +41,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c1',
+	cellId: 'c2',
 	col:0,
 	row:0,
 			
@@ -55,17 +54,25 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"<p style=\"text-align: center;\"><a href=\"/\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>","hidden":"{$item_hide_login-logo}","fontSize":24,"isHtml":true},
+			{"text":{$pdf_image images/dereja.png 100 100},"hidden":"{$item_hide_image}"},
+				
+				
+			{"text":"Welcome To ","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":22,"bold":true,"isHtml":true},
+				
+				
+			{"text":"<p style=\"text-align: center;\"><a href=\"./menu.php\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>","hidden":"{$item_hide_login-logo}","fontSize":24,"isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
 
-																							{
-	cellId: 'c2',
+											],
+						[
+																{
+	cellId: 'c3',
 	col:0,
 	row:0,
 			
@@ -80,44 +87,13 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'right',
+              "alignment": 'center',
      
       
-      },
+         bold: true,
+   },
 
 											],
-						[
-																{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"Login into your account","hidden":"{$item_hide_login_welcome}","isHtml":true},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c3',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
 		
 		]
 	}
@@ -141,6 +117,31 @@ pdfDocument = {
 				
 				[
 																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"Login into your account","hidden":"{$item_hide_login_welcome}","fontSize":22,"bold":true,"isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
 	cellId: 'c2',
 	col:0,
 	row:0,
@@ -156,7 +157,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },

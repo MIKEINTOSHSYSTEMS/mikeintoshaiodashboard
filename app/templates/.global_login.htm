@@ -25,12 +25,12 @@
 					background: white;
 				}
 				.r-pretty-login-page > .r-sideimage {
-					background: #f2f2f2;
+					background: #ffffff;
 				}
 		</style>
 
 		<div class="r-pretty-login-page"
-			 data-image-fullsize 								>
+			 data-image-fullsize 			 data-image-shadow 					>
 			<div class="r-controls">
 				<div class="r-mainform">
 													{BEGIN top_block}
@@ -39,33 +39,29 @@
 				<div class="row">
 			 
 				<div 
-	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
-	class="r-align-left r-ori-vert			col-md-6
+	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
+	class="r-align-center			col-md-12
 	
 ">
 		 
+		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_login" />
+	 
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page=".global_login" data-small > 
+	Welcome To </span>
+	 
 		<span data-itemtype="login-logo" data-itemid="login-logo" {$item_login-logo} data-pageid="{$pageid}" data-page=".global_login" data-small >
 	{$logo}
 </span>
-		</div>			 
-				<div 
-	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
-	class="r-align-right r-ori-vert			col-md-6
-	
-">
-			</div>					</div>
+		</div>					</div>
 			 
 				<div class="row">
 			 
 				<div 
-	data-cellId="top_c3" data-pageid="{$pageid}"	{$cell_top_c3}
-	class=" r-ori-vert			col-md-12
+	data-cellId="top_c3" data-pageid="{$pageid}" data-page=".global_login"	{$cell_top_c3}
+	class="r-align-center r-ori-vert			col-md-12
 	
 ">
-		 
-		<span data-itemtype="login_welcome" data-itemid="login_welcome" {$item_login_welcome} data-pageid="{$pageid}" data-small >
-Login into your account</span>
-		</div>					</div>
+			</div>					</div>
 			</div>		
 {END top_block}
 									{BEGIN above-grid_block}
@@ -74,13 +70,25 @@ Login into your account</span>
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
-	class=" r-ori-vert			col-md-12
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class="r-align-center r-ori-vert			col-md-12
 	
 ">
 		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
+		 
+		<span data-itemtype="login_welcome" data-itemid="login_welcome" {$item_login_welcome} data-pageid="{$pageid}" data-page=".global_login" data-small >
+Login into your account</span>
+			{END firstAboveGridCell}	
 	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
 			 
 				<div class="row">
 			 
@@ -174,9 +182,33 @@ Login into your account</span>
 {END signin_button}
 </td>
 									<td 
-	class="r-align-right r-ori-vert			"
+	class="r-align-right			"
 			 
 	data-cellId="footer_c2" data-pageid="{$pageid}">
+ 
+<span data-itemtype="loginform_register_link" data-itemid="loginform_register_link" {$item_loginform_register_link} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-link   
+	" {$registerlink_attrs} href="register.php" >
+							Sign Up			</a>
+</span>
+ 
+<span data-itemtype="login_remind" data-itemid="login_remind" {$item_login_remind} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-link   
+	" {$forgotpasswordlink_attrs} href="remind.php" >
+							Forgot password?			</a>
+</span>
+</td>
+							</tr>
+											<tr {$row_footer_1} >
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="footer_c" data-pageid="{$pageid}">
+</td>
+									<td 
+	class="r-align-right r-ori-vert			"
+			 
+	data-cellId="footer_c3" data-pageid="{$pageid}">
 </td>
 							</tr>
 					
@@ -189,15 +221,13 @@ Login into your account</span>
 			
 								<tr {$row_superbottom_0} >
 									<td 
-	class=" r-ori-vert			"
+	class="r-align-center r-ori-vert			"
 			 
 	data-cellId="superbottom_c1" data-pageid="{$pageid}">
  
-<span data-itemtype="loginform_register_link" data-itemid="loginform_register_link" {$item_loginform_register_link} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-link   
-	" {$registerlink_attrs} href="register.php" >
-							Sign Up			</a>
-</span>
+<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page=".global_login" data-small > 
+	This Application is for Internal Use only!
+It can only be accessed by an authorized personel!</span>
 </td>
 							</tr>
 					
@@ -208,7 +238,7 @@ Login into your account</span>
 			</div>
 			<div class="r-sideimage">
 							<div class="r-image"  >
-					<img data-itemtype="page_image" data-itemid="page_image_ash8f23hr" {$item_page_image_ash8f23hr} data-pageid="{$pageid}" src="images/clipart/photo/pexels-anete-lusina-5239790.jpg" />
+					<img data-itemtype="page_image" data-itemid="page_image_ash8f23hr" {$item_page_image_ash8f23hr} data-pageid="{$pageid}" src="images/clipart/photo/windows-SwHvzwEzCfA-unsplash.jpg" />
 				</div>
 						</div>
 		</div>

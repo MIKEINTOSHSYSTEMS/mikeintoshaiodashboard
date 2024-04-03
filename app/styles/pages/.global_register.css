@@ -1,3 +1,19 @@
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > label,
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > * > input,
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > * > textarea,
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > * > select,
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > * > .r-readonly-control,
+[data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"][data-page=".global_register"][data-itemid="integrated_edit_field"] > * > * > * > select {
+  font-weight: bold;
+}
+[data-page=".global_register"][data-itemid="text"] {
+  color: #ff0007;
+  font-weight: bold;
+  font-size: 30px;
+}
+[data-page=".global_register"][data-itemid="text1"] {
+  color: #a7a7a7;
+}
 [data-page=".global_register"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }
