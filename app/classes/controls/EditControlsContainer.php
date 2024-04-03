@@ -84,7 +84,7 @@ class EditControlsContainer
 	function addControlsJSAndCSS()
 	{
 		$allowedPageTypes = array( PAGE_ADD, PAGE_EDIT, PAGE_VIEW, PAGE_LIST, 
-			PAGE_SEARCH, PAGE_REGISTER, PAGE_LOGIN );
+			PAGE_SEARCH, PAGE_REGISTER, PAGE_LOGIN, PAGE_USERINFO );
 	
 		// showing if there is Search panel on the page		
 		$searchPanelActivated = $this->isSearchPanelActivated();
@@ -121,6 +121,7 @@ class EditControlsContainer
 		{
 			case PAGE_LOGIN:
 			case PAGE_REGISTER:
+			case PAGE_USERINFO:
 				$fields = $this->pSetEdit->getPageFields();
 				break;
 			case PAGE_SEARCH:
@@ -145,8 +146,10 @@ class EditControlsContainer
 		foreach( $fields as $i => $f )
 		{
 			$appear = false;
+			
 			if( $this->pageType == PAGE_REGISTER || $this->pageType == PAGE_SEARCH 
-				|| $this->pageType == PAGE_LOGIN || in_array($f, $searchFields) )
+				|| $this->pageType == PAGE_LOGIN || $this->pageType == PAGE_USERINFO 
+				|| in_array($f, $searchFields) )
 			{
 				$appear = true;
 			} 
@@ -170,8 +173,8 @@ class EditControlsContainer
 	 */
 	function getControl($field, $id = "", $extraParmas = array())
 	{
-		if( count($extraParmas) && $extraParmas["getDetKeyReadOnlyCtrl"] ) 
-		{
+/*
+		if( count($extraParmas) && $extraParmas["makeReadonly"] ) {
 			include_once(getabspath("classes/controls/Control.php"));
 			$className = $this->classNamesForEdit[ EDIT_FORMAT_READONLY ];
 			
@@ -180,6 +183,7 @@ class EditControlsContainer
 			
 			return $ctrl;
 		}
+*/		
 		
 		if( count($extraParmas) && $extraParmas["getConrirmFieldCtrl"] ) 
 		{
@@ -188,7 +192,7 @@ class EditControlsContainer
 			
 			$ctrl = createControlClass($className, $field, $this->pageObject != null ? $this->pageObject : $this, $id, $this->connection);
 			if($extraParmas['isConfirm'])
-				$ctrl->field = GetPasswordField();
+				$ctrl->field = Security::passwordField();
 			$ctrl->container = $this;
 			
 			return $ctrl;
@@ -200,12 +204,9 @@ class EditControlsContainer
 			include_once(getabspath("classes/controls/Control.php"));
 			
 			$userControl = false;
+			$editFormat = $this->getEditFormat($field);
 			
-			$editFormat = $this->pSetEdit->getEditFormat($field);
-			if($editFormat == EDIT_FORMAT_TEXT_FIELD && IsDateFieldType($this->pSetEdit->getFieldType($field)))
-				$editFormat = EDIT_FORMAT_DATE;
-			
-			if($this->pageType == PAGE_SEARCH || $this->pageType == PAGE_LIST)
+			if( ($this->pageType == PAGE_SEARCH || $this->pageType == PAGE_LIST ) && !$extraParmas["spreadsheet"] )
 			{
 				// Text field may be Lookup field on some page
 				$pageTypebyLookupFormat = $this->pSetEdit->getPageTypeByFieldEditFormat($field, EDIT_FORMAT_LOOKUP_WIZARD);
@@ -244,6 +245,8 @@ class EditControlsContainer
 					
 			$this->controls[ $field ] = createControlClass($className, $field, $this->pageObject != null ? $this->pageObject : $this, $id, $this->connection);
 			$this->controls[ $field ]->container = $this;
+			$this->controls[ $field ]->forSpreadsheetGrid = $extraParmas["spreadsheet"];
+			
 			if($userControl)
 			{
 				$this->controls[ $field ]->format = $className;
@@ -315,6 +318,13 @@ class EditControlsContainer
 		$this->classNamesForSearch[EDIT_FORMAT_FILE] = "FileField";
 		$this->classNamesForSearch[EDIT_FORMAT_LOOKUP_WIZARD] = "LookupField";
 	
+	}
+
+	protected function getEditFormat( $field ) {
+		if( $this->pageObject ) {
+			return $this->pageObject->getEditFormat( $field );
+		}
+		return $this->pSetEdit->getEditFormat( $field );
 	}
 }
 ?>

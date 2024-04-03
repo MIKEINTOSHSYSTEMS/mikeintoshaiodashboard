@@ -133,7 +133,7 @@ class UploadHandler
     }
 
     public function validate($uploadedFile, &$file, $error, $file_size, $index, $uploadDir) {
-        if ($error) {
+        if ($uploadedFile["error"] ) {
             $file["error"] = $this->codeToMessage($error);
             return false;
         }
@@ -334,18 +334,6 @@ class UploadHandler
         foreach ($upload as $index => $uploadedFile) {
             $info[] = $this->handle_file_upload($uploadedFile, $index);
         }
-        /*} elseif ($upload) {
-            // param_name is a single object identifier like "file",
-            // $_FILES is a one-dimensional array:
-            $info[] = $this->handle_file_upload(
-                $upload['tmp_name'],
-                $upload['name'],
-                $upload['size'],
-				$upload['type'],
-                $upload['error'],
-				0
-            ); 
-        }*/
         header('Vary: Accept');
         $result = array();
         foreach ($info as $file)
@@ -437,6 +425,7 @@ class UploadHandler
 		
 		return ""; 
 	} 
+	
 	function create_scaled_image($file_path, $uploadDir, $new_file_name, $options, &$file, $isThumbnail, $uploadDirRelative, $uploadedFile) {
 		
 		$img_size = runner_getimagesize($file_path, $uploadedFile);

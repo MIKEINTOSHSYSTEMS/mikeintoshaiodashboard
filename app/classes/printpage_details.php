@@ -54,17 +54,16 @@ class PrintPage_Details extends PrintPage
 	/**
 	 *
 	 */
-	public function displayPrintPage()
-	{
+	public function displayPrintPage() {
 		if( !$this->fetchedRecordCount )
 			return;
 
 		$this->xt->bulk_assign( $this->pageBody );
 		
-		if( $this->pdfJsonMode() )
-		{
+		if( $this->pdfJsonMode() ) {
 			$this->xt->assign( "body", true );
 			$this->xt->assign( "embedded_grid", true );
+			$this->xt->assign("embedded_page_title", true );
 			
 			$this->xt->load_templateJSON( $this->templatefile );
 			echo  $this->xt->fetch_loadedJSON("body");
@@ -79,31 +78,14 @@ class PrintPage_Details extends PrintPage
 
 		$this->xt->load_template($this->templatefile);
 
-		if( $this->isPD() ) 
-		{
-			echo '<div class="panel panel-info details-grid">
-				<div class="panel-heading">
-					<h4 class="panel-title">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName)) . '</h4>
-				</div>
-				<div class="panel-body">';
-			echo $this->fetchForms( array( "grid" ) );	
-			echo '</div>
-			</div>';			
-		} 
-		else
-		{
-			echo "<div class='rnr-print-details'>";
-			if( $this->multipleDetails )
-			{
-				echo "<div class='rnr-pd-title'>";
-				echo $this->getPageTitle( $this->pageType, GoodFieldName($this->tName));
-				echo "</div>";
-			}
-			echo "<div class='rnr-pd-grid'>";
-			echo $this->xt->fetch_loaded("container_grid");
-			echo "</div>";
-			echo "</div>";
-		}
+		echo '<div class="panel panel-info details-grid">
+			<div class="panel-heading">
+				<h4 class="panel-title">' . $this->getPageTitle( $this->pageName, GoodFieldName($this->tName) ) . '</h4>
+			</div>
+			<div class="panel-body">';
+		echo $this->fetchForms( array( "grid" ) );	
+		echo '</div>
+		</div>';
 	}
 	
 	/**

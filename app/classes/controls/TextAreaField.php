@@ -8,47 +8,31 @@ class TextAreaField extends TextControl
 		$this->format = EDIT_FORMAT_TEXT_AREA;
 	}
 
-	function buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data)
-	{
-		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
+	function buildControl( $value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data ) {
+		parent::buildControl( $value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data );
 
-		$nHeight = $this->pageObject->pSetEdit->getNRows($this->field);
-		if($this->pageObject->pSetEdit->isUseRTE($this->field))
-		{
-			$value = $this->RTESafe($value);
-			// creating src url
-			$browser = "";
-			if(@$_REQUEST["browser"]=="ie")
-				$browser = "&browser=ie";
-
-			// add JS code
-			echo "<iframe frameborder=\"0\" vspace=\"0\" hspace=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" id=\""
-				.$this->cfield."\" ".(($mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD) && $this->is508==true ? "alt=\""
-				.$this->strLabel."\" " : "")."name=\"".$this->cfield."\" title=\"Basic rich text editor\" style='";
-			echo "width: 100%; min-width:480px; height: " . ($nHeight+100) . "px;'";
-			echo " src=\"".
-				GetTableLink(
-					"rte", 
-					"", 
-					"ptype=".$this->pageObject->pageType.
-						"&page=".$this->pageObject->pageName.
-						"&table=".GetTableURL($this->pageObject->tName).
-						"&id=".$this->id.
-						"&".$this->iquery.$browser.
-						"&".($mode==MODE_ADD || $mode==MODE_INLINE_ADD ? "action=add" : '')
-					).
-				"\">";
-			echo "</iframe>";
-		}
-		else
-		{
-			$classString = "";
-			$style = 'height: '.$nHeight.'px;';
-			if( $this->pageObject->isBootstrap() )
-			{
-				$classString = " class=\"form-control\"";
+		if( $this->pageObject->pSetEdit->isUseRTE( $this->field ) ) {
+			$value = $this->RTESafe( $value );
+			
+			switch( $this->pageObject->pSetEdit->getRTEType( $this->field ) ) {
+				case "RTE":
+					$this->buildTinyMCE( $value );
+					break;
+				case "RTECK_NEW":
+				case "RTECK":
+					$this->CreateCKeditor( $value );
+					break;
+				case "RTEINNOVA":
+					$this->buildInnova( $value );
+					break;
 			}
-			echo '<textarea '.$this->getPlaceholderAttr().' id="'.$this->cfield.'" '.$classString.' alt="' .$this->strLabel . '" name="'.$this->cfield.'" style="' . $style . '">'.runner_htmlspecialchars($value).'</textarea>';
+		} else {
+			$nHeight = $this->pageObject->pSetEdit->getNRows( $this->field );
+			$attrs = $this->getPlaceholderAttr();
+			echo '<textarea id="'.$this->cfield.'" alt="'.$this->strLabel.'" name="'.$this->cfield.'" style="height:'.$nHeight.'px;" '
+				.$attrs.' class="form-control">'
+					.runner_htmlspecialchars( $value )
+				.'</textarea>';
 		}
 
 		$this->buildControlEnd($validate, $mode);
@@ -90,6 +74,46 @@ class TextAreaField extends TextControl
 			.'<textarea id="'.$this->cfield.'" name="'.$this->cfield.'" rows="8" cols="60">'
 				.runner_htmlspecialchars($value)
 			.'</textarea>'
+			.'</div>';
+	}
+	
+	/**
+	 * addJSFiles
+	 * Add control JS files to page object
+	 */
+	function addJSFiles() {
+		if ( $this->pageObject->pSetEdit->getRTEType( $this->field ) == "RTE" ) {
+			$this->pageObject->AddJSFile("plugins/tinymce/tinymce.min.js");
+		}
+	}	
+
+	/**
+	 * Build a stub markup for Innova editor
+	 * @param String value
+	 */
+	protected function buildInnova( $value ) {
+		$nHeight = $this->pageObject->pSetEdit->getNRows( $this->field );
+		if( $nHeight< 300 )
+			$nHeight = 300;	
+
+		$assetManagerUrl = projectURL() .'plugins/innovaeditor/assetmanager/'. GetTableLink("assetmanager");
+
+		echo '<div id="disabledInnova_'.$this->cfield.'" style="width:100%; height:'. $nHeight .'px;" data-am="'.$assetManagerUrl.'">'
+				.'<textarea alt="'.$this->strLabel.'" id="'.$this->cfield.'" name="'.$this->cfield.'">'
+					.runner_htmlspecialchars( $value )
+				.'</textarea>'
+				.'<div id="'.$this->cfield.'innova" name="'.$this->cfield.'" style="width:100%; height:'. $nHeight .'px;">'
+				.'</div>'
+			.'</div>';
+	}
+	
+	protected function buildTinyMCE( $value ) {
+		$nHeight = $this->pageObject->pSetEdit->getNRows( $this->field ) + 100;
+		
+		echo '<div id="disabledTinyMCE_'.$this->cfield.'">'
+				.'<textarea id="'.$this->cfield.'" name="'.$this->cfield.'" alt="'.$this->strLabel.'" style="width:100%; height:'. $nHeight .'px;">'
+					.runner_htmlspecialchars( $value )
+				.'</textarea>'
 			.'</div>';
 	}
 }

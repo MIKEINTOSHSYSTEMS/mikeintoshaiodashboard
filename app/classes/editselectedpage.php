@@ -87,7 +87,7 @@ class EditSelectedPage extends EditPage
 	 * Set keys values
 	 * @param Array keys
 	 */
-	public function setKeys($keys) //?
+	public function setKeys($keys)
 	{
 		$this->keys = $keys;
 	}
@@ -112,12 +112,6 @@ class EditSelectedPage extends EditPage
 
 		$this->afterEditAction = $action;
 		return $this->afterEditAction;
-	}	
-	
-	public function init()
-	{
-		$this->hideItemType("edit_view");		
-		parent::init();
 	}
 
 	/**
@@ -191,7 +185,7 @@ class EditSelectedPage extends EditPage
 	 */
 	protected function doCommonAssignments()
 	{
-		$this->message = $this->getMessages(); // ?
+		$this->message = $this->getMessages();
 		parent::doCommonAssignments();
 	}
 
@@ -215,6 +209,11 @@ class EditSelectedPage extends EditPage
 	protected function prepareButtons()
 	{
 		parent::prepareButtons();
+		
+		$this->hideItemType("edit_view");
+		$this->hideItemType("prev");
+		$this->hideItemType("next");
+		
 		$this->xt->assign("save_button", false);
 		$this->xt->assign("view_page_button", false );
 		
@@ -233,10 +232,7 @@ class EditSelectedPage extends EditPage
 		{
 			$label = str_replace( "%n%", $this->nSelected, "Update %n% records" );
 			$this->xt->assign("update_selected", $label );
-		}
-		
-
-		
+		}		
 	}
 
 	/**
@@ -288,7 +284,7 @@ class EditSelectedPage extends EditPage
 			$returnJSON['wrongCaptchaFieldName'] = $this->getCaptchaFieldName();
 
 		//	successful update. Return new keys and field values
-		$data = $this->getRecordByKeys( $keys );
+		$data = $this->getRecordByKeys( $keys );		
 		if( !$data )
 			$data = $this->newRecordData;
 
@@ -302,31 +298,41 @@ class EditSelectedPage extends EditPage
 				$dkeys[ "masterkey".($idx + 1) ] = $data[ $mk ];
 			}
 			$returnJSON['detKeys'][ $dt['dDataSourceTable'] ] = $dkeys;
-		}
-
+		}	
+		
 		//	prepare field values
 		//	keys
 		$keyParams = array();
 		foreach( $this->pSet->getTableKeys() as $i => $k )
 		{
-			$keyParams[] = "key" . ($i + 1) . "=" . rawurldecode( $keys[ $k ] );
+			$keyParams[] = "key" . ($i + 1) . "=" . runner_htmlspecialchars( rawurlencode( $keys[ $k ] ) );
 		}
 		$keylink = "&" . implode("&", $keyParams);
 
 		//	values
 		$values = array();
 		$rawValues = array();
-		$fields = $this->pSet->getFieldsList();
-		foreach( $fields as $f )
+		$controlValues = array();
+		
+		$listPSet = new ProjectSettings( $this->tName, PAGE_LIST, $this->hostPageName, $this->pageTable );
+		//	override viewControls so that field values are built for the host List page and not for the Edit
+		$this->viewControls = new ViewControlsContainer( $listPSet, PAGE_LIST, $this );
+		
+		
+		foreach( $this->pSet->getFieldsList() as $f )
 		{
 			$value = $this->showDBValue( $f, $data, $keylink );
 			$values[ $f ] = $value;
-			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) )
+			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) ) {
 				$rawValues[ $f ] = "";
-			else
+			} else {
 				$rawValues[ $f ] = runner_substr($data[ $f ], 0, 100);
+				$controlValues[ $f ] = $data[ $f ];
+			}
 		}
 
+		$returnJSON['controlValues'] = $controlValues;		
+		
 		$returnJSON['keys'] = $this->jsKeys;
 		$returnJSON['masterKeys'] = $this->getDetailTablesMasterKeys($data);
 		$returnJSON['keyFields'] = $this->pSet->getTableKeys();
@@ -339,7 +345,7 @@ class EditSelectedPage extends EditPage
 		}
 
 		$returnJSON['vals'] = $values;
-		$returnJSON['fields'] = $fields;
+		$returnJSON['fields'] = $this->pSet->getFieldsList();
 		$returnJSON['rawVals'] = $rawValues;
 		$returnJSON['hrefs'] = $this->buildDetailGridLinks( $returnJSON['detKeys'] );
 
@@ -354,6 +360,11 @@ class EditSelectedPage extends EditPage
 		$fieldsIconsData = $this->getFieldMapIconsData( $data );
 		if( count( $fieldsIconsData ) )
 			$returnJSON['fieldsMapIconsData'] = $fieldsIconsData;
+			
+		$returnJSON['editFields'] = $this->editFields;
+		if( $this->forSpreadsheetGrid ) {
+			$returnJSON['editFields'] = $listPSet->getInlineEditFields();
+		}			
 			
 		return $returnJSON;
 	}
@@ -413,6 +424,7 @@ class EditSelectedPage extends EditPage
 	{
 		if( $this->stopPRG )
 			return false;
+		
 		if( !$this->updatedSuccessfully || !$this->isSimpleMode() || !no_output_done() )
 			return false;
 
@@ -431,47 +443,12 @@ class EditSelectedPage extends EditPage
 	
 	protected function getSingleRecordWhereClause( $keys ) 
 	{
-		$strWhereClause = KeyWhere($keys, $this->tName );
-		
-		if( $this->pSet->getAdvancedSecurityType() != ADVSECURITY_ALL )
-		{
-			// select only owned records
-			$strWhereClause = whereAdd($strWhereClause, SecuritySQL("Edit", $this->tName));
-		}
-		
-		return $strWhereClause;
+		$dc = new DsCommand;
+		$dc->keys = $keys;
+		$dc->filter = $this->getSecurityCondition();
+		$sql = $this->dataSource->prepareSQL($dc );
+		return $sql["where"];
 	}
-
-	public function getSelectedWhereClause() 
-	{
-		$strWhereClause = "";
-		$keyFields = $this->pSet->getTableKeys();
-		if( count( $keyFields ) == 1 ) {
-			$selectionDecrypted = array();
-			foreach( $this->parsedSelection as $p )
-			{
-				$selectionDecrypted[] = $this->cipherer->MakeDBValue( $keyFields[0], $p[ $keyFields[0] ] );
-			}			
-			$strWhereClause = $this->getFieldSQLDecrypt( $keyFields[0] ) . " in (" . implode(",", $selectionDecrypted ) . ")";
-		}
-		else 
-		{
-			//	composite key
-			$components = array();
-			foreach( $this->parsedSelection as $s )
-			{
-				$components[] = KeyWhere( $s, $this->tName );
-			}
-			$strWhereClause = implode(" or ", $components );
-		}
-		if( $this->pSet->getAdvancedSecurityType() != ADVSECURITY_ALL )
-		{
-			// select only owned records
-			$strWhereClause = whereAdd($strWhereClause, SecuritySQL("Edit", $this->tName));
-		}
-		return $strWhereClause;
-	}
-	
 	
 	/**
 	 * @param Boolean useOldKeys
@@ -488,33 +465,34 @@ class EditSelectedPage extends EditPage
 	 */
 	public function getCurrentRecordInternal()
 	{
-		if( !is_null($this->cachedRecord) )
+		if( !is_null( $this->cachedRecord ) )
 			return $this->cachedRecord;
 
-		$this->nSelected = 0;
-		$strWhereClause = $this->getSelectedWhereClause();
-		$strSQL = $this->gQuery->gSQLWhere( $strWhereClause );
+		$dc = $this->getSubsetDataCommand();
 
-		$strSQLbak = $strSQL;
-		$strWhereClauseBak = $strWhereClause;
-		//	Before Query event
-		if( $this->eventsObject->exists("BeforeQueryEdit") )
-			$this->eventsObject->BeforeQueryEdit($strSQL, $strWhereClause, $this);
+		if( $this->eventsObject->exists("BeforeQueryEdit") ) {
+			$prep = $this->dataSource->prepareSQL( $dc );
+			$where = $prep["where"];
+			$sql = $prep["sql"];
 
-		if( $strSQLbak == $strSQL && $strWhereClauseBak != $strWhereClause )
-		{
-			$strSQL = $this->gQuery->gSQLWhere( $strWhereClause );
-			if( !$keysSet )
-				$strSQL = applyDBrecordLimit($strSQL.$orderClause, 1, $this->connection->dbType);
+			$this->eventsObject->BeforeQueryEdit( $sql, $where, $this );
+
+			if( $sql != $prep["sql"] ) {
+				$this->dataSource->overrideSQL( $dc, $sql );
+			} else if( $where != $prep["where"] ) {
+				$this->dataSource->overrideWhere( $dc, $where );
+			}
 		}
-
-		LogInfo($strSQL);
+		
+		$this->nSelected = 0;		
 
 		$fields = $this->getPageFields();
-		$rs = $this->connection->query( $strSQL );
 		$diffValues = array();
+		
+		$rs = $this->dataSource->getList( $dc );
 		while( $fetchedArray = $rs->fetchAssoc() ) {
 			$fetchedArray = $this->cipherer->DecryptFetchedArray( $fetchedArray );
+			
 			if( !$this->cachedRecord )
 				$this->cachedRecord = $fetchedArray;
 			else 
@@ -526,16 +504,14 @@ class EditSelectedPage extends EditPage
 				}
 			}
 			++$this->nSelected;
-
 		}
-		foreach( $diffValues as $f => $v )
-		{
+		
+		foreach( $diffValues as $f => $v ) {
 			unset( $this->cachedRecord[$f] );
 		}
 		
 		
-		if( $this->action != "edited" )
-		{
+		if( $this->action != "edited" ) {
 			foreach($this->getPageFields() as $fName)
 			{
 				$aValue = $this->pSet->getAutoUpdateValue($fName);
@@ -543,7 +519,6 @@ class EditSelectedPage extends EditPage
 					$this->cachedRecord[ $fName ] = $this->pSet->getAutoUpdateValue($fName);
 			}
 		}
-
 
 		// A successful function call shouldn't return empty array when 
 		$this->cachedRecord["..."] = "";
@@ -562,7 +537,8 @@ class EditSelectedPage extends EditPage
 		$gf = GoodFieldName($field);
 		$data = $this->getCurrentRecordInternal();
 		
-		$checkbox = "<input type=checkbox class=\"bs-updselbox\" id=updsel_".$gf.$this->id." data-field=\"".runner_htmlspecialchars( $field ) ."\">";
+		$checkbox = "<input type=checkbox class=\"bs-updselbox\" id=updsel_"
+			.$gf.$this->id." data-field=\"".runner_htmlspecialchars( $field ) ."\">";
 		
 		$label = array();
 		$label["begin"] = $checkbox;
@@ -582,6 +558,9 @@ class EditSelectedPage extends EditPage
 		$blobfields = array();
 		$keys = $this->keys;
 		
+		if( !$this->selectedFields ) {
+			$this->selectedFields = array();
+		}
 		$newFields = array_intersect( $this->getpageFields(), $this->selectedFields );
 		foreach($newFields as $f)
 		{
@@ -590,7 +569,6 @@ class EditSelectedPage extends EditPage
 		}
 
 		$this->newRecordData = $evalues;
-		$this->newRecordBlobFields = $blobfields;
 	}
 
 	/**
@@ -648,7 +626,6 @@ class EditSelectedPage extends EditPage
 			}
 		}
 		
-		
 		/* process the records and update 1 by one */
 		foreach( $this->parsedSelection as $idx => $s ) 
 		{
@@ -670,38 +647,45 @@ class EditSelectedPage extends EditPage
 			$this->newRecordData = $this->getNewRecordCopy( $newRecordDataTemp );
 			/* ASP trick end */
 			
+			$dc = new DsCommand();
+			$dc->keys = $s;
 			
 			$this->currentWhereExpr = $this->getSingleRecordWhereClause( $s );
-			$strSQL = $this->gQuery->gSQLWhere( $this->currentWhereExpr );
-			LogInfo($strSQL);
-
-			$fetchedArray = $this->connection->query( $strSQL )->fetchAssoc();
-			if( !$fetchedArray )
-				continue;
+ 
+			$rs = $this->dataSource->getSingle( $dc );
+			if( $rs ) {
+				$fetchedArray = $rs->fetchAssoc();
+			}
+			
 			$fetchedArray = $this->cipherer->DecryptFetchedArray( $fetchedArray );
 			if( !$this->isRecordEditable( $fetchedArray ) )
 				continue;
+			
 			$this->setUpdatedLatLng( $this->getNewRecordData(), $fetchedArray );
 
 			$this->oldKeys = $s;
 			$this->recordBeingUpdated = $fetchedArray;
 
-			if( !$this->callBeforeEditEvent( ) )
+			if( !$this->callBeforeEditEvent() )
 				continue;
 				
-			if( $this->callCustomEditEvent( ) )
-			{
-				if( !DoUpdateRecord( $this ) )
+			if( $this->callCustomEditEvent() ) {
+				$updateResult = $this->dataSource->updateSingle( $this->getUpdateDataCommand() );
+				if( !$updateResult ) {
+					$this->setDatabaseError( $this->dataSource->lastError() );	
 					continue;
+				}
 				//	success if at least one record updated
 			}
 			++$this->nUpdated;
+			
 			$this->mergeNewRecordData();
 			$this->auditLogEdit( $s );
 			$this->callAfterEditEvent();
 			
-			if( $this->isPopupMode() )
+			if( $this->isPopupMode() ) {
 				$this->inlineReportData[ $this->rowIds[ $idx ] ] = $this->getRowSaveStatusJSON( $s );
+			}
 		}
 	
 		$this->updatedSuccessfully = ($this->nUpdated > 0);
@@ -722,31 +706,36 @@ class EditSelectedPage extends EditPage
 	}
 
 	/**
+	 * @deprecated
 	 * @param Array keys
 	 * @return Array
 	 */
 	protected function getRecordByKeys( $keys )
 	{
-		$strWhereClause = whereAdd( $this->getSelectedWhereClause(), $this->getSingleRecordWhereClause( $keys ) );
-		$strSQL = $this->gQuery->gSQLWhere( $strWhereClause );
+		$dc = new DsCommand();
+		$dc->keys = $keys;
+		$dc->filter = $this->getSecurityCondition();
+		
+		if( $this->eventsObject->exists("BeforeQueryEdit") ) {
+			$prep = $this->dataSource->prepareSQL( $dc );
+			$where = $prep["where"];
+			$sql = $prep["sql"];
 
-		$strSQLbak = $strSQL;
-		$strWhereClauseBak = $strWhereClause;
-		//	Before Query event
-		if( $this->eventsObject->exists("BeforeQueryEdit") )
-			$this->eventsObject->BeforeQueryEdit($strSQL, $strWhereClause, $this);
+			$this->eventsObject->BeforeQueryEdit( $sql, $where, $this );
 
-		if( $strSQLbak == $strSQL && $strWhereClauseBak != $strWhereClause )
-		{
-			$strSQL = $this->gQuery->gSQLWhere( $strWhereClause );
-			if( !$keysSet )
-				$strSQL = applyDBrecordLimit($strSQL.$orderClause, 1, $this->connection->dbType);
+			if( $sql != $prep["sql"] ) {
+				$this->dataSource->overrideSQL( $dc, $sql );
+			} else if( $where != $prep["where"] ) {
+				$this->dataSource->overrideWhere( $dc, $where );
+			}
 		}
 
-		LogInfo($strSQL);
+		$rs = $this->dataSource->getSingle( $dc );
+		
+		if( !$rs )
+			return null;
 
-		$fetchedArray = $this->connection->query( $strSQL )->fetchAssoc();
-		return $this->cipherer->DecryptFetchedArray( $fetchedArray );
+		return $this->cipherer->DecryptFetchedArray( $rs->fetchAssoc() );
 	}	
 	
 	/**
@@ -878,6 +867,15 @@ class EditSelectedPage extends EditPage
 	}
 
 	/**
+	 * @param String message
+	 */
+	public function setDatabaseError( $message )
+	{
+		$this->messages[] = "<strong>&lt;&lt;&lt; "."Record was NOT edited"." &gt;&gt;&gt;</strong><br>".$message;
+		$this->messageType = MESSAGE_ERROR;
+	}	
+	
+	/**
 	 * @return String
 	 */
 	public function getMessages() 
@@ -899,6 +897,26 @@ class EditSelectedPage extends EditPage
 	protected function isSimpleMode() 
 	{
 		return $this->mode == EDIT_SELECTED_SIMPLE;
+	}
+
+	/**
+	 *
+	 */
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
+		$dc = new DsCommand();
+		
+		$conditions = array();
+		foreach( $this->parsedSelection as $s ) {
+			// selection condition
+			$conditions[] = DataCondition::FieldsEqual( $this->pSet->getTableKeys(), $s );
+		}
+
+		$dc->filter = DataCondition::_And( array(
+			$this->getSecurityCondition(),
+			DataCondition::_Or( $conditions )
+		));
+		
+		return $dc;
 	}	
 }
 ?>

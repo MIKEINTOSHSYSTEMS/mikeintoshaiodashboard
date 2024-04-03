@@ -91,7 +91,6 @@ class ListPage_Simple extends ListPage
 		
 		//$this->setupBreadcrumbs();
 		
-		$this->xt->assign( "grid_classes", "table-bordered table-striped" );
 	}
 
 	
@@ -250,28 +249,22 @@ class ListPage_Simple extends ListPage
 		$this->body['end'] = XTempl::create_method_assignment( "assignBodyEnd", $this);
 	}
 	
-	function buildSearchPanel() 
-	{
-		if( !$this->permis[ $this->tName ]["search"] )
-		{
+	function buildSearchPanel() {
+		if( !$this->permis[ $this->tName ]["search"] ) {
 			return;
 		}
+		
 		$this->xt->enable_section("searchPanel");
+		
 		$params = array();
 		$params['pageObj'] = &$this;
 		$params['panelSearchFields'] = $this->panelSearchFields;
-		$panelSearchFields = array();
-		$allSearchFields = $this->pSet->getAllSearchFields();
+		$params['allSearchFields'] = array_diff( 
+			$this->pSet->getAllSearchFields(), 
+			$this->pSet->getDetailKeysByMasterTable( $this->masterTable ) 
+		);
 		
-		for($i=0; $i<count($allSearchFields); $i++)
-		{
-			if( !$this->matchWithDetailKeys($allSearchFields[$i]) )
-				$panelSearchFields[] = $allSearchFields[$i];
-		}
-				
-		$params['allSearchFields'] = $panelSearchFields;
-		
-		$this->searchPanel = new SearchPanelSimple($params);
+		$this->searchPanel = new SearchPanelSimple( $params );
 		$this->searchPanel->buildSearchPanel();
 	}
 

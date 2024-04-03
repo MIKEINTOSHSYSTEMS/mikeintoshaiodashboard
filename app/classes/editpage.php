@@ -10,15 +10,7 @@ class EditPage extends RunnerPage
 
 	public $keyFields = array();
 
-	/**
-	 * An array of edit page's fields
-	 */
-	public $editFields = array();
 	public $readEditValues = false;
-	/**
-	 *	Values to be displayed in Edit controls
-	 */
-	protected $controlsDisabled = false;
 
 	public $action = "";
 
@@ -38,7 +30,6 @@ class EditPage extends RunnerPage
 
 	protected $oldRecordData = null;
 	protected $newRecordData = array();
-	protected $newRecordBlobFields = array();
 
 	protected $updatedSuccessfully = false;
 
@@ -73,6 +64,9 @@ class EditPage extends RunnerPage
 	protected $nextKeys = null;
 
 	protected $recordValuesToEdit = null;
+
+	public $forSpreadsheetGrid = false;
+	public $hostPageName = "";
 
 
 	/**
@@ -153,8 +147,8 @@ class EditPage extends RunnerPage
 
 		if( $this->isPopupMode() && $this->pSet->checkClosePopupAfterEdit()
 			|| $action == AE_TO_VIEW && !$this->viewAvailable()
-			|| $action == AE_TO_NEXT_EDIT && !count( $this->getNextKeys() )
-			|| $action == AE_TO_PREV_EDIT && !count( $this->getPrevKeys() ) )
+			|| $action == AE_TO_NEXT_EDIT && !$this->getNextKeys() 
+			|| $action == AE_TO_PREV_EDIT && !$this->getPrevKeys() )
 		{
 			$action = AE_TO_LIST;
 		}
@@ -192,7 +186,10 @@ class EditPage extends RunnerPage
 	 */
 	public function setSessionVariables()
 	{
+		$masterTable = $this->masterTable;
 		parent::setSessionVariables();
+		//	don't use mastertable stored in session
+		$this->masterTable = $masterTable;
 
 		$_SESSION[ $this->sessionPrefix.'_advsearch' ] = serialize($this->searchClauseObj);
 	}
@@ -233,9 +230,8 @@ class EditPage extends RunnerPage
 	/**
 	 * Tell whether the page was called to update locking state only
 	 */
-	public function isLockingRequest()
-	{
-		return $this->lockingObj && ($this->lockingAction != "");
+	public function isLockingRequest() {
+		return $this->lockingObj && $this->lockingAction != "";
 	}
 
 	/**
@@ -252,7 +248,7 @@ class EditPage extends RunnerPage
 		{
 			$this->lockingObj->UnlockRecord($this->tName, $arrkeys, $this->lockingSid);
 		}
-		else if($this->lockingAction == "lockadmin" && (IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP))
+		else if($this->lockingAction == "lockadmin" && $this->lockingAdmin() )
 		{
 			$this->lockingObj->UnlockAdmin($this->tName, $arrkeys, $this->lockingStart == "yes");
 			if($this->lockingStart == "no")
@@ -369,15 +365,16 @@ class EditPage extends RunnerPage
 		$this->jsSettings['tableSettings'][ $this->tName ]["keys"] = $this->jsKeys;
 		$this->jsSettings['tableSettings'][ $this->tName ]['keyFields'] = $this->pSet->getTableKeys();
 
-		if($this->lockingObj)
-		{
+		if( $this->lockingObj ) {
 			// $keys, $savedKeys could not be set properly if editid params were not passed, so use $this->keys instead
-			$this->jsSettings['tableSettings'][ $this->tName ]["sKeys"] = implode("&", $this->keys);
-			$this->jsSettings['tableSettings'][ $this->tName ]["enableCtrls"] = !$this->controlsDisabled;
+			$escapedKeys = array();
+			foreach( $this->keys as $k ) {
+				$escapedKeys[] = rawurlencode( $k );
+			}
+			$this->jsSettings['tableSettings'][ $this->tName ]["sKeys"] = implode("&", $escapedKeys );
 			$this->jsSettings['tableSettings'][ $this->tName ]["confirmTime"] = $this->lockingObj->ConfirmTime;
 		}
 	}
-
 
 
 	/**
@@ -385,18 +382,14 @@ class EditPage extends RunnerPage
 	 */
 	protected function doCommonAssignments()
 	{
-		$this->xt->assign( "id", $this->id );
 
-		if ( $this->isBootstrap() )
+		if ( $this->mode === EDIT_SIMPLE )
 		{
-			if ( $this->mode === EDIT_SIMPLE )
-			{
-				$this->headerCommonAssign();
-			}
-			else
-			{
-				$this->xt->assign("menu_chiddenattr", "data-hidden" );
-			}
+			$this->headerCommonAssign();
+		}
+		else
+		{
+			$this->xt->assign("menu_chiddenattr", "data-hidden" );
 		}
 
 		$this->setLangParams();
@@ -405,40 +398,16 @@ class EditPage extends RunnerPage
 		$this->xt->assign("message_block", true);
 		if( $this->isMessageSet() )
 		{
-			if( !$this->isBootstrap() )
-			{
-				$mesClass = $this->messageType == MESSAGE_ERROR ? "message rnr-error" : "message" ;
-				$this->xt->assign("message", "<div class='".$mesClass."' >" . $this->message . "</div>" );
-			}
-			else
-			{
-				$this->xt->assign("message", $this->message );
-				$this->xt->assign("message_class", $this->messageType == MESSAGE_ERROR ? "alert alert-danger" : "alert alert-success" );
-			}
+			$this->xt->assign("message", $this->message );
+			$this->xt->assign("message_class", $this->messageType == MESSAGE_ERROR ? "alert alert-danger" : "alert alert-success" );
 		}
 		else
 		{
 			$this->hideElement("message");
 		}
 
-		//	display legacy page caption - key values
-		$data = $this->getCurrentRecordInternal();
-		foreach( $this->pSet->getTableKeys() as $i => $k )
-		{
-			$viewFormat = $this->pSet->getViewFormat( $k );
-			if( $viewFormat == FORMAT_HTML || $viewFormat == FORMAT_FILE_IMAGE || $viewFormat == FORMAT_FILE ||
-				$viewFormat == FORMAT_HYPERLINK || $viewFormat == FORMAT_HYPERLINK || $viewFormat == FORMAT_EMAILHYPERLINK ||
-				$viewFormat == FORMAT_CHECKBOX )
-			{
-				$this->xt->assign( "show_key" . ($i+1), runner_htmlspecialchars( $data[ $k ] ) );
-			}
-			else
-			{
-				$this->xt->assign( "show_key" . ($i+1), $this->showDBValue( $k, $data ) );
-			}
-		}
 		//	labels
-		$this->assignEditFieldsBlocksAndLabels();
+		$this->assignFieldBlocksAndLabels();
 
 		//	body["end"]	- this assignment is very important
 		if($this->isSimpleMode() )
@@ -448,6 +417,7 @@ class EditPage extends RunnerPage
 			$this->xt->assign("flybody", true);
 		}
 
+		$data = $this->getCurrentRecordInternal();
 		$this->xt->assign( "editlink", implode( '&', array( $this->getEditLink( $data ), $this->getStateUrlParams() ) ) );
 	}
 
@@ -461,7 +431,8 @@ class EditPage extends RunnerPage
 		if( $this->eventsObject->exists("BeforeShowEdit") )
 			$this->eventsObject->BeforeShowEdit($this->xt, $templateFile, $this->getCurrentrecordInternal(), $this);
 
-		$this->displayMasterTableInfo();
+		if( $this->mode != EDIT_INLINE )
+			$this->displayMasterTableInfo();
 		// invoked after displayMasterTableInfo to add master viewcontrols maps
 		$this->fillSetCntrlMaps();
 
@@ -485,11 +456,11 @@ class EditPage extends RunnerPage
 			$returnJSON = array();
 
 			$this->xt->load_template( $templateFile );
-			$returnJSON["html"] = array();
-			foreach($this->editFields as $f)
-			{
+			
+			$returnJSON["htmlControls"] = array();
+			foreach($this->editFields as $f) {
 				// build controls
-				$returnJSON["html"][ $f ] = $this->xt->fetchVar(GoodFieldName($f)."_editcontrol");
+				$returnJSON["htmlControls"][ $f ] = $this->xt->fetchVar( GoodFieldName($f)."_editcontrol" );
 			}
 
 			global $pagesData;
@@ -535,7 +506,7 @@ class EditPage extends RunnerPage
 		$dpParams = $this->getDetailsParams( $this->id );
 		$this->jsSettings['tableSettings'][ $this->tName ]['dpParams'] = array('tableNames' => $dpParams['strTableNames'], 'ids' => $dpParams['ids']);
 
-		if( !count($dpParams['ids']) )
+		if( !$dpParams['ids'] )
 			return;
 
 		if( $this->mode == EDIT_DASHBOARD )
@@ -554,8 +525,13 @@ class EditPage extends RunnerPage
 			else
 			{
 				$this->xt->assign("details_". $dpParams['shorTNames'][ $d ], true);
-				$dpTablesParams[] = array("tName" => $dpParams['strTableNames'][ $d ], "id" => $dpParams['ids'][ $d ], "pType" => $dpParams['type'][ $d ]);
-				$this->xt->assign("displayDetailTable_". goodFieldName( $dpParams['strTableNames'][ $d ] ), "<div id='dp_".goodFieldName( $this->tName )."_".$this->pageType."_". $dpParams['ids'][ $d ]."'></div>");
+				$dpTablesParams[] = array(
+					"tName" => $dpParams['strTableNames'][ $d ],
+					"id" => $dpParams['ids'][ $d ],
+					"pType" => $dpParams['type'][ $d ]
+				);
+				$this->xt->assign("displayDetailTable_" . $dpParams['shorTNames'][ $d ],
+					"<div id='dp_".goodFieldName( $this->tName )."_".$this->pageType."_". $dpParams['ids'][ $d ]."'></div>");
 			}
 		}
 
@@ -592,22 +568,6 @@ class EditPage extends RunnerPage
 
 		$this->prepareNextPrevButtons();
 
-		if( $this->isSimpleMode() )
-		{
-			//	back to list/menu buttons
-			if( $this->pSet->hasListPage() )
-			{
-				$this->xt->assign("back_button", true);
-				$this->xt->assign("backbutton_attrs", "id=\"backButton".$this->id."\"");
-				$this->xt->assign("mbackbutton_attrs", "id=\"extraBackButton".$this->id."\"");
-			}
-			else if( $this->isShowMenu() )
-			{
-				$this->xt->assign("back_button", true);
-				$this->xt->assign("backbutton_attrs", "id=\"backToMenuButton".$this->id."\"");
-			}
-		}
-
 		if( $this->isPopupMode() )
 		{
 			$this->xt->assign("close_button", true);
@@ -628,10 +588,8 @@ class EditPage extends RunnerPage
 		{
 			$addStyle = " style=\"display: none;\"";
 		}
-		if( $this->controlsDisabled )
-			$this->xt->assign("savebutton_attrs", "id=\"saveButton".$this->id."\" type=\"disabled\"" . $addStyle);
-		else
-			$this->xt->assign("savebutton_attrs", "id=\"saveButton".$this->id."\"" . $addStyle );
+
+		$this->xt->assign("savebutton_attrs", "id=\"saveButton".$this->id."\"" . $addStyle );
 
 		$this->xt->assign("resetbutton_attrs", 'id="resetButton'.$this->id.'"');
 		$this->xt->assign("reset_button", true);
@@ -639,23 +597,47 @@ class EditPage extends RunnerPage
 		if( $this->mode == EDIT_DASHBOARD )
 			return;
 
+		if( $this->isSimpleMode() )
+		{
+			if( isset( $_SESSION["successfulEdit"] ) )
+				$this->xt->assign("message_back_button", true);
+			//	back to list/menu buttons
+			if( $this->pSet->hasListPage() ) {
+				$this->xt->assign("back_button", true);
+				$this->xt->assign("backbutton_attrs", "id=\"backButton".$this->id."\"");
+				$this->xt->assign("mbackbutton_attrs", "id=\"extraBackButton".$this->id."\"");
+			}
+			else if( $this->isShowMenu() )
+			{
+				$this->xt->assign("back_button", true);
+				$this->xt->assign("backbutton_attrs", "id=\"backToMenuButton".$this->id."\"");
+			}
+		}
+
 		if( $this->viewAvailable() )
 		{
 			$this->xt->assign("view_page_button", true);
 			$this->xt->assign("view_page_button_attrs", "id=\"viewPageButton".$this->id."\"");
+			if( $_SESSION["successfulEdit"] ) {
+				$this->xt->assign("message_view_page_button", true);
+			}
 		}
+
+		unset( $_SESSION["successfulEdit"] );
 	}
 
 	protected function prepareNextPrevButtons()
 	{
-		if( !$this->pSet->useMoveNext() )
+		if( !$this->pSet->useMoveNext() ) {
+			$this->hideItemType("prev");
+			$this->hideItemType("next");
 			return;
-
+		}
 
 		$nextPrev = $this->getNextPrevRecordKeys( $this->getCurrentRecordInternal() );
 
 		//show Prev/Next buttons
-		$this->assignPrevNextButtons( count( $nextPrev["next"] ) > 0, count( $nextPrev["prev"] ) > 0, $this->mode == EDIT_DASHBOARD && ($this->hasTableDashGridElement() || $this->hasDashMapElement()) ); // TODO: haMajorDashElem
+		$this->assignPrevNextButtons( !!$nextPrev["next"], !!$nextPrev["prev"], $this->mode == EDIT_DASHBOARD && ($this->hasTableDashGridElement() || $this->hasDashMapElement()) ); // TODO: haMajorDashElem
 
 		$this->jsSettings["tableSettings"][ $this->tName] ["prevKeys"] = $nextPrev["prev"];
 		$this->jsSettings["tableSettings"][ $this->tName ]["nextKeys"] = $nextPrev["next"];
@@ -689,13 +671,13 @@ class EditPage extends RunnerPage
 		$keyParams = array();
 		foreach( $this->pSet->getTableKeys() as $i => $k )
 		{
-			$keyParams[] = "key" . ($i + 1) . "=" . rawurldecode( $this->keys[ $k ] );
+			$keyParams[] = "key" . ($i + 1) . "=" . runner_htmlspecialchars( rawurlencode( $this->keys[ $k ] ) );
 		}
 		$keylink = "&" . implode("&", $keyParams);
 
 		foreach( $fields as $f )
 		{
-			if( $this->pSet->getEditFormat( $f ) == EDIT_FORMAT_READONLY &&
+			if( $this->getEditFormat( $f ) == EDIT_FORMAT_READONLY &&
 				( $this->pSet->appearOnEditPage( $f ) || $this->pSet->appearOnInlineEdit( $f ) ) )
 				$this->readOnlyFields[ $f ] = $this->showDBValue( $f , $data, $keylink );
 		}
@@ -705,51 +687,45 @@ class EditPage extends RunnerPage
 	 *	Locks record for editing.
 	 * Returns false if the page can not continue processing. True otherwise.
 	 */
-	protected function lockRecord()
-	{
+	protected function lockRecord() {
 		if( !$this->lockingObj )
 			return true;
 
 		//	locked OK
-		if( $this->lockingObj->LockRecord( $this->tName, $this->keys) )
-		{
-
-			$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none" '.$this->lockingMessageAttr. '>' .$this->lockingMessageText. '</div>';
+		if( $this->lockingObj->LockRecord( $this->tName, $this->keys) ) {
+			$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none" '.$this->lockingMessageAttr. '>' 
+				.$this->lockingMessageText. '</div>';
+				
 			$this->xt->assign( "locking", $this->lockingMessageBlock );
 			return true;
 		}
 
 		//	NOT locked
-		//	inline mode
-		if($this->mode == EDIT_INLINE)
-		{
-			if(IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP)
-				$lockmessage = $this->lockingObj->GetLockInfo($this->tName, $this->keys, false, $this->id);
-			else
-				$lockmessage = $this->lockingObj->LockUser;
-
+		if( $this->mode == EDIT_INLINE ) {
+			//	inline mode
 			$returnJSON = array();
 			$returnJSON['success'] = false;
-			$returnJSON['message'] = $lockmessage;
-			$returnJSON['enableCtrls'] = false;
-			$returnJSON['confirmTime'] = $this->lockingObj->ConfirmTime;
-			echo printJSON($returnJSON);
+			if( $this->lockingAdmin() )
+				$returnJSON['message'] = $this->lockingObj->GetLockInfo( $this->tName, $this->keys, false, $this->id );
+			else
+				$returnJSON['message'] = $this->lockingObj->LockUser;
+
+			echo printJSON( $returnJSON );
 			exit();
 		}
 
 		//	other modes
-		$this->controlsDisabled = true;
-		$this->lockingMessageAttr = "";
 		$this->lockingMessageText = $this->lockingObj->LockUser;
-
-		if(IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP)
-		{
-			$ribbonMessage = $this->lockingObj->GetLockInfo($this->tName, $this->keys, true, $this->id);
-			if($ribbonMessage != "")
+		// send flag to client
+		$this->pageData["lockedByOther"] = true;
+		
+		if( $this->lockingAdmin() ) {
+			$ribbonMessage = $this->lockingObj->GetLockInfo( $this->tName, $this->keys, true, $this->id );
+			if( $ribbonMessage != "" )
 				$this->lockingMessageText = $ribbonMessage;
 		}
 
-		$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none" '.$this->lockingMessageAttr. '>' .$this->lockingMessageText. '</div>';
+		$this->lockingMessageBlock = '<div class="rnr-locking" style="display:none">' .$this->lockingMessageText. '</div>';
 		$this->xt->assign( "locking", $this->lockingMessageBlock );
 
 		return true;
@@ -807,23 +783,29 @@ class EditPage extends RunnerPage
 		$keyParams = array();
 		foreach( $this->pSet->getTableKeys() as $i => $k )
 		{
-			$keyParams[] = "key" . ($i + 1) . "=" . rawurldecode( $this->keys[ $k ] );
+			$keyParams[] = "key" . ($i + 1) . "=" . runner_htmlspecialchars( rawurlencode( $this->keys[ $k ] ) );
 		}
 		$keylink = "&" . implode("&", $keyParams);
 
 		//	values
 		$values = array();
 		$rawValues = array();
-		$fields = $this->pSet->getFieldsList();
-		foreach( $fields as $f )
+		$controlValues = array();
+
+		$listPSet = new ProjectSettings( $this->tName, PAGE_LIST, $this->hostPageName, $this->pageTable );
+		//	override viewControls so that field values are built for the host List page and not for the Edit
+		$this->viewControls = new ViewControlsContainer( $listPSet, PAGE_LIST, $this );
+
+		foreach( $this->pSet->getFieldsList() as $f )
 		{
 			$value = $this->showDBValue( $f, $data, $keylink );
 			$values[ $f ] = $value;
 			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) )
 				$rawValues[ $f ] = "";
-			else
+			else {
 				$rawValues[ $f ] = runner_substr($data[ $f ], 0, 100);
-
+				$controlValues[ $f ] = $data[ $f ];
+			}
 		}
 
 		$returnJSON['keys'] = $this->jsKeys;
@@ -837,8 +819,10 @@ class EditPage extends RunnerPage
 			$returnJSON['oldKeys'][ $i++ ] = $value;
 		}
 
+		$returnJSON['controlValues'] = $controlValues;		
+		
 		$returnJSON['vals'] = $values;
-		$returnJSON['fields'] = $fields;
+		$returnJSON['fields'] = $this->pSet->getFieldsList();
 		$returnJSON['rawVals'] = $rawValues;
 		$returnJSON['hrefs'] = $this->buildDetailGridLinks( $returnJSON['detKeys'] );
 
@@ -847,12 +831,17 @@ class EditPage extends RunnerPage
 			$returnJSON['nonEditable'] = true;
 
 		$dmapIconsData = $this->getDashMapsIconsData( $data );
-		if( count( $dmapIconsData ) )
+		if( !!$dmapIconsData )
 			$returnJSON['mapIconsData'] = $dmapIconsData;
 
 		$fieldsIconsData = $this->getFieldMapIconsData( $data );
-		if( count( $fieldsIconsData ) )
+		if( !!$fieldsIconsData )
 			$returnJSON['fieldsMapIconsData'] = $fieldsIconsData;
+
+		$returnJSON['editFields'] = $this->editFields;
+		if( $this->forSpreadsheetGrid ) {
+			$returnJSON['editFields'] = $listPSet->getInlineEditFields();
+		}
 
 		return $returnJSON;
 	}
@@ -943,7 +932,7 @@ class EditPage extends RunnerPage
 	 */
 	protected function getNextKeys()
 	{
-		if( isset($this->nextKeys) and !is_null($this->nextKeys) )
+		if( isset($this->nextKeys) && !is_null($this->nextKeys) )
 			return $this->nextKeys;
 
 		$keys = $this->getNextPrevRecordKeys( $this->getCurrentRecordInternal(), NEXT_RECORD );
@@ -1001,7 +990,7 @@ class EditPage extends RunnerPage
 
 		foreach($data as $fName => $val)
 		{
-			$editFormat = $this->pSet->getEditFormat($fName);
+			$editFormat = $this->getEditFormat($fName);
 			if( $editFormat == EDIT_FORMAT_DATABASE_FILE || $editFormat==EDIT_FORMAT_DATABASE_IMAGE )
 			{
 				if( $data[ $fName ] )
@@ -1018,15 +1007,6 @@ class EditPage extends RunnerPage
 
 		return $data;
 	}
-/*
-	public function getKeysCondition( $useOldKeys )
-	{
-		if( $useOldKeys )
-			return DataCondition::FieldsEqual( $this->pSet->getTableKeys(), $this->oldKeys );
-		else
-			return DataCondition::FieldsEqual( $this->pSet->getTableKeys(), $this->keys );
-	}
-*/
 
 	/**
 	 * @param Boolean useOldKeys
@@ -1034,19 +1014,13 @@ class EditPage extends RunnerPage
 	 */
 	public function getKeysWhereClause( $useOldKeys )
 	{
-		$strWhereClause = "";
-
-		if( $useOldKeys )
-			$strWhereClause = KeyWhere( $this->oldKeys, $this->tName );
-		else
-			$strWhereClause = KeyWhere( $this->keys, $this->tName );
-
-		if( $this->pSet->getAdvancedSecurityType() != ADVSECURITY_ALL )
-		{
-			// select only owned records
-			$strWhereClause = whereAdd($strWhereClause, SecuritySQL("Edit", $this->tName));
-		}
-		return $strWhereClause;
+		$dc = new DsCommand;
+		$dc->keys = $useOldKeys 
+			? $this->oldKeys
+			: $this->keys;
+		$dc->filter = $this->getSecurityCondition();
+		$sql = $this->dataSource->prepareSQL($dc );
+		return $sql["where"];
 	}
 
 	/**
@@ -1058,7 +1032,7 @@ class EditPage extends RunnerPage
 		if( !is_null($this->cachedRecord) )
 			return $this->cachedRecord;
 
-		$dc = $this->getSubsetDataCommand();
+		$dc = $this->getSingleRecordCommand();
 
 		if( $this->eventsObject->exists("BeforeQueryEdit") )
 		{
@@ -1097,8 +1071,8 @@ class EditPage extends RunnerPage
 		{
 			foreach($this->getPageFields() as $fName)
 			{
-				$editFormat = $this->pSet->getEditFormat($fName);
-				if( $editFormat == EDIT_FORMAT_DATABASE_FILE && $editFormat != EDIT_FORMAT_DATABASE_IMAGE && $editFormat != EDIT_FORMAT_FILE && !$this->pSet->isReadonly($fName) )
+				$editFormat = $this->getEditFormat($fName);
+				if( !ProjectSettings::uploadEditType( $editFormat ) && $editFormat!== EDIT_FORMAT_READONLY )
 					$this->cachedRecord[ $fName ] = $this->newRecordData[ $fName ];
 			}
 		}
@@ -1123,146 +1097,81 @@ class EditPage extends RunnerPage
 	}
 
 	/**
+	 * @return Array - field values to be shown in edit controls
+	 */
+	protected function getFieldControlValues()
+	{
+		$data = $this->getFieldControlsData();
+		if( $this->readEditValues ) {
+			foreach( $this->editFields as $f ) {
+				if( !isset( $this->newRecordData[ $f ] ) )
+					continue;
+
+				$editFormat = $this->getEditFormat( $f );
+				if( !ProjectSettings::uploadEditType( $editFormat ) && $editFormat != EDIT_FORMAT_READONLY ) {
+
+					$data[ $f ] = $this->newRecordData[ $f ];
+				}
+			}
+		}
+		return $data;
+	}
+
+	public function getEditFormat( $field, $pSet = null ) {
+		$isDetKeyField = in_array( $field, $this->detailKeysByM );
+		if( $isDetKeyField ) {
+			return EDIT_FORMAT_READONLY;
+		}
+		return parent::getEditFormat( $field, $pSet );
+	}
+
+
+	protected function prepareEditControl( $fName, &$data ) {
+		$firstElementId = $this->getControl( $fName, $this->id )->getFirstElementId();
+		if( $firstElementId )
+			$this->xt->assign( "labelfor_" . GoodFieldName( $fName ), $firstElementId );
+
+		$parameters = $this->getEditContolParams( $fName, $this->id, $data );
+		$this->xt->assign_function( GoodFieldName( $fName )."_editcontrol", "xt_buildeditcontrol", $parameters );
+
+		$controls = $this->getContolMapData( $fName, $this->id, $data, $this->editFields );
+		if ( in_array( $fName, $this->errorFields ) )
+			$controls["controls"]["isInvalid"] = true;
+
+		$this->fillControlsMap( $controls );
+
+		$this->fillFieldToolTips( $fName );
+		$this->fillControlFlags( $fName );
+
+		// fill special settings for timepicker
+		if( $this->getEditFormat($fName) == 'Time' )
+			$this->fillTimePickSettings( $fName, $data[ $fName ] );
+
+		if( $this->pSet->getViewFormat($fName) == FORMAT_MAP )
+			$this->googleMapCfg['isUseGoogleMap'] = true;
+	}
+	
+	/**
 	 * Prepare edit controls
 	 */
-	public function prepareEditControls()
-	{
-		global $locale_info;
-		if( $this->mode == EDIT_INLINE )
-		{
-			$this->editFields = $this->removeHiddenColumnsFromInlineFields( $this->editFields, $this->screenWidth, $this->screenHeight, $this->orientation );
+	public function prepareEditControls() {
+		if( $this->mode == EDIT_INLINE ) {
+			$this->editFields = $this->removeHiddenColumnsFromInlineFields(
+					$this->editFields,
+					$this->screenWidth,
+					$this->screenHeight,
+					$this->orientation
+				);
 		}
 
 		//	prepare values
-		$data = $this->getFieldControlsData();
-		if( $this->readEditValues )
-		{
-			foreach($this->editFields as $f)
-			{
-				if( !isset( $this->newRecordData[ $f ] ) )
-					continue;
-				$editFormat = $this->pSet->getEditFormat( $f );
-				if( $editFormat != EDIT_FORMAT_DATABASE_FILE &&
-					$editFormat != EDIT_FORMAT_DATABASE_IMAGE &&
-					$editFormat != EDIT_FORMAT_READONLY )
+		$data = $this->getFieldControlValues();
 
-					$data[ $f ] = $this->newRecordData[ $f ];
-			}
-		}
-
-		$control = array();
-
-		foreach($this->editFields as $fName)
-		{
-			$gfName = GoodFieldName($fName);
-			$isDetKeyField = in_array($fName, $this->detailKeysByM);
-
-
-			$controls = array();
-			$controls["controls"] = array();
-			$controls["controls"]['ctrlInd'] = 0;
-			$controls["controls"]['id'] = $this->id;
-			$controls["controls"]['fieldName'] = $fName;
-
-			if ( in_array($fName, $this->errorFields))
-			{
-				$controls["controls"]["isInvalid"] = true;
-			}
-
-			$parameters = array();
-			$parameters["id"] = $this->id;
-			$parameters["ptype"] = PAGE_EDIT;
-			$parameters["field"] = $fName;
-			$parameters["pageObj"] = $this;
-			$parameters["value"] = @$data[ $fName ];
-
-			if( !$isDetKeyField )
-			{
-				if( IsFloatType( $this->pSet->getFieldType($fName) ) && !is_null( @$data[ $fName ] ) )
-				{
-					if( $this->pSet->getHTML5InputType( $fName ) == "number" )
-					{
-						//	no thousand delimiters, only dot as decimal delimiter
-						$parameters["value"] = formatNumberForHTML5( @$data[ $fName ] );
-					}
-					else
-						$parameters["value"] = str_replace(".", $locale_info["LOCALE_SDECIMAL"], @$data[ $fName ]);
-				}
-
-				$parameters["validate"] = $this->pSet->getValidation($fName);
-
-				$additionalCtrlParams = array();
-				$additionalCtrlParams["disabled"] = $this->controlsDisabled;
-				$parameters["additionalCtrlParams"] = $additionalCtrlParams;
-			}
-
-			$controlMode = $this->mode == EDIT_INLINE ? "inline_edit" : "edit";
-			$parameters["mode"] = $controlMode;
-			$controls["controls"]['mode'] = $controlMode;
-
-			if( $this->pSet->isUseRTE($fName) && $this->pSet->isAutoUpdatable($fName) )
-			{
-				$_SESSION[ $this->sessionPrefix."_".$fName."_rte" ] = GetAutoUpdateValue($fName, PAGE_EDIT);
-				$parameters["mode"] = "add";
-			}
-
-			if( $isDetKeyField )
-			{
-				$controls["controls"]['value'] = @$data[ $fName ];
-
-				$parameters["extraParams"] = array();
-				$parameters["extraParams"]["getDetKeyReadOnlyCtrl"] = true;
-
-				// to the ReadOnly control show the detail key cotnrol's value
-				$this->readOnlyFields[ $fName ] = $this->showDBValue($fName, $data);
-			}
-
-			if ( $this->isBootstrap() )
-			{
-				$firstElementId = $this->getControl($fName, $this->id)->getFirstElementId();
-				if ( $firstElementId )
-				{
-					$this->xt->assign("labelfor_" . goodFieldName($fName), $firstElementId);
-				}
-			}
-
-			$this->xt->assign_function( $gfName."_editcontrol", "xt_buildeditcontrol", $parameters );
-
-			$preload = $this->fillPreload($fName, $this->editFields, $data);
-			if( $preload !== false )
-				$controls["controls"]['preloadData'] = $preload;
-
-			$this->fillControlsMap( $controls );
-			$this->fillFieldToolTips( $fName );
-			$this->fillControlFlags( $fName );
-
-			// fill special settings for timepicker
-			if( $this->pSet->getEditFormat($fName) == 'Time' )
-				$this->fillTimePickSettings($fName, $data[ $fName ]);
-
-			if( $this->pSet->getViewFormat($fName) == FORMAT_MAP )
-				$this->googleMapCfg['isUseGoogleMap'] = true;
+		foreach( $this->editFields as $fName ) {
+			$this->prepareEditControl( $fName, $data );
 		}
 	}
 
-	/**
-	 * Assign edit fields' blocks and labels variables
-	 */
-	public function assignEditFieldsBlocksAndLabels()
-	{
-		$editFields = $this->getPageFields();
-
-		foreach($editFields as $fName)
-		{
-			$gfName = GoodFieldName($fName);
-
-			$this->xt->assign($gfName."_fieldblock", true);
-			$this->xt->assign($gfName."_tabfieldblock", true);
-
-			if( $this->is508 && !$this->isBootstrap() )
-				$this->xt->assign_section($gfName."_label","<label for=\"" . $this->getInputElementId( $fName ) . "\">","</label>");
-		}
-	}
 
 	public static function readEditModeFromRequest()
 	{
@@ -1294,7 +1203,7 @@ class EditPage extends RunnerPage
 		if( $pageMode != EDIT_SIMPLE )
 		{
 			$messageLink = "";
-			if( !isLogged() || isLoggedAsGuest() )
+			if( !isLogged() || Security::isGuest() )
 				$messageLink = " <a href='#' id='loginButtonContinue'>". "Login" . "</a>";
 			Security::sendPermissionError( $messageLink );
 			return false;
@@ -1302,7 +1211,7 @@ class EditPage extends RunnerPage
 
 		// The user is logged in but lacks necessary permissions
 		// redirect to List page or Menu.
-		if( isLogged() && !isLoggedAsGuest() )
+		if( isLogged() && !Security::isGuest() )
 		{
 			Security::redirectToList( $table );
 			return false;
@@ -1381,7 +1290,6 @@ class EditPage extends RunnerPage
 			$evalues[ $ekey ] = $value;
 		}
 		$this->newRecordData = $evalues;
-		$this->newRecordBlobFields = $blobfields;
 	}
 
 	/**
@@ -1389,6 +1297,10 @@ class EditPage extends RunnerPage
 	 */
 	public function processDataInput()
 	{
+		//	CSRF protection
+		if( !isPostRequest() )
+			return false;
+
 		//	get prepared for the data saving
 		$this->oldKeys = $this->keys;
 
@@ -1471,6 +1383,11 @@ class EditPage extends RunnerPage
 		if( $this->isMessageSet() )
 			return;
 
+		if( $this->isBootstrap() && $this->isSimpleMode() )
+		{
+			$_SESSION["successfulEdit"] = $this->updatedSuccessfully;
+		}
+			
 		$this->setMessage( "<strong>&lt;&lt;&lt; "."Record updated". " &gt;&gt;&gt;</strong>" );
 	}
 
@@ -1481,23 +1398,7 @@ class EditPage extends RunnerPage
 	protected function checkDeniedDuplicatedValues()
 	{
 		$oldData = $this->getOldRecordData();
-
-		foreach($this->newRecordData as $f => $value)
-		{
-			if( $this->pSet->allowDuplicateValues($f) )
-				continue;
-
-			if( $oldData[ $f ] == $value )
-				continue;
-
-			if( !$this->hasDuplicateValue($f, $value) )
-				continue;
-
-			$this->errorFields[] = $f;
-			$this->setMessage( $this->getDenyDuplicatedMessage( $f, $value ) );
-			return false;
-		}
-		return true;
+		return $this->checkDeniedDuplicatedForUpdate( $oldData, $this->newRecordData );
 	}
 
 	/**
@@ -1505,7 +1406,7 @@ class EditPage extends RunnerPage
 	 */
 	protected function auditLogEdit( $keys = array() )
 	{
-		if( !count( $keys ) )
+		if( !$keys )
 			$keys = $this->keys;
 
 		if( $this->auditObj )
@@ -1613,13 +1514,19 @@ class EditPage extends RunnerPage
 			$this->mode == EDIT_INLINE,
 			$this );
 
-		//	this is required for the ASP conversion
-		if( !$ret )
+		if( strlen( $usermessage ) > 0 )
 		{
+			$this->updatedSuccessfully = false;
 			$this->setMessage( $usermessage );
-			$this->updatedSuccessfully = ( 0 == strlen( $this->message ) );
+			return false;
 		}
-		return $ret;
+
+		if( $ret )
+			return true;
+
+		$this->updatedSuccessfully = true;
+
+		return false;
 	}
 
 	/**
@@ -1651,19 +1558,8 @@ class EditPage extends RunnerPage
 	{
 		if( CheckTablePermissions($this->tName, "E") )
 			return true;
-		if( isLoggedAsGuest() || !isLogged() )
-		{
-			$this->setMessage( "Your session has expired." .
-				"<a href='#' id='loginButtonContinue" . $this->id . "'>" .
-				"Login" . "</a>" .
-				" to save data." );
-		}
-		else
-		{
-			$this->setMessage( 'You have no permissions to complete this action.' );
-		}
-
-		return false;
+		
+		return parent::recheckUserPermissions();
 	}
 
 	/**
@@ -1674,6 +1570,7 @@ class EditPage extends RunnerPage
 	{
 		if( !$this->lockingObj )
 			return true;
+		
 		$lockmessage = "";
 		if( $this->keysChanged )
 		{
@@ -1693,19 +1590,17 @@ class EditPage extends RunnerPage
 			$this->lockingMessageAttr = "";
 			if( $this->mode == EDIT_INLINE )
 			{
-				if( IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP )
+				if( $this->lockingAdmin() )
 					$lockmessage = $this->lockingObj->GetLockInfo($this->tName, $this->oldKeys, false, $this->id);
 
 				$returnJSON['success'] = false;
 				$returnJSON['message'] = $lockmessage;
-				$returnJSON['enableCtrls'] = false;
-				$returnJSON['confirmTime'] = $this->lockingObj->ConfirmTime;
-				echo printJSON($returnJSON);
+				echo printJSON( $returnJSON );
 				exit();
 			}
 			else
 			{
-				if( IsAdmin() || $_SESSION["AccessLevel"] == ACCESS_LEVEL_ADMINGROUP )
+				if( $this->lockingAdmin() )
 					$this->lockingMessageText = $this->lockingObj->GetLockInfo($this->tName, $this->oldKeys, true, $this->id);
 				else
 					$this->lockingMessageText = $lockmessage;
@@ -1764,11 +1659,6 @@ class EditPage extends RunnerPage
 		return $this->oldRecordData;
 	}
 
-	public function getBlobFields()
-	{
-		return $this->newRecordBlobFields;
-	}
-
 	public function getUpdateDataCommand() {
 		$dc = new DsCommand();
 		$dc->filter = $this->getSecurityCondition();
@@ -1780,11 +1670,6 @@ class EditPage extends RunnerPage
 	public function & getNewRecordData()
 	{
 		return $this->newRecordData;
-	}
-
-	public function setMessage( $message )
-	{
-		$this->message = $message;
 	}
 
 	/**
@@ -1877,7 +1762,7 @@ class EditPage extends RunnerPage
 
 		if( $params["selection"] && is_array( $params["selection"] ) )
 		{
-			if( count( $params["selection"] ) > 0 )
+			if( !!$params["selection"] )
 			{
 				if( $params["mode"] == EDIT_SIMPLE )
 					$params["mode"] = EDIT_SELECTED_SIMPLE;
@@ -1897,38 +1782,21 @@ class EditPage extends RunnerPage
 		return Security::SelectCondition( "E", $this->pSet );
 	}
 
-	public function getSubsetDataCommand() {
-		if( !$this->checkKeysSet() ) {
-			//	select first record in the subset
-			$dc = parent::getSubsetDataCommand();
-			if ($this->mode == EDIT_DASHBOARD && $this->mapRefresh) {
-				$dc->filter = DataCondition::_And(array(
-					$dc->filter,
-					$this->getMapCondition()
-				));
-			}
-		} else {
-			//	use key fields and security caluses only
+	function inDashboardMode() {
+		return $this->mode == EDIT_DASHBOARD;
+	}
+
+	public function getSingleRecordCommand() {
+		if( $this->checkKeysSet() ) {
 			$dc = new DsCommand();
 			$dc->filter = $this->getSecurityCondition();
 			$dc->keys = $this->keys;
+		} else {
+			return $this->getSubsetDataCommand();
 		}
 		return $dc;
 	}
 
-	protected function getSubsetSQLComponents() {
-
-		$sql = parent::getSubsetSQLComponents();
-
-		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Edit" );
-
-		//	map
-		if( $this->mode == EDIT_DASHBOARD && $this->mapRefresh )
-			$sql["mandatoryWhere"][] = $this->getWhereByMap();
-
-		return $sql;
-	}
 
 	function element2Item( $name ) {
 		if( $name == "message" ) {
@@ -1948,11 +1816,25 @@ class EditPage extends RunnerPage
 		{
 			$this->pSet = new ProjectSettings($this->tName, $this->pageType, null, $this->pageTable );
 		}
-		
+
 		if( $this->mode == EDIT_INLINE || $this->mode == EDIT_POPUP && $this->action == "edited" ) {
 			$this->pSet->setPageType( "list" );
 		}
+	}
 
+	/**
+	 * @param String fName
+	 * @param Number recId
+	 * @param Array data
+	 * @return String
+	 */
+	public function getSpreadsheetControlMarkup( $fName, $recId, &$data ) {
+		$ctrlParams = $this->getEditContolParams( $fName, $recId, $data );
+		$ctrlParams["mode"] = MODE_INLINE_EDIT;
+		$ctrlParams["extraParams"]["spreadsheet"] = true;
+
+		$ctrl = $this->getControl( $fName, $recId, $ctrlParams["extraParams"] );
+		return $ctrl->getControlMarkup( $ctrlParams, $data );
 	}
 }
 ?>

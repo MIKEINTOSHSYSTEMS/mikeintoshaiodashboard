@@ -1,28 +1,22 @@
 <?php
 
 $version = explode('.', PHP_VERSION);
-if($version[0]*10+$version[1]<53)
+if( $version[0] * 10 + $version[1] < 53 ) {
 	set_magic_quotes_runtime(0);
+}
 
-if(@$_SERVER["REQUEST_URI"])
-{
-	$pinfo=pathinfo($_SERVER["REQUEST_URI"]);
-	$dirname = @$pinfo["dirname"];
-	$dir = explode("/",$dirname);
-	$dirname="";
-	foreach($dir as $subdir)
-	{
-		if($subdir!="")
-			$dirname.="/".rawurlencode($subdir);
-	}
-	if($dirname!="")
-	{
-//		@session_set_cookie_params(0,$dirname."/");
-	}
+//	session cookie params
+$cookieParams = session_get_cookie_params();
+$secure = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+if( array_key_exists( "secure", $cookieParams ) ) {
+	session_set_cookie_params( 0, $cookieParams["path"], $cookieParams["domain"], $secure, true );
+} else {
+	//	pre-PHP 5.2
+	session_set_cookie_params( 0, $cookieParams["path"], $cookieParams["domain"], $secure );
 }
 
 //	isolate sessions for projects running on the same site
-@session_name( "LqifVuMaeujgT7RrhzvU" );
+@session_name( "pLqifVuMaeujgT7RrhzvU" );
 
 // Setting the cache limiter to '' will turn off automatic sending of cache headers entirely
 @session_cache_limiter("");
@@ -30,7 +24,7 @@ if(@$_SERVER["REQUEST_URI"])
 
 
 //E_STRICT has become a part of E_ALL since php 5.4 only
-error_reporting( (E_ALL | E_STRICT) & ~E_STRICT & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting( (E_ALL | E_STRICT) & ~E_STRICT & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
 
 /// include php specific code
 //include("timing.php");
@@ -47,12 +41,15 @@ $bSubqueriesSupported = true;
 
 $projectPath = '';
 
+$regenerateSessionOnLogin = true;
+
 header("Content-Type: text/html; charset=".$cCharset);
 
 // json support
-$useUTF8 = true;
+$useUTF8 = "utf-8" == "utf-8";
 
-if(!function_exists('json_encode') || !$useUTF8)
+//	JSON_PARTIAL_OUTPUT_ON_ERROR flag was introduced in PHP 5.5
+if( !function_exists('json_encode') || !$useUTF8 || version_compare( PHP_VERSION ,"5.5.0") < 0 )
 {
 	include_once(getabspath("classes/json.php"));
 	$GLOBALS['JSON_OBJECT'] = new Services_JSON(SERVICES_JSON_LOOSE_TYPE, $useUTF8);
@@ -63,7 +60,7 @@ if(!function_exists('json_encode') || !$useUTF8)
 
     function my_json_decode($value){
         $result = $GLOBALS['JSON_OBJECT']->decode($value);
-        if(is_null($result) || count($result) == 0)
+        if( !$result )
     		return array();
     	else
     		return $result;
@@ -77,7 +74,7 @@ else
 
     function my_json_decode($value){
         $result = json_decode($value,true);
-        if(is_null($result) || count($result) == 0)
+        if( !$result )
     		return array();
     	else
     		return $result;

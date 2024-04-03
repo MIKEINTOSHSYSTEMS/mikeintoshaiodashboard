@@ -166,9 +166,11 @@ class Labels {
 
 		$lng = Labels::findLanguage( $lng );
 
-		$templ = $page_titles[ GoodFieldName($table) ][ $lng ][ $page ];
-		if( strlen($templ) )
+		if( array_key_exists($page, $page_titles[ GoodFieldName($table) ][ $lng ]) )
+		{
+			$templ = $page_titles[GoodFieldName($table)][$lng][$page];
 			return $templ;
+		}
 		$ps = new ProjectSettings( $table, '', $page );
 		return RunnerPage::getDefaultPageTitle( $ps->getPageType(), GoodFieldName($table), $ps );
 	}
@@ -220,7 +222,7 @@ class Labels {
 	 * @param String lng
 	 * @return String
 	 */
-	static function getPlaceholder( $table, $field, $lng )
+	static function getPlaceholder( $table, $field, $lng = "" )
 	{
 		global $placeHolders;
 
@@ -245,7 +247,7 @@ class Labels {
 	 * @param String lng
 	 * @return Boolean
 	 */
-	static function setPlaceholder( $table, $field, $placeHolder, $lng )
+	static function setPlaceholder( $table, $field, $placeHolder, $lng = "" )
 	{
 		global $placeHolders;
 

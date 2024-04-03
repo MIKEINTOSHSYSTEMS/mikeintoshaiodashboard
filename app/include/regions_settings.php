@@ -60,14 +60,9 @@ $tdataregions[".showEditInPopup"] = false;
 
 $tdataregions[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataregions[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataregions[".listAjax"] = false;
 //	temporary
-$tdataregions[".listAjax"] = false;
+//$tdataregions[".listAjax"] = false;
 
 	$tdataregions[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataregions[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataregions[".isUseAjaxSuggest"] = true;
 
-$tdataregions[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataregions[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataregions[".strOrderBy"] = $tstrOrderBy;
 
 $tdataregions[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataregions[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("regions","RegionID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataregions[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataregions[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataregions[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataregions[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("regions","RegionName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataregions[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataregions[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataregions[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,8 +516,14 @@ $fieldToolTips["regions"] = &$fieldToolTipsregions;
 $placeHolders["regions"] = &$placeHoldersregions;
 $page_titles["regions"] = &$pageTitlesregions;
 
+
+changeTextControlsToDate( "regions" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["regions"] = array();
 //	cities
 	
@@ -558,6 +555,7 @@ $detailsTablesData["regions"] = array();
 				$detailsTablesData["regions"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["regions"][$dIndex]["detailKeys"][]="RegionID";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["regions"] = array();
@@ -705,7 +703,6 @@ $tdataregions[".sqlquery"] = $queryData_regions;
 
 
 
-$tableEvents["regions"] = new eventsBase;
 $tdataregions[".hasEvents"] = false;
 
 ?>

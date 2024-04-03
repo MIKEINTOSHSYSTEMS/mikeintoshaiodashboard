@@ -13,15 +13,17 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-list" {$bodyattrs}>
+	<body class="{$stylename} function-list"   
+		>
 	{BEGIN body}
 		<style>
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -62,18 +64,18 @@
 
 			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
 				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
 
 	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Search in			<span class="caret"></span>
 			</button>
 		</div>
 
 
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
 			</button>
 			<ul class="dropdown-menu dropdown-left">
@@ -131,15 +133,16 @@
 	</div>
 
 	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
 	</div>
 </div>
 <!-- End Search panel content -->
 			</div>
 		
     {END left_block}
-</div>				</div>	
+</div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
 				<div  class="r-topheader" data-resize-name="topbar">
 									{BEGIN supertop_block}
@@ -149,7 +152,7 @@
 							 
 				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
 				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="Collapse" class="btn-link   
+	<a type="button" title="Show menu" class="btn-link   
 	 glyphicon glyphicon-triangle-left" href="#" >		
 				
 								</a>
@@ -184,10 +187,11 @@
 {END searchform_text}
 	<span class="input-group-btn">
 	{BEGIN searchform_showall}
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
 	{END searchform_showall}
+
 	{BEGIN searchform_search}
 	<button {$searchbutton_attrs} class="btn btn-primary" >
 		<span class="glyphicon glyphicon-search"></span>
@@ -202,16 +206,18 @@
 				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown ">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-								<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
+							{BEGIN editselected_link}
+	<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span}  title="" >
 				
 		Edit selected		
 		</a>
 	</li>
+{END editselected_link}
 							{BEGIN exportselected_link}
 	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span}  title="" >
@@ -270,17 +276,74 @@
 	</span>
 </span>
 			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
 								</nav>
 {END supertop_block}
 						{$locking}
-				</div>	
+				</div>
 				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
@@ -293,14 +356,14 @@
 	{$showmasterfile}
 </div>
 {END mastertable_block}		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 						</div>
-					<div class="r-above">
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
@@ -365,8 +428,7 @@
 ">
 		 
 		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
-{$details_found_labeldetails_found}
-</span>	 
+{$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
@@ -386,15 +448,16 @@
 		<div class="col-md-4">
 			Scope:		</div>
 
+			 
 		{BEGIN print_friendly_all}
 		<div class="col-md-8">
 			<label for="printAll{$id}">
-				<input type="radio" id="printAll{$id}" data-href="job_types_print.php?all=1&amp;{$crosstable_attrs}" name="printScope">
+				<input type="radio" id="printAll{$id}" data-href="job_types_print.php?all=1&amp;{$crosstable_attrs}" name="printScope" >
 									Print all pages							</label>
 		</div>
 		{END print_friendly_all}
-	</div>
-	<div class="row">
+		</div>
+		<div class="row">
 		<div class="col-md-4">&nbsp;</div>
 		<div class="col-md-8">
 			<label for="printPage{$id}">
@@ -402,18 +465,20 @@
 				Print this page			</label>
 		</div>
 	</div>
-	
-		<div class="row">
+		
+		 
+	<div class="row">
 		<div class="col-md-4">
 			&nbsp;
 		</div>
 		<div class="col-md-8">
 			<label style="color: gray;" for="printSelection{$id}">
-			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio">
+			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
 			Print selected			</label>
 		</div>
 	</div>
-	</div>				 
+	</div>
+				 
 					</li>
 											<li class="divider" role="separator"></li>
 																				 
@@ -444,16 +509,16 @@
 </span>
 {END print_friendly}
 		</div>					</div>
-	</div>		
+			</div>		
 {END above-grid_block}
-						</div>
-					<div class="r-grid">
-										{BEGIN grid_block}
-{BEGIN grid_tabs}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
   <ul class="nav nav-tabs bsgrid_tabs">
 	{$grid_tabs_content}
   </ul>
 {END grid_tabs}
+					{BEGIN grid_block}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
@@ -466,21 +531,19 @@
 	}
 	}
 </style>
-<table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
-	cellpadding="0" 
+<table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
+	cellpadding="0"
 	data-body-height="1"
 >
 						<thead>
 			{BEGIN grid_header}
-					
-		 
-						<tr {$rowattrs} {$row_grid_0} class="{$rowclass} 
+			
+																									<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
 									{$gridHeader_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_headcell_icons}
+									{BEGIN cellblock_grid_headcell_icons}
 	<th
 	
 	{$cell_grid_headcell_icons}
@@ -496,8 +559,7 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
-				 
-					{BEGIN cellblock_grid_headcell_checkbox}
+									{BEGIN cellblock_grid_headcell_checkbox}
 	<th
 	
 	{$cell_grid_headcell_checkbox}
@@ -519,15 +581,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_checkbox}
-				 
-					{BEGIN cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TypeID_class}
-			"
+		 r-ori-vert		 {$TypeID_class}	"
 
 			data-field="TypeID"
 	
@@ -537,7 +597,7 @@
 	 
 		{BEGIN TypeID_fieldheadercolumn}
 	{BEGIN TypeID_fieldheader}
-	<SPAN {$TypeID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeID">
+	<SPAN {$TypeID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeID" data-fieldname="TypeID">
 	{$label Job_Types TypeID }	{$arrow_icon_TypeID}
 	</SPAN>
 	{END TypeID_fieldheader}
@@ -546,15 +606,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field}
-				 
-					{BEGIN cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field1}
 	<th
 	
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TypeName_class}
-			"
+		 r-ori-vert		 {$TypeName_class}	"
 
 			data-field="TypeName"
 	
@@ -564,7 +622,7 @@
 	 
 		{BEGIN TypeName_fieldheadercolumn}
 	{BEGIN TypeName_fieldheader}
-	<SPAN {$TypeName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName">
+	<SPAN {$TypeName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName" data-fieldname="TypeName">
 	{$label Job_Types TypeName }	{$arrow_icon_TypeName}
 	</SPAN>
 	{END TypeName_fieldheader}
@@ -574,22 +632,17 @@
 	</th>
 	{END cellblock_grid_headcell_field1}
 							</tr>
-					 
-					 
-					
+															
 					{END grid_header}
 			</thead>
 															<tbody>
 					{BEGIN grid_row}
-									
-		 
-					 
-						<tr {$rowattrs} {$row_grid_1} class="{$rowclass} 
-								
+							
+																														<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
+				
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_cell_icons}
+									{BEGIN cellblock_grid_cell_icons}
 	<td
 	
 	{$cell_grid_cell_icons}
@@ -656,8 +709,7 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
-				 
-					{BEGIN cellblock_grid_cell_checkbox}
+									{BEGIN cellblock_grid_cell_checkbox}
 	<td
 	
 	{$cell_grid_cell_checkbox}
@@ -674,21 +726,20 @@
 	 
 		{BEGIN checkbox_column}
 <span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}>
+	<input type="checkbox" {$checkbox_attrs}
+		>
 </span>	
 {END checkbox_column}
 	
 	</td>
 	{END cellblock_grid_cell_checkbox}
-				 
-					{BEGIN cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TypeID_class}
-			"
+		 r-ori-vert		 {$TypeID_class}	"
 
 			data-field="TypeID"
 	
@@ -697,21 +748,19 @@
 
 	 
 		{BEGIN TypeID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeID" data-fieldname="TypeID" data-default-width >
 {$TypeID_value}
 </span>
 {END TypeID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TypeName_class}
-			"
+		 r-ori-vert		 {$TypeName_class}	"
 
 			data-field="TypeName"
 	
@@ -720,29 +769,24 @@
 
 	 
 		{BEGIN TypeName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TypeName" data-fieldname="TypeName" data-default-width >
 {$TypeName_value}
 </span>
 {END TypeName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
 							</tr>
-					 
-					
+										
 											{END grid_row}
 					</tbody>
 													<tfoot>
-					
-		 
-					 
-					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+			
+																																			<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 									{$gridFooter_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_footcell_icons}
+									{BEGIN cellblock_grid_footcell_icons}
 	<td
 	
 	{$cell_grid_footcell_icons}
@@ -757,8 +801,7 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
-				 
-					{BEGIN cellblock_grid_footcell_checkbox}
+									{BEGIN cellblock_grid_footcell_checkbox}
 	<td
 	
 	{$cell_grid_footcell_checkbox}
@@ -773,14 +816,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_checkbox}
-				 
-					{BEGIN cellblock_grid_footcell_field}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$TypeID_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="job_types_list"	
@@ -789,14 +831,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field}
-				 
-					{BEGIN cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field1}
 	<td
 	
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$TypeName_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="job_types_list"	
@@ -810,12 +851,12 @@
 					</tfoot>
 				</table>
 {END grid_block}
-						</div>
-					<div class="r-below">
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -829,12 +870,18 @@
 </span>
 {END pagination_block}
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-						</div>
-					{$footer}
-				</div>	
-			</div>	
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
 	{END body}
 	</body>

@@ -25,14 +25,20 @@ pdfDocument = {
 	},
 	"content": [
 		{BEGIN body}
-		{BEGIN embedded_grid}
-		{
-			text: '{$jscaption cities}',
-		},
-		{END embedded_grid}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption cities}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel cities masterlist}',
+			},
+		{END embedded_page_title}		
 		{ 
 			{BEGIN standalone_page}
 			pageBreak: 'before',
+			standAlonePage: true,
 			{END standalone_page}
 			{BEGIN embedded_grid}
 			embeddedPage: true,
@@ -40,14 +46,10 @@ pdfDocument = {
 			layout: {
 				hLineWidth: function(i, node) { return 0.1; },
 				vLineWidth: function(i, node) { 
-					if( node.table.embeddedPage ) {
-						return (i === 0 || i === node.table.widths.length) ? 0.1 : 0;
-					} else  {
-						return 0.1; 
-					}
+					return 0.1; 
 				},
-				hLineColor: function(i, node) { return 'gray'; },
-				vLineColor: function(i, node) { return 'gray'; },
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
 			},
 			table: {
 				{BEGIN embedded_grid}
@@ -55,7 +57,11 @@ pdfDocument = {
 				{END embedded_grid}
 				
 				tableForm: true,
-				headerRows: 1 + 1 {BEGIN embedded_grid} -1 {END embedded_grid} ,
+				headerRows: 1 
+															{BEGIN row_grid_0}
+							+1
+						{END row_grid_0}
+													{BEGIN embedded_grid} -1 {END embedded_grid} ,
 
 				widths: [
 														{BEGIN col_grid_0}
@@ -109,13 +115,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -132,11 +137,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -156,13 +164,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -176,11 +183,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -192,14 +202,14 @@ pdfDocument = {
 																	
 
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_headcell_icons}
+																{BEGIN cellblock_grid_headcell_icons}
 {
 	cellId: 'headcell_icons',
 	col:0,
 	row:0,
-			style: 'headcell',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -214,16 +224,19 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_headcell_icons}
-																			{BEGIN cellblock_grid_headcell_field}
+																							{BEGIN cellblock_grid_headcell_field}
 {
 	cellId: 'headcell_field',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'CityID',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -236,20 +249,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field3}","text":"{$jslabel cities CityID }","bold":true},
+			{"text":"{$jslabel cities CityID }","hidden":"{$item_hide_simple_grid_field3}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CityID_align}',
-  },
+              "alignment": '{$CityID_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field}
-																			{BEGIN cellblock_grid_headcell_field1}
+																							{BEGIN cellblock_grid_headcell_field1}
 {
 	cellId: 'headcell_field1',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'CityName',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -262,20 +278,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field4}","text":"{$jslabel cities CityName }","bold":true},
+			{"text":"{$jslabel cities CityName }","hidden":"{$item_hide_simple_grid_field4}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CityName_align}',
-  },
+              "alignment": '{$CityName_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field1}
-																			{BEGIN cellblock_grid_headcell_field2}
+																							{BEGIN cellblock_grid_headcell_field2}
 {
 	cellId: 'headcell_field2',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'RegionID',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -288,28 +307,31 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field5}","text":"{$jslabel cities RegionID }","bold":true},
+			{"text":"{$jslabel cities RegionID }","hidden":"{$item_hide_simple_grid_field5}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$RegionID_align}',
-  },
+              "alignment": '{$RegionID_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field2}
 											],
 				{END row_grid_0}
-								
+		
+			
 		{BEGIN grid_row}
 	{BEGIN grid_record}
 				
-						{BEGIN row_grid_1}
+				{BEGIN row_grid_1}
 				[
-												{BEGIN cellblock_grid_cell_icons}
+																{BEGIN cellblock_grid_cell_icons}
 {
 	cellId: 'cell_icons',
 	col:0,
 	row:0,
-			style: 'bodycell',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -326,16 +348,19 @@ pdfDocument = {
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_cell_icons}
-																			{BEGIN cellblock_grid_cell_field}
+																							{BEGIN cellblock_grid_cell_field}
 {
 	cellId: 'cell_field',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'CityID',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -348,20 +373,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":{$CityID_pdfvalue}},
+			{"text":{$CityID_pdfvalue},"hidden":"{$item_hide_simple_grid_field}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CityID_align}',
-  },
+              "alignment": '{$CityID_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field}
-																			{BEGIN cellblock_grid_cell_field1}
+																							{BEGIN cellblock_grid_cell_field1}
 {
 	cellId: 'cell_field1',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'CityName',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -374,20 +402,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field1}","text":{$CityName_pdfvalue}},
+			{"text":{$CityName_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CityName_align}',
-  },
+              "alignment": '{$CityName_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field1}
-																			{BEGIN cellblock_grid_cell_field2}
+																							{BEGIN cellblock_grid_cell_field2}
 {
 	cellId: 'cell_field2',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'RegionID',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -400,28 +431,31 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field2}","text":{$RegionID_pdfvalue}},
+			{"text":{$RegionID_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$RegionID_align}',
-  },
+              "alignment": '{$RegionID_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field2}
 											],
 				{END row_grid_1}
-						{END grid_record}
+		
+		{END grid_record}
 	{END grid_row}
 			
 					
-							{BEGIN row_grid_2}
+				{BEGIN row_grid_2}
 				[
-												{BEGIN cellblock_grid_footcell_icons}
+																{BEGIN cellblock_grid_footcell_icons}
 {
 	cellId: 'footcell_icons',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -436,16 +470,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_icons}
-																			{BEGIN cellblock_grid_footcell_field}
+																							{BEGIN cellblock_grid_footcell_field}
 {
 	cellId: 'footcell_field',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -460,16 +496,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field}
-																			{BEGIN cellblock_grid_footcell_field1}
+																							{BEGIN cellblock_grid_footcell_field1}
 {
 	cellId: 'footcell_field1',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -484,16 +522,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field1}
-																			{BEGIN cellblock_grid_footcell_field2}
+																							{BEGIN cellblock_grid_footcell_field2}
 {
 	cellId: 'footcell_field2',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -508,17 +548,24 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field2}
 											],
 				{END row_grid_2}
-							
+		
+				
 									]
 			
 			}
 		},
 		{END body}
-	]
-}
+	],
+	footer: [
+								
+''
+			],
+	}

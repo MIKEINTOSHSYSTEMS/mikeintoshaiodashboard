@@ -60,14 +60,9 @@ $tdatatraining_venues[".showEditInPopup"] = false;
 
 $tdatatraining_venues[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatatraining_venues[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatatraining_venues[".listAjax"] = false;
 //	temporary
-$tdatatraining_venues[".listAjax"] = false;
+//$tdatatraining_venues[".listAjax"] = false;
 
 	$tdatatraining_venues[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatatraining_venues[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatatraining_venues[".isUseAjaxSuggest"] = true;
 
-$tdatatraining_venues[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatatraining_venues[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatatraining_venues[".strOrderBy"] = $tstrOrderBy;
 
 $tdatatraining_venues[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_venues","VenueID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_venues","VenueName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatatraining_venues[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["training_venues"] = &$fieldToolTipstraining_venues;
 $placeHolders["training_venues"] = &$placeHolderstraining_venues;
 $page_titles["training_venues"] = &$pageTitlestraining_venues;
 
+
+changeTextControlsToDate( "training_venues" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["training_venues"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["training_venues"] = array();
@@ -675,7 +673,6 @@ $tdatatraining_venues[".sqlquery"] = $queryData_training_venues;
 
 
 
-$tableEvents["training_venues"] = new eventsBase;
 $tdatatraining_venues[".hasEvents"] = false;
 
 ?>

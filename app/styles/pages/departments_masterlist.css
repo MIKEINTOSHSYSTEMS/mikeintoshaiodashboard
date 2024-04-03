@@ -4,5 +4,8 @@
 [data-cellid="grid_footcell_field1"][data-page="departments_masterlist"][data-cellid="grid_footcell_field1"][data-page="departments_masterlist"][data-cellid="grid_footcell_field1"][data-page="departments_masterlist"] {
   white-space: nowrap;
 }
+[data-page="departments_masterlist"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
 
 

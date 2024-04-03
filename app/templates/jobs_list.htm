@@ -13,15 +13,17 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-list" {$bodyattrs}>
+	<body class="{$stylename} function-list"   
+		>
 	{BEGIN body}
 		<style>
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -62,18 +64,18 @@
 
 			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
 				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}" >
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
 
 	<div class="panel-heading">
-		<div class="btn-group" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Search in			<span class="caret"></span>
 			</button>
 		</div>
 
 
-		<div class="btn-group searchpanel-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
 			</button>
 			<ul class="dropdown-menu dropdown-left">
@@ -196,15 +198,16 @@
 	</div>
 
 	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
 	</div>
 </div>
 <!-- End Search panel content -->
 			</div>
 		
     {END left_block}
-</div>				</div>	
+</div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
 				<div  class="r-topheader" data-resize-name="topbar">
 									{BEGIN supertop_block}
@@ -214,7 +217,7 @@
 							 
 				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
 				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="Collapse" class="btn-link   
+	<a type="button" title="Show menu" class="btn-link   
 	 glyphicon glyphicon-triangle-left" href="#" >		
 				
 								</a>
@@ -249,10 +252,11 @@
 {END searchform_text}
 	<span class="input-group-btn">
 	{BEGIN searchform_showall}
-		<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
 	{END searchform_showall}
+
 	{BEGIN searchform_search}
 	<button {$searchbutton_attrs} class="btn btn-primary" >
 		<span class="glyphicon glyphicon-search"></span>
@@ -267,16 +271,18 @@
 				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown ">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-								<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
+							{BEGIN editselected_link}
+	<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span}  title="" >
 				
 		Edit selected		
 		</a>
 	</li>
+{END editselected_link}
 							{BEGIN exportselected_link}
 	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span}  title="" >
@@ -335,17 +341,74 @@
 	</span>
 </span>
 			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
 								</nav>
 {END supertop_block}
 						{$locking}
-				</div>	
+				</div>
 				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
@@ -358,14 +421,14 @@
 	{$showmasterfile}
 </div>
 {END mastertable_block}		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 						</div>
-					<div class="r-above">
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
@@ -430,8 +493,7 @@
 ">
 		 
 		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
-{$details_found_labeldetails_found}
-</span>	 
+{$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
@@ -451,15 +513,16 @@
 		<div class="col-md-4">
 			Scope:		</div>
 
+			 
 		{BEGIN print_friendly_all}
 		<div class="col-md-8">
 			<label for="printAll{$id}">
-				<input type="radio" id="printAll{$id}" data-href="jobs_print.php?all=1&amp;{$crosstable_attrs}" name="printScope">
+				<input type="radio" id="printAll{$id}" data-href="jobs_print.php?all=1&amp;{$crosstable_attrs}" name="printScope" >
 									Print all pages							</label>
 		</div>
 		{END print_friendly_all}
-	</div>
-	<div class="row">
+		</div>
+		<div class="row">
 		<div class="col-md-4">&nbsp;</div>
 		<div class="col-md-8">
 			<label for="printPage{$id}">
@@ -467,18 +530,20 @@
 				Print this page			</label>
 		</div>
 	</div>
-	
-		<div class="row">
+		
+		 
+	<div class="row">
 		<div class="col-md-4">
 			&nbsp;
 		</div>
 		<div class="col-md-8">
 			<label style="color: gray;" for="printSelection{$id}">
-			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio">
+			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
 			Print selected			</label>
 		</div>
 	</div>
-	</div>				 
+	</div>
+				 
 					</li>
 											<li class="divider" role="separator"></li>
 																				 
@@ -546,16 +611,16 @@
 </span>
 {END print_friendly}
 		</div>					</div>
-	</div>		
+			</div>		
 {END above-grid_block}
-						</div>
-					<div class="r-grid">
-										{BEGIN grid_block}
-{BEGIN grid_tabs}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
   <ul class="nav nav-tabs bsgrid_tabs">
 	{$grid_tabs_content}
   </ul>
 {END grid_tabs}
+					{BEGIN grid_block}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
@@ -583,21 +648,19 @@
 	}
 	}
 </style>
-<table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
-	cellpadding="0" 
+<table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
+	cellpadding="0"
 	data-body-height="2"
 >
 						<thead>
 			{BEGIN grid_header}
-					
-		 
-						<tr {$rowattrs} {$row_grid_0} class="{$rowclass} 
+			
+																														<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
 									{$gridHeader_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_headcell_icons}
+									{BEGIN cellblock_grid_headcell_icons}
 	<th
 	
 	{$cell_grid_headcell_icons}
@@ -613,8 +676,7 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
-				 
-					{BEGIN cellblock_grid_headcell_checkbox}
+									{BEGIN cellblock_grid_headcell_checkbox}
 	<th
 	
 	{$cell_grid_headcell_checkbox}
@@ -636,8 +698,7 @@
 	
 	</th>
 	{END cellblock_grid_headcell_checkbox}
-				 
-					{BEGIN cellblock_grid_headcell_details}
+									{BEGIN cellblock_grid_headcell_details}
 	<th
 	
 	{$cell_grid_headcell_details}
@@ -652,15 +713,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_details}
-				 
-					{BEGIN cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobID_class}
-			"
+		 r-ori-vert		 {$JobID_class}	"
 
 			data-field="JobID"
 	
@@ -670,7 +729,7 @@
 	 
 		{BEGIN JobID_fieldheadercolumn}
 	{BEGIN JobID_fieldheader}
-	<SPAN {$JobID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID">
+	<SPAN {$JobID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID" data-fieldname="JobID">
 	{$label Jobs JobID }	{$arrow_icon_JobID}
 	</SPAN>
 	{END JobID_fieldheader}
@@ -679,15 +738,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field}
-				 
-					{BEGIN cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field1}
 	<th
 	
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobName_class}
-			"
+		 r-ori-vert		 {$JobName_class}	"
 
 			data-field="JobName"
 	
@@ -697,7 +754,7 @@
 	 
 		{BEGIN JobName_fieldheadercolumn}
 	{BEGIN JobName_fieldheader}
-	<SPAN {$JobName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobName">
+	<SPAN {$JobName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobName" data-fieldname="JobName">
 	{$label Jobs JobName }	{$arrow_icon_JobName}
 	</SPAN>
 	{END JobName_fieldheader}
@@ -706,15 +763,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
-				 
-					{BEGIN cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field2}
 	<th
 	
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobCategory_class}
-			"
+		 r-ori-vert		 {$JobCategory_class}	"
 
 			data-field="JobCategory"
 	
@@ -724,7 +779,7 @@
 	 
 		{BEGIN JobCategory_fieldheadercolumn}
 	{BEGIN JobCategory_fieldheader}
-	<SPAN {$JobCategory_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobCategory">
+	<SPAN {$JobCategory_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobCategory" data-fieldname="JobCategory">
 	{$label Jobs JobCategory }	{$arrow_icon_JobCategory}
 	</SPAN>
 	{END JobCategory_fieldheader}
@@ -733,15 +788,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field3}
 	<th
 	
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobType_class}
-			"
+		 r-ori-vert		 {$JobType_class}	"
 
 			data-field="JobType"
 	
@@ -751,7 +804,7 @@
 	 
 		{BEGIN JobType_fieldheadercolumn}
 	{BEGIN JobType_fieldheader}
-	<SPAN {$JobType_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobType">
+	<SPAN {$JobType_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobType" data-fieldname="JobType">
 	{$label Jobs JobType }	{$arrow_icon_JobType}
 	</SPAN>
 	{END JobType_fieldheader}
@@ -760,15 +813,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field4}
 	<th
 	
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobPosition_class}
-			"
+		 r-ori-vert		 {$JobPosition_class}	"
 
 			data-field="JobPosition"
 	
@@ -778,7 +829,7 @@
 	 
 		{BEGIN JobPosition_fieldheadercolumn}
 	{BEGIN JobPosition_fieldheader}
-	<SPAN {$JobPosition_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobPosition">
+	<SPAN {$JobPosition_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobPosition" data-fieldname="JobPosition">
 	{$label Jobs JobPosition }	{$arrow_icon_JobPosition}
 	</SPAN>
 	{END JobPosition_fieldheader}
@@ -787,15 +838,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field4}
-				 
-					{BEGIN cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field5}
 	<th
 	
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobDetails_class}
-			"
+		 r-ori-vert		 {$JobDetails_class}	"
 
 			data-field="JobDetails"
 	
@@ -805,7 +854,7 @@
 	 
 		{BEGIN JobDetails_fieldheadercolumn}
 	{BEGIN JobDetails_fieldheader}
-	<SPAN {$JobDetails_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobDetails">
+	<SPAN {$JobDetails_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobDetails" data-fieldname="JobDetails">
 	{$label Jobs JobDetails }	{$arrow_icon_JobDetails}
 	</SPAN>
 	{END JobDetails_fieldheader}
@@ -814,15 +863,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
+									{BEGIN cellblock_grid_headcell_field6}
 	<th
 	
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$CompanyName_class}
-			"
+		 r-ori-vert		 {$CompanyName_class}	"
 
 			data-field="CompanyName"
 	
@@ -832,7 +879,7 @@
 	 
 		{BEGIN CompanyName_fieldheadercolumn}
 	{BEGIN CompanyName_fieldheader}
-	<SPAN {$CompanyName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CompanyName">
+	<SPAN {$CompanyName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CompanyName" data-fieldname="CompanyName">
 	{$label Jobs CompanyName }	{$arrow_icon_CompanyName}
 	</SPAN>
 	{END CompanyName_fieldheader}
@@ -842,23 +889,17 @@
 	</th>
 	{END cellblock_grid_headcell_field6}
 							</tr>
-					 
-					 
-					 
-					
+																				
 					{END grid_header}
 			</thead>
 															<tbody>
 					{BEGIN grid_row}
-									
-		 
-					 
-						<tr {$rowattrs} {$row_grid_1} class="{$rowclass} 
-								
+							
+																																			<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
+				
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_cell_icons}
+									{BEGIN cellblock_grid_cell_icons}
 	<td
 	
 	{$cell_grid_cell_icons}
@@ -925,8 +966,7 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
-				 
-					{BEGIN cellblock_grid_cell_checkbox}
+									{BEGIN cellblock_grid_cell_checkbox}
 	<td
 	
 	{$cell_grid_cell_checkbox}
@@ -943,14 +983,14 @@
 	 
 		{BEGIN checkbox_column}
 <span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}>
+	<input type="checkbox" {$checkbox_attrs}
+		>
 </span>	
 {END checkbox_column}
 	
 	</td>
 	{END cellblock_grid_cell_checkbox}
-				 
-					{BEGIN cellblock_grid_cell_details}
+									{BEGIN cellblock_grid_cell_details}
 	<td
 	
 	{$cell_grid_cell_details}
@@ -970,6 +1010,7 @@
 		{$dtables_link_attrs} 
 		class="{$dtables_link_class}" 
 		title="Show details"
+				
 	>
 					<span class="glyphicon glyphicon-th-list"></span>
 					</a>
@@ -981,7 +1022,7 @@
 	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$candidate_employment_tracker_link_attrs} data-short-details="candidate_employment_tracker"
 		class="{$candidate_employment_tracker_dlink_class}" 
-		title="{$caption Candidate_Employment_Tracker }"	>
+		title="{$caption Candidate_Employment_Tracker }"			>
 								
 									{BEGIN candidate_employment_tracker_childcount}
 				<span class="details-badge badge candidate_employment_tracker_badge" {$candidate_employment_tracker_childnumber_attr}>
@@ -1000,7 +1041,7 @@
 	<span data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$job_categories_link_attrs} data-short-details="job_categories"
 		class="{$job_categories_dlink_class}" 
-		title="{$caption Job_Categories }"	>
+		title="{$caption Job_Categories }"			>
 								
 									{BEGIN job_categories_childcount}
 				<span class="details-badge badge job_categories_badge" {$job_categories_childnumber_attr}>
@@ -1019,7 +1060,7 @@
 	<span data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$job_types_link_attrs} data-short-details="job_types"
 		class="{$job_types_dlink_class}" 
-		title="{$caption Job_Types }"	>
+		title="{$caption Job_Types }"			>
 								
 									{BEGIN job_types_childcount}
 				<span class="details-badge badge job_types_badge" {$job_types_childnumber_attr}>
@@ -1034,15 +1075,13 @@
 	
 	</td>
 	{END cellblock_grid_cell_details}
-				 
-					{BEGIN cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobID_class}
-			"
+		 r-ori-vert		 {$JobID_class}	"
 
 			data-field="JobID"
 	
@@ -1051,21 +1090,19 @@
 
 	 
 		{BEGIN JobID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID" data-fieldname="JobID" data-default-width >
 {$JobID_value}
 </span>
 {END JobID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobName_class}
-			"
+		 r-ori-vert		 {$JobName_class}	"
 
 			data-field="JobName"
 	
@@ -1074,21 +1111,19 @@
 
 	 
 		{BEGIN JobName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobName" data-fieldname="JobName" data-default-width >
 {$JobName_value}
 </span>
 {END JobName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobCategory_class}
-			"
+		 r-ori-vert		 {$JobCategory_class}	"
 
 			data-field="JobCategory"
 	
@@ -1097,21 +1132,19 @@
 
 	 
 		{BEGIN JobCategory_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobCategory" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobCategory" data-fieldname="JobCategory" data-default-width >
 {$JobCategory_value}
 </span>
 {END JobCategory_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
-				 
-					{BEGIN cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobType_class}
-			"
+		 r-ori-vert		 {$JobType_class}	"
 
 			data-field="JobType"
 	
@@ -1120,21 +1153,19 @@
 
 	 
 		{BEGIN JobType_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobType" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobType" data-fieldname="JobType" data-default-width >
 {$JobType_value}
 </span>
 {END JobType_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
-				 
-					{BEGIN cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field4}
 	<td
 	
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobPosition_class}
-			"
+		 r-ori-vert		 {$JobPosition_class}	"
 
 			data-field="JobPosition"
 	
@@ -1143,21 +1174,19 @@
 
 	 
 		{BEGIN JobPosition_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobPosition" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobPosition" data-fieldname="JobPosition" data-default-width >
 {$JobPosition_value}
 </span>
 {END JobPosition_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field5}
 	<td
 	
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$JobDetails_class}
-			"
+		 r-ori-vert		 {$JobDetails_class}	"
 
 			data-field="JobDetails"
 	
@@ -1166,21 +1195,19 @@
 
 	 
 		{BEGIN JobDetails_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobDetails" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobDetails" data-fieldname="JobDetails" data-default-width >
 {$JobDetails_value}
 </span>
 {END JobDetails_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field6}
 	<td
 	
 	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$CompanyName_class}
-			"
+		 r-ori-vert		 {$CompanyName_class}	"
 
 			data-field="CompanyName"
 	
@@ -1189,19 +1216,17 @@
 
 	 
 		{BEGIN CompanyName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CompanyName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CompanyName" data-fieldname="CompanyName" data-default-width >
 {$CompanyName_value}
 </span>
 {END CompanyName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field6}
 							</tr>
-					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
-								
+											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
+				
 							">
-				 
-					{BEGIN cellblock_grid_cell_dpreview}
+									{BEGIN cellblock_grid_cell_dpreview}
 	<td
 	
 	{$cell_grid_cell_dpreview}
@@ -1232,23 +1257,17 @@
 	</td>
 	{END cellblock_grid_cell_dpreview}
 							</tr>
-					 
-					
+										
 											{END grid_row}
 					</tbody>
 													<tfoot>
-					
-		 
-					 
-					 
-					 
-						<tr {$rowattrs} {$row_grid_3} class="{$rowclass} 
+			
+																																													<tr {$rowattrs} {$row_grid_3} class="{$rowclass}
 									{$gridFooter_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_footcell_icons}
+									{BEGIN cellblock_grid_footcell_icons}
 	<td
 	
 	{$cell_grid_footcell_icons}
@@ -1263,8 +1282,7 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
-				 
-					{BEGIN cellblock_grid_footcell_checkbox}
+									{BEGIN cellblock_grid_footcell_checkbox}
 	<td
 	
 	{$cell_grid_footcell_checkbox}
@@ -1279,8 +1297,7 @@
 	
 	</td>
 	{END cellblock_grid_footcell_checkbox}
-				 
-					{BEGIN cellblock_grid_footcell_details}
+									{BEGIN cellblock_grid_footcell_details}
 	<td
 	
 	{$cell_grid_footcell_details}
@@ -1295,14 +1312,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_details}
-				 
-					{BEGIN cellblock_grid_footcell_field}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobID_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1311,14 +1327,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field}
-				 
-					{BEGIN cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field1}
 	<td
 	
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobName_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1327,14 +1342,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
-				 
-					{BEGIN cellblock_grid_footcell_field2}
+									{BEGIN cellblock_grid_footcell_field2}
 	<td
 	
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobCategory_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1343,14 +1357,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field2}
-				 
-					{BEGIN cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field3}
 	<td
 	
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobType_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1359,14 +1372,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
-				 
-					{BEGIN cellblock_grid_footcell_field4}
+									{BEGIN cellblock_grid_footcell_field4}
 	<td
 	
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobPosition_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1375,14 +1387,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field4}
-				 
-					{BEGIN cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field5}
 	<td
 	
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$JobDetails_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1391,14 +1402,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
-				 
-					{BEGIN cellblock_grid_footcell_field6}
+									{BEGIN cellblock_grid_footcell_field6}
 	<td
 	
 	{$cell_grid_footcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$CompanyName_class}	"
 
 	
 	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="jobs_list"	
@@ -1412,12 +1422,12 @@
 					</tfoot>
 				</table>
 {END grid_block}
-						</div>
-					<div class="r-below">
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -1431,12 +1441,18 @@
 </span>
 {END pagination_block}
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-						</div>
-					{$footer}
-				</div>	
-			</div>	
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
 	{END body}
 	</body>

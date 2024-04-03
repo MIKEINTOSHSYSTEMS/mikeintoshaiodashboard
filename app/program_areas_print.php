@@ -14,6 +14,10 @@ add_nocache_headers();
 
 require_once("include/program_areas_variables.php");
 
+if( Security::hasLogin() ) {
+	if( !Security::processPageSecurity( $strtablename, 'P' ) )
+	return;
+}
 
 
 $xt = new Xtempl();

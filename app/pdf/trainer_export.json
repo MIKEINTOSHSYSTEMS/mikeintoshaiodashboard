@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -89,13 +91,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -105,30 +106,33 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_export_field}","text":{$TrainerID_pdfvalue}},
+			{"text":{$TrainerID_pdfvalue},"hidden":"{$item_hide_export_field}"},
 				
 				
-			{"hidden":"{$item_hide_export_field1}","text":{$TrainingID_pdfvalue}},
+			{"text":{$TrainingID_pdfvalue},"hidden":"{$item_hide_export_field1}"},
 				
 				
-			{"hidden":"{$item_hide_export_field2}","text":{$OrganizerID_pdfvalue}},
+			{"text":{$OrganizerID_pdfvalue},"hidden":"{$item_hide_export_field2}"},
 				
 				
-			{"hidden":"{$item_hide_export_field3}","text":{$Trainer_FullName_pdfvalue}},
+			{"text":{$Trainer_FullName_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
 				
-			{"hidden":"{$item_hide_export_field4}","text":{$Trainer_Profile_pdfvalue}},
+			{"text":{$Trainer_Profile_pdfvalue},"hidden":"{$item_hide_export_field4}"},
 				
 				
-			{"hidden":"{$item_hide_export_field5}","text":{$Trainer_Skills_pdfvalue}},
+			{"text":{$Trainer_Skills_pdfvalue},"hidden":"{$item_hide_export_field5}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

@@ -2,19 +2,19 @@
 class MySQLConnection extends Connection
 {
 	protected $host;
-	
+
 	protected $user;
-	
+
 	protected $pwd;
-	
+
 	protected $sys_dbname;
-	
+
 	protected $port;
-	
+
 	protected $mysqlVersion;
-	
+
 	protected $subqueriesSupported = true;
-	
+
 	function __construct( $params )
 	{
 		parent::__construct( $params );
@@ -27,7 +27,7 @@ class MySQLConnection extends Connection
 	protected function assignConnectionParams( $params )
 	{
 		parent::assignConnectionParams( $params );
-		
+
 		$this->host = $params["connInfo"][0];  //strConnectInfo1
 		$this->user = $params["connInfo"][1];  //strConnectInfo2
 		$this->pwd = $params["connInfo"][2];   //strConnectInfo3
@@ -42,10 +42,10 @@ class MySQLConnection extends Connection
 	{
 		$extraParams = parent::getDbFunctionsExtraParams();
 		$extraParams["conn"] = $this->conn;
-		
+
 		return $extraParams;
 	}
-	
+
 	/**
 	 * Open a connection to db
 	 */
@@ -65,7 +65,7 @@ class MySQLConnection extends Connection
 				$hosts[] = "127.0.0.1";
 		}
 		$hosts[] = $this->host;
-		
+
 		foreach( $hosts as $h )
 		{
 			$this->conn = @mysql_connect($h.":".$this->port, $this->user, $this->pwd);
@@ -76,24 +76,24 @@ class MySQLConnection extends Connection
 				break;
 			}
 		}
-		
-		if (!$this->conn || !mysql_select_db($this->sys_dbname, $this->conn)) 
+
+		if (!$this->conn || !mysql_select_db($this->sys_dbname, $this->conn))
 		{
 			unset( $_SESSION["myqsladdress"] );
 			$this->triggerError( mysql_error() );
 		}
-		
+
 		if( $cMySQLNames != "" )
 			@mysql_query("set names ".$cMySQLNames);
-	
+
 		$this->mysqlVersion = "4";
 		$res = @mysql_query("SHOW VARIABLES LIKE 'version'", $this->conn);
 		if( $row = @mysql_fetch_array($res, MYSQL_ASSOC) )
 			$this->mysqlVersion = $row["Value"];
-		
-		if( preg_match("/^[0-4]\./", $this->mysqlVersion, $matches) && strpos($this->mysqlVersion, "MariaDB") === FALSE ) //#10818 2		
+
+		if( preg_match("/^[0-4]\./", $this->mysqlVersion, $matches) && strpos($this->mysqlVersion, "MariaDB") === FALSE ) //#10818 2
 			$this->subqueriesSupported = false;
-		
+
 		$res = @mysql_query("SELECT @@SESSION.sql_mode as mode", $this->conn);
 		if( $row = @mysql_fetch_array($res, MYSQL_ASSOC) ){
 			$sql_mode = $row["mode"];
@@ -110,10 +110,10 @@ class MySQLConnection extends Connection
 			if($sql_mode)
 				@mysql_query("set SESSION sql_mode='".$sql_mode."'", $this->conn);
 		}
-		
+
 		return $this->conn;
 	}
-	
+
 	/**
 	 * Close the db connection
 	 */
@@ -121,8 +121,8 @@ class MySQLConnection extends Connection
 	{
 		return mysql_close($this->conn);
 	}
-	
-	/**	
+
+	/**
 	 * Send an SQL query
 	 * @param String sql
 	 * @return Mixed
@@ -130,18 +130,18 @@ class MySQLConnection extends Connection
 	public function query( $sql )
 	{
 		$this->debugInfo($sql);
-		
+
 		$ret = mysql_query($sql, $this->conn);
 		if( !$ret )
 		{
 			$this->triggerError(mysql_error());
 			return FALSE;
 		}
-		
+
 		return new QueryResult( $this, $ret );
 	}
-	
-	/**	
+
+	/**
 	 * Execute an SQL query
 	 * @param String sql
 	 */
@@ -150,11 +150,11 @@ class MySQLConnection extends Connection
 		$qResult = $this->query( $sql );
 		if( $qResult )
 			return $qResult->getQueryHandle();
-			
+
 		return FALSE;
 	}
-	
-	/**	
+
+	/**
 	 * Get a description of the last error
 	 * @return String
 	 */
@@ -162,17 +162,17 @@ class MySQLConnection extends Connection
 	{
 		return @mysql_error();
 	}
-	
-	/**	
+
+	/**
 	 * Get the auto generated id used in the last query
 	 * @return Number
 	 */
-	public function getInsertedId($key = null, $table = null , $oraSequenceName = false)
+	public function getInsertedId($key = null, $table = null )
 	{
 		return @mysql_insert_id( $this->conn );
 	}
-	
-	/**	
+
+	/**
 	 * Fetch a result row as an associative array
 	 * @param Mixed qHanle		The query handle
 	 * @return Array
@@ -181,20 +181,20 @@ class MySQLConnection extends Connection
 	{
 		return @mysql_fetch_array($qHandle, MYSQL_ASSOC);
 	}
-	
-	/**	
+
+	/**
 	 * Fetch a result row as a numeric array
-	 * @param Mixed qHanle		The query handle	 
+	 * @param Mixed qHanle		The query handle
 	 * @return Array
 	 */
 	public function fetch_numarray( $qHandle )
 	{
 		return @mysql_fetch_array($qHandle, MYSQL_NUM);
 	}
-	
-	/**	
-	 * Free resources associated with a query result set 
-	 * @param Mixed qHanle		The query handle		 
+
+	/**
+	 * Free resources associated with a query result set
+	 * @param Mixed qHanle		The query handle
 	 */
 	public function closeQuery( $qHandle )
 	{
@@ -209,19 +209,19 @@ class MySQLConnection extends Connection
 	public function num_fields( $qHandle )
 	{
 		return @mysql_num_fields($qHandle);
-	}	
-	
-	/**	
+	}
+
+	/**
 	 * Get the name of the specified field in a result
 	 * @param Mixed qHanle		The query handle
 	 * @param Number offset
 	 * @return String
-	 */	 
+	 */
 	public function field_name( $qHandle, $offset )
 	{
 		return @mysql_field_name($qHandle, $offset);
 	}
-	
+
 	/**
 	 * @param Mixed qHandle
 	 * @param Number pageSize
@@ -246,14 +246,14 @@ class MySQLConnection extends Connection
 	 * @return Boolean
 	 */
 	public function checkIfJoinSubqueriesOptimized()
-	{		
+	{
 		// if MySQL of older than 5.6 version is used
-		if( preg_match("/^(?:(?:[0-4]\.)|(?:5\.[0-5]))/", $this->mysqlVersion, $matches) ) 		
+		if( preg_match("/^(?:(?:[0-4]\.)|(?:5\.[0-5]))/", $this->mysqlVersion, $matches) )
 			return false;
-			
+
 		return true;
 	}
-	
+
 	/**
 	 * Execute an SQL query with blob fields processing
 	 * @param String sql
@@ -261,10 +261,17 @@ class MySQLConnection extends Connection
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		$this->debugInfo($sql);
 		return @mysql_query($sql, $this->conn);
+	}
+
+	/**
+	 *  @return String
+	 */
+	public function getVersion() {
+		return $this->mysqlVersion;
 	}
 }
 ?>

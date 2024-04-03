@@ -11,6 +11,10 @@ require_once('classes/editpage.php');
 
 add_nocache_headers();
 
+if( Security::hasLogin() ) {
+	if( !EditPage::processEditPageSecurity( $strTableName ) )
+		return;
+}
 
 EditPage::handleBrokenRequest();
 
@@ -83,6 +87,8 @@ if(( $pageMode == EDIT_POPUP || $pageMode == EDIT_INLINE ) && postvalue("dashTNa
 	$params["dashElementName"] = postvalue("dashelement");
 }
 
+$params["forSpreadsheetGrid"] = postvalue("spreadsheetGrid");
+$params["hostPageName"] = postvalue("hostPageName");
 
 $pageObject = EditPage::EditPageFactory($params);
 

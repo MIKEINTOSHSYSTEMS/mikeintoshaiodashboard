@@ -13,15 +13,17 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-view" {$bodyattrs}>
+	<body class="{$stylename} function-view"   
+		>
 	{BEGIN body}
 		<style>
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -59,7 +61,7 @@
 				{$menu main}			</div>
 		
     {END left_block}
-</div>				</div>	
+</div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
 				<div  class="r-topheader" data-resize-name="topbar">
 									{BEGIN supertop_block}
@@ -67,26 +69,92 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span class="navbar-form  r-ori-vert navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
-				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
 	 glyphicon glyphicon-triangle-left" href="#" >		
 				
 								</a>
 </span>
 			</span>
 							 
-													</nav>
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 						{$locking}
-				</div>	
+				</div>
 				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
@@ -96,17 +164,22 @@
 		 
 		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel training_participants view}</h2>
 		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 						</div>
-					<div class="r-above">
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	</div>		
 {END above-grid_block}
-						</div>
-					<div class="r-grid">
-										{BEGIN grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
 
 
 
@@ -123,7 +196,7 @@
 		data-v-width="4"
 	>
 	<tbody>
-										<tr>
+										<tr {$row_grid_0} >
 										
 
 {BEGIN cellblock_grid_c3}
@@ -142,7 +215,7 @@
 {BEGIN TrainingID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_TrainingID}  r-vertical-field" data-fieldname="TrainingID" data-signal-error-for="TrainingID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="TrainingID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_TrainingID}  r-vertical-field" data-fieldname="TrainingID" data-signal-error-for="TrainingID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="TrainingID" data-fieldname="TrainingID" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_TrainingID}">
@@ -161,7 +234,7 @@
 {BEGIN CandidateID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CandidateID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
@@ -180,7 +253,7 @@
 {BEGIN Training_Organizer_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Organizer}  r-vertical-field" data-fieldname="Training_Organizer" data-signal-error-for="Training_Organizer{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Training_Organizer" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Organizer}  r-vertical-field" data-fieldname="Training_Organizer" data-signal-error-for="Training_Organizer{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Training_Organizer" data-fieldname="Training_Organizer" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_Organizer}">
@@ -199,7 +272,7 @@
 {BEGIN Training_Type_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Type}  r-vertical-field" data-fieldname="Training_Type" data-signal-error-for="Training_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Training_Type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Type}  r-vertical-field" data-fieldname="Training_Type" data-signal-error-for="Training_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Training_Type" data-fieldname="Training_Type" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_Type}">
@@ -218,7 +291,7 @@
 {BEGIN Program_Area_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Program_Area}  r-vertical-field" data-fieldname="Program_Area" data-signal-error-for="Program_Area{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Program_Area" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Program_Area}  r-vertical-field" data-fieldname="Program_Area" data-signal-error-for="Program_Area{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Program_Area" data-fieldname="Program_Area" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Program_Area}">
@@ -237,7 +310,7 @@
 {BEGIN Training_City_Town_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_City_Town}  r-vertical-field" data-fieldname="Training_City_Town" data-signal-error-for="Training_City_Town{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Training_City_Town" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_City_Town}  r-vertical-field" data-fieldname="Training_City_Town" data-signal-error-for="Training_City_Town{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Training_City_Town" data-fieldname="Training_City_Town" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_City_Town}">
@@ -256,7 +329,7 @@
 {BEGIN Training_Venue_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Venue}  r-vertical-field" data-fieldname="Training_Venue" data-signal-error-for="Training_Venue{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Training_Venue" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Venue}  r-vertical-field" data-fieldname="Training_Venue" data-signal-error-for="Training_Venue{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Training_Venue" data-fieldname="Training_Venue" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_Venue}">
@@ -275,7 +348,7 @@
 {BEGIN Training_Start_Date_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Start_Date}  r-vertical-field" data-fieldname="Training_Start_Date" data-signal-error-for="Training_Start_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Training_Start_Date" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_Start_Date}  r-vertical-field" data-fieldname="Training_Start_Date" data-signal-error-for="Training_Start_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Training_Start_Date" data-fieldname="Training_Start_Date" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_Start_Date}">
@@ -294,7 +367,7 @@
 {BEGIN Training_End_Date_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_End_Date}  r-vertical-field" data-fieldname="Training_End_Date" data-signal-error-for="Training_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Training_End_Date" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Training_End_Date}  r-vertical-field" data-fieldname="Training_End_Date" data-signal-error-for="Training_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Training_End_Date" data-fieldname="Training_End_Date" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Training_End_Date}">
@@ -313,7 +386,7 @@
 {BEGIN First_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="First_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
@@ -332,7 +405,7 @@
 {BEGIN Middle_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Middle_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
@@ -351,7 +424,7 @@
 {BEGIN Last_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Last_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
@@ -370,7 +443,7 @@
 {BEGIN Email_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Email" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Email" data-fieldname="Email" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Email}">
@@ -389,7 +462,7 @@
 {BEGIN Phone_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" data-fieldname="Phone" data-signal-error-for="Phone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Phone" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" data-fieldname="Phone" data-signal-error-for="Phone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Phone" data-fieldname="Phone" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Phone}">
@@ -408,7 +481,7 @@
 {BEGIN StudentID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" data-fieldname="StudentID" data-signal-error-for="StudentID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="StudentID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" data-fieldname="StudentID" data-signal-error-for="StudentID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_StudentID}">
@@ -427,7 +500,7 @@
 {BEGIN Disability_Status_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Disability_Status" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Status}">
@@ -446,7 +519,7 @@
 {BEGIN Disability_Type_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Disability_Type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type}">
@@ -465,7 +538,7 @@
 {BEGIN Disability_Type_Other_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Disability_Type_Other" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type_Other}">
@@ -484,7 +557,7 @@
 {BEGIN Participant_Profession_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Profession}  r-vertical-field" data-fieldname="Participant_Profession" data-signal-error-for="Participant_Profession{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Participant_Profession" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Profession}  r-vertical-field" data-fieldname="Participant_Profession" data-signal-error-for="Participant_Profession{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Participant_Profession" data-fieldname="Participant_Profession" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Profession}">
@@ -503,7 +576,7 @@
 {BEGIN Participant_Field_of_Study_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Field_of_Study}  r-vertical-field" data-fieldname="Participant_Field_of_Study" data-signal-error-for="Participant_Field_of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Field_of_Study}  r-vertical-field" data-fieldname="Participant_Field_of_Study" data-signal-error-for="Participant_Field_of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Field_of_Study}">
@@ -522,7 +595,7 @@
 {BEGIN Participant_Facility_Organization_Type_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Facility_Organization_Type}  r-vertical-field" data-fieldname="Participant_Facility_Organization_Type" data-signal-error-for="Participant_Facility_Organization_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="Participant_Facility_Organization_Type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Facility_Organization_Type}  r-vertical-field" data-fieldname="Participant_Facility_Organization_Type" data-signal-error-for="Participant_Facility_Organization_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="Participant_Facility_Organization_Type" data-fieldname="Participant_Facility_Organization_Type" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Facility_Organization_Type}">
@@ -541,7 +614,7 @@
 {BEGIN Participant_Organization_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Name}  r-vertical-field" data-fieldname="Participant_Organization_Name" data-signal-error-for="Participant_Organization_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="Participant_Organization_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Name}  r-vertical-field" data-fieldname="Participant_Organization_Name" data-signal-error-for="Participant_Organization_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Organization_Name}">
@@ -560,7 +633,7 @@
 {BEGIN Participants_Home_Address_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participants_Home_Address}  r-vertical-field" data-fieldname="Participants_Home_Address" data-signal-error-for="Participants_Home_Address{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="Participants_Home_Address" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participants_Home_Address}  r-vertical-field" data-fieldname="Participants_Home_Address" data-signal-error-for="Participants_Home_Address{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="Participants_Home_Address" data-fieldname="Participants_Home_Address" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participants_Home_Address}">
@@ -579,7 +652,7 @@
 {BEGIN PreTest_Score_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_PreTest_Score}  r-vertical-field" data-fieldname="PreTest_Score" data-signal-error-for="PreTest_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="PreTest_Score" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_PreTest_Score}  r-vertical-field" data-fieldname="PreTest_Score" data-signal-error-for="PreTest_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="PreTest_Score" data-fieldname="PreTest_Score" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_PreTest_Score}">
@@ -598,7 +671,7 @@
 {BEGIN Skill_Test_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Skill_Test}  r-vertical-field" data-fieldname="Skill_Test" data-signal-error-for="Skill_Test{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="Skill_Test" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Skill_Test}  r-vertical-field" data-fieldname="Skill_Test" data-signal-error-for="Skill_Test{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="Skill_Test" data-fieldname="Skill_Test" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Skill_Test}">
@@ -617,7 +690,7 @@
 {BEGIN Post_Test_Score_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Post_Test_Score}  r-vertical-field" data-fieldname="Post_Test_Score" data-signal-error-for="Post_Test_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="Post_Test_Score" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Post_Test_Score}  r-vertical-field" data-fieldname="Post_Test_Score" data-signal-error-for="Post_Test_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="Post_Test_Score" data-fieldname="Post_Test_Score" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Post_Test_Score}">
@@ -636,7 +709,7 @@
 {BEGIN Sex_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" data-fieldname="Sex" data-signal-error-for="Sex{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="Sex" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" data-fieldname="Sex" data-signal-error-for="Sex{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sex}">
@@ -657,12 +730,12 @@
 								</tr>
 			</tbody></table>
 {END grid_block}
-						</div>
-					<div class="r-below">
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -709,8 +782,8 @@
 		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown dropup">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-menu-hamburger"></span>
-									<span class="caret"></span>
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
 							{BEGIN edit_page_button}
@@ -725,12 +798,18 @@
 	</span>
 </span>
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-						</div>
-					{$footer}
-				</div>	
-			</div>	
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
 	{END body}
 	</body>

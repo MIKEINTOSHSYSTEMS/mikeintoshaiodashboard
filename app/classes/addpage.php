@@ -25,8 +25,6 @@ class AddPage extends RunnerPage
 
 	protected $newRecordData = array();
 
-	protected $newRecordBlobFields = array();
-
 	/**
 	 * It could be set up in ADD_MASTER mode only
 	 */
@@ -97,6 +95,10 @@ class AddPage extends RunnerPage
 	 */
 	public $fromDashboard = "";
 
+	public $forSpreadsheetGrid = false;
+	public $hostPageName = "";
+	public $newRowId;
+	
 	/**
 	 * @constructor
 	 */
@@ -125,6 +127,14 @@ class AddPage extends RunnerPage
 		}
 
 		$this->addPageSettings();
+	}
+
+	function setSessionVariables() {
+		parent::setSessionVariables();
+		//	don't use mastertable pre-stroed in session
+		if( !postvalue("mastertable")) {
+			$this->masterTable = "";
+		} 
 	}
 
 	/**
@@ -193,7 +203,8 @@ class AddPage extends RunnerPage
 	 */
 	protected function assignSessionPrefix()
 	{
-		if( $this->mode == ADD_DASHBOARD || $this->mode == ADD_MASTER_DASH || ($this->mode == ADD_POPUP || $this->mode == ADD_INLINE || $this->fromDashboard != "" ) && $this->dashTName)
+		if( $this->mode == ADD_DASHBOARD || $this->mode == ADD_MASTER_DASH 
+			|| ($this->mode == ADD_POPUP || $this->mode == ADD_INLINE || $this->fromDashboard != "" ) && $this->dashTName )
 		{
 			$this->sessionPrefix = $this->dashTName."_".$this->tName;
 			return;
@@ -270,29 +281,34 @@ class AddPage extends RunnerPage
 	 */
 	public function redirectAfterAdd()
 	{
-		if( isset($_SESSION['after_add_data'][ $this->afterAdd_id ]) && $_SESSION['after_add_data'][ $this->afterAdd_id ] )
+		if( $_SESSION['after_add_data'] ) {
+			$aaData =& $_SESSION['after_add_data'];
+		} else {
+			$aaData = array();
+		}
+		if( isset($aaData[ $this->afterAdd_id ]) && $aaData[ $this->afterAdd_id ] )
 		{
-			$data = $_SESSION['after_add_data'][ $this->afterAdd_id ];
+			$data = $aaData[ $this->afterAdd_id ];
 			$this->keys = $data['keys'];
 			$this->newRecordData = $data['avalues'];
 		}
-		if( $this->eventsObject->exists("AfterAdd") && isset($_SESSION['after_add_data'][ $this->afterAdd_id ]) && $_SESSION['after_add_data'][ $this->afterAdd_id ] )
+		if( $this->eventsObject->exists("AfterAdd") && isset($aaData[ $this->afterAdd_id ]) && $aaData[ $this->afterAdd_id ] )
 		{
 			$this->eventsObject->AfterAdd( $data['avalues'], $data['keys'], $data['inlineadd'], $this );
 
 		}
-		unset( $_SESSION['after_add_data'][ $this->afterAdd_id ] );
+		unset( $aaData[ $this->afterAdd_id ] );
 
-		foreach( is_array($_SESSION['after_add_data']) ? $_SESSION['after_add_data'] : array() as $k => $v)
+		foreach( $aaData as $k => $v)
 		{
 			if( !is_array($v) or !array_key_exists('time', $v) )
 			{
-				unset( $_SESSION['after_add_data'][ $k ] );
+				unset( $aaData[ $k ] );
 				continue;
 			}
 
 			if( $v['time'] < time() - 3600 )
-				unset($_SESSION['after_add_data'][ $k ]);
+				unset($aaData[ $k ]);
 		}
 		$this->afterAddActionRedirect();
 	}
@@ -371,6 +387,10 @@ class AddPage extends RunnerPage
 		if( $this->action != "added" )
 			return;
 
+		//	CSRF protection
+		if( !isPostRequest() )
+			return;
+
 		$this->buildNewRecordData();
 
 		if( !$this->checkCaptcha() )
@@ -400,8 +420,12 @@ class AddPage extends RunnerPage
 				$this->newRecordData = $insertResult;
 				// set up keys
 				foreach( $this->pSet->getTableKeys() as $kf ) {
-					$this->keys[ $kf ] = $this->newRecordData[ $kf ];
+					if( isset( $this->newRecordData[ $kf ] ) )
+						$this->keys[ $kf ] = $this->newRecordData[ $kf ];
 				}
+				
+				if ( count( $this->pSet->getTableKeys() ) != count( $this->keys ) )
+					$this->keys = array();
 			}
 		}
 
@@ -424,7 +448,7 @@ class AddPage extends RunnerPage
 	}
 
 	/**
-	 * Fill newRecordData, newRecordBlobFields properties
+	 * Fill newRecordData properties
 	 */
 	protected function buildNewRecordData()
 	{
@@ -438,7 +462,17 @@ class AddPage extends RunnerPage
 			$control->readWebValue($avalues, $blobfields, NULL, NULL, $afilename_values);
 		}
 
-		$masterTables = $this->pSet->getMasterTablesArr( $this->tName );
+		if( Security::advancedSecurityAvailable() ) {
+			$securityType = $this->pSet->getAdvancedSecurityType();
+			if( !$this->isAdminTable() && ($securityType == ADVSECURITY_EDIT_OWN || $securityType == ADVSECURITY_VIEW_OWN) )
+			{
+				$tableOwnerIdField = $this->pSet->getTableOwnerIdField();
+				// insert owner id value if it exists an It hasn't already set by user
+				if( $this->checkIfToAddOwnerIdValue( $tableOwnerIdField, $avalues[ $tableOwnerIdField ] ) )
+					$avalues[ $tableOwnerIdField ] = prepare_for_db( $tableOwnerIdField, $_SESSION["_".$this->tName."_OwnerID"] );
+			}
+		}
+		$masterTables = $this->pSet->getMasterTablesArr( );
 		// insert master key value if exists and if not specified
 		foreach( $masterTables as $mTableData )
 		{
@@ -463,8 +497,19 @@ class AddPage extends RunnerPage
 			$avalues[ $fileFName ] = $value;
 		}
 
+		//	calculate order for the reorderRows feature
+		$listPSet = $this->getListPSet();
+		if( $listPSet->reorderRows() ) {
+			$order = postvalue("order"); 
+			if( $order ) {
+				$order = $this->getUniqueOrder( $listPSet, $order );
+			} else {
+				$order = $this->getMaxOrderValue( $listPSet ) + 1;
+			}
+			$avalues[ $listPSet->reorderRowsField() ] = $order;
+		}
+
 		$this->newRecordData = $avalues;
-		$this->newRecordBlobFields = $blobfields;
 	}
 
 	/**
@@ -522,18 +567,7 @@ class AddPage extends RunnerPage
 		if( CheckTablePermissions($this->tName, "A") )
 			return true;
 
-		if( isLoggedAsGuest() || !isLogged() )
-		{
-			$this->setMessage( "Your session has expired."
-				. "<a href='#' id='loginButtonContinue" . $this->id . "'>" . "Login" . "</a>"
-				. " to save data." );
-		}
-		else
-		{
-			$this->setMessage( 'You have no permissions to complete this action.' );
-		}
-
-		return false;
+		return parent::recheckUserPermissions();
 	}
 
 	/**
@@ -641,6 +675,9 @@ class AddPage extends RunnerPage
 
 		$this->afterAdd_id = generatePassword(20);
 
+		if( !$_SESSION['after_add_data'] ) {
+			$_SESSION['after_add_data'] = array();
+		}
 		$_SESSION['after_add_data'][ $this->afterAdd_id ] = array(
 			'avalues' => $this->newRecordData,
 			'keys'=> $this->keys,
@@ -663,7 +700,7 @@ class AddPage extends RunnerPage
 		else
 			$infoMessage = "<strong><<< "."Record was added"." >>></strong>";
 
-		if( $this->mode != ADD_SIMPLE && $this->mode != ADD_MASTER || !count($this->keys) )
+		if( $this->mode != ADD_SIMPLE && $this->mode != ADD_MASTER || !$this->keys )
 		{
 			$this->setMessage( $infoMessage );
 			return;
@@ -714,7 +751,7 @@ class AddPage extends RunnerPage
 	{
 		global $globalEvents;
 		$returnJSON = array();
-
+		
 		if( $this->action != "added" || $this->mode == ADD_SIMPLE )
 			return $returnJSON;
 
@@ -732,14 +769,16 @@ class AddPage extends RunnerPage
 				$returnJSON['hideCaptcha'] = true;
 		}
 
+
 		if( !$this->insertedSuccessfully )
 			return $returnJSON;
 
 		$jsKeys = array();
 		$keyFields = $this->pSet->getTableKeys();
-		foreach( $keyFields as $idx => $f)
-		{
-			$jsKeys[ $idx ] = $this->keys[ $f ];
+		if ( $this->keys ) {
+			foreach( $keyFields as $idx => $f) {
+				$jsKeys[ $idx ] = $this->keys[ $f ];
+			}
 		}
 
 		if( $this->mode == ADD_ONTHEFLY )
@@ -777,15 +816,30 @@ class AddPage extends RunnerPage
 		$showValues = array();
 		$showFields = array();
 		$showRawValues = array();
+
+		$listPSet = $this->getListPSet();
+
+		$listViewControls = new ViewControlsContainer( 
+			$listPSet,
+			$this->pageType, 
+			$this 
+		);
+
 		foreach( $this->pSet->getFieldsList() as $f )
 		{
-			$showValues[ $f ] = $this->showDBValue($f, $data, $keylink);
+			$control = $listViewControls->getControl( $f );
+			$showValues[ $f ] = $control->showDBValue( $data, $keylink, true );
 			$showFields[] = $f;
 
 			if( IsBinaryType( $this->pSet->getFieldType( $f ) ) )
 				$showRawValues[ $f ] = "";
 			else
 				$showRawValues[ $f ] = runner_substr($data[ $f ], 0, 100);
+		}
+
+		//	reorderRows stuff
+		if( $listPSet->reorderRows() ) {
+			$returnJSON['order'] = $data[ $listPSet->reorderRowsField() ];
 		}
 
 		$returnJSON['keys'] = $jsKeys;
@@ -795,21 +849,49 @@ class AddPage extends RunnerPage
 		$returnJSON['detKeys'] = $this->getShowDetailKeys( $data );
 
 		$dmapIconsData = $this->getDashMapsIconsData( $data );
-		if( count( $dmapIconsData ) )
+		if( !!$dmapIconsData )
 			$returnJSON['mapIconsData'] = $dmapIconsData;
 
 		$fieldsIconsData = $this->getFieldMapIconsData( $data );
-		if( count( $fieldsIconsData ) )
+		if( !!$fieldsIconsData )
 			$returnJSON['fieldsMapIconsData'] = $fieldsIconsData;
 
-		if( $this->mode == ADD_INLINE || $this->mode == ADD_POPUP || $this->mode == ADD_DASHBOARD )
-		{
+		
+		if( $this->forSpreadsheetGrid && $haveData ) {
+			//  new added grid row id	
+			$newRowId = $this->newRowId ? $this->newRowId : $this->id;
+			$editPage = $this->getRelatedInlineEditPage( $this->hostPageName, $this->keys, $newRowId );
+
+			$returnJSON["editFields"] = $listPSet->getInlineEditFields();
+			
+			// use "htmlControls" key no to interfire with dash html data
+			$returnJSON["htmlControls"] = array();
+			foreach( $listPSet->getInlineEditFields() as $fName ) {
+				$controls = $editPage->getContolMapData( $fName, $newRowId, $data, $editPage->editFields );
+				// set edit page controlsMap
+				$editPage->fillControlsMap( $controls );
+				
+				if( $editPage->getEditFormat( $fName ) == EDIT_FORMAT_READONLY )
+					$editPage->readOnlyFields[ $fName ] = $this->showDBValue( $fName, $data );
+				
+				$returnJSON["htmlControls"][ $fName ] = $editPage->getSpreadsheetControlMarkup( $fName, $newRowId, $data );
+			}
+			
+			$returnJSON["pageId"] = $newRowId;
+			
+			$editPage->fillSetCntrlMaps();
+			// contols map for spreadsheet inline edit controls
+			$returnJSON["spreadControlsMap"] = $editPage->controlsHTMLMap;
+		}
+		
+		
+		if( $this->mode == ADD_INLINE || $this->mode == ADD_POPUP || $this->mode == ADD_DASHBOARD ) {	
 			$returnJSON['noKeys'] = !$haveData;
 			$returnJSON['keyFields'] = $keyFields;
 			$returnJSON['rawVals'] = $showRawValues;
 			$returnJSON['hrefs'] = $this->buildDetailGridLinks( $returnJSON['detKeys'] );
 			// add link and display value if list page is lookup with search
-			if( $this->mode == ADD_INLINE && $this->forListPageLookup )
+			if( $this->forListPageLookup )
 			{
 				$linkAndDispVals = $this->getLookupData();
 				$returnJSON['linkValue'] = $linkAndDispVals['linkValue'];
@@ -828,7 +910,8 @@ class AddPage extends RunnerPage
 		{
 			$_SESSION["message_add"] = $this->message ? $this->message : "";
 			$returnJSON['afterAddId'] = $this->afterAdd_id;
-			$returnJSON['mKeys'] = $this->getDetailTablesMasterKeys();
+			$tData = array();
+			$returnJSON['mKeys'] = $this->getDetailTablesMasterKeys( $tData );
 
 			if( $this->mode == ADD_MASTER_POPUP || $this->mode == ADD_MASTER_DASH )
 			{
@@ -878,7 +961,7 @@ class AddPage extends RunnerPage
 	/**
 	 * @return Array
 	 */
-	protected function getDetailTablesMasterKeys()
+	protected function getDetailTablesMasterKeys( $data )
 	{
 		if( !$this->isShowDetailTables || $this->mobileTemplateMode() )
 			return array();
@@ -1033,7 +1116,7 @@ class AddPage extends RunnerPage
 	public function getCurrentRecord()
 	{
 		$data = array();
-		if ( $this->masterTable && count($this->masterKeysReq) > 0 )
+		if ( $this->masterTable && !!$this->masterKeysReq )
 		{
 			foreach ($this->detailKeysByM  as $key => $detKey )
 			{
@@ -1101,14 +1184,24 @@ class AddPage extends RunnerPage
 		{
 			foreach( $this->addFields as $f )
 			{
-				$defaultValue = GetDefaultValue($f, PAGE_ADD);
+				$defaultValue = GetDefaultValue($f, PAGE_ADD, $this->tName );
 				if( strlen($defaultValue) )
 					$this->defvalues[ $f ] = $defaultValue;
 			}
 		}
 
+		if( Security::advancedSecurityAvailable() ) {
+			$securityType = $this->pSet->getAdvancedSecurityType();
+			if( !$this->isAdminTable() && ($securityType == ADVSECURITY_EDIT_OWN || $securityType == ADVSECURITY_VIEW_OWN) )
+			{
+				$tableOwnerIdField = $this->pSet->getTableOwnerIdField();
+				// insert default owner id value if exists
+				if( $this->checkIfToAddOwnerIdValue( $tableOwnerIdField, '' ) )
+					$this->defvalues[ $tableOwnerIdField ] = prepare_for_db( $tableOwnerIdField, $_SESSION["_".$this->tName."_OwnerID"] );
+			}
+		}
 
-		$masterTables = $this->pSet->getMasterTablesArr( $this->tName );
+		$masterTables = $this->pSet->getMasterTablesArr();
 		// set default values for the foreign keys
 		foreach( $masterTables as $mTableData )
 		{
@@ -1170,46 +1263,19 @@ class AddPage extends RunnerPage
 		//	legacy assignment used in the Invoice template
 		$this->xt->assign("savebutton_attrs", "id=\"saveButton".$this->id."\"" . $addStyle );
 
-		if( $this->mode == ADD_SIMPLE )
-		{
-			//	back to list/menu buttons
-			if( $this->pSet->hasListPage() )
-			{
-				$this->xt->assign("back_button", true);
-				$this->xt->assign("backbutton_attrs", "id=\"backButton".$this->id."\"");
-			}
-			else if( $this->isShowMenu() )
-			{
-				$this->xt->assign("back_button", true);
-				$this->xt->assign("backbutton_attrs", "id=\"backToMenuButton".$this->id."\"");
-			}
-		}
-
 		if( $this->mode == ADD_DASHBOARD )
 		{
 			$this->xt->assign("reset_button", true);
 			return;
 		}
 
-		if ( $this->isBootstrap() && isset($_SESSION["successKeys"]) )
+		if( $this->mode != ADD_ONTHEFLY 
+			&& $this->mode != ADD_POPUP 
+			&& $this->mode != ADD_MASTER_DASH )
 		{
-			$dataKeysAttr = 'data-keys="'.runner_htmlspecialchars(my_json_encode($_SESSION["successKeys"])).'"';
-			unset($_SESSION["successKeys"]);
-
-			if( $this->viewAvailable() )
-			{
-				$this->xt->assign("view_page_button", true);
-				$this->xt->assign("view_page_button_attrs", 'id="viewPageButton'.$this->id.'" '.$dataKeysAttr);
-			}
-			if( $this->editAvailable() )
-			{
-				$this->xt->assign("edit_page_button", true);
-				$this->xt->assign("edit_page_button_attrs", 'id="editPageButton'.$this->id.'" '.$dataKeysAttr);
-			}
-		}
-
-		if( $this->mode != ADD_ONTHEFLY && $this->mode != ADD_POPUP && $this->mode != ADD_MASTER_DASH )
-		{
+			// add was successful
+			if( isset( $_SESSION["successKeys"] ) )
+				$this->xt->assign("message_back_button", true);
 			if( $this->pSet->hasListPage() )
 				$this->xt->assign("back_button", true);
 			else if( $this->isShowMenu() )
@@ -1217,6 +1283,38 @@ class AddPage extends RunnerPage
 		}
 		else
 			$this->xt->assign("cancel_button", true);
+
+		if( $this->mode == ADD_SIMPLE )
+		{
+			//	back to list/menu buttons
+			if( $this->pSet->hasListPage() )
+			{
+				$this->xt->assign("backbutton_attrs", "id=\"backButton".$this->id."\"");
+			}
+			else if( $this->isShowMenu() )
+			{
+				$this->xt->assign("backbutton_attrs", "id=\"backToMenuButton".$this->id."\"");
+			}
+		}
+
+		if ( $this->isBootstrap() && isset($_SESSION["successKeys"]) )
+		{
+			$keysArray = $_SESSION["successKeys"];
+			$dataKeysAttr = 'data-keys="'.runner_htmlspecialchars( my_json_encode($keysArray) ).'"';
+			unset($_SESSION["successKeys"]);
+
+			if( $this->viewAvailable() && $keysArray )
+			{
+				$this->xt->assign("view_page_button", true);
+				$this->xt->assign("view_page_button_attrs", 'id="viewPageButton'.$this->id.'" '.$dataKeysAttr);
+			}
+			
+			if( $this->editAvailable() && $keysArray )
+			{
+				$this->xt->assign("edit_page_button", true);
+				$this->xt->assign("edit_page_button_attrs", 'id="editPageButton'.$this->id.'" '.$dataKeysAttr);
+			}
+		}
 	}
 
 	/**
@@ -1226,96 +1324,109 @@ class AddPage extends RunnerPage
 	{
 		$controlFields = $this->addFields;
 
-		if( $this->mode == ADD_INLINE ) //#9069
-			$controlFields = $this->removeHiddenColumnsFromInlineFields( $controlFields, $this->screenWidth, $this->screenHeight, $this->orientation );
+		if( $this->mode == ADD_INLINE ) { //#9069
+			$controlFields = $this->removeHiddenColumnsFromInlineFields( 
+				$controlFields, 
+				$this->screenWidth, 
+				$this->screenHeight, 
+				$this->orientation 
+			);
+		}
 
-		$control = array();
-
-		foreach($controlFields as $fName)
-		{
-			$gfName = GoodFieldName($fName);
-			$isDetKeyField = in_array($fName, $this->detailKeysByM);
-
-
-			$controls = array();
-			$controls["controls"] = array();
-			$controls["controls"]["id"] = $this->id;
-			$controls["controls"]["ctrlInd"] = 0;
-			$controls["controls"]["fieldName"] = $fName;
-
-			if ( in_array($fName, $this->errorFields))
-			{
-				$controls["controls"]["isInvalid"] = true;
-			}
-
-			$parameters = array();
-			$parameters["id"] = $this->id;
-			$parameters["ptype"] = PAGE_ADD;
-			$parameters["field"] = $fName;
-			$parameters["value"] = @$this->defvalues[ $fName ];
-			$parameters["pageObj"] = $this;
-
-			if( !$isDetKeyField )
-			{
-				$parameters["validate"] = $this->pSet->getValidation($fName);
-
-				if( $this->pSet->isUseRTE($fName) )
-					$_SESSION[ $this->sessionPrefix."_".$fName."_rte" ] = @$this->defvalues[ $fName ];
-			}
-
-			//if richEditor for field
-			if( $this->pSet->isUseRTE($fName) )
-			{
-				$parameters["mode"] = "add";
-				$controls["controls"]["mode"] = "add";
-			}
-			else
-			{
-				$controlMode = $this->mode == ADD_INLINE ? "inline_add" : "add";
-				$parameters["mode"] = $controlMode;
-				$controls["controls"]["mode"] = $controlMode;
-			}
-
-			if( $isDetKeyField && $fName )
-			{
-				$controls["controls"]["value"] = @$this->defvalues[ $fName ];
-
-				$parameters["extraParams"] = array();
-				$parameters["extraParams"]["getDetKeyReadOnlyCtrl"] = true;
-
+		foreach( $controlFields as $fName ) {
+			$isDetKeyField = in_array( $fName, $this->detailKeysByM );
+			if( $isDetKeyField ) {
 				// to the ReadOnly control show the detail key control's value
-				$this->readOnlyFields[ $fName ] = $this->showDBValue($fName, $this->defvalues);
+				$this->readOnlyFields[ $fName ] = $this->showDBValue( $fName, $this->defvalues );
 			}
 
-			if ( $this->isBootstrap() )
-			{
-				$firstElementId = $this->getControl($fName, $this->id)->getFirstElementId();
-				if ( $firstElementId )
-				{
-					$this->xt->assign("labelfor_" . goodFieldName($fName), $firstElementId);
-				}
+			if( $this->isBootstrap() ) {
+				$firstElementId = $this->getControl( $fName, $this->id )->getFirstElementId();
+				if( $firstElementId )
+					$this->xt->assign( "labelfor_" . GoodFieldName( $fName ), $firstElementId );
 			}
+			
+			$parameters = $this->getEditContolParams( $fName, $this->id, $this->defvalues );
+			$this->xt->assign_function( GoodFieldName( $fName )."_editcontrol", "xt_buildeditcontrol", $parameters );
 
-			$this->xt->assign_function( $gfName."_editcontrol", "xt_buildeditcontrol", $parameters );
-
-			$preload = $this->fillPreload($fName, $controlFields, $this->defvalues);
-			if( $preload !== false )
-			{
-				$controls["controls"]["preloadData"] = $preload;
-				if( !@$this->defvalues[ $fName ] && count($preload["vals"]) > 0 )
-					$this->defvalues[ $fName ] = $preload["vals"][0];
-			}
-
+			$controls = $this->getContolMapData( $fName, $this->id, $this->defvalues, $controlFields );	
+			if ( in_array( $fName, $this->errorFields ) )
+				$controls["controls"]["isInvalid"] = true;
+			
 			$this->fillControlsMap( $controls );
+			
 			$this->fillFieldToolTips( $fName );
 			$this->fillControlFlags( $fName );
 
 			// fill special settings for a time picker
 			if( $this->pSet->getEditFormat($fName) == "Time" )
-				$this->fillTimePickSettings( $fName, @$this->defvalues[$fName] );
+				$this->fillTimePickSettings( $fName, @$this->defvalues[ $fName ] );
 		}
+	}	
+
+	public function getContolMapData( $fName, $recId, &$data, $pageFields ) {
+		$controls = array();
+		$controls["controls"] = array();
+		$controls["controls"]["id"] = $recId;
+		$controls["controls"]["ctrlInd"] = 0;
+		$controls["controls"]["fieldName"] = $fName;
+
+		//if richEditor for field
+		if( $this->pSet->isUseRTE( $fName ) )
+			$controls["controls"]["mode"] = "add";
+		else
+			$controls["controls"]["mode"] = $this->mode == ADD_INLINE ? "inline_add" : "add";
+
+		$isDetKeyField = in_array( $fName, $this->detailKeysByM );
+		if( $isDetKeyField  )
+			$controls["controls"]["value"] = $data[ $fName ];
+		
+		$preload = $this->fillPreload( $fName, $pageFields, $data );
+		if( $preload !== false ) {
+			$controls["controls"]["preloadData"] = $preload;
+			if( !$data[ $fName ] && $preload["vals"] )
+				$data[ $fName ] = $preload["vals"][0];
+		}
+		
+		return $controls;
+	}
+	
+	/**
+	 *
+	 */
+	public function getEditContolParams( $fName, $recId, &$data ) {		
+		$parameters = array();
+		$parameters["id"] = $recId;
+		$parameters["ptype"] = PAGE_ADD;
+		$parameters["field"] = $fName;
+		$parameters["value"] = $data[ $fName ];
+		$parameters["pageObj"] = $this;
+
+		if( $this->getEditFormat( $fName ) !== EDIT_FORMAT_READONLY ) {
+			$parameters["validate"] = $this->pSet->getValidation( $fName );
+
+			if( $this->pSet->isUseRTE($fName) )
+				$_SESSION[ $this->sessionPrefix."_".$fName."_rte" ] = $data[ $fName ];
+		} 
+
+		//if richEditor for field
+		if( $this->pSet->isUseRTE( $fName ) )
+			$parameters["mode"] = "add";
+		else
+			$parameters["mode"] = $this->mode == ADD_INLINE ? "inline_add" : "add";
+
+		return $parameters;	
 	}
 
+	public function getEditFormat( $field, $pSet = null ) {
+		$isDetKeyField = in_array( $field, $this->detailKeysByM );
+		if( $isDetKeyField ) {
+			return EDIT_FORMAT_READONLY;
+		}
+		return parent::getEditFormat( $field, $pSet );
+	}
+
+	
 	/**
 	 * Set details preview on the add master page
 	 */
@@ -1330,10 +1441,10 @@ class AddPage extends RunnerPage
 
 		$dpParams = $this->getDetailsParams( $this->id );
 
-		$this->jsSettings['tableSettings'][ $this->tName ]['isShowDetails'] = count( $dpParams ) > 0;
+		$this->jsSettings['tableSettings'][ $this->tName ]['isShowDetails'] = !!$dpParams;
 		$this->jsSettings['tableSettings'][ $this->tName ]['dpParams'] = array('tableNames' => $dpParams['strTableNames'], 'ids' => $dpParams['ids']);
 
-		if( !count($dpParams['ids']) )
+		if( !$dpParams['ids'] )
 			return;
 
 		$this->xt->assign("detail_tables", true);
@@ -1366,7 +1477,6 @@ class AddPage extends RunnerPage
 	 */
 	protected function doCommonAssignments()
 	{
-		$this->xt->assign("id", $this->id);
 
 		if ( $this->isBootstrap() )
 		{
@@ -1411,14 +1521,17 @@ class AddPage extends RunnerPage
 			$this->xt->assign("flybody", true);
 		}
 
-		if( $this->mode == ADD_ONTHEFLY /*|| $this->mode == ADD_MASTER*/ || $this->mode == ADD_POPUP || $this->mode == ADD_DASHBOARD || $this->mode == ADD_MASTER_DASH )
+		if( $this->mode == ADD_ONTHEFLY 
+		  /*|| $this->mode == ADD_MASTER*/ 
+			|| $this->mode == ADD_POPUP 
+			|| $this->mode == ADD_DASHBOARD 
+			|| $this->mode == ADD_MASTER_DASH )
 		{
 			$this->xt->assign("body", true);
 			$this->xt->assign("footer", false);
 			$this->xt->assign("header", false);
 			$this->xt->assign("flybody", $this->body);
 		}
-
 	}
 
 	/**
@@ -1448,7 +1561,8 @@ class AddPage extends RunnerPage
 		if( $this->eventsObject->exists("BeforeShowAdd") )
 			$this->eventsObject->BeforeShowAdd($this->xt, $templatefile, $this);
 
-		$this->displayMasterTableInfo();
+		if( $this->mode != ADD_INLINE && $this->mode != ADD_ONTHEFLY )
+			$this->displayMasterTableInfo();
 		// invoked after displayMasterTableInfo to add master viewcontrols maps
 		$this->fillSetCntrlMaps();
 
@@ -1460,7 +1574,7 @@ class AddPage extends RunnerPage
 
 		if( $this->mode == ADD_ONTHEFLY || $this->mode == ADD_POPUP || $this->mode == ADD_DASHBOARD || $this->mode == ADD_MASTER_DASH )
 		{
-			$this->displayAJAX($templatefile, $this->id + 1);
+			$this->displayAJAX( $templatefile, $this->flyId + 1 );
 			exit();
 		}
 
@@ -1470,11 +1584,17 @@ class AddPage extends RunnerPage
 
 			$this->xt->load_template( $templatefile );
 
-			$returnJSON["html"] = array();
-			foreach($this->addFields as $fName)
-			{
-				$returnJSON["html"][ $fName ] = $this->xt->fetchVar(GoodFieldName($fName)."_editcontrol");
+			$returnJSON["htmlControls"] = array();
+			foreach( $this->addFields as $fName ) {
+				$returnJSON["htmlControls"][ $fName ] = $this->xt->fetchVar( GoodFieldName($fName)."_editcontrol" );
 			}
+
+			$listPSet = $this->getListPSet();
+			if( $listPSet->reorderRows() ) {
+				//	provisional order value, to be adjusted at the time of saving
+				$returnJSON['order'] = $this->getMaxOrderValue( $listPSet ) + 1;
+			}
+
 
 			global $pagesData;
 			$returnJSON["pagesData"] = $pagesData;
@@ -1579,7 +1699,8 @@ class AddPage extends RunnerPage
 	 */
 	public function checkIfToAddOwnerIdValue( $ownerField, $currentValue )
 	{
-		return $this->pSet->getOriginalTableName() == $this->pSet->getOwnerTable( $ownerField ) && !$this->isAutoincPrimaryKey( $ownerField )
+		return originalTableField( $ownerField, $this->pSet ) // legacy
+			&& !$this->isAutoincPrimaryKey( $ownerField )
 			&& ( !CheckTablePermissions($this->tName, 'M') || !strlen($currentValue) );
 	}
 
@@ -1592,16 +1713,6 @@ class AddPage extends RunnerPage
 	{
 		$keyFields = $this->pSet->getTableKeys();
 		return count($keyFields) == 1 && in_array($field, $keyFields) && $this->pSet->isAutoincField( $field );
-	}
-
-
-	/**
-	 * Set the page's message
-	 * @param String message
-	 */
-	public function setMessage( $message )
-	{
-		$this->message = $message;
 	}
 
 	/**
@@ -1639,13 +1750,6 @@ class AddPage extends RunnerPage
 		return $this->newRecordData;
 	}
 
-	/**
-	 * @return Array
-	 */
-	public function getBlobFields()
-	{
-		return $this->newRecordBlobFields;
-	}
 
 	/**
 	 * @param String fName
@@ -1684,7 +1788,7 @@ class AddPage extends RunnerPage
 
 		// The user is logged in but lacks necessary permissions
 		// redirect to List page or Menu.
-		if( isLogged() && !isLoggedAsGuest() )
+		if( isLogged() && !Security::isGuest() )
 		{
 			Security::redirectToList( $table );
 			return false;
@@ -1781,6 +1885,13 @@ class AddPage extends RunnerPage
 		$dc->filter = $this->getSecurityCondition();
 
 		return $dc;
+	}
+
+	protected function getListPSet() {
+		if( !$this->listPagePSet )  {
+			$this->listPagePSet = new ProjectSettings( $this->tName, PAGE_LIST, $this->hostPageName, $this->pageTable );
+		}
+		return $this->listPagePSet;
 	}
 }
 ?>

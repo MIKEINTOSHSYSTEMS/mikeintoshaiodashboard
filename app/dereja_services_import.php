@@ -10,6 +10,10 @@ require_once("include/dereja_services_variables.php");
 require_once("include/import_functions.php");
 require_once('classes/importpage.php');
 
+if( Security::hasLogin() ) {
+	if( !Security::processPageSecurity( $strtablename, 'I' ) )
+		return;
+}
 
 
 require_once('include/xtempl.php');

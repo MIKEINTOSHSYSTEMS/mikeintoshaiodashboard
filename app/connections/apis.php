@@ -30,7 +30,33 @@ class RestManager
 	}
 
 	public function getConnection( $id ) {
+		if( $id == spidGOOGLEDRIVE ) {
+			return getGoogleDriveConnection();
+		}
+		if( $id == spidONEDRIVE ) {
+			return getOneDriveConnection();
+		}
+		if( $id == spidDROPBOX ) {
+			return getDropboxConnection();
+		}
+		if( !$this->_connectionsData[$id] ) {
+			return null;
+		}
 		return new RestConnection( $this->_connectionsData[ $id ] );
+	}
+
+	public function idByName( $name ) {
+		foreach( $this->_connectionsData as $id => $data ) {
+			if( $data["connName"] == $name ) {
+				return $id;
+			}
+		}
+		
+		//	return first available
+		foreach( $this->_connectionsData as $id => $data ) {
+			return $id;
+		}
+
 	}
 
 

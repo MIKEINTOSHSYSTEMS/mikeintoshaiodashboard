@@ -61,15 +61,15 @@ class MySQLiConnection extends Connection
 	{
 		global $cMySQLNames;
 
-		if( !$this->port )
+		if( !trim( $this->port ) )
 			$this->port = 3306;
 
 		$hosts = array();
 		//	fix IPv6 slow connection issue
 		if( $this->host == "localhost" )
 		{
-			if( $_SESSION["myqsladdress"] )
-				$hosts[] = $_SESSION["myqsladdress"];
+			if( @$_SESSION["myqsladdress"] )
+				$hosts[] = @$_SESSION["myqsladdress"];
 			else
 				$hosts[] = "127.0.0.1";
 		}
@@ -117,7 +117,7 @@ class MySQLiConnection extends Connection
 			$this->subqueriesSupported = false;
 
 		$res = @mysqli_query($this->conn, "SELECT @@SESSION.sql_mode as mode");
-		if( $row = @mysqli_fetch_array($res, MYSQL_ASSOC) ){
+		if( $row = @mysqli_fetch_array($res, MYSQLI_ASSOC) ){
 			$sql_mode = $row["mode"];
 			$arr = array();
 			$arr = explode(",",$sql_mode);
@@ -151,6 +151,7 @@ class MySQLiConnection extends Connection
 	 */
 	public function query( $sql )
 	{
+		$this->clearResultBuffer();
 		$this->debugInfo($sql);
 
 		$ret = mysqli_query($this->conn, $sql);
@@ -169,6 +170,7 @@ class MySQLiConnection extends Connection
 	 */
 	public function exec( $sql )
 	{
+		$this->clearResultBuffer();
 		$qResult = $this->query( $sql );
 		if( $qResult )
 			return $qResult->getQueryHandle();
@@ -183,7 +185,7 @@ class MySQLiConnection extends Connection
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		$this->debugInfo($sql);
 		return @mysqli_query($this->conn, $sql);
@@ -202,7 +204,7 @@ class MySQLiConnection extends Connection
 	 * Get the auto generated id used in the last query
 	 * @return Number
 	 */
-	public function getInsertedId($key = null, $table = null , $oraSequenceName = false)
+	public function getInsertedId($key = null, $table = null )
 	{
 		return @mysqli_insert_id( $this->conn );
 	}
@@ -290,5 +292,19 @@ class MySQLiConnection extends Connection
 
 		return true;
 	}
+
+	public function clearResultBuffer() {
+		while( mysqli_more_results( $this->conn ) ) {
+			mysqli_next_result( $this->conn );
+		}
+	}
+
+	/**
+	 *  @return String
+	 */
+	public function getVersion() {
+		return $this->mysqlVersion;
+	}
+
 }
 ?>

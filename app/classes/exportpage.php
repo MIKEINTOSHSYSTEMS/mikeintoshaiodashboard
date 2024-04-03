@@ -99,7 +99,6 @@ class ExportPage extends RunnerPage
 	 */
 	protected function doCommonAssignments()
 	{
-		$this->xt->assign("id", $this->id);
 
 		if( $this->mode == EXPORT_SIMPLE )
 		{
@@ -119,7 +118,7 @@ class ExportPage extends RunnerPage
 			$this->xt->assign("exportFieldsCtrl", $this->getChooseFieldsCtrlMarkup() );
 		}
 
-		if( !$this->selection || !count( $this->selection ) )
+		if( !$this->selection )
 		{
 			$this->xt->assign("rangeheader_block", true);
 			$this->xt->assign("range_block", true);
@@ -202,6 +201,13 @@ class ExportPage extends RunnerPage
 		$this->exportTo( $this->exportType, $rs , $pageSize );
 	}
 
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
+		$dc = parent::getSubsetDataCommand( $ignoreFilterField );
+		
+		$this->reoderCommandForReoderedRows( $this->getListPSet(), $dc );
+		return $dc;
+	}
+	
 	/**
 	 * @param String type
 	 * @param Mixed rs
@@ -211,25 +217,24 @@ class ExportPage extends RunnerPage
 	{
 		global $locale_info;
 
-		$_type = $type;
-		if( substr(@$type, 0, 5) == "excel" )
-			$_type = "excel";
+		if( substr($type, 0, 5) == "excel" )
+			$type = "excel";
 		
-		if( $_type == "excel" ) 
+		if( $type == "excel" ) 
 		{
 			$locale_info["LOCALE_SGROUPING"] = "0";
 			$locale_info["LOCALE_SMONGROUPING"] = "0";
 			ExportToExcel( $rs, $pageSize, $this );
 		} 
-		else if( $_type == "word" ) 
+		else if( $type == "word" ) 
 		{
 				$this->ExportToWord( $rs, $pageSize );
 		}
-		else if( $_type == "xml" ) 
+		else if( $type == "xml" ) 
 		{
 			$this->ExportToXML( $rs, $pageSize );
 		}
-		else if( $_type == "csv" ) 
+		else if( $type == "csv" ) 
 		{
 			$locale_info["LOCALE_SGROUPING"] = "0";
 			$locale_info["LOCALE_SDECIMAL"] = ".";
@@ -332,6 +337,7 @@ class ExportPage extends RunnerPage
 		foreach( $this->selectedFields as $field )
 		{
 			$headerParts[] = '"'.str_replace( '"', '""', $field ).'"';
+		// 	$headerParts[] = '"'.str_replace( '"', '""', GetFieldLabel( GoodFieldName( $this->tName ), GoodFieldName( $field ) ) ).'"';			
 		}
 		echo implode( $delimiter, $headerParts );
 		echo "\r\n";
@@ -374,7 +380,7 @@ class ExportPage extends RunnerPage
 		if( $this->useRawValues )
 			return $row[ $fName ];
 
-		return $this->getExportValue( $fName, $row );
+		return $this->getExportValue( $fName, $row, "", $this->exportType == "word" );
 	}
 
 	/**
@@ -593,6 +599,6 @@ class ExportPage extends RunnerPage
 	}
 	
 	public function getSecurityCondition() {
-		return Security::SelectCondition( "E", $this->pSet );
+		return Security::SelectCondition( "P", $this->pSet );
 	}
 }

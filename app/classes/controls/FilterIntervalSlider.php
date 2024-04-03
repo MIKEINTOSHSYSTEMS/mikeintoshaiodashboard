@@ -255,7 +255,6 @@ class FilterIntervalSlider extends FilterControl
 		$ctrlsMap['roundedMaxKnobValue'] = $this->round( $this->maxKnobValue, false );
 		
 		if( $this->filtered ) {
-			//$ctrlsMap['defaultValuesArray'] = array( $this->minKnobValue, $this->maxKnobValue );
 			$ctrlsMap['minKnobValue'] = $this->minKnobValue;
 			$ctrlsMap['maxKnobValue'] = $this->maxKnobValue;
 		}
@@ -398,7 +397,7 @@ class FilterIntervalSlider extends FilterControl
 		$filterCtrlBlocks = array(); 
 		$this->addFilterBlocksFromDB( $filterCtrlBlocks );
 
-		if( !count( $filterCtrlBlocks ) )
+		if( !$filterCtrlBlocks )
 			$this->visible = false;
 			
 		if( $this->visible )
@@ -427,10 +426,20 @@ class FilterIntervalSlider extends FilterControl
 		if( $knobsType == FS_MIN_ONLY )
 			return $conditionMore;
 		
-		$conditionLess = DataCondition::_Not(
-			DataCondition::FieldIs( $fName, dsopMORE, $secondValue )
-		);
-		
+		if( $pSet->getFilterStepType( $fName ) >= 3 && IsDateFieldType( $pSet->getFieldType( $fName ) ) ) {
+			//	interval "up to 2010-10-10" should translate into "x < 2010-10-11" and not in "x <= 2010-10-10"
+			$tm = db2time( $secondValue );
+			if( !$tm[0] ) {
+				$conditionLess = null;
+			} else {
+				$conditionLess = DataCondition::FieldIs( $fName, dsopLESS, date2db( adddays( $tm, 1 ) ) );
+			}
+		} else {
+			$conditionLess = DataCondition::_Not(
+				DataCondition::FieldIs( $fName, dsopMORE, $secondValue )
+			);
+		}
+			
 		return DataCondition::_And( array( 
 			$conditionLess, 
 			$conditionMore 

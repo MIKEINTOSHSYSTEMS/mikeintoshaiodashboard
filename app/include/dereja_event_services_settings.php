@@ -63,14 +63,9 @@ $tdatadereja_event_services[".showEditInPopup"] = false;
 
 $tdatadereja_event_services[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatadereja_event_services[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatadereja_event_services[".listAjax"] = false;
 //	temporary
-$tdatadereja_event_services[".listAjax"] = false;
+//$tdatadereja_event_services[".listAjax"] = false;
 
 	$tdatadereja_event_services[".audit"] = false;
 
@@ -134,8 +129,6 @@ $tdatadereja_event_services[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatadereja_event_services[".isUseAjaxSuggest"] = true;
 
-$tdatadereja_event_services[".rowHighlite"] = true;
-
 
 
 
@@ -189,8 +182,6 @@ $tdatadereja_event_services[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatadereja_event_services[".strOrderBy"] = $tstrOrderBy;
 
 $tdatadereja_event_services[".orderindexes"] = array();
@@ -254,7 +245,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("dereja_event_services","EventServiceID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -286,7 +277,8 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -317,8 +309,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -340,7 +331,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -394,7 +385,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("dereja_event_services","ServiceID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -425,7 +416,8 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -484,8 +476,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -504,7 +495,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -558,7 +549,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("dereja_event_services","EventID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -589,7 +580,8 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -648,8 +640,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -668,7 +659,7 @@ $tdatadereja_event_services[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -720,9 +711,16 @@ $fieldToolTips["dereja_event_services"] = &$fieldToolTipsdereja_event_services;
 $placeHolders["dereja_event_services"] = &$placeHoldersdereja_event_services;
 $page_titles["dereja_event_services"] = &$pageTitlesdereja_event_services;
 
+
+changeTextControlsToDate( "dereja_event_services" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["dereja_event_services"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["dereja_event_services"] = array();
@@ -730,7 +728,8 @@ $masterTablesData["dereja_event_services"] = array();
 
 
 	
-				$strOriginalDetailsTable="events";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="events";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="events";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -745,8 +744,10 @@ $masterTablesData["dereja_event_services"] = array();
 				$masterTablesData["dereja_event_services"][0]["detailKeys"] = array();
 	$masterTablesData["dereja_event_services"][0]["detailKeys"][]="EventID";
 		
+	//endif
 	
-				$strOriginalDetailsTable="dereja_services";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="dereja_services";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="dereja_services";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -761,6 +762,7 @@ $masterTablesData["dereja_event_services"] = array();
 				$masterTablesData["dereja_event_services"][1]["detailKeys"] = array();
 	$masterTablesData["dereja_event_services"][1]["detailKeys"][]="ServiceID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -917,7 +919,6 @@ $tdatadereja_event_services[".sqlquery"] = $queryData_dereja_event_services;
 
 
 
-$tableEvents["dereja_event_services"] = new eventsBase;
 $tdatadereja_event_services[".hasEvents"] = false;
 
 ?>

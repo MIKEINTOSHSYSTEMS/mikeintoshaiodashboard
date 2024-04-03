@@ -1,6 +1,5 @@
 <?php
 @ini_set("display_errors","1");
-@ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
 header("Expires: Thu, 01 Jan 1970 00:00:01 GMT"); 

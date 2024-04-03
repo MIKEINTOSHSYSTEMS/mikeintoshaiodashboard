@@ -60,14 +60,9 @@ $tdataeducation_levels[".showEditInPopup"] = false;
 
 $tdataeducation_levels[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataeducation_levels[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataeducation_levels[".listAjax"] = false;
 //	temporary
-$tdataeducation_levels[".listAjax"] = false;
+//$tdataeducation_levels[".listAjax"] = false;
 
 	$tdataeducation_levels[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataeducation_levels[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataeducation_levels[".isUseAjaxSuggest"] = true;
 
-$tdataeducation_levels[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataeducation_levels[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataeducation_levels[".strOrderBy"] = $tstrOrderBy;
 
 $tdataeducation_levels[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("education_levels","EducationLevelID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("education_levels","EducationLevelName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataeducation_levels[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["education_levels"] = &$fieldToolTipseducation_levels;
 $placeHolders["education_levels"] = &$placeHolderseducation_levels;
 $page_titles["education_levels"] = &$pageTitleseducation_levels;
 
+
+changeTextControlsToDate( "education_levels" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["education_levels"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["education_levels"] = array();
@@ -675,7 +673,6 @@ $tdataeducation_levels[".sqlquery"] = $queryData_education_levels;
 
 
 
-$tableEvents["education_levels"] = new eventsBase;
 $tdataeducation_levels[".hasEvents"] = false;
 
 ?>

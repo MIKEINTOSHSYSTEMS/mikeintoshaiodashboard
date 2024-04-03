@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -97,15 +99,14 @@ pdfDocument = {
 	
 		body: [
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_c3}
+																{BEGIN cellblock_grid_c3}
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	dynamic colspan/rowspan
 
@@ -117,128 +118,131 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$CandidateID_pdfvalue}},
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field1}","text":{$First_Name_pdfvalue}},
+			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field2}","text":{$Middle_Name_pdfvalue}},
+			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field3}","text":{$Last_Name_pdfvalue}},
+			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field4}","text":{$Sex_pdfvalue}},
+			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field5}","text":{$DOB_pdfvalue}},
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field6}","text":{$Region_pdfvalue}},
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field7}","text":{$City_pdfvalue}},
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field8}","text":{$Sub_City_pdfvalue}},
+			{"text":{$Sub_City_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field9}","text":{$Zone_pdfvalue}},
+			{"text":{$Zone_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field10}","text":{$House_No_pdfvalue}},
+			{"text":{$House_No_pdfvalue},"hidden":"{$item_hide_integrated_search_field10}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field11}","text":{$Phone_Number_pdfvalue}},
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_integrated_search_field11}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field12}","text":{$Phone_Number_Family_pdfvalue}},
+			{"text":{$Phone_Number_Family_pdfvalue},"hidden":"{$item_hide_integrated_search_field12}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field13}","text":{$Email_Address_pdfvalue}},
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_integrated_search_field13}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field14}","text":{$Institution_Type_pdfvalue}},
+			{"text":{$Institution_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field14}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field15}","text":{$Education_Level_pdfvalue}},
+			{"text":{$Education_Level_pdfvalue},"hidden":"{$item_hide_integrated_search_field15}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field16}","text":{$Department_pdfvalue}},
+			{"text":{$Department_pdfvalue},"hidden":"{$item_hide_integrated_search_field16}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field17}","text":{$Minor_pdfvalue}},
+			{"text":{$Minor_pdfvalue},"hidden":"{$item_hide_integrated_search_field17}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field18}","text":{$Major_pdfvalue}},
+			{"text":{$Major_pdfvalue},"hidden":"{$item_hide_integrated_search_field18}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field19}","text":{$Skills_pdfvalue}},
+			{"text":{$Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field19}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field20}","text":{$English_Proficiency_Level_pdfvalue}},
+			{"text":{$English_Proficiency_Level_pdfvalue},"hidden":"{$item_hide_integrated_search_field20}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field21}","text":{$Industry_Specific_Skills_pdfvalue}},
+			{"text":{$Industry_Specific_Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field21}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field22}","text":{$IT_Related_Skills_pdfvalue}},
+			{"text":{$IT_Related_Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field22}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field23}","text":{$Certifications_pdfvalue}},
+			{"text":{$Certifications_pdfvalue},"hidden":"{$item_hide_integrated_search_field23}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field24}","text":{$Year_of_graduation_pdfvalue}},
+			{"text":{$Year_of_graduation_pdfvalue},"hidden":"{$item_hide_integrated_search_field24}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field25}","text":{$Work_Experience_pdfvalue}},
+			{"text":{$Work_Experience_pdfvalue},"hidden":"{$item_hide_integrated_search_field25}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field26}","text":{$Joined_Dereja_Services_pdfvalue}},
+			{"text":{$Joined_Dereja_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field26}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field27}","text":{$Dereja_Services_pdfvalue}},
+			{"text":{$Dereja_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field27}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field28}","text":{$Dereja_Training_Services_pdfvalue}},
+			{"text":{$Dereja_Training_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field28}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field29}","text":{$Dereja_Event_Services_pdfvalue}},
+			{"text":{$Dereja_Event_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field29}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field30}","text":{$Dereja_web_profile_completion_pdfvalue}},
+			{"text":{$Dereja_web_profile_completion_pdfvalue},"hidden":"{$item_hide_integrated_search_field30}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field31}","text":{$Dereja_Information_Source_pdfvalue}},
+			{"text":{$Dereja_Information_Source_pdfvalue},"hidden":"{$item_hide_integrated_search_field31}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field32}","text":{$StudentID_pdfvalue}},
+			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_integrated_search_field32}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field33}","text":{$Disability_Status_pdfvalue}},
+			{"text":{$Disability_Status_pdfvalue},"hidden":"{$item_hide_integrated_search_field33}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field34}","text":{$Disability_Type_pdfvalue}},
+			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field34}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field35}","text":{$Disability_Type_Other_pdfvalue}},
+			{"text":{$Disability_Type_Other_pdfvalue},"hidden":"{$item_hide_integrated_search_field35}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field36}","text":{$Field_Of_Study_pdfvalue}},
+			{"text":{$Field_Of_Study_pdfvalue},"hidden":"{$item_hide_integrated_search_field36}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field37}","text":{$GPA_pdfvalue}},
+			{"text":{$GPA_pdfvalue},"hidden":"{$item_hide_integrated_search_field37}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_c3}
 											],
 				{END row_grid_0}
-					]
+		
+		]
 	}
 }
 ,
@@ -258,13 +262,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -287,11 +290,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

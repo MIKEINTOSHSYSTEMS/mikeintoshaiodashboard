@@ -6,41 +6,41 @@ class DBFunctions
 	 * @type String
 	 */
 	protected $strLeftWrapper;
-	
+
 	/**
-	 * The right db wrapper	
+	 * The right db wrapper
 	 * @type String
-	 */	
+	 */
 	protected $strRightWrapper;
-	
+
 	protected $escapeChars = array();
 
-	
+
 	function __construct( $params )
 	{
 		//	default identifier wrappers
 		$this->strLeftWrapper = "\"";
 		$this->strRightWrapper = "\"";
-		
+
 		$this->escapeChars[ '\'' ] = true;
 
-		if( isset( $params["leftWrap"] ) && isset( $params["rightWrap"] ) ) 
+		if( isset( $params["leftWrap"] ) && isset( $params["rightWrap"] ) )
 		{
 			$this->strLeftWrapper = $params["leftWrap"];
 			$this->strRightWrapper = $params["rightWrap"];
 		}
-		
+
 	}
 
 	/**
 	 * @param String strName
 	 * @return String
-	 */	
+	 */
 	public function addTableWrappers( $strName )
 	{
 		if( substr($strName, 0, 1) == $this->strLeftWrapper )
 			return $strName;
-			
+
 		$arr = explode(".", $strName);
 		$ret = "";
 		foreach( $arr as $e )
@@ -52,7 +52,7 @@ class DBFunctions
 		return $ret;
 	}
 
-	
+
     /**
      * Tells if the database supports schemas
      * @return boolean
@@ -72,7 +72,7 @@ class DBFunctions
 		return true;
 	}
 
-	
+
     /**
      * Parses the table name into database, schema and table name
      * @param string $name the table name
@@ -90,39 +90,38 @@ class DBFunctions
             $components["db"] = $parts[0];
             $components["schema"] = $parts[1];
             $components["table"] = $parts[2];
-        } 
-		elseif ( count($parts) == 2 && ( $this->crossDbSupported() || $this->schemaSupported() ) ) 
+        }
+		elseif ( count($parts) == 2 && ( $this->crossDbSupported() || $this->schemaSupported() ) )
 		{
             if( $this->schemaSupported() )
 				$components["schema"] = $parts[0];
 			else
 				$components["db"] = $parts[0];
             $components["table"] = $parts[1];
-        } 
-		else 
+        }
+		else
 		{
             $components["table"] = $name;
         }
- 		
+
  		return $components;
     }
 
 	/**
 	 *  Get the auto generated SQL string used in the last query
-	 * @param String key (optional)	
-	 * @param String table (optional)	
-	 * @param String oraSequenceName (optional)	
+	 * @param String key (optional)
+	 * @param String table (optional)
 	 * @return String
 	 */
-	public function getInsertedIdSQL( $key = null, $table = null, $oraSequenceName = false )
+	public function getInsertedIdSQL( $key = null, $table = null)
 	{
 		return "SELECT MAX(" . $this->addFieldWrappers( $key ) . ") FROM " . $this->addTableWrappers( $table );
-	}	
+	}
 
 	/**
 	 * @param String strName
 	 * @return String
-	 */	
+	 */
 	public function timeToSecWrapper( $strName )
 	{
 		return $this->addTableWrappers($strName);
@@ -131,16 +130,16 @@ class DBFunctions
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function prepareString( $str )
 	{
 		return "'".$this->addSlashes($str)."'";
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */			
+	 */
 	public function addSlashes( $str )
 	{
 		return str_replace("'", "''", $str);
@@ -150,22 +149,25 @@ class DBFunctions
 	 * Alias for addSlashes
 	 * @param String str
 	 * @return String
-	 */			
+	 */
 	public function escapeString( $str )
 	{
 		return $this->addSlashes( $str );
 	}
-	
-	
+
+
 	/**
-	 * adds wrappers to field name if required	
+	 * adds wrappers to field name if required
 	 * @param String strName
 	 * @return String
-	 */		
+	 */
 	public function addFieldWrappers( $strName )
 	{
-		if( substr($strName, 0, 1) == $this->strLeftWrapper )
-			return $strName;
+		$strName = str_replace(
+			array( $this->strLeftWrapper, $this->strRightWrapper ),
+			'',
+			$strName
+		);
 		return $this->strLeftWrapper.$strName.$this->strRightWrapper;
 	}
 
@@ -173,7 +175,7 @@ class DBFunctions
 	 * Decode binary value selected from the database
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function stripSlashesBinary( $str )
 	{
 		return $str;
@@ -186,12 +188,12 @@ class DBFunctions
 	 *  Character 1 is on quotes, 2 - not
 	 *  @return Boolean
 	 */
-	public function positionQuoted( $sql, $pos ) 
+	public function positionQuoted( $sql, $pos )
 	{
 		$inQuote = false;
-		$afterEscape = false;			
+		$afterEscape = false;
 		for ($i = 0; $i < $pos; $i++)
-		{ 
+		{
 			$c = substr( $sql, $i, 1);
 			if( !$afterEscape )
 			{
@@ -205,39 +207,39 @@ class DBFunctions
 		}
 		return $inQuote;
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function escapeLIKEpattern( $str )
 	{
 		return $str;
 	}
-	
-	
+
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function addSlashesBinary( $str )
 	{
 		return $this->addSlashes($str);
 	}
-	
-	/**	
+
+	/**
 	 * @param String dbval
-	 * @return String	 
-	 */	
+	 * @return String
+	 */
 	public function upper( $dbval )
 	{
 		return $dbval;
 	}
 
-	/**	
+	/**
 	 * @param String dbval
-	 * @return String	 
-	 */	
+	 * @return String
+	 */
 	public function caseSensitiveComparison( $val1, $val2 )
 	{
 		return $val1 . ' = ' . $val2;
@@ -263,39 +265,39 @@ class DBFunctions
 	 * It's called for Contains and Starts with searches
 	 * @param Mixed value
 	 * @param Number type (optional)
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2char($value, $type = 3)
 	{
 		return $value;
 	}
-	
+
 	/**
 	 * @param Mixed value
 	 * @param Number type
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2time($value, $type)
 	{
 		return $value;
-	}	
+	}
 
-	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit ) 
+	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit )
 	{
 		$qResult =  $connection->query( $strSQL );
 		$qResult->seekRecord( $skip );
 		return $qResult;
 	}
-	
+
 	/**
 	 * Applies group type to a character expression.
 	 * <SQL expression> => substring(<SQL expression>, 0, N )
 	 * @param String expr - SQL expression
-	 * @param Integer interval - type of interval. 
+	 * @param Integer interval - type of interval.
 	 * 	0 - whole expression, 1 first character, 2 - first two chars etc
 	 * @return String
 	 */
-	public function intervalExpressionString( $expr, $interval ) 
+	public function intervalExpressionString( $expr, $interval )
 	{
 		//	default implementation
 		return $expr;
@@ -304,10 +306,10 @@ class DBFunctions
 	/**
 	 * Applies group type to a numeric expression.
 	 * @param String expr - SQL expression
-	 * @param Integer interval - type of interval. 
+	 * @param Integer interval - type of interval.
 	 * @return String
 	 */
-	public function intervalExpressionNumber( $expr, $interval ) 
+	public function intervalExpressionNumber( $expr, $interval )
 	{
 		//	default implementation
 		return $expr;
@@ -316,10 +318,10 @@ class DBFunctions
 	/**
 	 * Applies group type to a DATE expression.
 	 * @param String expr - SQL expression
-	 * @param Integer interval - type of interval. 
+	 * @param Integer interval - type of interval.
 	 * @return String
 	 */
-	public function intervalExpressionDate( $expr, $interval ) 
+	public function intervalExpressionDate( $expr, $interval )
 	{
 		//	default implementation
 		return $expr;
@@ -348,6 +350,15 @@ class DBFunctions
 			return $expr;
 		return "floor( " . $expr . " / " . $interval . " ) * ".$interval;
 	}
+
+	/**
+	 * Get list of initialization sql commands
+	 * @return Array
+	 */
+	public function initializationSQL() {
+		return array();
+	}
+
 
 }
 ?>

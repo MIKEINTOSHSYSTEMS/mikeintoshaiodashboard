@@ -44,46 +44,36 @@ class ListPage_Ajax extends ListPage_Simple
 	/**
 	 * Show page method
 	 */
-	function showPage()
-	{
-		$this->BeforeShowList();
-		$bricksExcept = array("details_found", "page_of", "recsperpage", "vrecsperpage", "vdetails_found", "vpage_of", "grid");
-		$bricksExcept[] = "pagination";
-		$bricksExcept[] = "reorder_records";
-		$bricksExcept[] = "search_saving_buttons";
-		$bricksExcept[] = "filterpanel";
-		$bricksExcept[] = "message";
-		$bricksExcept[] = "recordcontrol";
-		$bricksExcept[] = "bsgrid_tabs";
+	function showPage() {
+		global $pagesData;
 		
-		if ( $this->isBootstrap() )
-		{
-			$bricksExcept[]= "morebutton";
-		}
-
-		$this->xt->hideAllBricksExcept($bricksExcept);
-		$this->xt->prepare_template($this->templatefile);
-
-		$returnJSON = array("success"=>true, 'idStartFrom'=>$this->flyId);
 		$this->addControlsJSAndCSS();
 		$this->fillSetCntrlMaps();
-		global $pagesData;
-		$returnJSON["pagesData"] = $pagesData;
-		$returnJSON['controlsMap'] = $this->controlsHTMLMap;
-		$returnJSON['viewControlsMap'] = $this->viewControlsMap;
-		$returnJSON['settings'] = $this->jsSettings;
-		$this->xt->assign("header","");
-		$this->xt->assign("footer","");
-		$returnJSON["html"] = $this->xt->fetch_loaded("body");
-		$returnJSON['cellStyles'] = $this->row_css_rules.$this->cell_css_rules."\n".$this->mobile_css_rules;
-		$returnJSON['numberOfRecs'] = $this->numRowsFromSQL;
-		$returnJSON['recPerPage'] = $this->pageSize;
+		
+		$this->BeforeShowList();
 
-		if ($this->deleteMessage!='')
+		$this->xt->load_template( $this->templatefile );
+		
+		$returnJSON = array();
+		$returnJSON["success"] = true;
+		$returnJSON["idStartFrom"] = $this->flyId;
+		$returnJSON["pagesData"] = $pagesData;
+	
+		$returnJSON["controlsMap"] = $this->controlsHTMLMap;
+		$returnJSON["viewControlsMap"] = $this->viewControlsMap;
+		$returnJSON["settings"] = $this->jsSettings;
+		$returnJSON["cellStyles"] = $this->row_css_rules.$this->cell_css_rules."\n".$this->mobile_css_rules;
+		$returnJSON["numberOfRecs"] = $this->numRowsFromSQL;
+		$returnJSON["recPerPage"] = $this->pageSize;
+		
+		if( $this->deleteMessage != '' )
 			$returnJSON["usermessage"] = true;
 
-		echo printJSON($returnJSON);
+		$returnJSON["html"] = $this->xt->fetch_loaded("body");
+		
+		echo printJSON( $returnJSON );
 		exit();
+		return;
 	}
 
 	/**

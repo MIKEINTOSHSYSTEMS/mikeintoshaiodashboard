@@ -35,10 +35,6 @@ class FilterControl
 	 */
 	protected $viewControl;
 	
-	protected $aggregate;
-		
-	protected $totalsOptions = array();
-	
 	protected $visible = true;
 	
 	protected $filterFormat;
@@ -90,7 +86,6 @@ class FilterControl
 		$this->pSet = $pageObj->pSet;
 		$this->cipherer = $pageObj->cipherer;
 		
-		$this->totalsOptions = array(FT_COUNT => "COUNT", FT_MIN => "MIN", FT_MAX => "MAX");
 		$this->totals = $this->pSet->getFilterFieldTotal($fName);
 		$this->totalsfName = $this->pSet->getFilterTotalsField($fName);
 		if(!$this->totalsfName || $this->totals == FT_COUNT) 
@@ -104,7 +99,7 @@ class FilterControl
 		$this->filteredFields = $pageObj->searchClauseObj->getFilteredFields(); 
 		$this->fieldType = $this->pSet->getFieldType($this->fName);
 		
-		if( count($this->filteredFields[ $this->fName ]) )
+		if( !!$this->filteredFields[ $this->fName ] )
 			$this->filtered = true;
 			
 		$this->assignViewControls($viewControls);
@@ -136,90 +131,7 @@ class FilterControl
 			$this->totalViewControl->isUsedForFilter = true;
 		}
 	}
-	
-	/**
-	 * Get a correct field name for SQL query building 
-	 * @param String fName
-	 * @return String
-	 */
-	protected function getDbFieldName($fName)
-	{
-		return RunnerPage::_getFieldSQLDecrypt($fName, $this->connection, $this->pSet, $this->cipherer );
-	}
-	
-	/**
-	 * Set the type of the aggregate funtion
-	 */
-	protected function setAggregateType()
-	{
-		$totalsOption = $this->useTotals ? $this->totals : FT_COUNT;
-		$this->aggregate = $this->totalsOptions[$totalsOption];
-	}
-	
 
-	/**
-	 * Stub
-	 */
-	protected function getTotals()
-	{	
-		return "";
-	}
-
-	
-	/**
-	 * Get the case-then-else statement basing on the database type
-	 * @param String condition
-	 * @param String trueValue
-	 * @param String falseValue
-	 * @return String
-	 */
-	protected function getCaseStatement($condition, $trueValue, $falseValue)
-	{
-		if( $this->connection->dbType == nDATABASE_Access )
-			return "IIF(".$condition.", ".$trueValue.", ".$falseValue.")";			
-
-		return "case when ".$condition." then ".$trueValue." else ".$falseValue." end";
-	}	
-	
-	/**
-	 * Combine the common WHERE condition and the filtered fields' WHERE conditions
-	 * @param Boolean useAllFilters (optional)
-	 * @return String
-	 */
-	protected function getCombinedFilterWhere( $useAllFilters = false )
-	{
-		$whereClause = $this->whereComponents["commonWhere"];
-
-		foreach($this->whereComponents["filterWhere"] as $fName => $fWhere)
-		{
-			if( $useAllFilters || $fName != $this->fName )
-			{
-				$whereClause = whereAdd($whereClause, $fWhere);
-			}
-		}
-		
-		return $whereClause;
-	}
-
-	/**
-	 * Combine the common HAVING condition and the filtered fields' HAVING conditions
-	 * @return String	
-	 */		
-	protected function getCombinedFilterHaving()
-	{
-		$havingClause = $this->whereComponents["commonHaving"];
-					
-		foreach($this->whereComponents["filterHaving"] as $fName => $fHaving)
-		{
-			if($fName != $this->fName)
-			{
-				$havingClause = whereAdd($havingClause, $fHaving);
-			}
-		}
-		
-		return $havingClause;
-	}
-	
 	/**
 	 * Add filter control's data to the ControlsMap
 	 * @param Object pageObj
@@ -306,7 +218,7 @@ class FilterControl
 		if( $this->multiSelect != FM_NONE && $this->filtered )
 			$this->addOutRangeValuesToFilter($filterCtrlBlocks);		
 		
-		if( !count($filterCtrlBlocks) )
+		if( !$filterCtrlBlocks )
 			$this->visible = false;
 		
 		$this->extraBlocksProcessing($filterCtrlBlocks);
@@ -413,7 +325,7 @@ class FilterControl
 		{
 			$showValue = $this->getControlCaption( $value );
 			$delButtonHtml = $this->getDelButtonHtml($this->gfName, $this->id, $value);
-			$filterControl = $delButtonHtml.'<span dir="LTR">'.$showValue.'</span>';
+			$filterControl = '<span>'.$delButtonHtml.$showValue.'</span>';
 			$parentFiltersData = $this->getParentFiltersDataForFilteredBlock($value);
 			$classes = 'filter-ready-value'.( $this->multiSelect == FM_ON_DEMAND ? ' ondemand' : '' );
 			$filterCtrlBlocks[] = $this->getFilterBlockStructure($filterControl, $classes, $value, $parentFiltersData);
@@ -475,25 +387,27 @@ class FilterControl
 						
 			$checkBox = '<input type="checkbox" '.$checkedAttr.' name="f[]" value="'.$encodeDataValue.'" '
 				.$extraDataAttrs.' class="multifilter-checkbox filter_'.$this->gfName.'_'.$this->id.'" '.$style.'>';	
-			$filterControl.= $checkBox.'&nbsp;';
 		}
-				
 		if($this->multiSelect != FM_ALWAYS) 
 		{
 			$href = GetTableLink( GetTableURL($this->tName), $pageType, 'f=('.runner_htmlspecialchars( rawurlencode( $this->fName ) ).
-				$separator.$encodeDataValue.')' );
-				
-			$label = '<a href="'.$href.'" '.$dataValueAttr.' '.$extraDataAttrs.' class="'.$this->gfName.'-filter-value">'.$showValue.'</a>';
+			$separator.$encodeDataValue.')' );
+			$hrefAttr = 'href="'.$href.'"';
+			$label = $checkBox . ' ' .$showValue;
 		} 
 		else
 		{
-			$label = '<span>'.$showValue.'</span>';
+			$label = $checkBox . ' <span>'.$showValue.'</span>';
 		}
 			
 		if($this->useTotals && $totalValue != "")
-			$label .= '<span>&nbsp;('.$totalValue.')</span>';
+			$label .= ' <span dir="LTR">('.$totalValue.')</span>';
+
+		$labelAttrs = implode( " ", array( $hrefAttr, $dataValueAttr, $extraDataAttrs ) );
+		$label = '<a '.$labelAttrs.' class="'.$this->gfName.'-filter-value">' . $label . "</a>";
 		
-		$filterControl.= '<span dir="LTR">'.$label.'</span>';
+		$filterControl.= $label;
+//		$filterControl.= '<span>'.$label.'</span>';
 		
 		return $filterControl;		
 	}
@@ -574,7 +488,8 @@ class FilterControl
 			$selectAllAttrs.= ' style="display: none;"';
 		
 		return array(
-			"clearLink" => $this->filtered,
+			"showValue" => $this->getShowValue(),
+			"filtered" => $this->filtered,
 			"selectAllAttrs" => $selectAllAttrs,
 			"numberOfExtraItemsToShow" => $this->getNumberOfExtraItemsToShow()
 		);
@@ -664,11 +579,20 @@ class FilterControl
 	 */
 	static function getFilterControl($fName, $pageObj, $id, $viewControls = null ) 
 	{
+		$filterFields = $pageObj->pSet->getFilterFields();
+		if( array_search( $fName, $filterFields ) === false ) {
+			return null;
+		}
 		$contorlType = $pageObj->pSet->getFilterFieldFormat($fName);
 		switch($contorlType)
 		{
 			case FF_VALUE_LIST:
 				include_once getabspath("classes/controls/FilterValuesList.php");
+				if( $pageObj->pSet->multiSelectLookupEdit($fName) ) {
+					include_once getabspath("classes/controls/FilterMultiselectLookup.php");
+					return new FilterMultiselectLookup($fName, $pageObj, $id, $viewControls);
+				}
+				
 				return new FilterValuesList($fName, $pageObj, $id, $viewControls);
 			
 			case FF_BOOLEAN:
@@ -718,6 +642,23 @@ class FilterControl
 			return 'max';
 		}
 		return '';
+	}
+
+	/**
+	 * Returns string to be displayed in the horizontal control
+	 */
+	protected function getShowValue() {
+		if( !$this->filtered ) {
+			return "";
+		}
+		$values =& $this->filteredFields[ $this->fName ]["values"];
+		if( !$values ) {
+			return "";
+		}
+		if( count( $values ) > 1 ) {
+			return "(" . count( $values ) . ")";
+		}
+		return $this->getControlCaption( $values[0] );
 	}
 }
 

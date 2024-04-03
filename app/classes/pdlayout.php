@@ -9,21 +9,23 @@ class PDLayout
 	var $bootstrapSize;
 	var $name="";
 	var $style="";
+	var $stylePath="";
 	/**
 	 * True when 'this page has custom settings' is checked off
 	 */
 	var $customSettings = false;
 
-	function __construct( $table, $page, $theme, $size = "normal", $customSettings = false )
+	function __construct( $table, $page, $theme, $size = "normal", $stylePath = "", $customSettings = false )
 	{
 		$this->page = $page;
 		$this->table = $table;
 		$this->bootstrapTheme = $theme;
 		$this->bootstrapSize = $size;
+		$this->stylePath = $stylePath;
 		$this->customSettings = $customSettings;
 	}
 
-	
+
 	/**
 	 *  Returns list of CSS files required for displaying the layout
 	 */
@@ -31,37 +33,44 @@ class PDLayout
 	{
 		$files = array();
 		$suffix = "";
-		if( $rtl )
+		if( $rtl ) {
 			$suffix = "RTL";
-			
-			$files[] = "styles/bootstrap/".$this->bootstrapTheme."/".$this->bootstrapSize."/style".$suffix.".css";
+		}
 
-//		$files[] = "styles/bs".$suffix.".css";
+		// add custom theme style for page(Editor tab settings) or project theme style
+		if ($this->customSettings && strlen($this->stylePath) != 0) {
+			$files[] = $this->stylePath . "/style" . $suffix . ".css";
+		} else {
+			$files[] = "styles/bootstrap/" . $this->bootstrapTheme . "/" . $this->bootstrapSize . "/style" . $suffix . ".css";
+		}
 
 		$files[] = "styles/font-awesome/css/font-awesome.min.css";
 
-		if( !$this->customSettings ) {
-			if( file_exists( getabspath( "styles/custom/custom.css" ) ) )
-				$files[] = "styles/custom/custom".$suffix.".css";
+		// add project CustomCSS
+		if (!$this->customSettings) {
+			if (file_exists(getabspath("styles/custom/custom" . $suffix . ".css"))) {
+				$files[] = "styles/custom/custom" . $suffix . ".css";
+			}
 		}
 
 		$files[] = "styles/pages/".$this->table."_".$this->page["id"].$suffix.".css";
-
+		
+		$files[] = "styles/fonts.css";
 
 		return $files;
 	}
 
-	
+
 	/**
-     *	Hide items and grid cells that should be hidden 
- 	 *	@param XTempl @xt	
+     *	Hide items and grid cells that should be hidden
+ 	 *	@param XTempl @xt
 	 *	@param array $itemsToHide
 	 *	@param ProjectSettings ps
 	 *	@return {object} copy of cell map with hidden rows and cols removed
 	 */
 	public function & prepareGrid( $xt, $itemsToHide, $recordItemsToHide, &$cellMap, $location, $pageObject )
 	{
-		$checkRecordItems = !!count( $recordItemsToHide );
+		$checkRecordItems = !!$recordItemsToHide;
 		$recordsToCheck = array();
 		//	mark cells that can be removed or hidden
 		foreach( $cellMap->cells as $cell => $dummy ) {
@@ -78,7 +87,7 @@ class PDLayout
 						break;
 					}
 				}
-			} 
+			}
 			$hidden = true;
 			$visibleItems = array();
 			foreach( $cMapRef["items"] as $i => $item ) {
@@ -109,8 +118,8 @@ class PDLayout
 		$hidingMap = $cellMap->makeClone();
 		$hiddenColsRows =  $hidingMap->removeRowsColumns("hidable" );
 
-		
-		
+
+
 		//	PDF JSON needs this
 		$visibleWidth = $cellMap->width - count($hiddenColsRows["cols"]);
 		$xt->assign( "formwidth_" . $location, $visibleWidth );
@@ -126,7 +135,7 @@ class PDLayout
 				$xt->assign( "row_" . $location . "_" . $row, 'data-hidden' );
 			}
 		} else {
-			
+
 			for( $row = 0; $row < $cellMap->height; ++$row ) {
 				$xt->assign( "row_" . $location . "_" . $row, true );
 			}
@@ -151,19 +160,19 @@ class PDLayout
 		}
 
 		foreach( $cellMap->cells as $cell => $cMap ) {
-			
+
 			if( 0 == count( $cMap["rows"] ) ||  0 == count( $cMap["cols"] )) {
 				//	don't display cell
 				continue;
 			}
-		
+
 			//	display cell
 			$xt->assign( "cellblock_" . $location . "_" . $cell, true );
-			
+
 			//	add cell attributes
 			$dummyData = null;
 			$this->assignCellAttrs( $hidingMap, $cell, $location, $pageObject, $xt, $dummyData );
-			
+
 		}
 
 		if( $checkRecordItems ) {
@@ -185,7 +194,7 @@ class PDLayout
 				}
 
 				foreach( $cellMap->cells as $cell => $cMap ) {
-			
+
 					if( 0 == count( $cMap["rows"] ) ||  0 == count( $cMap["cols"] )) {
 						//	don't display cell
 						continue;
@@ -193,15 +202,15 @@ class PDLayout
 					//	add cell attributes
 					$this->assignCellAttrs( $recordHidingMap, $cell, $location, $pageObject, $xt, $recordData, true );
 				}
-						
+
 
 			}
 		}
 
 		return $hidingMap;
-		
+
 	}
-	
+
 	function assignCellAttrs( &$cellMap, $cell, $location, $pageObject, $xt, &$recordData, $forceCellSpans = false ) {
 		$cellAttrs = array();
 		$hCell =& $cellMap->cells[$cell];
@@ -211,7 +220,7 @@ class PDLayout
 				//	display cell hidden
 				$cellAttrs[] = 'data-hidden';
 			}
-			
+
 			if( $forceCellSpans || count( $hCell["cols"] ) > 1 ) {
 				$cellAttrs[] = 'colspan="' . count( $hCell["cols"] ) . '"';
 			}
@@ -227,7 +236,7 @@ class PDLayout
 			if( 0 == count( $hCell["rows"] ) ||  0 == count( $hCell["cols"] )) {
 				$this->assignPageVar( $recordData, $xt, "cellblock_" . $location . "_" . $cell, false );
 			}
-			
+
 			if( $forceCellSpans || count( $hCell["cols"] ) > 1 ) {
 				$this->assignPageVar( $recordData, $xt, "colspan_" . $location . "_" . $cell, count( $hCell["cols"] ) );
 			}
@@ -245,12 +254,12 @@ class PDLayout
 		}
 	}
 	/**
- 	 *	@param array $allItems associative array of items 
+ 	 *	@param array $allItems associative array of items
 	 *	@param array $hiddenItems - associative array of items hidden in specific rows
 	 *				 $hiddenItems[<itemid>] = array( <rowid>,<rowid>,<rowid> )
 	 *	@return array Array of rowids where all items are hidden
 	 */
-	public function findHiddenRecords( $allItems, $hiddenItems) 
+	public function findHiddenRecords( $allItems, $hiddenItems)
 	{
 		$result = null;
 		foreach( $allItems as $item => $dummy ) {
@@ -270,13 +279,13 @@ class PDLayout
 
 	public function visibleOnMedia( $media, $visibilty ) {
 		if( $media == 0 ) {
-			return $visibilty == 0 
+			return $visibilty == 0
 				|| $visibilty == 3
 				|| $visibilty == 4
 				|| $visibilty == 5;
-		
+
 		} else if( $media == 1 ) {
-			return $visibilty == 0 
+			return $visibilty == 0
 				|| $visibilty == 2
 				|| $visibilty == 4;
 		}
@@ -286,7 +295,7 @@ class PDLayout
 	 * @param {array} $itemToHide - array of items to be hidden. Pairs of [itemId] => true
 	 */
 	public function prepareForms( $xt, $itemsToHide, $recordItemsToHide, $pageObject ) {
-		
+
 		/* desktop=0, mobile=1 */
 
 		if( $pageObject ) {
@@ -323,12 +332,12 @@ class PDLayout
 			$pageObject->setPageData("cellMaps", $visibleCellsMap );
 		}
 
-		//	hide items 
+		//	hide items
 		if( !$pageObject->pdfJsonMode() ) {
 			foreach( array_keys($invisibleItems) as $item ) {
 				if( $itemsToHide[ $item ] )
 					$xt->assign( "item_" . $item, 'data-hidden' );
-				else 
+				else
 					$xt->assign( "item_" . $item, 'data-media-hidden' );
 			}
 		} else {
@@ -346,10 +355,10 @@ class PDLayout
 			}
 		}
 
-		$xt->assign("firstAboveGridCell", true); 
+		$xt->assign("firstAboveGridCell", true);
 
 		//	hide other cells & forms
-		
+
 		$formTags =& $helper["formXtTags"];
 		foreach( array_keys($formTags) as $loc ) {
 			$present = false;
@@ -362,6 +371,7 @@ class PDLayout
 			if( !$present ) {
 				// hide the whole form
 				$xt->assign(  $loc."_block", false );
+				$xt->assign(  $loc."_outerblock", false );
 			}
 	}
 
@@ -395,13 +405,13 @@ class CellMapPD {
 	public $cells;
 	public $height;
 	public $width;
-	
+
 	function __construct( &$map ) {
 		$this->cells = &$map["cells"];
 		$this->height = $map["height"];
 		$this->width = $map["width"];
 	}
-	
+
 	function makeClone() {
 		$newMap = array(
 			"cells" => cloneArray( $this->cells ),
@@ -428,7 +438,7 @@ class CellMapPD {
 			}
 		}
 	}
-	
+
 	public function getColumnCells( $col ) {
 		$ret = array();
 		foreach( $this->cells as $cell => $cMap ) {
@@ -437,7 +447,7 @@ class CellMapPD {
 		}
 		return $ret;
 	}
-	
+
 	public function getRowCells( $row ) {
 		$ret = array();
 		foreach( $this->cells as $cell => $cMap ) {
@@ -446,12 +456,12 @@ class CellMapPD {
 		}
 		return $ret;
 	}
-	
+
 	/**
 	 * Returns array of row indices that can be removed
 	 */
 	public function removeRowsColumns( $cellRemoveFlag, $rowsOnly = false ) {
-		
+
 		$ret = array( "cols" => array(), "rows" => array() );
 		//	remove unnecessary columns
 		if( !$rowsOnly ) {
@@ -480,8 +490,8 @@ class CellMapPD {
 			$rowCells = $this->getRowCells( $row );
 			$canDeleteRow = true;
 			foreach( $rowCells as $cell ) {
-				if( !$this->cells[$cell][ $cellRemoveFlag ] && 
-					( count( $this->cells[$cell]["rows"]) == 1  
+				if( !$this->cells[$cell][ $cellRemoveFlag ] &&
+					( count( $this->cells[$cell]["rows"]) == 1
 						/* can't delete the first row of a rowspanned cell */ || $this->cells[$cell]["rows"][0] === $row ) ) {
 					$canDeleteRow = false;
 					break;

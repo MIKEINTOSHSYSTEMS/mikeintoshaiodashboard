@@ -66,14 +66,9 @@ $tdataminor_major[".showEditInPopup"] = false;
 
 $tdataminor_major[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataminor_major[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataminor_major[".listAjax"] = false;
 //	temporary
-$tdataminor_major[".listAjax"] = false;
+//$tdataminor_major[".listAjax"] = false;
 
 	$tdataminor_major[".audit"] = false;
 
@@ -137,8 +132,6 @@ $tdataminor_major[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataminor_major[".isUseAjaxSuggest"] = true;
 
-$tdataminor_major[".rowHighlite"] = true;
-
 
 
 
@@ -193,8 +186,6 @@ $tdataminor_major[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataminor_major[".strOrderBy"] = $tstrOrderBy;
 
 $tdataminor_major[".orderindexes"] = array();
@@ -258,7 +249,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("minor_major","MinorMajorID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -290,7 +281,8 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -321,8 +313,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -344,7 +335,7 @@ $tdataminor_major[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -398,7 +389,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("minor_major","DepartmentID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -429,7 +420,8 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -488,8 +480,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -508,7 +499,7 @@ $tdataminor_major[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -562,7 +553,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("minor_major","MinorName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -593,7 +584,8 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -623,8 +615,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -645,7 +636,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -699,7 +690,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("minor_major","MajorName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -730,7 +721,8 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -760,8 +752,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -782,7 +773,7 @@ $tdataminor_major[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -834,9 +825,16 @@ $fieldToolTips["minor_major"] = &$fieldToolTipsminor_major;
 $placeHolders["minor_major"] = &$placeHoldersminor_major;
 $page_titles["minor_major"] = &$pageTitlesminor_major;
 
+
+changeTextControlsToDate( "minor_major" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["minor_major"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["minor_major"] = array();
@@ -844,7 +842,8 @@ $masterTablesData["minor_major"] = array();
 
 
 	
-				$strOriginalDetailsTable="departments";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="departments";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="departments";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -859,6 +858,7 @@ $masterTablesData["minor_major"] = array();
 				$masterTablesData["minor_major"][0]["detailKeys"] = array();
 	$masterTablesData["minor_major"][0]["detailKeys"][]="DepartmentID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -1030,7 +1030,6 @@ $tdataminor_major[".sqlquery"] = $queryData_minor_major;
 
 
 
-$tableEvents["minor_major"] = new eventsBase;
 $tdataminor_major[".hasEvents"] = false;
 
 ?>

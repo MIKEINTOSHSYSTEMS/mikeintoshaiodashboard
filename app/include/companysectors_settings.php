@@ -60,14 +60,9 @@ $tdatacompanysectors[".showEditInPopup"] = false;
 
 $tdatacompanysectors[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatacompanysectors[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatacompanysectors[".listAjax"] = false;
 //	temporary
-$tdatacompanysectors[".listAjax"] = false;
+//$tdatacompanysectors[".listAjax"] = false;
 
 	$tdatacompanysectors[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatacompanysectors[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatacompanysectors[".isUseAjaxSuggest"] = true;
 
-$tdatacompanysectors[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatacompanysectors[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatacompanysectors[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacompanysectors[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("CompanySectors","CompanySectorID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("CompanySectors","CompanySectorName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatacompanysectors[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["CompanySectors"] = &$fieldToolTipscompanysectors;
 $placeHolders["CompanySectors"] = &$placeHolderscompanysectors;
 $page_titles["CompanySectors"] = &$pageTitlescompanysectors;
 
+
+changeTextControlsToDate( "CompanySectors" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["CompanySectors"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["CompanySectors"] = array();
@@ -535,7 +533,8 @@ $masterTablesData["CompanySectors"] = array();
 
 
 	
-				$strOriginalDetailsTable="Companies";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="Companies";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="Companies";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -552,6 +551,7 @@ $masterTablesData["CompanySectors"] = array();
 	$masterTablesData["CompanySectors"][0]["detailKeys"][]="CompanySectorID";
 				$masterTablesData["CompanySectors"][0]["detailKeys"][]="CompanySectorName";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -693,7 +693,6 @@ $tdatacompanysectors[".sqlquery"] = $queryData_companysectors;
 
 
 
-$tableEvents["CompanySectors"] = new eventsBase;
 $tdatacompanysectors[".hasEvents"] = false;
 
 ?>

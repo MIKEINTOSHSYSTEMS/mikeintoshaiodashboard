@@ -1,37 +1,37 @@
 <?php
 class DB2Functions extends DBFunctions
-{	
+{
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function escapeLIKEpattern( $str )
 	{
 		return $str;
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function addSlashes( $str )
 	{
 		return str_replace("'", "''", $str);
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function addSlashesBinary( $str )
 	{
-		return $str;
+		return "blob(x'" . bin2hex( $str ) . "')";
 	}
-	
-	/**	
+
+	/**
 	 * @param String dbval
-	 * @return String	 
-	 */	
+	 * @return String
+	 */
 	public function upper( $dbval )
 	{
 		return "upper(".$dbval.")";
@@ -41,7 +41,7 @@ class DB2Functions extends DBFunctions
 	 * It's called for Contains and Starts with searches
 	 * @param Mixed value
 	 * @param Number type (oprional)
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2char($value, $type = 3)
 	{
@@ -53,7 +53,7 @@ class DB2Functions extends DBFunctions
 	/**
 	 * @param Mixed value
 	 * @param Number type
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2time($value, $type)
 	{
@@ -64,17 +64,20 @@ class DB2Functions extends DBFunctions
 	 * Get the auto generated SQL string used in the last query
 	 * @param String key
 	 * @param String table
-	 * @param String oraSequenceName (optional)	
 	 * @return String
 	 */
-	public function getInsertedIdSQL( $key = null, $table = null, $oraSequenceName = false )
+	public function getInsertedIdSQL( $key = null, $table = null)
 	{
 		return "SELECT IDENTITY_VAL_LOCAL() FROM SYSIBM.SYSDUMMY1";
 	}
 
-	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit ) 
+	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit )
 	{
-		if( $applyLimit && $connection->dbType == nDATABASE_DB2 && ( $skip || $total >= 0 ) ) 
+		if( $applyLimit && $total >= 0  ) {
+			$strSQL .= " FETCH FIRST " . ( $total + $skip ) . " ROWS ONLY";
+		}
+		/*
+		if( $applyLimit && $connection->dbType == nDATABASE_DB2 && ( $skip || $total >= 0 ) )
 		{
 			$limits = array();
 			if( $skip )
@@ -83,24 +86,25 @@ class DB2Functions extends DBFunctions
 				$limits []= "DB2_ROW_NUMBER <= " . ( $skip + $total );
 			$strSQL = "with DB2_QUERY as (".$strSQL.") select * from DB2_QUERY where " . implode( " and ", $limits );
 		}
+		*/
 		$qResult = $connection->query( $strSQL );
-		if( $applyLimit && $connection->dbType != nDATABASE_DB2 ) {
+		if( $applyLimit ) {
 			$qResult->seekRecord( $skip );
 		}
-		
+
 		return $qResult;
 	}
-	public function intervalExpressionString( $expr, $interval ) 
+	public function intervalExpressionString( $expr, $interval )
 	{
 		return DBFunctions::intervalExprSubstr( $expr, $interval );
 	}
 
-	public function intervalExpressionNumber( $expr, $interval ) 
+	public function intervalExpressionNumber( $expr, $interval )
 	{
 		return DBFunctions::intervalExprFloor( $expr, $interval );
 	}
 
-	public function intervalExpressionDate( $expr, $interval ) 
+	public function intervalExpressionDate( $expr, $interval )
 	{
 		if($interval == 1) // DATE_INTERVAL_YEAR
 			return "year(".$expr.")*10000+0101";

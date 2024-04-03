@@ -60,14 +60,9 @@ $tdatadepartments[".showEditInPopup"] = false;
 
 $tdatadepartments[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatadepartments[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatadepartments[".listAjax"] = false;
 //	temporary
-$tdatadepartments[".listAjax"] = false;
+//$tdatadepartments[".listAjax"] = false;
 
 	$tdatadepartments[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatadepartments[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatadepartments[".isUseAjaxSuggest"] = true;
 
-$tdatadepartments[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatadepartments[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatadepartments[".strOrderBy"] = $tstrOrderBy;
 
 $tdatadepartments[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatadepartments[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("departments","DepartmentID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatadepartments[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatadepartments[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatadepartments[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatadepartments[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("departments","DepartmentName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatadepartments[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatadepartments[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatadepartments[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,8 +516,14 @@ $fieldToolTips["departments"] = &$fieldToolTipsdepartments;
 $placeHolders["departments"] = &$placeHoldersdepartments;
 $page_titles["departments"] = &$pageTitlesdepartments;
 
+
+changeTextControlsToDate( "departments" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["departments"] = array();
 //	minor_major
 	
@@ -558,6 +555,7 @@ $detailsTablesData["departments"] = array();
 				$detailsTablesData["departments"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["departments"][$dIndex]["detailKeys"][]="DepartmentID";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["departments"] = array();
@@ -705,7 +703,6 @@ $tdatadepartments[".sqlquery"] = $queryData_departments;
 
 
 
-$tableEvents["departments"] = new eventsBase;
 $tdatadepartments[".hasEvents"] = false;
 
 ?>

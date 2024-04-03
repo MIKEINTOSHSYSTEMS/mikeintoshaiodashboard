@@ -21,9 +21,9 @@ class ViewDatetimeField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
-		return $this->showDBValue($data, $keylink);
+		return $this->showDBValue($data, $keylink, $html );
 	}	
 }
 ?>

@@ -63,14 +63,9 @@ $tdatazones[".showEditInPopup"] = false;
 
 $tdatazones[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatazones[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatazones[".listAjax"] = false;
 //	temporary
-$tdatazones[".listAjax"] = false;
+//$tdatazones[".listAjax"] = false;
 
 	$tdatazones[".audit"] = false;
 
@@ -134,8 +129,6 @@ $tdatazones[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatazones[".isUseAjaxSuggest"] = true;
 
-$tdatazones[".rowHighlite"] = true;
-
 
 
 
@@ -189,8 +182,6 @@ $tdatazones[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatazones[".strOrderBy"] = $tstrOrderBy;
 
 $tdatazones[".orderindexes"] = array();
@@ -254,7 +245,7 @@ $tdatazones[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("zones","ZoneID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -286,7 +277,8 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -317,8 +309,7 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -340,7 +331,7 @@ $tdatazones[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -394,7 +385,7 @@ $tdatazones[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("zones","ZoneName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -425,7 +416,8 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -455,8 +447,7 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -477,7 +468,7 @@ $tdatazones[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -531,7 +522,7 @@ $tdatazones[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("zones","SubCityID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -562,7 +553,8 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -621,8 +613,7 @@ $tdatazones[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -641,7 +632,7 @@ $tdatazones[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -693,9 +684,16 @@ $fieldToolTips["zones"] = &$fieldToolTipszones;
 $placeHolders["zones"] = &$placeHolderszones;
 $page_titles["zones"] = &$pageTitleszones;
 
+
+changeTextControlsToDate( "zones" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["zones"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["zones"] = array();
@@ -703,7 +701,8 @@ $masterTablesData["zones"] = array();
 
 
 	
-				$strOriginalDetailsTable="sub_cities";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="sub_cities";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="sub_cities";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -718,6 +717,7 @@ $masterTablesData["zones"] = array();
 				$masterTablesData["zones"][0]["detailKeys"] = array();
 	$masterTablesData["zones"][0]["detailKeys"][]="SubCityID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -874,7 +874,6 @@ $tdatazones[".sqlquery"] = $queryData_zones;
 
 
 
-$tableEvents["zones"] = new eventsBase;
 $tdatazones[".hasEvents"] = false;
 
 ?>

@@ -63,14 +63,9 @@ $tdatasub_cities[".showEditInPopup"] = false;
 
 $tdatasub_cities[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatasub_cities[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatasub_cities[".listAjax"] = false;
 //	temporary
-$tdatasub_cities[".listAjax"] = false;
+//$tdatasub_cities[".listAjax"] = false;
 
 	$tdatasub_cities[".audit"] = false;
 
@@ -134,8 +129,6 @@ $tdatasub_cities[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatasub_cities[".isUseAjaxSuggest"] = true;
 
-$tdatasub_cities[".rowHighlite"] = true;
-
 
 
 
@@ -189,8 +182,6 @@ $tdatasub_cities[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatasub_cities[".strOrderBy"] = $tstrOrderBy;
 
 $tdatasub_cities[".orderindexes"] = array();
@@ -254,7 +245,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("sub_cities","SubCityID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -286,7 +277,8 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -317,8 +309,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -340,7 +331,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -394,7 +385,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("sub_cities","SubCityName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -425,7 +416,8 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -455,8 +447,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -477,7 +468,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -531,7 +522,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("sub_cities","CityID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -562,7 +553,8 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -621,8 +613,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -641,7 +632,7 @@ $tdatasub_cities[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -693,8 +684,14 @@ $fieldToolTips["sub_cities"] = &$fieldToolTipssub_cities;
 $placeHolders["sub_cities"] = &$placeHolderssub_cities;
 $page_titles["sub_cities"] = &$pageTitlessub_cities;
 
+
+changeTextControlsToDate( "sub_cities" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["sub_cities"] = array();
 //	zones
 	
@@ -726,6 +723,7 @@ $detailsTablesData["sub_cities"] = array();
 				$detailsTablesData["sub_cities"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["sub_cities"][$dIndex]["detailKeys"][]="SubCityID";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["sub_cities"] = array();
@@ -733,7 +731,8 @@ $masterTablesData["sub_cities"] = array();
 
 
 	
-				$strOriginalDetailsTable="cities";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="cities";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="cities";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -748,6 +747,7 @@ $masterTablesData["sub_cities"] = array();
 				$masterTablesData["sub_cities"][0]["detailKeys"] = array();
 	$masterTablesData["sub_cities"][0]["detailKeys"][]="CityID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -904,7 +904,6 @@ $tdatasub_cities[".sqlquery"] = $queryData_sub_cities;
 
 
 
-$tableEvents["sub_cities"] = new eventsBase;
 $tdatasub_cities[".hasEvents"] = false;
 
 ?>

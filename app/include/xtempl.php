@@ -65,20 +65,6 @@ class XTempl extends XTempl_Base
 		$funcName = "event_".GoodFieldname( $eventName );
 		$eventObj->$funcName($params);
 	}
-/*	
-	function fetchVar($varName)
-	{
-		ob_start();
-		$varParams = array();
-		$this->processVar($this->getVar($varName), $varParams);	
-		$out=ob_get_contents();
-		ob_end_clean();
-		return $out;
-		
-	}
-*/
-
-	
 
 
 	function call_func($var)
@@ -133,7 +119,7 @@ class XTempl extends XTempl_Base
 	function display($template)
 	{
 		$this->load_template($template);
-		xt_process_template($this,$this->template);
+		$this->process_template( $this->template );
 	}
 }
 

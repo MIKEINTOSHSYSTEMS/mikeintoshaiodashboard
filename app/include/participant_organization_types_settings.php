@@ -60,14 +60,9 @@ $tdataparticipant_organization_types[".showEditInPopup"] = false;
 
 $tdataparticipant_organization_types[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataparticipant_organization_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataparticipant_organization_types[".listAjax"] = false;
 //	temporary
-$tdataparticipant_organization_types[".listAjax"] = false;
+//$tdataparticipant_organization_types[".listAjax"] = false;
 
 	$tdataparticipant_organization_types[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataparticipant_organization_types[".allowFieldsReordering"] = true; // temp f
 
 $tdataparticipant_organization_types[".isUseAjaxSuggest"] = true;
 
-$tdataparticipant_organization_types[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataparticipant_organization_types[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataparticipant_organization_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdataparticipant_organization_types[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("participant_organization_types","OrganizationTypeID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("participant_organization_types","OrganizationTypeName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataparticipant_organization_types[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["participant_organization_types"] = &$fieldToolTipsparticipant_or
 $placeHolders["participant_organization_types"] = &$placeHoldersparticipant_organization_types;
 $page_titles["participant_organization_types"] = &$pageTitlesparticipant_organization_types;
 
+
+changeTextControlsToDate( "participant_organization_types" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["participant_organization_types"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["participant_organization_types"] = array();
@@ -675,7 +673,6 @@ $tdataparticipant_organization_types[".sqlquery"] = $queryData_participant_organ
 
 
 
-$tableEvents["participant_organization_types"] = new eventsBase;
 $tdataparticipant_organization_types[".hasEvents"] = false;
 
 ?>

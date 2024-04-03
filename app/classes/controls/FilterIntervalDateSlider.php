@@ -562,7 +562,7 @@ class FilterIntervalDateSlider extends FilterIntervalSlider
 		$this->maxValue = $data['sliderMax'];
 		
 		$timeZone = date_default_timezone_get(); 
-		date_default_timezone_set(UTC);
+		date_default_timezone_set('UTC');
 		
 		$this->minDateArray = $this->getDateTimeArray($this->minValue);	
 		$this->maxDateArray = $this->getDateTimeArray($this->maxValue);	
@@ -707,7 +707,7 @@ class FilterIntervalDateSlider extends FilterIntervalSlider
 	{
 		$ctrlsMap = parent::getBaseContolsMapParams();
 		$timeZone = date_default_timezone_get(); 
-		date_default_timezone_set(UTC);		
+		date_default_timezone_set('UTC');		
 		
 		$ctrlsMap['stepType'] = $this->stepType;		
 
@@ -768,13 +768,6 @@ class FilterIntervalDateSlider extends FilterIntervalSlider
 		$ctrlsMap['isFieldDateType'] = true;
 		
 		$pageObj->controlsMap["filters"]["controls"][] = $ctrlsMap;	
-	}
-
-	/**
-	 * @deprecated
-	 * stub for search suggest
-	 */
-	static function getDateSliderWhere($fName, $pSet, $cipherer, $table, $SearchFor, $SearchFor2, $strSearchOption, $fullFieldName) {
 	}
 }
 ?>

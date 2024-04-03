@@ -26,35 +26,27 @@
 	</div>		
 {END above-grid_block}
 								{BEGIN grid_block}
-{BEGIN grid_tabs}
-  <ul class="nav nav-tabs bsgrid_tabs">
-	{$grid_tabs_content}
-  </ul>
-{END grid_tabs}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
-{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="panel-only" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  rnr-b-grid rnr-gridtable" 
-	cellpadding="0" 
+{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="panel-only" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-bordered r-horizontal-grid  rnr-b-grid rnr-gridtable"
+	cellpadding="0"
 	data-body-height="1"
 >
 						<thead>
 			{BEGIN grid_header}
-					
-		 
-						<tr {$rowattrs} {$row_grid_0} class="{$rowclass} 
+			
+																									<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
 									{$gridHeader_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentID_class}
-			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 			data-field="DepartmentID"
 	
@@ -64,22 +56,20 @@
 	 
 		{BEGIN DepartmentID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-fieldname="DepartmentID">
 	{$label departments DepartmentID }	</span>
 {END DepartmentID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field}
-				 
-					{BEGIN cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field1}
 	<th
 	
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentName_class}
-			"
+		 r-ori-vert		 {$DepartmentName_class}	"
 
 			data-field="DepartmentName"
 	
@@ -89,7 +79,7 @@
 	 
 		{BEGIN DepartmentName_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentName">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentName" data-fieldname="DepartmentName">
 	{$label departments DepartmentName }	</span>
 {END DepartmentName_fieldheadercolumn}
 
@@ -97,29 +87,23 @@
 	</th>
 	{END cellblock_grid_headcell_field1}
 							</tr>
-					 
-					 
-					
+															
 					{END grid_header}
 			</thead>
 															<tbody>
 					{BEGIN grid_row}
-									
-		 
-					 
-						<tr {$rowattrs} {$row_grid_1} class="{$rowclass} 
-								
+							
+																														<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
+				
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentID_class}
-			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 			data-field="DepartmentID"
 	
@@ -128,21 +112,19 @@
 
 	 
 		{BEGIN DepartmentID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-fieldname="DepartmentID" data-default-width >
 {$DepartmentID_value}
 </span>
 {END DepartmentID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentName_class}
-			"
+		 r-ori-vert		 {$DepartmentName_class}	"
 
 			data-field="DepartmentName"
 	
@@ -151,35 +133,30 @@
 
 	 
 		{BEGIN DepartmentName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentName" data-fieldname="DepartmentName" data-default-width >
 {$DepartmentName_value}
 </span>
 {END DepartmentName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
 							</tr>
-					 
-					
+										
 											{END grid_row}
 					</tbody>
 													<tfoot>
-					
-		 
-					 
-					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+			
+																																			<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 									{$gridFooter_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_footcell_field}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="departments_masterlist"	
@@ -188,14 +165,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field}
-				 
-					{BEGIN cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field1}
 	<td
 	
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$DepartmentName_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="departments_masterlist"	

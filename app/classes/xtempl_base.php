@@ -26,7 +26,9 @@ class XTempl_Base
 	var $layout;
 	var $pageId = 1;
 	var $pageObject = null;
-	
+
+	protected $messageParamStack = array();
+
 	/**
 	 * $cssFiles
 	 * Array of css files for page styles and layouts
@@ -56,26 +58,26 @@ class XTempl_Base
 				if(isset($testingLinks[$k]))
 					$arr[$k].=" func=\"".$testingLinks[$k]."\"";
 	}
-	
+
 	function Testing()
 	{
 		if(!$this->testingFlag)
 			return;
 		$this->recTesting($this->xt_vars);
 	}
-	
+
 	function report_error($message)
 	{
 		echo $message;
 		exit();
 	}
-	
-	protected function assign_headers() 
+
+	protected function assign_headers()
 	{
 		//check if headers are already assigned
 		if( isset( $this->xt_vars['header'] ) )
 			return;
-		
+
 		if ( !$this->mobileTemplateMode() )
 		{
 			$this->assign("header","header");
@@ -95,7 +97,7 @@ class XTempl_Base
 	 function __construct( $hideAddedCharts = false )
 	{
 		global $mlang_charsets;
-		
+
 		$this->xt_vars=array();
 		$this->xt_stack=array();
 		$this->xt_stack[]=&$this->xt_vars;
@@ -116,23 +118,33 @@ class XTempl_Base
 		$this->assign_function("jscaption","xt_jscaption",array());
 		$this->assign_function("jslabel","xt_jslabel",array());
 		$this->assign_function("jspagetitlelabel","xt_jspagetitlelabel",array());
-		
+
 		$this->assign_function("pdf_image","getPdfImageObject",array());
-		
+		$this->assign_function("pdf_chart", "getPdfChartObject", array());
+
 		$this->assign_method("map", $this, "xt_event_map", array());
-		
+
 		$this->assign( "projectPath", projectPath() );
-	
+
+		//	message parameters
+		$this->assign_method("mlp_push", $this, "mlpPush", array());
+		$this->assign_method("mlp_pop", $this, "mlpPop", array());
+		$this->assign_method("mlparam", $this, "mlpParam", array());
+		$this->assign_method("mltext", $this, "mlText", array());
+
+		$this->assign_method("messagepart", $this, "messagePart", array());
+
+
 		if( !$hideAddedCharts ) //#9607 1. Temporary fix
 		{
 		}
-		
+
 
 		$mlang_charsets=array();
 		
 $mlang_charsets["English"]="Windows-1252";;
 		$this->charsets = &$mlang_charsets;
-		
+
 		$html_attrs = '';
 		if(isRTL())
 		{
@@ -140,16 +152,16 @@ $mlang_charsets["English"]="Windows-1252";;
 			$this->assign("rtlCSS",true);
 			$html_attrs .= 'dir="RTL" ';
 		}
-		else 
+		else
 		{
 			$this->assign("LTR_block",true);
 		}
 		if(mlang_getcurrentlang() == 'English')
 				$html_attrs .= 'lang="en"';
-		$this->assign("html_attrs",$html_attrs);	
-		$this->assign("menu_block",true);	
+		$this->assign("html_attrs",$html_attrs);
+		$this->assign("menu_block",true);
 	}
-	
+
 
 	/**
 	  * Assign value to name.
@@ -176,8 +188,8 @@ $mlang_charsets["English"]="Windows-1252";;
 			$this->xt_vars[$key] = $value;
 		}
 	}
-	
-	
+
+
 	function enable_section($name)
 	{
 		if(!isset($this->xt_vars[$name]))
@@ -212,8 +224,8 @@ $mlang_charsets["English"]="Windows-1252";;
 			$arr[] = array($innername => $a);
 		$this->xt_vars[$name]=array("data" => $arr);
 	}
-	
-	
+
+
 	function assign_loopsection_byValue($name, $data)
 	{
 		$arr = array();
@@ -239,7 +251,7 @@ $mlang_charsets["English"]="Windows-1252";;
 	static function create_method_assignment( $method, &$object, $params = null )
 	{
 		return array( "method"=>$method,
-			"params"=>$params, 
+			"params"=>$params,
 			"object" => $object
 		);
 	}
@@ -280,38 +292,42 @@ $mlang_charsets["English"]="Windows-1252";;
 	function customLabel($params)
 	{
 		$ret = GetCustomLabel($params["custom1"]);
-		echo $this->jsonMode 
-			? str_replace( "'", "\\'", $ret )
-			: $ret;
+		$ret = $this->processMessageParams( $ret );
+
+		if ( $this->jsonMode )  {
+			$ret = jsreplace( $ret );
+		}
+
+		echo $ret;
 	}
-	
-	
+
+
 	function xt_event_map( $params )
 	{
-		if( !$this->jsonMode ) 
+		if( !$this->jsonMode )
 			return $this->xt_doevent( $params );
-		
+
 		ob_start();
 		$this->xt_doevent( $params );
 		$out = ob_get_contents() ;
 		ob_end_clean();
-		
-		echo $out;	
-	}	
+
+		echo $out;
+	}
 
 	function xt_doevent($params)
 	{
 	}
-	
+
 	function fetchVar($varName)
 	{
 		ob_start();
 		$varParams = array();
-		$this->processVar($this->getVar($varName), $varParams);	
+		$this->processVar($this->getVar($varName), $varParams);
 		$out=ob_get_contents();
 		ob_end_clean();
 		return $out;
-		
+
 	}
 
 	function fetch_loadedJSON( $filtertag="" ) {
@@ -328,7 +344,7 @@ $mlang_charsets["English"]="Windows-1252";;
 		return $out;
 	}
 
-	
+
 	function call_func($var)
 	{
 	}
@@ -348,14 +364,14 @@ $mlang_charsets["English"]="Windows-1252";;
 			$templatesPath = "pdf/";
 			$template = $this->template_file . ".json";
 		}
-		
+
 		if( !$this->jsonMode && isOldCustomFile( $this->template_file ) ) {
 			$template = getOldTemplateFilename( $this->template_file ).".htm";
-		}	
+		}
 		if(file_exists(getabspath($templatesPath.$template)))
 			$this->template = myfile_get_contents(getabspath($templatesPath.$template));
-		
-		
+
+
 		if ( $this->mobileTemplateMode() && $this->template=='' )
 		{
 			$templatesPath = "templates/";
@@ -368,7 +384,7 @@ $mlang_charsets["English"]="Windows-1252";;
 	{
 		$this->layout = getLayoutByFilename( $this->template_file );
 	}
-	
+
 	function prepare_template($template)
 	{
 		$this->prepareContainers();
@@ -386,17 +402,17 @@ $mlang_charsets["English"]="Windows-1252";;
 		{
 			if( !isset($this->xt_vars[ $filtertag ]) || $this->xt_vars[ $filtertag ] === false )
 				return;
-				
+
 			$pos1 = strpos($this->template, "{BEGIN ".$filtertag."}");
 			$pos2 = strpos($this->template, "{END ".$filtertag."}");
 			if($pos1 === false || $pos2 === false)
 				return;
-			
+
 			$pos2 += strlen("{END ".$filtertag."}");
 			$str = substr($this->template,$pos1,$pos2-$pos1);
 		}
 		$this->Testing();
-		xt_process_template($this,$str);
+		$this->process_template( $str );
 	}
 
 	function load_template($template)
@@ -414,18 +430,18 @@ $mlang_charsets["English"]="Windows-1252";;
 		$this->jsonMode = true;
 		$this->display( $template );
 	}
-	
+
 	function displayPartial($template)
 	{
 		$savedTemplate = $this->template;
 		$this->display( $template );
 		$this->template = $savedTemplate;
 	}
-	
+
 	function processVar(&$var, &$varparams)
 	{
 	}
-	
+
 	function displayItemsHidden($items, $recordId = "")
 	{
 		if( !$items )
@@ -433,7 +449,7 @@ $mlang_charsets["English"]="Windows-1252";;
 		foreach($items as $name)
 		{
 			$this->displayItemHidden( $name, $recordId );
-		}	
+		}
 	}
 
 	function showHiddenItems($items)
@@ -442,8 +458,8 @@ $mlang_charsets["English"]="Windows-1252";;
 			return;
 		foreach($items as $name)
 		{
-			unset( $this->hiddenItems[$name] );		
-		}	
+			unset( $this->hiddenItems[$name] );
+		}
 	}
 
 
@@ -456,7 +472,7 @@ $mlang_charsets["English"]="Windows-1252";;
 				$this->hiddenRecordItems[ $name ] = array();
 			$this->hiddenRecordItems[ $name ][ $recordId ] = true;
 		}
-		
+
 	}
 
 	function showHiddenItem($name, $recordId = "")
@@ -467,7 +483,7 @@ $mlang_charsets["English"]="Windows-1252";;
 			if( isset( $this->hiddenRecordItems[ $name ] ))
 				unset( $this->hiddenRecordItems[ $name ][ $recordId ] );
 		}
-		
+
 	}
 
 
@@ -480,10 +496,10 @@ $mlang_charsets["English"]="Windows-1252";;
 	{
 		foreach($bricks as $name)
 		{
-			$this->hiddenBricks[$name] = true;		
-		}	
+			$this->hiddenBricks[$name] = true;
+		}
 	}
-	
+
 	/**
 	 * Display brick hidden
 	 * @param {string} brick name
@@ -494,7 +510,7 @@ $mlang_charsets["English"]="Windows-1252";;
 		$this->hiddenBricks[$name] = true;
 	}
 
-	/** 
+	/**
 	 * Hide All bricks on the page
 	 * @param {array} of excepted bricks
 	 * @intellisense
@@ -508,12 +524,12 @@ $mlang_charsets["English"]="Windows-1252";;
 			{
 				if (!in_array($brick["name"],$arrExceptBricks)){
 					$this->assign($brick["block"],false);
-				}	
+				}
 			}
 		}
 	}
-	
-	/** 
+
+	/**
 	 * Show brick on the page
 	 * @param {string} name of brick
 	 * @intellisense
@@ -532,7 +548,7 @@ $mlang_charsets["English"]="Windows-1252";;
 			}
 		}
 	}
-	
+
 	private function setContainerDisplayed($cname, $show, $firstContainerSubstyle, $lastContainerSubstyle)
 	{
 		if( $this->layout->version == BOOTSTRAP_LAYOUT )
@@ -578,19 +594,19 @@ $mlang_charsets["English"]="Windows-1252";;
 		if(isset($this->layout->skins[$cname]))
 		{
 			$skin = @$this->layout->skins[$cname];
-			
+
 			$buttonsType = $this->layout->skinsparams[$skin]["button"];
 			$buttonsClass = $buttonsType == "button2" ? " aslinks" : " asbuttons";
-		
+
 		// printing properties
 			$printMode = $this->layout->container_properties[$cname]["print"];
 			$printClass = "";
-			
+
 			if($printMode == "repeat")
 				$printClass = " rp-repeat";
 			else if($printMode == "none")
 				$printClass = " rp-noprint";
-			
+
 			if($this->layout->version == 1) {
 				$styleString = " class=\"rnr-cw-".$cname." runner-s-".$skin." ".$pageStyle;
 			} else {
@@ -602,7 +618,7 @@ $mlang_charsets["English"]="Windows-1252";;
 			$this->preparedContainers[ $cname ] = array("showString" => $styleString, "hideString" => $hiddenStyleString );
 		}
 	}
-	/** 
+	/**
 	 * Prepare containers for show on page
 	 * @intellisense
 	 */
@@ -610,7 +626,7 @@ $mlang_charsets["English"]="Windows-1252";;
 	{
 		if(!$this->layout)
 			return;
-		
+
 		if( $this->layout->version == 4 ) {
 			$this->layout->prepareForms( $this, $this->hiddenItems, $this->hiddenRecordItems, $this->pageObject );
 			return;
@@ -618,7 +634,7 @@ $mlang_charsets["English"]="Windows-1252";;
 
 		$containerCss = array();
 		$pageStyle = $this->getPageStyle();
-		
+
 		$classPrefix = "rnr-";
 		if($this->layout->version == 1)
 		{
@@ -628,8 +644,8 @@ $mlang_charsets["English"]="Windows-1252";;
 		$this->assign("pageStyleName",$pageStyle);
 		$displayed_containers = array();
 		$hidden_containers = array();
-		
-		// run reverse loop for proper processing of nested containers  
+
+		// run reverse loop for proper processing of nested containers
 		$containersNames = array_keys($this->layout->containers);
 		$containersNames = array_reverse($containersNames);
 		foreach($containersNames as $cname)
@@ -666,8 +682,8 @@ $mlang_charsets["English"]="Windows-1252";;
 					$lastContainerSubstyle = "runner-bottomrow runner-vmenu";
 				$showContainer = true;
 
-				if($this->hiddenBricks[$brick["name"]] 
-					|| $brick["name"] == "wrapper" 
+				if($this->hiddenBricks[$brick["name"]]
+					|| $brick["name"] == "wrapper"
 						&& (isset($hidden_containers[$brick["container"]]) || !isset($displayed_containers[$brick["container"]])))
 				{
 					$hideBrick = true;
@@ -677,8 +693,8 @@ $mlang_charsets["English"]="Windows-1252";;
 					$hideBrick = false;
 					$hideContainer = false;
 				}
-					
-				if($this->layout->version < BOOTSTRAP_LAYOUT )				
+
+				if($this->layout->version < BOOTSTRAP_LAYOUT )
 				{
 					if( $hideBrick ){
 						$this->assign("brickclass_".$brick["name"], $classPrefix."hiddenbrick");
@@ -706,11 +722,11 @@ $mlang_charsets["English"]="Windows-1252";;
 				$displayed_containers[$cname] = true;
 				$this->unassign("wrapperclass_".$cname);
 			}
-			else 
+			else
 			{
 				$this->unassign("container_".$cname);
 				$this->assign("wrapperclass_".$cname,$classPrefix."hiddencontainer");
-			}			
+			}
 		}
 		//	display blocks
 		foreach($this->layout->blocks as $bname=>$block)
@@ -739,28 +755,28 @@ $mlang_charsets["English"]="Windows-1252";;
 				if(!$showBlock || $hideBlock)
 					$this->assign("blockattr_".$bname, "data-hidden" );
 			}
-			
+
 		}
 		if( $this->layout->version >= BOOTSTRAP_LAYOUT )
 		{
 			$this->assign( "pageid", $this->pageId );
 		}
 	}
-	
+
 	function hideField($fieldName)
 	{
 		if($this->layout->version == 1)
 			$this->assign("fielddispclass_".GoodFieldName($fieldName), "runner-hiddenfield");
-		else 
+		else
 			$this->assign("fielddispclass_".GoodFieldName($fieldName), "rnr-hiddenfield");
 	}
-	
+
 	function showField($fieldName)
 	{
 		$this->assign("fielddispclass_".GoodFieldName($fieldName), "");
 	}
 
-	
+
 	function xt_displaymenu($params)
 	{
 		$menuparams = array();
@@ -781,7 +797,7 @@ $mlang_charsets["English"]="Windows-1252";;
 		array_unshift($params, "main");
 		return $this->xt_displaymenu($params);
 	}
-	
+
 	function mobileTemplateMode() {
 		if($this->layout)
 			return mobileDeviceDetected() && $this->layout->version < BOOTSTRAP_LAYOUT;
@@ -802,6 +818,258 @@ $mlang_charsets["English"]="Windows-1252";;
 		}
 		return $params;
 	}
-	
+
+	/**
+	 * Create new frame in the message stack
+	 */
+	function mlpPush($params = null) {
+		$this->messageParamStack[] = array();
+	}
+
+	function mlpPop($params = null) {
+		array_pop( $this->messageParamStack );
+	}
+
+	function & mlpHead() {
+		if( $this->messageParamStack ) {
+			return $this->messageParamStack[ count( $this->messageParamStack ) - 1 ];
+		}
+		return array();
+	}
+
+	/**
+	 * Substitute %xxx% macros in the string with values from mlpHead
+	 * @return String
+	 */
+	function processMessageParams( $str ) {
+		$stackFrame =& $this->mlpHead();
+		if( !$stackFrame ) {
+			return $str;
+		}
+		$pattern = '/\%(\w)+\%/';
+		$matches = findMatches( $pattern, $str );
+		$out = "";
+		$offset = 0;
+		foreach( $matches as $m ) {
+			$out .= substr( $str, $offset, $m["offset"] - $offset );
+			$paramName = substr( $m["match"], 1, strlen( $m["match"] ) - 2 );
+			$offset = $m["offset"] + strlen( $paramName ) + 2;
+			$out .= $stackFrame[ $paramName ];
+		}
+		$out .= substr( $str, $offset );
+		return $out;
+	}
+
+	function mlpParam( $params ) {
+		$stackFrame =& $this->mlpHead();
+		$type = $params["custom2"];
+		$name = $params["custom1"];
+		$value = "";
+		if( $type == "text" ) {
+			//	todo: support for spaces and curly braces
+			$text = $params["custom3"];
+			$stackFrame[ $name ] = XTempl_Base::unmaskText( $text );
+		}
+		if( $type == "custom" ) {
+			$labelName = $params["custom3"];
+			$stackFrame[ $name ] = GetCustomLabel( $labelName );
+		}
+		else if( $type == "var" ) {
+			$varName = $params["custom3"];
+			$stackFrame[ $name ] = $this->getVar( $varName );
+		}
+
+	}
+
+	static function unmaskText( $str ) {
+		return str_replace(
+			array(  "\\_", "\\[", "\\]", "\\\\" ),
+			array(  " ", "{", "}", "\\" ),
+			$str
+		);
+	}
+
+
+	function mlText( $params ) {
+		$text = $params["custom1"];
+		echo $this->processMessageParams( XTempl_Base::unmaskText( $text ) );
+	}
+
+	/**
+	 * Show n-th part of a message
+	 * A part is a substring adjacent to a '%value%'-like substring
+	 */
+	function messagePart( $params ) {
+		$tag = $params["custom1"];
+		$partN = $params["custom2"];
+
+		$fullMessage = mlang_message( $tag );
+		$pattern = "/%[^%\W]+%/i";
+
+		$partOffset = 0;
+		$parts = array();
+		$matches = findMatches( $pattern, $fullMessage );
+		for( $i = 0; $i < count( $matches ); ++$i ) {
+			$m = $matches[ $i ];
+			if ( $m["offset"] > 0 ) {
+				$parts[] = substr( $fullMessage, $partOffset, $m["offset"] - $partOffset );
+			}
+			$partOffset = $m["offset"] +  strlen( $m["match"] );
+		}
+		if( $partOffset < strlen( $fullMessage ) ) {
+			$parts[] = substr( $fullMessage, $partOffset );
+		}
+
+		if( $partN <= count( $parts ) )
+			echo $parts[ $partN - 1 ];
+
+		echo "";
+	}
+
+
+	function process_template( $str )
+	{
+	//	parse template file tag by tag
+		$varparams=array();
+		$start=0;
+		$literal=false;
+		$len = strlen($str);
+		while(true)
+		{
+			$pos = strpos($str,"{",$start);
+			if($pos===false)
+			{
+				echo substr($str,$start,$len-$start);
+				break;
+			}
+			$section=false;
+			$var=false;
+			$message=false;
+			if(substr($str,$pos+1,6)=="BEGIN ")
+				$section=true;
+			elseif(substr($str,$pos+1,1)=='$')
+				$var=true;
+			elseif(substr($str,$pos+1,14)=='mlang_message ')
+			{
+				$message=true;
+			}
+			else
+			{
+	//	no tag, just '{' char
+				echo substr($str,$start,$pos-$start+1);
+				$start=$pos+1;
+				continue;
+			}
+			echo substr($str,$start,$pos-$start);
+			if($section)
+			{
+	//	section
+				$endpos=strpos($str,"}",$pos);
+				if($endpos===false)
+				{
+					$this->report_error("Page is broken");
+					return;
+				}
+				$section_name=trim(substr($str,$pos+7,$endpos-$pos-7));
+				$endtag="{END ".$section_name."}";
+				$endpos1=strpos($str,$endtag,$endpos);
+				if($endpos1===false)
+				{
+					echo "End tag not found:".runner_htmlspecialchars($endtag);
+					$this->report_error("Page is broken");
+					return;
+				}
+				$section=substr($str,$endpos+1,$endpos1-$endpos-1);
+				$start=$endpos1+strlen($endtag);
+				$sectionVar = xt_getvar( $this, $section_name );
+				if($sectionVar===false)
+				{
+					continue;
+				}
+				$begin="";
+				$end="";
+				if(is_array($sectionVar))
+				{
+					$begin=@$sectionVar["begin"];
+					$end=@$sectionVar["end"];
+
+					$var=@$sectionVar["data"];
+				}
+				else
+				{
+					$var = $sectionVar;
+				}
+				if(!is_array($var))
+				{
+	//	if section
+					echo $begin;
+					if(is_array($sectionVar))
+					$this->xt_stack[]=&$sectionVar;
+					$this->process_template( $section );
+					if(is_array($sectionVar))
+						array_pop($this->xt_stack);
+						$this->processVar($end, $varparams);
+				}
+				else
+				{
+	//	foreach section
+					echo $begin;
+					$keys=array_keys($var);
+					foreach($keys as $i)
+					{
+						$this->xt_stack[]=&$var[$i];
+						if(is_array($var[$i]) && isset($var[$i]["begin"]))
+							echo $var[$i]["begin"];
+						$this->process_template( $section );
+						array_pop($this->xt_stack);
+						if(is_array($var[$i]) && isset($var[$i]["end"]))
+							echo $var[$i]["end"];
+					}
+					$this->processVar($end, $varparams);
+				}
+			}
+			elseif($var)
+			{
+	//	display a variable or call a function
+				$endpos=strpos($str,"}",$pos);
+				if($endpos===false)
+				{
+					$this->report_error("Page is broken");
+					return;
+				}
+				$varparams=array();
+				$var_name = trim(substr($str,$pos+2,$endpos-$pos-2));
+				if(strpos($var_name," ")!==FALSE)
+				{
+					$varparams = explode(" ",$var_name);
+					$var_name = $varparams[0];
+					unset($varparams[0]);
+				}
+				$start=$endpos+1;
+				$var = xt_getvar( $this, $var_name );
+				if($var===false)
+				{
+					continue;
+				}
+				$this->processVar($var, $varparams);
+			}
+			elseif($message)
+			{
+				$endpos=strpos($str,"}",$pos);
+				if($endpos===false)
+				{
+					$this->report_error("Page is broken");
+					return;
+				}
+				$tag = trim(substr($str,$pos+15,$endpos-$pos-15));
+				$start=$endpos+1;
+				echo runner_htmlspecialchars(
+					$this->processMessageParams(
+						mlang_message($tag)
+					));
+			}
+		}
+	}
+
 }
 ?>

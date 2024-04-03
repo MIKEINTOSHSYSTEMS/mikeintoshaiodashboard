@@ -94,6 +94,8 @@ class PrintPage extends RunnerPage
 				$this->hideField( $this->pSet->getFieldByGoodFieldName($f) );
 			}
 		}
+		
+		$this->pageData['pdfFonts'] = getPdfFonts();
 	}
 
 	/**
@@ -139,7 +141,7 @@ class PrintPage extends RunnerPage
 		require_once getabspath('classes/orderclause.php');
 
 		$fieldList = unserialize( $_SESSION[ $this->sessionPrefix . "_orderFieldsList" ] );
-		for($i = 0; $i < count($fieldList); $i++)
+		for($i = 0; $fieldList && $i < count($fieldList); $i++)
 		{
 			$this->customFieldForSort[] = $fieldList[$i]->fieldIndex;
 			$this->customHowFieldSort[] = $fieldList[$i]->orderDirection;
@@ -196,6 +198,9 @@ class PrintPage extends RunnerPage
 		// build tabs
 		$this->processGridTabs();
 
+		$this->setMapParams();
+
+		RunnerContext::pushSearchContext( $this->searchClauseObj );
 		//	call SQL events, calculate record count
 		$this->calcPageSizeAndNumber();
 		$this->calculateRecordCount();
@@ -254,7 +259,8 @@ class PrintPage extends RunnerPage
 		$this->addCommonJs();
 
 		$this->commonAssign();
-		$this->setMapParams();
+		$this->fillAdvancedMapData();
+
 
 		$this->doCommonAssignments();
 		$this->addCustomCss();
@@ -554,26 +560,12 @@ class PrintPage extends RunnerPage
 			{
 				$builtrow = $this->buildGridRecord( $data, $row );
 
-				if ( $this->isPD() )
-				{
-					foreach( $this->detailTables as $dt )
-					{
-						$assignmentMethod = $this->buildDetailsXtMethod($dt, $data);
-						if ( $assignmentMethod )
-						{
-							$this->showItemType("details_preview");
-							$builtrow["details_" . $dt] = true;
-							$builtrow["displayDetailTable_" . $dt] = $assignmentMethod;
-						}
-					}
-				}
-				else
-				{
-					$builtDetails = $this->buildDetails( $data );
-					if( $builtDetails )
-					{
-						$row["details_record"]["data"][] = array( "details_table" => array("data" => $builtDetails ) );
-						$row["details_row"] = true;
+				foreach( $this->detailTables as $dt ) {
+					$assignmentMethod = $this->buildDetailsXtMethod($dt, $data);
+					if ( $assignmentMethod ) {
+						$this->showItemType("details_preview");
+						$builtrow["details_" . $dt] = true;
+						$builtrow["displayDetailTable_" . $dt] = $assignmentMethod;
 					}
 				}
 
@@ -589,27 +581,12 @@ class PrintPage extends RunnerPage
 				}
 				$row["grid_record"] = true;
 
-				if ( $this->isPD() )
-				{
-					foreach( $this->detailTables as $dt )
-					{
-						$assignmentMethod = $this->buildDetailsXtMethod($dt, $data);
-						if ( $assignmentMethod )
-						{
-							$this->showItemType("details_preview");
-							$row["details_" . $dt] = true;
-							$row["displayDetailTable_" . $dt] = $assignmentMethod;
-						}
-					}
-				}
-				else
-				{
-					$builtDetails = $this->buildDetails( $data );
-					if( $builtDetails )
-					{
-						$row["details_record"] = true;
-						$row["details_table"] = array( "data" => $builtDetails );
-						$row["details_row"] = true;
+				foreach( $this->detailTables as $dt ) {
+					$assignmentMethod = $this->buildDetailsXtMethod($dt, $data);
+					if ( $assignmentMethod ) {
+						$this->showItemType("details_preview");
+						$row["details_" . $dt] = true;
+						$row["displayDetailTable_" . $dt] = $assignmentMethod;
 					}
 				}
 			}
@@ -651,7 +628,7 @@ class PrintPage extends RunnerPage
 		//	finalize grid
 		if( $col )
 		{
-			if( $this->isBootstrap() && $builtDetails && ($this->printGridLayout == gltVERTICAL || $this->recsPerRowPrint != 1) )
+			if( $builtDetails && ($this->printGridLayout == gltVERTICAL || $this->recsPerRowPrint != 1) )
 			{
 				$row["details_record"]["data"][0]["bs_clear_class"] = "bs-print-details-clear";
 			}
@@ -661,7 +638,7 @@ class PrintPage extends RunnerPage
 		$this->showGridHeader( $this->recsPerRowPrint < $recno ? $this->recsPerRowPrint : $recno);
 		$this->pageBody["pageno"] = $this->pageNo;
 
-		if ( $this->isPD() && $this->allPagesMode )
+		if ( $this->allPagesMode )
 		{
 			$this->xt->assign( "print_pages", true );
 			foreach ( $this->pSet->printPagesLabelsData() as $itemId => $mLString )
@@ -684,7 +661,7 @@ class PrintPage extends RunnerPage
 		// assign body end
 		$this->body['end'] = XTempl::create_method_assignment( "assignBodyEnd", $this );
 
-		if ( $this->isPD() && $this->allPagesMode )
+		if ( $this->allPagesMode && !!$this->body["data"] )
 		{
 			// update %total% value
 			$total = count( $this->body["data"] );
@@ -701,12 +678,11 @@ class PrintPage extends RunnerPage
 			$pdfBody = &$this->body;
 			unset( $pdfBody["begin"] );
 			unset( $pdfBody["end"] );
-			for( $p = 0; $p < count( $pdfBody["data"] ); ++$p ) {
+			for( $p = 0; $pdfBody["data"] && $p < count( $pdfBody["data"] ); ++$p ) {
 				unset( $pdfBody["data"][$p]["begin"] );
 				unset( $pdfBody["data"][$p]["end"] );
 			}
 			$this->xt->assignbyref('body', $pdfBody );
-//			$this->xt->assignbyref('body', $pdfBody );
 		} else
 			$this->xt->assignbyref('body', $this->body);
 
@@ -739,10 +715,8 @@ class PrintPage extends RunnerPage
 			$this->xt->assign( $gf . "_fieldfootercolumn", true );
 		}
 
-		if( $this->isPD() && $this->pSet->hasMap() )
-		{
-			foreach( $this->googleMapCfg['mainMapIds'] as $mapId )
-			{
+		if( $this->pSet->hasMap() ) {
+			foreach( $this->googleMapCfg['mainMapIds'] as $mapId ) {
 				$this->xt->assign_event( $mapId, $this, 'createMap', array('mapId' => $mapId ) );
 			}
 		}
@@ -751,9 +725,7 @@ class PrintPage extends RunnerPage
 	function createMap( &$params )
 	{
 		$provider = getMapProvider();
-		if ( $provider !== GOOGLE_MAPS && $provider !== OPEN_STREET_MAPS && $provider !== BING_MAPS )
-			return;
-
+		
 		$mapId = $params['mapId'];
 
 		$apiKey = $this->googleMapCfg["APIcode"];
@@ -795,32 +767,52 @@ class PrintPage extends RunnerPage
 			case GOOGLE_MAPS:
 				$src = 'https://maps.googleapis.com/maps/api/staticmap?size='.$width.'x'.$height.'&key='.$apiKey.'&';
 
-				if( !count( $markers ) )
+				if( !( $markers ) )
 					$src.= "center=0,0&zoom=".( $zoom ? $zoom : 5 );
 				else
-					$src.= ( $zoom ? "zoom=".$zoom."&" : "" )."markers=".urlencode( implode( '|', $locations ) );
+					$src.= ( $zoom ? "zoom=".$zoom."&" : "" )."markers=".rawurlencode( implode( '|', $locations ) );
 			break;
 			case OPEN_STREET_MAPS:
 				$src = 'https://staticmap.openstreetmap.de/staticmap.php?size='.$width.'x'.$height.'&';
 
-				if( !count( $markers ) )
+				if( !( $markers ) )
 					$src.= "center=0,0&zoom=".( $zoom ? $zoom : 3 );
 				else
-					$src.= "center=".$locations[0]."&zoom=".( $zoom ? $zoom : 3 )."&markers=".urlencode( implode( '|', $locations ) );
+					$src.= "center=".$locations[0]."&zoom=".( $zoom ? $zoom : 3 )."&markers=".rawurlencode( implode( '|', $locations ) );
 			break;
 			case BING_MAPS:
-				if( !count( $markers ) )
+				if( !( $markers ) )
 					$src = 'https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/0,0/'.( $zoom ? $zoom : 5 )
 						.'/?key='.$apiKey.'&mapSize='.$width.','.$height;
 				else
 				{
 					// You can specify up to 18 pushpins within a URL
-					$mParams = 'pp='.urlencode( implode( '&pp=',  array_slice( $locations, 0, 17 ) ));
+					$mParams = 'pp='.rawurlencode( implode( '&pp=',  array_slice( $locations, 0, 17 ) ));
 					$src = 'https://dev.virtualearth.net/REST/v1/Imagery/Map/Road?'.$mParams
 						.'&key='.$apiKey.'&mapSize='.$width.','.$height;
 					if( $zoom )
 						$src.= '&zoomLevel='.$zoom;
 				}
+			break;
+			case HERE_MAPS:
+				$src = 'https://image.maps.ls.hereapi.com/mia/1.6/mapview?'
+					.'apiKey='.$apiKey
+					.'&w='.$width
+					.'&h='.$height
+					.'&poi='.rawurlencode( implode( ',', $locations ) );
+
+				if( $zoom )
+					$src.= '&z='.$zoom;
+
+			case MAPQUEST_MAPS:
+				$src = 'https://www.mapquestapi.com/staticmap/v5/map?'
+					.'key='.$apiKey
+					.'&locations='.rawurlencode( implode( '||', $locations ) )
+					.'&size='.$width.','.$height;
+
+				if( $zoom )
+					$src.= '&zoom='.$zoom;		
+				
 			break;
 			default:
 				$src = '';
@@ -873,6 +865,10 @@ class PrintPage extends RunnerPage
 		$this->prepareColumnOrderSettings();
 	}
 
+	protected function reorderFieldsFeatureEnabled() {
+		return parent::reorderFieldsFeatureEnabled() && $this->pSet->listColumnsOrderOnPrint();
+	}
+	
 	protected function prepareColumnOrderSettings()
 	{
 		if( $this->reorderFieldsFeatureEnabled() && $this->printGridLayout == gltHORIZONTAL && $this->recsPerRowPrint == 1 )
@@ -913,20 +909,13 @@ class PrintPage extends RunnerPage
 	{
 		$this->hideItemType("details_preview");
 
-		if( $this->isPD() )
-		{
-			foreach( $this->googleMapCfg['mainMapIds'] as $mapId )
-			{
-				$this->pageBody[ "map_".$mapId ] = true;
-			}
+		foreach( $this->googleMapCfg['mainMapIds'] as $mapId ) {
+			$this->pageBody[ "map_".$mapId ] = true;
 		}
 
-		if( $this->pSet->isPrinterPagePDF() )
-		{
+		if( $this->pSet->isPrinterPagePDF() ) {
 			$this->pageBody["pdflink_block"] = true;
-		}
-		else
-		{
+		} else {
 			$this->hideItemType("print_pdf");
 		}
 	}
@@ -946,32 +935,28 @@ class PrintPage extends RunnerPage
 		}
 	}
 
-	protected function addDetailsCss()
-	{
-		if( $this->isPD() )
+	protected function addDetailsCss() {
+		foreach( $this->detailTables as $dt )
 		{
-			foreach( $this->detailTables as $dt )
-			{
-				$dtName = GetTableByShort( $dt );
+			$dtName = GetTableByShort( $dt );
 
-				$tSet = $this->pSet->getTable( $dtName );
-				$tType = $tSet->getTableType();
-				$pageType = $tType == PAGE_REPORT ? PAGE_RPRINT : PAGE_PRINT;
+			$tSet = $this->pSet->getTable( $dtName );
+			$tType = $tSet->getTableType();
+			$pageType = $tType == PAGE_REPORT ? PAGE_RPRINT : PAGE_PRINT;
 
-				$pageName = $this->pSet->detailsPageId( $dtName );
-				$dpSet = new ProjectSettings( $dtName, $pageType, $pageName );
+			$pageName = $this->pSet->detailsPageId( $dtName );
+			$dpSet = new ProjectSettings( $dtName, $pageType, $pageName );
 
-				$pageLayout = GetPageLayout( $dtName, $dpSet->pageName() );
-				$templatefile = GetTemplateName( GetTableURL( $dtName ), $dpSet->pageName() );
+			$pageLayout = GetPageLayout( $dtName, $dpSet->pageName() );
+			$templatefile = GetTemplateName( GetTableURL( $dtName ), $dpSet->pageName() );
 
-				$cssFiles = $pageLayout->getCSSFiles( isRTL(), isPageLayoutMobile( $templatefile ), false );
-				$this->AddCSSFile( $cssFiles );
+			$cssFiles = $pageLayout->getCSSFiles( isRTL(), isPageLayoutMobile( $templatefile ), false );
+			$this->AddCSSFile( $cssFiles );
 
-				include_once getabspath('classes/controls/ViewControlsContainer.php');
-				$viewControls = new ViewControlsContainer(new ProjectSettings($dtName, $pageType), $pageType);
-				$viewControls->addControlsJSAndCSS();
-				$this->AddCSSFile( $viewControls->includes_css );
-			}
+			include_once getabspath('classes/controls/ViewControlsContainer.php');
+			$viewControls = new ViewControlsContainer(new ProjectSettings($dtName, $pageType), $pageType);
+			$viewControls->addControlsJSAndCSS();
+			$this->AddCSSFile( $viewControls->includes_css );
 		}
 	}
 
@@ -1009,9 +994,8 @@ class PrintPage extends RunnerPage
 		$dtableArrParams["tName"] = $dTable;
 		$dtableArrParams["multipleDetails"] = count($this->detailTables) > 1;
 
-		if ( $this->getLayoutVersion() === PD_BS_LAYOUT )
-			$dtableArrParams["pageName"] = $this->pSet->detailsPageId( $dTable );
-
+		$dtableArrParams["pageName"] = $this->pSet->detailsPageId( $dTable );
+		
 		$dtableArrParams["masterTable"] = $this->tName;
 		$dtableArrParams["masterKeysReq"] = array();
 		$i = 0;
@@ -1121,12 +1105,15 @@ class PrintPage extends RunnerPage
 
 	}
 
-	public function getSubsetDataCommand() {
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
 
-		$dc = parent::getSubsetDataCommand();
+		$dc = parent::getSubsetDataCommand( $ignoreFilterField );
+		
+		$this->reoderCommandForReoderedRows( $this->getListPSet(), $dc );
+		
 		if( !$this->allPagesMode ) {
 			$dc->reccount = $this->queryPageSize;
-			$dc->startRecord = $this->pageSize * ( $this->queryPageNo - 1 );
+			$dc->startRecord = $this->queryPageSize * ( $this->queryPageNo - 1 );
 		}
 		return $dc;
 	}

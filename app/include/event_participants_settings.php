@@ -111,14 +111,9 @@ $tdataevent_participants[".showEditInPopup"] = false;
 
 $tdataevent_participants[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataevent_participants[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataevent_participants[".listAjax"] = false;
 //	temporary
-$tdataevent_participants[".listAjax"] = false;
+//$tdataevent_participants[".listAjax"] = false;
 
 	$tdataevent_participants[".audit"] = false;
 
@@ -181,8 +176,6 @@ $tdataevent_participants[".allowFieldsReordering"] = true; // temp fix #13449
 //
 
 $tdataevent_participants[".isUseAjaxSuggest"] = true;
-
-$tdataevent_participants[".rowHighlite"] = true;
 
 
 
@@ -254,8 +247,6 @@ $tdataevent_participants[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataevent_participants[".strOrderBy"] = $tstrOrderBy;
 
 $tdataevent_participants[".orderindexes"] = array();
@@ -320,7 +311,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","EventID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -351,7 +342,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -410,8 +402,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -430,7 +421,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -484,7 +475,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","CandidateID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -515,7 +506,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -579,8 +571,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -599,7 +590,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -653,7 +644,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","StudentID");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -684,7 +675,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -714,8 +706,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -736,7 +727,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -790,7 +781,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Event_Start_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -821,7 +812,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -851,8 +843,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -873,7 +864,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -927,7 +918,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Event_End_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -958,7 +949,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -988,8 +980,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1010,7 +1001,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1064,7 +1055,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","First_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1095,7 +1086,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1125,8 +1117,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1147,7 +1138,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1201,7 +1192,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Middle_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1232,7 +1223,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1262,8 +1254,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1284,7 +1275,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1338,7 +1329,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Last_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1369,7 +1360,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1399,8 +1391,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1421,7 +1412,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1475,7 +1466,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Sex");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1506,7 +1497,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1552,8 +1544,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1571,7 +1562,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1625,7 +1616,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Phone");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1656,7 +1647,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1686,8 +1678,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1708,7 +1699,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1762,7 +1753,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Email");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1793,7 +1784,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1823,8 +1815,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1845,7 +1836,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1899,7 +1890,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Disability_Status");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1930,7 +1921,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1976,8 +1968,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1995,7 +1986,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2049,7 +2040,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Disability_Type");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -2080,7 +2071,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2138,8 +2130,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2157,7 +2148,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 							
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2211,7 +2202,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Disability_Type_Other");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -2242,7 +2233,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2272,8 +2264,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2294,7 +2285,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2348,7 +2339,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Participant_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2379,7 +2370,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2409,8 +2401,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2431,7 +2422,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2485,7 +2476,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Participant_Field_of_Study");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2516,7 +2507,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2546,8 +2538,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2568,7 +2559,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2622,7 +2613,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Participant_Organization_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2653,7 +2644,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2683,8 +2675,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2705,7 +2696,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2759,7 +2750,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Participant_Organization_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2790,7 +2781,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2820,8 +2812,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2842,7 +2833,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2896,7 +2887,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("event_participants","Participant_Home_Address");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2927,7 +2918,8 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2957,8 +2949,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2979,7 +2970,7 @@ $tdataevent_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3031,9 +3022,16 @@ $fieldToolTips["event_participants"] = &$fieldToolTipsevent_participants;
 $placeHolders["event_participants"] = &$placeHoldersevent_participants;
 $page_titles["event_participants"] = &$pageTitlesevent_participants;
 
+
+changeTextControlsToDate( "event_participants" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["event_participants"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["event_participants"] = array();
@@ -3041,7 +3039,8 @@ $masterTablesData["event_participants"] = array();
 
 
 	
-				$strOriginalDetailsTable="candidates";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="candidates";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -3056,8 +3055,10 @@ $masterTablesData["event_participants"] = array();
 				$masterTablesData["event_participants"][0]["detailKeys"] = array();
 	$masterTablesData["event_participants"][0]["detailKeys"][]="CandidateID";
 		
+	//endif
 	
-				$strOriginalDetailsTable="events";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="events";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="events";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -3072,6 +3073,7 @@ $masterTablesData["event_participants"] = array();
 				$masterTablesData["event_participants"][1]["detailKeys"] = array();
 	$masterTablesData["event_participants"][1]["detailKeys"][]="EventID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -3468,7 +3470,6 @@ $tdataevent_participants[".sqlquery"] = $queryData_event_participants;
 
 
 
-$tableEvents["event_participants"] = new eventsBase;
 $tdataevent_participants[".hasEvents"] = false;
 
 ?>

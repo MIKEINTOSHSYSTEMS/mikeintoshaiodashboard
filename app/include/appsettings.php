@@ -65,6 +65,7 @@ define('PAGE_MENU',"menu");
 define('PAGE_LOGIN',"login");
 define('PAGE_REGISTER',"register");
 define('PAGE_REMIND',"remind");
+define('PAGE_REMIND_SUCCESS',"remind_success");
 define('PAGE_CHANGEPASS',"changepwd");
 define('PAGE_SEARCH',"search");
 define('PAGE_REPORT',"report");
@@ -83,6 +84,8 @@ define('PAGE_DASHMAP', "map");
 define('PAGE_ADMIN_RIGHTS', "admin_rights_list");
 define('PAGE_ADMIN_MEMBERS', "admin_members_list");
 define('PAGE_ADMIN_ADMEMBERS', "admin_admembers_list");
+define('PAGE_USERINFO',"userinfo");
+define('PAGE_SESSION_EXPIRED',"session_expired");
 
 define('ADMIN_USERS',"admin_users");
 
@@ -155,6 +158,7 @@ define("MODE_EXPORT",8);
 
 define("LOGIN_HARDCODED",0);
 define("LOGIN_TABLE",1);
+define("LOGIN_AD",2);
 
 define("SECURITY_NONE",-1);
 define("SECURITY_HARDCODED", 0);
@@ -180,6 +184,7 @@ define("nDATABASE_Informix",5);
 define("nDATABASE_SQLite3",6);
 define("nDATABASE_DB2",7);
 define("nDATABASE_Interbase", 16);
+define("nDATABASE_REST", 19 );
 
 define("ADD_SIMPLE",0);
 define("ADD_INLINE",1);
@@ -222,6 +227,15 @@ define("EXPORT_RAW", 0);
 define("EXPORT_FORMATTED", 1);
 define("EXPORT_BOTH", 2);
 
+
+define("CHANGEPASS_SIMPLE", 0);
+define("CHANGEPASS_POPUP", 1);
+
+define("USERINFO_SIMPLE", 0 );
+define("USERINFO_2FACTOR", 1 );
+
+define("SESSION_EXPIRED_SIMPLE", 0 );
+define("SESSION_EXPIRED_POPUP", 1 );
 
 define("titTABLE",0);
 define("titVIEW",1);
@@ -426,6 +440,8 @@ define("PDF_PAGE_HEIGHT", 1060);
 define("GOOGLE_MAPS", 0);
 define("OPEN_STREET_MAPS", 1);
 define("BING_MAPS", 2);
+define("HERE_MAPS", 3);
+define("MAPQUEST_MAPS", 4);
 
 /* Defined captcha type */
 define("FLASH_CAPTCHA", 0);
@@ -469,16 +485,17 @@ define('SHFIELDS_PARAMS_TYPE', 3);
 define('FORDER_PARAMS_TYPE', 4);
 
 // remind password method
-define('RPM_SEND', 'SEND');
-define('RPM_RESET', 'RESET');
+define('RPM_SEND', 0 );
+define('RPM_RESET', 1 );
 
 define('CONTEXT_GLOBAL', 0);	//	global context
 define('CONTEXT_PAGE', 1);		//	page where pageObject is available
 define('CONTEXT_BUTTON', 2);	// 	button or other AJAX event
 define('CONTEXT_LOOKUP', 3);	//	dependent lookup
 define('CONTEXT_ROW', 4);		// 	processing grid row on multiple-records page (list)
-define('CONTEXT_COMMAND', 5);	// 	DataCommand context
+define('CONTEXT_COMMAND', 5);	// 	DsCommand context
 define('CONTEXT_SEARCH', 6);	// 	Search object context
+define('CONTEXT_MASTER', 7);	// 	Master-details context
 
 define('BOTH_RECORDS', 0);
 define('NEXT_RECORD', 1);
@@ -504,24 +521,62 @@ define('REST_OAUTH', 4);
 define("TIME_FORMAT_TIME_OF_DAY", 0);
 define("TIME_FORMAT_DURATION", 1);
 
+// user session levels
+define("LOGGED_NONE", 0 );
+//	logged in
+define("LOGGED_FULL", 1 );
+//	user has entered username & password, has to do 2factor authentication
+define("LOGGED_2F_PENDING", 2 );
+//	user has logged in, must setup 2factor authentication
+define("LOGGED_2FSETUP_PENDING", 3 );
+//	user has logged in, acount not activated, must confirm email address
+define("LOGGED_ACTIVATION_PENDING", 4 );
+
+
+define("stNONE", '%none' );
+define("stHARDCODED", '%hardcoded' );
+define("stDB", '%db' );
+define("stAD", '%ad' );
+define("stGOOGLE", '%google' );
+define("stOPENID", '%openid' );
+define("stFACEBOOK", '%facebook' );
+define("stAZURE", '%azure' );
+define("stSAML", '%saml' );
+define("stOKTA", '%okta' );
+
+//	storage providers
+define("stpDISK", 0 );
+define("stpAMAZON", 1 );
+define("stpGOOGLEDRIVE", 2 );
+define("stpONEDRIVE", 3 );
+define("stpDROPBOX", 4 );
+
+define( "spidGOOGLEDRIVE", "_PHPRunnerGoogleDriveConnection" );
+define( "spidAMAZON", "_PHPRunnerAmazonS3Connection" );
+define( "spidONEDRIVE", "_PHPRunnerOneDriveConnection" );
+define( "spidDROPBOX", "_PHPRunnerDropboxConnection" );
 
 
 $globalSettings = array();
 $g_defaultOptionValues = array();
 $g_settingsType = array();
 
-$globalSettings["nLoginMethod"] = -1;
-
 $twilioSID = "";
 $twilioAuth = "";
 $twilioNumber = "";
-$globalSettings["bTwoFactorAuth"] = false;
+
+// Update edit format for date text fields
+$editTextAsDate = false;
 
 
+/**
+ * An option to be added to the wizard
+ * Controls 'Remeber me' option
+ */
+$globalSettings["keepLoggedIn"] = true;
 
-
-
-$globalSettings["popupPagesLayoutNames"] = array();
+$globalSettings["bEncryptPasswords"] = true;
+$globalSettings["nEncryptPasswordMethod"] = "0";
 
 //mail settings
 $globalSettings["useBuiltInMailer"] = false;
@@ -536,9 +591,24 @@ $globalSettings["strFromEmail"] = "";
 
 //
 
+/*
+$globalSettings["ADDomain"] = "";
+$globalSettings["ADServer"] = "";
+$globalSettings["ADFollowRefs"] = ;
+$globalSettings["ADBaseDN"] = "";
+if( !$globalSettings["ADBaseDN"] ) {
+	$globalSettings["ADBaseDN"] = ldap_Domain2DN( $globalSettings["ADDomain"] );
+}
+
+$globalSettings["customLDAP"] = false;
+*/
+$customLDAPSettings = array(); //#9409
+
+//	if user is member of group A, and group A is a memeber of group B,
+//	count the user as member of group B
+$adNestedPermissions = false;
 
 $ajaxSearchStartsWith = true;
-
 
 
 
@@ -555,11 +625,16 @@ $globalSettings["CookieBanner"] = array();
 
 $globalSettings["useCookieBanner"] = 0 != 0;
 
+$globalSettings["htmlEmailTemplates"] = array();
 
+
+$globalSettings["createLoginPage"] = true;
+$globalSettings["userGroupCount"] = 1;
 
 
 $globalSettings["apiGoogleMapsCode"] = "";
 
+$globalSettings["useEmbedMapsAPI"] = 1 != 0;
 
 
 
@@ -607,6 +682,9 @@ $globalSettings["CaptchaSettings"]["secretKey"] = "";
 $globalSettings["CaptchaSettings"]["captchaPassesCount"] = "5";
 
 
+
+
+
 $bsProjectTheme = "simplex";
 $bsProjectSize = "normal";
 
@@ -614,27 +692,44 @@ $wr_pagestylepath = "OfficeOffice";
 $wr_is_standalone = false;
 $WRAdminPagePassword = "";
 
-$cLoginTable = "";
-$cDisplayNameField = "";
-$cUserNameField	= "";
-$cPasswordField	= "";
-$cUserGroupField = "";
-$cEmailField = "";
-$globalSettings["usersTableInProject"] = false;
+
+
+/**
+ * Legacy variables for pre-10.6 business templates only.
+ * DEPRECATED
+ */
+$cLoginTable = "derejame_users";
+$cDisplayNameField = "fullname";
+$cUserNameField	= "username";
+$cPasswordField	= "password";
+$cUserGroupField = "username";
+$cEmailField = "email";
+$cUserpicField = "userpic";
+$loginKeyFields= array();
+$loginKeyFields[] = "ID";
+
+//	legacy use only
+$cKeyFields = $loginKeyFields;
+
+/**
+ * End Legacy csection
+ */
+
+
+$globalSettings["usersDatasourceTable"] = "derejame_users";
+
 
 $globalSettings["jwtSecret"] = "pTBgdmk7SrEchwPYJZQF";
 
-if( $cDisplayNameField == '' )
-	$cDisplayNameField = $cUserNameField;
-
-$cDisplayNameFieldType	= 200;
-$cUserNameFieldType	= 200;
-$cPasswordFieldType	= 200;
-$cEmailFieldType = 200;
 
 $arrCustomPages = array();
 
 
+$gPermissionsRefreshTime = 5;
+$gPermissionsRead = false;
+
+//	-1 - undetermined, 0 - nah, 1 - yep
+$gGuestHasPermissions = -1;
 
 $useAJAX = true;
 $suggestAllContent = true;
@@ -642,9 +737,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "80_1711994200";
-$wizardBuildKey = "34702";
-$projectBuildNumber = "80";
+$projectBuildKey = "82_1712159860";
+$wizardBuildKey = "39558";
+$projectBuildNumber = "82";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -652,12 +747,14 @@ $mlang_charsets = array();
 
 $projectMenus = array();
 $projectMenus[] = "main";
+$projectMenus[] = "secondary";
 
 
 $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
 
+$menuTreelikeFlags["secondary"] = 1;
 
 
 
@@ -700,29 +797,62 @@ $tableCaptions["English"]["Job_Types"] = "Job Types";
 $tableCaptions["English"]["CompanySectors"] = "Company Sectors";
 $tableCaptions["English"]["Disability_Types"] = "Disability Types";
 $tableCaptions["English"]["Trainer"] = "Trainer";
+$tableCaptions["English"]["derejame_users"] = "Derejame Users";
+$tableCaptions["English"]["admin_rights"] = "Admin Rights";
+$tableCaptions["English"]["admin_members"] = "Admin Members";
+$tableCaptions["English"]["admin_users"] = "Admin Users";
 
 
 $globalEvents = new class_GlobalEvents;
+$dummyEvents = new eventsBase;
 $tableEvents = array();
 $dalTables = array();
 $tableinfo_cache = array();
 
 $projectLanguage = "php";
 
+importSecuritySettings();
+
+
 require_once( getabspath('classes/labels.php') );
 require_once( getabspath('classes/security.php') );
 require_once( getabspath("connections/dbfunctions_legacy.php") );
+require_once( getabspath("classes/datasource/httprequest.php") );
 require_once( getabspath("connections/ConnectionManager.php") );
 require_once( getabspath("connections/apis.php") );
-include(getabspath('classes/searchclause.php'));
-include(getabspath('classes/projectsettings.php'));
-include_once(getabspath('classes/runnerpage.php'));
-include_once(getabspath("classes/controls/ViewControl.php"));
+require_once( getabspath('classes/searchclause.php'));
+require_once( getabspath('classes/projectsettings.php'));
+include_once( getabspath('classes/runnerpage.php'));
+include_once( getabspath("classes/controls/ViewControl.php"));
 require_once( getabspath('classes/db.php') );
 require_once( getabspath('classes/context.php') );
-require_once(getabspath("classes/cipherer.php"));
+require_once( getabspath("classes/cipherer.php"));
 require_once( getabspath('classes/wheretabs.php') );
 require_once( getabspath('classes/datasource/datacontext.php') );
+require_once( getabspath("classes/filesystem/filesystem.php") );
+
+$pageTypesForView = array();
+$pageTypesForView[] = "list";
+$pageTypesForView[] = "view";
+$pageTypesForView[] = "export";
+$pageTypesForView[] = "print";
+$pageTypesForView[] = "report";
+$pageTypesForView[] = "rprint";
+$pageTypesForView[] = "chart";
+
+$pageTypesForEdit = array();
+$pageTypesForEdit[] = "add";
+$pageTypesForEdit[] = "edit";
+$pageTypesForEdit[] = "search";
+$pageTypesForEdit[] = "register";
+
+
+$projectEntities = array();
+$projectEntitiesReverse = array();
+$tablesByGoodName = array();
+$tablesByUpperCase = array();
+$tablesByUpperGoodname = array();
+
 
 $contextStack = new RunnerContext;
 
@@ -730,7 +860,10 @@ $cman = new ConnectionManager();
 $restApis = new RestManager();
 $restResultCache = array();
 
-
+/**
+ * substitute for $_SESSION when in REST API (stateless) mode
+ */
+$restStorage = array();
 
 $currentConnection = null;
 
@@ -743,7 +876,7 @@ $mediaType = $mediaType ? $mediaType : 0;
 
 
 
-$page_titles[".global"] = array();
+$page_titles[GLOBAL_PAGES_SHORT] = array();
 if(mlang_getcurrentlang()=="English")
 {
 }
@@ -752,10 +885,29 @@ $globalSettings["showDetailedError"] = true;
 
 
 
+$globalSettings["mapMarkerCount"] = 50;
+
 // SearchClause::getSearchObject
 $_cachedSeachClauses = array();
 
+/**
+ * Lazy initialization dictionaries such as mime types for mimeTypeByExt go here
+ */
+$onDemnadVariables = array();
+
+
 $auditMaxFieldLength = 300;
+$mysqlSupportDates0000 = false;
+
+$csrfProtectionOff = false;
+$cacheImages = true;
+/**
+ * When true, read user permissions and write them into the session.
+ */
+$gReadPermissions = true;
+
+$resizeImagesOnClient = false;
+
 
 
 
@@ -763,17 +915,23 @@ $auditMaxFieldLength = 300;
 $conn = $cman->getDefault()->conn;
 
 
+//	delete old username & password cookies
+if( $_COOKIE["password"] ) {
+	runner_setcookie("username", "", time() - 1, "", "", false, false);
+	runner_setcookie("password", "", time() - 1, "", "", false, false);
+}
 
-$isGroupSecurity = false;
+
+$logoutPerformed = false;
+Security::autoLoginAsGuest();
+Security::updateCSRFCookie();
+
 
 $isUseRTEBasic = true;
 
 $isUseRTECK = false;
 
 $isUseRTEInnova = false;
-
-$caseInsensitiveUsername = 0;
-
 
 $menuNodesIndex=0;
 

@@ -5,6 +5,10 @@
 require_once("include/dbcommon.php");
 require_once("classes/button.php");
 
+//	CSRF protection
+if( !isPostRequest() )
+	return;
+
 $params = (array)my_json_decode(postvalue('params'));
 
 if( $params["_base64fields"] ) {
@@ -31,6 +35,16 @@ if( $buttId ) {
 		exit;
 	}
 }
+
+$params["masterTable"] = postValue("masterTable");;
+$params["masterKeys"] = array();
+// RunnerPage::readMasterKeysFromRequest
+$i = 1;
+while( isset( $_REQUEST["masterkey".$i] ) ) {
+	$params["masterKeys"][ $i ] = $_REQUEST["masterkey".$i];
+	$i++;
+}
+
 
 
 

@@ -63,14 +63,9 @@ $tdatacities[".showEditInPopup"] = false;
 
 $tdatacities[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatacities[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatacities[".listAjax"] = false;
 //	temporary
-$tdatacities[".listAjax"] = false;
+//$tdatacities[".listAjax"] = false;
 
 	$tdatacities[".audit"] = false;
 
@@ -134,8 +129,6 @@ $tdatacities[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatacities[".isUseAjaxSuggest"] = true;
 
-$tdatacities[".rowHighlite"] = true;
-
 
 
 
@@ -189,8 +182,6 @@ $tdatacities[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatacities[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacities[".orderindexes"] = array();
@@ -254,7 +245,7 @@ $tdatacities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("cities","CityID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -286,7 +277,8 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -317,8 +309,7 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -340,7 +331,7 @@ $tdatacities[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -394,7 +385,7 @@ $tdatacities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("cities","CityName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -425,7 +416,8 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -455,8 +447,7 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -477,7 +468,7 @@ $tdatacities[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -531,7 +522,7 @@ $tdatacities[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("cities","RegionID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -562,7 +553,8 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -621,8 +613,7 @@ $tdatacities[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -641,7 +632,7 @@ $tdatacities[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -693,8 +684,14 @@ $fieldToolTips["cities"] = &$fieldToolTipscities;
 $placeHolders["cities"] = &$placeHolderscities;
 $page_titles["cities"] = &$pageTitlescities;
 
+
+changeTextControlsToDate( "cities" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["cities"] = array();
 //	sub_cities
 	
@@ -726,6 +723,7 @@ $detailsTablesData["cities"] = array();
 				$detailsTablesData["cities"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["cities"][$dIndex]["detailKeys"][]="CityID";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["cities"] = array();
@@ -733,7 +731,8 @@ $masterTablesData["cities"] = array();
 
 
 	
-				$strOriginalDetailsTable="regions";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="regions";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="regions";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -748,6 +747,7 @@ $masterTablesData["cities"] = array();
 				$masterTablesData["cities"][0]["detailKeys"] = array();
 	$masterTablesData["cities"][0]["detailKeys"][]="RegionID";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -904,7 +904,6 @@ $tdatacities[".sqlquery"] = $queryData_cities;
 
 
 
-$tableEvents["cities"] = new eventsBase;
 $tdatacities[".hasEvents"] = false;
 
 ?>

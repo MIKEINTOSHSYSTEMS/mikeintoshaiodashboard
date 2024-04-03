@@ -1,15 +1,23 @@
 <?php
 class SecurityPlugin
 {
+	public $code;
+
 	protected $appId = "";
 	protected $appSecret = "";
 
 	protected $error = "";
+
+	protected $provider;
+
 	
 	/**
 	 * @constructor
+	 * @param Array $params - SecurityProvider class instance
 	 */
-	function __construct() {
+	function __construct( $params ) {
+		$this->code = $params["code"];
+		$this->provider = Security::findProvider( $this->code );
 	}
 
 	/**
@@ -36,16 +44,38 @@ class SecurityPlugin
 	 * raw: array of original user info returned from the provider
 	 * @return Array
 	 */
-	public function getUserInfo() {
+	public function getUserInfo( $token ) {
 		return array();
 	}
 
 	public function onLogout()
 	{
 	}
+
+	/**
+	 * Logs out
+	 */
+	public function logout()
+	{
+	}
 	
+
 	public function getError() {
 		return $this->error;
+	}
+
+	/**
+	 * Redirect to the external login page
+	 */
+	public function redirectToLogin() {
+
+	}
+
+	/**
+	 * Validate code or data received by the callback page
+	 */
+	public function validateCallback( $code ) {
+		return false;
 	}
 }
 

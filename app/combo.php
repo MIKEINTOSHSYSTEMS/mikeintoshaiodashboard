@@ -1,7 +1,7 @@
 <?php
 require "include/phpfunctions.php";
 
-$cCharset = "utf-8";
+$cCharset = "##@BUILDER.strCharset s##";
 
 $queryString = getQueryString();
 

@@ -60,14 +60,9 @@ $tdatatraining_types[".showEditInPopup"] = false;
 
 $tdatatraining_types[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatatraining_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatatraining_types[".listAjax"] = false;
 //	temporary
-$tdatatraining_types[".listAjax"] = false;
+//$tdatatraining_types[".listAjax"] = false;
 
 	$tdatatraining_types[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatatraining_types[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatatraining_types[".isUseAjaxSuggest"] = true;
 
-$tdatatraining_types[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatatraining_types[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatatraining_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdatatraining_types[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_types","TypeID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatatraining_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_types","TypeName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatatraining_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatatraining_types[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["training_types"] = &$fieldToolTipstraining_types;
 $placeHolders["training_types"] = &$placeHolderstraining_types;
 $page_titles["training_types"] = &$pageTitlestraining_types;
 
+
+changeTextControlsToDate( "training_types" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["training_types"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["training_types"] = array();
@@ -675,7 +673,6 @@ $tdatatraining_types[".sqlquery"] = $queryData_training_types;
 
 
 
-$tableEvents["training_types"] = new eventsBase;
 $tdatatraining_types[".hasEvents"] = false;
 
 ?>

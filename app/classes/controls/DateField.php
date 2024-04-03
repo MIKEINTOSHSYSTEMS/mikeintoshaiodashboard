@@ -46,7 +46,9 @@ class DateField extends DateTimeControl
 		if( $this->pageObject->isBootstrap() )
 		{
 			//	search panel control
-			if( ( $this->pageObject->pageType == PAGE_LIST || $this->pageObject->pageType == PAGE_CHART || $this->pageObject->pageType == PAGE_REPORT) || $this->pageObject->pageType == PAGE_SEARCH && $this->pageObject->mode == SEARCH_LOAD_CONTROL)
+			if( !$this->forSpreadsheetGrid 
+				&& ( ( $this->pageObject->pageType == PAGE_LIST || $this->pageObject->pageType == PAGE_CHART || $this->pageObject->pageType == PAGE_REPORT) 
+				|| $this->pageObject->pageType == PAGE_SEARCH && $this->pageObject->mode == SEARCH_LOAD_CONTROL) )
 			{
 				if( $dateEditType == EDIT_DATE_DD )
 					return EDIT_DATE_SIMPLE;
@@ -78,7 +80,7 @@ class DateField extends DateTimeControl
 		$tvalue = $value;
 
 		$time = db2time($tvalue);
-		if(!count($time))
+		if( !$time )
 			$time = array(0, 0, 0, 0, 0, 0);
 
 		$classString = '';
@@ -219,7 +221,6 @@ class DateField extends DateTimeControl
 				}
 				echo '<input '.$this->getPlaceholderAttr().' id="'.$this->cfield.'" type=text class="'.$classString.'" name="'.$this->cfield.'" '.$this->inputStyle.' value="'.runner_htmlspecialchars($ovalue).'">';
 		}
-
 		$this->buildControlEnd($validate, $mode);
 	}
 
@@ -270,5 +271,64 @@ class DateField extends DateTimeControl
 
 		return $maxLengthMonth;
 	}
+
+	/**
+	 * 	Returns basic condition
+	 */
+	public function getBasicFieldCondition( $svalue, $strSearchOption, $svalue2 = "", $etype = "" ) {
+		$searchFor = $this->processControlValue( $svalue, $etype );
+		$searchFor2 = $this->processControlValue( $svalue2, $etype );
+		$etype = "";
+		$pSet = $this->getProjectSettings();
+		if( !$pSet->dateEditShowTime($this->field) && IsDateTimeFieldType( $pSet->getFieldType($this->field) ) ) {
+			//	search for date only in a datetime field
+			
+			if( $strSearchOption == EQUALS ) {
+				//	 ( NOT field < date ) AND field < ( date + 1 day )
+				$tm = db2time( $searchFor );
+				if( !$tm[0] ) {
+					return DataCondition::_False();
+				}
+				$nextDay = adddays( $tm, 1 );
+				return DataCondition::_And( array( 
+					DataCondition::_Not( 
+						DataCondition::FieldIs( $this->field, dsopLESS, date2db( $tm ) )
+					),
+					DataCondition::FieldIs( $this->field, dsopLESS, date2db( $nextDay ) )
+				));
+			} else if( $strSearchOption == MORE_THAN ) {
+				//	 NOT ( field < ( date + 1 day ) )
+				$tm = db2time( $searchFor );
+				if( !$tm[0] ) {
+					return DataCondition::_False();
+				}
+				$nextDay = adddays( $tm, 1 );
+				return DataCondition::_Not( 
+					DataCondition::FieldIs( $this->field, dsopLESS, date2db( $nextDay ) )
+				);
+
+			} else if( $strSearchOption == BETWEEN && $searchFor != "" && $searchFor2 != "" ) {
+				//	true between only
+				//	NOT ( field < date ) AND field < (date2+1)
+				$tm = db2time( $searchFor );
+				$tm2 = db2time( $searchFor2 );
+				if( !$tm[0] || !$tm2[0] ) {
+					return DataCondition::_False();
+				}
+				$tm2 = adddays( $tm2, 1 );
+				return DataCondition::_And( array( 
+					DataCondition::_Not( 
+						DataCondition::FieldIs( $this->field, dsopLESS, date2db( $tm ) )
+					),
+					DataCondition::FieldIs( $this->field, dsopLESS, date2db( $tm2 ) )
+				));
+
+			}
+
+		}
+		return parent::getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2, $etype );
+	}
+	
+
 }
 ?>

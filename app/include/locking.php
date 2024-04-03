@@ -2,8 +2,8 @@
 class oLocking
 {
 	var $lockTableName = "";
-	var $ConfirmTime=250;
-	var $UnlockTime=300;
+	var $ConfirmTime=15;
+	var $UnlockTime=30;
 	var $ConfirmAdmin;
 	var $ConfirmUser;
 	var $LockAdmin;
@@ -29,10 +29,7 @@ class oLocking
 		
 		$this->connection = $cman->getForLocking();	
 		
-		if(isset($_SESSION["UserID"]) && !is_null($_SESSION["UserID"]))
-			$this->UserID = $_SESSION["UserID"];
-		else
-			$this->UserID = "Guest";
+		$this->UserID = Security::getUserName();
 	}
 
 	function LockRecord($strtable,$keys)
@@ -213,7 +210,7 @@ class oLocking
 		}
 	}
 	
-	function GetLockInfo($strtable,$keys,$links, $pageid)
+	function GetLockInfo( $strtable, $keys, $links, $pageid )
 	{
 		$page=GetTableLink(GetTableURL($strtable), "edit");
 		$skeys="";
@@ -230,17 +227,15 @@ class oLocking
 		
 		$qResult = $this->query( $where, $this->connection->addFieldWrappers("id")." asc" );
 		if( $data = $qResult->fetchAssoc() )
-		{
-			$sdate = now();
-			$arrDateTime = db2time($data["startdatetime"]);
-			
-			$str = mysprintf($this->LockAdmin,array($data["userid"],round(secondsPassedFrom($data["startdatetime"])/60,2)));
-			if($links){
-				$str.='<a class="unlock" href="#" onclick="Runner.pages.PageManager.getAt(\''.runner_htmlspecialchars(jsreplace($strtable)).'\', '.$pageid.').locking.UnlockAdmin(\''
-					.runner_htmlspecialchars(jsreplace($skeys)).'\',\''.$data["sessionid"].'\',\'no\');return false;">'."Unlock record".'</a>';
-				$str.='<a class="edit" href="#" onclick="Runner.pages.PageManager.getAt(\''.runner_htmlspecialchars(jsreplace($strtable)).'\', '.$pageid.').locking.UnlockAdmin(\''
-					.runner_htmlspecialchars(jsreplace($skeys)).'\',\''.$data["sessionid"].'\',\'yes\');return false;">'."Edit record".'</a>';
+		{			
+			$str = mysprintf( $this->LockAdmin, array($data["userid"], round(secondsPassedFrom($data["startdatetime"])/60, 2)) );
+			if( $links ) {
+				$str.='<a class="unlock" href="#">'
+					."Unlock record".'</a>';
+				$str.='<a class="edit" href="#">'
+					."Edit record".'</a>';
 			}
+			
 			return $str;
 		}
 		

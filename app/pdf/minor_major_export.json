@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -89,13 +91,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -105,24 +106,27 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_export_field}","text":{$MinorMajorID_pdfvalue}},
+			{"text":{$MinorMajorID_pdfvalue},"hidden":"{$item_hide_export_field}"},
 				
 				
-			{"hidden":"{$item_hide_export_field1}","text":{$DepartmentID_pdfvalue}},
+			{"text":{$DepartmentID_pdfvalue},"hidden":"{$item_hide_export_field1}"},
 				
 				
-			{"hidden":"{$item_hide_export_field2}","text":{$MinorName_pdfvalue}},
+			{"text":{$MinorName_pdfvalue},"hidden":"{$item_hide_export_field2}"},
 				
 				
-			{"hidden":"{$item_hide_export_field3}","text":{$MajorName_pdfvalue}},
+			{"text":{$MajorName_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

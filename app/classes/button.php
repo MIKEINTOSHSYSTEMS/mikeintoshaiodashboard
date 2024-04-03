@@ -9,8 +9,6 @@ class Button
 	
 	var $isManyKeys = false;
 	
-	var $isGetNext = false;
-	
 	var $location = "";
 	
 	var $nextInd;
@@ -20,6 +18,9 @@ class Button
 	var $page;
 
 	var $tempFileNames = array();
+	
+	public $masterTable;
+	public $masterKeys;
 	
 	function __construct(&$params)
 	{
@@ -58,14 +59,14 @@ class Button
 	 */
 	function modifyKeys()
 	{
-		global $gSettings;
+		$pSet = new ProjectSettings( $this->table, "", $this->page );
 		
 		$keys = array();
 		
 		// if array of keys exists
-		if(count($this->keys))
+		if( $this->keys )
 		{
-			$tKeysNamesArr = $gSettings->getTableKeys();
+			$tKeysNamesArr = $pSet->getTableKeys();
 			if($this->isManyKeys)
 			{
 				foreach ($this->keys as $ind => $value)
@@ -105,65 +106,56 @@ class Button
 	 * Get keys
 	 * @return {array} 
 	 */
-	function getKeys()
-	{
+	function getKeys() {
 		return $this->keys;
-	}	
+	}
+	
 	/**
 	 * Get current record data
-	 *
 	 * @return {mixed} array of next record data or false
 	 */
-	function getCurrentRecord()
-	{
+	function getCurrentRecord() {
 		return $this->getRecordData();
 	}
+	
 	/**
 	 * Get next selected record
-	 *
 	 * @return {mixed} array of next record data or false
-	 */
-	function getNextSelectedRecord()
-	{
-		if($this->nextInd < count($this->selectedKeys))
-		{
-			$this->isGetNext = true;
-			return $this->getRecordData();
+	 */	
+	function getNextSelectedRecord() {
+		if( $this->nextInd < count( $this->selectedKeys ) ) {
+			$data =  $this->getRecordData( $this->selectedKeys[ $this->nextInd ] );
+			$this->nextInd += 1;
+			return $data;
 		}
-		else
-			return false;
-	}
+		
+		return false;
+	}	
+	
 	/**
 	 * Read values from the database by keys
-	 *
 	 * @return {mixed} array of current record data or false
-	 */
-	function getRecordData()
-	{
-
-		global $gSettings, $gQuery, $cipherer, $cman;
-	
-		if($this->location!=PAGE_EDIT && $this->location!=PAGE_VIEW && $this->location!=PAGE_LIST && $this->location!='grid' && !$next)
-			return false;
+	 */	
+	public function getRecordData( $keys = null ) {
+		global $cipherer;
 		
-		$connection = $cman->byTable( $this->table );
-		
-		if($this->isGetNext)
-		{
-			$this->isGetNext = false;
-			$keys = $this->selectedKeys[$this->nextInd];
-			$this->nextInd=$this->nextInd+1;
-		}
-		else
+		if( !$keys )
 			$keys = $this->currentKeys;
 		
-		$strSQL = $gQuery->buildSQL_default( array( KeyWhere($keys, $this->table ), SecuritySQL("Search", $this->table ) ) );
-		LogInfo($strSQL);
+		$pSet = new ProjectSettings( $this->table, "", $this->page );
 		
-		$data = $cipherer->DecryptFetchedArray( $connection->query( $strSQL )->fetchAssoc() );
+		$dc = new DsCommand();
+		$dc->filter = Security::SelectCondition( "S", $pSet );
+		$dc->keys = $keys;
+		
+		$dataSource = getDataSource( $this->table, $pSet );
+		$fetchedArray = $dataSource->getSingle( $dc )->fetchAssoc();
+		$data = $cipherer->DecryptFetchedArray( $fetchedArray );
+
 		return $data;
 	}
-
+	
+	
 	function getMasterData( $masterTable )
 	{
 		if ( isset($_SESSION[ $masterTable . "_masterRecordData" ]) )
@@ -186,5 +178,31 @@ class Button
 			@unlink( $f );
 		}
 	}
+	
+	public function getMasterRecord() {
+		if( !$this->masterTable )
+			return null;
+		
+		$pSet = new ProjectSettings( $this->table, "", $this->page );
+		$mpSet = new ProjectSettings( $this->masterTable, PAGE_LIST );
+		$masterDs = getDataSource( $this->masterTable, $mpSet );
+		
+		$filters = array();
+		foreach( $pSet->getMasterTablesArr() as $i => $masterTableInfo ) {
+			if( $this->masterTable != $masterTableInfo['mDataSourceTable'] )
+				continue;
+			
+			foreach( $masterTableInfo['masterKeys'] as $j => $mKeyField ) {
+				$filters[] = DataCondition::FieldEquals( $mKeyField, $this->masterKeys[ $j + 1 ] );
+			}				
+		}
+		$filters[] = Security::SelectCondition( "S", $mpSet );
+		
+		$dc = new DsCommand;
+		$dc->filter = DataCondition::_And( $filters );
+		$dc->reccount = 1;
+		
+		return $masterDs->getList( $dc )->fetchAssoc();
+	}		
 }
 ?>

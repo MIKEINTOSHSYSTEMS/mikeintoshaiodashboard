@@ -16,7 +16,7 @@ class DataSource {
 		$this->_name = $name;
 	}
 
-	protected function tableBased() {
+	public function tableBased() {
 		return false;
 	}
 
@@ -32,26 +32,29 @@ class DataSource {
 	 * return record count
 	 * @return number
 	 */
-	public function getCount() {
+	public function getCount( $dc ) {
 
 	}
 
 	/**
 	 * returns recordset or array
 	 */
-	public function getList() {
+	public function getList( $dc ) {
 
 	}
 
-	public function delete( $keys ) {
+	protected function getListData( $dc, $listRequest = true ) {
 
+	}
+
+	public function deleteSingle( $dc, $requireKeys = true ) {
 	}
 
 	public function getSingle( $dc ) {
 
 	}
 
-	public function updateSingle( $dc  ) {
+	public function updateSingle( $dc, $requireKeys = true  ) {
 
 	}
 
@@ -116,7 +119,7 @@ class DataSource {
 	/**
 	 * Adds extra column values to each record
 	 * @param DataResult result - query result to filter
-	 * @param DsCommand 
+	 * @param DsCommand
 	 * @return ArrayResult - filtered data
 	 */
 	public function addExtraColumns( $rs, $dc ) {
@@ -132,7 +135,7 @@ class DataSource {
 			$ret[] = $data;
 		}
 		return new ArrayResult( $ret );
-			
+
 	}
 
 
@@ -168,6 +171,9 @@ class DataSource {
 		}
 		$op = $filter->operation;
 		if( $op == dsopAND || $op == dsopOR ) {
+			if( !$filter->operands ) {
+				return true;
+			}
 			foreach( $filter->operands as $o ) {
 				$result = $this->filterRecord( $data, $o->value );
 				if( !$result && $op == dsopAND ) {
@@ -211,7 +217,7 @@ class DataSource {
 		if( count( $condition->operands ) > 2 ) {
 			$value1 = $condition->operands[2]->value;
 		}
-		if( $condition->caseInsensitive ) {
+		if( $condition->caseInsensitive === dsCASE_INSENSITIVE ) {
 			$fieldValue = strtoupper( $fieldValue );
 			$value = strtoupper( $value );
 			$value1 = strtoupper( $value1 );
@@ -233,6 +239,12 @@ class DataSource {
 			return strpos( $fieldValue, $value ) === 0;
 		} else if( $op == dsopBETWEEN ) {
 			return $fieldValue >= $value && $fieldValue <= $value1;
+		} else if( $op == dsopIN ) {
+			if( $condition->caseInsensitive === dsCASE_INSENSITIVE )
+				return getArrayElementNC( $value, $fieldValue ) !== null;
+			else {
+				return array_search( $fieldValue, $value ) !== false;
+			}
 		}
 		return false;
 	}
@@ -241,8 +253,12 @@ class DataSource {
 	 * move ANDS to the top level
 	 */
 	protected function flattenANDs( $condition ) {
-		if( !$condition || $condition->operation != dsopAND )
+		if ( !$condition )
 			return;
+
+		if ( $condition->operation != dsopAND )
+			return;
+
 		$newOperands = array();
 		foreach( $condition->operands as $cop ) {
 			if(!$cop->value)
@@ -261,7 +277,10 @@ class DataSource {
 	}
 
 	public function reorderResult( $dc, $res ) {
-		$res->reorder( array( $dc, "compareRecords") );
+		if( !$dc->order ) {
+			return $res;
+		}
+		return $res->reorder( array( $dc, "compareRecords") );
 	}
 
 	public function getOpSubtype( $op ) {
@@ -383,47 +402,47 @@ class DataSource {
 
 		return $groupRs;
 	}
-	
+
 	/**
 	 * Get case statement operand value
-	 * @param DsOperand	 
+	 * @param DsOperand
 	 * @param Array Record data
-	 * @return mixed 
-	 */	
+	 * @return mixed
+	 */
 	protected function getTotalOperantValue( $op, &$record ) {
 		if( $op ) {
 			if( $op->type == dsotFIELD )
 				return $record[ $op->value ];
-			
+
 			if( $op->type == dsotCONST )
 				return $op->value;
 		}
 		return NULL;
 	}
-	
+
 	/**
-	 * Get a case statement result value 
-	 * @param DsCaseExpression	 
+	 * Get a case statement result value
+	 * @param DsCaseExpression
 	 * @param Array		Record data
-	 * @return Array 
+	 * @return Array
 	 */
 	protected function getCaseStatementResult( $caseExpr, &$record ) {
 		foreach( $caseExpr->conditions as $idx => $condition ) {
 			if( $this->filterRecord( $record, $condition) ) {
-				return array( 
+				return array(
 					"value" => $this->getTotalOperantValue( $caseExpr->values[ $idx ], $record ),
 					"skipRecordTotal" => $caseExpr->values[ $idx ]->type == dsotNULL
 				);
 			}
 		}
-	
-		return array( 
+
+		return array(
 			"value" => $this->getTotalOperantValue( $caseExpr->defValue, $record ),
 			"skipRecordTotal" => $caseExpr->defValue->type == dsotNULL
-		);	
+		);
 	}
-	
-	
+
+
 	/**
 	 * @param DsCommand
 	 * @param Array of records
@@ -439,8 +458,8 @@ class DataSource {
 				$totalField = $t["alias"] ? $t["alias"] : $t["field"];
 
 				if( $t["total"] && $t["total"] != "distinct" )
-					$needContinue = true; 				
-				
+					$needContinue = true;
+
 				if( $t["caseStatement"] ) {
 					$caseResult = $this->getCaseStatementResult( $t["caseStatement"], $r );
 					$sourceFieldValue = $caseResult["value"];
@@ -449,12 +468,12 @@ class DataSource {
 					$sourceFieldValue = $r[ $sourceField ];
 					$skipRecordTotal = false;
 				}
-				
-				// skip totals calculation for dsotNULL 
+
+				// skip totals calculation for dsotNULL
 				if( $skipRecordTotal ) {
 					continue;
 				}
-				
+
 				if( !$t["total"] || $t["total"] == "distinct" )
 				{
 					if( !isset( $ret[ $totalField ] ) ) {
@@ -471,7 +490,7 @@ class DataSource {
 							$ret[ $totalField ] = 0;
 						}
 						$ret[ $totalField ] += $sourceFieldValue;
-						
+
 						//	each AVG field needs its own record count
 						if( !$recordCounts[ $totalField ] ) {
 							$recordCounts[ $totalField ] = 0;
@@ -575,27 +594,28 @@ class DataSource {
 	 */
 	public static function groupValueDate( $value, $modifier ) {
 		$time = db2time($value); //[y,mo,d,h,mi,s];
-		if(!count($time))
+		if( !$time )
 			return $value;
 
-		if($modifier == 1) // DATE_INTERVAL_YEAR
-			return $time[0]*10000 + 101;
-		if($modifier == 2) { // DATE_INTERVAL_QUARTER
-			$quarter = floor(($time[1] - 1) / 3) + 1;
-			return  $time[0]*10000 + $quarter*100+1;
+		switch($modifier)
+		{
+			case 1: // DATE_INTERVAL_YEAR
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT)."0101";
+			case 2: // DATE_INTERVAL_QUARTER
+				$quarter = floor(($time[1] - 1) / 3) + 1;
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($quarter, 2, "0", STR_PAD_LEFT)."01";
+			case 3: // DATE_INTERVAL_MONTH
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($time[1], 2, "0", STR_PAD_LEFT)."01";
+			case 4: // DATE_INTERVAL_WEEK
+				$week = getweeknumber($time);
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($week, 2, "0", STR_PAD_LEFT)."01";
+			case 5: // DATE_INTERVAL_DAY
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($time[1], 2, "0", STR_PAD_LEFT).str_pad($time[2], 2, "0", STR_PAD_LEFT);
+			case 6: // DATE_INTERVAL_HOUR
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($time[1], 2, "0", STR_PAD_LEFT).str_pad($time[2], 2, "0", STR_PAD_LEFT).str_pad($time[3], 2, "0", STR_PAD_LEFT);
+			case 7: // DATE_INTERVAL_MINUTE
+				return str_pad($time[0], 4, "0", STR_PAD_LEFT).str_pad($time[1], 2, "0", STR_PAD_LEFT).str_pad($time[2], 2, "0", STR_PAD_LEFT).str_pad($time[3], 2, "0", STR_PAD_LEFT).str_pad($time[4], 2, "0", STR_PAD_LEFT);
 		}
-		if($modifier == 3) // DATE_INTERVAL_MONTH
-			return  $time[0]*10000 +  $time[1]*100+1;
-		if($modifier == 4) { // DATE_INTERVAL_WEEK
-			$week = weeknumber($time);
-			return  $time[0]*10000 + $week*100+01;
-		}
-		if($modifier == 5) // DATE_INTERVAL_DAY
-			return  $time[0]*10000 +  $time[1]*100 +  $time[2];
-		if($modifier == 6) // DATE_INTERVAL_HOUR
-			return  $time[0]*1000000 +  $time[1]*10000 +  $time[2]*100 +  $time[3];
-		if($modifier == 7) // DATE_INTERVAL_MINUTE
-			return  $time[0]*100000000 +  $time[1]*1000000 +  $time[2]*10000 +  $time[3]*100 + $time[4];
 		return $value;
 	}
 
@@ -612,6 +632,107 @@ class DataSource {
 		return $this->connection;
 	}
 
+	public function getConnectionId() {
+		return $this->connection->connId;
+	}
+
+	public function prepareSQL( $dc ) {
+		return array(
+			"sql" => "",
+			"where" => "",
+			"order" => ""
+		);
+
+	}
+
+	/**
+	 * Check if additional authorization with the connection is required
+	 * @return Boolean true = authorized
+	 */
+
+	public function checkAuthorization() {
+		return true;
+	}
+
+	/**
+	 * Returns information needed for authorization with the data connection
+	 */
+	public function getAuthorizationInfo() {
+		return null;
+	}
+
+	/**
+	 * Decrypt Assoc-fetched record.
+	 * Returns input parameter if nothing to decrypt
+	 * @return Array
+	 */
+	public function & decryptRecord( &$data ) {
+		return $data;
+	}
+
+	public function wrap( $str ) {
+		return $str;
+	}
+
+	/**
+	 * Supplement $dc->advValues with values
+	 */
+	protected function makeAdvancedValues( $dc ) {
+		foreach( $dc->values as $field => $value) {
+			if( isset( $dc->advValues[$field] ) ) {
+				continue;
+			}
+			$dc->advValues[$field] = new DsOperand(dsotCONST, $value );
+		}
+
+	}
+
+	/**
+	 * update the only field in $dc->values with the row number according to order
+	 * Used for reorderRows feature
+	 * Currently always updates the whole table
+	 */
+	public function updateRowNumber( $dc, $startNumber = 0  ) {
+		return;
+	}
+
+
+	/**
+	 * Tells whether updateRowNumber function is available
+	 * @param DSCommand
+	 * @return Boolean
+	 */
+	public function updateRowNumberAvailable( $dc ) {
+		return false;
+	}
+
+	/**
+	 * Sets silent mode on or off, virtual
+	 * @param Boolean mode
+	 */
+	public function silentMode( $mode ) {
+	}
+
+	//	virtual
+	public function getColumnList() {
+		return array();
+	}
+
+	public function getFieldSubs( $listRequest ) {
+		$ret = array();
+		foreach( $this->pSet->getFieldsList() as $f ) {
+			$source = $this->pSet->getFieldSource( $f, $listRequest );
+			if( !$source && !$listRequest ) {
+				$source = $this->pSet->getFieldSource( $f, true );
+			}			
+			if( !$source ) {
+				continue;
+			}
+			$ret[ $source ] = $f;
+		}
+		return $ret;
+	}
+
 }
 
 require_once( getabspath( 'classes/datasource/table.php') );
@@ -619,5 +740,7 @@ require_once( getabspath( 'classes/datasource/projecttable.php') );
 require_once( getabspath( 'classes/datasource/dbtable.php') );
 require_once( getabspath( 'classes/datasource/sql.php') );
 require_once( getabspath( 'classes/datasource/rest.php') );
+require_once( getabspath( 'classes/datasource/webtable.php') );
+require_once( getabspath( 'classes/datasource/websql.php') );
 
 ?>

@@ -13,15 +13,17 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-edit" {$bodyattrs}>
+	<body class="{$stylename} function-edit"   
+		>
 	{BEGIN body}
 		<style>
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -59,7 +61,7 @@
 				{$menu main}			</div>
 		
     {END left_block}
-</div>				</div>	
+</div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
 				<div  class="r-topheader" data-resize-name="topbar">
 									{BEGIN supertop_block}
@@ -67,26 +69,92 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span class="navbar-form  r-ori-vert navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
-				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
 	 glyphicon glyphicon-triangle-left" href="#" >		
 				
 								</a>
 </span>
 			</span>
 							 
-													</nav>
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 						{$locking}
-				</div>	
+				</div>
 				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
@@ -96,14 +164,14 @@
 		 
 		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel event_participants edit}</h2>
 		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 						</div>
-					<div class="r-above">
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
@@ -115,21 +183,26 @@
 		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
 <h5>{$message}</h5>
 <div>
-{BEGIN back_button}
+{BEGIN message_back_button}
 			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
-	{END back_button}
-{BEGIN view_page_button}
-	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>View</button>
-{END view_page_button}
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="event_participants_view.php?{$editlink}" {$view_page_button_attrs}>View</a>
+{END message_view_page_button}
 </div>
 </div>
 			{END firstAboveGridCell}	
 	</div>					</div>
-	</div>		
+			</div>		
 {END above-grid_block}
-						</div>
-					<div class="r-grid">
-										{BEGIN grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
 
 
 
@@ -146,7 +219,7 @@
 		data-v-width="4"
 	>
 	<tbody>
-										<tr>
+										<tr {$row_grid_0} >
 										
 
 {BEGIN cellblock_grid_c3}
@@ -166,10 +239,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_EventID}  r-vertical-field" 
-	data-fieldname="EventID" 
 	data-signal-error-for="EventID{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="EventID" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="EventID" data-fieldname="EventID" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_EventID}">
 		{BEGIN EventID_label}{$label event_participants EventID }{END EventID_label}
@@ -189,10 +260,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" 
-	data-fieldname="CandidateID" 
 	data-signal-error-for="CandidateID{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CandidateID" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_CandidateID}">
 		{BEGIN CandidateID_label}{$label event_participants CandidateID }{END CandidateID_label}
@@ -212,10 +281,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Start_Date}  r-vertical-field" 
-	data-fieldname="Event_Start_Date" 
 	data-signal-error-for="Event_Start_Date{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Event_Start_Date" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Event_Start_Date}">
 		{BEGIN Event_Start_Date_label}{$label event_participants Event_Start_Date }{END Event_Start_Date_label}
@@ -235,10 +302,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Event_End_Date}  r-vertical-field" 
-	data-fieldname="Event_End_Date" 
 	data-signal-error-for="Event_End_Date{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Event_End_Date" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Event_End_Date" data-fieldname="Event_End_Date" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Event_End_Date}">
 		{BEGIN Event_End_Date_label}{$label event_participants Event_End_Date }{END Event_End_Date_label}
@@ -258,10 +323,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" 
-	data-fieldname="First_Name" 
 	data-signal-error-for="First_Name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="First_Name" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_First_Name}">
 		{BEGIN First_Name_label}{$label event_participants First_Name }{END First_Name_label}
@@ -281,10 +344,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" 
-	data-fieldname="Middle_Name" 
 	data-signal-error-for="Middle_Name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Middle_Name" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Middle_Name}">
 		{BEGIN Middle_Name_label}{$label event_participants Middle_Name }{END Middle_Name_label}
@@ -304,10 +365,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" 
-	data-fieldname="Last_Name" 
 	data-signal-error-for="Last_Name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Last_Name" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Last_Name}">
 		{BEGIN Last_Name_label}{$label event_participants Last_Name }{END Last_Name_label}
@@ -327,10 +386,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" 
-	data-fieldname="Phone" 
 	data-signal-error-for="Phone{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Phone" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Phone" data-fieldname="Phone" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Phone}">
 		{BEGIN Phone_label}{$label event_participants Phone }{END Phone_label}
@@ -350,10 +407,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" 
-	data-fieldname="Email" 
 	data-signal-error-for="Email{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Email" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Email" data-fieldname="Email" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Email}">
 		{BEGIN Email_label}{$label event_participants Email }{END Email_label}
@@ -373,10 +428,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" 
-	data-fieldname="StudentID" 
 	data-signal-error-for="StudentID{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="StudentID" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_StudentID}">
 		{BEGIN StudentID_label}{$label event_participants StudentID }{END StudentID_label}
@@ -396,10 +449,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" 
-	data-fieldname="Sex" 
 	data-signal-error-for="Sex{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Sex" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Sex}">
 		{BEGIN Sex_label}{$label event_participants Sex }{END Sex_label}
@@ -419,10 +470,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" 
-	data-fieldname="Disability_Status" 
 	data-signal-error-for="Disability_Status{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Disability_Status" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Disability_Status}">
 		{BEGIN Disability_Status_label}{$label event_participants Disability_Status }{END Disability_Status_label}
@@ -442,10 +491,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" 
-	data-fieldname="Disability_Type" 
 	data-signal-error-for="Disability_Type{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Disability_Type" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Disability_Type}">
 		{BEGIN Disability_Type_label}{$label event_participants Disability_Type }{END Disability_Type_label}
@@ -465,10 +512,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" 
-	data-fieldname="Disability_Type_Other" 
 	data-signal-error-for="Disability_Type_Other{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Disability_Type_Other" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Disability_Type_Other}">
 		{BEGIN Disability_Type_Other_label}{$label event_participants Disability_Type_Other }{END Disability_Type_Other_label}
@@ -488,10 +533,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Type}  r-vertical-field" 
-	data-fieldname="Participant_Type" 
 	data-signal-error-for="Participant_Type{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="Participant_Type" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="Participant_Type" data-fieldname="Participant_Type" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Participant_Type}">
 		{BEGIN Participant_Type_label}{$label event_participants Participant_Type }{END Participant_Type_label}
@@ -511,10 +554,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Field_of_Study}  r-vertical-field" 
-	data-fieldname="Participant_Field_of_Study" 
 	data-signal-error-for="Participant_Field_of_Study{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Participant_Field_of_Study}">
 		{BEGIN Participant_Field_of_Study_label}{$label event_participants Participant_Field_of_Study }{END Participant_Field_of_Study_label}
@@ -534,10 +575,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Type}  r-vertical-field" 
-	data-fieldname="Participant_Organization_Type" 
 	data-signal-error-for="Participant_Organization_Type{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Participant_Organization_Type" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Participant_Organization_Type}">
 		{BEGIN Participant_Organization_Type_label}{$label event_participants Participant_Organization_Type }{END Participant_Organization_Type_label}
@@ -557,10 +596,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Name}  r-vertical-field" 
-	data-fieldname="Participant_Organization_Name" 
 	data-signal-error-for="Participant_Organization_Name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Participant_Organization_Name" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Participant_Organization_Name}">
 		{BEGIN Participant_Organization_Name_label}{$label event_participants Participant_Organization_Name }{END Participant_Organization_Name_label}
@@ -580,10 +617,8 @@
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Home_Address}  r-vertical-field" 
-	data-fieldname="Participant_Home_Address" 
 	data-signal-error-for="Participant_Home_Address{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Participant_Home_Address" >
-
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address" >
 
 	<label class="r-edit-label control-label" for="{$labelfor_Participant_Home_Address}">
 		{BEGIN Participant_Home_Address_label}{$label event_participants Participant_Home_Address }{END Participant_Home_Address_label}
@@ -604,12 +639,12 @@
 								</tr>
 			</tbody></table>
 {END grid_block}
-						</div>
-					<div class="r-below">
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -674,8 +709,8 @@
 		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown dropup">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-menu-hamburger"></span>
-									<span class="caret"></span>
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
 								<li data-itemtype="edit_reset" data-itemid="edit_reset" {$item_edit_reset} data-pageid="{$pageid}" data-small >
@@ -696,12 +731,18 @@
 	</span>
 </span>
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-						</div>
-					{$footer}
-				</div>	
-			</div>	
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
 	{END body}
 	</body>

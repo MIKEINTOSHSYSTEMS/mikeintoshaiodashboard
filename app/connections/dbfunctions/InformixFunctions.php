@@ -50,9 +50,8 @@ class InformixFunctions extends DBFunctions
 	 */
 	public function field2char($value, $type = 3)
 	{
-		return $value;
-	}
-	
+		return 'TO_CHAR(' . $value . ')';
+	}	
 	/**
 	 * @param Mixed value
 	 * @param Number type

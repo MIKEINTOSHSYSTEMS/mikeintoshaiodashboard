@@ -1,24 +1,26 @@
 <?php
 
+include_once(getabspath("classes/security.php"));
+
 class SecurityPluginGoogle extends SecurityPlugin {
 
+	protected $appId = "";
+	protected $domain = "";
 	/**
 	 * @constructor
 	 */
-	function __construct()
+	function __construct( $params )
 	{
-		parent::__construct();
+		parent::__construct( $params );
 		// client id
-		$this->appId = GetGlobalData("GoogleClientId", "");
+		$this->appId = $params["clientId"];
+		$this->domain = $params["domain"];
 	}
 
 	public function getUserInfo( $id_token )
 	{
 		global $cCharset;
 
-//		require_once getabspath('plugins/google-api-php-client/vendor/autoload.php');
-//		$client = new Google_Client( array( 'client_id' => $this->appId ) );
-//		$payload = $client->verifyIdToken($id_token);
 
 		$payload = $this->verifyIdToken( $id_token );
 
@@ -40,7 +42,7 @@ class SecurityPluginGoogle extends SecurityPlugin {
 			);
 
 		if( $payload["picture"] ) {
-			$picResult = runner_http_request( $payload["picture"], array(), "GET", array(), false );
+			$picResult = runner_http_request( $payload["picture"], "", "GET", array(), false );
 			if( $picResult["content"] )
 				$ret["picture"] = $picResult["content"];
 		}
@@ -48,39 +50,48 @@ class SecurityPluginGoogle extends SecurityPlugin {
 		return $ret;
 	}
 
-	public function verifyIdToken( $id_token ) {
-		$certPath = getabspath('include/cacert.pem');
-
-		$headers = array();
-		$headers["User-Agent"] = "PHPRunner app";
-		$headers["Accept-Charset"] = "utf-8";
-
-		$params = array( "id_token" => $id_token );
-
-
-		$url = "https://oauth2.googleapis.com/tokeninfo";
-
-		$response = runner_http_request( prepareUrl( $url, $params ),
-			array(),
-			"GET",
-			$headers,
-			$certPath);
-
-		if( $response["error"] ) {
-			$this->error = $response["error"];
-			return false;
+	/**
+	 * Returns allowed domains from appsettings as array
+	 * @return Array
+	 */
+	private function getDomainList() {
+		$rawDomain = $this->domain;
+		$domainList = explode(',', $rawDomain);
+		$result = array();
+		foreach($domainList as $domain) {
+			$trimDomain = trim($domain);
+			if ( $trimDomain ) {
+				$result[] = $trimDomain;
+			}
 		}
+		return $result;
+	}
 
-		$payload = my_json_decode( $response["content"] );
-		if( !$payload ) {
-			// payload is not valid JSON
-			$this->error = $response["content"];
+	/**
+	 * Verify token and get parsed paylod
+	 * @param String token
+	 * @return Array|false
+	 */
+	public function verifyIdToken( $token ) {
+		//	OpenId standard verification routine
+		$wellKnown = Security::getOpenIdConfiguration( "https://accounts.google.com/.well-known/openid-configuration" );
+
+		$jwk = Security::getOpenIdJWK( $token, $wellKnown );
+		if( !$jwk )
 			return false;
-		}
-		$domain = GetGlobalData("GoogleDomain", "");
-		if( $domain ) {
-			if( $payload["hd"] != $domain ) {
-				$this->error = str_replace( "%s", $domain, mlang_message( 'GOOGLE_DOMAIN' ));
+
+		$verifiedTokenData = Security::openIdVerifyToken( $token, $jwk );
+		if( !$verifiedTokenData )
+			return false;
+
+		$payload = $verifiedTokenData["payload"];
+
+		$domainList = $this->getDomainList();
+
+		if( $domainList ) {
+			if( !in_array($payload["hd"], $domainList) ) {
+				$domains = implode(", ", $domainList);
+				$this->error = str_replace( "%s", $domains, mlang_message( 'GOOGLE_DOMAIN' ));
 				return false;
 			}
 		}

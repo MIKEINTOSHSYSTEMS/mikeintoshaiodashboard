@@ -1,5 +1,9 @@
 <?php
 
+require_once( getabspath('classes/controls/Control.php') );
+require_once( getabspath('classes/controls/LookupField.php') );
+
+
 class ListPage_Lookup extends ListPage_Embed
 {
 	/**
@@ -70,7 +74,9 @@ class ListPage_Lookup extends ListPage_Embed
 
 	public $mainContext;
 
-
+	public $showSearchPanel;
+	
+	
 	/**
       * Constructor, set initial params
       *
@@ -83,10 +89,17 @@ class ListPage_Lookup extends ListPage_Embed
 		// init params
 		$this->initLookupParams();
 
+		//always show add in popup
+		$this->showAddInPopup = true;
+		
 		$this->permis[ $this->tName ]["search"] = 1;
 		$this->jsSettings['tableSettings'][$this->tName]['permissions'] = $this->permis[$this->tName];
-
-		$this->isUseAjaxSuggest = false;
+		
+		$this->showSearchPanel = false;
+		
+		/* // turn off ajax suggest
+		$this->jsSettings["tableSettings"][ $this->tName ]["ajaxSuggest"] = false;
+		$this->isUseAjaxSuggest = false;*/
 	}
 
 	/**
@@ -102,7 +115,7 @@ class ListPage_Lookup extends ListPage_Embed
 	 */
 	function initLookupParams()
 	{
-		if( $this->mainPageType != PAGE_ADD && $this->mainPageType != PAGE_EDIT )
+		if( $this->mainPageType != PAGE_ADD && $this->mainPageType != PAGE_EDIT && $this->mainPageType != PAGE_REGISTER)
 			$this->mainPageType = PAGE_SEARCH;
 
 		$this->mainPSet = new ProjectSettings($this->mainTable, $this->mainPageType);
@@ -140,8 +153,7 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 * The stub - ListPage Lookup no supported master-details mode
 	 */
-	function processMasterKeyValue()
-	{
+	function processMasterKeyValue() {
 	}
 
 	/**
@@ -162,27 +174,19 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 * clear lookup session data, while loading at first time
 	 */
-	function clearLookupSessionData()
-	{
-		if($this->firstTime)
-		{
-			$sessLookUpUnset = array();
-			foreach($_SESSION as $key=>$value)
-				if(strpos($key, "_lookup_")!== false)
-					$sessLookUpUnset[] = $key;
-
-			foreach($sessLookUpUnset as $key)
-				unset($_SESSION[$key]);
+	function clearSessionKeys() {
+		parent::clearSessionKeys();
+		if( $this->firstTime ) {
+			$this->unsetAllPageSessionKeys();
 		}
 	}
 
-
-	function addCommonJs()
-	{
+	function addCommonJs() {
 		$this->controlsMap['dispFieldAlias'] = $this->dispFieldAlias;
 
 		$this->addControlsJSAndCSS();
 		$this->addButtonHandlers();
+	
 	}
 
 	/**
@@ -217,55 +221,13 @@ class ListPage_Lookup extends ListPage_Embed
 		return $strOrder;
 	}
 
-	/**
-	 * Build and return SQL logical clause serving dependent dropdowns
-	 * "make='Ford'" or similar
-	 * @return String
-	 */
-	protected function getDependentDropdownFilter()
-	{
-		if( !$this->mainPSet->useCategory( $this->mainField ) )
-			return "";
-
-		// add 1=0 if parent control contain empty value and no search used
-		if( $this->mainPageType != PAGE_SEARCH && !count($this->parentCtrlsData) )
-		{
-			return "1=0";
-		}
-
-		$parentWhereParts = array();
-		foreach( $this->mainPSet->getParentFieldsData( $this->mainField ) as $cData )
-		{
-			if( !isset( $this->parentCtrlsData[ $cData["main"] ] ) )
-				continue;
-
-			$parentFieldName = $cData["lookup"];
-			$parentFieldValues = splitvalues( $this->parentCtrlsData[ $cData["main"] ] );
-
-			$arWhereClause = array();
-			foreach($parentFieldValues as $value)
-			{
-				if( $this->cipherer != null )
-					$lookupValue = $this->cipherer->MakeDBValue($parentFieldName, $value);
-				else
-					$lookupValue = make_db_value($parentFieldName, $value);
-
-				$arWhereClause[] = $this->getFieldSQLDecrypt($parentFieldName) . "=" . $lookupValue;
-			}
-
-			if( count($arWhereClause) )
-				$parentWhereParts[] = "(".implode(" OR ", $arWhereClause).")";
-		}
-		return "(".implode(" AND ", $parentWhereParts).")";
-	}
-
 	protected function getCategoryFilter()
 	{
 		if( !$this->mainPSet->useCategory( $this->mainField ) )
 			return null;
 
 		// add 1=0 if parent control contain empty value and no search used
-		if( $this->mainPageType != PAGE_SEARCH && !count($this->parentCtrlsData) )
+		if( $this->mainPageType != PAGE_SEARCH && !$this->parentCtrlsData )
 		{
 			return DataCondition::_False();
 		}
@@ -281,7 +243,7 @@ class ListPage_Lookup extends ListPage_Embed
 		return DataCondition::_And( $conditions );
 	}
 
-	public function getSubsetDataCommand() {
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
 
 		$dc = parent::getSubsetDataCommand();
 		if ($this->dispFieldAlias)
@@ -293,24 +255,6 @@ class ListPage_Lookup extends ListPage_Embed
 		$dc->filter = DataCondition::_And( $filters );
 
 		return $dc;
-	}
-
-	protected function getSubsetSQLComponents()
-	{
-		$sql = parent::getSubsetSQLComponents();
-
-		if ($this->dispFieldAlias)
-		{
-			$sql["sqlParts"]["head"] .= ", " . $this->dispField." ";
-			$sql["sqlParts"]["head"] .= "as " . $this->connection->addFieldWrappers($this->dispFieldAlias);
-		}
-
-		$sql["mandatoryWhere"][] = $this->getLookupWizardWhere();
-
-		//	dependent dropdown filter
-		$sql["mandatoryWhere"][] = $this->getDependentDropdownFilter();
-
-		return $sql;
 	}
 
 	/**
@@ -328,16 +272,26 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 * Build a lookup's search panel
 	 */
-	function buildSearchPanel()
-	{
-		if( !$this->permis[ $this->tName ]['search'] )
-			return;
+	function buildSearchPanel() {
+		if( $this->showSearchPanel ) {
+			parent::buildSearchPanel();
+		}
+	}
+	
+	/**
+	 * build simple search control
+	 */
+	protected function assignSearchControl() {
+		$searchforAttrs = 'placeholder="'. "search".'"';
+		
+		$params = $this->searchClauseObj->getSearchGlobalParams();
+		if( $this->searchClauseObj->searchStarted() ) {
+			$valSrchFor = $params["simpleSrch"];
+			$searchforAttrs.= " value=\"".runner_htmlspecialchars( $valSrchFor )."\"";
+		}
 
-		$params = array();
-		$params['pageObj'] = &$this;
-		$params['panelSearchFields'] = $this->panelSearchFields;
-		$this->searchPanel = new SearchPanelLookup($params);
-		$this->searchPanel->buildSearchPanel();
+		$searchforAttrs.= " size=\"15\" name=\"ctlSearchFor".$this->id."\" id=\"ctlSearchFor".$this->id."\"";
+		$this->xt->assign( "searchfor_attrs", $searchforAttrs );
 	}
 
 	/**
@@ -385,7 +339,7 @@ class ListPage_Lookup extends ListPage_Embed
 			else
 				$dispVal = $data[$this->dispField];
 
-			if (  in_array( $this->mainPSet->getViewFormat( $this->mainField ), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
+			if ( in_array( $this->mainPSet->getViewFormat( $this->mainField ), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
 			{
 				$viewContainer = new ViewControlsContainer( $this->mainPSet, PAGE_LIST, null );
 				$ctrlData = array();
@@ -414,39 +368,25 @@ class ListPage_Lookup extends ListPage_Embed
 	/**
 	 *
 	 */
-	function showPage()
-	{
+	function showPage() {
 		$this->BeforeShowList();
 
-		if( !$this->isPD() ) {
+		$this->hideAllFormItems( 'supertop' );
+		$this->showItemType( 'simple_search' );
+		$this->showItemType( 'simple_search_field' );
+		$this->showItemType( 'simple_search_option' );
 
-			if ($this->mobileTemplateMode())
-			{
-				$this->xt->assign("cancelbutton_block",true);
-				$this->xt->assign("searchform_block", true);
-				$this->xt->assign("searchform_showall", true);
-				$bricksExcept = array("grid_mobile", "message", "pagination", "vmsearch2", "cancelbutton_mobile");
-			}
-			else
-			{
-				$bricksExcept = array("grid", "message", "pagination", "vsearch1", "vsearch2", "search", "recordcontrols_new", "bsgrid_tabs");
-				if( $this->isBootstrap() )
-				{
-					$bricksExcept[] = "add";
-					$bricksExcept[] = "reorder_records";
-				}
-			}
+		$this->hideItemType('columns_control');
+		
+		if( $this->showSearchPanel ) {
+			$this->showItemType( 'search_panel' );
+			
+			$this->hideItemType( 'logo' );
+			$this->hideItemType( 'menu' );
+			$this->hideItemType( 'breadcrumb' );
+			$this->hideItemType( 'filter_panel' );
 		}
-		if( $this->isPD() ) {
-			$this->hideAllFormItems( 'supertop' );
-			$this->showItemType( 'simple_search' );
-			$this->showItemType( 'simple_search_field' );
-			$this->showItemType( 'simple_search_option' );
 
-			$this->hideItemType('columns_control');
-		} else {
-			$this->xt->hideAllBricksExcept($bricksExcept);
-		}
 		$this->xt->prepare_template($this->templatefile);
 		$this->showPageAjax();
 	}
@@ -473,23 +413,31 @@ class ListPage_Lookup extends ListPage_Embed
 		$this->xt->assign("header",false);
 		$this->xt->assign("footer",false);
 		// popup header shows PD items only
-
-		if( $this->isPD() ) {
-			$returnJSON["headerCont"] = '<h3 data-itemtype="lookupheader" data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h3>";
-			$returnJSON["html"] = $this->xt->fetch_loaded("supertop_block")
-				. '<div class="r-popup-block">'
-					. '<div class="r-popup-data">'
-						. $this->xt->fetch_loaded("above-grid_block")
-						. $this->xt->fetch_loaded("grid_block")
-					. "</div>"
-				."</div>";
-
-			$returnJSON["footerCont"] = $this->xt->fetch_loaded("below-grid_block");
+		
+		$returnJSON["headerCont"] = '<h3 data-itemtype="lookupheader" data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h3>";
+		
+		$superTopHtml = $this->xt->fetch_loaded("supertop_block");
+		$footerHtml = $this->xt->fetch_loaded("below-grid_block");
+		if( $this->showSearchPanel ) {
+			$this->xt->assign("supertop_block", false);
+			$this->xt->assign("below-grid_block", false);
+			
+			$bodyHtml = $this->xt->fetch_loaded("body");
 		} else {
-			$returnJSON["headerCont"] = '<h2 data-itemid="lookupheader">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) ) . "</h2>";
-			$returnJSON["html"] = $this->xt->fetch_loaded("body");
+			$bodyHtml = $this->xt->fetch_loaded("above-grid_block") 
+					. $this->xt->fetch_loaded("grid_block");
 		}
+		
+		
+		$returnJSON["html"] = $superTopHtml
+			. '<div class="r-popup-block">'
+				. '<div class="r-popup-data">'
+					. $bodyHtml
+				. "</div>"
+			."</div>";
 
+		$returnJSON["footerCont"] = $footerHtml;
+		
 		$returnJSON['idStartFrom'] = $this->flyId;
 		$returnJSON['success'] = true;
 
@@ -499,17 +447,6 @@ class ListPage_Lookup extends ListPage_Embed
 		echo printJSON($returnJSON);
 	}
 
-	/**
-	 *
-	 */
-	function SecuritySQL( $strAction )
-	{
-		$strPerm = GetUserPermissions( $this->tName );
-		if( strpos( $strPerm, "S" ) === false )
-			$strPerm .=  "S" ;
-
-		return SecuritySQL($strAction, $this->tName, $strPerm);
-	}
 
 	function displayTabsInPage()
 	{
@@ -542,7 +479,7 @@ class ListPage_Lookup extends ListPage_Embed
 		return false;
 	}
 	function addAvailable() {
-		return false;
+		return parent::addAvailable() && $this->mainPSet->isAllowToAdd( $this->mainField );
 	}
 	function copyAvailable() {
 		return false;
@@ -574,6 +511,18 @@ class ListPage_Lookup extends ListPage_Embed
 	function updateSelectedAvailable()
 	{
 		return false;
+	}
+
+	function getSecurityCondition() {
+		$loginTable = Security::loginTable();
+
+		if( $this->mainPageType == PAGE_REGISTER && $this->mainTable == $loginTable ) {
+			$registerPset = new ProjectSettings( $loginTable, PAGE_REGISTER, "", GLOBAL_PAGES);
+			if ( $registerPset->appearOnPage( $this->mainField ) )
+				return null;
+		}
+
+		return parent::getSecurityCondition();
 	}
 }
 ?>

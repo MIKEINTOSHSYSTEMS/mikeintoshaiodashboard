@@ -1,4 +1,5 @@
 <?php
+
 class ErrorHandler
 {
 	var $errorstack = array();
@@ -32,13 +33,13 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
             foreach ($value as $item)
             {
 				$item = (string)$item;
-                $data[] = urlencode($key) . '=' . urlencode($item);
+                $data[] = rawurlencode($key) . '=' . rawurlencode($item);
             }
         }
         else
         {
         	$value = (string)$value;
-            $data[] = urlencode($key) . '=' . urlencode($value);
+            $data[] = rawurlencode($key) . '=' . rawurlencode($value);
         }
     }
     $body = implode('&', $data);
@@ -53,7 +54,7 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
 		CURLOPT_POSTFIELDS => $body,
 		CURLOPT_SSL_VERIFYHOST => false,
 		CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_HEADER => 0,
+        CURLOPT_HEADER => 0
     );
 
     if ( count($headers) )
@@ -94,13 +95,51 @@ function runner_post_request($url, $parameters, $headers = array(), $certPath = 
 }
 
 /**
+ * Split headers string
+ * Returns as array of <HTTP-Header, Value>
+ */
+function curl_headers_to_array($headersData) {
+	$headers = array();
+	$headersLines = explode("\r\n", $headersData);
+	foreach($headersLines as $line) {
+		$keyValue = explode(": ", $line);
+		$key = strtolower( $keyValue[0] );
+		$value = $keyValue[1];
+		$headers[ $key ] = $value;
+	}
+	return $headers;
+}
+
+/**
+ * Decode wrapper
+ */
+function try_decode_content($data, $contentEncodingValue) {
+	$encList = explode(",", $contentEncodingValue);
+	$result = $data;
+	foreach($encList as $alg) {
+		switch( trim($alg) ) {
+			case "gzip":
+			case "deflate":
+			case "identity":
+				$result = zlib_decode($result);
+				break;
+			case "compress":
+			case "br":
+			default:
+				throw new Exception('Decode method not supported');
+		}
+	}
+
+	return $result;
+}
+
+/**
  * Returns array
  * "content" => response body
  * "error" => error message if any
  */
-function runner_http_request( $url, $parameters = array(), $method = "GET", $headers = array(), $certPath = false )
+function runner_http_request( $url, $body = "", $method = "GET", $headers = array(), $certPath = false )
 {
-	$body = prepareHttpBody( $parameters );
 
 	$options = array(
         CURLOPT_URL => $url,
@@ -111,6 +150,9 @@ function runner_http_request( $url, $parameters = array(), $method = "GET", $hea
 		CURLOPT_SSL_VERIFYHOST => false,
 		CURLOPT_SSL_VERIFYPEER => false,
         CURLOPT_HEADER => true,
+
+		//	Google Drive needs this flag to be false
+		CURLOPT_FOLLOWLOCATION => false
 	);
 
 	if( $body != "" ) {
@@ -120,6 +162,9 @@ function runner_http_request( $url, $parameters = array(), $method = "GET", $hea
 		$options[CURLOPT_POST] = true;
 	} else if(  $method !== "GET" ) {
 		$options[ CURLOPT_CUSTOMREQUEST ] = $method;
+	}
+	if( $method == "HEAD" ) {
+		$options[CURLOPT_NOBODY] = true;
 	}
 
     if ( count($headers) )
@@ -153,8 +198,19 @@ function runner_http_request( $url, $parameters = array(), $method = "GET", $hea
 
 		$result["responseCode"] = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
 		$headerSize = curl_getinfo( $curl, CURLINFO_HEADER_SIZE );
-		$result["content"] = substr( $response, $headerSize );
+
 		$result["header"] = substr( $response, 0, $headerSize );
+		$result["content"] = substr( $response, $headerSize );
+
+		$headersArray = curl_headers_to_array($result["header"]);
+
+		if ($headersArray["content-encoding"]) {
+			$result["content"] = try_decode_content($result["content"], $headersArray["content-encoding"]);
+		}
+
+		//	prevent PHP from returning false
+		if( !$result["content"] )
+			$result["content"] = "";
 
 	   	curl_close($curl);
     }
@@ -272,7 +328,7 @@ function runner_mail( $params )
 	}
 
 	restore_error_handler();
-	return array("mailed" => $res, "errors" => $eh->errorstack, "message"=> nl2br( $eh->getErrorMessage() ));
+	return array( "success" => $res, "mailed" => $res, "errors" => $eh->errorstack, "message"=> $eh->getErrorMessage() );
 }
 
 /**
@@ -298,6 +354,12 @@ function getabspath($path)
 	return $realPath;
 }
 
+
+function httpDateString( $value ) {
+	return gmdate( "D, d M Y H:i:s", $value ) . " GMT";
+}
+
+
 /**
  * Check if the path is absolute or not basing on data
  * obtained from the current file directory's path
@@ -311,12 +373,12 @@ function isAbsolutePath($path)
 
 	$pathToRoot = dirname(__FILE__);
 
-	if( runner_substr($path, 0, 1) == "\/" && runner_substr($pathToRoot, 0, 1) == "\/")
+	if( runner_substr($path, 0, 1) == "/" && runner_substr($pathToRoot, 0, 1) == "/")
 		return true;
 
-	$windowsPatter = '/^[a-z]{1}:\\\/i';
-	if( preg_match($windowsPatter, $pathToRoot) &&  preg_match($windowsPatter, $path))
+	if( windowsOS() && runner_substr($path, 1, 1) == ':' ) {
 		return true;
+	}
 
 	return false;
 }
@@ -340,8 +402,11 @@ function getabsurl($uri)
 /**
  * @intellisense
  */
-function myfile_exists($filename)
+function myfile_exists( $filename )
 {
+	if( @is_dir( $filename ) ) {
+		return false;
+	}
 	$file = @fopen($filename,"rb");
 	if($file)
 	{
@@ -379,25 +444,40 @@ function append_to_file( $filename, $str )
 //	read the whole file and return contents
 /**
  * @intellisense
+ * @param String filename
+ * @param String mode?
+ * @param Int length? 	Up to length number of bytes read
  */
-function myfile_get_contents($filename, $mode = "rb")
+function runner_file_get_contents( $filename, $mode = "rb", $length = 0 )
 {
 	if(!is_uploaded_file($filename) && !file_exists($filename))
 		return false;
 	$handle = fopen($filename, $mode);
 	if(!$handle)
 		return false;
-	fseek($handle, 0 , SEEK_END);
-	$fsize = ftell($handle);
-	fseek($handle, 0 , SEEK_SET);
 
-	if($fsize)
-		$contents = fread($handle, $fsize);
-	else
-		$contents="";
-	fclose($handle);
+	$fsize = $length;
+	if( !$length ) {
+		fseek($handle, 0 , SEEK_END);
+		$fsize = ftell($handle);
+		fseek($handle, 0 , SEEK_SET);
+	}
+
+	$contents = "";
+	if( $fsize )
+		$contents = fread( $handle, $fsize );
+
+	fclose( $handle );
 	return $contents;
 }
+
+/**
+ * Legacy use only
+ */
+function myfile_get_contents( $filename, $mode = "rb", $length = 0 ) {
+	return runner_file_get_contents( $filename, $mode, $length );
+}
+
 
 function myfile_get_contents_binary( $filename )
 {
@@ -607,8 +687,6 @@ function now()
  */
 function refine($str)
 {
-	if(get_magic_quotes_gpc())
-		return stripslashes($str);
 	return $str;
 }
 
@@ -896,6 +974,11 @@ function getDashMapCustomIcon( $dashName, $dashElementName, $data )
 	$icon = "";
 }
 
+function getDashMapCustomLocationIcon( $dashName, $dashElementName, $data )
+{
+	$icon = "";
+}
+
 /**
  * return custom expression
  * @intellisense
@@ -977,118 +1060,87 @@ function mdeleteIndex($i)
  * @intellisense
  * @return array
  */
-function parse_backtrace($errfFile, $errLine, $splitAsArray = true)
+function parse_backtrace($errfFile, $errLine)
 {
-    // get backtrace array
-    $backtrace = debug_backtrace();
+	// get backtrace array
+	$backtrace = debug_backtrace();
 
-    // delete calls to error handler functions
-	foreach ($backtrace as $i => $call)
-    {
-    	// cut error handlers calls etc.
-    	if ($call['function'] == 'parse_backtrace' ||  $call['function'] == 'error_handler' || $call['function'] == 'trigger_error'){
-    		array_shift($backtrace);
-    		continue;
-    	}
-    }
-    // if no data return empty array
-    if (count($backtrace) == 0) {
-        return array();
-    }
+	// delete calls to error handler functions
+	$skipFunctions = array('parse_backtrace', 'error_handler', 'runner_error_handler', 'trigger_error', 'extract_error_info');
+	foreach ($backtrace as $i => $call) {
+		// cut error handlers calls etc.
+		if (in_array($call['function'], $skipFunctions)) {
+			array_shift($backtrace);
+			continue;
+		}
+		break;
+	}
+	// if no data return empty array
+	if (count($backtrace) == 0) {
+		return array();
+	}
 
+	$backTraceLen = count($backtrace);
+	$backtrace[$backTraceLen]['file'] = $backtrace[$backTraceLen - 1]['file'];
+	$backtrace[$backTraceLen]['line'] = $backtrace[$backTraceLen - 1]['line'];
+	$backtrace[$backTraceLen]['function'] =  'Global scope';
 
-    $backTraceLen = count($backtrace);
-    $backtrace[$backTraceLen]['file'] = $backtrace[$backTraceLen-1]['file'];
-    $backtrace[$backTraceLen]['line'] = $backtrace[$backTraceLen-1]['line'];
-    $backtrace[$backTraceLen]['function'] =  'Global scope';
+	// make shift of file: line, for better view. It will show not line where function were called, but line where in function error was happend
+	for ($i = 0; $i < count($backtrace); $i++) {
+		$errorLineBefore = $backtrace[$i]['line'];
+		$errorFileBefore = $backtrace[$i]['file'];
+		$backtrace[$i]['file'] = $errfFile;
+		$backtrace[$i]['line'] = $errLine;
+		$errLine = $errorLineBefore;
+		$errfFile = $errorFileBefore;
+	}
 
+	// result array with data
+	$funCallsArray = array();
+	// parse array
+	foreach ($backtrace as $i => $call) {
+		$funcCall = array();
+		// proccess the data that may not exist
+		if (isset($call['file'])) {
+			$pathToRoot = substr(dirname(__FILE__), 0, strlen(dirname(__FILE__)) - strlen("include"));
+			$funcCall['file'] =	str_replace($pathToRoot, '', $call['file']);
+		} else {
+			$funcCall['file'] = '(null)';
+		}
 
- 	// make shift of file: line, for better view. It will show not line where function were called, but line where in function error was happend
-    for($i=0;$i<count($backtrace);$i++)
-    {
-    	$errorLineBefore = $backtrace[$i]['line'];
-    	$errorFileBefore = $backtrace[$i]['file'];
-    	$backtrace[$i]['file'] = $errfFile;
-    	$backtrace[$i]['line'] = $errLine;
-    	$errLine = $errorLineBefore;
-    	$errfFile = $errorFileBefore;
-    }
+		$funcCall['line'] = !isset($call['line']) ? '0' : $call['line'];
+		$funcCall['function'] = $call['function'];
+		$funcCall['class'] = '';
+		$funcCall['type'] = '';
+		// if object method was called
+		if (isset($call['class'])) {
+			$funcCall['class'] = $call['class'];
+			$funcCall['type'] = isset($call['type']) ? $call['type']: '::';
+		}
 
-    // result array with data
-    $funCallsArray = array();
-    // parse array
-    foreach ($backtrace as $i => $call)
-    {
-    	// proccess the data that may not exist
-    	if (isset($call['file']))
-    	{
-    		// get path to the root
-			$pathToRoot = substr(dirname(__FILE__),0,strlen(dirname(__FILE__))-strlen("include"));
-			// replace it
-			$call['file'] = str_replace($pathToRoot, '', $call['file']);
-    	}
-    	else
-    	{
-    		$call['file'] = '(null)';
-
-    	}
-    	//$call['file'] = !isset($call['file']) ? '(null)' : $call['file'];
-    	$call['line'] = !isset($call['line']) ? '0' : $call['line'];
-		// proccess file and error line
-        $location = $call['file'] . ':' . $call['line'];
-        // if object method was called
-        if (isset($call['class']))
-        {
-        	$function = $call['class'].(isset($call['type']) ? $call['type'] : '.').$call['function'];
-
-        }// if function
-        else
-        {
-        	$function = $call['function'];
-        }
 		// proccess arguments
-        $params = '';
-        if (isset($call['args']))
-        {
-            $args = array();
-            $j=0;
-            foreach ($call['args'] as $arg)
-            {
-            	$j++;
-            	// proccess array
-                if (is_array($arg))
-                {
-                	$arrStr = runner_print_r($arg, true);
-                    $arrStr = strlen($arrStr) < 200 ? $arrStr : substr($arrStr, 0, 200).'...';
-                    $args[] = $j.'.&nbsp;'.runner_htmlspecialchars($arrStr).';';
-                }
-                // process objects
-                elseif (is_object($arg))
-                {
-                    $args[] = $j.'.&nbsp;'.runner_htmlspecialchars(get_class($arg)).';';
-                }
-                // another arguments
-                else
-                {
-                	$arg = @strlen($arg) < 200 ? $arg : @runner_htmlspecialchars(substr($arg, 0, 200)).'...';
-                    $args[] = $j.'.&nbsp;'.$arg.';';
-                }
-            }
-            $params = implode('<br/> ', $args);
-        }
-		// add in finish array all params
-		if (!$splitAsArray)
-		{
-			$funCallsArray[] = '#'.$i.'&nbsp;&nbsp;'.$function.'('.$params.')&nbsp;&nbsp;called&nbsp;at&nbsp;['.$location.']';
+		$params = array();
+		if (isset($call['args'])) {
+			foreach ($call['args'] as $arg) {
+				$strarg = '';
+				if (is_array($arg)) {
+					$strarg = runner_print_r_plain($arg, true);
+					$strarg = runner_htmlspecialchars($strarg);
+					$strarg = nl2br(str_replace(" ", '&nbsp;', $strarg));
+				} elseif (is_object($arg)) {
+					$strarg = get_class($arg);
+				} else {
+					$strarg = runner_htmlspecialchars((string)$arg);
+				}
+				$params[] = $strarg;
+			}
 		}
-		else
-		{
-			$funCallsArray[] = array('num' => '#'.$i.'.&nbsp;', 'path' => $location, 'func'=>$function, 'args'=>(strlen($params) ? $params : 'N/A'));
-		}
-    }
+		$funcCall['params'] = $params;
+		$funCallsArray[] = $funcCall;
+	}
 
-    // return array with call functions strings
-    return $funCallsArray;
+	// return array with call functions strings
+	return $funCallsArray;
 }
 
 /**
@@ -1097,7 +1149,6 @@ function parse_backtrace($errfFile, $errLine, $splitAsArray = true)
  */
 function runner_error_handler($errno, $errstr, $errfile, $errline)
 {
-	global $strLastSQL;
 	global $globalSettings;
 
 	if ($errno==2048 || $errno == 8 || $errno == 2 || $errno == 8192)
@@ -1105,6 +1156,7 @@ function runner_error_handler($errno, $errstr, $errfile, $errline)
 
 	if(strpos($errstr,"It is not safe to rely on the system's timezone settings."))
 		return 0;
+
 	if(strpos($errstr,"fopen(")===0)
 		return 0;
 
@@ -1114,33 +1166,60 @@ function runner_error_handler($errno, $errstr, $errfile, $errline)
 		exit(0);
 	}
 
-	// show error htm
-	if(!class_exists("Xtempl"))
-		require_once(getabspath("include/xtempl.php"));
+	$errinfo = extract_error_info($errno, $errstr, $errfile, $errline);
 
-	$xt = new Xtempl();
-	$xt->assign('errno', $errno);
-	$xt->assign('errstr', $errstr);
+	runner_show_error($errinfo);
+}
 
-	$url = $_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"];
-	if(array_key_exists("QUERY_STRING",$_SERVER))
-	{
-		$url .= "?".runner_htmlspecialchars($_SERVER["QUERY_STRING"]);
+/**
+ * ectract current error description
+ * @return Array
+ * @sample return:
+  array(
+ 	'errno' => 123,
+ 	'errstr' => 'something wrong',
+ 	'url' => localhost:88/list?aa=bb,
+ 	'errfile' => list.php,
+ 	'errline' => 345,
+ 	'sqlStr' => 'Select * from DUAL',
+ 	'debugRows' => arrray(
+ 		0 => array(
+ 			'file' => 'list.php',
+ 			'line' => '345',
+ 			'function' => 'showPage',
+ 			'class' => 'ListPage',
+ 			'type' => '->',
+ 			args => array(
+ 				0 => 'aaa',
+ 				1 => 'true'
+ 			)
+		),
+ 		...
+ 	)
+  )
+ * @intellisense
+ */
+function extract_error_info($errno, $errstr, $errfile, $errline)
+{
+	global $strLastSQL;
+
+	$errinfo = array();
+	$errinfo['errno'] = $errno;
+	$errinfo['errstr'] = $errstr;
+
+	$url = $_SERVER["SERVER_NAME"] . $_SERVER["SCRIPT_NAME"];
+	if (array_key_exists("QUERY_STRING", $_SERVER)) {
+		$url .= "?" . $_SERVER["QUERY_STRING"];
 	}
 
-	$xt->assign('url', $url);
-	$xt->assign('errfile', $errfile);
-	$xt->assign('errline', $errline);
+	$errinfo['url'] = $url;
+	$errinfo['errfile'] = $errfile;
+	$errinfo['errline'] = $errline;
 
-	$sqlStr = isset($strLastSQL) ? runner_htmlspecialchars(substr($strLastSQL,0,1024)) : '';
-	$xt->assign('sqlStr', $sqlStr);
+	$errinfo['sqlStr'] = isset($strLastSQL) ? $strLastSQL : '';
 
-	$debugInfoArr = parse_backtrace($errfile, $errline);
-	$xt->assign_loopsection('debugRow', $debugInfoArr);
-
-	$xt->displayPartial( 'error.htm' );
-
-	exit(0);
+	$errinfo['debugRows'] = parse_backtrace($errfile, $errline);
+	return $errinfo;
 }
 
 /**
@@ -1275,27 +1354,11 @@ function GetMySQLLastInsertID( $connection )
 /**
  * @intellisense
  */
-function DoUpdateRecord( $pageObject )
-{
-	return DoUpdateRecordSQL( $pageObject );
-}
-/**
- * @intellisense
- */
 function DoInsertRecord($table, &$avalues, &$blobfields, &$pageObject)
 {
 	return DoInsertRecordSQL($table, $avalues, $blobfields, $pageObject);
 }
 
-/**
- * @intellisense
- * @param RunnerPage pageObject
- * @return Boolean
- */
-function DoInsertRecordOnAdd( &$pageObject )
-{
-	return DoInsertRecordSQLOnAdd( $pageObject );
-}
 
 /**
  * @intellisense
@@ -1311,57 +1374,12 @@ function xt_include($params)
 		include(getabspath($params["file"]));
 }
 
-
-$db_query_safe_errstr ="";
-$db_query_safe_err = false;
-/**
- * @param String qstring
- * @param &String errstring
- * @param Connection connection (optional)
- * @return Mixed
- * Todo: It should return QueryResult object //#9875
- * @intellisense
- */
-/*function db_query_safe($qstring, &$errstring, $connection = null)
-{
-	global $db_query_safe_errstr, $db_query_safe_err;
-
-	$db_query_safe_errstr = "";
-	$db_query_safe_err = false;
-	$errhandler = set_error_handler("errhandler_db_query_safe");
-
-	if( is_null($connection) )
-		$connection = getDefaultConnection();
-
-	$rs = $connection->query( $qstring )->getQueryHandle();
-
-	set_error_handler( $errhandler );
-	$errstring = $db_query_safe_errstr;
-	if( $db_query_safe_err )
-		return false;
-
-	return $rs;
-}*/
-
-/**
- * @intellisense
- */
-/*function errhandler_db_query_safe($errno, $errstr, $errfile, $errline)
-{
-	global $db_query_safe_errstr, $db_query_safe_err;
-
-	if( $errno==E_ERROR || $errno==E_USER_ERROR )
-		$db_query_safe_err = true;
-
-	$db_query_safe_errstr.= "<br>".$errstr;
-}*/
-
 /**
  * @intellisense
  */
 function binPrint(&$value, $size)
 {
-	echobig($value,$size);
+	//echobig($value,$size);
 }
 
 /**
@@ -1408,151 +1426,6 @@ function xt_getvar(&$xt,$name)
 }
 
 
-/**
- * @intellisense
- */
-/*
-function xt_process_template(&$xt,$str)
-{
-//	parse template file tag by tag
-	$varparams=array();
-	$start=0;
-	$literal=false;
-	$len = strlen($str);
-	while(true)
-	{
-		$pos = strpos($str,"{",$start);
-		if($pos===false)
-		{
-			echo substr($str,$start,$len-$start);
-			break;
-		}
-		$section=false;
-		$var=false;
-		$message=false;
-		if(substr($str,$pos+1,6)=="BEGIN ")
-			$section=true;
-		elseif(substr($str,$pos+1,1)=='$')
-			$var=true;
-		elseif(substr($str,$pos+1,14)=='mlang_message ')
-		{
-			$message=true;
-		}
-		else
-		{
-//	no tag, just '{' char
-			echo substr($str,$start,$pos-$start+1);
-			$start=$pos+1;
-			continue;
-		}
-		echo substr($str,$start,$pos-$start);
-		if($section)
-		{
-//	section
-			$endpos=strpos($str,"}",$pos);
-			if($endpos===false)
-			{
-				$xt->report_error("Page is broken");
-				return;
-			}
-			$section_name=trim(substr($str,$pos+7,$endpos-$pos-7));
-			$endtag="{END ".$section_name."}";
-			$endpos1=strpos($str,$endtag,$endpos);
-			if($endpos1===false)
-			{
-				echo "End tag not found:".runner_htmlspecialchars($endtag);
-				$xt->report_error("Page is broken");
-				return;
-			}
-			$section=substr($str,$endpos+1,$endpos1-$endpos-1);
-			$start=$endpos1+strlen($endtag);
-			$sectionVar = xt_getvar($xt,$section_name);
-			if($sectionVar===false)
-			{
-				continue;
-			}
-			$begin="";
-			$end="";
-			if(is_array($sectionVar))
-			{
-				$begin=@$sectionVar["begin"];
-				$end=@$sectionVar["end"];
-
-				$var=@$sectionVar["data"];
-			}
-			else
-			{
-				$var = $sectionVar;
-			}
-			if(!is_array($var))
-			{
-//	if section
-				echo $begin;
-				if(is_array($sectionVar))
-					$xt->xt_stack[]=&$sectionVar;
-				xt_process_template($xt,$section);
-				if(is_array($sectionVar))
-					array_pop($xt->xt_stack);
-				$xt->processVar($end, $varparams);
-			}
-			else
-			{
-//	foreach section
-				echo $begin;
-				$keys=array_keys($var);
-				foreach($keys as $i)
-				{
-					$xt->xt_stack[]=&$var[$i];
-					if(is_array($var[$i]) && isset($var[$i]["begin"]))
-						echo $var[$i]["begin"];
-					xt_process_template($xt,$section);
-					array_pop($xt->xt_stack);
-					if(is_array($var[$i]) && isset($var[$i]["end"]))
-						echo $var[$i]["end"];
-				}
-				$xt->processVar($end, $varparams);
-			}
-		}
-		elseif($var)
-		{
-//	display a variable or call a function
-			$endpos=strpos($str,"}",$pos);
-			if($endpos===false)
-			{
-				$xt->report_error("Page is broken");
-				return;
-			}
-			$varparams=array();
-			$var_name = trim(substr($str,$pos+2,$endpos-$pos-2));
-			if(strpos($var_name," ")!==FALSE)
-			{
-				$varparams = explode(" ",$var_name);
-				$var_name = $varparams[0];
-				unset($varparams[0]);
-			}
-			$start=$endpos+1;
-			$var = xt_getvar($xt,$var_name);
-			if($var===false)
-			{
-				continue;
-			}
-			$xt->processVar($var, $varparams);
-		}
-		elseif($message)
-		{
-			$endpos=strpos($str,"}",$pos);
-			if($endpos===false)
-			{
-				$xt->report_error("Page is broken");
-				return;
-			}
-			$tag = trim(substr($str,$pos+15,$endpos-$pos-15));
-			$start=$endpos+1;
-			echo runner_htmlspecialchars(mlang_message($tag));
-		}
-	}
-}
-*/
 
 /**
  * @intellisense
@@ -1593,8 +1466,15 @@ function parse_addr_list($to)
  */
 function runner_mail_smtp( $params )
 {
+	global $dDebug;
 	$mail = new PHPMailer( true );
 	$mail->IsSMTP(); // telling the class to use SMTP
+
+	if( $dDebug ) {
+		// debug logs will be printed using php 'echo' function
+		$mail->SMTPDebug = SMTP::DEBUG_LOWLEVEL;
+		$mail->Debugoutput = 'html';
+	}
 
 	$useCustomSMTP = GetGlobalData("useCustomSMTPSettings", false);
 	$SMTPUser = GetGlobalData("strSMTPUser", "");
@@ -1620,6 +1500,16 @@ function runner_mail_smtp( $params )
 		$mail->Host = ini_get('SMTP');
 	}
 
+	if( $mail->Host == "" ) {
+		return array(
+			"mailed" => false,
+			"success" => false,
+			"message" => "Email server connection is not specified. Setup the connection on the Miscellaneous - Email settings... dialog."
+		);
+
+	}
+
+
 	$SMTPPort = GetGlobalData("strSMTPPort", "");
 	if( $useCustomSMTP && $SMTPPort != "" || isset( $params['port'] ) )
 	{
@@ -1644,7 +1534,7 @@ function runner_mail_smtp( $params )
 	}
 	catch( phpmailerException $e )
 	{
-		return array( "mailed" => false, "message"=> nl2br( $e->getMessage() ) );
+		return array( "mailed" => false, "message"=>  $e->getMessage()  );
 	}
 
 	$to = isset( $params['to'] ) ? $params['to'] : "";
@@ -1721,10 +1611,10 @@ function runner_mail_smtp( $params )
 	}
 	catch( phpmailerException $e )
 	{
-		return array( "mailed" => false, "message"=> nl2br( $e->getMessage() ) );
+		return array( "success" => false, "mailed" => false, "message"=> $e->getMessage() );
 	}
 
-	return array( "mailed" => $res, "message"=> nl2br( $mail->ErrorInfo ) );
+	return array( "success" => $res, "mailed" => $res, "message"=> $mail->ErrorInfo );
 }
 
 /**
@@ -1810,15 +1700,12 @@ function n_printDebug()
 {
 }
 
-$print_r_depth = 0;
-
 /**
  * @param Array arr
  */
-function getArrayWithoutObjects( $arr )
+function getArrayWithoutObjects( $arr, &$print_r_depth )
 {
 	$copyArr = $arr;
-	global $print_r_depth;
 	++$print_r_depth;
 	foreach( $arr as $idx => $val )
 	{
@@ -1830,7 +1717,7 @@ function getArrayWithoutObjects( $arr )
 		if( $type == "array" )
 		{
 			if( $print_r_depth < 5 )
-				$copyArr[ $idx ] = getArrayWithoutObjects( $val );
+				$copyArr[ $idx ] = getArrayWithoutObjects( $val, $print_r_depth );
 			else
 				$copyArr[ $idx ] = "Array";
 		}
@@ -1846,7 +1733,6 @@ function getArrayWithoutObjects( $arr )
  */
 function runner_print_r( $value, $return = false )
 {
-	global $print_r_depth;
 	$print_r_depth = 0;
 	$valueCopy = $value;
 	$type = gettype( $value );
@@ -1855,9 +1741,24 @@ function runner_print_r( $value, $return = false )
 		$valueCopy = get_class( $valueCopy )." Object";
 
 	if( $type == "array" )
-		$valueCopy = getArrayWithoutObjects( $valueCopy );
+		$valueCopy = getArrayWithoutObjects( $valueCopy, $print_r_depth );
 
 	return print_r( $valueCopy, $return );
+}
+
+/**
+ * @param Mixed value
+ * @param Boolean return
+ * @param Number n
+ */
+function runner_print_r_plain($value, $return = false)
+{
+	// print only one level of array
+	if (gettype($value) == "array") {
+		$depth = 4;
+		return runner_print_r(getArrayWithoutObjects($value, $depth), $return);
+	}
+	return runner_print_r($value, $return);
 }
 
 /**
@@ -1919,14 +1820,83 @@ function toPHPTime($datevalue)
 }
 
 /**
+ *
+ * @param resource $image
+ * @param string $file_path JPG/JPEG file, function reads* EXIF header
+ * @return resource|null
+ */
+function exifRotateImage($image, $file_path) {
+	/*
+	define('ROTATE_0', 1);
+	define('ROTATE_0_MIRROR', 2);
+	define('ROTATE_180', 3);
+	define('ROTATE_180_MIRROR', 4);
+	define('ROTATE_90', 5);
+	define('ROTATE_90_MIRROR', 6);
+	define('ROTATE_270', 7);
+	define('ROTATE_270_MIRROR', 8);
+	*/
+
+	$exif = exif_read_data($file_path);
+
+	if (!$exif) {
+		return false;
+	}
+
+	$orientation = $exif['Orientation'];
+
+	$rotated = null;
+	$success = true;
+	//definition of values commented at the start of this function
+	switch ($orientation) {
+		case 0:
+		case 1:
+			$rotated = imagerotate($image, 0, 0);
+			break;
+		case 2:
+			$success = imageflip($image, IMG_FLIP_HORIZONTAL);
+			break;
+		case 3:
+			$rotated = imagerotate($image, 180, 0);
+			break;
+		case 4:
+			$rotated = imageflip($image, IMG_FLIP_VERTICAL);
+			break;
+		case 5:
+			$rotated = imagerotate($image, -90, 0);
+			$success = imageflip($rotated, IMG_FLIP_HORIZONTAL);
+			break;
+		case 6:
+			$rotated = imagerotate($image, -90, 0);
+			break;
+		case 7:
+			$rotated = imagerotate($image, 90, 0);
+			$success = imageflip($rotated, IMG_FLIP_HORIZONTAL);
+			break;
+		case 8:
+			$rotated = imagerotate($image, 90, 0);
+			break;
+		default:
+			return null;
+	}
+
+	if (!$success) {
+		@imagedestroy($rotated);
+		$rotated = null;
+	}
+
+	return $rotated;
+}
+
+/**
  * @intellisense
  */
 function imageCreateThumb($new_width,$new_height,$img_width,$img_height,$file_path,$options,$new_file_path,$uploadedFile)
 {
 	$new_img = @imagecreatetruecolor($new_width, $new_height);
-	switch (strtolower(substr(strrchr($file_path, '.'), 1))) {
-		case 'jpg':
-		case 'jpeg':
+	switch ( $uploadedFile["type"]) {
+		case "image/jpeg":
+		case "image/pjpeg":
 			$src_img = @imagecreatefromjpeg($file_path);
 			$image_quality = isset($options['jpeg_quality']) ?
 				$options['jpeg_quality'] : 75;
@@ -1938,9 +1908,25 @@ function imageCreateThumb($new_width,$new_height,$img_width,$img_height,$file_pa
 					$new_height,
 					$img_width,
 					$img_height
-				) && imagejpeg($new_img, $new_file_path, $image_quality);
+			);
+
+			if (!$success)
+				break;
+
+			if (function_exists("exif_read_data")) {
+				$rotated_img = exifRotateImage($new_img, $file_path);
+			}
+
+			if ($rotated_img) {
+				@imagedestroy($new_img);
+				$new_img = $rotated_img;
+			}
+
+			$success = @imagejpeg($new_img, $new_file_path, $image_quality);
+
+
 			break;
-		case 'gif':
+	case "image/gif":
 			@imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
 			$src_img = @imagecreatefromgif($file_path);
 			$image_quality = null;
@@ -1954,7 +1940,8 @@ function imageCreateThumb($new_width,$new_height,$img_width,$img_height,$file_pa
 					$img_height
 				) && imagegif($new_img, $new_file_path, $image_quality);
 			break;
-		case 'png':
+	case "image/png":
+	case "image/x-png":
 			@imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
 			@imagealphablending($new_img, false);
 			@imagesavealpha($new_img, true);
@@ -1981,14 +1968,15 @@ function imageCreateThumb($new_width,$new_height,$img_width,$img_height,$file_pa
 	return $success;
 }
 /**
- * @intellisense
+ * Return standardized list of uploaded files
+ * @param String paramName - HTTP POST parameter name
  */
-function uploadFiles($option)
+function uploadFiles( $paramName )
 {
 	$result = null;
-	if(isset($_FILES[$option])){
+	if(isset($_FILES[$paramName])){
 		$result = array();
-		$upload = $_FILES[$option];
+		$upload = $_FILES[$paramName];
 		if(is_array($upload['tmp_name'])) {
             foreach ($upload['tmp_name'] as $index => $value)
             {
@@ -2087,6 +2075,13 @@ function makeSurePathExists($abspath)
 		return true;
 	return false;
 }
+
+function createEventClass( $table )
+{
+	$className = "eventclass_" . GetTableUrl( $table );
+	return new $className();
+}
+
 
 /**
  * @intellisense
@@ -2202,6 +2197,10 @@ function GetRootPathForResources($filePath)
 	return $filePath;
 }
 
+/**
+ * DEPRECATED
+ * might been used in business templates
+ */
 function GetPageURLWithGetParams()
 {
 	$pagename = $_SERVER["REQUEST_URI"];
@@ -2433,14 +2432,16 @@ function runner_substr($string, $start, $length = -1)
 
 /**
  * PHP mb_convert_encoding wrapper
+ * @return String	Initial or converted
  */
-function runner_convert_encoding($str, $to_encoding, $from_encoding)
-{
+function runner_convert_encoding( $str, $to_encoding, $from_encoding ) {
 	global $mbEnabled;
 
-	if( $mbEnabled )
-		return mb_convert_encoding($str, $to_encoding, $from_encoding);
-
+	if( $mbEnabled ) {
+		$ret = mb_convert_encoding( $str, $to_encoding, $from_encoding );
+		if( $ret !== false )
+			return $ret;
+	}
 	return $str;
 }
 
@@ -2535,14 +2536,26 @@ function useMSSQLWinConnect()
 	return strtoupper(substr(PHP_OS, 0, 3)) == "WIN" && substr(PHP_VERSION, 0, 1) > '4' && class_exists ('COM');
 }
 
-function cutBOM( $line )
-{
-	if( substr($line, 0, 3) == "\xEF\xBB\xBF" )
-		return substr($line, 3);
+/**
+ * @return Boolean
+ */
+function windowsOS() {
+	return strtoupper(substr(PHP_OS, 0, 3)) == "WIN";
+}
+
+/**
+ * @param String line
+ * @param String bom? UTF-8 default
+ * fix it!
+ */
+function cutBOM( $line, $bom = "\xEF\xBB\xBF" ) {
+	if( substr( $line, 0, strlen( $bom ) ) == $bom )
+		return substr( $line, strlen( $bom ) );
+
 	return $line;
 }
 
-function printBOM( )
+function printBOM()
 {
 	echo "\xEF\xBB\xBF";
 }
@@ -2588,14 +2601,19 @@ function passwordVerify( $pass, $hash )
 }
 
 
-function callDashboardSnippet( $name, $eventsObject )
+function callDashboardSnippet($dashName, $dashElem)
 {
 	$snippetData = array();
 	ob_start();
 	$header = "";
-	$funcName = "event_" . GoodFieldName( $name );
-	$eventsObject->$funcName( $header );
+	$icon = $dashElem["item"]["icon"];
+	$funcName = "event_" . GoodFieldName($dashElem['snippetId']);
+	$eventObj = getEventObject($dashName);
+	if ($eventObj !== null) {
+		$eventObj->$funcName($header, $icon);
+	}
 	$snippetData["header"] = $header;
+	$snippetData["icon"] = $icon;
 	$snippetData["body"] = ob_get_contents();
 	ob_end_clean();
 	return $snippetData;
@@ -2639,7 +2657,7 @@ function getPageStrings( $tableName ) {
 
 function importTableSettings( $table )
 {
-	global $tables_data, $field_labels, $fieldToolTips, $placeHolders, $page_titles, $detailsTablesData, $masterTablesData, $tableEvents, $bSubqueriesSupported;
+	global $tables_data, $field_labels, $fieldToolTips, $placeHolders, $page_titles, $detailsTablesData, $masterTablesData, $bSubqueriesSupported;
 	include_once(getabspath("include/".GetTableURL($table)."_settings.php"));
 }
 
@@ -2705,6 +2723,11 @@ function simplify_file_name( $file_name )
  */
 function projectPath() {
 	$uri = $_SERVER['REQUEST_URI'];
+	//	cut off query parameters, since '/' sign can appear in parameters unescaped
+	$questionPos = strpos( $uri, '?' );
+	if( $questionPos !== false ) {
+		$uri = substr( $uri, 0, $questionPos );
+	}
 	$dash = strrpos( $uri, '/' );
 	if( $dash === false )
 		return '/';
@@ -2715,6 +2738,15 @@ function hash_hmac_sha256($data, $key, $raw_output = false) {
 	return hash_hmac('sha256', $data, $key, $raw_output);
 }
 
+function hash_hmac_sha1($data, $key, $raw_output = false) {
+	return hash_hmac('sha1', $data, $key, $raw_output);
+}
+
+function hash_sha256($data ) {
+	return hash( 'sha256', $data );
+}
+
+
 
 function fbCreateObject( $appId, $appSecret ) {
 	include_once getabspath('plugins/facebook/facebook.php');
@@ -2724,16 +2756,19 @@ function fbCreateObject( $appId, $appSecret ) {
 	));
 }
 
-function fbGetUserInfo( $fbObj )
+function fbGetUserInfo( $fbObj, $srToken )
 {
 	$ret = array();
 	$ret["error"] = false;
 	$ret["info"] = array();
 
+	if( !isset( $_REQUEST['signed_request'] ) && $srToken )
+		$_REQUEST['signed_request'] = $srToken;
+
 	try
 	{
 		$uid = $fbObj->getUser();
-		$ret["info"] = $fbObj->api('/'.$uid.'?fields=email,name,picture');
+		$ret["info"] = $fbObj->api('/me?fields=email,name,picture');
 	}
 	catch( FacebookApiException $e )
 	{
@@ -2744,6 +2779,7 @@ function fbGetUserInfo( $fbObj )
 	return $ret;
 }
 
+// not used
 function fbGetSignedRequest( $fbObj ) {
 	return $fbObj->getSignedRequest();
 }
@@ -2813,84 +2849,275 @@ function parseQueryString( $str ) {
 	return $result;
 }
 
-/*
-function createOauthProvider( $clientId, $clientSecret, $urlAuth, $urlToken, $urlResourceOwnerDetails ) {
-	
-	require_once('vendor/autoload.php');
-	$provider = new \League\OAuth2\Client\Provider\GenericProvider([
-		'clientId'                => $clientId,    // The client ID assigned to you by the provider
-		'clientSecret'            => $clientSecret,   // The client password assigned to you by the provider
-		'redirectUri'             =>  projectURL().'oauthcallback.php',
-		'urlAuthorize'            => $urlAuth,
-		'urlAccessToken'          => $urlToken,
-		'urlResourceOwnerDetails' => ''
-	]);
-	return $provider;
+/**
+ * append header without replacing
+ */
+function addHeader( $header ) {
+	header( $header, false );
 }
-*/
 
 /**
- * @return Array ( "bearer" => string, "token" => string)
- * "bearer" - access token to use in HTTP requests
- * "token" - new token info to save in storage
+ * @param String jwt
+ * @param Array jwk
+ * @return Array|false
  */
+function verifyOpenIdToken( $jwt, $jwk ) {
+	$parts = explode('.', $jwt);
+	if( count( $parts) != 3 )
+		return false;
 
-/*
- function checkRefreshOauthToken( $token, $rconn ) {
-	
-	require_once('vendor/autoload.php');
-	$provider = $rconn->getOauthProvider();
-	$accessToken = new League\OAuth2\Client\Token\AccessToken( $token );
-	if ($accessToken->hasExpired()) {
-		$accessToken = $provider->getAccessToken('refresh_token', [
-			'refresh_token' => $accessToken->getRefreshToken()
-		]);
-	}
-	return array( 
-		"bearer" => $accessToken->getToken(),
-		"token" => $accessToken->jsonSerialize() 
-	);
+	$signature = base64_decode_url_binary( $parts[2] );
+	$dataToVerify = utf8_decode( $parts[0]. "." . $parts[1] );
+	$pem = convertToPem( $jwk );
 
+	$res = openssl_verify( $dataToVerify,  $signature , $pem, OPENSSL_ALGO_SHA256 );
+	if ( $res === 1 )
+		return Security::parseJWT( $jwt );
+
+	return false;
 }
-*/
+
 /**
- * @param RestConnection
- * @return Array( "url" => redirect url, "state" => state to save )
+ * @param Array jwk
+ * @return String
  */
-/*
- function getAuthRequest( $rconn ) {
-	$provider = $rconn->getOauthProvider();
-	if( !$provider ) {
-		return null;
-	}
-	return array( 
-		"url" => $provider->getAuthorizationUrl(),
-		"state" => $provider->getState()
-	);
+function convertToPem( $jwk ) {
+	require_once( getabspath("include/jwkToPem.php") );
+	return _convertToPem( $jwk );
 }
-*/
 
+function runner_base32_encode( $str ) {
+	require_once( getabspath('classes/base32.php') );
+	return RunnerBase32::encode( $str );
+}
+
+function runner_base32_decode( $str ) {
+	require_once( getabspath('classes/base32.php') );
+	return RunnerBase32::decode( $str );
+}
+
+function calculateTotpCode( $secret ) {
 /*
-function validateToken( $code, $rconn ) {
-	try {
-		$provider = $rconn->getOauthProvider();
-		if( !$provider ) {
-			return null;
+ * @author Michael Kliewe
+ * @copyright 2012 Michael Kliewe
+ * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ *
+ * @link http://www.phpgangsta.de/
+ */
+	$codeLength = 6;
+	$timeSlice = floor(time() / 30);
+	$secretkey = runner_base32_decode($secret);
+
+	// Pack time into binary string
+	$time = chr(0).chr(0).chr(0).chr(0).pack('N*', $timeSlice);
+	// Hash it with users secret key
+	$hm = hash_hmac('SHA1', $time, $secretkey, true);
+	// Use last nipple of result as index/offset
+	$offset = ord(substr($hm, -1)) & 0x0F;
+	// grab 4 bytes of the result
+	$hashpart = substr($hm, $offset, 4);
+
+	// Unpak binary value
+	$value = unpack('N', $hashpart);
+	$value = $value[1];
+	// Only 32 bits
+	$value = $value & 0x7FFFFFFF;
+
+	$modulo = pow(10, $codeLength);
+
+	return str_pad($value % $modulo, $codeLength, '0', STR_PAD_LEFT);
+}
+
+
+/**
+ * PHP str_getcsv function wrapper
+ * @param String line
+ * @param String delimiter
+ * @return Array
+ */
+function parseCSVLineNew( $line, $delimiter ){
+	return str_getcsv( $line, $delimiter );
+}
+
+/**
+ * Get the uploded file's data from superglobals
+ * @param String fileName
+ * @return Mixed
+ */
+function getImportFileData( $fileName ) {
+	return $_FILES[ $fileName ];
+}
+
+/**
+ * @param String fname
+ * @return String
+ */
+function getImportFileExtension( $fname ) {
+	return getFileExtension( $_FILES[ $fname ]['name'] );
+}
+
+/**
+ * @param String fname
+ * @return String
+ */
+function getTempImportFileName( $fname )
+{
+	return $_FILES[ $fname ]['tmp_name'];
+}
+
+/**
+ * Delete am import temp file
+ * @param String filePath
+ */
+function deleteImportTempFile( $filePath ) {
+	$error_handler = set_error_handler("empty_error_handler");
+
+	runner_delete_file( $filePath );
+
+	if( $error_handler )
+		set_error_handler($error_handler);
+}
+
+/**
+ * Get the list of file names from a particular directory
+ * @param String dirPath
+ * @return Array
+ */
+function getFileNamesFromDir( $dirPath ) {
+	$fileNames = array();
+
+	$dirHandle = opendir( $dirPath );
+	if( $dirHandle )
+	{
+		while( false !== ($fileName = readdir($dirHandle)) )
+		{
+			$fileNames[] = $fileName;
 		}
-		if( !$code )
-			return null;
+		closedir( $dirHandle );
+	}
 
-		$accessToken = $provider->getAccessToken('authorization_code', [
-			'code' => $code
-		]);
-		return $accessToken->jsonSerialize();
-	} catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
+	return $fileNames;
+}
 
-		// Failed to get the access token or user details.
-		exit($e->getMessage());
 
+/**
+ * @param String fileName,
+ * @param Boolean preview
+ * @param String fileEncoding
+ * @return String
+ */
+	function CSVFileToText( $fileName, $preview = false , $fileEncoding = "" ) {
+	global $cCharset;
+
+	// read 100kb chunk for preview
+	$content = myfile_get_contents( $fileName, "r", $preview ? 102400 : 0 );
+	if( !$content )
+		return "";
+
+	$BOM = "";
+	if( !$fileEncoding ) {
+		$fileEncoding = "";
+
+		$BOMForEncoding = array(
+			"UTF-8" => "\xEF\xBB\xBF",
+			"UTF-16BE" => "\xFE\xFF",
+			"UTF-16LE" => "\xFF\xFE",
+		);
+
+		foreach( $BOMForEncoding as $en => $bomSeq ) {
+			if( substr( $content, 0, strlen( $bomSeq ) ) == $bomSeq ) {
+				$BOM = $bomSeq;
+				$fileEncoding = $en;
+				break;
+			}
+		}
+	}
+
+	if( !$fileEncoding )
+		return $content;
+
+	$charsetToEncoding = array(
+		"utf-8" => "UTF-8"
+	);
+
+	// TODO: redo dictionary charsetToEncoding
+	$projectEncoding = $charsetToEncoding[ $cCharset ];
+	if( !$projectEncoding )
+		$projectEncoding = $cCharset;
+
+	$content = cutBom( $content, $BOM );
+	if( $fileEncoding != $projectEncoding )
+		$content = runner_convert_encoding( $content, $projectEncoding, $fileEncoding );
+
+	return $content;
+}
+
+function regenerateSessionId() {
+	global $regenerateSessionOnLogin;
+	if( $regenerateSessionOnLogin && function_exists("session_regenerate_id") ) {
+		//	session gets regenerated on login only, no need to handle poor connections
+		//	delete old session immediately
+		session_regenerate_id( true );
 	}
 }
-*/
+
+function importSecuritySettings() {
+	global $globalSettings;
+	if( $globalSettings["security"] ) {
+		return;
+	}
+	require_once( getabspath( "include/securitySettings.php" ) );
+	$globalSettings["security"] = &$securitySettings_var;
+}
+
+function importFontSettings() {
+	global $globalSettings;
+	if( $globalSettings["fonts"] ) {
+		return;
+	}
+	require_once( getabspath( "include/fontsettings.php" ) );
+	$globalSettings["fonts"] = &$fontSettings_var;
+}
+
+/**
+ * Verify saml auth response
+ * @param String response
+ * @param String publicKey
+ * @param String privateKey
+ * @return Array|false
+ */
+function verifySamlResponse( $rawResponse, $publicKey, $privateKey ) {
+	require_once( getabspath("classes/security/saml.php") );
+
+	$response = new SAMLResponse( $rawResponse );
+	return $response->verify( $publicKey, $privateKey );
+}
+
+function iso8601date( $timestamp ) {
+	return gmdate( "Y-m-d\TH:i:s\Z", $timestamp );
+}
+
+function iso8601date_timestamp( $timestamp ) {
+	return gmdate( "Ymd\THis\Z", $timestamp );
+}
+
+function savePrivateData( $id, $data ) {
+	$file_name = strtolower( $id );
+	$file_path = getabspath( "templates_c/".$file_name.".php" );
+	$text = "<?php \$privateData = runner_json_decode( \"".addslashes( runner_json_encode( $data ) )."\"); ?>";
+	runner_save_file( $file_path, $text );
+}
+
+function loadPrivateData( $id ) {
+	$file_name = strtolower( $id );
+	$file_path = getabspath( "templates_c/".$file_name.".php" );
+	$privateData = null;
+	include_once( $file_path );
+	return $privateData;
+}
+
+function setCookieDirectly( $name, $value ) {
+	$_COOKIE[$name] = $value;
+}
 
 ?>

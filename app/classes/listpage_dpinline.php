@@ -61,18 +61,23 @@ class ListPage_DPInline extends ListPage_Embed
 		$this->showEditInPopup = true;
 		$this->showViewInPopup = true;
 		
-		if($this->mobileTemplateMode())
-			$this->pageSize = -1;
-		
+	
 		$this->initDPInlineParams();
-		$this->searchClauseObj->clearSearch();
+		if( $this->firstTime ) {
+			$this->searchClauseObj->resetSearch();
+			unset( $_SESSION[$this->sessionPrefix.'_advsearch'] );
+		}
 		
 		$this->jsSettings['tableSettings'][$this->tName]['masterPageType'] = $this->masterPageType;
 		$this->jsSettings['tableSettings'][$this->tName]['masterTable'] = $this->masterTable;
 		$this->jsSettings['tableSettings'][$this->tName]['firstTime'] = $this->firstTime;
 		$this->jsSettings['tableSettings'][$this->tName]['strKey'] = $this->getStrMasterKey();
 		$this->addRawFieldValues = true;
-	
+		
+		if( $this->masterPageType == PAGE_ADD && parent::spreadsheetGridApplicable() ) {
+			$this->pageData['spreadsheetOnList'] = true;
+			$this->jsSettings['tableSettings'][ $this->tName ]['autoAddNewRecord'] = $this->pSet->addNewRecordAutomatically();
+		}
 	}
 	
 	/**
@@ -211,7 +216,8 @@ class ListPage_DPInline extends ListPage_Embed
 		if( $this->masterPageType != PAGE_VIEW  )
 		{
 			//inline edit column
-			$this->xt->assign("inlineedit_column", $this->inlineEditAvailable() && $this->permis[ $this->tName ]['edit']);
+			$this->xt->assign("inlineedit_column", 
+				$this->inlineEditAvailable() && $this->permis[ $this->tName ]['edit'] && !$this->spreadsheetGridApplicable() );
 			
 			//for list icons instead of list links
 			$this->assignListIconsColumn();
@@ -222,7 +228,10 @@ class ListPage_DPInline extends ListPage_Embed
 		
 		for($i=0;$i<count($this->allDetailsTablesArr);$i++)
 		{
-			$permis = ($this->isGroupSecurity && ($this->permis[$this->allDetailsTablesArr[$i]['dDataSourceTable']]['add'] || $this->permis[$this->allDetailsTablesArr[$i]['dDataSourceTable']]['search'])) || (!$this->isGroupSecurity);	
+			$permis = ( Security::permissionsAvailable() && 
+					($this->permis[$this->allDetailsTablesArr[$i]['dDataSourceTable']]['add'] 
+					|| $this->permis[$this->allDetailsTablesArr[$i]['dDataSourceTable']]['search'])) 
+				|| (!Security::permissionsAvailable());	
 			if($permis)
 			{
 				$this->xt->assign(GoodFieldName($this->tName)."_dtable_column", $permis);
@@ -423,18 +432,7 @@ class ListPage_DPInline extends ListPage_Embed
 		
 		$this->prepareTemplate();
 		
-		if( $this->isPD() ) 
-		{
-			$contents = $this->fetchForms( array( "grid", "below-grid" ) );	
-		} 
-		else if( $this->isBootstrap() )
-		{
-			$contents = $this->xt->fetch_loaded("grid_tabs").$this->xt->fetch_loaded("message_block").$this->xt->fetch_loaded("grid_block").$this->xt->fetch_loaded("pagination_block");	
-		}
-		else
-		{
-			$contents = $this->xt->fetch_loaded("body");
-		}
+		$contents = $this->fetchForms( array( "grid", "below-grid" ) );
 
 		$this->addControlsJSAndCSS();
 		$this->fillSetCntrlMaps();
@@ -506,19 +504,7 @@ class ListPage_DPInline extends ListPage_Embed
 	}	
 
 	public function prepareDisplayDetails() {
-		if( $this->isPD() ) {
-			$this->prepareDisplayDetailsPD();
-			return;
-		}
-		$this->prepareTemplate();
-		
-		$contents = $this->xt->fetch_loaded("grid_block");	
-		if( $this->masterPageType != PAGE_ADD ) 
-			$contents = $this->xt->fetch_loaded("grid_tabs").$this->xt->fetch_loaded("message").$this->xt->fetch_loaded("reorder_records").$contents;
-			
-		$contents.= $this->xt->fetch_loaded("pagination_block");
-		
-		$this->renderedBody = '<div id="detailPreview'.$this->id.'">'.$contents.'</div>';	
+		$this->prepareDisplayDetailsPD();	
 	}
 
 	public function prepareDisplayDetailsPD() {
@@ -526,14 +512,14 @@ class ListPage_DPInline extends ListPage_Embed
 
 		if( $this->pdfJsonMode() ) {
 			$this->xt->assign("embedded_grid", true );
+			$this->xt->assign("embedded_page_title", true );
 			$this->xt->load_templateJSON( $this->templatefile);
 			$this->renderedBody = $this->xt->fetch_loadedJSON("body");
 			return;
 		}
 		
 		$forms = array( "grid" );
-		if( $this->masterPageType != PAGE_ADD ) 
-		{
+		if( $this->masterPageType != PAGE_ADD ) {
 			$forms = array( "grid", "below-grid" );	
 		}
 		
@@ -557,12 +543,6 @@ class ListPage_DPInline extends ListPage_Embed
 	}
 
 
-	/**
-	 * A stub preventing the Search Panel from building
-	 */
-	function buildSearchPanel()
-	{
-	}
 
 	public function isPageSortable()
 	{
@@ -685,7 +665,7 @@ class ListPage_DPInline extends ListPage_Embed
 	}
 	
 	protected function displayViewLink() {
-		return $this->masterPageType != PAGE_VIEW && $this->masterPageType != PAGE_ADD && $this->viewAvailable();
+		return $this->masterPageType != PAGE_ADD && $this->viewAvailable();
 	}
 	
 	
@@ -715,6 +695,23 @@ class ListPage_DPInline extends ListPage_Embed
 	function pdfJsonMode() 
 	{
 		return $this->mode == LIST_PDFJSON;
+	}
+	
+	protected function spreadsheetGridApplicable() {
+		return $this->masterPageType != PAGE_ADD 
+			&& parent::spreadsheetGridApplicable();
+	}
+
+	protected function assignSessionPrefix() 
+	{
+		$masterKeys = md5( implode( '-', $this->masterKeysReq ) );
+		$this->sessionPrefix = $this->tName."_preview" . $masterKeys;	
+	}
+	
+	/**
+	 * skip search panel building for details
+	 */
+	function buildSearchPanel() {
 	}
 }
 ?>

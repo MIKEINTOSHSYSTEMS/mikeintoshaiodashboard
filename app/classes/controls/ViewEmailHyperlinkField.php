@@ -60,7 +60,7 @@ class ViewEmailHyperlinkField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return nl2br( $data[ $this->field ] );
 	}	

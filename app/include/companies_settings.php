@@ -78,14 +78,9 @@ $tdatacompanies[".showEditInPopup"] = false;
 
 $tdatacompanies[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatacompanies[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatacompanies[".listAjax"] = false;
 //	temporary
-$tdatacompanies[".listAjax"] = false;
+//$tdatacompanies[".listAjax"] = false;
 
 	$tdatacompanies[".audit"] = false;
 
@@ -149,8 +144,6 @@ $tdatacompanies[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatacompanies[".isUseAjaxSuggest"] = true;
 
-$tdatacompanies[".rowHighlite"] = true;
-
 
 
 
@@ -209,8 +202,6 @@ $tdatacompanies[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatacompanies[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacompanies[".orderindexes"] = array();
@@ -274,7 +265,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -306,7 +297,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -337,8 +329,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -360,7 +351,7 @@ $tdatacompanies[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -414,7 +405,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -445,7 +436,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -475,8 +467,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -497,7 +488,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -551,7 +542,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyEmail");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -582,7 +573,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -612,8 +604,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -634,7 +625,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -688,7 +679,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyPhone");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -719,7 +710,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -749,8 +741,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -771,7 +762,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -825,7 +816,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyWebsite");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -856,7 +847,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -886,8 +878,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -908,7 +899,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -962,7 +953,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanySector");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -993,7 +984,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1051,8 +1043,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1070,7 +1061,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1124,7 +1115,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyProfile");
 	$fdata["FieldType"] = 201;
 
-	
+
 	
 	
 			
@@ -1155,7 +1146,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1185,8 +1177,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 0;
 
@@ -1206,7 +1197,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 		$edata["CreateThumbnail"] = true;
 	$edata["StrThumbnail"] = "th";
@@ -1263,7 +1254,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Companies","CompanyJob");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1294,7 +1285,8 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1352,8 +1344,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1371,7 +1362,7 @@ $tdatacompanies[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1423,8 +1414,14 @@ $fieldToolTips["Companies"] = &$fieldToolTipscompanies;
 $placeHolders["Companies"] = &$placeHolderscompanies;
 $page_titles["Companies"] = &$pageTitlescompanies;
 
+
+changeTextControlsToDate( "Companies" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["Companies"] = array();
 //	Jobs
 	
@@ -1501,6 +1498,7 @@ $detailsTablesData["Companies"] = array();
 
 		
 	$detailsTablesData["Companies"][$dIndex]["detailKeys"][]="CompanySectorName";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Companies"] = array();
@@ -1738,7 +1736,6 @@ $tdatacompanies[".sqlquery"] = $queryData_companies;
 
 
 
-$tableEvents["Companies"] = new eventsBase;
 $tdatacompanies[".hasEvents"] = false;
 
 ?>

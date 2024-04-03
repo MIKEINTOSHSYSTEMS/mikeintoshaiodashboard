@@ -11,12 +11,6 @@ class ViewFileField extends ViewControl
 	 */
 	var $upload_handler = null;
 	
-	function __construct($field, $container, $pageobject)
-	{
-		parent::__construct($field, $container, $pageobject);
-		$this->initUploadHandler();
-	}
-
 	public function getPdfValue(&$data, $keylink = "")
 	{
 		$textVal = $this->getTextValue($data);
@@ -38,58 +32,132 @@ class ViewFileField extends ViewControl
 		if( !strlen( $data[ $this->field ] ) )
 			return "";
 			
-		$filedIsUrl = $this->container->pSet->isVideoUrlField( $this->field );
-		if( $filedIsUrl )
+		if( $this->container->pSet->isVideoUrlField( $this->field ) )
 			return $data[ $this->field ];		
 		
 		$fileNames = array();
 		
-		$filesData = $this->getFilesArray( $data[ $this->field ] );		
-		foreach($filesData as $file)
+		$filesData = $this->getFilesData( $data[ $this->field ] );		
+		foreach( $filesData as $file )
 		{	
-			$fileNames[] = $file["usrName"] ;
+			$fileNames[] = $this->getElementTextValue( $file, $data );
 		}		
 		
 		return implode(", ", $fileNames);
 	}
-	
-	function initUploadHandler()
-	{
-		if(is_null($this->upload_handler))
-		{
-			require_once getabspath("classes/uploadhandler.php");
-			$this->upload_handler = new UploadHandler(getOptionsForMultiUpload($this->container->pSet, $this->field));
-			if(!is_null($this->pageObject))
-				$this->upload_handler->pSet = $this->pageObject->pSetEdit;
-			else
-				$this->upload_handler->pSet = $this->container->pSet;
-			$this->upload_handler->field = $this->field;
-			$this->upload_handler->table = $this->container->pSet->_table;
-			$this->upload_handler->pageType = $this->container->pageType;
-			if(!is_null($this->pageObject))
-				$this->upload_handler->pageName = $this->pageObject->pageName;
-			else
-				$this->upload_handler->pageName = $this->upload_handler->pSet->pageName();
-		}
+
+	protected function getElementTextValue( $fileData, &$data ) {
+		return $fileData["usrName"];
 	}
 	
-	function getFilesArray($value)
-	{
-		$filesArray = my_json_decode($value);
-		if(!is_array($filesArray) || count($filesArray) == 0)
-		{
-			if($value == "")
-				$filesArray = array();
-			else 
-			{
-				$uploadedFile = $this->upload_handler->get_file_object($value);
-				if(is_null($uploadedFile))
-					$filesArray =  array();
-				else
-					$filesArray = array(my_json_decode(my_json_encode($uploadedFile)));
+	
+	/**
+	 * @return Array of arrays (
+	 * 		mandatory:
+	 * 		"name" => fileId
+	 * 		"usrName" => user-readable filename
+	 *		optional:
+	 * 		"size" => number
+	 * 		"type" => mime type
+	 * 		"thumbnail" => fileId
+	 * 		"thumbnail_size" => number
+	 * )
+	 * 	
+	 */
+	function getFilesData( $fieldValue ) {
+		if( !$fieldValue ) {
+			return array();
+		}
+		
+		if( $this->isUrl() ) {
+			$fileData = array();
+			$fileData["usrName"] = runner_basename( $fieldValue );
+			$fileData["name"] = $fieldValue;
+			return array( $fileData );
+		}
+
+		$files = my_json_decode( $fieldValue );
+		
+		if( !is_array( $files ) || !$files && $fieldValue != "[]" ) {
+			// filename in the field as is
+			$fileData = array();
+			$fileData["usrName"] = runner_basename( $fieldValue );
+			$fileData["name"] = DiskFileSystem::normalizePath( $this->pSettings()->getUploadFolder( $this->field ) ) .$fieldValue;
+			return array( $fileData );
+		}
+		//	normal field value, multiupload
+		return $files;
+	}
+
+	protected function fastFileInfo( $filename, $fs = null ) {
+		if( !$filename ) {
+			return false;
+		}
+
+		if( !$fs ) {
+			$fs = getStorageProvider( $this->pSettings(), $this->field );			
+		}
+		//	don't verify
+		if( !$fs->fast() ) {
+			return array( "fullPath" => $filename );
+		}
+
+		return $fs->getFileInfo( $filename );
+	}
+
+
+	protected function fastFileExists( $filename, $fs = null ) {
+		return !!$this->fastFileInfo( $filename, $fs );
+	}
+
+	/**
+	 * @param Array fileData - element of getFilesData function return value
+	 * @return String url
+	 */
+	protected function getFileUrl( $fileData, $keylink, $thumbnail = false, $additionalParams = array() ) {
+	    $pSet = $this->pSettings();
+		$fs = getStorageProvider( $pSet, $this->field );
+		$lastModified = time();
+		if( $fs->fast() ) {
+			$fsInfo = $fs->getFileInfo( $fileData["name"] );
+			if( $fsInfo && $fsInfo["lastModified"]) {
+				$lastModified = $fsInfo["lastModified"];
 			}
 		}
-		return $filesArray;
+		$params = array();
+		$params["file"] = $fileData["usrName"];
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["nodisp"] = 1;
+		$params["hash"] = fileAttrHash( $keylink, $file["size"], $lastModified );
+		if( $thumbnail ) 
+			$params["thumbnail"] = 1;
+		
+		foreach( $additionalParams as $k => $val ) {
+			$params[ $k ] = $val;
+		}
+		$url = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+		if( $this->displayPDF() && strtolower( getFileExtension( $params["file"] ) ) == "pdf" ) {
+			$url = "include/pdfjs/web/viewer.html?file=" . rawurlencode( projectPath() . $url );
+		}
+		return $url;
 	}
+
+	protected function displayPDF() {
+	    $pSet = $this->pSettings();
+		$viewFormat = $pSet->getViewFormat( $this->field );
+		//	don't apply PDF to images
+		return $pSet->displayPDF( $this->field ) && 
+			( $viewFormat == FORMAT_FILE || $viewFormat == FORMAT_DATABASE_FILE );
+		//	maybe check that we are on te view/list page as well, not edit/add
+	}
+
+	/**
+	 * @return Boolean when true, the field contents is consifered a URL
+	 */
+	protected function isUrl() {
+		return false;
+	}
+
 }
 ?>

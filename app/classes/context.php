@@ -7,8 +7,9 @@ class RunnerContextItem
  * define('CONTEXT_BUTTON', 2);	// 	button or other AJAX event
  * define('CONTEXT_LOOKUP', 3);	//	dependent lookup
  * define('CONTEXT_ROW', 4);		// 	processing grid row on multiple-records page (list)
- * define('CONTEXT_COMMAND', 5);	// 	DataCommand context
+ * define('CONTEXT_COMMAND', 5);	// 	DsCommand context
  * define('CONTEXT_SEARCH', 6);	// 	Search object context
+ * define('CONTEXT_MASTER', 7);	// 	Search object context
  */
 	public $type; 
 
@@ -16,9 +17,10 @@ class RunnerContextItem
 	public $data;
 	public $oldData;
 	public $newData;
-	public $masterData;
+	public $detailsKeys;
 	public $dc;
 	public $searchClause;
+	public $masterData;
 
 	function __construct( $type, $params )
 	{
@@ -60,7 +62,7 @@ class RunnerContextItem
 	}
 
 	public function getSearchValue( $field ) {
-		return $this->searchClause->getFieldValue( $field, null, false );
+		return $this->searchClause->_getFieldValue( $field, null, false, true );
 	}
 
 	public function getAllSearchValue() {
@@ -85,7 +87,33 @@ class RunnerContextItem
 		if( $this->dc ) {
 			return $this->dc->keys[ $field ];
 		}
+		return null;
 	}
+
+	public function getFilterValue( $field ) {
+		if( $this->dc ) {
+			return $this->dc->findFieldFilterValue( $field );
+		}
+	}
+
+	public function getLimitValue( $key ) {
+		if( !$this->dc ) {
+			return "";
+		}
+		if( $key == "record_from" ) {
+			return $this->dc->startRecord + 1;
+		}
+		if( $key == "record_to" ) {
+			return $this->dc->startRecord + $this->dc->reccount;
+		}
+		if( $key == "record_count" ) {
+			return $this->dc->reccount;
+		}
+		if( $key == "record_offset" ) {
+			return $this->dc->startRecord;
+		}
+	}
+
 
 	/**
 	 * @param String field
@@ -157,6 +185,11 @@ class RunnerContextItem
 		return getSessionElementNC( $key );
 	}
 
+	public function getDetailsKeyValue( $key ) {
+		return $this->detailsKeys[ $key ];
+	}
+
+
 	/**
 	 * Returns true if context must serve this scope, and search must stop here. 
 	 * For example, when page context is found, it must serve the 'master' and 'details' scopes even if no master-detail is in effect.
@@ -186,13 +219,22 @@ class RunnerContextItem
 			return true;
 
 		if( $scope == "details" )
-			return $this->type == CONTEXT_PAGE;
+			return $this->type == CONTEXT_PAGE || $this->type == CONTEXT_MASTER;
 
 		if ( $scope == "values" )
 			return !!$this->data || $this->type == CONTEXT_PAGE || $this->type == CONTEXT_COMMAND; 
 
 		if( $scope == "search" )
 			return $this->type == CONTEXT_SEARCH;
+
+		if( $scope == "filter" )
+			return $this->type == CONTEXT_COMMAND;
+
+		if( $scope == "request" )
+			return true;
+
+		if( $scope == "limit" )
+			return $this->type == CONTEXT_COMMAND;
 		
 		if( $scope == "all_field_search" )
 			return $this->type == CONTEXT_SEARCH;
@@ -226,14 +268,27 @@ class RunnerContextItem
 		if ( $scope == "global" && $key == "language" )
 			return mlang_getcurrentlang();
 
-		if( $scope == "details" )
-			return $this->pageObj->getDetailsKeyValue( $key );
+		if( $scope == "details" ) {
+			if( $this->type == CONTEXT_PAGE )
+				return $this->pageObj->getDetailsKeyValue( $key );
+			if( $this->type == CONTEXT_MASTER )
+				return $this->getDetailsKeyValue( $key );
+		}
 
 		if( $scope == "values" )
 			return $this->getFieldValue( $key );
 
 		if( $scope == "search" )
 			return $this->getSearchValue( $key );
+
+		if( $scope == "filter" )
+			return $this->getFilterValue( $key );
+
+		if( $scope == "request" )
+			return postvalue( $key );
+
+		if( $scope == "limit" )
+			return $this->getLimitValue( $key );
 		
 		if( $scope == "all_field_search" )
 			return $this->getAllSearchValue();
@@ -272,7 +327,7 @@ class RunnerContext
 		global $contextStack;
 
 		//	this sometimes happens during the error reporting
-		if( !count($contextStack->stack) )
+		if( !$contextStack->stack )
 			return null;
 		
 		$context = $contextStack->stack[ count($contextStack->stack) - 1 ];
@@ -303,6 +358,14 @@ class RunnerContext
 		RunnerContext::push( new RunnerContextItem( CONTEXT_SEARCH, array( "searchClause" => $searchClause ) ) );
 	}
 
+	public static function pushMasterContext( $detailsKeys ) {
+		RunnerContext::push( new RunnerContextItem( 
+			CONTEXT_MASTER, 
+			array( 
+				"detailsKeys" => $detailsKeys, 
+			) ) ); 
+	}
+
 
 	public static function getMasterValues() {
 		$ctx = RunnerContext::current();
@@ -314,6 +377,9 @@ class RunnerContext
 		return $ctx->getValues();
 	}
 
+	/**
+	 * @return String
+	 */
 	public static function PrepareRest( $str, $urlenc = true ) {
 		$context = RunnerContext::current();
 		$tokens = DB::scanTokenString($str);
@@ -357,11 +423,15 @@ class RunnerContext
 	 * )
 	 */
 	protected static function getOptionalBlocks( $str ) {
+		if( !is_string( $str ) )
+			return array();		
+		
 		$snippetStack = array();
 		$snippets = array();
 		$pos = strpos( $str, '<?' );
-		if( $pos === false)
+		if( $pos === false )
 			return array();
+		
 		while( true ) {
 			$snippetStack[] = $pos;
 			$newPos = strpos( $str, '<?', $pos + 1 );
@@ -392,7 +462,8 @@ class RunnerContext
 	 * )
 	 */
 	public static function doReplacements( $str, $replacements ) {
-		
+		if( !is_string( $str ) )
+			return $str;
 		
 		$snippets = RunnerContext::getOptionalBlocks( $str );
 		/* snippets with 0 non-empty requirements must be deleted from the string */

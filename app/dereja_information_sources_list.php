@@ -9,7 +9,7 @@ require_once("include/dbcommon.php");
 add_nocache_headers();
 
 require_once('include/xtempl.php');
-require_once("classes/searchpanel.php");
+
 require_once("classes/searchcontrol.php");
 require_once("classes/searchclause.php");
 require_once("classes/panelsearchcontrol.php");
@@ -21,6 +21,10 @@ require_once('include/lookuplinks.php');
 //  Verify the eligibility of such a call.
 
 InitLookupLinks();
+if( Security::hasLogin() ) {
+	if( !ListPage::processListPageSecurity( $strTableName ) )
+		return;
+}
 
 if( ListPage::processSaveParams( $strTableName ) )
 	return;
@@ -45,7 +49,6 @@ elseif( $mode == LIST_LOOKUP )
 {	
 	require_once('classes/listpage_embed.php');
 	require_once('classes/listpage_lookup.php');
-	require_once("classes/searchpanellookup.php");
 	
 	$options["mainTable"] = postvalue("table");
 	$options["mainField"] = postvalue("field");
@@ -92,11 +95,13 @@ $xt = new Xtempl( $mode != LIST_SIMPLE ); //#9607 1. Temporary fix
 $options["pageName"] = postvalue("page");
 $options["pageType"] = PAGE_LIST;
 $options["id"] = postvalue_number("id") ? postvalue_number("id") : 1;
-$options["flyId"] = postvalue("recordId") + 0;
+$options["flyId"] = (int)postvalue("recordId");
 $options["mode"] = $mode;
 $options["xt"] = &$xt;
-$options["firstTime"] = postvalue("firsttime");
+$options["firstTime"] = postvalue("firstTime");
 $options["sortBy"] = postvalue("sortby");
+$options["requestGoto"] = postvalue_number("goto");
+
 
 $options["masterPageType"] = postvalue("masterpagetype");
 $options["masterPage"] = postvalue("masterpage");
@@ -120,7 +125,10 @@ if(	postvalue("mapRefresh") )
 {
 	$options["mapRefresh"] = true;
 	$options["vpCoordinates"] = my_json_decode( postvalue("vpCoordinates") );
-}	
+}
+
+if(	postvalue("firstTime") )
+	$options["firstTime"] = true;
 
 //	Create $pageObject
 $pageObject = ListPage::createListPage($strTableName, $options);
@@ -128,9 +136,9 @@ $pageObject = ListPage::createListPage($strTableName, $options);
 if( $pageObject->processSaveSearch() )
 	exit();
 
-if( $gQuery ) {
-	$gQuery->ReplaceFieldsWithDummies( $pageObject->getNotListBlobFieldsIndices() );
-}
+if( $pageObject->updateRowOrder() )
+	exit();
+
 
 
 if( $mode != LIST_DETAILS && $mode != MAP_DASHBOARD && $mode != LIST_DASHBOARD ) 

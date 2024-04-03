@@ -13,7 +13,7 @@ class ViewTimeField extends ViewControl
 	
 	/**
 	 * @param &Array data
-	 * @return String	 
+	 * @return String
 	 */
 	public function getTextValue( &$data ) {
 		global $locale_info;
@@ -25,30 +25,18 @@ class ViewTimeField extends ViewControl
 		$h = $time[0];
 		$m = $time[1];
 		$s = $time[2];
-		
 		$formatData = $this->container->pSet->getViewAsTimeFormatData( $this->field );
 		
 		if( $formatData["timeFormat"] == TIME_FORMAT_DURATION ) {
 			// show duration
-			$d = 0;
-			if( $formatData["showDaysInTotals"] ) {
-				$h = $time[0] % 24;
-				$d = ( $time[0] - $h ) / 24;
-			}
-			
-			$timeFormat = $formatData["showSeconds"] ? "H:mm:ss" : "H:mm";
-			
-			return ($d != 0 ? $d.'d ' : '')
-				.format_datetime_custom( array(0, 0, 0, $h, $m, $s), $timeFormat );
+			return ViewTimeField::getDuration( $h, $m, $s, 
+				$formatData["showSeconds"], $formatData["showDaysInTotals"] );
 		}
 		
 		// show time of a day
-		$timeFormat = $locale_info["LOCALE_STIMEFORMAT"];
-		if( !$formatData["showSeconds"] )
-			$timeFormat = str_replace(array(':ss', ':s'), array('', ''), $timeFormat);
-		
-		return format_datetime_custom( array( 0, 0, 0, $h, $m, $s ), $timeFormat);
+		return ViewTimeField::getDayTime( $h, $m, $s, $formatData["showSeconds"] );
 	}
+
 	
 	/**
 	 * @param &Array data
@@ -56,6 +44,9 @@ class ViewTimeField extends ViewControl
 	 * an array with following elements: 0=> hours, 1=> minutes, 2=> second
 	 */
 	protected function getTimeArray( &$data ) {
+		if( !$data[ $this->field ] ) {
+			return array();
+		}
 		if( IsDateFieldType( $this->fieldType ) ) {
 			$date = db2time( $data[ $this->field ] );
 			return array( $date[3], $date[4], $date[5] );
@@ -78,34 +69,82 @@ class ViewTimeField extends ViewControl
 	}
 	
 	/**
+	 * Get duration string
+	 * @param Number h
+	 * @param Number m
+	 * @param Number s
+	 * @param Boolean showSeconds
+	 * @param Boolean showDays
+	 * @retrun String
+	 */	
+	public static function getDuration( $h, $m, $s, $showSeconds, $showDays ) {
+		$d = 0;
+		if( $showDays ) {
+			$d = ( $h - $h % 24 ) / 24;
+			$h = $h % 24;
+		}
+		
+		$timeFormat = $showSeconds ? "H:mm:ss" : "H:mm";
+		return ($d != 0 ? $d.'d ' : '')
+			.format_datetime_custom( array(0, 0, 0, $h, $m, $s), $timeFormat );
+	}
+	
+	/**
+	 * Get time of a day string
+	 * @param Number h
+	 * @param Number m
+	 * @param Number s
+	 * @param Boolean showSeconds
+	 * @retrun String
+	 */
+	public static function getDayTime( $h, $m, $s, $showSeconds ) {
+		global $locale_info;
+		
+		$timeFormat = $locale_info["LOCALE_STIMEFORMAT"];
+		if( !$showSeconds )
+			$timeFormat = str_replace(array(':ss', ':s'), array('', ''), $timeFormat);
+		
+		return format_datetime_custom( array( 0, 0, 0, $h, $m, $s ), $timeFormat);
+	}
+
+	
+	/**
+	 * @param String field
+	 * @param Number value
+	 * @param ProjectSettings pSet
+	 * @param Boolean pdfMode
+	 * @param Boolean forSumTotal  total is for 'SUM' or 'TOTAL'
 	 * @return String
 	 */
-	public static function getFormattedTotals( $field, $value, $pSet, $pdfMode ) {
+	public static function getFormattedTotals( $field, $value, $pSet, $pdfMode, $forSumTotal ) {
+		global $locale_info;
+		
 		if( !$value ) 
 			return $value;
 		
 		$s = $value % 60;
-		$value -= $s;
-		$value /= 60;
+		$value = ( $value - $s ) / 60;
 		
 		$m = $value % 60;
-		$value -= $m;
-		$value /= 60;
+		$value = ( $value - $m ) / 60;
 		
 		$h = $value;
-		$d = 0;
-		if( $pSet->showDaysInTimeTotals( $field ) ) {	
-			$h = $value % 24;
-			$value -= $h;
-			$value /= 24;
-			$d = $value;
-		}
 		
-		$res = ($d != 0 ? $d.'d ' : ''). mysprintf( "%02d:%02d:%02d", array($h, $m, $s) );
+		$formatData = $pSet->getViewAsTimeFormatData( $field );
+		
+		if( $forSumTotal ) {
+			$res = ViewTimeField::getDuration( $h, $m, $s, $formatData["showSeconds"], $pSet->showDaysInTimeTotals( $field ) );
+		} else {
+			if( $formatData["timeFormat"] == TIME_FORMAT_DURATION ) {
+				$res = ViewTimeField::getDuration( $h, $m, $s, $formatData["showSeconds"], false );
+			} else {
+				$res = ViewTimeField::getDayTime( $h, $m, $s, $formatData["showSeconds"] );
+			}
+		}
 		
 		return $pdfMode ? 
 			"'" . jsreplace( $res ) . "'"
-			: $res;	
+			: $res;
 	}
 }
 ?>

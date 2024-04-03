@@ -1,78 +1,8 @@
 <?php
-class ViewDatabaseVideoField extends ViewControl
+include_once getabspath("classes/controls/ViewVideoFileField.php");
+class ViewDatabaseVideoField extends ViewVideoFileField
 {
-	/**
-	 * addJSFiles
-	 * Add control JS files to page object
-	 */
-	public function addJSFiles()
-	{
-		$this->AddJSFile("include/video/projekktor.js");
-		$this->getJSControl();
-	}
-
-	/**
-	 * addCSSFiles
-	 * Add control CSS files to page object
-	 */ 
-	function addCSSFiles()
-	{
-		$this->AddCSSFile("include/video/theme/style.css");
-	}
 	
-	public function showDBValue(&$data, $keylink, $html = true )
-	{
-		$value = "";
-		if (@$data[$this->field] != NULL && $this->container->pageType != PAGE_PRINT )
-		{
-			$videoId = 'video_'.GoodFieldName(runner_htmlspecialchars($this->field)).'_';
-			$videoId .= $this->getContainer()->id."_";
-			if($this->getContainer()->pageType != PAGE_ADD)
-				$videoId .= $this->getContainer()->recId;
-			else
-				$videoId .= postvalue_number("id");	
-			$type = 'video/mp4';
-			$fileName = 'file.mp4';
-			$fileNameF = $this->getContainer()->pSet->getFilenameField($this->field);
-			if($fileNameF) 
-			{
-				$fileName = $data[$fileNameF];
-				if(!$fileName)
-					$fileName = 'file.mp4';
-				else
-					$type = getContentTypeByExtension(substr($fileName, strrpos($fileName, '.')));
-			}
-			$href = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->getContainer()->pSet->_table)
-				."&field=".rawurlencode($this->field)
-				."&pageType=".$this->getContainer()->pageType.$keylink);
-
-			$vWidth = $this->getContainer()->pSet->getVideoWidth($this->field);
-			$vHeight = $this->getContainer()->pSet->getVideoHeight($this->field);
-			if($vWidth == 0)
-				$vWidth = 300;
-			if($vHeight == 0)
-				$vHeight = 200;
-			$value .= '
-				<div style="width:'.$vWidth.'px; height:'.$vHeight.'px;">
-				<video class="projekktor" width="'.$vWidth.'" height="'.$vHeight.'" id="'.$videoId.'" type="'.$type.'" src="'.$href.'" >
-				</video></div>';
-
-			if($this->pageObject != null)
-				$this->pageObject->controlsMap['video'][] = $videoId; 
-		}
-		else 
-		{
-			$fileNameF = $this->getContainer()->pSet->getFilenameField($this->field);
-			if($fileNameF) 
-			{
-				$fileName = $data[$fileNameF];
-				if(!$fileName)
-					$value = $fileName;
-			}
-		}
-		return $value;
-	}
-
 	/**
 	 * @param &Array data
 	 * @return String	 
@@ -95,9 +25,43 @@ class ViewDatabaseVideoField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return "LONG BINARY DATA - CANNOT BE DISPLAYED";
-	}	
+	}
+
+	protected function getFileURLs( &$data, $keylink )
+	{
+		$fileURLs = array();
+		if( !$data[ $this->field ] ) {
+			return array();
+		}
+		$pSet = $this->pSettings();
+		
+		$params = array();
+		$fileNameField = $pSet->getFilenameField( $this->field );
+		$params["filename"] = $fileNameField && $data[ $fileNameField ] 
+			? $data[ $fileNameField ]
+			: 'Track.flv';
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["nodisp"] = 1;
+		$params["hash"] = fileAttrHash( $keylink, strlen_bin( $data[ $this->field ] ) );
+		$url = projectURL() . GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+
+		$ext = getFileExtension( $params["filename"] );
+		$type = mimeTypeByExt( $ext );
+		if( $type == "application/octet-stream" )
+			$type = "video/flv";
+		if(strpos($type, 'video') !== 0)
+			return array();
+
+
+		return array( array(
+			"url" => $url,
+			"type" => $type
+		));
+	}
+
 }
 ?>

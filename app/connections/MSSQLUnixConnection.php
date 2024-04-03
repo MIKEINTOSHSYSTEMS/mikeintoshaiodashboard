@@ -1,15 +1,15 @@
 <?php
 class MSSQLUnixConnection extends Connection
-{	
+{
 	protected $host;
-	
+
 	protected $user;
-	
+
 	protected $pwd;
-	
+
 	protected $dbname;
 
-	
+
 	function __construct( $params )
 	{
 		parent::__construct( $params );
@@ -22,13 +22,13 @@ class MSSQLUnixConnection extends Connection
 	protected function assignConnectionParams( $params )
 	{
 		parent::assignConnectionParams( $params );
-		
+
 		$this->host = $params["connInfo"][0];  //strConnectInfo1
 		$this->user = $params["connInfo"][1];  //strConnectInfo2
 		$this->pwd = $params["connInfo"][2];  //strConnectInfo3
 		$this->dbname = $params["connInfo"][3];  //strConnectInfo4
 	}
-	
+
 	/**
 	 * Open a connection to db
 	 */
@@ -37,11 +37,11 @@ class MSSQLUnixConnection extends Connection
 		$this->conn = mssql_connect( $this->host, $this->user, $this->pwd );
 		if( !$this->conn )
 			$this->triggerError( $this->lastError() );
-		
+
 		mssql_select_db( $this->dbname, $this->conn );
 		return $this->conn;
 	}
-	
+
 	/**
 	 * Close the db connection
 	 */
@@ -49,8 +49,8 @@ class MSSQLUnixConnection extends Connection
 	{
 		return mssql_close( $this->conn );
 	}
-	
-	/**	
+
+	/**
 	 * Send an SQL query
 	 * @param String sql
 	 * @return Mixed
@@ -64,11 +64,11 @@ class MSSQLUnixConnection extends Connection
 			$this->triggerError($this->lastError());
 			return FALSE;
 		}
-		
+
 		return new QueryResult( $this, $ret );
 	}
-	
-	/**	
+
+	/**
 	 * Execute an SQL query
 	 * @param String sql
 	 */
@@ -77,8 +77,8 @@ class MSSQLUnixConnection extends Connection
 		$this->debugInfo($sql);
 		return mssql_query( $sql, $this->conn );
 	}
-	
-	/**	
+
+	/**
 	 * Get a description of the last error
 	 * @return String
 	 */
@@ -87,7 +87,7 @@ class MSSQLUnixConnection extends Connection
 		return @mssql_get_last_message();
 	}
 
-	/**	
+	/**
 	 * Fetch a result row as an associative array
 	 * @param Mixed qHanle		The query handle
 	 * @return Array
@@ -96,27 +96,27 @@ class MSSQLUnixConnection extends Connection
 	{
 		return @mssql_fetch_array($qHandle, MSSQL_ASSOC);
 	}
-	
-	/**	
+
+	/**
 	 * Fetch a result row as a numeric array
-	 * @param Mixed qHanle		The query handle	 
+	 * @param Mixed qHanle		The query handle
 	 * @return Array
 	 */
 	public function fetch_numarray( $qHandle )
 	{
 		return @mssql_fetch_array($qHandle, MSSQL_NUM);
 	}
-	
-	/**	
-	 * Free resources associated with a query result set 
-	 * @param Mixed qHanle		The query handle		 
+
+	/**
+	 * Free resources associated with a query result set
+	 * @param Mixed qHanle		The query handle
 	 */
 	public function closeQuery( $qHandle )
 	{
 		@mssql_free_result($qHandle);
 	}
 
-	/**	
+	/**
 	 * Get number of fields in a result
 	 * @param Mixed qHanle		The query handle
 	 * @return Number
@@ -124,19 +124,19 @@ class MSSQLUnixConnection extends Connection
 	public function num_fields( $qHandle )
 	{
 		return @mssql_num_fields( $qHandle );
-	}	
-	
-	/**	
+	}
+
+	/**
 	 * Get the name of the specified field in a result
 	 * @param Mixed qHanle		The query handle
 	 * @param Number offset
 	 * @return String
-	 */	 
+	 */
 	public function field_name( $qHandle, $offset )
 	{
 		return @mssql_field_name($qHandle, $offset);
 	}
-	
+
 	/**
 	 * @param Mixed qHandle
 	 * @param Number pageSize
@@ -147,7 +147,7 @@ class MSSQLUnixConnection extends Connection
 		if( $n > 0 )
 			mssql_data_seek( $qHandle, $n );
 	}
-	
+
 	/**
 	 * Execute an SQL query with blob fields processing
 	 * @param String sql
@@ -155,7 +155,7 @@ class MSSQLUnixConnection extends Connection
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		$this->debugInfo($sql);
 		return @mssql_query( $sql, $this->conn );

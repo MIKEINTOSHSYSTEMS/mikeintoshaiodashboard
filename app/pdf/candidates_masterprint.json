@@ -25,14 +25,20 @@ pdfDocument = {
 	},
 	"content": [
 		{BEGIN body}
-		{BEGIN embedded_grid}
-		{
-			text: '{$jscaption candidates}',
-		},
-		{END embedded_grid}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption candidates}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel candidates masterprint}',
+			},
+		{END embedded_page_title}		
 		{ 
 			{BEGIN standalone_page}
 			pageBreak: 'before',
+			standAlonePage: true,
 			{END standalone_page}
 			{BEGIN embedded_grid}
 			embeddedPage: true,
@@ -40,14 +46,10 @@ pdfDocument = {
 			layout: {
 				hLineWidth: function(i, node) { return 0.1; },
 				vLineWidth: function(i, node) { 
-					if( node.table.embeddedPage ) {
-						return (i === 0 || i === node.table.widths.length) ? 0.1 : 0;
-					} else  {
-						return 0.1; 
-					}
+					return 0.1; 
 				},
-				hLineColor: function(i, node) { return 'gray'; },
-				vLineColor: function(i, node) { return 'gray'; },
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
 			},
 			table: {
 				{BEGIN embedded_grid}
@@ -55,7 +57,11 @@ pdfDocument = {
 				{END embedded_grid}
 				
 				tableForm: true,
-				headerRows: 1 + 1 {BEGIN embedded_grid} -1 {END embedded_grid} ,
+				headerRows: 1 
+															{BEGIN row_grid_0}
+							+1
+						{END row_grid_0}
+													{BEGIN embedded_grid} -1 {END embedded_grid} ,
 
 				widths: [
 														{BEGIN col_grid_0}
@@ -211,13 +217,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -231,11 +236,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -251,14 +259,15 @@ pdfDocument = {
 																	
 
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_headcell_field}
+																{BEGIN cellblock_grid_headcell_field}
 {
 	cellId: 'headcell_field',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'CandidateID',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -271,20 +280,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field38}","text":"{$jslabel candidates CandidateID }","bold":true},
+			{"text":"{$jslabel candidates CandidateID }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CandidateID_align}',
-  },
+              "alignment": '{$CandidateID_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field}
-																			{BEGIN cellblock_grid_headcell_field1}
+																							{BEGIN cellblock_grid_headcell_field1}
 {
 	cellId: 'headcell_field1',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'First_Name',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -297,20 +309,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field39}","text":"{$jslabel candidates First_Name }","bold":true},
+			{"text":"{$jslabel candidates First_Name }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$First_Name_align}',
-  },
+              "alignment": '{$First_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field1}
-																			{BEGIN cellblock_grid_headcell_field2}
+																							{BEGIN cellblock_grid_headcell_field2}
 {
 	cellId: 'headcell_field2',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Middle_Name',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -323,20 +338,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field40}","text":"{$jslabel candidates Middle_Name }","bold":true},
+			{"text":"{$jslabel candidates Middle_Name }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Middle_Name_align}',
-  },
+              "alignment": '{$Middle_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field2}
-																			{BEGIN cellblock_grid_headcell_field3}
+																							{BEGIN cellblock_grid_headcell_field3}
 {
 	cellId: 'headcell_field3',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Last_Name',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -349,20 +367,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field41}","text":"{$jslabel candidates Last_Name }","bold":true},
+			{"text":"{$jslabel candidates Last_Name }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Last_Name_align}',
-  },
+              "alignment": '{$Last_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field3}
-																			{BEGIN cellblock_grid_headcell_field4}
+																							{BEGIN cellblock_grid_headcell_field4}
 {
 	cellId: 'headcell_field4',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Sex',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -375,20 +396,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field42}","text":"{$jslabel candidates Sex }","bold":true},
+			{"text":"{$jslabel candidates Sex }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sex_align}',
-  },
+              "alignment": '{$Sex_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field4}
-																			{BEGIN cellblock_grid_headcell_field5}
+																							{BEGIN cellblock_grid_headcell_field5}
 {
 	cellId: 'headcell_field5',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'DOB',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -401,20 +425,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field43}","text":"{$jslabel candidates DOB }","bold":true},
+			{"text":"{$jslabel candidates DOB }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$DOB_align}',
-  },
+              "alignment": '{$DOB_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field5}
-																			{BEGIN cellblock_grid_headcell_field6}
+																							{BEGIN cellblock_grid_headcell_field6}
 {
 	cellId: 'headcell_field6',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Region',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -427,20 +454,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field44}","text":"{$jslabel candidates Region }","bold":true},
+			{"text":"{$jslabel candidates Region }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Region_align}',
-  },
+              "alignment": '{$Region_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field6}
-																			{BEGIN cellblock_grid_headcell_field7}
+																							{BEGIN cellblock_grid_headcell_field7}
 {
 	cellId: 'headcell_field7',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'City',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -453,20 +483,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field45}","text":"{$jslabel candidates City }","bold":true},
+			{"text":"{$jslabel candidates City }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$City_align}',
-  },
+              "alignment": '{$City_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field7}
-																			{BEGIN cellblock_grid_headcell_field8}
+																							{BEGIN cellblock_grid_headcell_field8}
 {
 	cellId: 'headcell_field8',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Sub_City',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -479,20 +512,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field46}","text":"{$jslabel candidates Sub_City }","bold":true},
+			{"text":"{$jslabel candidates Sub_City }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sub_City_align}',
-  },
+              "alignment": '{$Sub_City_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field8}
-																			{BEGIN cellblock_grid_headcell_field9}
+																							{BEGIN cellblock_grid_headcell_field9}
 {
 	cellId: 'headcell_field9',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Zone',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -505,20 +541,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field47}","text":"{$jslabel candidates Zone }","bold":true},
+			{"text":"{$jslabel candidates Zone }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Zone_align}',
-  },
+              "alignment": '{$Zone_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field9}
-																			{BEGIN cellblock_grid_headcell_field10}
+																							{BEGIN cellblock_grid_headcell_field10}
 {
 	cellId: 'headcell_field10',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'House_No',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -531,20 +570,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field48}","text":"{$jslabel candidates House_No }","bold":true},
+			{"text":"{$jslabel candidates House_No }","hidden":"{$item_hide_simple_grid_field48}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$House_No_align}',
-  },
+              "alignment": '{$House_No_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field10}
-																			{BEGIN cellblock_grid_headcell_field11}
+																							{BEGIN cellblock_grid_headcell_field11}
 {
 	cellId: 'headcell_field11',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Phone_Number',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -557,20 +599,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field49}","text":"{$jslabel candidates Phone_Number }","bold":true},
+			{"text":"{$jslabel candidates Phone_Number }","hidden":"{$item_hide_simple_grid_field49}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_align}',
-  },
+              "alignment": '{$Phone_Number_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field11}
-																			{BEGIN cellblock_grid_headcell_field12}
+																							{BEGIN cellblock_grid_headcell_field12}
 {
 	cellId: 'headcell_field12',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Phone_Number_Family',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -583,20 +628,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field50}","text":"{$jslabel candidates Phone_Number_Family }","bold":true},
+			{"text":"{$jslabel candidates Phone_Number_Family }","hidden":"{$item_hide_simple_grid_field50}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_Family_align}',
-  },
+              "alignment": '{$Phone_Number_Family_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field12}
-																			{BEGIN cellblock_grid_headcell_field13}
+																							{BEGIN cellblock_grid_headcell_field13}
 {
 	cellId: 'headcell_field13',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Email_Address',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -609,20 +657,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field51}","text":"{$jslabel candidates Email_Address }","bold":true},
+			{"text":"{$jslabel candidates Email_Address }","hidden":"{$item_hide_simple_grid_field51}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Email_Address_align}',
-  },
+              "alignment": '{$Email_Address_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field13}
-																			{BEGIN cellblock_grid_headcell_field14}
+																							{BEGIN cellblock_grid_headcell_field14}
 {
 	cellId: 'headcell_field14',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Institution_Type',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -635,20 +686,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field52}","text":"{$jslabel candidates Institution_Type }","bold":true},
+			{"text":"{$jslabel candidates Institution_Type }","hidden":"{$item_hide_simple_grid_field52}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Institution_Type_align}',
-  },
+              "alignment": '{$Institution_Type_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field14}
-																			{BEGIN cellblock_grid_headcell_field15}
+																							{BEGIN cellblock_grid_headcell_field15}
 {
 	cellId: 'headcell_field15',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Education_Level',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -661,20 +715,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field53}","text":"{$jslabel candidates Education_Level }","bold":true},
+			{"text":"{$jslabel candidates Education_Level }","hidden":"{$item_hide_simple_grid_field53}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Education_Level_align}',
-  },
+              "alignment": '{$Education_Level_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field15}
-																			{BEGIN cellblock_grid_headcell_field16}
+																							{BEGIN cellblock_grid_headcell_field16}
 {
 	cellId: 'headcell_field16',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Department',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -687,20 +744,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field54}","text":"{$jslabel candidates Department }","bold":true},
+			{"text":"{$jslabel candidates Department }","hidden":"{$item_hide_simple_grid_field54}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Department_align}',
-  },
+              "alignment": '{$Department_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field16}
-																			{BEGIN cellblock_grid_headcell_field17}
+																							{BEGIN cellblock_grid_headcell_field17}
 {
 	cellId: 'headcell_field17',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Minor',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -713,20 +773,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field55}","text":"{$jslabel candidates Minor }","bold":true},
+			{"text":"{$jslabel candidates Minor }","hidden":"{$item_hide_simple_grid_field55}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Minor_align}',
-  },
+              "alignment": '{$Minor_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field17}
-																			{BEGIN cellblock_grid_headcell_field18}
+																							{BEGIN cellblock_grid_headcell_field18}
 {
 	cellId: 'headcell_field18',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Major',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -739,20 +802,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field56}","text":"{$jslabel candidates Major }","bold":true},
+			{"text":"{$jslabel candidates Major }","hidden":"{$item_hide_simple_grid_field56}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Major_align}',
-  },
+              "alignment": '{$Major_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field18}
-																			{BEGIN cellblock_grid_headcell_field19}
+																							{BEGIN cellblock_grid_headcell_field19}
 {
 	cellId: 'headcell_field19',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Skills',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -765,20 +831,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field57}","text":"{$jslabel candidates Skills }","bold":true},
+			{"text":"{$jslabel candidates Skills }","hidden":"{$item_hide_simple_grid_field57}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Skills_align}',
-  },
+              "alignment": '{$Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field19}
-																			{BEGIN cellblock_grid_headcell_field20}
+																							{BEGIN cellblock_grid_headcell_field20}
 {
 	cellId: 'headcell_field20',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'English_Proficiency_Level',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -791,20 +860,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field58}","text":"{$jslabel candidates English_Proficiency_Level }","bold":true},
+			{"text":"{$jslabel candidates English_Proficiency_Level }","hidden":"{$item_hide_simple_grid_field58}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$English_Proficiency_Level_align}',
-  },
+              "alignment": '{$English_Proficiency_Level_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field20}
-																			{BEGIN cellblock_grid_headcell_field21}
+																							{BEGIN cellblock_grid_headcell_field21}
 {
 	cellId: 'headcell_field21',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Industry_Specific_Skills',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -817,20 +889,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field59}","text":"{$jslabel candidates Industry_Specific_Skills }","bold":true},
+			{"text":"{$jslabel candidates Industry_Specific_Skills }","hidden":"{$item_hide_simple_grid_field59}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Industry_Specific_Skills_align}',
-  },
+              "alignment": '{$Industry_Specific_Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field21}
-																			{BEGIN cellblock_grid_headcell_field22}
+																							{BEGIN cellblock_grid_headcell_field22}
 {
 	cellId: 'headcell_field22',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'IT_Related_Skills',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -843,20 +918,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field60}","text":"{$jslabel candidates IT_Related_Skills }","bold":true},
+			{"text":"{$jslabel candidates IT_Related_Skills }","hidden":"{$item_hide_simple_grid_field60}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$IT_Related_Skills_align}',
-  },
+              "alignment": '{$IT_Related_Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field22}
-																			{BEGIN cellblock_grid_headcell_field23}
+																							{BEGIN cellblock_grid_headcell_field23}
 {
 	cellId: 'headcell_field23',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Certifications',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -869,20 +947,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field61}","text":"{$jslabel candidates Certifications }","bold":true},
+			{"text":"{$jslabel candidates Certifications }","hidden":"{$item_hide_simple_grid_field61}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Certifications_align}',
-  },
+              "alignment": '{$Certifications_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field23}
-																			{BEGIN cellblock_grid_headcell_field24}
+																							{BEGIN cellblock_grid_headcell_field24}
 {
 	cellId: 'headcell_field24',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Year_of_graduation',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -895,20 +976,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field62}","text":"{$jslabel candidates Year_of_graduation }","bold":true},
+			{"text":"{$jslabel candidates Year_of_graduation }","hidden":"{$item_hide_simple_grid_field62}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Year_of_graduation_align}',
-  },
+              "alignment": '{$Year_of_graduation_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field24}
-																			{BEGIN cellblock_grid_headcell_field25}
+																							{BEGIN cellblock_grid_headcell_field25}
 {
 	cellId: 'headcell_field25',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Work_Experience',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -921,20 +1005,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field63}","text":"{$jslabel candidates Work_Experience }","bold":true},
+			{"text":"{$jslabel candidates Work_Experience }","hidden":"{$item_hide_simple_grid_field63}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Work_Experience_align}',
-  },
+              "alignment": '{$Work_Experience_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field25}
-																			{BEGIN cellblock_grid_headcell_field26}
+																							{BEGIN cellblock_grid_headcell_field26}
 {
 	cellId: 'headcell_field26',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Joined_Dereja_Services',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -947,20 +1034,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field64}","text":"{$jslabel candidates Joined_Dereja_Services }","bold":true},
+			{"text":"{$jslabel candidates Joined_Dereja_Services }","hidden":"{$item_hide_simple_grid_field64}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Joined_Dereja_Services_align}',
-  },
+              "alignment": '{$Joined_Dereja_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field26}
-																			{BEGIN cellblock_grid_headcell_field27}
+																							{BEGIN cellblock_grid_headcell_field27}
 {
 	cellId: 'headcell_field27',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Dereja_Services',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -973,20 +1063,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field65}","text":"{$jslabel candidates Dereja_Services }","bold":true},
+			{"text":"{$jslabel candidates Dereja_Services }","hidden":"{$item_hide_simple_grid_field65}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Services_align}',
-  },
+              "alignment": '{$Dereja_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field27}
-																			{BEGIN cellblock_grid_headcell_field28}
+																							{BEGIN cellblock_grid_headcell_field28}
 {
 	cellId: 'headcell_field28',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Dereja_Training_Services',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -999,20 +1092,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field66}","text":"{$jslabel candidates Dereja_Training_Services }","bold":true},
+			{"text":"{$jslabel candidates Dereja_Training_Services }","hidden":"{$item_hide_simple_grid_field66}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Training_Services_align}',
-  },
+              "alignment": '{$Dereja_Training_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field28}
-																			{BEGIN cellblock_grid_headcell_field29}
+																							{BEGIN cellblock_grid_headcell_field29}
 {
 	cellId: 'headcell_field29',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Dereja_Event_Services',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1025,20 +1121,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field67}","text":"{$jslabel candidates Dereja_Event_Services }","bold":true},
+			{"text":"{$jslabel candidates Dereja_Event_Services }","hidden":"{$item_hide_simple_grid_field67}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Event_Services_align}',
-  },
+              "alignment": '{$Dereja_Event_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field29}
-																			{BEGIN cellblock_grid_headcell_field30}
+																							{BEGIN cellblock_grid_headcell_field30}
 {
 	cellId: 'headcell_field30',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Dereja_web_profile_completion',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1051,20 +1150,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field68}","text":"{$jslabel candidates Dereja_web_profile_completion }","bold":true},
+			{"text":"{$jslabel candidates Dereja_web_profile_completion }","hidden":"{$item_hide_simple_grid_field68}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_web_profile_completion_align}',
-  },
+              "alignment": '{$Dereja_web_profile_completion_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field30}
-																			{BEGIN cellblock_grid_headcell_field31}
+																							{BEGIN cellblock_grid_headcell_field31}
 {
 	cellId: 'headcell_field31',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Dereja_Information_Source',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1077,20 +1179,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field69}","text":"{$jslabel candidates Dereja_Information_Source }","bold":true},
+			{"text":"{$jslabel candidates Dereja_Information_Source }","hidden":"{$item_hide_simple_grid_field69}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Information_Source_align}',
-  },
+              "alignment": '{$Dereja_Information_Source_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field31}
-																			{BEGIN cellblock_grid_headcell_field32}
+																							{BEGIN cellblock_grid_headcell_field32}
 {
 	cellId: 'headcell_field32',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'StudentID',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1103,20 +1208,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field70}","text":"{$jslabel candidates StudentID }","bold":true},
+			{"text":"{$jslabel candidates StudentID }","hidden":"{$item_hide_simple_grid_field70}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$StudentID_align}',
-  },
+              "alignment": '{$StudentID_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field32}
-																			{BEGIN cellblock_grid_headcell_field33}
+																							{BEGIN cellblock_grid_headcell_field33}
 {
 	cellId: 'headcell_field33',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Disability_Status',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1129,20 +1237,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field71}","text":"{$jslabel candidates Disability_Status }","bold":true},
+			{"text":"{$jslabel candidates Disability_Status }","hidden":"{$item_hide_simple_grid_field71}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Status_align}',
-  },
+              "alignment": '{$Disability_Status_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field33}
-																			{BEGIN cellblock_grid_headcell_field34}
+																							{BEGIN cellblock_grid_headcell_field34}
 {
 	cellId: 'headcell_field34',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Disability_Type',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1155,20 +1266,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field72}","text":"{$jslabel candidates Disability_Type }","bold":true},
+			{"text":"{$jslabel candidates Disability_Type }","hidden":"{$item_hide_simple_grid_field72}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Type_align}',
-  },
+              "alignment": '{$Disability_Type_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field34}
-																			{BEGIN cellblock_grid_headcell_field35}
+																							{BEGIN cellblock_grid_headcell_field35}
 {
 	cellId: 'headcell_field35',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Disability_Type_Other',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1181,20 +1295,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field73}","text":"{$jslabel candidates Disability_Type_Other }","bold":true},
+			{"text":"{$jslabel candidates Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field73}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Type_Other_align}',
-  },
+              "alignment": '{$Disability_Type_Other_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field35}
-																			{BEGIN cellblock_grid_headcell_field36}
+																							{BEGIN cellblock_grid_headcell_field36}
 {
 	cellId: 'headcell_field36',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'Field_Of_Study',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1207,20 +1324,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field74}","text":"{$jslabel candidates Field_Of_Study }","bold":true},
+			{"text":"{$jslabel candidates Field_Of_Study }","hidden":"{$item_hide_simple_grid_field74}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Field_Of_Study_align}',
-  },
+              "alignment": '{$Field_Of_Study_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field36}
-																			{BEGIN cellblock_grid_headcell_field37}
+																							{BEGIN cellblock_grid_headcell_field37}
 {
 	cellId: 'headcell_field37',
 	col:0,
 	row:0,
-			style: 'headcell',
+			fieldName: 'GPA',
+				style: 'headcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1233,28 +1353,32 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field75}","text":"{$jslabel candidates GPA }","bold":true},
+			{"text":"{$jslabel candidates GPA }","hidden":"{$item_hide_simple_grid_field75}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$GPA_align}',
-  },
+              "alignment": '{$GPA_align}',
+     
+      
+      },
 
 {END cellblock_grid_headcell_field37}
 											],
 				{END row_grid_0}
-								
+		
+			
 		{BEGIN grid_row}
 	{BEGIN grid_record}
 				
-						{BEGIN row_grid_1}
+				{BEGIN row_grid_1}
 				[
-												{BEGIN cellblock_grid_cell_field}
+																{BEGIN cellblock_grid_cell_field}
 {
 	cellId: 'cell_field',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'CandidateID',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1267,20 +1391,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field}","text":{$CandidateID_pdfvalue}},
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_simple_grid_field}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$CandidateID_align}',
-  },
+              "alignment": '{$CandidateID_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field}
-																			{BEGIN cellblock_grid_cell_field1}
+																							{BEGIN cellblock_grid_cell_field1}
 {
 	cellId: 'cell_field1',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'First_Name',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1293,20 +1420,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field1}","text":{$First_Name_pdfvalue}},
+			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$First_Name_align}',
-  },
+              "alignment": '{$First_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field1}
-																			{BEGIN cellblock_grid_cell_field2}
+																							{BEGIN cellblock_grid_cell_field2}
 {
 	cellId: 'cell_field2',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Middle_Name',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1319,20 +1449,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field2}","text":{$Middle_Name_pdfvalue}},
+			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Middle_Name_align}',
-  },
+              "alignment": '{$Middle_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field2}
-																			{BEGIN cellblock_grid_cell_field3}
+																							{BEGIN cellblock_grid_cell_field3}
 {
 	cellId: 'cell_field3',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Last_Name',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1345,20 +1478,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field3}","text":{$Last_Name_pdfvalue}},
+			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_simple_grid_field3}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Last_Name_align}',
-  },
+              "alignment": '{$Last_Name_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field3}
-																			{BEGIN cellblock_grid_cell_field4}
+																							{BEGIN cellblock_grid_cell_field4}
 {
 	cellId: 'cell_field4',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Sex',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1371,20 +1507,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field4}","text":{$Sex_pdfvalue}},
+			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_simple_grid_field4}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sex_align}',
-  },
+              "alignment": '{$Sex_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field4}
-																			{BEGIN cellblock_grid_cell_field5}
+																							{BEGIN cellblock_grid_cell_field5}
 {
 	cellId: 'cell_field5',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'DOB',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1397,20 +1536,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field5}","text":{$DOB_pdfvalue}},
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_simple_grid_field5}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$DOB_align}',
-  },
+              "alignment": '{$DOB_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field5}
-																			{BEGIN cellblock_grid_cell_field6}
+																							{BEGIN cellblock_grid_cell_field6}
 {
 	cellId: 'cell_field6',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Region',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1423,20 +1565,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field6}","text":{$Region_pdfvalue}},
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_simple_grid_field6}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Region_align}',
-  },
+              "alignment": '{$Region_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field6}
-																			{BEGIN cellblock_grid_cell_field7}
+																							{BEGIN cellblock_grid_cell_field7}
 {
 	cellId: 'cell_field7',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'City',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1449,20 +1594,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field7}","text":{$City_pdfvalue}},
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_simple_grid_field7}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$City_align}',
-  },
+              "alignment": '{$City_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field7}
-																			{BEGIN cellblock_grid_cell_field8}
+																							{BEGIN cellblock_grid_cell_field8}
 {
 	cellId: 'cell_field8',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Sub_City',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1475,20 +1623,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field8}","text":{$Sub_City_pdfvalue}},
+			{"text":{$Sub_City_pdfvalue},"hidden":"{$item_hide_simple_grid_field8}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Sub_City_align}',
-  },
+              "alignment": '{$Sub_City_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field8}
-																			{BEGIN cellblock_grid_cell_field9}
+																							{BEGIN cellblock_grid_cell_field9}
 {
 	cellId: 'cell_field9',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Zone',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1501,20 +1652,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field9}","text":{$Zone_pdfvalue}},
+			{"text":{$Zone_pdfvalue},"hidden":"{$item_hide_simple_grid_field9}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Zone_align}',
-  },
+              "alignment": '{$Zone_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field9}
-																			{BEGIN cellblock_grid_cell_field10}
+																							{BEGIN cellblock_grid_cell_field10}
 {
 	cellId: 'cell_field10',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'House_No',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1527,20 +1681,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field10}","text":{$House_No_pdfvalue}},
+			{"text":{$House_No_pdfvalue},"hidden":"{$item_hide_simple_grid_field10}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$House_No_align}',
-  },
+              "alignment": '{$House_No_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field10}
-																			{BEGIN cellblock_grid_cell_field11}
+																							{BEGIN cellblock_grid_cell_field11}
 {
 	cellId: 'cell_field11',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Phone_Number',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1553,20 +1710,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field11}","text":{$Phone_Number_pdfvalue}},
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_simple_grid_field11}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_align}',
-  },
+              "alignment": '{$Phone_Number_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field11}
-																			{BEGIN cellblock_grid_cell_field12}
+																							{BEGIN cellblock_grid_cell_field12}
 {
 	cellId: 'cell_field12',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Phone_Number_Family',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1579,20 +1739,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field12}","text":{$Phone_Number_Family_pdfvalue}},
+			{"text":{$Phone_Number_Family_pdfvalue},"hidden":"{$item_hide_simple_grid_field12}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Phone_Number_Family_align}',
-  },
+              "alignment": '{$Phone_Number_Family_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field12}
-																			{BEGIN cellblock_grid_cell_field13}
+																							{BEGIN cellblock_grid_cell_field13}
 {
 	cellId: 'cell_field13',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Email_Address',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1605,20 +1768,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field13}","text":{$Email_Address_pdfvalue}},
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_simple_grid_field13}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Email_Address_align}',
-  },
+              "alignment": '{$Email_Address_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field13}
-																			{BEGIN cellblock_grid_cell_field14}
+																							{BEGIN cellblock_grid_cell_field14}
 {
 	cellId: 'cell_field14',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Institution_Type',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1631,20 +1797,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field14}","text":{$Institution_Type_pdfvalue}},
+			{"text":{$Institution_Type_pdfvalue},"hidden":"{$item_hide_simple_grid_field14}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Institution_Type_align}',
-  },
+              "alignment": '{$Institution_Type_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field14}
-																			{BEGIN cellblock_grid_cell_field15}
+																							{BEGIN cellblock_grid_cell_field15}
 {
 	cellId: 'cell_field15',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Education_Level',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1657,20 +1826,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field15}","text":{$Education_Level_pdfvalue}},
+			{"text":{$Education_Level_pdfvalue},"hidden":"{$item_hide_simple_grid_field15}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Education_Level_align}',
-  },
+              "alignment": '{$Education_Level_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field15}
-																			{BEGIN cellblock_grid_cell_field16}
+																							{BEGIN cellblock_grid_cell_field16}
 {
 	cellId: 'cell_field16',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Department',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1683,20 +1855,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field16}","text":{$Department_pdfvalue}},
+			{"text":{$Department_pdfvalue},"hidden":"{$item_hide_simple_grid_field16}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Department_align}',
-  },
+              "alignment": '{$Department_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field16}
-																			{BEGIN cellblock_grid_cell_field17}
+																							{BEGIN cellblock_grid_cell_field17}
 {
 	cellId: 'cell_field17',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Minor',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1709,20 +1884,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field17}","text":{$Minor_pdfvalue}},
+			{"text":{$Minor_pdfvalue},"hidden":"{$item_hide_simple_grid_field17}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Minor_align}',
-  },
+              "alignment": '{$Minor_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field17}
-																			{BEGIN cellblock_grid_cell_field18}
+																							{BEGIN cellblock_grid_cell_field18}
 {
 	cellId: 'cell_field18',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Major',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1735,20 +1913,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field18}","text":{$Major_pdfvalue}},
+			{"text":{$Major_pdfvalue},"hidden":"{$item_hide_simple_grid_field18}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Major_align}',
-  },
+              "alignment": '{$Major_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field18}
-																			{BEGIN cellblock_grid_cell_field19}
+																							{BEGIN cellblock_grid_cell_field19}
 {
 	cellId: 'cell_field19',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Skills',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1761,20 +1942,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field19}","text":{$Skills_pdfvalue}},
+			{"text":{$Skills_pdfvalue},"hidden":"{$item_hide_simple_grid_field19}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Skills_align}',
-  },
+              "alignment": '{$Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field19}
-																			{BEGIN cellblock_grid_cell_field20}
+																							{BEGIN cellblock_grid_cell_field20}
 {
 	cellId: 'cell_field20',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'English_Proficiency_Level',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1787,20 +1971,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field20}","text":{$English_Proficiency_Level_pdfvalue}},
+			{"text":{$English_Proficiency_Level_pdfvalue},"hidden":"{$item_hide_simple_grid_field20}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$English_Proficiency_Level_align}',
-  },
+              "alignment": '{$English_Proficiency_Level_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field20}
-																			{BEGIN cellblock_grid_cell_field21}
+																							{BEGIN cellblock_grid_cell_field21}
 {
 	cellId: 'cell_field21',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Industry_Specific_Skills',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1813,20 +2000,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field21}","text":{$Industry_Specific_Skills_pdfvalue}},
+			{"text":{$Industry_Specific_Skills_pdfvalue},"hidden":"{$item_hide_simple_grid_field21}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Industry_Specific_Skills_align}',
-  },
+              "alignment": '{$Industry_Specific_Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field21}
-																			{BEGIN cellblock_grid_cell_field22}
+																							{BEGIN cellblock_grid_cell_field22}
 {
 	cellId: 'cell_field22',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'IT_Related_Skills',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1839,20 +2029,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field22}","text":{$IT_Related_Skills_pdfvalue}},
+			{"text":{$IT_Related_Skills_pdfvalue},"hidden":"{$item_hide_simple_grid_field22}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$IT_Related_Skills_align}',
-  },
+              "alignment": '{$IT_Related_Skills_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field22}
-																			{BEGIN cellblock_grid_cell_field23}
+																							{BEGIN cellblock_grid_cell_field23}
 {
 	cellId: 'cell_field23',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Certifications',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1865,20 +2058,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field23}","text":{$Certifications_pdfvalue}},
+			{"text":{$Certifications_pdfvalue},"hidden":"{$item_hide_simple_grid_field23}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Certifications_align}',
-  },
+              "alignment": '{$Certifications_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field23}
-																			{BEGIN cellblock_grid_cell_field24}
+																							{BEGIN cellblock_grid_cell_field24}
 {
 	cellId: 'cell_field24',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Year_of_graduation',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1891,20 +2087,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field24}","text":{$Year_of_graduation_pdfvalue}},
+			{"text":{$Year_of_graduation_pdfvalue},"hidden":"{$item_hide_simple_grid_field24}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Year_of_graduation_align}',
-  },
+              "alignment": '{$Year_of_graduation_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field24}
-																			{BEGIN cellblock_grid_cell_field25}
+																							{BEGIN cellblock_grid_cell_field25}
 {
 	cellId: 'cell_field25',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Work_Experience',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1917,20 +2116,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field25}","text":{$Work_Experience_pdfvalue}},
+			{"text":{$Work_Experience_pdfvalue},"hidden":"{$item_hide_simple_grid_field25}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Work_Experience_align}',
-  },
+              "alignment": '{$Work_Experience_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field25}
-																			{BEGIN cellblock_grid_cell_field26}
+																							{BEGIN cellblock_grid_cell_field26}
 {
 	cellId: 'cell_field26',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Joined_Dereja_Services',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1943,20 +2145,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field26}","text":{$Joined_Dereja_Services_pdfvalue}},
+			{"text":{$Joined_Dereja_Services_pdfvalue},"hidden":"{$item_hide_simple_grid_field26}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Joined_Dereja_Services_align}',
-  },
+              "alignment": '{$Joined_Dereja_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field26}
-																			{BEGIN cellblock_grid_cell_field27}
+																							{BEGIN cellblock_grid_cell_field27}
 {
 	cellId: 'cell_field27',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Dereja_Services',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1969,20 +2174,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field27}","text":{$Dereja_Services_pdfvalue}},
+			{"text":{$Dereja_Services_pdfvalue},"hidden":"{$item_hide_simple_grid_field27}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Services_align}',
-  },
+              "alignment": '{$Dereja_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field27}
-																			{BEGIN cellblock_grid_cell_field28}
+																							{BEGIN cellblock_grid_cell_field28}
 {
 	cellId: 'cell_field28',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Dereja_Training_Services',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -1995,20 +2203,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field28}","text":{$Dereja_Training_Services_pdfvalue}},
+			{"text":{$Dereja_Training_Services_pdfvalue},"hidden":"{$item_hide_simple_grid_field28}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Training_Services_align}',
-  },
+              "alignment": '{$Dereja_Training_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field28}
-																			{BEGIN cellblock_grid_cell_field29}
+																							{BEGIN cellblock_grid_cell_field29}
 {
 	cellId: 'cell_field29',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Dereja_Event_Services',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2021,20 +2232,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field29}","text":{$Dereja_Event_Services_pdfvalue}},
+			{"text":{$Dereja_Event_Services_pdfvalue},"hidden":"{$item_hide_simple_grid_field29}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Event_Services_align}',
-  },
+              "alignment": '{$Dereja_Event_Services_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field29}
-																			{BEGIN cellblock_grid_cell_field30}
+																							{BEGIN cellblock_grid_cell_field30}
 {
 	cellId: 'cell_field30',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Dereja_web_profile_completion',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2047,20 +2261,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field30}","text":{$Dereja_web_profile_completion_pdfvalue}},
+			{"text":{$Dereja_web_profile_completion_pdfvalue},"hidden":"{$item_hide_simple_grid_field30}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_web_profile_completion_align}',
-  },
+              "alignment": '{$Dereja_web_profile_completion_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field30}
-																			{BEGIN cellblock_grid_cell_field31}
+																							{BEGIN cellblock_grid_cell_field31}
 {
 	cellId: 'cell_field31',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Dereja_Information_Source',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2073,20 +2290,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field31}","text":{$Dereja_Information_Source_pdfvalue}},
+			{"text":{$Dereja_Information_Source_pdfvalue},"hidden":"{$item_hide_simple_grid_field31}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Dereja_Information_Source_align}',
-  },
+              "alignment": '{$Dereja_Information_Source_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field31}
-																			{BEGIN cellblock_grid_cell_field32}
+																							{BEGIN cellblock_grid_cell_field32}
 {
 	cellId: 'cell_field32',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'StudentID',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2099,20 +2319,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field32}","text":{$StudentID_pdfvalue}},
+			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_simple_grid_field32}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$StudentID_align}',
-  },
+              "alignment": '{$StudentID_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field32}
-																			{BEGIN cellblock_grid_cell_field33}
+																							{BEGIN cellblock_grid_cell_field33}
 {
 	cellId: 'cell_field33',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Disability_Status',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2125,20 +2348,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field33}","text":{$Disability_Status_pdfvalue}},
+			{"text":{$Disability_Status_pdfvalue},"hidden":"{$item_hide_simple_grid_field33}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Status_align}',
-  },
+              "alignment": '{$Disability_Status_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field33}
-																			{BEGIN cellblock_grid_cell_field34}
+																							{BEGIN cellblock_grid_cell_field34}
 {
 	cellId: 'cell_field34',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Disability_Type',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2151,20 +2377,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field34}","text":{$Disability_Type_pdfvalue}},
+			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_simple_grid_field34}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Type_align}',
-  },
+              "alignment": '{$Disability_Type_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field34}
-																			{BEGIN cellblock_grid_cell_field35}
+																							{BEGIN cellblock_grid_cell_field35}
 {
 	cellId: 'cell_field35',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Disability_Type_Other',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2177,20 +2406,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field35}","text":{$Disability_Type_Other_pdfvalue}},
+			{"text":{$Disability_Type_Other_pdfvalue},"hidden":"{$item_hide_simple_grid_field35}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Disability_Type_Other_align}',
-  },
+              "alignment": '{$Disability_Type_Other_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field35}
-																			{BEGIN cellblock_grid_cell_field36}
+																							{BEGIN cellblock_grid_cell_field36}
 {
 	cellId: 'cell_field36',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'Field_Of_Study',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2203,20 +2435,23 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field36}","text":{$Field_Of_Study_pdfvalue}},
+			{"text":{$Field_Of_Study_pdfvalue},"hidden":"{$item_hide_simple_grid_field36}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$Field_Of_Study_align}',
-  },
+              "alignment": '{$Field_Of_Study_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field36}
-																			{BEGIN cellblock_grid_cell_field37}
+																							{BEGIN cellblock_grid_cell_field37}
 {
 	cellId: 'cell_field37',
 	col:0,
 	row:0,
-			style: 'bodycell',
+			fieldName: 'GPA',
+				style: 'bodycell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2229,28 +2464,31 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_simple_grid_field37}","text":{$GPA_pdfvalue}},
+			{"text":{$GPA_pdfvalue},"hidden":"{$item_hide_simple_grid_field37}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-          "alignment": '{$GPA_align}',
-  },
+              "alignment": '{$GPA_align}',
+     
+      
+      },
 
 {END cellblock_grid_cell_field37}
 											],
 				{END row_grid_1}
-						{END grid_record}
+		
+		{END grid_record}
 	{END grid_row}
 			
 					
-							{BEGIN row_grid_2}
+				{BEGIN row_grid_2}
 				[
-												{BEGIN cellblock_grid_footcell_field}
+																{BEGIN cellblock_grid_footcell_field}
 {
 	cellId: 'footcell_field',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2265,16 +2503,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field}
-																			{BEGIN cellblock_grid_footcell_field1}
+																							{BEGIN cellblock_grid_footcell_field1}
 {
 	cellId: 'footcell_field1',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2289,16 +2529,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field1}
-																			{BEGIN cellblock_grid_footcell_field2}
+																							{BEGIN cellblock_grid_footcell_field2}
 {
 	cellId: 'footcell_field2',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2313,16 +2555,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field2}
-																			{BEGIN cellblock_grid_footcell_field3}
+																							{BEGIN cellblock_grid_footcell_field3}
 {
 	cellId: 'footcell_field3',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2337,16 +2581,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field3}
-																			{BEGIN cellblock_grid_footcell_field4}
+																							{BEGIN cellblock_grid_footcell_field4}
 {
 	cellId: 'footcell_field4',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2361,16 +2607,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field4}
-																			{BEGIN cellblock_grid_footcell_field5}
+																							{BEGIN cellblock_grid_footcell_field5}
 {
 	cellId: 'footcell_field5',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2385,16 +2633,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field5}
-																			{BEGIN cellblock_grid_footcell_field6}
+																							{BEGIN cellblock_grid_footcell_field6}
 {
 	cellId: 'footcell_field6',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2409,16 +2659,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field6}
-																			{BEGIN cellblock_grid_footcell_field7}
+																							{BEGIN cellblock_grid_footcell_field7}
 {
 	cellId: 'footcell_field7',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2433,16 +2685,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field7}
-																			{BEGIN cellblock_grid_footcell_field8}
+																							{BEGIN cellblock_grid_footcell_field8}
 {
 	cellId: 'footcell_field8',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2457,16 +2711,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field8}
-																			{BEGIN cellblock_grid_footcell_field9}
+																							{BEGIN cellblock_grid_footcell_field9}
 {
 	cellId: 'footcell_field9',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2481,16 +2737,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field9}
-																			{BEGIN cellblock_grid_footcell_field10}
+																							{BEGIN cellblock_grid_footcell_field10}
 {
 	cellId: 'footcell_field10',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2505,16 +2763,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field10}
-																			{BEGIN cellblock_grid_footcell_field11}
+																							{BEGIN cellblock_grid_footcell_field11}
 {
 	cellId: 'footcell_field11',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2529,16 +2789,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field11}
-																			{BEGIN cellblock_grid_footcell_field12}
+																							{BEGIN cellblock_grid_footcell_field12}
 {
 	cellId: 'footcell_field12',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2553,16 +2815,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field12}
-																			{BEGIN cellblock_grid_footcell_field13}
+																							{BEGIN cellblock_grid_footcell_field13}
 {
 	cellId: 'footcell_field13',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2577,16 +2841,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field13}
-																			{BEGIN cellblock_grid_footcell_field14}
+																							{BEGIN cellblock_grid_footcell_field14}
 {
 	cellId: 'footcell_field14',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2601,16 +2867,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field14}
-																			{BEGIN cellblock_grid_footcell_field15}
+																							{BEGIN cellblock_grid_footcell_field15}
 {
 	cellId: 'footcell_field15',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2625,16 +2893,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field15}
-																			{BEGIN cellblock_grid_footcell_field16}
+																							{BEGIN cellblock_grid_footcell_field16}
 {
 	cellId: 'footcell_field16',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2649,16 +2919,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field16}
-																			{BEGIN cellblock_grid_footcell_field17}
+																							{BEGIN cellblock_grid_footcell_field17}
 {
 	cellId: 'footcell_field17',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2673,16 +2945,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field17}
-																			{BEGIN cellblock_grid_footcell_field18}
+																							{BEGIN cellblock_grid_footcell_field18}
 {
 	cellId: 'footcell_field18',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2697,16 +2971,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field18}
-																			{BEGIN cellblock_grid_footcell_field19}
+																							{BEGIN cellblock_grid_footcell_field19}
 {
 	cellId: 'footcell_field19',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2721,16 +2997,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field19}
-																			{BEGIN cellblock_grid_footcell_field20}
+																							{BEGIN cellblock_grid_footcell_field20}
 {
 	cellId: 'footcell_field20',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2745,16 +3023,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field20}
-																			{BEGIN cellblock_grid_footcell_field21}
+																							{BEGIN cellblock_grid_footcell_field21}
 {
 	cellId: 'footcell_field21',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2769,16 +3049,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field21}
-																			{BEGIN cellblock_grid_footcell_field22}
+																							{BEGIN cellblock_grid_footcell_field22}
 {
 	cellId: 'footcell_field22',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2793,16 +3075,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field22}
-																			{BEGIN cellblock_grid_footcell_field23}
+																							{BEGIN cellblock_grid_footcell_field23}
 {
 	cellId: 'footcell_field23',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2817,16 +3101,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field23}
-																			{BEGIN cellblock_grid_footcell_field24}
+																							{BEGIN cellblock_grid_footcell_field24}
 {
 	cellId: 'footcell_field24',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2841,16 +3127,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field24}
-																			{BEGIN cellblock_grid_footcell_field25}
+																							{BEGIN cellblock_grid_footcell_field25}
 {
 	cellId: 'footcell_field25',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2865,16 +3153,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field25}
-																			{BEGIN cellblock_grid_footcell_field26}
+																							{BEGIN cellblock_grid_footcell_field26}
 {
 	cellId: 'footcell_field26',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2889,16 +3179,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field26}
-																			{BEGIN cellblock_grid_footcell_field27}
+																							{BEGIN cellblock_grid_footcell_field27}
 {
 	cellId: 'footcell_field27',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2913,16 +3205,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field27}
-																			{BEGIN cellblock_grid_footcell_field28}
+																							{BEGIN cellblock_grid_footcell_field28}
 {
 	cellId: 'footcell_field28',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2937,16 +3231,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field28}
-																			{BEGIN cellblock_grid_footcell_field29}
+																							{BEGIN cellblock_grid_footcell_field29}
 {
 	cellId: 'footcell_field29',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2961,16 +3257,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field29}
-																			{BEGIN cellblock_grid_footcell_field30}
+																							{BEGIN cellblock_grid_footcell_field30}
 {
 	cellId: 'footcell_field30',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -2985,16 +3283,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field30}
-																			{BEGIN cellblock_grid_footcell_field31}
+																							{BEGIN cellblock_grid_footcell_field31}
 {
 	cellId: 'footcell_field31',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3009,16 +3309,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field31}
-																			{BEGIN cellblock_grid_footcell_field32}
+																							{BEGIN cellblock_grid_footcell_field32}
 {
 	cellId: 'footcell_field32',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3033,16 +3335,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field32}
-																			{BEGIN cellblock_grid_footcell_field33}
+																							{BEGIN cellblock_grid_footcell_field33}
 {
 	cellId: 'footcell_field33',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3057,16 +3361,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field33}
-																			{BEGIN cellblock_grid_footcell_field34}
+																							{BEGIN cellblock_grid_footcell_field34}
 {
 	cellId: 'footcell_field34',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3081,16 +3387,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field34}
-																			{BEGIN cellblock_grid_footcell_field35}
+																							{BEGIN cellblock_grid_footcell_field35}
 {
 	cellId: 'footcell_field35',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3105,16 +3413,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field35}
-																			{BEGIN cellblock_grid_footcell_field36}
+																							{BEGIN cellblock_grid_footcell_field36}
 {
 	cellId: 'footcell_field36',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3129,16 +3439,18 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field36}
-																			{BEGIN cellblock_grid_footcell_field37}
+																							{BEGIN cellblock_grid_footcell_field37}
 {
 	cellId: 'footcell_field37',
 	col:0,
 	row:0,
-			style: 'footcell',
+				style: 'footcell',
 		
 		
 	//	dynamic colspan/rowspan
@@ -3153,17 +3465,24 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ true, true, true, true ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_footcell_field37}
 											],
 				{END row_grid_2}
-							
+		
+				
 									]
 			
 			}
 		},
 		{END body}
-	]
-}
+	],
+	footer: [
+								
+''
+			],
+	}

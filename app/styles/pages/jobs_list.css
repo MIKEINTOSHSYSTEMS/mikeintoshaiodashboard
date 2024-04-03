@@ -31,5 +31,8 @@
 [data-cellid="grid_cell_details"][data-page="jobs_list"][data-cellid="grid_cell_details"][data-page="jobs_list"][data-cellid="grid_cell_details"][data-page="jobs_list"] {
   white-space: nowrap;
 }
+[data-page="jobs_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
 
 

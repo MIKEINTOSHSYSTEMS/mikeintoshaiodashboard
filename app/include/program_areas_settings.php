@@ -60,14 +60,9 @@ $tdataprogram_areas[".showEditInPopup"] = false;
 
 $tdataprogram_areas[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataprogram_areas[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataprogram_areas[".listAjax"] = false;
 //	temporary
-$tdataprogram_areas[".listAjax"] = false;
+//$tdataprogram_areas[".listAjax"] = false;
 
 	$tdataprogram_areas[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataprogram_areas[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataprogram_areas[".isUseAjaxSuggest"] = true;
 
-$tdataprogram_areas[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataprogram_areas[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataprogram_areas[".strOrderBy"] = $tstrOrderBy;
 
 $tdataprogram_areas[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("program_areas","AreaID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("program_areas","AreaName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataprogram_areas[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["program_areas"] = &$fieldToolTipsprogram_areas;
 $placeHolders["program_areas"] = &$placeHoldersprogram_areas;
 $page_titles["program_areas"] = &$pageTitlesprogram_areas;
 
+
+changeTextControlsToDate( "program_areas" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["program_areas"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["program_areas"] = array();
@@ -675,7 +673,6 @@ $tdataprogram_areas[".sqlquery"] = $queryData_program_areas;
 
 
 
-$tableEvents["program_areas"] = new eventsBase;
 $tdataprogram_areas[".hasEvents"] = false;
 
 ?>

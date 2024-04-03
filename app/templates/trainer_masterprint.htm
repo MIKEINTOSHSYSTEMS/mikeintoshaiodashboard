@@ -18,7 +18,7 @@
 							{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="panel-only" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
@@ -36,31 +36,24 @@
 {END inlineadd_link}
 			{END firstAboveGridCell}	
 	</div>					</div>
-	</div>		
+			</div>		
 {END above-grid_block}
 								{BEGIN grid_block}
-{BEGIN grid_tabs}
-  <ul class="nav nav-tabs bsgrid_tabs">
-	{$grid_tabs_content}
-  </ul>
-{END grid_tabs}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
-{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="panel-only" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  rnr-b-grid rnr-gridtable" 
-	cellpadding="0" 
+{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="panel-only" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-bordered r-horizontal-grid  rnr-b-grid rnr-gridtable"
+	cellpadding="0"
 	data-body-height="1"
 >
 						<thead>
 			{BEGIN grid_header}
-					
-		 
-						<tr {$rowattrs} {$row_grid_0} class="{$rowclass} 
+			
+																									<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
 									{$gridHeader_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_headcell_icons}
+									{BEGIN cellblock_grid_headcell_icons}
 	<th
 	
 	{$cell_grid_headcell_icons}
@@ -76,15 +69,13 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
-				 
-					{BEGIN cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TrainerID_class}
-			"
+		 r-ori-vert		 {$TrainerID_class}	"
 
 			data-field="TrainerID"
 	
@@ -94,22 +85,20 @@
 	 
 		{BEGIN TrainerID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainerID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainerID" data-fieldname="TrainerID">
 	{$label Trainer TrainerID }	</span>
 {END TrainerID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field}
-				 
-					{BEGIN cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field1}
 	<th
 	
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TrainingID_class}
-			"
+		 r-ori-vert		 {$TrainingID_class}	"
 
 			data-field="TrainingID"
 	
@@ -119,22 +108,20 @@
 	 
 		{BEGIN TrainingID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID" data-fieldname="TrainingID">
 	{$label Trainer TrainingID }	</span>
 {END TrainingID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
-				 
-					{BEGIN cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field2}
 	<th
 	
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$OrganizerID_class}
-			"
+		 r-ori-vert		 {$OrganizerID_class}	"
 
 			data-field="OrganizerID"
 	
@@ -144,22 +131,20 @@
 	 
 		{BEGIN OrganizerID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerID" data-fieldname="OrganizerID">
 	{$label Trainer OrganizerID }	</span>
 {END OrganizerID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field3}
 	<th
 	
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_FullName_class}
-			"
+		 r-ori-vert		 {$Trainer_FullName_class}	"
 
 			data-field="Trainer_FullName"
 	
@@ -169,22 +154,20 @@
 	 
 		{BEGIN Trainer_FullName_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName" data-fieldname="Trainer_FullName">
 	{$label Trainer Trainer_FullName }	</span>
 {END Trainer_FullName_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
-				 
-					{BEGIN cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field4}
 	<th
 	
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_Profile_class}
-			"
+		 r-ori-vert		 {$Trainer_Profile_class}	"
 
 			data-field="Trainer_Profile"
 	
@@ -194,22 +177,20 @@
 	 
 		{BEGIN Trainer_Profile_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Profile">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Profile" data-fieldname="Trainer_Profile">
 	{$label Trainer Trainer_Profile }	</span>
 {END Trainer_Profile_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field4}
-				 
-					{BEGIN cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field5}
 	<th
 	
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_Skills_class}
-			"
+		 r-ori-vert		 {$Trainer_Skills_class}	"
 
 			data-field="Trainer_Skills"
 	
@@ -219,7 +200,7 @@
 	 
 		{BEGIN Trainer_Skills_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Skills">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Skills" data-fieldname="Trainer_Skills">
 	{$label Trainer Trainer_Skills }	</span>
 {END Trainer_Skills_fieldheadercolumn}
 
@@ -227,22 +208,17 @@
 	</th>
 	{END cellblock_grid_headcell_field5}
 							</tr>
-					 
-					 
-					
+															
 					{END grid_header}
 			</thead>
 															<tbody>
 					{BEGIN grid_row}
-									
-		 
-					 
-						<tr {$rowattrs} {$row_grid_1} class="{$rowclass} 
-								
+							
+																														<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
+				
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_cell_icons}
+									{BEGIN cellblock_grid_cell_icons}
 	<td
 	
 	{$cell_grid_cell_icons}
@@ -267,15 +243,13 @@
 	
 	</td>
 	{END cellblock_grid_cell_icons}
-				 
-					{BEGIN cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TrainerID_class}
-			"
+		 r-ori-vert		 {$TrainerID_class}	"
 
 			data-field="TrainerID"
 	
@@ -284,21 +258,19 @@
 
 	 
 		{BEGIN TrainerID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainerID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainerID" data-fieldname="TrainerID" data-default-width >
 {$TrainerID_value}
 </span>
 {END TrainerID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$TrainingID_class}
-			"
+		 r-ori-vert		 {$TrainingID_class}	"
 
 			data-field="TrainingID"
 	
@@ -307,21 +279,19 @@
 
 	 
 		{BEGIN TrainingID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="TrainingID" data-fieldname="TrainingID" data-default-width >
 {$TrainingID_value}
 </span>
 {END TrainingID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$OrganizerID_class}
-			"
+		 r-ori-vert		 {$OrganizerID_class}	"
 
 			data-field="OrganizerID"
 	
@@ -330,21 +300,19 @@
 
 	 
 		{BEGIN OrganizerID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="OrganizerID" data-fieldname="OrganizerID" data-default-width >
 {$OrganizerID_value}
 </span>
 {END OrganizerID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
-				 
-					{BEGIN cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_FullName_class}
-			"
+		 r-ori-vert		 {$Trainer_FullName_class}	"
 
 			data-field="Trainer_FullName"
 	
@@ -353,21 +321,19 @@
 
 	 
 		{BEGIN Trainer_FullName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_FullName" data-fieldname="Trainer_FullName" data-default-width >
 {$Trainer_FullName_value}
 </span>
 {END Trainer_FullName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
-				 
-					{BEGIN cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field4}
 	<td
 	
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_Profile_class}
-			"
+		 r-ori-vert		 {$Trainer_Profile_class}	"
 
 			data-field="Trainer_Profile"
 	
@@ -376,21 +342,19 @@
 
 	 
 		{BEGIN Trainer_Profile_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Profile" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Profile" data-fieldname="Trainer_Profile" data-default-width >
 {$Trainer_Profile_value}
 </span>
 {END Trainer_Profile_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field4}
-				 
-					{BEGIN cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field5}
 	<td
 	
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Trainer_Skills_class}
-			"
+		 r-ori-vert		 {$Trainer_Skills_class}	"
 
 			data-field="Trainer_Skills"
 	
@@ -399,29 +363,24 @@
 
 	 
 		{BEGIN Trainer_Skills_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Skills" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Trainer_Skills" data-fieldname="Trainer_Skills" data-default-width >
 {$Trainer_Skills_value}
 </span>
 {END Trainer_Skills_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
 							</tr>
-					 
-					
+										
 											{END grid_row}
 					</tbody>
 													<tfoot>
-					
-		 
-					 
-					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+			
+																																			<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 									{$gridFooter_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_footcell_icons}
+									{BEGIN cellblock_grid_footcell_icons}
 	<td
 	
 	{$cell_grid_footcell_icons}
@@ -436,14 +395,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
-				 
-					{BEGIN cellblock_grid_footcell_field}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$TrainerID_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	
@@ -452,14 +410,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field}
-				 
-					{BEGIN cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field1}
 	<td
 	
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$TrainingID_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	
@@ -468,14 +425,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
-				 
-					{BEGIN cellblock_grid_footcell_field2}
+									{BEGIN cellblock_grid_footcell_field2}
 	<td
 	
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$OrganizerID_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	
@@ -484,14 +440,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field2}
-				 
-					{BEGIN cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field3}
 	<td
 	
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$Trainer_FullName_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	
@@ -500,14 +455,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
-				 
-					{BEGIN cellblock_grid_footcell_field4}
+									{BEGIN cellblock_grid_footcell_field4}
 	<td
 	
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$Trainer_Profile_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	
@@ -516,14 +470,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field4}
-				 
-					{BEGIN cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field5}
 	<td
 	
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$Trainer_Skills_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="trainer_masterprint"	

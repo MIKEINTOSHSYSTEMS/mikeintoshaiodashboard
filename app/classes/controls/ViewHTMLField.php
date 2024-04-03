@@ -15,7 +15,7 @@ class ViewHTMLField extends ViewControl
 	public function showDBValue( &$data, $keylink, $html = true )
 	{
 		$value = $this->refineHTMLValue( $data[ $this->field ] );
-		return "<table><tbody><tr><td>".$this->processText( $value, $keylink )."</td></tr></tbody></table>";
+		return "<table class=\"r-html-container\"><tbody><tr><td>".$this->processText( $value, $keylink )."</td></tr></tbody></table>";
 	}
 
 	/**
@@ -24,7 +24,7 @@ class ViewHTMLField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return $this->refineHTMLValue( $data[ $this->field ] );
 	}	
@@ -36,7 +36,9 @@ class ViewHTMLField extends ViewControl
 	 */	
 	protected function refineHTMLValue($value)
 	{
-		$value = preg_replace('/\s+/u', ' ', $value);
+		global $useUTF8;
+		$flags = $useUTF8 ? "iu" : "i";
+		$value = preg_replace('/\s+/' . $flags, ' ', $value);
 		return $this->stripScriptTags($value);
 	}
 	
@@ -48,7 +50,9 @@ class ViewHTMLField extends ViewControl
 	 */
 	protected function stripScriptTags($value)
 	{	
-		return preg_replace('/<\s*script\s*(([^">]+="[^"]+"\s*)|'."([^'>]+='[^']+'\s*)".')*>.*<\s*\/script\s*>/', '', $value);	
+		global $useUTF8;
+		$flags = $useUTF8 ? "iu" : "i";
+		return preg_replace('/<\s*script\s*(([^">]+="[^"]+"\s*)|'."([^'>]+='[^']+'\s*)".')*>.*<\s*\/script\s*>/' . $flags, '', $value);	
 	} 
 	
 	/**
@@ -178,7 +182,7 @@ class ViewHTMLField extends ViewControl
 		}
 			
 		$keys = array_keys($tags, $tagName);
-		if( !count($keys) ) 
+		if( !$keys ) 
 			$data['removeTag'] = true;
 		else	
 			//pop all elements upto the preceeding element of the openin tag

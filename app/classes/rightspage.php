@@ -43,6 +43,8 @@ class RightsPage extends ListPage
 	 * @var array
 	 */
 	var $groups = array();
+
+
 	/**
 	 * Array of smarty groups
 	 *
@@ -123,21 +125,37 @@ class RightsPage extends ListPage
 		global $cman;
 		$grConnection = $cman->getForUserGroups();
 
-		$this->groups[-1] = "<"."Admin".">";
-		$this->groups[-2] = "<"."Default".">";
-		$this->groups[-3] = "<"."Guest".">";
+		$this->groups[-1] = array( "label" => "<"."Admin".">" );
+		$this->groups[-2] = array( "label" => "<"."Default".">" );
+		$this->groups[-3] = array( "label" => "<"."Guest".">" );
 
-		$sql = "select ".
-			$grConnection->addFieldWrappers( "" ) .", ".
-			$grConnection->addFieldWrappers( "" )
-			." from ".
-			$grConnection->addTableWrappers( "uggroups" ) .
-			" order by ". $grConnection->addFieldWrappers( "" );
+		$groupIdField = "GroupID";
+		$groupLabelField = "Label";
+		$groupProviderField = "Provider";
 
-		$qResult = $grConnection->query( $sql );
-		while( $tdata = $qResult->fetchNumeric() )
+		$dataSource = Security::getUgGroupsDatasource();
+		$dc = new DsCommand();
+		if( storageGet( "groups_provider_field" ) ) {
+			$dc->order[] = array( "column" => $groupProviderField, "dir" => "ASC" );
+		}
+		$dc->order[] = array( "column" => $groupLabelField, "dir" => "ASC" );
+
+		$qResult = $dataSource->getList($dc );
+		storageSet( "groups_provider_field", $qResult->fieldExists( $groupProviderField ) );
+		while( $tdata = $qResult->fetchAssoc() )
 		{
-			$this->groups[ $tdata[0] ] = $tdata[1];
+			$label = $tdata[ $groupLabelField ];
+			$renameable = true;
+			$providerCode = $tdata[ $groupProviderField ];
+			if( $providerCode ) {
+				$provider = Security::findProvider( $providerCode );
+				$renameable = $provider["type"] == stDB;
+				$providerLabel = GetMLString( $provider["label"] );
+				if( $providerLabel ) {
+					$label = $providerLabel . ":" . $label;
+				}
+			}
+			$this->groups[ $tdata[ $groupIdField ] ] = array( "label" => $label, "renameable" => $renameable );
 		}
 	}
 
@@ -148,10 +166,13 @@ class RightsPage extends ListPage
 	function fillSmartyAndRights()
 	{
 		$first = true;
-		foreach($this->groups as $id => $name)
+		foreach($this->groups as $id => $gr)
 		{
+			$name = $gr["label"];
 			$sg = array();
 			$sg["group_attrs"] = "value=\"".$id."\"";
+			if( $gr["renameable"] )
+				$sg["group_attrs"] .= " data-renameable";
 			if( $first )
 			{
 				$sg["group_class"] = "active";
@@ -169,12 +190,12 @@ class RightsPage extends ListPage
 	function getRights()
 	{
 		// It's expected that $this->tName is equal to 'admin_right' so the page's db connection is used #9875
-		$sql = "select ". $this->connection->addFieldWrappers( "" )
-			.", ". $this->connection->addFieldWrappers( "" )
-			.", ". $this->connection->addFieldWrappers( "" )
-			.", ". $this->connection->addFieldWrappers( "" )
-			." from ". $this->connection->addTableWrappers( "ugrights" )
-			." order by ". $this->connection->addFieldWrappers( "" );
+		$sql = "select ". $this->connection->addFieldWrappers( "GroupID" )
+			.", ". $this->connection->addFieldWrappers( "TableName" )
+			.", ". $this->connection->addFieldWrappers( "AccessMask" )
+			.", ". $this->connection->addFieldWrappers( "Page" )
+			." from ". $this->connection->addTableWrappers( "derejame_ugrights" )
+			." order by ". $this->connection->addFieldWrappers( "GroupID" );
 
 		$qResult = $this->connection->query( $sql );
 		while( $tdata = $qResult->fetchNumeric() )
@@ -236,7 +257,6 @@ class RightsPage extends ListPage
 		}
 
 		// assign attrs
-		$this->xt->assign("addgroup_attrs", "id=\"addGroupBtn\"");
 		$this->xt->assign("delgroup_attrs", "id=\"delGroupBtn\"");
 		$this->xt->assign("rengroup_attrs", "id=\"renGroupBtn\"");
 		$this->xt->assign("savegroup_attrs", "id=\"saveGroupBtn\"");
@@ -251,7 +271,6 @@ class RightsPage extends ListPage
 		$this->xt->assign("rights_block", true);
 		$this->xt->assign("message_block", true);
 		$this->xt->assign("security_block", true);
-		$this->xt->assign("logoutbutton",isSingleSign());
 		$this->xt->assign("savebuttons_block", true);
 		$this->xt->assign("search_records_block", true);
 		$this->xt->assign("recordcontrols_block", true);
@@ -260,7 +279,7 @@ class RightsPage extends ListPage
 		// The user might rewrite $_SESSION["UserName"] value with HTML code in an event, so no encoding will be performed while printing this value.
 		$this->xt->assign("username", $_SESSION["UserName"]);
 		if ($this->createLoginPage)
-			$this->xt->assign("userid", runner_htmlspecialchars($_SESSION["UserID"]));
+			$this->xt->assign("userid", runner_htmlspecialchars( Security::getUserName() ));
 
 		$this->hideElement("message");
 	}
@@ -297,6 +316,12 @@ class RightsPage extends ListPage
 		$groupsMap = array();
 		$allTables = GetTablesListWithoutSecurity();
 
+		$addedTables[GLOBAL_PAGES] = true;
+		$arr["table"] = GLOBAL_PAGES;
+		$arr["items"] = array();
+		$arr["collapsed"] = true;
+		$this->menuOrderedTables[] = $arr;
+
 		foreach($menu as $m)
 		{
 			$arr = array();
@@ -313,6 +338,10 @@ class RightsPage extends ListPage
 			{
 				$arr["parent"] = $groupsMap[ $m["parent"] ];
 				$this->menuOrderedTables[ $arr["parent"] ]["items"][] = count($this->menuOrderedTables);
+			}
+
+			if ( $m["type"] == "Group" ) {
+				$arr["groupId"] = count($this->menuOrderedTables);
 			}
 
 			if( true || $m["type"] == "Group" )
@@ -440,7 +469,7 @@ class RightsPage extends ListPage
 				$row["hide_pages_attrs"] .= 'data-hidden';
 				$row["show_pages_attrs"] .= 'data-hidden';
 			}
-			if( $parent )
+			if( isset($parent) )
 				$row["table_row_attrs"] .= ' data-level="' . count($parentStack) . '"';
 
 			$childrenCount = $this->getItemsCount($idx);
@@ -481,8 +510,11 @@ class RightsPage extends ListPage
 	function fillPageRows($table, $shortTable, &$row, $level ) {
 		$allPages = tablePages( $table );
 		$pages = array();
-		foreach( $allPages as $ptype => $pids ) {
-			foreach( $allPages[$ptype] as $p ) {
+		foreach ($allPages as $ptype => $pids) {
+			if ($table == GLOBAL_PAGES && $ptype != "menu") {
+				continue;
+			}
+			foreach ($pids as $p) {
 				$pages[$p] = $ptype;
 			}
 		}
@@ -623,11 +655,11 @@ class RightsPage extends ListPage
 	function updateTablePermissions( $table, $group, $tableRights )
 	{
 		$mask = $tableRights["permissions"];
-		$rightWTableName = $this->connection->addTableWrappers( "ugrights" );
-		$accessMaskWFieldName = $this->connection->addFieldWrappers( "" );
-		$groupisWFieldName = $this->connection->addFieldWrappers( "" );
-		$pageWFieldName = $this->connection->addFieldWrappers( "" );
-		$tableNameWFieldName = $this->connection->addFieldWrappers( "" );
+		$rightWTableName = $this->connection->addTableWrappers( "derejame_ugrights" );
+		$accessMaskWFieldName = $this->connection->addFieldWrappers( "AccessMask" );
+		$groupisWFieldName = $this->connection->addFieldWrappers( "GroupID" );
+		$pageWFieldName = $this->connection->addFieldWrappers( "Page" );
+		$tableNameWFieldName = $this->connection->addFieldWrappers( "TableName" );
 		$groupWhere = $groupisWFieldName."=". $group
 			." and ". $tableNameWFieldName ."=". $this->connection->prepareString( $table );
 
@@ -637,7 +669,7 @@ class RightsPage extends ListPage
 			$strPages = my_json_encode( $pages );
 		}
 		// It's expected that $this->tName is equal to 'admin_right' so the page's db connection is used #9875
-		$sql = "select ". $accessMaskWFieldName ." from ". $rightWTableName. "where" . $groupWhere;
+		$sql = "select ". $accessMaskWFieldName ." from ". $rightWTableName. " where " . $groupWhere;
 		// select rights from the database
 		$data = $this->connection->query( $sql )->fetchNumeric();
 		if( $data )
@@ -688,6 +720,12 @@ class RightsPage extends ListPage
 
 		$this->connection->exec( $sql );
 	}
+
+	/**
+	 * A stub
+	 */
+	function buildSearchPanel() {}
+	public function assignSimpleSearch() {}
 }
 
 function rightsSortFunc($a, $b)

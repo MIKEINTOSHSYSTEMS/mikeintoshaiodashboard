@@ -186,18 +186,7 @@ class SearchControl
 		}
 		
 		return false;
-	}
-	
-	function getSimpleSearchTypeCombo($selOpt, $not) 
-	{
-		$options = "<option value=\"Contains\" ".( $selOpt == "Contains" && !$not ? "selected" : "" ).">"."Contains"."</option>";
-		$options.= "<option value=\"Equals\" ".( $selOpt == "Equals" && !$not ? "selected" : "" ).">"."Equals"."</option>";
-		$options.= "<option value=\"Starts with\" ".( $selOpt == "Starts with" && !$not ? "selected" : "" ).">"."Starts with"."</option>";
-		$options.= "<option value=\"More than\" ".( $selOpt == "More than" && !$not ? "selected" : "" ).">"."More than"."</option>";
-		$options.= "<option value=\"Less than\" ".( $selOpt == "Less than" && !$not ? "selected" : "" ).">"."Less than"."</option>";
-		$options.= "<option value=\"Empty\" ".( $selOpt == "Empty" && !$not ? "selected" : "" ).">"."Empty"."</option>";
-		return $options;
-	}
+	}	
 	
 	/**
 	 * Get the search options
@@ -259,15 +248,10 @@ class SearchControl
 	function  getDelButtonHtml($fName, $recId)
 	{
 		$text = "";
-		$iconAttr = 'data-icon="remove"';
-		if( $this->pageObj->isBootstrap() )
-		{
-			$text = '<span class="glyphicon glyphicon-remove"></span>';
-			$iconAttr = "";
-		}
+		$text = '<span class="glyphicon glyphicon-remove"></span>';
 		
 		$html = '<a id = "'.$this->getDelButtonId($fName, $recId).'" ctrlId="'.$recId.'" fName="'.GoodFieldName($fName)
-			.'" class="searchPanelButton searchpanel-options" '.$iconAttr.' href="#" title="'."Delete control".'">' . $text . '</a>';
+			.'" class="searchPanelButton" href="#" title="'."Delete control".'">' . $text . '</a>';
 		return $html;
 	}
 	
@@ -362,6 +346,38 @@ class SearchControl
 		$srchCtrlBlock['fLabel'.$postfix] = GetFieldLabel(GoodFieldName($this->tName),GoodFieldName($fName));
 		
 		return $srchCtrlBlock;
+	}
+	
+	/**
+	 * get markup of simple search type control 
+	 */
+	public static function getSimpleSearchTypeCombo( $selOpt, $not, $id ) {
+		$options = "<option value=\"Contains\" ".( $selOpt == "Contains" && !$not ? "selected" : "" ).">"."Contains"."</option>";
+		$options.= "<option value=\"Equals\" ".( $selOpt == "Equals" && !$not ? "selected" : "" ).">"."Equals"."</option>";
+		$options.= "<option value=\"Starts with\" ".( $selOpt == "Starts with" && !$not ? "selected" : "" ).">"."Starts with"."</option>";
+		$options.= "<option value=\"More than\" ".( $selOpt == "More than" && !$not ? "selected" : "" ).">"."More than"."</option>";
+		$options.= "<option value=\"Less than\" ".( $selOpt == "Less than" && !$not ? "selected" : "" ).">"."Less than"."</option>";
+		$options.= "<option value=\"Empty\" ".( $selOpt == "Empty" && !$not ? "selected" : "" ).">"."Empty"."</option>";
+		
+		return '<select class="form-control" id="simpleSrchTypeCombo'. $id .'" name="simpleSrchTypeCombo'. $id .'" size="1">' 
+			. $options . "</select>";
+	}
+	
+	/**
+	 * get markup of simple search field control 
+	 */
+	public static function simpleSearchFieldCombo( $fNamesArr, $googleLikeFields, $selOpt, $tName, $id ) {
+		$options = "";
+		if( $googleLikeFields )
+			$options = '<option value="" >'."Any field".'</option>';
+		
+		foreach( $fNamesArr as $fName ) {
+			$fLabel = GetFieldLabel( GoodFieldName( $tName ), GoodFieldName( $fName ) );
+			$options .= '<option value="'.$fName.'" '.($selOpt == $fName ? 'selected' : '').'>'.$fLabel.'</option>';
+		}
+		
+		return '<select class="form-control" id="simpleSrchFieldsCombo'. $id .'" name="simpleSrchFieldsCombo'. $id.'" size="1">' 
+			. $options . "</select>";
 	}
 }
 ?>

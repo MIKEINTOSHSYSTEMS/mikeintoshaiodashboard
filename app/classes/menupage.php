@@ -41,6 +41,63 @@ class MenuPage extends RunnerPage
 	}
 
 	/**
+	 * Get amount of available welcome items
+	 * @return {number}
+	 * @intellisense
+	 */
+	function getAllowedWelcomeMenuItems( $itemsData )
+	{
+		if( !$itemsData ) {
+			return 0;
+		}
+		$allowedItemCnt = 0;
+		foreach( $itemsData as $itemData )
+		{
+			if ( !$itemData['menutItem'] )
+			{
+				// non welcome item eg button
+				continue;
+			}
+			
+			if ( !$itemData['group'] ) 
+			{
+				// item is welcome item
+				if ( $itemData["linkType"] == 0 && $itemData["table"] && $itemData["page"] ) 
+				{
+					if ( menuLinkAvailable( $itemData["table"], $itemData["page"], $itemData["pageId"] ) )
+						$allowedItemCnt++;
+				} else if( $itemData["linkType"] == 1 ) {
+					$allowedItemCnt += 2;
+				}
+				continue;
+			} else {
+				$allowedItemCnt += $this->getAllowedWelcomeMenuItems( $itemData["items"] );
+			}
+		}
+		return $allowedItemCnt;
+	}
+	/**
+	 * @return {number}
+	 * @intellisense
+	 */
+	function isShowMenu()
+	{
+		if( !$this->pSet->welcomePageSkip() ) {
+			return true;
+		}
+
+		if( !$this->menuAppearInLayout() && $this->pageType != PAGE_MENU && $this->pageType != PAGE_ADD  && $this->pageType != PAGE_VIEW && $this->pageType != PAGE_EDIT )
+			return false;
+			
+
+		$allowedMenuItems = $this->getAllowedWelcomeMenuItems( $this->pSet->welcomeItems() );
+		if( $allowedMenuItems > 1 )
+			return true;
+
+			return false;
+	}
+
+	/**
 	 * Get redirect location for menu page
 	 * @return {string}
 	 * @intellisense
@@ -77,11 +134,12 @@ class MenuPage extends RunnerPage
 				}
 			}
 		}
-		if($this->isDynamicPerm && IsAdmin())
-			$redirect = GetTableLink("admin_rights", "list");
-
-		if($this->isAddWebRep)
-			$redirect = GetTableLink("webreport");
+		if( !$redirect ) {
+			if( Security::isAdmin() )
+				$redirect = GetTableLink("admin_rights", "list");
+			else if($this->isAddWebRep)
+				$redirect = GetTableLink("webreport");
+		}
 
 		return $redirect;
 	}	
@@ -93,15 +151,11 @@ class MenuPage extends RunnerPage
 	{
 		$this->setLangParams();
 
-		$this->xt->assign("id", $this->id);
 		$this->xt->assign("menu_block", true);
-		
-
 		$this->assignBody();
 	}
 	
 	/**
-	 * TODO: move to MenuPage class
 	 * @param Array itemsData
 	 * @return Boolean
 	 */
@@ -122,10 +176,13 @@ class MenuPage extends RunnerPage
 				// item is welcome item
 				if ( $itemData["table"] && $itemData["page"] ) 
 				{
-					if ( $this->isUserHaveTablePerm( $itemData["table"], $itemData["page"] ) ) 
+					if ( menuLinkAvailable( $itemData["table"], $itemData["page"], $itemData["pageId"] ) )
 						$hide = false;
 					else
 						$this->xt->displayItemHidden( $itemId );
+				} else {
+					//	extrenal link, always show
+					$hide = false;
 				}
 				continue;
 			}

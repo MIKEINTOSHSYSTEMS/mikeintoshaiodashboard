@@ -3,11 +3,6 @@ include_once(getabspath("classes/paramsLogger.php"));
 class searchParamsLogger extends paramsLogger
 {
 	/**
-	 * @type String
-	 */
-	protected $dbNameFieldName;
-	
-	/**
 	 * This property is used to store 
 	 * the 'getSavedSeachesParams' method`s cash
 	 * @type Array
@@ -15,45 +10,30 @@ class searchParamsLogger extends paramsLogger
 	protected $savedSearchesParams = array(); 
 	
 	
-	public function __construct( $tableNameId, $type = SSEARCH_PARAMS_TYPE ) 
-	{		
+	public function __construct( $tableNameId, $type = SSEARCH_PARAMS_TYPE ) {
 		// type 1 - saved search
 		parent::__construct( $tableNameId, SSEARCH_PARAMS_TYPE );
 		
 		//	.NET conversion needs this
 		$this->type = SSEARCH_PARAMS_TYPE;
 	}
-	
-	/**
-	 * Add fields wrappers to the real fields name
-	 * and assign them to the corresponding class properties
-	 */
-	protected function assignDbFieldsAndTableNames() 
-	{
-		parent::assignDbFieldsAndTableNames();
 
-		$this->dbNameFieldName = $this->connection->addFieldWrappers( "NAME" );
-	}
-	
-	
 	/**
 	 * Save the search under a particular name
 	 * @param String $searchName
 	 * @param Array $searchParams
 	 */
-	public function saveSearch( $searchName, $searchParams )
-	{	
+	public function saveSearch( $searchName, $searchParams ) {
 		$savedSearchNames = $this->getSavedSeachesParams();
-		if (array_key_exists($searchName, $savedSearchNames) )
-		{
+		if( array_key_exists( $searchName, $savedSearchNames ) ) {
 			$this->updateSearch( $searchName, $searchParams );
 			return;
 		}
 		
-		$column = $this->dbNameFieldName . ", ";
-		$value = $this->connection->prepareString( $searchName ).", ";
-
-		$this->save($searchParams, $column, $value);	
+		$values = array();
+		$values["NAME"] = $searchName;
+		
+		$this->save( $searchParams, $values );
 	}
 
 	/**
@@ -61,50 +41,56 @@ class searchParamsLogger extends paramsLogger
 	 * @param String $searchName
 	 * @param Array $searchParams
 	 */
-	public function updateSearch( $searchName, $searchParams )
-	{
-		$where = $this->dbNameFieldName."=".$this->connection->prepareString( $searchName );	
-		$this->update($searchParams, $where);				
+	public function updateSearch( $searchName, $searchParams ) {
+		$dc = $this->getUpdateCommand( $searchParams );
+		$dc->filter = DataCondition::_And( array( 
+			$dc->filter, 
+			DataCondition::FieldEquals( "NAME", $searchName )
+		));
+		
+		$this->dataSource->updateSingle( $dc, false );
 	}
-	
+
+
 	/**
 	 * Delete the saved search 
 	 * @param String searchName
 	 */	
-	public function deleteSearch( $searchName )
-	{	
-		$where = $this->dbNameFieldName."=".$this->connection->prepareString( $searchName );	
-		$this->delete($where);
-	}
-	
+	public function deleteSearch( $searchName ) {
+		$dc = $this->getDataCommand();
+		$dc->filter = DataCondition::_And( array(
+			$dc->filter,  
+			DataCondition::FieldEquals( "NAME", $searchName )
+		));
+		
+		$this->dataSource->deleteSingle( $dc, false );
+	}	
+		
 	/**
 	 * Get the save searches` names basing on 
 	 * security params and current page`s table name
 	 * @return Array
 	 */
-	public function getSavedSeachesParams()
-	{
-		if( count($this->savedSearchesParams) )
-			return $this->savedSearchesParams; 			
-	
-		$where = $this->getCommonWhere();			
-		$sql = "SELECT ".$this->dbNameFieldName.", ". $this->dbDataFieldName.", ". $this->dbTypeFieldName ." from ". $this->dbParamsTableName 
-			." where ".$where." ORDER BY ".$this->dbNameFieldName;
+	public function getSavedSeachesParams() {
+		if( count( $this->savedSearchesParams ) )
+			return $this->savedSearchesParams; 
 		
-		$qResult = $this->connection->querySilent( $sql );
+		$dc = $this->getDataCommand();
+		
+		$dc->order = array();
+		$dc->order[] = array( "column" => "NAME" );
+		
+		$qResult = $this->dataSource->getList( $dc );
 		if( !$qResult )
 			return array();
 		
 		$names = array();
-		while( $data = $qResult->fetchAssoc() )
-		{
-			if( !$data["TYPE"] || $data["TYPE"] == 1 ) 
-			{
-				if(substr($data["SEARCH"],0,2) != "{\"")
+		while( $data = $qResult->fetchAssoc() ) {
+			if( !$data["TYPE"] || $data["TYPE"] == 1 ) {
+				if( substr($data["SEARCH"], 0, 2) != "{\"" )
 					$names[ $data["NAME"] ] = runner_unserialize_array( $data["SEARCH"] );
 				else
 					$names[ $data["NAME"] ] = $this->decode( $data["SEARCH"] );
-				
 			}
 		}
 		

@@ -13,8 +13,9 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
-	<body class="{$stylename} function-search" {$bodyattrs}>
+	<body class="{$stylename} function-search"  >
 	{BEGIN body}
 		{$header}
 		<style>
@@ -48,7 +49,64 @@
 				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu main horizontal}			</span>
 							 
-													</nav>
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 					{$locking}
 			</div>	
@@ -57,7 +115,7 @@
 								{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
@@ -67,19 +125,25 @@
 		 
 		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel candidates search}</h2>
 		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 					</div>
 				<div class="r-content">
 										<div class="r-data-block" data-body-width="standard" >
 						
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	</div>		
 {END above-grid_block}
-							
-						<div class="r-grid">
-										{BEGIN grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
 
 
 
@@ -96,7 +160,7 @@
 		data-v-width="6"
 	>
 	<tbody>
-										<tr>
+										<tr {$row_grid_0} >
 										
 
 {BEGIN cellblock_grid_c3}
@@ -114,12 +178,9 @@
 				
 {BEGIN CandidateID_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="CandidateID" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="CandidateID{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="CandidateID" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_CandidateID}">
@@ -139,12 +200,9 @@
 											
 {BEGIN First_Name_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="First_Name" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="First_Name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="First_Name" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_First_Name}">
@@ -164,12 +222,9 @@
 											
 {BEGIN Middle_Name_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Middle_Name" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Middle_Name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="Middle_Name" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Middle_Name}">
@@ -189,12 +244,9 @@
 											
 {BEGIN Last_Name_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Last_Name" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Last_Name{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="Last_Name" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Last_Name}">
@@ -214,12 +266,9 @@
 											
 {BEGIN Sex_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Sex" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Sex{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="Sex" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Sex}">
@@ -239,12 +288,9 @@
 											
 {BEGIN DOB_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DOB}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="DOB" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DOB}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="DOB{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="DOB" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="DOB" data-fieldname="DOB" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_DOB}">
@@ -264,12 +310,9 @@
 											
 {BEGIN Region_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Region}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Region" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Region}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Region{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="Region" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="Region" data-fieldname="Region" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Region}">
@@ -289,12 +332,9 @@
 											
 {BEGIN City_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_City}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="City" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_City}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="City{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="City" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="City" data-fieldname="City" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_City}">
@@ -314,12 +354,9 @@
 											
 {BEGIN Sub_City_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sub_City}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Sub_City" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sub_City}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Sub_City{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="Sub_City" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="Sub_City" data-fieldname="Sub_City" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Sub_City}">
@@ -339,12 +376,9 @@
 											
 {BEGIN Zone_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Zone}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Zone" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Zone}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Zone{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="Zone" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="Zone" data-fieldname="Zone" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Zone}">
@@ -364,12 +398,9 @@
 											
 {BEGIN House_No_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_House_No}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="House_No" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_House_No}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="House_No{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="House_No" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="House_No" data-fieldname="House_No" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_House_No}">
@@ -389,12 +420,9 @@
 											
 {BEGIN Phone_Number_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Phone_Number" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Phone_Number{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="Phone_Number" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="Phone_Number" data-fieldname="Phone_Number" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Phone_Number}">
@@ -414,12 +442,9 @@
 											
 {BEGIN Phone_Number_Family_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number_Family}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Phone_Number_Family" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number_Family}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Phone_Number_Family{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="Phone_Number_Family" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="Phone_Number_Family" data-fieldname="Phone_Number_Family" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Phone_Number_Family}">
@@ -439,12 +464,9 @@
 											
 {BEGIN Email_Address_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Email_Address}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Email_Address" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email_Address}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Email_Address{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="Email_Address" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="Email_Address" data-fieldname="Email_Address" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Email_Address}">
@@ -464,12 +486,9 @@
 											
 {BEGIN Institution_Type_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Type}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Institution_Type" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Type}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Institution_Type{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="Institution_Type" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="Institution_Type" data-fieldname="Institution_Type" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Institution_Type}">
@@ -489,12 +508,9 @@
 											
 {BEGIN Education_Level_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Education_Level}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Education_Level" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Education_Level}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Education_Level{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="Education_Level" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="Education_Level" data-fieldname="Education_Level" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Education_Level}">
@@ -514,12 +530,9 @@
 											
 {BEGIN Department_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Department}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Department" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Department}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Department{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="Department" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="Department" data-fieldname="Department" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Department}">
@@ -539,12 +552,9 @@
 											
 {BEGIN Minor_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Minor}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Minor" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Minor}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Minor{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="Minor" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="Minor" data-fieldname="Minor" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Minor}">
@@ -564,12 +574,9 @@
 											
 {BEGIN Major_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Major}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Major" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Major}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Major{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="Major" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="Major" data-fieldname="Major" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Major}">
@@ -589,12 +596,9 @@
 											
 {BEGIN Skills_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Skills}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Skills" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Skills}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Skills{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="Skills" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="Skills" data-fieldname="Skills" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Skills}">
@@ -614,12 +618,9 @@
 											
 {BEGIN English_Proficiency_Level_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_English_Proficiency_Level}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="English_Proficiency_Level" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_English_Proficiency_Level}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="English_Proficiency_Level{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="English_Proficiency_Level" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="English_Proficiency_Level" data-fieldname="English_Proficiency_Level" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_English_Proficiency_Level}">
@@ -639,12 +640,9 @@
 											
 {BEGIN Industry_Specific_Skills_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Industry_Specific_Skills}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Industry_Specific_Skills" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Industry_Specific_Skills}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Industry_Specific_Skills{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="Industry_Specific_Skills" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="Industry_Specific_Skills" data-fieldname="Industry_Specific_Skills" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Industry_Specific_Skills}">
@@ -664,12 +662,9 @@
 											
 {BEGIN IT_Related_Skills_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_IT_Related_Skills}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="IT_Related_Skills" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_IT_Related_Skills}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="IT_Related_Skills{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="IT_Related_Skills" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="IT_Related_Skills" data-fieldname="IT_Related_Skills" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_IT_Related_Skills}">
@@ -689,12 +684,9 @@
 											
 {BEGIN Certifications_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Certifications}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Certifications" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Certifications}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Certifications{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="Certifications" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="Certifications" data-fieldname="Certifications" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Certifications}">
@@ -714,12 +706,9 @@
 											
 {BEGIN Year_of_graduation_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Year_of_graduation}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Year_of_graduation" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Year_of_graduation}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Year_of_graduation{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="Year_of_graduation" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="Year_of_graduation" data-fieldname="Year_of_graduation" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Year_of_graduation}">
@@ -739,12 +728,9 @@
 											
 {BEGIN Work_Experience_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Work_Experience}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Work_Experience" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Work_Experience}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Work_Experience{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field25" {$item_integrated_search_field25} data-pageid="{$pageid}" data-field="Work_Experience" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field25" {$item_integrated_search_field25} data-pageid="{$pageid}" data-field="Work_Experience" data-fieldname="Work_Experience" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Work_Experience}">
@@ -764,12 +750,9 @@
 											
 {BEGIN Joined_Dereja_Services_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Joined_Dereja_Services}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Joined_Dereja_Services" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Joined_Dereja_Services}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Joined_Dereja_Services{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field26" {$item_integrated_search_field26} data-pageid="{$pageid}" data-field="Joined_Dereja_Services" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field26" {$item_integrated_search_field26} data-pageid="{$pageid}" data-field="Joined_Dereja_Services" data-fieldname="Joined_Dereja_Services" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Joined_Dereja_Services}">
@@ -789,12 +772,9 @@
 											
 {BEGIN Dereja_Services_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Services}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Dereja_Services" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Services}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Dereja_Services{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field27" {$item_integrated_search_field27} data-pageid="{$pageid}" data-field="Dereja_Services" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field27" {$item_integrated_search_field27} data-pageid="{$pageid}" data-field="Dereja_Services" data-fieldname="Dereja_Services" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Dereja_Services}">
@@ -814,12 +794,9 @@
 											
 {BEGIN Dereja_Training_Services_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Training_Services}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Dereja_Training_Services" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Training_Services}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Dereja_Training_Services{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field28" {$item_integrated_search_field28} data-pageid="{$pageid}" data-field="Dereja_Training_Services" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field28" {$item_integrated_search_field28} data-pageid="{$pageid}" data-field="Dereja_Training_Services" data-fieldname="Dereja_Training_Services" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Dereja_Training_Services}">
@@ -839,12 +816,9 @@
 											
 {BEGIN Dereja_Event_Services_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Event_Services}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Dereja_Event_Services" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Event_Services}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Dereja_Event_Services{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field29" {$item_integrated_search_field29} data-pageid="{$pageid}" data-field="Dereja_Event_Services" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field29" {$item_integrated_search_field29} data-pageid="{$pageid}" data-field="Dereja_Event_Services" data-fieldname="Dereja_Event_Services" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Dereja_Event_Services}">
@@ -864,12 +838,9 @@
 											
 {BEGIN Dereja_web_profile_completion_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_web_profile_completion}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Dereja_web_profile_completion" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_web_profile_completion}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Dereja_web_profile_completion{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field30" {$item_integrated_search_field30} data-pageid="{$pageid}" data-field="Dereja_web_profile_completion" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field30" {$item_integrated_search_field30} data-pageid="{$pageid}" data-field="Dereja_web_profile_completion" data-fieldname="Dereja_web_profile_completion" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Dereja_web_profile_completion}">
@@ -889,12 +860,9 @@
 											
 {BEGIN Dereja_Information_Source_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Information_Source}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Dereja_Information_Source" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Information_Source}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Dereja_Information_Source{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field31" {$item_integrated_search_field31} data-pageid="{$pageid}" data-field="Dereja_Information_Source" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field31" {$item_integrated_search_field31} data-pageid="{$pageid}" data-field="Dereja_Information_Source" data-fieldname="Dereja_Information_Source" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Dereja_Information_Source}">
@@ -914,12 +882,9 @@
 											
 {BEGIN StudentID_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="StudentID" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="StudentID{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field32" {$item_integrated_search_field32} data-pageid="{$pageid}" data-field="StudentID" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field32" {$item_integrated_search_field32} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_StudentID}">
@@ -939,12 +904,9 @@
 											
 {BEGIN Disability_Status_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Disability_Status" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Disability_Status{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field33" {$item_integrated_search_field33} data-pageid="{$pageid}" data-field="Disability_Status" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field33" {$item_integrated_search_field33} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Disability_Status}">
@@ -964,12 +926,9 @@
 											
 {BEGIN Disability_Type_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Disability_Type" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Disability_Type{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field34" {$item_integrated_search_field34} data-pageid="{$pageid}" data-field="Disability_Type" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field34" {$item_integrated_search_field34} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Disability_Type}">
@@ -989,12 +948,9 @@
 											
 {BEGIN Disability_Type_Other_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Disability_Type_Other" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Disability_Type_Other{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field35" {$item_integrated_search_field35} data-pageid="{$pageid}" data-field="Disability_Type_Other" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field35" {$item_integrated_search_field35} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Disability_Type_Other}">
@@ -1014,12 +970,9 @@
 											
 {BEGIN Field_Of_Study_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Field_Of_Study}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="Field_Of_Study" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Field_Of_Study}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="Field_Of_Study{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field36" {$item_integrated_search_field36} data-pageid="{$pageid}" data-field="Field_Of_Study" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field36" {$item_integrated_search_field36} data-pageid="{$pageid}" data-field="Field_Of_Study" data-fieldname="Field_Of_Study" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_Field_Of_Study}">
@@ -1039,12 +992,9 @@
 											
 {BEGIN GPA_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_GPA}  r-horizontal-field form-horizontal" 
-	
-		data-fieldname="GPA" 
-	
+<div class="r-integrated-field form-group clearfix {$fielddispclass_GPA}  r-horizontal-field form-horizontal" 	
 	data-signal-error-for="GPA{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field37" {$item_integrated_search_field37} data-pageid="{$pageid}" data-field="GPA" >
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field37" {$item_integrated_search_field37} data-pageid="{$pageid}" data-field="GPA" data-fieldname="GPA" >
 
 
 	<label class="r-search-label control-label" for="{$labelfor_GPA}">
@@ -1067,12 +1017,12 @@
 								</tr>
 			</tbody></table>
 {END grid_block}
-							</div>
-						
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -1108,9 +1058,14 @@
 </span>
 {END cancel_button}
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-							
+	</div>
+
+
+
+
+											
 					</div>
 				</div>
 			</div>

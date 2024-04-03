@@ -74,7 +74,8 @@ class CrossTableReport
 
 	protected $sort_groups;
 
-
+	protected $sortGroupOrder = 'ASC';
+	
 	/**
 	 * @constructor
 	 * @param Array params
@@ -104,7 +105,7 @@ class CrossTableReport
 
 		$this->xFName = $this->getGroupFieldByParam( "x", $params["x"] );
 		$this->yFName = $this->getGroupFieldByParam( "y", $params["y"], $this->xFName );
-		$this->dataField = $params["data"];
+		$this->dataField = $this->getDataFieldByParam( $params["data"] );
 
 		$this->dataFieldSettings = $params["totals"][ $this->dataField ];
 		$this->dataGroupFunction = $this->getDataGroupFunction( $params["operation"] );
@@ -166,10 +167,15 @@ class CrossTableReport
 
 		$this->sort_groups = &$group_x;
 		$sort_indices = array_keys( $group_x );
+		$this->sortGroupOrder = $this->getGroupOrderDirection( $this->xFName );
 		usort( $sort_indices, array( $this, "groupSort" ) );
-		//	sort y groups
-//		$group_sort_y = $group_y;
-//		SortForCrosstable($sort_y);
+		
+		$newColSummary = array();
+		foreach( $sort_indices as $i ) {
+			$newColSummary[] =& $this->col_summary["data"][$i];
+		}
+		$this->col_summary["data"] =& $newColSummary;
+
 
 		$this->rowinfo = $this->getBasicRowsData( $group_y, $group_x, $sort_indices, $arrdata, $dataClass );
 
@@ -184,18 +190,44 @@ class CrossTableReport
 			$this->group_header["data"][ $key_x ]["gr_x_class"] = $headerClass;
 		}
 
+		$arravgsum = $this->sortAvgTotalsData( $arravgsum, $sort_indices );
+		$arravgcount = $this->sortAvgTotalsData( $arravgcount, $sort_indices );
+		
 		$this->setSummariesData( $arravgsum, $arravgcount, $avgsumx, $avgcountx );
 
 		$this->updateRecordsDisplayedFields();
 	}
-
+	
+	/**
+	 * Update x axis indices in avg totals data
+	 * @param Array data
+	 * @param Array sort_indices
+	 * @return Array
+	 */
+	protected function sortAvgTotalsData( $data, $sort_x ) {
+		$sorted = array();
+		
+		foreach( $data as $key_y => $value_y ) {
+			$sorted[ $key_y ] = array();
+			
+			foreach( $sort_x as $display_x => $key_x ) {
+				if( array_key_exists( $key_x, $value_y ) ) {
+					$sorted[ $key_y ][ $display_x ] = $value_y[ $key_x ];
+				}
+			}
+		}
+		
+		return $sorted;
+	}
+	
 	public function groupSort( $i1, $i2 ) {
 		$a = $this->sort_groups[ $i1 ];
 		$b = $this->sort_groups[ $i2 ];
+		
 		if( $a > $b )
-			return 1;
+			return $this->sortGroupOrder == 'DESC' ? -1 : 1;
 		if( $a < $b )
-			return -1;
+			return $this->sortGroupOrder == 'DESC'? 1 : -1;
 		return 0;
 	}
 
@@ -211,7 +243,6 @@ class CrossTableReport
 
 		foreach( $group_y as $key_y => $value_y )
 		{
-
 			$crossRowsData[ $key_y ]["row_summary"] = $space;
 			$crossRowsData[ $key_y ]["group_y"] = $this->pageObject->formatGroupValue( $this->yFName, $this->yIntervalType, $value_y );
 			$crossRowsData[ $key_y ]["id_row_summary"] = "total_y_".$key_y;
@@ -221,7 +252,18 @@ class CrossTableReport
 			if( !array_key_exists( $key_y, $arrdata ) )
 				continue;
 
-			foreach( $sort_x as $key_x )
+			if( !$crossRowsData[ $key_y ]["row_record"] ) {
+				$crossRowsData[ $key_y ]["row_record"] = array();
+			}
+			$crossRowsData[ $key_y ]["row_record"]["data"] = array();
+			$row =& $crossRowsData[ $key_y ]["row_record"]["data"];
+	
+			// prefill row to ensure right ordering
+			foreach( $sort_x as $key_x ) {
+				$row[] = array();
+			}
+
+			foreach( $sort_x as $display_x => $key_x )
 			{
 				$value_x = $group_x[ $key_x ];
 				$rowValue = $space;
@@ -230,12 +272,12 @@ class CrossTableReport
 				{
 					$rowValue = $arrdata[ $key_y ][ $key_x ];
 					if( $this->dataGroupFunction == "avg" && !IsTimeType( $ftype ) )
-						$rowValue = round($rowValue, 2);
+						$rowValue = $rowValue;
 				}
 
-				$crossRowsData[ $key_y ]["row_record"]["data"][ $key_x ]["row_value"] = $rowValue;
-				$crossRowsData[ $key_y ]["row_record"]["data"][ $key_x ]["row_value_class"] = $dataClass;
-				$crossRowsData[ $key_y ]["row_record"]["data"][ $key_x ]["id_data"] = $key_y."_".$key_x;
+				$row[ $display_x ]["row_value"] = $rowValue;
+				$row[ $display_x ]["row_value_class"] = $dataClass;
+				$row[ $display_x ]["id_data"] = $key_y."_".$display_x;
 			}
 		}
 
@@ -265,9 +307,18 @@ class CrossTableReport
 				switch( $this->dataGroupFunction )
 				{
 					case "sum":
-						$this->rowinfo[ $key_y ]["row_summary"] += $value["row_value"];
-						$this->col_summary["data"][ $key_x ]["col_summary"] += $value["row_value"];
-						$this->total_summary += $value["row_value"];
+						if( $this->rowinfo[ $key_y ]["row_summary"] === $space ) {
+							$this->rowinfo[ $key_y ]["row_summary"] = 0;
+						}
+						if( $this->col_summary["data"][ $key_x ]["col_summary"] === $space ) {
+							$this->col_summary["data"][ $key_x ]["col_summary"] = 0;
+						}
+						if( $this->total_summary === $space ) {
+							$this->total_summary = 0;
+						}
+						$this->rowinfo[ $key_y ]["row_summary"] += (double)$value["row_value"];
+						$this->col_summary["data"][ $key_x ]["col_summary"] += (double)$value["row_value"];
+						$this->total_summary += (double)$value["row_value"];
 					break;
 
 					case "min":
@@ -303,7 +354,7 @@ class CrossTableReport
 				if( $this->showXSummary && !is_null( $this->col_summary["data"][ $key_x ]["col_summary"] ) )
 				{
 					if( is_numeric( $this->col_summary["data"][ $key_x ]["col_summary"] ) )
-						$this->col_summary["data"][ $key_x ]["col_summary"] = round( $this->col_summary["data"][ $key_x ]["col_summary"], 2);
+						$this->col_summary["data"][ $key_x ]["col_summary"] = $this->col_summary["data"][ $key_x ]["col_summary"];
 				}
 				else
 					$this->col_summary["data"][ $key_x ]["col_summary"] = $space;
@@ -312,7 +363,7 @@ class CrossTableReport
 			if( $this->showYSummary && !is_null( $this->rowinfo[ $key_y ]["row_summary"] ) )
 			{
 				if( is_numeric( $this->rowinfo[ $key_y ]["row_summary"] ) )
-					$this->rowinfo[ $key_y ]["row_summary"] = round( $this->rowinfo[ $key_y ]["row_summary"], 2 );
+					$this->rowinfo[ $key_y ]["row_summary"] = $this->rowinfo[ $key_y ]["row_summary"];
 			}
 			else
 				$this->rowinfo[ $key_y ]["row_summary"] = $space;
@@ -329,7 +380,7 @@ class CrossTableReport
 				{
 					if ( $this->showYSummary )
 					{
-						$this->rowinfo[ $key_y ]["row_summary"] = round( $valuey["avgsumy"] / $valuey["avgcounty"], 2 );
+						$this->rowinfo[ $key_y ]["row_summary"] = $valuey["avgsumy"] / $valuey["avgcounty"];
 					}
 
 					$total_sum += $valuey["avgsumy"];
@@ -353,7 +404,7 @@ class CrossTableReport
 				foreach( $avgsumx as $key => $value )
 				{
 					if( $avgcountx[ $key ] )
-						$this->col_summary["data"][ $key ]["col_summary"] = round( $value / $avgcountx[$key], 2 );
+						$this->col_summary["data"][ $key ]["col_summary"] = $value / $avgcountx[$key];
 				}
 			}
 
@@ -364,39 +415,31 @@ class CrossTableReport
 		if( !$this->showTotalSummary )
 			$this->total_summary = $space;
 		elseif( is_numeric($this->total_summary) )
-			$this->total_summary = round( $this->total_summary, 2 );
+			$this->total_summary = $this->total_summary;
 	}
 
 	/**
 	 * Get view value basing on 'view as'
+	 * @param String|Number value
+	 * @return String|Number
 	 */
-	function getViewValue( $value, $useTimeFormat = true )
-	{
-		$strViewFormat = $this->pSet->getViewFormat( $this->dataField );
-		if( $strViewFormat == FORMAT_TIME && is_numeric($value) )
-		{
-			$d = intval($value / 86400);
-			$h = intval(($value % 86400) / 3600);
-			$m = intval((($value % 86400) % 3600) / 60);
-			$s = (($value % 86400) % 3600) % 60;
+	function getViewValue( $value ) {		
+		if( $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME && is_numeric( $value ) ) {			
+			if( $this->dataGroupFunction == "avg" )
+				$value = round( $value, 0 );			
 
-			$value = $d > 0 ? $d . 'd ' : '';
-
-			if( $useTimeFormat )
-				$value .= str_format_time( array(0, 0, 0, $h, $m, $s) );
-			else
-				$value .= date( "H:i:s", strtotime($h.":".$m.":".$s) );
-
-			if( $this->pdfJsonMode() )
-				$value = "'" . jsreplace( $value ) . "'";
-		}
-		else
-		{
-			$controlData = array( $this->dataField => $value );
-			$value = $this->showDBValue( $this->dataField, $controlData );
-		}
-
-		return $value;
+			include_once getabspath('classes/controls/ViewTimeField.php');		
+			return ViewTimeField::getFormattedTotals( 
+				$this->dataField, 
+				$value, 
+				$this->pSet, 
+				$this->pdfJsonMode(), 
+				$this->dataGroupFunction == "sum" 
+			);
+		} 
+		
+		$controlData = array( $this->dataField => $value );
+		return $this->showDBValue( $this->dataField, $controlData );
 	}
 
 	/**
@@ -404,7 +447,7 @@ class CrossTableReport
 	 */
 	protected function updateRecordsDisplayedFields()
 	{
-		if( !count($this->rowinfo) )
+		if( !$this->rowinfo )
 			return;
 
 		$space = $this->pdfJsonMode() ? "' '" : "&nbsp;";
@@ -421,13 +464,13 @@ class CrossTableReport
 
 			if( $data["row_summary"] != $space )
 			{
-				$this->rowinfo[ $key_y ]["row_summary"] = $this->getViewValue( $data["row_summary"], false);
+				$this->rowinfo[ $key_y ]["row_summary"] = $this->getViewValue( $data["row_summary"] );
 			}
 		}
 
 		if( $this->total_summary != $space )
 		{
-			$this->total_summary = $this->getViewValue($this->total_summary, false);
+			$this->total_summary = $this->getViewValue( $this->total_summary );
 		}
 
 		foreach($this->col_summary["data"] as $key => $summaryData)
@@ -435,7 +478,7 @@ class CrossTableReport
 			if( $summaryData["col_summary"] == $space )
 				continue;
 
-			$this->col_summary["data"][ $key ]["col_summary"] = $this->getViewValue( $summaryData["col_summary"], false );
+			$this->col_summary["data"][ $key ]["col_summary"] = $this->getViewValue( $summaryData["col_summary"] );
 		}
 	}
 
@@ -449,7 +492,7 @@ class CrossTableReport
 	 */
 	public function isEmpty()
 	{
-		return !count( $this->rowinfo );
+		return !$this->rowinfo;
 	}
 
 	public function getCrossTableHeader()
@@ -512,6 +555,18 @@ class CrossTableReport
 		return 0;
 	}
 
+	protected function getDataFieldByParam( $paramField ) 
+	{
+		if( $this->fieldsTotalsData[ $paramField ] ) {
+			return $paramField;
+		}
+		$dataFields = array_keys( $this->fieldsTotalsData );
+		if( count( $dataFields ) ) {
+			return $dataFields[0];
+		}
+		return "";
+	}
+
 	protected function getGroupFieldByParam( $axis, $paramField, $otherField = "" )
 	{
 		$firstField = "";
@@ -531,34 +586,32 @@ class CrossTableReport
 
 	protected function getDataCommand() {
 		$dc = $this->pageObject->getSubsetDataCommand();
-		//$dc->filter = ;
 
 		$ftype = $this->pSet->getFieldType( $this->dataField );
 
 		$dc->totals[] = array(
 			"field" => $this->dataField,
 			"total" => $this->dataGroupFunction,
-			"time" => $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME || IsTimeType($ftype)
+			"timeToSec" => $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME || IsTimeType($ftype)
 		);
 
 		$dc->totals[] = array(
 			"field" => $this->yFName,
 			"modifier" => $this->yIntervalType,
-			"direction" => 'ASC'
+			"direction" => $this->getGroupOrderDirection( $this->yFName )
 		);
 
 		$dc->totals[] = array(
 			"field" => $this->xFName,
-			"modifier" => $this->xIntervalType,
-			"direction" => 'ASC'
+			"modifier" => $this->xIntervalType
 		);
-
 
 		if( $this->dataGroupFunction == "avg" && !IsDateFieldType($ftype) ) {
 			$dc->totals[] = array(
 				"field" => $this->dataField,
 				"alias" => "avg_sum",
-				"total" => "sum"
+				"total" => "sum",
+				"timeToSec" => $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME || IsTimeType($ftype)
 			);
 
 			$dc->totals[] = array(
@@ -600,102 +653,17 @@ class CrossTableReport
 
 		return $dc;
 	}
-
-	/**
-	 * @deprecated
-	 * Get a report's SQL query string
-	 * @param String tableSQL		The report table's SQL query
-	 * @return String
-	 */
-	/*protected function getstrSQL( $tableSQL )
-	{
-		$group_x = $this->_getIntervalTypeData( $this->xFName, $this->xIntervalType );
-		$group_y = $this->_getIntervalTypeData( $this->yFName, $this->yIntervalType );
-
-		$ftype = $this->pSet->getFieldType( $this->dataField );
-		$isTime = $this->pSet->getViewFormat( $this->dataField ) == FORMAT_TIME || IsTimeType($ftype);
-
-		if ( $isTime )
-			$select_field = $this->dataGroupFunction."(".$this->connection->timeToSecWrapper( $this->dataField ).")";
-		else
-			$select_field = $this->dataGroupFunction."(".$this->connection->addFieldWrappers( $this->dataField ).")";
-
-		if( $this->dataGroupFunction == "avg" && !IsDateFieldType($ftype) )
-		{
-			$sum_for_avg = !$isTime ? "sum(".$this->connection->addFieldWrappers( $this->dataField ).")" : "sum(".$this->connection->timeToSecWrapper( $this->dataField ).")";
-			$avg_func = $sum_for_avg . " as ".$this->connection->addFieldWrappers("avg_sum").", "
-				."count(".$this->connection->addFieldWrappers( $this->dataField ).") as ".$this->connection->addFieldWrappers("avg_count");
-		}
-		else
-			$avg_func = "1 as ".$this->connection->addFieldWrappers("avg_sum").", 1 as ".$this->connection->addFieldWrappers("avg_count");
-
-
-		$whereClause = "";
-
-		if( $this->pageType == PAGE_REPORT )
-		{
-			if( tableEventExists("BeforeQueryReport", $this->tableName) )
-			{
-				$eventObj = getEventObject($this->tableName);
-				$eventObj->BeforeQueryReport($whereClause);
-				if( $whereClause )
-					$whereClause = " where ".$whereClause;
+	
+	protected function getGroupOrderDirection( $fName ) {
+		$orderIndices =& $this->pSet->getOrderIndexes();	
+		$fieldIdx = $this->pSet->getFieldIndex( $fName );
+		foreach( $orderIndices as $o ) {
+			if( $o[0] == $fieldIdx ) {
+				return $o[1];
 			}
 		}
-		else {
-			if( tableEventExists("BeforeQueryReportPrint", $this->tableName) )
-			{
-				$eventObj = getEventObject($this->tableName);
-				$eventObj->BeforeQueryReportPrint($whereClause);
-				if( $whereClause )
-					$whereClause = " where ".$whereClause;
-			}
-
-		}
-
-		$selectClause = "select ".$select_field . ", " . $group_x . ", ".$group_y . ", " . $avg_func;
-		$groupByClause = "group by " . $group_x . ", " . $group_y;
-		$orderByClause = "order by " . $group_x . ", " . $group_y;
-
-		if( $this->connection->dbType == nDATABASE_Oracle )
-			return $selectClause . " from (" . $tableSQL  . ")" . $whereClause . " " . $groupByClause . " " . $orderByClause;
-
-		if( $this->connection->dbType == nDATABASE_MSSQLServer )
-		{
-			$pos = strrpos(strtoupper($tableSQL), "ORDER BY");
-			if( $pos )
-				$tableSQL = substr($tableSQL, 0, $pos);
-		}
-		return $selectClause . " from (" . $tableSQL . ") as cross_table" . $whereClause . " " . $groupByClause . " " . $orderByClause;
-	}*/
-
-	/**
-	 * @deprecated
-	 * FIx the name
-	 * @param Number index
-	 * @return String
-	 */
-	/*protected function _getIntervalTypeData( $fName, $int_type )
-	{
-		$wrappedGoodFieldName = $this->connection->addFieldWrappers( $fName );
-		if( $int_type == 0 )
-		{
-			return $wrappedGoodFieldName;
-		}
-
-		$ftype = $this->pSet->getFieldType( $fName );
-
-		if( IsNumberType($ftype) )
-			return $this->connection->intervalExpressionNumber( $wrappedGoodFieldName, $int_type );
-
-		if( IsCharType( $ftype ) )
-			return $this->connection->intervalExpressionString( $wrappedGoodFieldName, $int_type );
-
-		if( IsDateFieldType( $ftype ) )
-			return $this->connection->intervalExpressionDate( $wrappedGoodFieldName, $int_type );
-	}*/
-
-
+		return 'ASC';		
+	}
 
 	/**
 	 * @return Array

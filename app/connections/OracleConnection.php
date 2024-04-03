@@ -2,13 +2,13 @@
 class OracleConnection extends Connection
 {
 	protected $user;
-	
-	protected $pwd; 
-	
-	protected $sid;	 
 
-	protected $error;	 
-	
+	protected $pwd;
+
+	protected $sid;
+
+	protected $error = array();
+
 	function __construct( $params )
 	{
 		parent::__construct( $params );
@@ -21,12 +21,12 @@ class OracleConnection extends Connection
 	protected function assignConnectionParams( $params )
 	{
 		parent::assignConnectionParams( $params );
-		
+
 		$this->user = $params["connInfo"][0];  //strConnectInfo1
 		$this->pwd = $params["connInfo"][1];  //strConnectInfo2
 		$this->sid = $params["connInfo"][2];  //strConnectInfo3
 	}
-	
+
 	/**
 	 * Open a connection to db
 	 */
@@ -41,7 +41,7 @@ class OracleConnection extends Connection
 			$this->setError( ocierror() );
 			$this->triggerError($this->lastError());
 		}
-			
+
 		$stmt = ociparse($this->conn, "alter session set nls_date_format='YYYY-MM-DD HH24:MI:SS'");
 		ociexecute($stmt);
 		$this->closeQuery( $stmt );
@@ -50,7 +50,7 @@ class OracleConnection extends Connection
 		$this->closeQuery( $stmt );
 		return $this->conn;
 	}
-	
+
 	/**
 	 * Close the db connection
 	 */
@@ -58,8 +58,8 @@ class OracleConnection extends Connection
 	{
 		return @ocilogoff( $this->conn );
 	}
-	
-	/**	
+
+	/**
 	 * Send an SQL query
 	 * @param String sql
 	 * @return Mixed
@@ -67,7 +67,7 @@ class OracleConnection extends Connection
 	public function query( $sql )
 	{
 		$this->debugInfo($sql);
-		
+
 		$stmt = ociparse($this->conn, $sql);
 		if( !$stmt )
 		{
@@ -83,11 +83,11 @@ class OracleConnection extends Connection
 			$this->triggerError($this->lastError());
 			return FALSE;
 		}
-		
+
 		return new QueryResult( $this, $stmt );
 	}
-	
-	/**	
+
+	/**
 	 * Execute an SQL query
 	 * @param String sql
 	 * @return Mixed
@@ -95,7 +95,7 @@ class OracleConnection extends Connection
 	public function exec( $sql )
 	{
 		$this->debugInfo($sql);
-		
+
 		$stmt = ociparse($this->conn, $sql);
 		if( !$stmt )
 		{
@@ -111,19 +111,19 @@ class OracleConnection extends Connection
 			$this->triggerError($this->lastError());
 			return FALSE;
 		}
-		
+
 		return 1;
 	}
-	
-	/**	
+
+	/**
 	 * Get a description of the last error
 	 * @return String
 	 */
 	public function lastError()
 	{
-		if( count($this->error) > 1 )
+		if( is_array( $this->error ) && count( $this->error) > 1 )
 			return $this->error["message"];
-		
+
 		return "";
 	}
 
@@ -137,14 +137,14 @@ class OracleConnection extends Connection
 	{
 		if( function_exists("oci_fetch_array") )
 			return oci_fetch_array($qHandle, $flags);
-			
+
 		$data = array();
 		if( ocifetchinto($qHandle, $data, $flags) )
 			return $data;
-			
+
 		return array();
-	}	
-	
+	}
+
 	/**
 	 * Fetch a result row as an associative array
 	 * @param Mixed qHanle		The query handle
@@ -154,20 +154,20 @@ class OracleConnection extends Connection
 	{
 		return $this->myoci_fetch_array($qHandle, OCI_ASSOC + OCI_RETURN_NULLS + OCI_RETURN_LOBS);
 	}
-	
-	/**	
+
+	/**
 	 * Fetch a result row as a numeric array
-	 * @param Mixed qHanle		The query handle	 
+	 * @param Mixed qHanle		The query handle
 	 * @return Array
 	 */
 	public function fetch_numarray( $qHandle )
 	{
 		return $this->myoci_fetch_array($qHandle, OCI_NUM + OCI_RETURN_NULLS + OCI_RETURN_LOBS);
 	}
-	
-	/**	
-	 * Free resources associated with a query result set 
-	 * @param Mixed qHanle		The query handle		 
+
+	/**
+	 * Free resources associated with a query result set
+	 * @param Mixed qHanle		The query handle
 	 */
 	public function closeQuery( $qHandle )
 	{
@@ -185,14 +185,14 @@ class OracleConnection extends Connection
 	public function num_fields( $qHandle )
 	{
 		return OCINumCols($qHandle);
-	}	
-	
-	/**	
+	}
+
+	/**
 	 * Get the name of the specified field in a result
 	 * @param Mixed qHanle		The query handle
 	 * @param Number offset
 	 * @return String
-	 */	 
+	 */
 	public function field_name( $qHandle, $offset )
 	{
 		return OCIColumnName($qHandle, $offset + 1);
@@ -218,17 +218,19 @@ class OracleConnection extends Connection
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
+
 		set_error_handler("empty_error_handler");
-		
+
+		$lastIdValue = 0;
 		$locs = array();
-		
-		if( count($blobs) )
+
+		if( count($blobs) || $autoincField !== null)
 		{
 			$idx = 1;
 			$sql.=" returning ";
-			
+
 			$blobfields = "";
 			$blobvars = "";
 			foreach($blobs as $ekey => $value)
@@ -238,29 +240,44 @@ class OracleConnection extends Connection
 					$blobfields.= ",";
 					$blobvars.= ",";
 				}
-				
-				$blobfields .= $ekey;
+
+				$blobfields .= $this->addFieldWrappers($ekey);
 				$blobvars.= ":bnd".$idx;
 				$locs[ $ekey ] = OCINewDescriptor($this->conn, OCI_D_LOB);
 				$idx++;
 			}
-			
+
+			if($autoincField !== null)
+			{
+				if( count($locs) )
+				{
+					$blobfields.= ",";
+					$blobvars.= ",";
+				}
+				$blobfields .= $this->addFieldWrappers($autoincField);
+				$blobvars.= ":lastId";
+			}
+
 			$sql.= $blobfields." into ".$blobvars;
 		}
-		
+
 		$stmt = OCIParse($this->conn, $sql);
 		if( !$stmt )
 		{
 			$this->setError( oci_error( $this->conn ) );
 			return FALSE;
 		}
-	
-		
+
 		$idx = 1;
 		foreach($locs as $ekey => $value)
 		{
 			OCIBindByName($stmt, ":bnd".$idx, $locs[ $ekey ], -1 , OCI_B_BLOB);
 			$idx++;
+		}
+
+		if($autoincField !== null)
+		{
+			OCIBindByName($stmt, ":lastId", $lastIdValue, -1 , OCI_B_INT);
 		}
 
 		$result = OCIExecute($stmt, OCI_DEFAULT) !== false;
@@ -270,24 +287,38 @@ class OracleConnection extends Connection
 			$this->closeQuery( $stmt );
 			return FALSE;
 		}
-	
+
 		foreach($locs as $ekey => $value)
 		{
 			$locs[ $ekey ]->save( $blobs[ $ekey ] );
 			$locs[ $ekey ]->free();
 		}
-		
+
+		if($autoincField !== null)
+		{
+			Connection::$lastInsertedId = $lastIdValue;
+		}
+
 		OCICommit($this->conn);
-		
+
 		$this->closeQuery( $stmt );
-		
+
 		set_error_handler("runner_error_handler");
 		return $result;
 	}
-	
+
 	protected function setError( $err )
 	{
 		$this->error = $err;
+	}
+
+	public function getInsertedId( $key = null, $table = null)
+	{
+		if ( !is_null($key) && !is_null($table) )
+		{
+			return parent::getInsertedId($key, $table);
+		}
+		return OracleConnection::$lastInsertedId;
 	}
 }
 ?>

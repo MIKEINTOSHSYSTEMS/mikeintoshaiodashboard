@@ -13,14 +13,14 @@ class ChartPage extends RunnerPage
 	{
 		parent::__construct($params);
 	
-		if( $this->getLayoutVersion() === PD_BS_LAYOUT ) 
-		{
-			$this->bodyForms = array( "grid" );
-		} 
+		$this->bodyForms = array( "grid" );
 	
 		$this->jsSettings['tableSettings'][ $this->tName ]['simpleSearchActive'] = $this->searchClauseObj->simpleSearchActive;
 		
-		$this->pageData['detailsMasterKeys'] = $this->getStartMasterKeys();
+		if( $this->mode == CHART_DASHBOARD ) {
+			$this->pageData['detailsMasterKeys'] = $this->getStartMasterKeys();
+		}
+		$this->pageData['singleChartPage'] = $this->pSet->getChartCount() == 1;
 	}
 
 	/**
@@ -32,17 +32,6 @@ class ChartPage extends RunnerPage
 			$this->sessionPrefix = $this->dashTName."_".$this->tName;
 		else
 			$this->sessionPrefix = $this->tName;
-	}	
-
-	/**
-	 * Build the activated Search panel
-	 */
-	public function buildSearchPanel()
-	{
-		if( $this->mode == CHART_DASHBOARD )
-			return;
-		
-		parent::buildSearchPanel();
 	}	
 	
 	/**
@@ -68,7 +57,10 @@ class ChartPage extends RunnerPage
 		$this->addCommonJs();
 		$this->commonAssign();
 
-		$this->buildSearchPanel();
+		if( $this->mode != CHART_DASHBOARD ) {
+			$this->buildSearchPanel();
+			$this->assignSimpleSearch();
+		}
 		
 		// to restore correctly within a chart class
 		$_SESSION[ $this->sessionPrefix.'_advsearch' ] = serialize( $this->searchClauseObj );
@@ -105,8 +97,7 @@ class ChartPage extends RunnerPage
 		if( $this->mode == CHART_DASHBOARD )
 			return null;
 		
-		return parent::getMasterCondition(); 
-		$conditions = array();
+		return parent::getMasterCondition();
 	}
 	
 	/**
@@ -115,8 +106,12 @@ class ChartPage extends RunnerPage
 	 */
 	public function getStartMasterKeys()
 	{		
-		$dc = $this->getSubsetDataCommand();
+		$detailTablesData = $this->pSet->getDetailTablesArr();
+		if( !$detailTablesData ) {
+			return array();
+		}
 		
+		$dc = $this->getSubsetDataCommand();	
 		$dc->reccount = 1;
 
 		$rs = $this->dataSource->getList( $dc );
@@ -125,8 +120,6 @@ class ChartPage extends RunnerPage
 		}
 
 		$data = $this->cipherer->DecryptFetchedArray( $rs->fetchAssoc() );
-
-		$detailTablesData = $this->pSet->getDetailTablesArr();
 		
 		$masterKeysArr = array();
 		foreach ( $detailTablesData as $detailId => $detail ) {
@@ -143,7 +136,6 @@ class ChartPage extends RunnerPage
 	 */
 	public function doCommonAssignments()
 	{
-		$this->xt->assign("id", $this->id);		
 		
 		//set the Search panel
 		$this->xt->assign("searchPanel", true);

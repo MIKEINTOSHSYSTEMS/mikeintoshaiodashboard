@@ -42,20 +42,6 @@ class PanelSearchControl extends SearchControl
 		return $ctrlsMap;
 	}
 	
-	function simpleSearchFieldCombo($fNamesArr, $selOpt) 
-	{
-		$options = "";
-		if (sizeof($this->pSet->getGoogleLikeFields()) != 0)
-			$options = '<option value="" >'."Any field".'</option>';
-		
-		foreach($fNamesArr as $fName)
-		{
-			$fLabel = GetFieldLabel(GoodFieldName($this->tName), GoodFieldName($fName));
-			$options .= '<option value="'.$fName.'" '.($selOpt == $fName ? 'selected' : '').'>'.$fLabel.'</option>';
-		}
-		return $options;
-	}
-	
 	/**
 	 * @return String
 	 */

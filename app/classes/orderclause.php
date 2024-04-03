@@ -140,32 +140,28 @@ class OrderClause
 		else
 		{
 			//	use SQL sorting
-			$orderInfo = $pSet->getOrderIndexes();
-			foreach( $orderInfo as $o )
-			{
-				$field = $pSet->GetFieldByIndex( $o[0] );
-				$ret[] = array('column' => $field,
-							 'index' => $o[0],
-							 'expr' => $o[2],
-						  	 'dir' => $o[1]
-								);
-				
-				$columns[ $field ] = true;
+			$ret = OrderClause::originalOrderFields( $pSet );
+			foreach( $ret as $of ) {
+				$columns[ $of['column'] ] = true;
 			}
+			$orderInfo = $pSet->getOrderIndexes();
 		}
 
-		// add key fields to the list to ensure persistent records order
-		foreach( $pSet->getTableKeys() as $k )
-		{
-			if( isset( $columns[$k] ) )
-				continue;
-			
-			$ret[] = array( 'column' => $k,
-							'index' => $pSet->getFieldIndex( $k ),
-							'expr' => RunnerPage::_getFieldSQLDecrypt( $k, $this->connection, $this->pSet, $this->cipherer ),
-							'dir' => 'ASC',
-							'hidden' => true
-						);
+
+		if( $this->orderParsed() ) {
+			// add key fields to the list to ensure persistent records order
+			foreach( $pSet->getTableKeys() as $k )
+			{
+				if( isset( $columns[$k] ) )
+					continue;
+				
+				$ret[] = array( 'column' => $k,
+								'index' => $pSet->getFieldIndex( $k ),
+								'expr' => RunnerPage::_getFieldSQLDecrypt( $k, $this->connection, $this->pSet, $this->cipherer ),
+								'dir' => 'ASC',
+								'hidden' => true
+							);
+			}
 		}
 		
 		// group by sort
@@ -202,6 +198,27 @@ class OrderClause
 		$this->_cachedFields = array_merge($groupByRet, $ret);
 
 		return $this->_cachedFields;
+	}
+
+	/**
+	 * Build order info based on the original SQL Query only
+	 * @return Array - see getOrderFields
+	 */
+	public static function originalOrderFields( $pSet ) {
+		$orderInfo = $pSet->getOrderIndexes();
+		$ret = array();
+		foreach( $orderInfo as $o )
+		{
+			$field = $pSet->GetFieldByIndex( $o[0] );
+			$ret[] = array('column' => $field,
+						 'index' => $o[0],
+						 'expr' => $o[2],
+						   'dir' => $o[1]
+							);
+			
+		}
+		return $ret;
+
 	}
 
 	public function getOrderUrlParams()
@@ -263,7 +280,7 @@ class OrderClause
 			
 		$sortSettings = $this->pSet->getSortControlSettingsJSONString();
 		$sortSettings = my_json_decode( $sortSettings );
-		if( !$sortSettings || !count( $sortSettings ) )
+		if( !$sortSettings || !$sortSettings )
 		{
 			$sortSettings = array();
 			
@@ -363,6 +380,13 @@ class OrderClause
 		
 		if( strlen( postvalue("orderby") )  || strlen( postvalue("sortby") ) )
 			$_SESSION[ $this->sessionPrefix . "_orderby" ] = array( "orderby" => postvalue("orderby"), "sortby" => postvalue("sortby") );
+	}
+
+	/**
+	 * @return Boolean - true when the original ORDER BY was successfully parsed by the wizard. Also true when there is no original order by
+	 */
+	protected function orderParsed() {
+		return !!$this->pSet->getOrderIndexes() || $this->pSet->getStrOrderBy() == "";
 	}
 }
 ?>

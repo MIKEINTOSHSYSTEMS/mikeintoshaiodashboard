@@ -59,6 +59,9 @@ class FilterPanel
 		{			
 			$filterFieldName = $fieldName;
 			$filterControl = FilterControl::getFilterControl($filterFieldName, $this->pageObj, $this->id, $this->viewControls);			
+			if( !$filterControl ) {
+				continue;
+			}
 
 			if( $filterControl->hasDependentFilter() )
 				continue;
@@ -72,7 +75,10 @@ class FilterPanel
 			{
 				$filterFieldName = $filterControl->parentFilterName;			
 				$filterControl = FilterControl::getFilterControl($filterFieldName, $this->pageObj, $this->id, $this->viewControls);
-					
+				if( !$filterControl ) {
+					continue;
+				}
+						
 				$filterCtrlBlocks = $filterControl->buildFilterCtrlBlockArray( $this->pageObj, $filterCtrlBlocks );		
 				$filterButtonParams = $filterControl->getFilterButtonParams( $filterButtonParams );
 				$filterExtraControls = $filterControl->getFilterExtraControls( $filterExtraControls );
@@ -116,7 +122,9 @@ class FilterPanel
 		$this->xt->assign("filter_button_apply".$postfix, $filterButtonParams["hasApplyBtn"]);
 		$this->xt->assign("filter_button_multiselect".$postfix, $filterButtonParams["hasMultiselectBtn"]);
 		
-		$this->xt->assign("clearLink".$postfix, $filterExtraControls["clearLink"]);
+		$this->xt->assign("clearLink".$postfix, $filterExtraControls["filtered"]);
+		$this->xt->assign("filter_selected".$postfix, $filterExtraControls["filtered"]);
+		$this->xt->assign("filtervalue".$postfix, $filterExtraControls["showValue"]);
 		$this->xt->assign("selectAll_attrs".$postfix, $filterExtraControls["selectAllAttrs"]);
 		
 		$this->xt->assign("filter_button_showmore".$postfix, $filterState["truncated"]);

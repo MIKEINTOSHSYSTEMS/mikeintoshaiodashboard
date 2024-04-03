@@ -40,7 +40,7 @@ class PrintPage_Master extends PrintPage
 	}
 	public function preparePage() 
 	{
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !$this->masterRecordData )
 			return;
 		
 		$pageTypeTitle = $this->pageType;
@@ -101,7 +101,7 @@ class PrintPage_Master extends PrintPage
 
 	public function showMaster( $params ) 
 	{
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !($this->masterRecordData) )
 			return;
 		
 		$this->xt->assign( "masterlist_title", false );
@@ -110,6 +110,7 @@ class PrintPage_Master extends PrintPage
 		{
 			$this->xt->assign("body", true );
 			$this->xt->assign("embedded_grid", true );
+			$this->xt->assign("embedded_grid_caption", true );
 
 			$this->xt->load_templateJSON( $this->templatefile);
 			echo  $this->xt->fetch_loadedJSON("body");

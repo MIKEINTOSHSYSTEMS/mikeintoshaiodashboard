@@ -76,14 +76,8 @@ class LookupField extends EditControl
 	 */
 	protected $searchByDisplayedFieldIsAllowed = null;
 
-	/**
-	 * @type Connection
-	 */
-	protected $lookupConnection; // need to be removed
-
 	protected $lookupDataSource;
-
-
+	
 	function __construct($field, $pageObject, $id, $connection)
 	{
 		parent::__construct($field, $pageObject, $id, $connection);
@@ -101,9 +95,8 @@ class LookupField extends EditControl
 
 		$this->lookupTable = $this->pageObject->pSetEdit->getLookupTable($this->field);
 		$this->lookupType = $this->pageObject->pSetEdit->getLookupType($this->field);
-		//$this->setLookupConnection();
 		$this->lookupDataSource = getLookupDataSource( $this->field, $this->pageObject->pSetEdit );
-
+		
 		if($this->lookupType == LT_QUERY) {
 			$this->lookupPSet = new ProjectSettings($this->lookupTable);
 		}
@@ -120,29 +113,10 @@ class LookupField extends EditControl
 		$this->multiselect = $this->pageObject->pSetEdit->multiSelect($this->field);
 		$this->customDisplay = $this->pageObject->pSetEdit->getCustomDisplay($this->field);
 
-//		$this->lwLinkField = $this->lookupConnection->addFieldWrappers( $this->linkFieldName );
-//		$this->lwDisplayFieldWrapped = RunnerPage::sqlFormattedDisplayField($this->field, $this->lookupConnection, $this->pageObject->pSetEdit);
 
 		// The number of rows in a multiline lookup
 		$this->lookupSize = $this->pageObject->pSetEdit->selectSize($this->field);
 		$this->bUseCategory = $this->pageObject->pSetEdit->useCategory($this->field);
-	}
-
-	/**
-	 * Set the lookupConnection property
-	 */
-	protected function setLookupConnection()
-	{
-		global $cman;
-
-		if( $this->lookupType == LT_QUERY )
-		{
-			$this->lookupConnection = $cman->byTable( $this->lookupTable );
-			return;
-		}
-
-		$connId = $this->pageObject->pSetEdit->getNotProjectLookupTableConnId( $this->field );
-		$this->lookupConnection = strlen( $connId ) ? $cman->byId( $connId ) : $cman->getDefault();
 	}
 
 
@@ -200,6 +174,7 @@ class LookupField extends EditControl
 	{
 		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
 
+		
 		$this->alt = ($mode == MODE_INLINE_EDIT || $mode == MODE_INLINE_ADD) && $this->is508 ? ' alt="'.runner_htmlspecialchars($this->strLabel).'" ' : "";
 
 		$suffix = "_".GoodFieldName($this->field)."_".$this->id;
@@ -228,7 +203,7 @@ class LookupField extends EditControl
 		$this->multiple = $this->multiselect ? " multiple" : "";
 		$this->postfix = $this->multiselect ? "[]" : "";
 		if( $this->multiselect )
-			$avalue = splitvalues($value);
+			$avalue = splitLookupValues($value);
 		else
 			$avalue = array((string)$value);
 
@@ -241,7 +216,10 @@ class LookupField extends EditControl
 		}
 		else
 		{
-			// build a table-based lookup
+			if( !$this->lookupDataSource ) {
+				return;
+			}
+				// build a table-based lookup
 			if( $this->ciphererLookup )
 				$this->isDisplayFieldEncrypted = $this->ciphererLookup->isFieldPHPEncrypted( $this->displayFieldName );
 
@@ -333,9 +311,9 @@ class LookupField extends EditControl
 		$arr = $this->pageObject->pSetEdit->getLookupValues($this->field);
 		$display_values = $arr;
 
-		if (in_array( $this->pageObject->pSet->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME)))
+		if (in_array( $this->pageObject->pSetEdit->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME)))
 		{
-			$container = new ViewControlsContainer($this->pageObject->pSet, PAGE_LIST, null);
+			$container = new ViewControlsContainer($this->pageObject->pSetEdit, PAGE_LIST, null);
 			foreach ( $arr as $key => $opt )
 			{
 				$data = array();
@@ -442,12 +420,14 @@ class LookupField extends EditControl
 			$this->buildMultiselectAJAXLookup($avalue, $value, $mode, $searchOption);
 			return;
 		}
+		
 
 		$listSearchHasSimpleBox = $mode == MODE_SEARCH && $this->isAdditionalControlRequired();
 		$optionContains = $this->isSearchOpitonForSimpleBox( $searchOption );
 		$listOptionContains = $listSearchHasSimpleBox && $optionContains;
-
 		$dataAttr = '';
+
+
 		if( $this->LCType == LCT_LIST )
 		{
 			$dataAttr = $listSearchHasSimpleBox ? ' data-usesuggests="true"' : '';
@@ -464,7 +444,7 @@ class LookupField extends EditControl
 				$valueAttr = ' value="'.runner_htmlspecialchars($value).'"';
 
 			// dependent ajax-lookup control
-			$inputParams = '" autocomplete="off" id="'.$this->clookupfield.'" '.$valueAttr.' name="'.$this->clookupfield.'" '.$this->inputStyle;
+			$inputParams = '" '.$this->getPlaceholderAttr().' autocomplete="off" id="'.$this->clookupfield.'" '.$valueAttr.' name="'.$this->clookupfield.'" '.$this->inputStyle;
 			$inputParams.= $this->LCType == LCT_LIST && !$listOptionContains ? 'readonly': '';
 			echo '<input type="text" '.$inputParams.'>';
 
@@ -514,16 +494,16 @@ class LookupField extends EditControl
 			$lookup_value = $value;
 		}
 
-		if ( in_array( $this->pageObject->pSet->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
+		if ( in_array( $this->pageObject->pSetEdit->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
 		{
-			$container = new ViewControlsContainer($this->pageObject->pSet, PAGE_LIST, null);
+			$container = new ViewControlsContainer($this->pageObject->pSetEdit, PAGE_LIST, null);
 
 			$ctrlData = array();
 			$ctrlData[ $this->field ] = $lookup_value;
 			$lookup_value = $container->getControl( $this->field )->getTextValue( $ctrlData );
 		}
 
-		$inputParams = 'autocomplete="off" id="'.$this->clookupfield.'" name="'.$this->clookupfield.'" '.$this->inputStyle.$this->alt;
+		$inputParams = 'autocomplete="off" '.$this->getPlaceholderAttr().' id="'.$this->clookupfield.'" name="'.$this->clookupfield.'" '.$this->inputStyle.$this->alt;
 		$inputParams.= ' value="'.runner_htmlspecialchars($lookup_value).'"';;
 
 		if( $this->LCType == LCT_LIST && !$listOptionContains )
@@ -556,7 +536,7 @@ class LookupField extends EditControl
 	 */
 	protected function buildMultiselectAJAXLookup($avalue, $value, $mode, $searchOption)
 	{
-		echo '<select '.$this->multiple.' id="'.$this->cfield.'" name="'.$this->cfield.$this->postfix.'" '.$this->inputStyle.$this->alt.'>';
+		echo '<select '.$this->getPlaceholderAttr().' '.$this->multiple.' id="'.$this->cfield.'" name="'.$this->cfield.$this->postfix.'" '.$this->inputStyle.$this->alt.'>';
 
 		if( !$this->bUseCategory && strlen($value) )
 			$this->buildMultiselectAJAXLookupRows($avalue, $value, $mode, $searchOption);
@@ -613,8 +593,6 @@ class LookupField extends EditControl
 		if( $options == 0 && strlen($value) && $mode == MODE_EDIT && $this->pageObject->pSetEdit->isLookupWhereSet( $this->field ) )
 		{
 			//one record mode true
-//			$lookupSQL = $this->getLookupSQL( array(), $value, false, true, false, true);
-//			$qResult = $this->lookupConnection->query( $lookupSQL );
 			$lookupDc = $this->getLookupDataCommand( array(), $value, false, true, false, true );
 			$qResult = $this->lookupDataSource->getList( $lookupDc );
 
@@ -793,9 +771,9 @@ class LookupField extends EditControl
 		$display_value = $data[ $this->displayFieldAlias ];
 		$link_value = $data[ $this->linkFieldName ];
 
-		if( in_array( $this->pageObject->pSet->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
+		if( in_array( $this->pageObject->pSetEdit->getViewFormat($this->field), array(FORMAT_DATE_SHORT, FORMAT_DATE_LONG, FORMAT_DATE_TIME) ) )
 		{
-			$container = new ViewControlsContainer($this->pageObject->pSet, PAGE_LIST, null);
+			$container = new ViewControlsContainer($this->pageObject->pSetEdit, PAGE_LIST, null);
 
 			$ctrlData = array();
 
@@ -804,13 +782,15 @@ class LookupField extends EditControl
 			$display_value = $container->getControl( $this->field )->getTextValue( $ctrlData );
 		}
 
+		$render_value = $this->getLookupTextValue( $display_value );
+
 		switch($this->LCType)
 		{
 			case LCT_DROPDOWN:
 			case LCT_LIST:
 			case LCT_AJAX:
 				echo '<option value="'.runner_htmlspecialchars($data[ $this->linkFieldName ]).'"'.$checked.'>'
-						.runner_htmlspecialchars($display_value).'</option>';
+						.$render_value.'</option>';
 				break;
 
 			case LCT_CBLIST:
@@ -818,7 +798,7 @@ class LookupField extends EditControl
 						.'<input id="'.$this->cfield.'_'.$i.'" class="rnr-checkbox" type="checkbox" '.$this->alt.' name="'.$this->cfield.$this->postfix
 							.'" value="'.runner_htmlspecialchars( $link_value ).'"'.$checked.'/>&nbsp;'
 						.'<span class="rnr-checkbox-label" id="data_'.$this->cfield.'_'.$i.'">'
-							.runner_htmlspecialchars($display_value)
+							.$render_value
 						.'</span>'
 					.'</label></span>';
 				break;
@@ -828,7 +808,7 @@ class LookupField extends EditControl
 						.'<input type="Radio" class="rnr-radio-button" id="radio_'.$this->cfieldname.'_'.$i.'" '
 							.$this->alt.' name="radio_'.$this->cfieldname.'" '.$checked.' value="'.runner_htmlspecialchars( $link_value ).'">'
 						.' <span id="label_radio_'.$this->cfieldname.'_'.$i.'" class="rnr-radio-label">'
-							.runner_htmlspecialchars($display_value)
+							.$render_value
 						.'</span>'
 					.'</label></span>';
 				break;
@@ -863,7 +843,7 @@ class LookupField extends EditControl
 			return false;
 
 		$userSearchOptions = $this->pageObject->pSetEdit->getSearchOptionsList( $this->field );
-		return !count($userSearchOptions) || in_array('Contains', $userSearchOptions) || in_array('Starts with', $userSearchOptions);
+		return !($userSearchOptions) || in_array('Contains', $userSearchOptions) || in_array('Starts with', $userSearchOptions);
 	}
 
 	/**
@@ -881,14 +861,14 @@ class LookupField extends EditControl
 			return false;
 
 		$userSearchOptions = $this->pageObject->pSetEdit->getSearchOptionsList( $this->field );
-		if( count($userSearchOptions) && !in_array('Contains', $userSearchOptions) && !in_array('Starts with', $userSearchOptions) )
+		if( !!$userSearchOptions && !in_array('Contains', $userSearchOptions) && !in_array('Starts with', $userSearchOptions) )
 			return false;
 
 		if( $this->lookupType == LT_LISTOFVALUES || $this->linkAndDisplaySame )
 			return true;
 
 		// #9875 connection and lookupConnection props must be the same
-		if( $this->connection->connId != $this->lookupConnection->connId )
+		if( $this->connection->connId != $this->lookupDataSource->getConnectionId() )
 			return false;
 
 		if( !$this->connection->checkIfJoinSubqueriesOptimized() && $this->LCType == LCT_LIST )
@@ -916,7 +896,8 @@ class LookupField extends EditControl
 	 */
 	protected function isLookupSQLquerySimple()
 	{
-		if( $this->lookupConnection->dbType == nDATABASE_DB2 || $this->lookupConnection->dbType == nDATABASE_Informix || $this->lookupConnection->dbType == nDATABASE_SQLite3 )
+		$lookupConnection = $this->lookupDataSource->getConnection();
+		if( $lookupConnection->dbType == nDATABASE_DB2 || $lookupConnection->dbType == nDATABASE_Informix || $lookupConnection->dbType == nDATABASE_SQLite3 )
 			return false;
 
 		if( $this->lookupType == LT_LOOKUPTABLE || $this->lookupType == LT_LISTOFVALUES )
@@ -928,10 +909,14 @@ class LookupField extends EditControl
 
 		$lookupSqlQuery = $this->lookupPSet->getSQLQuery();
 
+		if( !$lookupSqlQuery ) {
+			return false;
+		}
+
 		if( $lookupSqlQuery->HasGroupBy() || $lookupSqlQuery->HavingToSql() != "" || $lookupSqlQuery->HasSubQueryInFromClause() )
 			return false;
 
-		if( $this->lookupConnection->dbType != nDATABASE_MySQL )
+		if( $lookupConnection->dbType != nDATABASE_MySQL )
 		{
 			$linkFieldType = $this->lookupPSet->getFieldType( $this->linkFieldName );
 			if( !(IsNumberType($this->type) && IsNumberType($linkFieldType) || IsCharType($this->type) && IsCharType($linkFieldType) || IsDateFieldType($this->type) && IsDateFieldType($linkFieldType)) )
@@ -959,6 +944,10 @@ class LookupField extends EditControl
 
 		$sqlQuery = $this->pageObject->pSetEdit->getSQLQueryByField( $this->field );
 
+		if( !$sqlQuery ) {
+			return false;
+		}
+
 		if( $sqlQuery->HasGroupBy() || $sqlQuery->HavingToSql() != "" || $sqlQuery->HasSubQueryInFromClause() )
 			return false;
 
@@ -975,7 +964,11 @@ class LookupField extends EditControl
 			return $this->searchByDisplayedFieldIsAllowed;
 
 		// #9875 connection and lookupConnection props must be the same
-		if( $this->connection->connId != $this->lookupConnection->connId )
+		if( !$this->lookupDataSource ) {
+			$this->searchByDisplayedFieldIsAllowed = false;
+			return $this->searchByDisplayedFieldIsAllowed;
+		}
+		if( $this->connection->connId != $this->lookupDataSource->getConnectionId() )
 		{
 			$this->searchByDisplayedFieldIsAllowed = false;
 			return $this->searchByDisplayedFieldIsAllowed;
@@ -996,27 +989,6 @@ class LookupField extends EditControl
 		return $this->searchByDisplayedFieldIsAllowed;
 	}
 
-	/**
-	 * The wrapper for the SearchClause 'SQLWhere' method
-	 */
-	public function getSearchWhere($searchFor, $strSearchOption, $searchFor2, $etype)
-	{
-		if( !$this->isSearchByDispalyedFieldAllowed() || ( $strSearchOption !== "Starts with" && $strSearchOption !== "Contains" ) )
-			return $this->SQLWhere($searchFor, $strSearchOption, $searchFor2, $etype, false);
-
-		$searchIsCaseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
-
-		$searchFor = $this->connection->escapeLIKEpattern( $searchFor );
-		$searchFor = $this->connection->prepareString( $strSearchOption == 'Contains' ? '%'.$searchFor.'%' : $searchFor.'%' );
-
-
-		if( $searchIsCaseInsensitive )
-			$displayFieldSearchClause = $this->connection->upper( $this->lwDisplayFieldWrapped )." ".$this->like." ". $this->connection->upper( $searchFor );
-		else
-			$displayFieldSearchClause = $this->lwDisplayFieldWrapped ." ".$this->like." ". $searchFor;
-
-		return $this->getFieldSQLDecrypt() . " in (" . $this->getSearchSubquerySQL( $displayFieldSearchClause ) . ")";
-	}
 
 	/**
 	 * @param String strSearchOption
@@ -1025,57 +997,6 @@ class LookupField extends EditControl
 	public function checkIfDisplayFieldSearch( $strSearchOption )
 	{
 		return $this->isSearchByDispalyedFieldAllowed() && ( $strSearchOption === "Starts with" || $strSearchOption === "Contains" );
-	}
-
-	/**
-	 * Get an extra WHERE clause condtion
-	 * that helps to retrieve a field's search suggest value
-	 * @param String searchOpt
-	 * @param String searchFor
-	 * @param Boolean isAggregateField (optional)
-	 * @return String
-	 */
-	/*
-	 public function getSuggestWhere($strSearchOption, $searchFor, $isAggregateField = false)
-	{
-		if( !$this->isSearchByDispalyedFieldAllowed() || ( $strSearchOption !== "Starts with" && $strSearchOption !== "Contains" ) )
-			return $this->SQLWhere($searchFor, $strSearchOption, "", "", false);
-
-		$this->initializeLookupTableAliases();
-
-		$searchIsCaseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
-
-		$searchFor = $this->connection->escapeLIKEpattern( $searchFor );
-		$searchFor = $this->connection->prepareString( $strSearchOption == 'Contains' ? '%'.$searchFor.'%' : $searchFor.'%' );
-		$searchForPrepared = $searchIsCaseInsensitive ?  $this->connection->upper( $searchFor ) : $searchFor;
-
-		$displayFieldName = $this->lookupTableAliases[ $this->id ].".".$this->displayFieldAliases[ $this->id ];
-
-		if( $searchIsCaseInsensitive )
-			$likeCondition = $this->connection->upper( $displayFieldName )." ".$this->like." ". $searchForPrepared;
-		else
-			$likeCondition = $displayFieldName." ".$this->like." ". $searchForPrepared;
-
-		return $likeCondition;
-	}
-	*/
-
-	/**
-	 * Get an extra HAVING clause condtion
-	 * that helps to retrieve a field's search suggest value
-	 * @param String searchOpt
-	 * @param String searchFor
-	 * @param Boolean isAggregateField (optional)
-	 * @return String
-	 */
-	public function getSuggestHaving($searchOpt, $searchFor, $isAggregateField = true)
-	{
-		if( !$this->isSearchByDispalyedFieldAllowed() )
-			return parent::getSuggestHaving($searchOpt, $searchFor, $isAggregateField);
-
-		$this->initializeLookupTableAliases();
-
-		return $isAggregateField ? $this->lookupTableAliases[ $this->id ].".".$this->linkFieldAliases[ $this->id ]." is not NULL" : "";
 	}
 
 	/**
@@ -1098,226 +1019,6 @@ class LookupField extends EditControl
 			"joinFromPart"=> $this->getFromClauseJoinPart( $searchFor, $searchOpt, $isSuggest)
 		);
 	}
-
-	/**
-	 * Initialize the lookup table aliases
-	 * The connection and lookupConnection props must be the same #9875
-	 */
-
-	 /*
-	protected function initializeLookupTableAliases()
-	{
-		if( isset( $this->lookupTableAliases[ $this->id ] ) )
-			return;
-
-		$this->lookupTableAliases[ $this->id ] = $this->connection->addTableWrappers( "lt".generatePassword(14) );
-		$this->linkFieldAliases[ $this->id ] = $this->connection->addFieldWrappers( "lf".generatePassword(14) );
-		$this->displayFieldAliases[ $this->id ] = $this->connection->addFieldWrappers( "df".generatePassword(14) );
-	}
-	*/
-	/**
-	 * Get the FORM clause part that will be joined
-	 * to the basic page's FROM clause
-	 * The connection and lookupConnection props must be the same #9875
-	 * @param String searchFor
-	 * @param String searchOpt
-	 * @param Boolean isSuggest
-	 * @return String
-	 */
-
-	 /*
-	protected function getFromClauseJoinPart( $searchFor, $searchOpt, $isSuggest )
-	{
-		if( !$this->isSearchByDispalyedFieldAllowed() )
-			return "";
-
-		$lookUpFieldName = RunnerPage::_getFieldSQL($this->field, $this->connection, $this->pageObject->pSetEdit);
-
-		if($this->lookupType != LT_LOOKUPTABLE )
-		{
-			$linkFieldName = RunnerPage::_getFieldSQL($this->linkFieldName, $this->connection, $this->lookupPSet);
-
-			if( !$this->customDisplay )
-				$displayFieldName = RunnerPage::_getFieldSQL($this->displayFieldName, $this->connection, $this->lookupPSet);
-			else
-				$displayFieldName = $this->displayFieldName;
-
-			$lookupFromExpression = $this->lookupPSet->getSQLQuery()->FromToSql();
-		}
-		else
-		{
-			$linkFieldName = $this->lwLinkField;
-			$displayFieldName = $this->lwDisplayFieldWrapped;
-			$lookupFromExpression = " from " . $this->connection->addTableWrappers( $this->lookupTable );
-		}
-
-		$subqueryColumns = $linkFieldName." as ".$this->linkFieldAliases[ $this->id ].", ".$displayFieldName." as".$this->displayFieldAliases[ $this->id ];
-		$subquery = "select ".$subqueryColumns.$lookupFromExpression;
-
-		return " left join (".$subquery.") ".$this->lookupTableAliases[ $this->id ]." on ".$this->lookupTableAliases[ $this->id ].".".$this->linkFieldAliases[ $this->id ]."=".$lookUpFieldName;
-	}
-	*/
-
-	/**
-	 * Get the substitute columns list for the SELECT Clause
-	 * @param Boolean isSuggest
-	 * @return String
-	 */
-	/*
-	 protected function getSelectColumns( $isSuggest )
-	{
-		if( $isSuggest )
-			return $this->lookupTableAliases[ $this->id ].".".$this->displayFieldAliases[ $this->id ];
-		return "";
-	}
-	*/
-
-	/**
-	 * Get the WHERE clause conditions string for the search or suggest SQL query
-	 * @param String SearchFor
-	 * @param String strSearchOption
-	 * @param String SearchFor2
-	 * @param String etype
-	 * @param Boolean isSuggest
-	 * @return String
-	 */
-	/*
-	 function SQLWhere( $SearchFor, $strSearchOption, $SearchFor2, $etype, $isSuggest )
-	{
-		if( $this->lookupType == LT_LISTOFVALUES )
-			return parent::SQLWhere($SearchFor, $strSearchOption, $SearchFor2, $etype, $isSuggest);
-
-		$baseResult = $this->baseSQLWhere($strSearchOption);
-		if( $baseResult === false )
-			return "";
-
-		if( $baseResult !== "" )
-			return $baseResult;
-
-		if( $this->connection->dbType != nDATABASE_MySQL )
-			$this->btexttype = IsTextType($this->type);
-
-		if( $this->multiselect && $strSearchOption != "Equals" )
-			$SearchFor = splitvalues($SearchFor);
-		else
-			$SearchFor = array($SearchFor);
-
-		$gstrField = $this->getFieldSQLDecrypt();
-		if( ($strSearchOption == "Starts with" || $strSearchOption == "Contains") && (!IsCharType($this->type) || $this->btexttype) )
-			$gstrField = $this->connection->field2char($gstrField, $this->type);
-
-		$ret = "";
-		foreach($SearchFor as $searchItem)
-		{
-			$value = $searchItem;
-			if( $value == "null" || $value == "Null" || $value == "" )
-				continue;
-
-			if( strlen(trim($ret)) )
-				$ret.=" or ";
-
-			if( ($strSearchOption == "Starts with" || $strSearchOption == "Contains") && !$this->multiselect )
-			{
-				$value = $this->connection->escapeLIKEpattern( $value );
-
-				if( $strSearchOption == "Starts with" )
-					$value.= '%';
-				if( $strSearchOption == "Contains" )
-					$value = '%'.$value.'%';
-			}
-
-			if( $strSearchOption != "Starts with" && $strSearchOption != "Contains" )
-				$value = make_db_value($this->field, $value);
-
-			$searchIsCaseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
-
-			if( $strSearchOption == "Equals" && !($value == "null" || $value == "Null") )
-			{
-				$condition = $gstrField.'='.$value;
-			}
-			else if( ($strSearchOption=="Starts with" || $strSearchOption=="Contains") && !$this->multiselect)
-			{
-				$value = $this->connection->prepareString( $value );
-				if( IsCharType($this->type) && !$this->btexttype && $searchIsCaseInsensitive ) {
-					$value = $this->connection->upper( $value );				
-					$gstrField = $this->connection->upper( $gstrField );				
-				}
-				$condition = $gstrField." ".$this->like." ". $value;
-			}
-			else if( $strSearchOption == "More than" )
-			{
-				$condition = $gstrField." > ".$value;
-			}
-			else if( $strSearchOption == "Less than" )
-			{
-				$condition = $gstrField."<".$value;
-			}
-			else if( $strSearchOption == "Equal or more than" )
-			{
-				$condition = $gstrField.">=".$value1;
-			}
-			else if( $strSearchOption == "Equal or less than" )
-			{
-				$condition = $gstrField."<=".$value1;
-			}
-			else if( $strSearchOption == "Between" )
-			{
-				$value2 = $this->connection->prepareString( $SearchFor2 );
-
-				if( $this->lookupType == LT_QUERY && IsCharType($this->type) && !$this->btexttype && $searchIsCaseInsensitive )
-					$value2 = $this->connection->upper( $value2 );
-
-				$condition = $gstrField.">=".$value." and ";
-				if (IsDateFieldType($this->type))
-				{
-					$timeArr = db2time($SearchFor2);
-					// for dates without time, add one day
-					if ($timeArr[3] == 0 && $timeArr[4] == 0 && $timeArr[5] == 0)
-					{
-						$timeArr = adddays($timeArr, 1);
-						$SearchFor2 = $timeArr[0]."-".$timeArr[1]."-".$timeArr[2];
-						$SearchFor2 = add_db_quotes($this->field, $SearchFor2, $this->tName);
-						$condition .= $gstrField."<".$SearchFor2;
-					}
-					else
-						$condition .= $gstrField."<=".$value2;
-				}
-				else
-					$condition .= $gstrField."<=".$value2;
-			}
-			else if( $this->multiselect )
-			{
-				if( strpos($value, ",") !== false || strpos($value, '"') !== false )
-					$value = '"'.str_replace('"', '""', $value).'"';
-
-				$fullFieldName = $gstrField;
-				$value = $this->connection->escapeLIKEpattern( $value );
-
-				//for search by multiply Lookup wizard field
-				$ret .= $fullFieldName." = ". $this->connection->prepareString( $value );
-				$ret .= " or ".$fullFieldName." ".$this->like." ". $this->connection->prepareString( "%,".$value.",%" );
-				$ret .= " or ".$fullFieldName." ".$this->like." ". $this->connection->prepareString( "%,".$value );
-				$ret .= " or ".$fullFieldName." ".$this->like." ". $this->connection->prepareString( $value.",%" );
-			}
-
-			if( $condition != "" && ($isSuggest || $strSearchOption == "Contains" || $strSearchOption == "Equals" ||$strSearchOption == "Starts with"
-				|| $strSearchOption == "More than" || $strSearchOption == "Less than" || $strSearchOption == "Equal or more than"
-				|| $strSearchOption == "Equal or less than" || $strSearchOption == "Between") )
-			{
-				if( $this->linkAndDisplaySame || ($strSearchOption != "Contains" && $strSearchOption != "Starts with") )
-					$ret .= " ".$condition;
-				else
-					return "";
-			}
-		}
-
-		$ret = trim($ret);
-		if( strlen($ret) )
-			$ret = "(".$ret.")";
-
-		return $ret;
-	}
-	*/
 
 	/**
 	 * Form the control specified search options array and built the control's search options markup
@@ -1430,300 +1131,6 @@ class LookupField extends EditControl
 		}
 	}
 
-
-	/**
-	 * @return Array
-	 */
-	protected function getSQLWhereParts( $doValueFilter, $childVal, $doWhereFilter, $doCategoryFilter, $parentValuesData, $readyCategoryWhere, $oneRecordMode  )
-	{
-		$mandatoryWhere = array();
-		$mandatoryWhere[] = $doValueFilter ? $this->getChildWhere( $childVal ) : "";
-
-		if( $doWhereFilter )
-		{
-			$mandatoryWhere[] = prepareLookupWhere( $this->field, $this->pageObject->pSetEdit );
-
-			if( $this->lookupType == LT_QUERY )
-			{
-				// #12975 - apply security clause with ADVSECURITY_VIEW_OWN only
-				if( $this->lookupPSet->getAdvancedSecurityType() == ADVSECURITY_VIEW_OWN )
-					$mandatoryWhere[] = SecuritySQL("Search", $this->lookupTable);
-			}
-		}
-
-		if( $doCategoryFilter )
-		{
-			if( $readyCategoryWhere )
-				$mandatoryWhere[] = $readyCategoryWhere;
-			else if( count( $parentValuesData ) > 0 )
-				$mandatoryWhere[] = $this->getCategoryWhere( $parentValuesData );
-		}
-
-		if( $oneRecordMode && $this->lookupConnection->dbType == nDATABASE_Oracle )
-			$mandatoryWhere[] = "rownum < 2";
-
-		return $mandatoryWhere;
-	}
-
-	/**
-	 * @param Array parentValuesData
-	 * @param String childVal
-	 * @param Boolean doCategoryFilter
-	 * @param Boolean doValueFilter
-	 * @param Boolean doWhereFilter
-	 * @param Boolean oneRecordMode
-	 * @param String readyCategoryWhere
-	 *
-	 * @return String
-	 */
-	protected function getProjectTableLookupSQL( $parentValuesData, $childVal, $doCategoryFilter, $doValueFilter, $doWhereFilter, $oneRecordMode, $readyCategoryWhere )
-	{
-		if( $this->lookupType != LT_QUERY )
-			return "";
-
-		// build Order By clause
-		$strOrderBy = $this->pageObject->pSetEdit->getLookupOrderBy( $this->field );
-		$orderByClause = "";
-		if( strlen($strOrderBy) )
-		{
-			$strOrderBy = RunnerPage::_getFieldSQLDecrypt( $strOrderBy, $this->lookupConnection, $this->lookupPSet, $this->ciphererLookup );
-			if( $this->pageObject->pSetEdit->isLookupDesc( $this->field ) )
-				$strOrderBy.= ' DESC';
-
-			$orderByClause = ' ORDER BY '.$strOrderBy;
-		}
-
-		$lookupQueryObj = $this->lookupPSet->getSQLQuery();
-		$lookupQueryObj->ReplaceFieldsWithDummies( $this->lookupPSet->getBinaryFieldsIndices() );
-
-		if ( trim($orderByClause) === "" ) {
-			$orderByClause = $lookupQueryObj->OrderByToSql();
-		}
-
-		if( $this->customDisplay )
-			$lookupQueryObj->AddCustomExpression($this->displayFieldName, $this->lookupPSet, $this->tName, $this->field);
-
-		$sqlParts = $lookupQueryObj->getSqlComponents( $oneRecordMode );
-		$mandatoryWhere = $this->getSQLWhereParts( $doValueFilter, $childVal, $doWhereFilter, $doCategoryFilter, $parentValuesData, $readyCategoryWhere, $oneRecordMode );
-
-		$strSQL = SQLQuery::buildSQL( $sqlParts, $mandatoryWhere );
-		$strSQL.= " ".trim( $orderByClause );
-
-		if( $oneRecordMode )
-			$strSQL.= $this->getOneRecordModeTailPart();
-
-		return $strSQL;
-	}
-
-	/**
-	 * @param Array parentValuesData
-	 * @param String childVal
-	 * @param Boolean doCategoryFilter
-	 * @param Boolean doValueFilter
-	 * @param Boolean doWhereFilter
-	 * @param Boolean oneRecordMode
-	 * @param String readyCategoryWhere
-	 *
-	 * @return String
-	 */
-	protected function getNotProjectTableLookupSQL( $parentValuesData, $childVal, $doCategoryFilter, $doValueFilter, $doWhereFilter, $oneRecordMode, $readyCategoryWhere )
-	{
-		if( $this->lookupType != LT_LOOKUPTABLE )
-			return "";
-
-		$pSet = $this->pageObject->pSetEdit;
-
-		// build Order By clause
-		$strOrderBy = $pSet->getLookupOrderBy($this->field);
-		if( $this->lookupConnection->dbType == nDATABASE_MSSQLServer )
-			$strUniqueOrderBy = $strOrderBy;
-
-		if( strlen($strOrderBy) )
-		{
-			$strOrderBy = $this->lookupConnection->addFieldWrappers($strOrderBy);
-
-			if( $pSet->isLookupDesc($this->field) )
-				$strOrderBy .= ' DESC';
-		}
-
-		// build Where clause
-		$mandatoryWhere = $this->getSQLWhereParts( $doValueFilter, $childVal, $doWhereFilter, $doCategoryFilter, $parentValuesData, $readyCategoryWhere, $oneRecordMode );
-		$strWhere = combineSQLCriteria( $mandatoryWhere );
-
-
-		$LookupSQL = "SELECT ";
-		if( $this->lookupConnection->dbType == nDATABASE_MSSQLServer || $this->lookupConnection->dbType == nDATABASE_Access )
-		{
-			if( $oneRecordMode )
-				$LookupSQL.= "top 1 ";
-		}
-		$bUnique = $pSet->isLookupUnique($this->field);
-
-		if( $bUnique && !$oneRecordMode )
-			$LookupSQL.= "DISTINCT ";
-
-		$LookupSQL.= $this->lwLinkField;
-
-		if( !$this->linkAndDisplaySame )
-			$LookupSQL.= ",".RunnerPage::sqlFormattedDisplayField($this->field, $this->lookupConnection, $pSet);
-
-		if( $this->lookupConnection->dbType == nDATABASE_MSSQLServer )
-		{
-			if( $strUniqueOrderBy && $bUnique && !$oneRecordMode )
-				$LookupSQL.= ",".$this->lookupConnection->addFieldWrappers( $strUniqueOrderBy );
-		}
-
-		$LookupSQL.= " FROM ".$this->lookupConnection->addTableWrappers( $this->lookupTable );
-
-		if( strlen($strWhere) )
-			$LookupSQL.=" WHERE ".$strWhere;
-
-		if( strlen($strOrderBy) )
-			$LookupSQL.= " ORDER BY ".$this->lookupConnection->addTableWrappers( $this->lookupTable ).".".$strOrderBy;
-
-		if( $oneRecordMode )
-			$LookupSQL.= $this->getOneRecordModeTailPart();
-
-		return $LookupSQL;
-	}
-
-	/**
-	 * @return Strings
-	 */
-	protected function getOneRecordModeTailPart()
-	{
-		if( $this->lookupConnection->dbType == nDATABASE_MySQL )
-			return " limit 0,1";
-
-		if( $this->lookupConnection->dbType == nDATABASE_PostgreSQL )
-			return " limit 1";
-
-		if( $this->lookupConnection->dbType == nDATABASE_DB2 )
-			return " fetch first 1 rows only";
-
-		return "";
-	}
-
-	/**
-	 * Get the lookup SQL Query string
-	 *
-	 * @param Array parentValuesData
-	 * @param String childVal
-	 * @param Boolean doCategoryFilter (optional)
-	 * @param Boolean doValueFilter (optional)
-	 * @param Boolean doWhereFilter (optional)
-	 * @param Boolean oneRecordMode (optional)
-	 * @param String readyCategoryWhere (optional)
-	 * @return String
-	 */
-	public function getLookupSQL( $parentValuesData, $childVal = "", $doCategoryFilter = true, $doValueFilter = false, $doWhereFilter = true, $oneRecordMode = false, $readyCategoryWhere = "" )
-	{
-		if( $this->lookupType == LT_QUERY )
-			return $this->getProjectTableLookupSQL( $parentValuesData, $childVal, $doCategoryFilter, $doValueFilter, $doWhereFilter, $oneRecordMode, $readyCategoryWhere );
-
-		if( $this->lookupType == LT_LOOKUPTABLE )
-			return $this->getNotProjectTableLookupSQL( $parentValuesData, $childVal, $doCategoryFilter, $doValueFilter, $doWhereFilter, $oneRecordMode, $readyCategoryWhere );
-
-		return "";
-	}
-
-
-	/**
-	 * @user API
-	 * @param String mainControlName
-	 * @param String filterFieldName
-	 * @param String mainControlVal
-	 * @return String
-	 */
-	public function getCategoryCondition( $mainControlName, $filterFieldName, $mainControlVal )
-	{
-		$parentValsPlain = $this->pageObject->pSetEdit->multiSelect( $mainControlName ) ? splitvalues( $mainControlVal ) : array( $mainControlVal );
-
-		$parentVals = array();
-
-		foreach($parentValsPlain as $arKey => $arElement)
-		{
-			if( $this->lookupType == LT_QUERY )
-				$parentVals[ $arKey ] = $this->ciphererLookup->MakeDBValue( $filterFieldName, $arElement, '', true );
-			else
-				$parentVals[ $arKey ] = make_db_value( $mainControlName, $arElement, '', '', $this->tName );
-		}
-
-		$categoryWhere = array();
-		foreach($parentVals as $arKey => $arValue)
-		{
-			$condition = $arValue === "null" ? " is null" : "=".$arValue;
-
-			if( $this->lookupType == LT_QUERY )
-				$categoryWhere[] = $this->ciphererLookup->GetFieldName( RunnerPage::_getFieldSQL( $filterFieldName, $this->lookupConnection, $this->lookupPSet ), $filterFieldName ).$condition;
-			else
-				$categoryWhere[] = $this->lookupConnection->addFieldWrappers( $filterFieldName ).$condition;
-		}
-
-		return (count($categoryWhere) == 1) ? $categoryWhere[0] : "(".implode(" OR ", $categoryWhere).")";
-	}
-
-	/**
-	 * Get a where condition for a dependent lookup
-	 * @param Array parentValuesData
-	 * @return String
-	 */
-	protected function getCategoryWhere( $parentValuesData )
-	{
-		if( !$this->bUseCategory )
-			return "";
-
-		$whereParts = array();
-
-		foreach( $this->pageObject->pSetEdit->getParentFieldsData( $this->field ) as $cdata )
-		{
-			$mainControlName = $cdata['main'];
-			$filterFieldName = $cdata['lookup'];
-			$mainControlVal = $parentValuesData[ $mainControlName ];
-
-			if( $this->pageObject->pSetEdit->multiSelect( $mainControlName ) || strlen( $mainControlVal ) )
-				$whereParts[] = $this->getCategoryCondition(  $mainControlName, $filterFieldName, $mainControlVal );
-		}
-
-		if( !count( $whereParts ) )
-			return "";
-
-		return "(".implode(" AND ", $whereParts).")";
-	}
-
-	/**
-	 * Get a where condition basing on curren't lookup control's values
-	 * @param String childVal
-	 * @return String
-	 */
-	protected function getChildWhere( $childVal )
-	{
-		if( $this->lookupType == LT_QUERY )
-		{
-			$fullLinkFieldName = RunnerPage::_getFieldSQLDecrypt( $this->linkFieldName,
-				$this->lookupConnection,
-				$this->lookupPSet,
-				$this->ciphererLookup );
-		}
-		else
-			$fullLinkFieldName = $this->lwLinkField;
-
-		$childValues = $this->multiselect ? splitvalues( $childVal ) : array( $childVal );
-		$childWheres = array();
-
-		foreach( $childValues as $childValue )
-		{
-			if( $this->lookupType == LT_QUERY )
-				$dbValue = $this->ciphererLookup->MakeDBValue( $this->linkFieldName, $childValue, "", true );
-			else
-				$dbValue = make_db_value($this->field, $childValue, '', '', $this->tName);
-
-			$childWheres[] = $fullLinkFieldName.( $dbValue === "null" ? " is null" : "=".$dbValue );
-		}
-
-		return implode(' OR ', $childWheres);
-	}
-
 	/**
 	 * @param Array parentValuesData
 	 * @return Boolean
@@ -1738,19 +1145,11 @@ class LookupField extends EditControl
 				continue ;
 
 			$parentValue = $parentValuesData[ $cData['main'] ];
-			$parentVals = $this->pageObject->pSetEdit->multiSelect($strCategoryControl) ? splitvalues( $parentValue ) : array( $parentValue );
+			$parentVals = $this->pageObject->pSetEdit->multiSelect($strCategoryControl) ? splitLookupValues( $parentValue ) : array( $parentValue );
 
 			foreach( $parentVals as $parentVal )
 			{
-				if( !strlen($parentVal) )
-					continue;
-
-				if( $this->lookupType == LT_QUERY )
-					$tempParentVal = $this->ciphererLookup->MakeDBValue( $cData['main'], $parentVal, "", true );
-				else
-					$tempParentVal = make_db_value($this->field, $parentVal);
-
-				if( $tempParentVal !== "null" )
+				if( strlen( trim( $parentVal ) ) )
 					return true;
 			}
 		}
@@ -1782,7 +1181,7 @@ class LookupField extends EditControl
 	}
 
 	/**
-	 * @param DsCommand lookupSQL
+	 * @param DsCommand lookupDc
 	 * @param Boolean selectValue
 	 * @return Array
 	 */
@@ -1809,7 +1208,7 @@ class LookupField extends EditControl
 					$uniqueArray[] = $dispValue;
 				}
 				$response[] = $data[ $this->linkFieldName ];
-				$response[] = $dispValue;
+				$response[] = $this->getLookupTextValue( $dispValue );
 			}
 		}
 		else
@@ -1820,7 +1219,7 @@ class LookupField extends EditControl
 			if( $data && ( $selectValue || !$qResult->fetchAssoc() ) )
 			{
 				$response[] = $data[ $this->linkFieldName ];
-				$response[] = $data[ $this->displayFieldAlias ];
+				$response[] = $this->getLookupTextValue( $data[ $this->displayFieldAlias ] );
 			}
 		}
 
@@ -1880,45 +1279,51 @@ class LookupField extends EditControl
 	{
 		$data = array();
 
+		$lookupDc = $this->getLookupDataCommand( array(), $linkFieldVal, false, true, true );
+		$rs = $this->lookupDataSource->getList( $lookupDc );
+		if( !$rs ) {
+			showError( $this->lookupDataSource->lastError() );
+		}
+		$row = $rs->fetchAssoc();
+
+		$autoCompleteFields = $this->pageObject->pSetEdit->getAutoCompleteFields( $this->field );
 		if( $this->lookupType == LT_QUERY )
 		{
-			$lookupDc = $this->getLookupDataCommand( array(), $linkFieldVal, false, true, true );
-			$row = $this->lookupDataSource->getList( $lookupDc )->fetchAssoc();
-			if( !$row ) {
-				showError( $this->lookupDataSource->lastError() );
-			}
-	
 			$data =  $this->ciphererLookup->DecryptFetchedArray( $row );
 		}
 		else
 		{
-			$lookupDc = $this->getLookupDataCommand( array(), $linkFieldVal, false, true, true );
-			$row = $this->lookupDataSource->getList( $lookupDc )->fetchAssoc();
-			if( !$row ) {
-				showError( $this->lookupDataSource->lastError() );
-			}
-	
-			$autoCompleteFields = $this->pageObject->pSetEdit->getAutoCompleteFields( $this->field );
 			foreach( $autoCompleteFields as $aData )
 			{
 				$data[ $aData["lookupF"] ] = $row[ $aData["lookupF"] ];
 			}
 		}
 
-		if( !count( $data ) )
-			$data = array( $this->field => '' );
+		$ret = array();
+		$masterData = array();
+		foreach( $autoCompleteFields as $aData ) {
+			$masterData[ $aData["masterF"] ] = $data[ $aData["lookupF"] ];
 
-		return $data;
+			$fieldData = array();
+			$val = $data[ $aData["lookupF"] ];
+			$ctrl = $this->pageObject->getControl( $aData["masterF"] );
+			$dispValue = $ctrl->getDisplayValue( $masterData );
+			if( $ctrl->format == EDIT_FORMAT_READONLY ) {
+				$fieldData["value"] = $val;
+				$fieldData["dispValue"] = $dispValue;
+			} else {
+				$fieldData["value"] = $dispValue;
+			}
+
+			$ret[ $aData["lookupF"] ] = $fieldData;
+		}
+		
+		if( !$ret )
+			$ret[ $this->field ] = '';
+
+		return $ret;
 	}
 
-
-	/**
-	 *
-	 */
-	public function getConnection()
-	{
-		return $this->lookupConnection;
-	}
 
 	function getInputStyle( $mode )
 	{
@@ -1954,7 +1359,7 @@ class LookupField extends EditControl
 
 		return '&nbsp;'.implode('&nbsp;', $links);
 	}
-	public function getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2 = "" ) {
+	public function getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2 = "", $etype = "" ) {
 		if( !$this->multiselect ) 
 			return $this->singleValueCondition( $searchFor, $strSearchOption, $searchFor2 );
 		else 
@@ -1962,9 +1367,9 @@ class LookupField extends EditControl
 
 	}
 	public function multiValueCondition( $searchFor, $strSearchOption, $searchFor2 = "" ) {
-		$values = splitvalues( $searchFor );
+		$values = splitLookupValues( $searchFor );
 		//	single-select on Add/Edit, butmuti on search
-		if( $this->pageObject->pSetEdit->singleSelectLookupEdit( $this->field ) ) {
+		if( !$this->pageObject->pSetEdit->multiSelectLookupEdit( $this->field ) ) {
 			$conditions = array();
 			foreach( $values as $v ) {
 				$conditions[] = $this->singleValueCondition( $v, $strSearchOption, $searchFor2 );
@@ -1984,23 +1389,45 @@ class LookupField extends EditControl
 		return null;
 	}
 
+	
 	public function singleValueCondition( $searchFor, $strSearchOption, $searchFor2 = "" ) {
 		$cond = parent::getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2 );
+		
+		if( $this->displayFieldSearch( $strSearchOption ) ) {
+			$cond->operands[0]->joinData = $this->createJoinData();
+		}
+		return $cond;
+	}
 
-		if( $strSearchOption !== CONTAINS && $strSearchOption !== STARTS_WITH ) {
+	/**
+	 * Returns true when searching by display field makes sense.
+	 * It only takes in account field Edit settings.
+	 * Database and other limitations are handled by the datasource
+	 * @return Boolean
+	 */
+	protected function displayFieldSearch( $searchOption ) 
+	{
+		if( $searchOption !== CONTAINS && $searchOption !== STARTS_WITH ) {
 			//	basic search, no display field substitution
-			return $cond;
+			return false;
 		}
 		if( $this->linkAndDisplaySame || $this->lookupType == LT_LISTOFVALUES ) {
 			//	no lookup display field
-			return $cond;
+			return false;
 		}
 
-		if( $this->multiselect && !$this->pageObject->pSetEdit->singleSelectLookupEdit( $this->field )) {
+		if( $this->multiselect && $this->pageObject->pSetEdit->multiSelectLookupEdit( $this->field )) {
 			// multiselect everywhere
-			return $cond;
+			return false;
 		}
+		return true;
 
+	}
+
+	/**
+	 * @return DsJoinData
+	 */
+	protected function createJoinData() {
 		$jd = new DsJoinData;
 		$jd->dataSource = $this->lookupDataSource;
 		$jd->linkField = $this->linkFieldName;
@@ -2008,12 +1435,11 @@ class LookupField extends EditControl
 			$jd->displayExpression = $this->displayFieldName;
 		else
 			$jd->displayField = $this->displayFieldName;
-		//	assume AJAX and list page lookups have rather many values
+		
+		//	we assume here that 'AJAX' and 'List page' lookups are choosen when the lookup table is rather long
 		$jd->longList = ( $this->LCType == LCT_AJAX || $this->LCType == LCT_LIST );
 		$jd->displayAlias = generateAlias();
-
-		$cond->operands[0]->joinData = $jd;
-		return $cond;
+		return $jd;
 	}
 
 	/**
@@ -2077,6 +1503,13 @@ class LookupField extends EditControl
 		if( $orderField ) {
 			$dir = $pSet->isLookupDesc( $field ) ? 'DESC' : 'ASC';
 			$dc->order[] = array( "column" => $orderField, "dir" => $dir );
+		} else {
+			$lookupType = $pSet->getLookupType( $field );
+			if( $lookupType == LT_QUERY ) {
+				require_once( getabspath('classes/orderclause.php') );
+				$lookupTable = $pSet->getLookupTable( $field );
+				$dc->order = OrderClause::originalOrderFields( new ProjectSettings( $lookupTable ) );
+			}
 		}
 
 		//	custom display field
@@ -2093,17 +1526,22 @@ class LookupField extends EditControl
 
 		//	select only current value
 		if( $doValueFilter ) {
-			$linkField = $pSet->getLinkField( $field );
-			$multiselect = $pSet->multiSelect( $field );
-			if( !$multiselect ) {
-				$filters[] = DataCondition::FieldEquals( $linkField , $value );
+			if( $value === "" || $value === null ) {
+				//	add/search page or empty value
+				$filters[] = DataCondition::_False();
 			} else {
-				$values = splitvalues( $value );
-				$valueConditions = array();
-				foreach( $values as $v ) {
-					$valueConditions[] = DataCondition::FieldEquals( $linkField , $v );
+				$linkField = $pSet->getLinkField( $field );
+				$multiselect = $pSet->multiSelect( $field );
+				if( !$multiselect ) {
+					$filters[] = DataCondition::FieldEquals( $linkField , $value );
+				} else {
+					$values = splitLookupValues( $value );
+					$valueConditions = array();
+					foreach( $values as $v ) {
+						$valueConditions[] = DataCondition::FieldEquals( $linkField , $v );
+					}
+					$filters[] = DataCondition::_Or( $valueConditions );
 				}
-				$filters[] = DataCondition::_Or( $valueConditions );
 			}
 		}
 
@@ -2114,8 +1552,9 @@ class LookupField extends EditControl
 		}
 
 		//	security filter
+		//	only check row-level permissions
 		if( $pSet->getLookupType( $field ) == LT_QUERY ) {
-			$filters[] = Security::SelectCondition( "S", new ProjectSettings( $pSet->getLookupTable($field) ) );
+			$filters[] = Security::SelectCondition( "S", new ProjectSettings( $pSet->getLookupTable($field) ), true );
 		}
 
 		//	category filter
@@ -2149,6 +1588,9 @@ class LookupField extends EditControl
 	}
 
 
+	/**
+	 * 
+	 */
 	public static function categoryCondition( $pSet, $parentControlName, $filterFieldName, $parentControlValue ) {
 		//	single-select
 		if( !$pSet->multiSelect( $parentControlName ) ) {
@@ -2156,7 +1598,7 @@ class LookupField extends EditControl
 		}
 
 		//	multiselect parent
-		$values = splitvalues( $parentControlValue );
+		$values = splitLookupValues( $parentControlValue );
 
 		$conditions = array();
 		foreach( $values as $value )
@@ -2167,5 +1609,35 @@ class LookupField extends EditControl
 		return DataCondition::_Or( $conditions );
 	}
 
+	public function getSuggestCommand( $searchFor, $searchOpt, $numberOfSuggests ) 
+	{
+		$dc = parent::getSuggestCommand( $searchFor, $searchOpt, $numberOfSuggests );
+	
+		//	add extra field and replace totals
+		if( $this->displayFieldSearch( $searchOpt ) ) {
+			
+			$displayAlias = generateAlias();
+			$dc->extraColumns[] = new DsFieldData( "", $displayAlias, $this->field, 0, $this->createJoinData() );
+
+			$dc->totals = array( 
+				array(
+					"field" => $displayAlias,
+					"total" => "distinct"
+				) 
+			);
+		}
+
+		return $dc;
+	}
+
+	protected function getLookupTextValue( $displayValue ) {
+		if( $this->pageObject->pSetEdit->getViewFormat( $this->field ) == FORMAT_HTML ) {
+			if ( $this->LCType == LCT_CBLIST || $this->LCType == LCT_RADIO ) {
+				return $displayValue;
+			}
+		}
+
+		return runner_htmlspecialchars( $displayValue );
+	}
 }
 ?>

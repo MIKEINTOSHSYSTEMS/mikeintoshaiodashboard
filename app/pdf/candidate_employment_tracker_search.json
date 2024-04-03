@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -97,15 +99,14 @@ pdfDocument = {
 	
 		body: [
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_c3}
+																{BEGIN cellblock_grid_c3}
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	dynamic colspan/rowspan
 
@@ -117,53 +118,56 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$CandidateID_pdfvalue}},
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field1}","text":{$JobID_pdfvalue}},
+			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field2}","text":{$Referral_from_Dereja_service_pdfvalue}},
+			{"text":{$Referral_from_Dereja_service_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field3}","text":{$Company_Name_pdfvalue}},
+			{"text":{$Company_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field4}","text":{$Company_Phone_Number_pdfvalue}},
+			{"text":{$Company_Phone_Number_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field5}","text":{$Sector_pdfvalue}},
+			{"text":{$Sector_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field6}","text":{$Job_Position_pdfvalue}},
+			{"text":{$Job_Position_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field7}","text":{$Job_Type_pdfvalue}},
+			{"text":{$Job_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field8}","text":{$Job_Placement_Date_pdfvalue}},
+			{"text":{$Job_Placement_Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field9}","text":{$Employment_End_Date_pdfvalue}},
+			{"text":{$Employment_End_Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field10}","text":{$First_Name_pdfvalue}},
+			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field10}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field11}","text":{$Middle_Name_pdfvalue}},
+			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field11}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field12}","text":{$Last_Name_pdfvalue}},
+			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field12}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_c3}
 											],
 				{END row_grid_0}
-					]
+		
+		]
 	}
 }
 ,
@@ -183,13 +187,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -212,11 +215,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

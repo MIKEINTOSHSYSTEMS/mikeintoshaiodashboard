@@ -5,12 +5,10 @@
  * DataSourceProjectTable and DataSourceDBTable classes
  */
 class DataSourceTable extends DataSource {
-	protected $cipherer;
 
 	function __construct( $name, $connection ) {
 		parent::__construct( $name );
 		$this->connection = $connection;
-		$this->cipherer = new RunnerCipherer( $name );
 	}
 
 	public function prepareSQL( $dc ) {
@@ -25,13 +23,15 @@ class DataSourceTable extends DataSource {
 	}
 
 	public function overrideSQL( $dc, $sql ) {
+		$dc->_cache["overriden"] = true;
 		$dc->_cache["sql"] = $sql;
 	}
 
 	public function overrideWhere( $dc, $where, $having = "" ) {
 		// unset "sql" to build a new value with a correct WHERE clause
-		$dc->_cache["sql"] = NULL;
+		unset( $dc->_cache["sql"] );
 
+		$dc->_cache["overriden"] = true;
 		$dc->_cache["where"] = $where;
 		if( $dc->_cache["having"] )
 			$dc->_cache["having"] = $where;
@@ -43,6 +43,10 @@ class DataSourceTable extends DataSource {
 
 	protected function getKeyFields() {
 		return array();
+	}
+
+	protected function getAutoincField() {
+		return null;
 	}
 
 	protected function buildWhereHaving( $dc ) {
@@ -74,23 +78,45 @@ class DataSourceTable extends DataSource {
 		return $dc->_cache["having"];
 	}
 
-	protected function getOrderClause( $dc ) {
+	/**
+	 * @param Boolean $forceColumnNames - when true always use column or field names instead if indices
+	 */
+	protected function getOrderClause( $dc, $forceColumnNames = false ) {
 		if( isset( $dc->_cache["order"] ) ) {
 			return $dc->_cache["order"];
 		}
+		$columns = null;
 		$orderby = array();
 		foreach( $dc->order as $of ) {
 			if( $of["index"] ) {
-				$orderby[] = $of["index"] . " " . $of["dir"];
+				if( !$forceColumnNames ) {
+					$orderby[] = $of["index"] . " " . $of["dir"];
+				} else {
+					if( !$columns )
+						$columns = $this->getColumnList();
+					$column = $columns[ (int)$of["index"] - 1 ];
+					if( $column ) {
+						$orderby[] = $this->wrap( $column ) . " " . $of["dir"];
+					}
+				}
 			} else if( $of["column"] ) {
 				$extraColumn = $dc->findExtraColumn( $of["column"] );
 				if( $extraColumn ) {
-					$orderby[] = $this->connection->addFieldWrappers( $extraColumn->alias ) . " " . $of["dir"];
+					if( $this->connection->dbType == nDATABASE_Access ) {
+						//	Access can't handle field aliases in Order By
+						$ecIdx = $dc->getExtraColumnIndex( $of["column"] );
+						$columnCount = $this->getColumnCount();
+						$orderby[] = ( $columnCount + $ecIdx + 1 ) . " " . $of["dir"];
+					} else {
+						$orderby[] = $this->connection->addFieldWrappers( $of["column"] ) . " " . $of["dir"];
+					}
 				} else {
 					$orderby[] = $this->fieldExpression( $of["column"] ) . " " . $of["dir"];
 				}
-			} else {
+			} else if( $of["expr"] ) {
 				$orderby[] = $of["expr"] . " " . $of["dir"];
+			} else {
+				continue;
 			}
 		}
 		$orderString = $orderby ? "ORDER BY " . implode( ", ", $orderby ) : "";
@@ -120,12 +146,13 @@ class DataSourceTable extends DataSource {
 		}
 
 		$this->flattenANDs( $filter );
-		if( $filter->type !== dsopAND ) {
-			$ret["where"] = $filter;
-			return $ret;
+		if( $filter->operation !== dsopAND ) {
+			$operands = array( 0 => new DsOperand( dsotCONDITION, $filter ) );
+		} else {
+			$operands = &$filter->operands;
 		}
 
-		foreach( $filter->operands as $oper ) {
+		foreach( $operands as $oper ) {
 			if( $this->findField( $oper->value, $grouppedFields ) ) {
 				$ret["having"]->operands[] = $oper;
 			} else {
@@ -186,6 +213,8 @@ class DataSourceTable extends DataSource {
 		}
 		else if( DataSource::basicFieldCondition( $op ) ) {
 			return $this->basicFieldConditionSQL( $dCondition, $context );
+		} else if( $op == dsopFALSE ) {
+			return $this->sqlExpressionFalse();
 		}
 		return "";
 	}
@@ -193,7 +222,7 @@ class DataSourceTable extends DataSource {
 	/**
 	 * This function must be overridden
 	 */
-	protected function getFieldType( $field ) {
+	public function getFieldType( $field ) {
 		trigger_error("Unsupported datasource", E_USER_ERROR );
 		return 200;
 	}
@@ -214,23 +243,41 @@ class DataSourceTable extends DataSource {
 		$field = $dCondition->operands[0]->value;
 		$modifier = $dCondition->operands[0]->modifier;
 		$fieldType = $this->getFieldType( $field );
+		$caseInsensitive = $dCondition->caseInsensitive;
+
+		if( IsTextType( $fieldType ) && $this->connection->dbType == nDATABASE_MSSQLServer ) {
+			$caseInsensitive = dsCASE_DEFAULT;
+		}
 
 		//	encryption stuff
 		//	either field must be decrypted or value operand encrypted
 		$encryptValue = $this->valueNeedsEncrypted( $field );
 		if( $operandType == dsotFIELD )
 			$fieldExpr = $this->fieldExpression( $field, $modifier );
-		else if( $operandType == dsotSQL )
-		$fieldExpr = $field;
-
-		//	process $field->joinData, apply criteria to a field from another table, like searching by Display field
-		if( !$encryptValue && $dCondition->operands[0]->joinData ) {
-			$newExpression = $this->createJoinedExpression( $field, $fieldExpr, $dCondition->operands[0], $context );
-			$fieldExpr = $newExpression ? $newExpression : $fieldExpr;
+		else if( $operandType == dsotSQL ) {
+			$fieldExpr = $field;
+			$fieldType = 0;
 		}
 
+		if( $context->useSubquery ) {
+			//	original query is wrapped in a subquery, use column names instead of underlying expressions
+			$fieldExpr = $this->connection->addFieldWrappers( $field );
+			$encryptValue = false;
+		}
+
+		//	process $field->joinData, apply criteria to a field from another table, like searching by Display field
+
+		$joinData = $dCondition->operands[0]->joinData;
+		if( $joinData ) {
+			if( $joinData->dataSource->tableBased() ) {
+				return $this->createJoinedSearchClause( $field, $fieldExpr, $dCondition );
+			}
+			return "";
+		}
+
+
 		// forced conversion to char
-		if( $dCondition->operands[0]->tochar && !IsCharType( $fieldType ) ) {
+		if( ( $dCondition->operands[0]->tochar) && !IsCharType( $fieldType ) ) {
 			$fieldExpr = $this->connection->field2char( $fieldExpr, $fieldType );
 			$fieldType = 200;
 		}
@@ -242,13 +289,13 @@ class DataSourceTable extends DataSource {
 			$values = array();
 			//	only EMPTY and EQUALS operations can be done on PHP-encrypted fields
 			for( $i = 1; $i < count( $dCondition->operands); ++$i ) {
-				$values[] = $this->cipherer->EncryptField( $field, $dCondition->operands[$i]->value );
+				$values[] = $this->encryptField( $field, $dCondition->operands[$i]->value );
 			}
 			if( $dCondition->operation == dsopBETWEEN && count( $values ) == 2 ) {
 				return $fieldExpr . ' = ' . $values[0] . " or " . $fieldExpr . ' = ' . $values[1];
 			}
 			if( $dCondition->operation == dsopEMPTY ) {
-				$encryptedEmptyString = $this->cipherer->EncryptField( $field, $dCondition->operands[$i]->value );
+				$encryptedEmptyString = $this->encryptField( $field, $dCondition->operands[$i]->value );
 				return $fieldExpr . " is null or "
 					. $fieldExpr . " = '' or "
 					. $fieldExpr . " = " . $this->connection->prepareString( $encryptedEmptyString );
@@ -257,23 +304,52 @@ class DataSourceTable extends DataSource {
 			return $fieldExpr . " = " . $this->connection->prepareString( $values[0] );
 		}
 		$op = $dCondition->operation;
+		if( !$this->checkBasicOpOperands( $op, $fieldType, $dCondition->operands ) )
+			return $this->sqlExpressionFalse();
 		if( $op == dsopEQUAL ) {
-			return $this->sqlExpressionEquals( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $dCondition->caseInsensitive );
+			return $this->sqlExpressionEquals( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $caseInsensitive );
 		} else if( $op == dsopMORE || $op == dsopLESS ) {
-			return $this->sqlExpressionMore( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $dCondition->caseInsensitive, $op == dsopMORE );
+			return $this->sqlExpressionMore( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $caseInsensitive, $op == dsopMORE );
 		} else if( $op == dsopEMPTY ) {
 			return $this->sqlExpressionEmpty( $fieldType, $fieldExpr );
 		} else if( $op == dsopSTART || $op == dsopCONTAIN ) {
 			return $this->sqlExpressionLike( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value,
-				$dCondition->caseInsensitive, $op == dsopSTART, $dCondition->operands[ 1 ]->likeWrapper );
+			$caseInsensitive, $op == dsopSTART, $dCondition->operands[ 1 ]->likeWrapper );
 		} else if( $op == dsopBETWEEN ) {
-			return $this->sqlExpressionBetween( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $dCondition->operands[ 2 ]->value, $dCondition->caseInsensitive );
+			return $this->sqlExpressionBetween( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $dCondition->operands[ 2 ]->value, $caseInsensitive );
 		} else if( $op == dsopSOME_IN_LIST || $op == dsopALL_IN_LIST ) {
 			return $this->sqlExpressionInList( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value, $op == dsopALL_IN_LIST );
-		} else if( $op == dsopFALSE ) {
-			return $this->sqlExpressionFalse();
+		} else if( $op == dsopIN ) {
+		return $this->sqlExpressionIn( $fieldType, $fieldExpr, $dCondition->operands[ 1 ]->value , $caseInsensitive  );
 		}
 		return "";
+	}
+
+	protected function checkBasicOpOperands( $op, $fieldType, $operands ) {
+		$opCount = 1;
+		if( $op == dsopBETWEEN ) {
+			$opCount = 3;
+		} elseif( $op != dsopEMPTY ) {
+			$opCount = 2;
+		}
+		if( count( $operands ) < $opCount ) {
+			return false;
+		}
+		if( $op == dsopSTART || $op == dsopCONTAIN ) {
+			//	don't check operand type, all is converted to string
+			return true;
+		}
+		if( $op == dsopIN || $op == dsopALL_IN_LIST || $op == dsopSOME_IN_LIST ) {
+			return true;
+		}
+
+		//	probably for searching??
+		for( $i = 1; $i < $opCount; ++$i ) {
+			if( !$this->validateSQLValue($fieldType, $operands[$i]->value ) ) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	protected function sqlExpressionFalse() {
@@ -283,13 +359,14 @@ class DataSourceTable extends DataSource {
 	protected function sqlExpressionEmpty( $fieldType, $fieldExpr ) {
 		$ret = $fieldExpr . ' is null';
 
-		if( IsDateFieldType( $fieldType ) && $this->connection->dbType == nDATABASE_MySQL ) {
+		global $mysqlSupportDates0000;
+		if( $mysqlSupportDates0000 && IsDateFieldType( $fieldType ) && $this->connection->dbType == nDATABASE_MySQL ) {
 			// skip "zero" dates '0000-00-00', '0000-00-00 00:00:00'
 			return $ret
 				. " or " . $fieldExpr . " = '0000-00-00'"
 				. " or " . $fieldExpr . " = '0000-00-00 00:00:00'";
-		}			
-		
+		}
+
 		if( !IsCharType( $fieldType ) || $this->connection->dbType == nDATABASE_Oracle ) {
 			return $ret;
 		}
@@ -307,12 +384,19 @@ class DataSourceTable extends DataSource {
 			return $fieldExpr . "=" . $this->prepareSQLValue( $fieldType, $value );
 		}
 		if( IsTextType( $fieldType ) && $this->connection->dbType != nDATABASE_MySQL ) {
-			$likeWord = ( $this->connection->dbType == nDATABASE_PostgreSQL && $caseInsensitive )
+			$likeWord = ( $this->connection->dbType == nDATABASE_PostgreSQL && $caseInsensitive === dsCASE_INSENSITIVE )
 				? 'ilike'
 				: 'like';
 			return $fieldExpr . ' ' . $likeWord . ' ' . $this->prepareSQLValue( $fieldType, $value );
 		}
-		return $this->connection->comparisonSQL( $fieldExpr, $this->prepareSQLValue( $fieldType, $value ), $caseInsensitive );
+		if( $caseInsensitive === dsCASE_DEFAULT ) {
+			return $fieldExpr . "=" . $this->prepareSQLValue( $fieldType, $value );
+		}
+		return $this->connection->comparisonSQL(
+			$fieldExpr,
+			$this->prepareSQLValue( $fieldType, $value ),
+			$caseInsensitive === dsCASE_INSENSITIVE
+		);
 	}
 
 	protected function sqlExpressionInList( $fieldType, $fieldExpr, $values, $all ) {
@@ -324,18 +408,34 @@ class DataSourceTable extends DataSource {
 			$valueConds = array();
 			$valueConds[] = $fieldExpr . " = " . $this->connection->prepareString( $v );
 			$vp = $this->connection->escapeLIKEpattern( $v );
-			$valueConds[] = $fieldExpr . " LIKE '%," . $v . "'";
-			$valueConds[] = $fieldExpr . " LIKE '" . $v . ",%'";
-			$valueConds[] = $fieldExpr . " LIKE '%," . $v . ",%'";
+			$strV = $this->connection->addSlashes( $vp );
+			$valueConds[] = $fieldExpr . " LIKE '%," . $strV . "'";
+			$valueConds[] = $fieldExpr . " LIKE '" . $strV . ",%'";
+			$valueConds[] = $fieldExpr . " LIKE '%," . $strV . ",%'";
 			$conditions[] = "( " . implode( ' OR ', $valueConds ) . " )";
 		}
 		return implode( $all ? ' AND ' : ' OR ', $conditions );
 	}
 
+	protected function sqlExpressionIn( $fieldType, $fieldExpr, $values, $caseInsensitive ) {
+
+		$sqlValues = array();
+		$uppercase = IsCharType( $fieldType ) && $caseInsensitive == dsCASE_INSENSITIVE;
+		foreach( $values as $v ) {
+			$sqlValues[] = $uppercase
+				? $this->connection->upper( $this->prepareSQLValue( $fieldType, $v ) )
+				: $this->prepareSQLValue( $fieldType, $v );
+		}
+		if( $uppercase )
+			$fieldExpr = $this->connection->upper( $fieldExpr );
+		return $fieldExpr . ' IN ( '. implode( ', ', $sqlValues ) . ' )';
+	}
+
+
 	protected function sqlExpressionMore( $fieldType, $fieldExpr, $value, $caseInsensitive, $more ) {
 		$operation = $more ? ' > ' : ' < ';
 		$valueExpression = $this->prepareSQLValue( $fieldType, $value );
-		if( IsCharType( $fieldType ) && $caseInsensitive ) {
+		if( IsCharType( $fieldType ) && $caseInsensitive === dsCASE_INSENSITIVE ) {
 			if( !IsTextType( $fieldType ) || $this->connection->dbType == nDATABASE_MySQL ) {
 				$fieldExpr = $this->connection->upper( $fieldExpr );
 				//	use database uppercase instead of PHP strtoupper because of character set issues
@@ -347,12 +447,15 @@ class DataSourceTable extends DataSource {
 
 	protected function sqlExpressionLike( $fieldType, $fieldExpr, $value, $caseInsensitive, $starts, $likeWrapper ) {
 		if( !IsCharType( $fieldType ) )
-		$fieldExpr = $this->connection->field2char( $fieldExpr, $fieldType );
+			$fieldExpr = $this->connection->field2char( $fieldExpr, $fieldType );
 
-		$likeWord = ( $this->connection->dbType == nDATABASE_PostgreSQL && $caseInsensitive )
+		$likeWord = ( $this->connection->dbType == nDATABASE_PostgreSQL && $caseInsensitive === dsCASE_INSENSITIVE )
 			? 'ilike'
 			: 'like';
 
+		if( IsNumberType( $fieldType ) ) {
+			$value = str_replace(",", ".", $value);
+		}
 		$pattern = $this->connection->escapeLIKEpattern( $value )."%";
 		if( !$starts )
 			$pattern = "%".$pattern;
@@ -376,7 +479,7 @@ class DataSourceTable extends DataSource {
 
 		$valueExpression = $this->connection->prepareString( $pattern );
 
-		if( $caseInsensitive && $this->connection->dbType != nDATABASE_PostgreSQL ) {
+		if( $caseInsensitive === dsCASE_INSENSITIVE && $this->connection->dbType != nDATABASE_PostgreSQL ) {
 			$fieldExpr = $this->connection->upper( $fieldExpr );
 			//	use database uppercase instead of PHP strtoupper because of character set issues
 			$valueExpression = $this->connection->upper( $valueExpression );
@@ -387,7 +490,7 @@ class DataSourceTable extends DataSource {
 	protected function sqlExpressionBetween( $fieldType, $fieldExpr, $value1, $value2, $caseInsensitive ) {
 		$valueExpression1 = $this->prepareSQLValue( $fieldType, $value1 );
 		$valueExpression2 = $this->prepareSQLValue( $fieldType, $value2 );
-		if( IsCharType( $fieldType ) && $caseInsensitive ) {
+		if( IsCharType( $fieldType ) && $caseInsensitive === dsCASE_INSENSITIVE ) {
 			if( !IsTextType( $fieldType ) || $this->connection->dbType == nDATABASE_MySQL ) {
 				$fieldExpr = $this->connection->upper( $fieldExpr );
 				//	use database uppercase instead of PHP strtoupper because of character set issues
@@ -398,13 +501,12 @@ class DataSourceTable extends DataSource {
 		return $fieldExpr . ' BETWEEN ' . $valueExpression1 . ' AND ' . $valueExpression2;
 	}
 
-
 	/**
-	 * add proper quotes, escape, convert to number etc
+	 * Returns false when input value can't be interpreted as number or date
 	 */
-	protected function prepareSQLValue( $type, $value ) {
+	protected function validateSQLValue( $type, $value ) {
 		if( IsNumberType( $type ) ) {
-			return 0 + $value;
+			return is_numeric( str_replace(",", ".", $value) );
 		}
 		if( IsDateFieldType( $type ) ) {
 			//	copied from add_db_quotes
@@ -414,24 +516,126 @@ class DataSourceTable extends DataSource {
 			$d = "(0?[1-9]|[1-2][0-9]|3[0-1])";
 			$delim = "(-|".preg_quote($locale_info["LOCALE_SDATE"], "/").")";
 			$reg = "/".$d.$delim.$m.$delim.$y."|".$m.$delim.$d.$delim.$y."|".$y.$delim.$m.$delim.$d."/";
-			if( !preg_match($reg, $value, $matches) )
-				return "null";
+			return preg_match($reg, $value, $matches);
+		}
+		if( IsGuid( $type ) ) {
+			return IsGuidString( $value );
+		}
+		// check time field value in PostgreSQL
+		if( IsTimeType( $type ) && $this->connection->dbType == nDATABASE_PostgreSQL ) {
+			return validTimeValue( localtime2db( $value ) ) ;
+		}
+		return true;
+	}
 
+	/**
+	 * add proper quotes, escape, convert to number etc
+	 * always returns string
+	 */
+	protected function prepareSQLValue( $type, $value ) {
+		if( !DataSourceTable::validateSQLValue( $type, $value ) ) {
+			return 'NULL';
+		}
+		if( IsNumberType( $type ) ) {
+			return DB::prepareNumberValue( $value );
+		}
+		if( IsDateFieldType( $type ) ) {
 			return $this->connection->addDateQuotes( $value );
 		}
+
 		if( IsBinaryType($type) )
 			return $this->connection->addSlashesBinary( $value );
+
 		return $this->connection->prepareString( $value );
 	}
 
+	/**
+	 * $lhs > $rhs => positive number,
+	 * $lhs < $rhs => negative number,
+	 * $lhs = $rhs => 0
+	 * @return Number
+	 */
+	public function versionCompare( $lhs, $rhs ) {
+		$leftList = explode( ".", $lhs );
+		$rightList = explode( ".", $rhs );
+		$len = min( count( $leftList ), count( $rightList ) );
+		for( $i = 0; $i < $len; $i++) {
+			$diff = intval( $leftList[$i] ) - intval( $rightList[$i] );
+			if( $diff != 0 ) {
+				return $diff;
+			}
+		}
+		return 0;
+	}
 
+	/**
+	 * Checks if db type is MySQL v8.0.0+
+	 * @return Boolean
+	 */
+	public function dbMysqlV8Higher() {
+		return ( $this->connection->dbType == nDATABASE_MySQL 
+				&& $this->versionCompare($this->connection->getVersion(), "8.0.0" ) >= 0 );
+	}
+
+	/**
+	 * // #16133 Where condition to fix MySQL v8.0.0 Select bug
+	 * return record count
+	 * @return DsCondition
+	 */
+	public function getMysqlV8Filter() {
+		$keyFields = $this->getKeyFields();
+		$filterList = array();
+		foreach( $keyFields as $field ) {
+			$fieldType = $this->getFieldType( $field );
+			$cmpValue = null;
+			if( IsNumberType( $fieldType ) ) {
+				$cmpValue = 0;
+			} else if( IsCharType( $fieldType ) ) {
+				$cmpValue = '';
+			} else if( IsDateFieldType( $fieldType ) ) {
+				$cmpValue = '1970-01-01 00:00:00';
+			}
+
+			if( $cmpValue !== null ) {
+				$filterList[] = DataCondition::FieldIs( $field, dsopEMPTY, null );
+				$filterList[] = DataCondition::FieldIs( $field, dsopMORE, $cmpValue );
+				$filterList[] = DataCondition::FieldIs( $field, dsopEQUAL, $cmpValue );
+				$filterList[] = DataCondition::FieldIs( $field, dsopLESS, $cmpValue );
+				break;
+			}
+		}
+
+		return DataCondition::_Or( $filterList );
+	}
+
+	/**
+	 * 
+	 * @return void
+	 */
+	private function clearDsCommandCache( $dc ) {
+		unset( $dc->_cache["overridden"] );
+		unset( $dc->_cache["where"] );
+		unset( $dc->_cache["sql"] );
+	}
 
 	/**
 	 * return record count
 	 * @return number
 	 */
 	public function getCount( $dc ) {
-		$sql = $this->buildSQL( $dc, false );
+		// #16133 MySQL v8.0.0+ -> update select where condition
+		//	don't modify WHERE of the user has already modified it in the event
+		if( !$dc->_cache["overriden"] && $this->dbMysqlV8Higher() ) {
+			$filterCopy = $dc->filter;
+			$dc->filter = DataCondition::_And( array( $dc->filter, $this->getMysqlV8Filter() ) );
+			$this->clearDsCommandCache( $dc );
+			$sql = $this->buildSQL( $dc, false );
+			$this->clearDsCommandCache( $dc );
+			$dc->filter = $filterCopy;
+		} else {
+			$sql = $this->buildSQL( $dc, false );
+		}
+		
 		return $this->connection->getFetchedRowsNumber( $sql );
 	}
 
@@ -514,10 +718,29 @@ class DataSourceTable extends DataSource {
 	 * @return String
 	 */
 	protected function extraColumnExpression( $column ) {
-		$expression = $column->sql;
-		if( !$expression ) {
-			$expression = $this->fieldExpression( $column->field, $column->modifier );
+
+
+		if( $column->sql )
+		{
+			$expression = $column->sql;
 		}
+		else
+		{
+			//	use $column->field
+			$columnExpression = $this->fieldExpression( $column->field, $column->modifier );
+			if( $column->joinData )
+			{
+				$expression = $this->getJoinedSubquery( $column->joinData, $columnExpression, $this->getFieldType( $column->field ), null, "", true );
+			}
+			if( $expression != '' ) {
+				// brace the subquery
+				$expression = "( " . $expression . " )";
+			} else {
+				//	no joinData specified or not supported
+				$expression = $columnExpression;
+			}
+		}
+
 		if( $column->alias ) {
 			return $expression . ' AS ' . $this->connection->addFieldWrappers( $column->alias );
 		} else {
@@ -667,7 +890,7 @@ class DataSourceTable extends DataSource {
 			return false;
 		}
 
-		if( $total["time"] ) {
+		if( $total["timeToSec"] ) {
 			$expr = $this->connection->timeToSecWrapper( $total["field"] );
 		} else {
 			/**
@@ -679,6 +902,7 @@ class DataSourceTable extends DataSource {
 
 		if( $total["total"] == "distinct" ) {
 			//	substitute original field with the joined display field
+			//	it happens with search suggest
 			$context = $dc->_cache["context"];
 			if( $context ) {
 				if( isset( $context->joinedAliases[ $total[ "field" ] ] ) ) {
@@ -730,6 +954,8 @@ class DataSourceTable extends DataSource {
 		$sqlCases = array();
 		$tail = "";
 		$context = new DsFilterBuildContext;
+		//	use column names instead of original expressions
+		$context->useSubquery = true;
 
 		foreach( $caseExpr->conditions as $idx => $condition ) {
 			$sqlCondition = $this->conditionToSQL( $condition, $context );
@@ -855,6 +1081,7 @@ class DataSourceTable extends DataSource {
 		}
 
 		$context = new DsFilterBuildContext;
+		$context->useSubquery = true;
 		return array(
 			"nextWhere" => $this->conditionToSQL($nextWhere, $context),
 			"prevWhere" => $this->conditionToSQL($prevWhere, $context),
@@ -864,6 +1091,8 @@ class DataSourceTable extends DataSource {
 	}
 
 	/**
+	 * probably deprecated
+	 *
 	 * @param String fieldExpression - original field expression
 	 * @param DsOperand fieldOperand - parameter dsotFIELD type operand with non-empty joinData
 	 * @param DsFilterBuildContext context
@@ -871,10 +1100,10 @@ class DataSourceTable extends DataSource {
 	 */
 	protected function createJoinedExpression( $field, $fieldExpr, $fieldOperand, $context ) {
 		$jd = $fieldOperand->joinData;
-		if( !$jd->dataSource->tableBased() || $jd->dataSource->connection !== $this->connection ) {
+		if( !$this->acceptJoinData( $jd ) ) {
 			return false;
 		}
-		$joinQuery = $jd->dataSource->getJoinedQuery( $fieldExpr, $fieldOperand );
+		$joinQuery = $jd->dataSource->getJoinedQuery( $fieldExpr, $fieldOperand, $this->getFieldType( $field ) );
 		if( !$joinQuery ) {
 			return false;
 		}
@@ -886,51 +1115,201 @@ class DataSourceTable extends DataSource {
 		return $joinQuery["column"];
 	}
 
-	protected function tableBased() {
+	/**
+	 * Returns false when the join data can not be processed in this datasource
+	 * @param DsJoinData jd
+	 * @return Boolean
+	 */
+	protected function acceptJoinData( $jd ) {
+		if( !$jd->dataSource->tableBased() || $jd->dataSource->getConnectionId() !== $this->getConnectionId() ) {
+			return false;
+		}
+		if( $this->connection->dbType == nDATABASE_Access ) {
+			//	just leave it
+			return false;
+		}
+		if ( $jd->longList && !$this->connection->checkIfJoinSubqueriesOptimized() ) {
+			//	too slow
+			return false;
+		}
+		return true;
+	}
+
+
+	/**
+	 * returns subquery with isolated field names
+	 * SELECT displayAlias FROM (
+	 *   SELECT <link field> as linkAlias, <display field> as displayAlias from (original joined SQL query) b
+	 * ) a WHERE linkAlias=<fieldExpression> AND $condition
+	 *
+	 * @param DsJoinData $jd
+	 * @param String $mainFieldExpr - SQL expression for the main field the link field should be linked against.
+	 * @param DsCondition $condition - additional filter condition, to be glued to link expression with AND
+	 * @param String $tableAlias - second query alias. Autogenerated if not specified
+	 * @param Boolean $oneRow - forces subquery to return exactly one row, so it can be used in the select list:
+	 * 							SELECT (subquery) as alias
+	 * @return string
+	 */
+	protected function getJoinedSubquery( $jd, $mainFieldExpr, $mainFieldType, $condition = null, $tableAlias = "", $oneRow = false ) {
+		if( !$this->acceptJoinData( $jd ) ) {
+			return "";
+		}
+
+		//	prepare inner tier, the original SQL with display field expression added if needed
+		$innerDc = new DsCommand;
+		if( $jd->displayExpression ) {
+			$displayColumn = generateAlias();
+			$innerDc->extraColumns[] = new DsFieldData( $jd->displayExpression, $displayColumn, "" );
+		} else {
+			$displayColumn = $jd->displayField;
+		}
+		$innerSQL = $jd->dataSource->buildSQL( $innerDc, false );
+
+		//	prepare second tier, isolate inner field names from outer ones
+		$linkAlias =  generateAlias();
+		$secondSQL = "SELECT "
+			. $this->wrap( $jd->linkField ) . " AS " . $this->wrap( $linkAlias ) . ", "
+			. $this->wrap( $displayColumn ) . " AS " . $this->wrap( $jd->displayAlias )
+			. " FROM ( ". $innerSQL . " ) a ";
+
+		if( $linkFieldExpr == "" ) {
+			$linkFieldExpr = $this->fieldExpression( $jd->linkField );
+		}
+
+		//	prepare tables link condition
+		$linkFieldType = $jd->dataSource->getFieldType( $jd->linkField );
+		$linkFieldExpr = $this->wrap( $linkAlias );
+		//	convert both to char if different types
+		if( IsCharType( $linkFieldType ) != IsCharType( $mainFieldType ) ) {
+			if( IsCharType( $linkFieldType ) ) {
+				$mainFieldExpr = $this->connection->field2char( $mainFieldExpr );
+			} else {
+				$linkFieldExpr = $this->connection->field2char( $linkFieldExpr );
+			}
+		}
+		$fullCondition = DataCondition::_And( array(
+			$condition,
+			DataCondition::SQLCondition( $linkFieldExpr . " = " . $mainFieldExpr )
+		));
+
+		$sqlCondition = $jd->dataSource->conditionToSQL( $fullCondition, new DsFilterBuildContext );
+
+		$tableAlias = $tableAlias == ""
+			? generateAlias()
+			: $tableAlias;
+
+		$returnExpression = $this->wrap( $jd->displayAlias );
+		if( $oneRow ) {
+			$returnExpression = "MIN( " . $returnExpression . " )";
+		}
+
+		$thirdSQL = "SELECT " . $returnExpression . " FROM "
+			. "( " . $secondSQL ." ) ". $this->wrap( $tableAlias )
+			. " WHERE " . $sqlCondition;
+
+		return $thirdSQL;
+	}
+
+	/**
+	 * Creates SQL expression in the form
+	 * EXISTS( SELECT displayAlias FROM (
+	 *   SELECT <link field> as linkAlias, <display field> as displayAlias from (original joined SQL query) b
+	 * ) a WHERE linkAlias=<fieldExpression> and displayAlias<filterExpression>)
+	 * The second subquery tier is needed to isolate link and display field names from
+	 * @param String fieldExpression - original field expression
+
+	 * @return String - SQL logical expression to be included into search
+	 */
+	protected function createJoinedSearchClause( $field, $fieldExpr, $dCondition ) {
+		$fieldOperand = $dCondition->operands[0];
+		$valueOperand = $dCondition->operands[1];
+		$jd = $fieldOperand->joinData;
+		if( !$this->acceptJoinData( $jd ) ) {
+			return "";
+		}
+
+		//	prepare  filtering condition
+		$tableAlias = generateAlias();
+		$displayOperand = new DsOperand(
+			dsotSQL,
+			$this->wrap( $tableAlias ) . '.' . $this->wrap( $jd->displayAlias ),
+			0,
+			null,
+			null,
+			true	//	tochar. Assume we won't get here unless the display field is searched as a char
+		);
+		$jCondition = new DsCondition(
+			array( $displayOperand, $valueOperand ),
+			$dCondition->operation,
+			$dCondition->caseInsensitive );
+
+		//	gnerate SQL query
+		$subQuery = $this->getJoinedSubquery( $jd, $fieldExpr, $this->getFieldType( $field ), $jCondition, $tableAlias );
+		return "EXISTS( " . $subQuery . " )";
+
+	}
+
+	public function tableBased() {
 		return true;
 	}
 
 	/**
+	 * probably deprecated
+	 *
 	 * @param String fieldExpression - original field expression
 	 * @param DsOperand fieldOperand - parameter dsotFIELD type operand with non-empty joinData
+	 * @param Integer fieldType - database type of $fieldExpr
 	 * @return false | Array(
 	 *		"join" => LEFT JOIN expression
-	 *		"alias" => subquery alias
 	 *		"column" => expression to use in the WHERE clause
 	 *	)
 	 */
-	protected function getJoinedQuery( $fieldExpr, $fieldOperand ) {
+	protected function getJoinedQuery( $fieldExpr, $fieldOperand, $fieldType ) {
 
 		$jd = $fieldOperand->joinData;
-		if( $jd->longList && !$this->connection->checkIfJoinSubqueriesOptimized() ) {
-			//	too slow
-			return false;
-		}
 		$dc = new DsCommand;
 
 		$tableAlias = generateAlias();
 		$linkAlias =  generateAlias();
 		$displayAlias =  generateAlias();
 
+		$dc->totals[] = array(
+			"alias" => $linkAlias,
+			"field" => $jd->linkField,
+			"caseInsensitive" => dsCASE_DEFAULT
+		);
+
+		$dispFieldTotal = array(
+			"alias" => $displayAlias,
+			"total" => "min"
+		);
 		if( $jd->displayExpression ) {
-			$displayExpression = $jd->displayExpression;
+			$dispFieldTotal["field"] = generateAlias();
+			$dc->extraColumns[] = new DsFieldData( $jd->displayExpression, $dispFieldTotal["field"], "" );
 		} else {
-			$displayExpression = $this->fieldExpression( $jd->displayField );
+			$dispFieldTotal["field"] = $jd->displayField;
 		}
-		$linkExpression = $this->fieldExpression( $jd->linkField );
+		$dc->totals[] = $dispFieldTotal;
 
-		$selectList = array();
-		$selectList[] = $displayExpression . " AS " . $displayAlias;
-		$selectList[] = $linkExpression . " AS " . $linkAlias;
+		$sql = $this->getTotalsSQL( $dc, false );
 
-		$column = $tableAlias.".".$displayAlias;
+		$column = $this->connection->addFieldWrappers( $tableAlias ) . "." . $this->connection->addFieldWrappers( $displayAlias );
 
-		$sql = $this->buildSQL( $dc, false, implode( ', ', $selectList ) );
-		$join =  "LEFT JOIN (" . $sql . ") ". $tableAlias
-			." ON " . $linkAlias . " = ".$fieldExpr;
+
+		$joinLinkExpr = $this->connection->addFieldWrappers( $linkAlias );
+		//	in MySQL 0 == 'xxx' is true. Avoid record multiplication
+		if( IsCharType( $fieldType ) !== IsCharType( $this->getFieldType( $jd->linkField ) ) ) {
+			if( IsCharType( $fieldType ) ) {
+				$joinLinkExpr = $this->connection->field2char( $joinLinkExpr );
+			} else {
+				$fieldExpr = $this->connection->field2char( $fieldExpr );
+			}
+		}
+
+		$join =  "LEFT JOIN (" . $sql . ") ". $this->connection->addFieldWrappers( $tableAlias )
+			." ON " . $joinLinkExpr . " = ".$fieldExpr;
 		return array(
 			"join" => $join,
-			"alias" => $alias,
 			"column" => $column
 		);
 	}
@@ -949,6 +1328,214 @@ class DataSourceTable extends DataSource {
 		$sql = $this->buildSQL( $dc, false, $this->extraColumnExpression( $field ) );
 		return $this->connection->limitedQuery( $sql, $dc->startRecord, $dc->reccount, true );
 	}
+
+	protected function getColumnCount() {
+		return 0;
+	}
+
+	protected function encryptField( $field, $value ) {
+		return $value;
+	}
+
+	public function wrap( $str ) {
+		return $this->connection->addFieldWrappers( $str );
+	}
+
+	public function updateRowNumberAvailable( $dc ) {
+		return $this->connection->dbType == nDATABASE_MSSQLServer && $dc->order
+			|| $this->connection->dbType == nDATABASE_MySQL
+			|| $this->connection->dbType == nDATABASE_PostgreSQL
+			|| $this->connection->dbType == nDATABASE_Oracle && $dc->order ;
+	}
+
+	public function updateRowNumber( $dc, $startNumber = 0 ) {
+		$orderByClause = $this->getOrderClause( $dc, true );
+		$queryAlias = $this->wrap( generateAlias() );
+		$rownoAlias = $this->wrap( generateAlias() );
+
+		$table = $this->connection->addTableWrappers( $this->dbTableName() );
+		$keys = array_keys( $dc->advValues );
+		$orderField = $this->wrap( $keys[0] );
+
+		$orderWhere = $this->getWhereClause( $dc );
+		$orderWhere = $orderWhere ? " WHERE ". $orderWhere : "";
+
+		if( $this->connection->dbType == nDATABASE_MSSQLServer ) {
+			$overClause = "OVER( ". $orderByClause . ")";
+
+			$sql = "UPDATE " . $queryAlias . " SET " . $queryAlias . "." . $orderField . " = " . $queryAlias . "." . $rownoAlias ."+". $startNumber
+				. " FROM ( SELECT " . $orderField . ", ROW_NUMBER() " . $overClause . " AS ". $rownoAlias
+				. " FROM " . $table . $orderWhere ." ) " . $queryAlias;
+			$this->connection->exec( $sql );
+
+		} else if( $this->connection->dbType == nDATABASE_MySQL ) {
+			$sqls[] = "SET @rowno:=". $startNumber .";";
+			$sqls[] = "UPDATE " . $table . " SET " . $orderField . " = @rowno := @rowno + 1 " . $orderWhere . ' ' . $orderByClause . ";";
+			$this->connection->execMultiple( $sqls );
+
+		} else if( $this->connection->dbType == nDATABASE_Oracle ) {
+			$overClause = "OVER( ". $orderByClause . ")";
+
+			$keyFieldsWhere = array();
+			foreach( $this->getKeyFields() as $i => $k ) {
+				$keyName = $this->wrap( $k );
+				$keysFields[] = $keyName;
+				$keyFieldsWhere[] = $queryAlias.".".$keyName."=".$table.".".$keyName;
+			}
+
+			$sql = "UPDATE ".$table." SET ". $orderField."=( SELECT " . $rownoAlias ." + ". $startNumber." FROM ( select ".
+				implode(', ', $keysFields).", ROW_NUMBER() ".$overClause." AS " . $rownoAlias ." FROM "
+				. $table ." ". $orderWhere." ) ".$queryAlias." WHERE ". implode('AND ', $keyFieldsWhere).") ". $orderWhere;
+
+			$this->connection->exec( $sql );
+		} else if( $this->connection->dbType == nDATABASE_PostgreSQL ) {
+			$overClause = $orderByClause
+				? "OVER( ". $orderByClause . ")"
+				: "OVER()";
+
+			$keyFieldsWhere = array();
+			foreach( $this->getKeyFields() as $i => $k ) {
+				$keyName = $this->wrap( $k );
+				$keysFields[] = $keyName;
+				$keyFieldsWhere[] = $queryAlias.".".$keyName."=".$table.".".$keyName;
+			}
+
+			$sql = "UPDATE ".$table." SET ". $orderField ." = ". $queryAlias .".". $rownoAlias ."+". $startNumber
+				. " FROM ( SELECT ". implode(', ', $keysFields).",". $orderField . ", ROW_NUMBER() " . $overClause . " AS ". $rownoAlias
+				." FROM " . $table . $orderWhere. " ) " . $queryAlias." WHERE ". implode('AND ', $keyFieldsWhere);
+
+			$this->connection->exec( $sql );
+		}
+	}
+
+	/**
+	 * save prepared SQL parts into
+	 * $dc->_cache["sqlValues"]
+	 * $dc->_cache["blobs"]
+	 * $dc->_cache["blobTypes"]
+	 */
+	protected function prepareInsertValues( $dc ) {
+		$values = $dc->values;
+		$sqlValues = array();
+		$blobs = array();
+		$blobTypes = array();
+		$this->makeAdvancedValues( $dc );
+		foreach( $dc->advValues as $field => $valueOp)
+		{
+			$sqlField = $this->getUpdateFieldSQL( $field );
+			if( $valueOp->type === dsotCONST ) {
+				if ( is_null( $valueOp->value ) || $this->insertNull( $field ) && trim( $valueOp->value ) === "" )
+				{
+					$sqlValues[ $sqlField ] = "NULL";
+				} else if( $sqlValue = $this->prepareBlob( $field, $valueOp->value, $blobs, $blobTypes ) ) {
+					$sqlValues[ $sqlField ] = $sqlValue;
+				} else
+				{
+					$sqlValues[ $sqlField ] = $this->prepareInsertSQLValue( $field, $valueOp->value );
+				}
+			} else if( $valueOp->type === dsotSQL ) {
+				$sqlValues[ $sqlField ] = $valueOp->value;
+			} else if( $valueOp->type === dsotFIELD ) {
+				//	probably not the best way
+				//	currently used for reorderRowsField only
+				$sqlValues[ $sqlField ] = $this->getUpdateFieldSQL( $valueOp->value );
+			}
+		}
+
+		$dc->_cache["sqlValues"] = &$sqlValues;
+		$dc->_cache["blobs"] = &$blobs;
+		$dc->_cache["blobTypes"] = &$blobTypes;
+	}
+
+	/**
+	 * 	@return String
+	 */
+	protected function getUpdateFieldSQL( $field )
+	{
+		return $this->connection->addFieldWrappers($field);
+	}
+
+	/**
+	 * Returns true when empty string should be interpreted as NULL in insert/update operations
+	 * @return Boolean
+	 */
+	protected function insertNull( $field )
+	{
+		return false;
+	}
+
+
+	/**
+	 * Returns SQL substitution if the field is BLOB and needs special processing.
+	 * @return String or null
+	 */
+	protected function prepareBlob( $field, &$value, &$blobs, &$blobTypes ) {
+		if( !IsBinaryType( $this->getFieldType( $field ) ) )
+			return false;
+
+		global $projectLanguage;
+
+		if( $projectLanguage == "php" ) {
+			if( $this->connection->dbType == nDATABASE_Oracle
+				|| $this->connection->dbType == nDATABASE_DB2
+				|| $this->connection->dbType == nDATABASE_Informix ) {
+
+				$blobKey = $field;
+				if( $this->connection->dbType == nDATABASE_Oracle ) {
+					$blobKey = $this->getUpdateFieldSQL( $field );
+				}
+				$blobs[ $blobKey ] = $value;
+				$blobTypes[ $blobKey ] = $this->getFieldType( $field );
+
+				$blobExpression = $this->connection->dbType == nDATABASE_Oracle
+					? "EMPTY_BLOB()"
+					: "?";
+				return $blobExpression;
+			}
+		} else if( $projectLanguage == "aspx" ) {
+			if( $this->connection->dbType == nDATABASE_Oracle 
+				|| $this->connection->dbType == nDATABASE_DB2 ) {
+
+				$blobAlias = "bnd" . ( count( $blobs ) + 1 );
+				$blobKey = $blobAlias;
+				if( $this->connection->dbType == nDATABASE_Oracle ) {
+					$blobKey = $this->getUpdateFieldSQL( $field );
+				}
+				$blobs[ $blobKey ] = $value;
+				$blobTypes[ $blobKey ] = $this->getFieldType( $field );
+
+				$blobExpression = $this->connection->dbType == nDATABASE_Oracle
+					? ":" . $blobAlias
+					: "?";
+				return $blobExpression;
+			}
+		} else {
+			//	nothing for ASP?
+		}
+		return null;
+	}
+
+	/**
+	 * properly formats value for SQL.
+	 * Differs from prepareSQLValue only when encryption is enabled.
+	 * prepareInsertSQLValue encrypts values, while prepareSQLValue not.
+	 * in a statment 
+	 * UPDATE x=xvalue where y=yvalue
+	 * xvalue should be prepared with prepareInsertSQLValue and yvalue - with prepareSQLValue.
+	 */
+	function prepareInsertSQLValue( $field, $value ) {
+		
+		$fieldType = $this->getFieldType( $field );
+		return $this->prepareSQLValue( $fieldType, $value );
+
+	}
+
+	public function silentMode( $mode ) {
+		$this->connection->setSilentMode( $mode );
+	}
+
+
+
 }
 
 class DsFilterBuildContext {
@@ -970,6 +1557,15 @@ class DsFilterBuildContext {
 	 * "<field>" => "<display field alias>"
 	 */
 	public $joinedAliases = array();
+
+	/**
+	 * @var Boolean
+	 * The original query is inside a subquery, but this condition is outside.
+	 * Ought to use column names instead of full field expressions when true
+	 */
+	public $useSubquery = false;
 }
+
+require_once( getabspath( 'classes/sql.php') );
 
 ?>

@@ -13,15 +13,17 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-view" {$bodyattrs}>
+	<body class="{$stylename} function-view"   
+		>
 	{BEGIN body}
 		<style>
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -59,7 +61,7 @@
 				{$menu main}			</div>
 		
     {END left_block}
-</div>				</div>	
+</div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
 				<div  class="r-topheader" data-resize-name="topbar">
 									{BEGIN supertop_block}
@@ -67,26 +69,92 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span class="navbar-form  r-ori-vert navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
-				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
 	 glyphicon glyphicon-triangle-left" href="#" >		
 				
 								</a>
 </span>
 			</span>
 							 
-													</nav>
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
 {END supertop_block}
 						{$locking}
-				</div>	
+				</div>
 				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
@@ -96,17 +164,22 @@
 		 
 		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel Candidate_Employment_Tracker view}</h2>
 		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 						</div>
-					<div class="r-above">
-										{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	</div>		
 {END above-grid_block}
-						</div>
-					<div class="r-grid">
-										{BEGIN grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
 
 
 
@@ -123,7 +196,7 @@
 		data-v-width="4"
 	>
 	<tbody>
-										<tr>
+										<tr {$row_grid_0} >
 										
 
 {BEGIN cellblock_grid_c3}
@@ -142,7 +215,7 @@
 {BEGIN CandidateID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
@@ -161,7 +234,7 @@
 {BEGIN JobID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_JobID}">
@@ -180,7 +253,7 @@
 {BEGIN Referral_from_Dereja_service_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Referral_from_Dereja_service}">
@@ -199,7 +272,7 @@
 {BEGIN Company_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-vertical-field" data-fieldname="Company_Name" data-signal-error-for="Company_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Company_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-vertical-field" data-fieldname="Company_Name" data-signal-error-for="Company_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Company_Name" data-fieldname="Company_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Company_Name}">
@@ -218,7 +291,7 @@
 {BEGIN Company_Phone_Number_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Company_Phone_Number}">
@@ -237,7 +310,7 @@
 {BEGIN Sector_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" data-fieldname="Sector" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sector}">
@@ -256,7 +329,7 @@
 {BEGIN Job_Position_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-vertical-field" data-fieldname="Job_Position" data-signal-error-for="Job_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Job_Position" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-vertical-field" data-fieldname="Job_Position" data-signal-error-for="Job_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Job_Position" data-fieldname="Job_Position" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Position}">
@@ -275,7 +348,7 @@
 {BEGIN Job_Type_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" data-fieldname="Job_Type" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Type}">
@@ -294,7 +367,7 @@
 {BEGIN Job_Placement_Date_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-vertical-field" data-fieldname="Job_Placement_Date" data-signal-error-for="Job_Placement_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-vertical-field" data-fieldname="Job_Placement_Date" data-signal-error-for="Job_Placement_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" data-fieldname="Job_Placement_Date" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Placement_Date}">
@@ -313,7 +386,7 @@
 {BEGIN Employment_End_Date_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-vertical-field" data-fieldname="Employment_End_Date" data-signal-error-for="Employment_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-vertical-field" data-fieldname="Employment_End_Date" data-signal-error-for="Employment_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" data-fieldname="Employment_End_Date" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Employment_End_Date}">
@@ -332,7 +405,7 @@
 {BEGIN First_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="First_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
@@ -351,7 +424,7 @@
 {BEGIN Middle_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Middle_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
@@ -370,7 +443,7 @@
 {BEGIN Last_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Last_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
@@ -391,12 +464,12 @@
 								</tr>
 			</tbody></table>
 {END grid_block}
-						</div>
-					<div class="r-below">
-										{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
@@ -443,8 +516,8 @@
 		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown dropup">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-menu-hamburger"></span>
-									<span class="caret"></span>
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
 							{BEGIN edit_page_button}
@@ -459,12 +532,18 @@
 	</span>
 </span>
 		</div>					</div>
-	</div>		
+			</div>		
 {END below-grid_block}
-						</div>
-					{$footer}
-				</div>	
-			</div>	
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
 	{END body}
 	</body>

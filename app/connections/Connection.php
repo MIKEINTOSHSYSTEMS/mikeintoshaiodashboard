@@ -6,13 +6,13 @@ class Connection
 	 * @type Mixed
 	 */
 	public $conn = null;
-	
+
 	/**
 	 * The database type identifier
 	 * @type Number
 	 */
 	public $dbType;
-	
+
 	/**
 	 * The db connection id
 	 * @type Number
@@ -23,46 +23,54 @@ class Connection
 	 * @type DBInfo
 	 */
 	public $_encryptInfo;
-	
+
 	/**
 	 * @type DBFunctions
 	 */
 	protected $_functions;
-	
+
 	/**
 	 * @type DBInfo
 	 */
 	protected $_info;
-	
+
 	/**
 	 * asp compatibility
 	 */
 	public $SQLUpdateMode;
-	
+
+
 	/**
-	 * @type boolean 
+	 * @type boolean
 	 */
 	protected $silentMode;
-	
+
+	protected static $lastInsertedId;
+
 	function __construct( $params )
 	{
 		include_once getabspath("connections/QueryResult.php");
-		
+
 		$this->assignConnectionParams( $params );
-		
+
 		// set the db connection
 		$this->connect();
-		
+
 		$this->setDbFunctions( $params );
 		$this->setDbInfo( $params["ODBCString"] );
 
 		$this->_encryptInfo = $params["EncryptInfo"];
+		
+		$initSQLList = $this->_functions->initializationSQL();
+		foreach( $initSQLList as $query ) {
+			$this->exec( $query );
+		}
 	}
 
 	/**
 	 * @return Boolean
 	 */
-	function isEncryptionByPHPEnabled() 
+	function isEncryptionByPHPEnabled()
 	{
 		return isset( $this->_encryptInfo["mode"] ) && $this->_encryptInfo["mode"] == ENCRYPTION_PHP;
 	}
@@ -70,13 +78,13 @@ class Connection
 	/**
 	 * @param String sql
 	 */
-	function setInitializingSQL( $sql ) 
+	function setInitializingSQL( $sql )
 	{
 		//	in PHP just exec the initialization SQL right away.
 		$this->exec( $sql );
 	}
 
-	
+
 	/**
 	 * Set db connection's properties
 	 * @param Array params
@@ -88,16 +96,16 @@ class Connection
 	}
 
 	/**
-	 * Set the DBFunction object 
+	 * Set the DBFunction object
 	 * @param String leftWrapper
 	 * @param String rightWrapper
-	 */	 
+	 */
 	protected function setDbFunctions( $params )
 	{
 		include_once getabspath("connections/dbfunctions/DBFunctions.php");
-		
+
 		$extraParams = array_merge($this->getDbFunctionsExtraParams(), $params);
-		
+
 		switch( $this->dbType )
 		{
 			case nDATABASE_MySQL:
@@ -138,27 +146,27 @@ class Connection
 				$this->_functions = new GenericFunctions( $extraParams );
 		}
 	}
-	
+
 	/**
-	 * Get extra connection params that may be connected 
+	 * Get extra connection params that may be connected
 	 * with the db connection link directly
 	 * @return Array
 	 */
 	protected function getDbFunctionsExtraParams()
-	{		
+	{
 		return array();
 	}
-	
+
 	/**
 	 * Set the DbInfo object
-	 * @param String ODBCString	 
+	 * @param String ODBCString
 	 */
 	protected function setDbInfo( $ODBCString )
 	{
 		include_once getabspath("connections/dbinfo/DBInfo.php");
 		switch( $this->dbType )
 		{
-			case nDATABASE_MySQL: 
+			case nDATABASE_MySQL:
 				if( useMySQLiLib() )
 				{
 					include_once getabspath("connections/dbinfo/MySQLiInfo.php");
@@ -178,9 +186,9 @@ class Connection
 				include_once getabspath("connections/dbinfo/MSSQLInfo.php");
 				$this->_info = new MSSQLInfo( $this );
 			break;
-			case nDATABASE_Access: 
+			case nDATABASE_Access:
 				if( stripos($ODBCString, 'Provider=') !== false )
-				{				
+				{
 					include_once getabspath("connections/dbinfo/ADOInfo.php");
 					$this->_info = new ADOInfo( $this );
 				}
@@ -204,10 +212,10 @@ class Connection
 			break;
 			case nDATABASE_DB2:
 				include_once getabspath("connections/dbinfo/DB2Info.php");
-				$this->_info = new DB2Info( $this );		
+				$this->_info = new DB2Info( $this );
 		}
-	}	
-	
+	}
+
 	/**
 	 * An interface stub.
 	 * Open a connection to db
@@ -216,18 +224,18 @@ class Connection
 	{
 		//db_connect
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Close the db connection
 	 */
 	public function close()
 	{
 		//db_close
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Send an SQL query
 	 * @param String sql
 	 * @return QueryResult
@@ -237,9 +245,9 @@ class Connection
 		//db_query
 		//return new QueryResult( $this, $qHandle );
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Execute an SQL query
 	 * @param String sql
 	 */
@@ -247,9 +255,9 @@ class Connection
 	{
 		//db_exec
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Get a description of the last error
 	 * @return String
 	 */
@@ -258,16 +266,15 @@ class Connection
 		//db_error
 	}
 
-	/**	
+	/**
 	 * Get the auto generated id used in the last query
-	 * @param String key (optional)	
-	 * @param String table (optional)	
-	 * @param String oraSequenceName (optional)	
+	 * @param String key (optional)
+	 * @param String table (optional)
 	 * @return Number
-	 */	
-	public function getInsertedId( $key = null, $table = null , $oraSequenceName = false )
-	{	
-		$insertedIdSQL = $this->_functions->getInsertedIdSQL( $key, $table, $oraSequenceName );
+	 */
+	public function getInsertedId( $key = null, $table = null )
+	{
+		$insertedIdSQL = $this->_functions->getInsertedIdSQL( $key, $table );
 
 		if ( $insertedIdSQL )
 		{
@@ -281,7 +288,42 @@ class Connection
 
 		return 0;
 	}
-	
+
+	/**
+	 * 
+	 */
+	public static function getAutoincField($tableInfo)
+	{
+		if (!$tableInfo)
+			return null;
+
+		if (!is_array($tableInfo["fields"]))
+			return null;
+
+		$keys = array();
+		$autoincField = null;
+		foreach ($tableInfo["fields"] as $f) {
+			if ($f["key"]) {
+				$keys[$f["name"]] = $f["type"];
+
+				if ($f["autoInc"]) {
+					$autoincField = $f["name"];
+					break;
+				}
+			}
+		}
+
+		if ($autoincField == null && count($keys) == 1) {
+			foreach ($keys as $key => $type) {
+				if (IsNumberType($type)) {
+					$autoincField = $key;
+				}
+			}
+		}
+
+		return $autoincField;
+	}
+
 	/**
 	 * The stub openSchema method overrided in the ADO connection class
 	 * @param Number querytype
@@ -291,9 +333,9 @@ class Connection
 	{
 		return null;
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Fetch a result row as an associative array
 	 * @param Mixed qHanle		The query handle
 	 * @return Array | Boolean
@@ -302,22 +344,22 @@ class Connection
 	{
 		//db_fetch_array
 	}
-	
+
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Fetch a result row as a numeric array
-	 * @param Mixed qHanle		The query handle	 
+	 * @param Mixed qHanle		The query handle
 	 * @return Array | Boolean
 	 */
 	public function fetch_numarray( $qHandle )
 	{
 		//db_fetch_numarray
 	}
-	
+
 	/**
-	 * An interface stub	
-	 * Free resources associated with a query result set 
-	 * @param Mixed qHanle		The query handle		 
+	 * An interface stub
+	 * Free resources associated with a query result set
+	 * @param Mixed qHanle		The query handle
 	 */
 	public function closeQuery( $qHandle )
 	{
@@ -325,7 +367,7 @@ class Connection
 	}
 
 	/**
-	 * An interface stub.	
+	 * An interface stub.
 	 * Get number of fields in a result
 	 * @param Mixed qHanle		The query handle
 	 * @return Number
@@ -333,15 +375,15 @@ class Connection
 	public function num_fields( $qHandle )
 	{
 		//db_numfields
-	}	
-	
+	}
+
 	/**
-	 * An interface stub.	
+	 * An interface stub.
 	 * Get the name of the specified field in a result
 	 * @param Mixed qHanle		The query handle
 	 * @param Number offset
 	 * @return String
-	 */	 
+	 */
 	public function field_name( $qHandle, $offset )
 	{
 		//db_fieldname
@@ -358,13 +400,13 @@ class Connection
 		for($i = 0; $i < $n; $i++)
 		{
 			$this->fetch_array( $qHandle );
-		}		
+		}
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function escapeLIKEpattern( $str )
 	{
 		return $this->_functions->escapeLIKEpattern( $str );
@@ -375,12 +417,12 @@ class Connection
 	 * Use this only for strings!
 	 */
 	public function comparisonSQL( $val1, $val2, $ignoreCase ) {
-		return $ignoreCase 
+		return $ignoreCase
 			? $this->caseInsensitiveComparison( $val1, $val2 )
 			: $this->caseSensitiveComparison( $val1, $val2 );
 	}
 
-	
+
 	public function caseSensitiveComparison( $val1, $val2 )
 	{
 		return $this->_functions->caseSensitiveComparison( $val1, $val2 );
@@ -398,12 +440,12 @@ class Connection
 	 *  Character 1 is on quotes, 2 - not
 	 *  @return Boolean
 	 */
-	public function positionQuoted( $sql, $pos ) 
+	public function positionQuoted( $sql, $pos )
 	{
 		return $this->_functions->positionQuoted( $sql, $pos );
 	}
 
-	
+
 	/**
 	 * @param String str
 	 * @return String
@@ -412,34 +454,34 @@ class Connection
 	{
 		return $this->_functions->prepareString( $str );
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function addSlashes( $str )
 	{
 		return $this->_functions->addslashes( $str );
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function addSlashesBinary( $str )
 	{
 		return $this->_functions->addSlashesBinary( $str );
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function stripSlashesBinary( $str )
 	{
 		return $this->_functions->stripSlashesBinary( $str );
 	}
-	
+
 	/**
 	 * @param String fName
 	 * @return String
@@ -448,11 +490,11 @@ class Connection
 	{
 		return $this->_functions->addFieldWrappers( $fName );
 	}
-	
+
 	/**
 	 * @param String tName
 	 * @return String
-	 */	
+	 */
 	public function addTableWrappers( $tName )
 	{
 		return $this->_functions->addTableWrappers( $tName );
@@ -467,16 +509,16 @@ class Connection
 	{
 		return $this->_functions->getTableNameComponents( $name );
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */		
+	 */
 	public function upper( $str )
 	{
 		return $this->_functions->upper( $str );
 	}
-	
+
 	/**
 	 * @param Mixed value
 	 * @return String
@@ -485,7 +527,7 @@ class Connection
 	{
 		return $this->_functions->addDateQuotes( $value );
 	}
-	
+
 	/**
 	 * @param Mixed value
 	 * @param Number type ( optional )
@@ -495,12 +537,12 @@ class Connection
 	{
 		return $this->_functions->field2char( $value, $type );
 	}
-	
+
 	/**
 	 * It's invoked when search is running on the 'View as:Time' field
 	 * @param Mixed value
 	 * @param Number type
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2time( $value, $type )
 	{
@@ -510,13 +552,13 @@ class Connection
 	/**
 	 * @param String tName
 	 * @return String
-	 */	
+	 */
 	public function timeToSecWrapper( $tName )
 	{
 		return $this->_functions->timeToSecWrapper( $tName );
 	}
-	
-	
+
+
 	/**
 	 * @return Array
 	 */
@@ -524,17 +566,17 @@ class Connection
 	{
 		return $this->_info->db_gettablelist();
 	}
-	
+
 	/**
 	 * @param String
-	 * @return Array	 
+	 * @return Array
 	 */
 	public function getFieldsList( $sql )
 	{
 		return $this->_info->db_getfieldslist( $sql );
 	}
-	
-	
+
+
 	/**
 	 * Check if the db supports subqueries
 	 * @return Boolean
@@ -543,7 +585,7 @@ class Connection
 	{
 		return true;
 	}
-	
+
 	/**
 	 * @param String sql
 	 * @param Number pageStart 1-based page number
@@ -565,35 +607,35 @@ class Connection
 	{
 		return $this->_functions->limitedQuery( $this, $strSQL, $skip, $total, $applyLimit );
 	}
-	
+
 
 	/**
-	 * An interface stub	
+	 * An interface stub
 	 * Execute an SQL query with blob fields processing
 	 * @param String sql
 	 * @param Array blobs
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		return $this->exec( $sql );
 	}
-	
+
 	/**
 	 * Get the number of rows fetched by an SQL query
 	 * @param String sql	A part of an SQL query or a full SQL query
-	 * @param Boolean  		The flag indicating if the full SQL query (that can be used as a subquery) 
+	 * @param Boolean  		The flag indicating if the full SQL query (that can be used as a subquery)
 	 * or the part of an sql query ( from + where clauses ) is passed as the first param
 	 */
 	public function getFetchedRowsNumber( $sql )
 	{
 		$countSql = "select count(*) from (".$sql.") a";
-			
+
 		$countdata = $this->query( $countSql )->fetchNumeric();
-		return $countdata[0];	
+		return $countdata[0];
 	}
-	
+
 	/**
 	 * Check if SQL queries containing joined subquery are optimized
 	 * @return Boolean
@@ -602,7 +644,7 @@ class Connection
 	{
 		return true;
 	}
-	
+
 	/**
 	 * Set and print debug information
 	 * @param String sql
@@ -610,17 +652,17 @@ class Connection
 	function debugInfo( $sql )
 	{
 		global $strLastSQL, $dDebug;
-		
+
 		$strLastSQL = $sql;
-		
+
 		if( $dDebug === true )
-			echo $sql."<br>";	
+			echo $sql."<br>";
 	}
-	
+
 	/**
 	 * @param String message
 	 */
-	function triggerError( $message ) 
+	function triggerError( $message )
 	{
 		if( !$this->silentMode )
 			trigger_error( $message, E_USER_ERROR );
@@ -631,32 +673,32 @@ class Connection
 	 *	@param 	Boolean silent
 	 *  @return Boolean - previous Silent mode
 	 */
-	public function setSilentMode( $silent ) 
+	public function setSilentMode( $silent )
 	{
 		$oldMode = $this->silentMode;
 		$this->silentMode = $silent;
 		return $oldMode;
 	}
-	
+
 	/**
 	 *	query, silent mode
 	 *	@param 	String sql
 	 *  @return QueryResult
 	 */
-	public function querySilent( $sql ) 
+	public function querySilent( $sql )
 	{
 		$silent = $this->setSilentMode( true );
 		$ret = $this->query( $sql );
 		$this->setSilentMode( $silent );
 		return $ret;
 	}
-	
+
 	/**
 	 *	exec, silent mode
 	 *	@param 	String sql
 	 *  @return Mixed
 	 */
-	public function execSilent( $sql ) 
+	public function execSilent( $sql )
 	{
 		$silent = $this->setSilentMode( true );
 		$ret = $this->exec( $sql );
@@ -671,28 +713,52 @@ class Connection
 	 *  @param Array blobTypes
 	 *  @return Mixed
 	 */
-	public function execSilentWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execSilentWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		$silent = $this->setSilentMode( true );
-		$ret = $this->execWithBlobProcessing( $sql, $blobs, $blobTypes );
+		$ret = $this->execWithBlobProcessing( $sql, $blobs, $blobTypes, $autoincField );
 		$this->setSilentMode( $silent );
 		return $ret;
-	}	
+	}
 
-	public function intervalExpressionString( $expr, $interval ) 
+	public function intervalExpressionString( $expr, $interval )
 	{
 		return $this->_functions->intervalExpressionString( $expr, $interval );
 	}
 
-	public function intervalExpressionNumber( $expr, $interval ) 
+	public function intervalExpressionNumber( $expr, $interval )
 	{
 		return $this->_functions->intervalExpressionNumber( $expr, $interval );
 	}
 
-	public function intervalExpressionDate( $expr, $interval ) 
+	public function intervalExpressionDate( $expr, $interval )
 	{
 		return $this->_functions->intervalExpressionDate( $expr, $interval );
 	}
-	
+
+	public function execMultiple( $sqls )
+	{
+		foreach( $sqls as $sql ) {
+			if( !$this->execSilent( $sql ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public function dbBased() {
+		return true;
+	}
+
+	public function clearResultBuffer() {
+	}
+
+	/**
+	 *  @return String
+	 */
+	public function getVersion() {
+		return "";
+	}
+
 }
 ?>

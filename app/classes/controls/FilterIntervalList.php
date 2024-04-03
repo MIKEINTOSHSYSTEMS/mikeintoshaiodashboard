@@ -125,7 +125,7 @@ class FilterIntervalList extends FilterControl
 	 * @param Array parentFiltersData (optional)
 	 * @return Array
 	 */
-	protected function getFilterBlockStructure( $filterControl, $visibilityClass, $value, $parentFiltersData = array() )
+	protected function getFilterBlockStructure( $filterControl, $visibilityClass = "", $value = "", $parentFiltersData = array() )
 	{
 		if( $this->multiSelect != FM_ALWAYS )
 			$visibilityClass.= " filter-link";
@@ -182,16 +182,17 @@ class FilterIntervalList extends FilterControl
 	
 	public static function getOrdinaryIntervalCondition( $fName, $intervalData, $pSet ) {
 		$lowerCondition = null;
+		$caseInsensitive = $intervalData["caseSensitive"] ? dsCASE_DEFAULT : dsCASE_INSENSITIVE;
 	
 		$lowerLimit = $intervalData[ "lowerLimit" ];
 		if( $intervalData[ "lowerUsesExpression" ] )
 			$lowerLimit = getIntervalLimitsExpressions( $pSet->getTableName(), $fName, $intervalData["index"], true );
 		
 		if( $intervalData["lowerLimitType"] == FIL_MORE_THAN ) {
-			$lowerCondition = DataCondition::FieldIs( $fName, dsopMORE, $lowerLimit, $intervalData["caseSensetive"] );
+			$lowerCondition = DataCondition::FieldIs( $fName, dsopMORE, $lowerLimit, $caseInsensitive );
 		} else if( $intervalData["lowerLimitType"] == FIL_MORE_THAN_OR_EQUAL ) {
 			$lowerCondition = DataCondition::_Not( 
-				DataCondition::FieldIs( $fName, dsopLESS, $lowerLimit, $intervalData["caseSensetive"] )
+				DataCondition::FieldIs( $fName, dsopLESS, $lowerLimit, $caseInsensitive )
 			);
 		}		
 
@@ -201,10 +202,10 @@ class FilterIntervalList extends FilterControl
 			$upperLimit = getIntervalLimitsExpressions( $pSet->getTableName(), $fName, $intervalData["index"], false );		
 		
 		if( $intervalData["upperLimitType"] == FIL_LESS_THAN  ) {
-			$upperCondition = DataCondition::FieldIs( $fName, dsopLESS, $upperLimit, $intervalData["caseSensetive"] );
+			$upperCondition = DataCondition::FieldIs( $fName, dsopLESS, $upperLimit, $caseInsensitive );
 		} else if( $intervalData["upperLimitType"] == FIL_LESS_THAN_OR_EQUAL  ) {
 			$upperCondition = DataCondition::_Not(
-				DataCondition::FieldIs( $fName, dsopMORE, $upperLimit, $intervalData["caseSensetive"] )
+				DataCondition::FieldIs( $fName, dsopMORE, $upperLimit, $caseInsensitive )
 			);
 		}
 
@@ -253,21 +254,6 @@ class FilterIntervalList extends FilterControl
 		}
 		
 		return FilterIntervalList::getOrdinaryIntervalCondition( $fName, $intervalData, $pSet );	
-	}
-	
-	/**
-	 * @deprecated
-	 * Stub for search suggest
-	 * Get a filter's SQL where clause condition
-	 *
-	 * @param String fName
-	 * @param Array intervalData
-	 * @param Object pSet
-	 * @param Object cipherer
-	 * @param String tableName
-	 * @return String
-	 */
-	static function getIntervalFilterWhere($fName, $intervalData, $pSet, $cipherer, $tableName, $connection, $sqlFieldName = "") {
 	}	
 }
 ?>

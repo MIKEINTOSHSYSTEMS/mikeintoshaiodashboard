@@ -106,7 +106,7 @@ class SearchPageDash extends SearchPage
 	function fillFieldSettings()
 	{		
 		$arrFields = $this->pSet->getAllSearchFields();
-		$this->addFieldsSettings($arrFields, null, true, $this->pageType);
+		$this->addFieldsSettings($arrFields, null, $this->pageType);
 	}
     
 	function locateDashFieldByOriginal( $table, $field )
@@ -124,7 +124,7 @@ class SearchPageDash extends SearchPage
 	}
 	
 	
-	function addFieldsSettings($arrFields, $pSet, $pageBased, $pageType)
+	function addFieldsSettings($arrFields, $pSet, $pageType)
 	{
 		$dashSearchFields = $this->pSet->getDashboardSearchFields();
 		$tableSettingsFilled = array();
@@ -182,7 +182,7 @@ class SearchPageDash extends SearchPage
 				$isDefault = false;
 				if( is_array($fData) )
 				{
-					$isDefault = !count($fData);
+					$isDefault = !$fData;
 				}
 				else if( !is_array($val['default']) )
 				{
@@ -201,7 +201,7 @@ class SearchPageDash extends SearchPage
 			
 			$this->jsSettings['tableSettings'][ $this->tName ]['isUseCK'] = $this->isUseCK;
 			
-			if( count($this->googleMapCfg) != 0 && $this->googleMapCfg['isUseGoogleMap'] )
+			if( $this->googleMapCfg && $this->googleMapCfg['isUseGoogleMap'] )
 			{
 				$this->jsSettings['tableSettings'][ $this->tName ]['isUseGoogleMap'] = true;
 				$this->jsSettings['tableSettings'][ $this->tName ]['googleMapCfg'] = $this->googleMapCfg;	

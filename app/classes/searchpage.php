@@ -199,7 +199,6 @@ class SearchPage extends RunnerPage
 	
 	protected function doCommonAssignments()
 	{
-		$this->xt->assign( "id", $this->id );
 
 		if ( $this->isBootstrap() )
 		{

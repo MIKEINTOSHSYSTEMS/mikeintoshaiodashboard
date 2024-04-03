@@ -164,3 +164,8 @@ table.indenttables > * > .rightsindent5 > td.rightscell.rightscell.rightscell.ri
 .bootstrap-datetimepicker-widget ul.list-unstyled {
 	padding-right: 0 !important;
 }
+
+/* fix for chosen menu */
+.chosen-container.chosen-rtl .chosen-drop {
+	left: 0px;
+}

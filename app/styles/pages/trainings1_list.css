@@ -46,5 +46,8 @@
 [data-cellid="grid_headcell_checkbox"][data-page="trainings1_list"][data-cellid="grid_headcell_checkbox"][data-page="trainings1_list"][data-cellid="grid_headcell_checkbox"][data-page="trainings1_list"] {
   width: 30px;
 }
+[data-page="trainings1_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
 
 

@@ -313,7 +313,7 @@ class MenuItem
 		if ($this->linkType == "Separator")
 			return true;
 		// if internal and has href and user have permissions
-		if ($this->linkType == "Internal" && $this->isUserHaveTablePerm())
+		if ($this->linkType == "Internal" && $this->linkAvailable())
 			return true;
 		// else not show as link
 		return false;
@@ -327,6 +327,17 @@ class MenuItem
 	{
 		return $this->pageObject->isUserHaveTablePerm($this->table, $this->pageType);
 	}
+
+	/**
+	 * Check if user have permission for link(check page)
+	 *
+	 * @return bool
+	 */
+	function linkAvailable()
+	{
+		return menuLinkAvailable($this->table, $this->pageType, $this->pageId);
+	}
+
 	/**
 	 * Checks show this element as separator
 	 * Should be called allways after tree structure is initialized
@@ -517,7 +528,7 @@ class MenuItem
 		{
 			if(  $this->menuTableMap[ $this->table ][ strtolower($this->pageType) ] > 1 )
 			{
-				if ( $menuItemId == $this->id ) {
+				if ( !$menuItemId || $menuItemId == $this->id ) {
 				$this->currentItem = true;
 					return $this;
 				}
@@ -650,8 +661,9 @@ class MenuItem
 	public function getMenuItemAttributes( $showSubmenu = true )
 	{
 		$attrs = array();
-		if( $this->isBootstrap() && $this->isShowAsGroup() && $showSubmenu )
+		if( $this->isShowAsGroup() && $showSubmenu )
 		{
+			//$attrs["class"] = "r-menugroup";
 			if( $this->isTreelike() )
 			{
 				$attrs["data-toggle"] = "menu-collapse";
@@ -659,7 +671,7 @@ class MenuItem
 			}
 			else
 			{
-				$attrs["class"] = "dropdown-toggle";
+				//$attrs["class"] .= " dropdown-toggle";
 				$attrs["data-toggle"] = "nested-dropdown";
 				$attrs["aria-haspopup"] = "true";
 				$attrs["aria-expanded"] = "false";
@@ -727,6 +739,8 @@ class MenuItem
 			$arrowIcon = "glyphicon-triangle-left";
 		if( $this->isBootstrap() && $this->isShowAsGroup() && !$this->isWelcome() )
 		{
+			$xt->assign("item".$this->id."_expand_icon", true );
+			/*
 			if( !$this->isTreelike() )
 			{
 				if( $showSubmenu )
@@ -738,6 +752,7 @@ class MenuItem
 			{
 					$title = '<span class="menu-triangle glyphicon '.$arrowIcon.'"></span> ' . $title;
 			}
+			*/
 		}
 		$icon = $this->getIconHTML();
 		if( $icon ) {

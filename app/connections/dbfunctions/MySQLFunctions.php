@@ -6,18 +6,18 @@ class MySQLFunctions extends DBFunctions
 	 * @type Mixed
 	 */
 	protected $conn = null;
-	
-	
+
+
 	function __construct( $params )
 	{
 		parent::__construct($params);
 		$this->strLeftWrapper = "`";
 		$this->strRightWrapper = "`";
 		$this->escapeChars[ '\\' ] = true;
-		
-		$this->conn = $params["conn"];	
+
+		$this->conn = $params["conn"];
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
@@ -27,7 +27,7 @@ class MySQLFunctions extends DBFunctions
 		return str_replace(array('\\', '%', '_'), array('\\\\', '\\%', '\\_'), $str);
 	}
 
-	
+
 	/**
 	 * @param String str
 	 * @return String
@@ -38,83 +38,68 @@ class MySQLFunctions extends DBFunctions
 		{
 			if( $this->conn )
 				return mysqli_real_escape_string( $this->conn, $str );
-		} 
+		}
 		else
 		{
 			//	ODBC connection, no MySQL library included
 			return str_replace(array('\\', '\''), array('\\\\', '\\\''), $str);
 		}
 	}
-	
+
 	/**
 	 * @param String str
 	 * @return String
-	 */	
+	 */
 	public function addSlashesBinary( $str )
 	{
 		if( !strlen($str) )
 			return "''";
-			
+
 		return "0x".bin2hex($str);
 	}
 
 
 	/**
-	 * adds wrappers to field name if required
-	 * @param String strName
-	 * @return String
-	 */
-	public function addFieldWrappers( $strName )
-	{		
-		if( substr($strName, 0, 1) == $this->strLeftWrapper )
-			return $strName;
-			
-		return $this->strLeftWrapper.$strName.$this->strRightWrapper;
-	}
-	
-
-	/**
 	 * @param String dbval
-	 * @return String	 
+	 * @return String
 	 */
 	public function upper( $dbval )
 	{
 		return "upper(".$dbval.")";
 	}
-	
-	
+
+
 	/**
 	 * It's called for Contains and Starts with searches
 	 * @param Mixed value
 	 * @param Number type (optional)
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2char($value, $type = 3)
 	{
-		return $value;
+		return "CAST( " .$value .' AS CHAR )';
 	}
-	
+
 	/**
 	 * @param Mixed value
 	 * @param Number type
-	 * @return String	 
+	 * @return String
 	 */
 	public function field2time($value, $type)
 	{
 		if( IsDateFieldType($type) )
 			return "time(".$value.")";
-			
+
 		return $value;
 	}
 
 	/**
 	 *  Get the auto generated SQL string used in the last query
-	 * @param String key (optional)	
-	 * @param String table (optional)	
-	 * @param String oraSequenceName (optional)	
+	 * @param String key (optional)
+	 * @param String table (optional)
 	 * @return String
 	 */
-	public function getInsertedIdSQL( $key = null, $table = null, $oraSequenceName = false )
+	public function getInsertedIdSQL( $key = null, $table = null)
 	{
 		return "SELECT LAST_INSERT_ID()";
 	}
@@ -122,7 +107,7 @@ class MySQLFunctions extends DBFunctions
 	/**
 	 * @param String strName
 	 * @return String
-	 */	
+	 */
 	public function timeToSecWrapper( $strName )
 	{
 		return "TIME_TO_SEC(" . $this->addTableWrappers($strName) . ")";
@@ -137,25 +122,44 @@ class MySQLFunctions extends DBFunctions
 	{
 		return 'binary ' . $val1 . ' = ' . $val2;
 	}
-	
-	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit ) 
+
+	public function limitedQuery( $connection, $strSQL, $skip, $total, $applyLimit )
 	{
-		if( $applyLimit && ( $skip || $total > 0 ) ) 
+		if( $applyLimit && ( $skip || $total > 0 ) )
 			$strSQL.= " limit ". $skip . ", " . ( $total >=0 ? $total : 2000000000 );
 		return $connection->query( $strSQL );
 	}
 
-	public function intervalExpressionString( $expr, $interval ) 
+	public function intervalExpressionString( $expr, $interval )
 	{
 		return DBFunctions::intervalExprLeft( $expr, $interval );
 	}
 
-	public function intervalExpressionNumber( $expr, $interval ) 
+	public function intervalExpressionNumber( $expr, $interval )
 	{
 		return DBFunctions::intervalExprFloor( $expr, $interval );
 	}
 
-	public function intervalExpressionDate( $expr, $interval ) 
+	protected function weekIntervalExpressionDate( $expr ) {
+		global $locale_info;
+		$firstDayOfWeek = $locale_info["LOCALE_IFIRSTDAYOFWEEK"];
+		$mode = -1;
+		if( $firstDayOfWeek == 0 ) {
+			// Monday is first day of week, week 1 - with a Monday in this year
+			$mode = 5;
+		} else if( $firstDayOfWeek == 6 ) {
+			// Sunday is first day of week, week 1 - with a Sunday in this year
+			$mode = 0;
+		}
+		
+		if( $mode != -1 ) {
+			return "year(".$expr.")*10000 + week(".$expr.",".$mode.")*100+01";
+		}
+
+		return "year(".$expr.")*10000 + week(".$expr.")*100+01";
+	}
+
+	public function intervalExpressionDate( $expr, $interval )
 	{
 		if($interval == 1) // DATE_INTERVAL_YEAR
 			return "year(".$expr.")*10000 + 101"; // ???
@@ -164,7 +168,7 @@ class MySQLFunctions extends DBFunctions
 		if($interval == 3) // DATE_INTERVAL_MONTH
 			return "year(".$expr.")*10000 + month(".$expr.")*100+1";
 		if($interval == 4) // DATE_INTERVAL_WEEK
-			return "year(".$expr.")*10000 + week(".$expr.")*100+01";
+			return $this->weekIntervalExpressionDate( $expr );
 		if($interval == 5) // DATE_INTERVAL_DAY
 			return "year(".$expr.")*10000 + month(".$expr.")*100 + day(".$expr.")";
 		if($interval == 6) // DATE_INTERVAL_HOUR
@@ -174,6 +178,6 @@ class MySQLFunctions extends DBFunctions
 		return $expr;
 	}
 
-	
+
 }
 ?>

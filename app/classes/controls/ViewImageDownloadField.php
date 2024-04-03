@@ -19,9 +19,8 @@ class ViewImageDownloadField extends ViewFileField
 	function __construct($field, $container, $pageobject)
 	{
 		parent::__construct($field, $container, $pageobject);
-		$this->isImageURL = $container->pSet->isImageURL( $this->field );
 
-		$this->showThumbnails = $container->pSet->showThumbnail( $this->field ) && !$this->isImageURL;
+		$this->showThumbnails = $container->pSet->showThumbnail( $this->field ) && !$this->isUrl();
 		$this->setOfThumbnails = $container->pSet->showListOfThumbnails( $this->field );
 		$this->useAbsolutePath = $container->pSet->isAbsolute( $this->field );
 
@@ -70,29 +69,24 @@ class ViewImageDownloadField extends ViewFileField
 		if( !$data[ $this->field ] )
 			return '""';
 
-		$defWidth = 100;
-		if ( $this->container->pageType === PAGE_VIEW )
-			$defWidth = 300;
 
-		$width = $this->imageWidth ? $this->imageWidth : $defWidth;
-		$thumbWidth = $this->thumbWidth ? $this->thumbWidth : 72;
 
-		if ($this->isImageURL) {
+		if ($this->isUrl()) {
 			return '{
 				image: "' . $data[$this->field] . '",
-				width: ' . $width . ',
+				width: ' . $this->imageWidth . ',
 				height: ' . $this->imageHeight . '
 			}';
 		}
 
-		$this->upload_handler->tkeys = $keylink;
-
 		$resultValues = array();
-		$filesArray = $this->getFilesArray( $data[ $this->field ] );
+		$filesArray = $this->getFilesData( $data[ $this->field ] );
 
 		$pSet = $this->pSettings();
 		$maxImages = $pSet->getMaxImages( $this->field );
 		$imgCount = 0;
+
+		$fs = getStorageProvider( $pSet, $this->field );
 
 		foreach( $filesArray as $imageFile )
 		{
@@ -115,7 +109,7 @@ class ViewImageDownloadField extends ViewFileField
 				if( $_image ) {
 					$resultValues[] = '{
 						image: "' . jsreplace( $_image ) . '",
-						width: ' . $width  . ',
+						width: ' . $this->imageWidth  . ',
 						height: ' . $this->imageHeight . '
 					}';
 				}
@@ -129,7 +123,7 @@ class ViewImageDownloadField extends ViewFileField
 			if( $_image ) {	
 				$resultValues[] = '{
 					image: "' . jsreplace( $_image ) . '",
-					width: ' . $thumbWidth . ',
+					width: ' . $this->thumbWidth . ',
 					height: ' . $this->thumbHeight . '
 				}';
 			}
@@ -156,14 +150,21 @@ class ViewImageDownloadField extends ViewFileField
 		return '';
 	}
 
-	public function getFileURLs(&$data, $keylink)
+	/**
+	 * @return Array of arrays (
+	 * 		image => fileId,
+	 * 		filename => filename
+	 * 		thumbnail (optional) => thumb fileid 
+	 * )
+	 */
+	protected function getFileURLs(&$data, $keylink)
 	{
 		$pSet = $this->pSettings();
 		$showThumbnails = $pSet->showThumbnail( $this->field );
 
 		$fileURLs = array();
 
-		if ( $this->isImageURL ) {
+		if ( $this->isUrl() ) {
 			$path = pathinfo( $data[$this->field] );
 			$fileURLs = array( 0 => array(
 				"image" => $data[$this->field],
@@ -172,30 +173,32 @@ class ViewImageDownloadField extends ViewFileField
 		}
 		else
 		{
-			$this->upload_handler->tkeys = $keylink;
-			$filesArray = $this->getFilesArray( $data [$this->field ]);
-			foreach( $filesArray as $f ) {
-				if( !myfile_exists( $f['name'] ) )
+			$fs = getStorageProvider( $pSet, $this->field );
+			$files = $this->getFilesData( $data [$this->field ] );
+			foreach( $files as $f ) {
+				
+				if( !$this->fastFileExists( $f['name'], $fs ) ) {
 					continue;
-				$userFile = $this->upload_handler->buildUserFile( $f );
+				}
 				$url = array(
-					"image" => $userFile["url"] . "&nodisp=1",
+					"image" => $this->getFileUrl( $f, $keylink ),
 					"filename" => $f["usrName"]
 				);
-				if( $showThumbnails && $userFile["thumbnail_url"]) {
-					if( myfile_exists( $f['thumbnail'] ) )
-						$url["thumbnail"] = $userFile["thumbnail_url"] . "&nodisp=1";
+				if( $showThumbnails && ( $f["thumbnail"] || $fs->autoThumbnails() ) ) {
+					if( $fs->autoThumbnails() || $this->fastFileExists( $f['thumbnail'], $fs ) ) {
+						$url["thumbnail"] = $url["image"] . "&thumbnail=1";
+					}
 				}
 				$fileURLs[] = $url;
 			}
 		}
-
 		return $fileURLs;
 	}
 
+
 	public function showDBValue( &$data, $keylink, $html = true )
 	{
-		if($data[$this->field] == '')
+		if( !$data[$this->field] )
 			return '';
 
 		$pSet = $this->pSettings();
@@ -239,26 +242,12 @@ class ViewImageDownloadField extends ViewFileField
 	 */
 	public function getTextValue(&$data)
 	{
-		if( !strlen( $data[ $this->field ] ) )
-			return "";
-
-		if ( !$this->isImageURL )
-		{
-			$fileNames = array();
-
-			$filesData = $this->getFilesArray( $data[ $this->field ] );
-			foreach($filesData as $imageFile)
-			{
-				$userFile = $this->upload_handler->buildUserFile($imageFile);
-				$fileNames[] = $userFile["name"] ;
-			}
-
-			return implode(", ", $fileNames);
+		$filesData = $this->getFilesData( $data[ $this->field ] );
+		$fileNames = array();
+		foreach( $filesData as $f ) {
+			$fileNames[] = $f["usrName"] ;
 		}
-		else
-		{
-			return $data[ $this->field ];
-		}
+		return implode(", ", $fileNames);
 	}
 
 	/**
@@ -334,5 +323,10 @@ class ViewImageDownloadField extends ViewFileField
 	{
 		return true;
 	}
+
+	protected function isUrl() {
+		return $this->pSettings()->isImageURL( $this->field );
+	}
+
 }
 ?>

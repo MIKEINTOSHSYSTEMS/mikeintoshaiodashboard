@@ -13,9 +13,10 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-print" {$bodyattrs}>
+	<body class="{$stylename} function-print" >
 	{BEGIN body}
 		{$header}
 		<style>
@@ -29,7 +30,7 @@
 							{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
@@ -45,12 +46,12 @@
 </span>
 {END printtabheader}
 		</div>					</div>
-	</div>		
+			</div>		
 {END top_block}
 									{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
@@ -80,33 +81,30 @@
 {END inlineadd_link}
 			{END firstAboveGridCell}	
 	</div>					</div>
-	</div>		
+			</div>		
 {END above-grid_block}
 									{BEGIN grid_block}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
-{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  rnr-b-grid rnr-gridtable" 
-	cellpadding="0" 
+{END message_block}<table data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-bordered r-horizontal-grid  rnr-b-grid rnr-gridtable"
+	cellpadding="0"
 	data-body-height="1"
 >
 						<thead>
 			{BEGIN grid_header}
-					
-		 
-						<tr {$rowattrs} {$row_grid_0} class="{$rowclass} 
+			
+																									<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
 									{$gridHeader_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MinorMajorID_class}
-			"
+		 r-ori-vert		 {$MinorMajorID_class}	"
 
 			data-field="MinorMajorID"
 	
@@ -116,22 +114,20 @@
 	 
 		{BEGIN MinorMajorID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorMajorID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorMajorID" data-fieldname="MinorMajorID">
 	{$label minor_major MinorMajorID }	</span>
 {END MinorMajorID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field}
-				 
-					{BEGIN cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field1}
 	<th
 	
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentID_class}
-			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 			data-field="DepartmentID"
 	
@@ -141,22 +137,20 @@
 	 
 		{BEGIN DepartmentID_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-fieldname="DepartmentID">
 	{$label minor_major DepartmentID }	</span>
 {END DepartmentID_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
-				 
-					{BEGIN cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field2}
 	<th
 	
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MinorName_class}
-			"
+		 r-ori-vert		 {$MinorName_class}	"
 
 			data-field="MinorName"
 	
@@ -166,22 +160,20 @@
 	 
 		{BEGIN MinorName_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorName">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorName" data-fieldname="MinorName">
 	{$label minor_major MinorName }	</span>
 {END MinorName_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field2}
-				 
-					{BEGIN cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field3}
 	<th
 	
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MajorName_class}
-			"
+		 r-ori-vert		 {$MajorName_class}	"
 
 			data-field="MajorName"
 	
@@ -191,7 +183,7 @@
 	 
 		{BEGIN MajorName_fieldheadercolumn}
  
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MajorName">
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MajorName" data-fieldname="MajorName">
 	{$label minor_major MajorName }	</span>
 {END MajorName_fieldheadercolumn}
 
@@ -199,29 +191,23 @@
 	</th>
 	{END cellblock_grid_headcell_field3}
 							</tr>
-					 
-					 
-					
+															
 					{END grid_header}
 			</thead>
 															{BEGIN grid_row}
 					<tbody>
-									
-		 
-					 
-						<tr {$rowattrs} {$row_grid_1} class="{$rowclass} 
-								
+							
+																														<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
+				
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MinorMajorID_class}
-			"
+		 r-ori-vert		 {$MinorMajorID_class}	"
 
 			data-field="MinorMajorID"
 	
@@ -230,21 +216,19 @@
 
 	 
 		{BEGIN MinorMajorID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorMajorID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorMajorID" data-fieldname="MinorMajorID" data-default-width >
 {$MinorMajorID_value}
 </span>
 {END MinorMajorID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$DepartmentID_class}
-			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 			data-field="DepartmentID"
 	
@@ -253,21 +237,19 @@
 
 	 
 		{BEGIN DepartmentID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DepartmentID" data-fieldname="DepartmentID" data-default-width >
 {$DepartmentID_value}
 </span>
 {END DepartmentID_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
-				 
-					{BEGIN cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MinorName_class}
-			"
+		 r-ori-vert		 {$MinorName_class}	"
 
 			data-field="MinorName"
 	
@@ -276,21 +258,19 @@
 
 	 
 		{BEGIN MinorName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MinorName" data-fieldname="MinorName" data-default-width >
 {$MinorName_value}
 </span>
 {END MinorName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
-				 
-					{BEGIN cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$MajorName_class}
-			"
+		 r-ori-vert		 {$MajorName_class}	"
 
 			data-field="MajorName"
 	
@@ -299,35 +279,30 @@
 
 	 
 		{BEGIN MajorName_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MajorName" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="MajorName" data-fieldname="MajorName" data-default-width >
 {$MajorName_value}
 </span>
 {END MajorName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
 							</tr>
-					 
-					
+										
 											</tbody>
 					{END grid_row}
 													<tfoot>
-					
-		 
-					 
-					 
-						<tr {$rowattrs} {$row_grid_2} class="{$rowclass} 
+			
+																																			<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 									{$gridFooter_class}
-									
+					
 								r-gridrow
 							">
-				 
-					{BEGIN cellblock_grid_footcell_field}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$MinorMajorID_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="minor_major_print"	
@@ -336,14 +311,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field}
-				 
-					{BEGIN cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field1}
 	<td
 	
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$DepartmentID_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="minor_major_print"	
@@ -352,14 +326,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
-				 
-					{BEGIN cellblock_grid_footcell_field2}
+									{BEGIN cellblock_grid_footcell_field2}
 	<td
 	
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$MinorName_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="minor_major_print"	
@@ -368,14 +341,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field2}
-				 
-					{BEGIN cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field3}
 	<td
 	
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert			"
+		 r-ori-vert		 {$MajorName_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="minor_major_print"	

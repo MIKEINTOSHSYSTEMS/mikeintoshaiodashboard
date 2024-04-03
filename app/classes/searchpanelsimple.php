@@ -1,125 +1,139 @@
 <?php
 /**
- * Search panel builder for LIST_SIMPLE mode
- *
+ * Search panel builder
  */
-class SearchPanelSimple extends SearchPanel {
+class SearchPanelSimple {
+	protected $pageObj = null;
+	
+	protected $searchClauseObj = null;
+	protected $tName = '';
+	protected $pSet = null;	
+	protected $id = 1;
+	
+	/**
+	 * The page's xTeml instance
+	 */
+	protected $xt;	
+	
+	/**
+	 * Object of PanelSearchControl class.
+	 * @var object
+	 */
+	protected $controlBuilder = null;
 
-	var $srchPanelAttrs = array();
+
+	/**
+	 * Fields that used for search on panel, and should be open on every page load
+	 * @var array
+	 */
+	protected $panelSearchFields = array();
 	
-	var $isDisplaySearchPanel = true;
+	/**
+	 * Array of key's fields
+	 * @var array
+	 */
+	protected $allSearchFields = array();
 	
-	var $isFlexibleSearch = true;
+
+	protected $searchOptions = array();	
 	
-	var $searchOptions = array();
 	
-	function __construct(&$params) 
-	{
-		parent::__construct($params);
+	/**
+	 * Constructor, accepts array of parametres, which will be copied to object properties by link
+	 *
+	 * @param array $params
+	 * @return SearchPanel
+	 */
+	function __construct( &$params ) {
+		$this->pageObj = $params['pageObj'];
 		
-		$this->isDisplaySearchPanel = $this->pSet->showSearchPanel();
-		if( $this->pageObj->mobileTemplateMode() && !$this->isDisplaySearchPanel ) 
-		{
-			$advSearchFields = $this->pSet->getAdvSearchFields();
-			if( count( $advSearchFields ) )
-				$this->isDisplaySearchPanel = true;
-		}
-
-
-		$this->isFlexibleSearch = $this->pSet->isFlexibleSearch();
+		$this->searchClauseObj = &$this->pageObj->searchClauseObj;	
+		
+		$this->id = $this->pageObj->id;
+		$this->pSet = $this->pageObj->pSetSearch;
+		$this->tName = $this->pageObj->searchTableName;
+		$this->xt = $this->pageObj->xt;
+				
+		if( !isset( $params['panelSearchFields'] ) )
+			$this->panelSearchFields = $this->pSet->getPanelSearchFields();
+		else
+			$this->panelSearchFields = $params['panelSearchFields'];	
+		
+		if( !isset( $params['allSearchFields'] ) )
+			$this->allSearchFields = $this->pSet->getAllSearchFields();
+		else
+			$this->allSearchFields = $params['allSearchFields'];
+		
+		$this->controlBuilder = new PanelSearchControl( $this->id, $this->tName, $this->searchClauseObj, $this->pageObj );	
 	}
 	
-	function buildSearchPanel() 
-	{
-		parent::buildSearchPanel();
-		if ($this->isDisplaySearchPanel)
-		{
-			$this->srchPanelAttrs = $this->searchClauseObj->getSrchPanelAttrs();
+	/**
+	 *
+	 */
+	public function buildSearchPanel() {	
+		/*$searchPerm = true;
+		if( isEnableSection508() ) {
+			$searchPerm = array();
+			$searchPerm["begin"] = "<a name=\"skipsearch\"></a>";
+		}
+		$this->xt->assign( "searchformbuttons_block", $searchPerm );*/
+	
+		if( $this->pSet->showSearchPanel() ) {			
 			$this->searchOptions = $this->pSet->getSearchPanelOptions();
-			$this->DisplaySearchPanel();
-		}
-	}
-	
-	function searchAssign() 
-	{	
-		parent::searchAssign();
-		
-		$searchGlobalParams = $this->searchClauseObj->getSearchGlobalParams();	
-		$searchPanelAttrs = $this->searchClauseObj->getSrchPanelAttrs();
-		// show hide window	
-		$this->xt->assign("showHideSearchWin_attrs", ' title="Floating window"');
-		$searchOpt_mess = ($searchPanelAttrs['srchOptShowStatus'] ? "Hide search options" : "Show search options");
-		$this->xt->assign("showHideSearchPanel_attrs", 'align="absmiddle" title="'.$searchOpt_mess.'" alt="'.$searchOpt_mess.'"');
-		
-		$searchforAttrs = "name=\"ctlSearchFor".$this->id."\" id=\"ctlSearchFor".$this->id."\"";
-		if($this->isUseAjaxSuggest)
-			$searchforAttrs .= " autocomplete=off ";		
-	
-		$searchforAttrs.= ' placeholder="'."search".'"';
-		if( $this->searchClauseObj->isUsedSrch() || strlen( $searchGlobalParams["simpleSrch"] ) )
-		{
-			$valSrchFor = $searchGlobalParams["simpleSrch"];
-			$searchforAttrs.= " value=\"".runner_htmlspecialchars($valSrchFor)."\"";
-		}
-		
-		$this->xt->assignbyref("searchfor_attrs", $searchforAttrs);
-		$this->xt->assign('searchPanelTopButtons', $this->isDisplaySearchPanel);
-		
-		$selectClass = "";
-		if( $this->pageObj->isBootstrap() )
-			$selectClass = "form-control";
-		if ($this->pSet->showSimpleSearchOptions())
-		{
-			$simpleSearchTypeCombo = '<select class="' . $selectClass . '" id="simpleSrchTypeCombo'.$this->id.'" name="simpleSrchTypeCombo'.$this->id.'" size="1">';
-			$simpleSearchTypeCombo .= $this->searchControlBuilder->getSimpleSearchTypeCombo($searchGlobalParams["simpleSrchTypeComboOpt"], $searchGlobalParams["simpleSrchTypeComboNot"]) ;
-			$simpleSearchTypeCombo .= "</select>";
-			
-			$this->xt->assign('simpleSearchTypeCombo', $simpleSearchTypeCombo);
-			
-			$simpleSearchFieldCombo = '<select class="' . $selectClass . '" id="simpleSrchFieldsCombo'.$this->id.'" name="simpleSrchFieldsCombo'.$this->id.'" size="1">';
-			$simpleSearchFieldCombo .= $this->searchControlBuilder->simpleSearchFieldCombo($this->allSearchFields, $searchGlobalParams["simpleSrchFieldsComboOpt"]) ;
-			$simpleSearchFieldCombo .= "</select>";
-			
-			$this->xt->assign('simpleSearchFieldCombo', $simpleSearchFieldCombo);	
+			$this->displaySearchPanel();
 		}
 	}
 	
 	/**
-	 * Search panel on list template handler
+	 * Show search panel
 	 */
-	function DisplaySearchPanel()
-	{
-		$this->xt->assign('searchPanel', $this->isDisplaySearchPanel);	
+	function displaySearchPanel() {
 		$this->xt->assign('id', $this->id);
-		if( !$this->isFlexibleSearch )
+		$this->xt->assign('searchPanel', true);
+		
+		// 'show\hide search panel' buttons
+		$this->xt->assign('searchPanelTopButtons', true );
+		
+		if( !$this->pSet->isFlexibleSearch() )
 			$this->xt->assign('controls_block_class', 'flexibleSearchPanel');
 			
 		// assign the search panel radio buttons 
-		$searchRadio = $this->searchControlBuilder->getSearchRadio();
-		$this->xt->assign_section("all_checkbox_label", $searchRadio['all_checkbox_label'][0], $searchRadio['all_checkbox_label'][1]);
-		$this->xt->assign_section("any_checkbox_label", $searchRadio['any_checkbox_label'][0], $searchRadio['any_checkbox_label'][1]);
-		$this->xt->assignbyref("all_checkbox",$searchRadio['all_checkbox']);
-		$this->xt->assignbyref("any_checkbox",$searchRadio['any_checkbox']);
+		$radio = $this->controlBuilder->getSearchRadio();
+		$this->xt->assign_section( "all_checkbox_label", $radio['all_checkbox_label'][0], $radio['all_checkbox_label'][1] );
+		$this->xt->assign_section( "any_checkbox_label", $radio['any_checkbox_label'][0], $radio['any_checkbox_label'][1] );
+		$this->xt->assignbyref( "all_checkbox", $radio['all_checkbox'] );
+		$this->xt->assignbyref( "any_checkbox", $radio['any_checkbox'] );
 		
+		$srchPanelAttrs = $this->searchClauseObj->getSrchPanelAttrs();
 		// assign the 'Show/Hide options' button 
-		$showHideOpt_mess = $this->srchPanelAttrs['ctrlTypeComboStatus'] ? "Hide options" : "Show options";		
+		$showHideOpt_mess = $srchPanelAttrs['ctrlTypeComboStatus'] ? 
+			"Hide options" : "Show options";		
 		$this->xt->assign("showHideOpt_mess", $showHideOpt_mess);
 		$this->xt->assign("showHideCtrlsOpt_attrs", 'style="display: none;"');
 		
-		if($this->searchClauseObj->getUsedCtrlsCount() <= 0)
+		if( $this->searchClauseObj->getUsedCtrlsCount() <= 0 )
 			$this->xt->assign("bottomSearchButt_attrs", 'style="display: none;"');
 	
 		$this->assignSearchBlocks();
 		
 		$this->pageObj->controlsMap["search"]["searchPanelRunByUserApi"] = $this->searchClauseObj->isSearchPanelByUserApiRun();
+		
+		$showallbutton_attrs = 'id="showAll'.$this->id.'"';
+		
+		if( !$this->searchClauseObj->isShowAll() ) {
+			$dispNoneStyle = 'style="display: none;"';
+			$showallbutton_attrs.= ' '.$dispNoneStyle;
+			$this->xt->assign("showAllCont_attrs", $dispNoneStyle);
+		}
+
+		$this->xt->assign( 'showallbutton_attrs', $showallbutton_attrs );
 	}
 	
 	/**
-	* Assign controls blocks for the search panel's,
-	* added-by-user and cached fields	
-	*/
-	function assignSearchBlocks() 
-	{
+	 * Assign controls blocks for the search panel's,
+	 * added-by-user and cached fields	
+	 */
+	function assignSearchBlocks() {
 		global $gLoadSearchControls;
 		
 		$searchPanelFieldsBlocks = array();
@@ -130,21 +144,18 @@ class SearchPanelSimple extends SearchPanel {
 		$recId = $this->pageObj->genId();
 	
 		// build search controls for each field, first we need to build used controls, because cached must have last index	
-		foreach($this->allSearchFields as $searchField)
-		{
+		foreach( $this->allSearchFields as $searchField ) {
 			$this->pageObj->fillFieldToolTips($searchField);
 			$srchFields = $this->searchClauseObj->getSearchCtrlParams($searchField);
 			$isSrchPanelField = in_array($searchField, $this->panelSearchFields);
 
-			if( !count($srchFields) )
-			{
+			if( !$srchFields ) {
 				$defaultValue = $this->pSet->getDefaultValue( $searchField );
 				
-				if( $isSrchPanelField )
-				{
+				if( $isSrchPanelField ) {
 					$opt = '';
 					//set the field's option chosen for the inflexible search panel 
-					if( !$this->isFlexibleSearch )
+					if( !$this->pSet->isFlexibleSearch() )
 						$opt = $this->searchOptions[$searchField];
 
 					// add a search panel field that should be always shown on the panel	
@@ -152,16 +163,25 @@ class SearchPanelSimple extends SearchPanel {
 				}
 			}
 					
-			if( count($srchFields) )
-			{
-				if($isSrchPanelField) 
+			if( $srchFields ) {
+				if( $isSrchPanelField ) 
 					$srchFields[ count($srchFields) - 1 ]['immutable'] = true;
 
-				foreach($srchFields as $srchField)
-				{
+				foreach( $srchFields as $srchField ) {
 					// build used ctrl
-					$block = $this->searchControlBuilder->buildSearchCtrlBlockArr($recId, $searchField, 0, $srchField['opt'], $srchField['not'], 
-						false, $srchField['value1'], $srchField['value2'], $isSrchPanelField, $this->isFlexibleSearch, $srchField['immutable']);
+					$block = $this->controlBuilder->buildSearchCtrlBlockArr(
+						$recId, 
+						$searchField, 
+						0, 
+						$srchField['opt'], 
+						$srchField['not'], 
+						false, 
+						$srchField['value1'], 
+						$srchField['value2'], 
+						$isSrchPanelField, 
+						$this->pSet->isFlexibleSearch(), 
+						$srchField['immutable']
+					);
 					
 					if($isSrchPanelField)
 						$searchPanelFieldsBlocks[$searchField][] = $block;
@@ -177,23 +197,30 @@ class SearchPanelSimple extends SearchPanel {
 		}
 			
 		// assign search panel fields (default and added-by-user)		
-		foreach($searchPanelFieldsBlocks as $name => $namedBlocks)
-		{		
+		foreach( $searchPanelFieldsBlocks as $name => $namedBlocks ) {		
 			$this->xt->assign_loopsection_byValue('searchCtrlBlock_'.GoodFieldName($name), $namedBlocks);
 		}
 			
-		if(!$this->isFlexibleSearch)
+		if( !$this->pSet->isFlexibleSearch() )
 			return;
 		
 		//add cached searhc fields
-		if( $srchCtrlBlocksNumber > 0 && $srchCtrlBlocksNumber < $gLoadSearchControls )
-		{
+		if( $srchCtrlBlocksNumber > 0 && $srchCtrlBlocksNumber < $gLoadSearchControls ) {
 			$otherSearchControlsMaxNumber = $gLoadSearchControls - $srchCtrlBlocksNumber + count($otherFieldsBlocks);
-			foreach($notAddedFileds as $searchField)
-			{			
+			foreach( $notAddedFileds as $searchField ) {			
 				$defaultValue = $this->pSet->getDefaultValue( $searchField );
 				// add cached ctrl
-				$otherFieldsBlocks[] = $this->searchControlBuilder->buildSearchCtrlBlockArr($recId, $searchField, 0, '', false, true, $defaultValue, '');
+				$otherFieldsBlocks[] = $this->controlBuilder->buildSearchCtrlBlockArr(
+					$recId, 
+					$searchField, 
+					0, 
+					'', 
+					false, 
+					true, 
+					$defaultValue, 
+					''
+				);
+				
 				$this->addSearchFieldToControlsMap($searchField, $recId);
 				
 				if( count($otherFieldsBlocks) >= $otherSearchControlsMaxNumber )
@@ -206,14 +233,13 @@ class SearchPanelSimple extends SearchPanel {
 	}
 	
 	/**
-	* Add the search field block's data to the page's ControlsMap array
-	* Generate the new value for the recId
-	* @param String fName
-	* @param &Number recId
-	*/
-	function addSearchFieldToControlsMap($fName, &$recId)
-	{
-		$isFieldNeedSecCtrl = $this->searchControlBuilder->isNeedSecondCtrl($fName);
+	 * Add the search field block's data to the page's ControlsMap array
+	 * Generate the new value for the recId
+	 * @param String fName
+	 * @param &Number recId
+	 */
+	function addSearchFieldToControlsMap( $fName, &$recId ) {
+		$isFieldNeedSecCtrl = $this->controlBuilder->isNeedSecondCtrl($fName);
 		$searchBlock = array('fName'=>$fName, 'recId'=>$recId);
 		$ctrlInd = 0;
 		
@@ -221,7 +247,7 @@ class SearchPanelSimple extends SearchPanel {
 		if($isFieldNeedSecCtrl)
 			$searchBlock['ctrlsMap'][1] = $ctrlInd + 1;
 
-		if(!$this->isFlexibleSearch)
+		if( !$this->pSet->isFlexibleSearch() )
 			$searchBlock['inflexSearchOption'] = $this->searchOptions[$fName];
 		
 		$this->pageObj->controlsMap["search"]["searchBlocks"][] = $searchBlock;
@@ -229,26 +255,23 @@ class SearchPanelSimple extends SearchPanel {
 	}
 	
 	/**
-	* Refine the open seach panel fields array:
-	* It removes all non search fields and each one 
-	* of the always shown fields (search panel fields)
-	* from the array.
-	* @param Array openFilters
-	* @return Array
-	*/
-	function refineOpenFilters($openFilters)
-	{
+	 * Refine the open seach panel fields array:
+	 * It removes all non search fields and each one 
+	 * of the always shown fields (search panel fields)
+	 * from the array.
+	 * @param Array openFilters
+	 * @return Array
+	 */
+	function refineOpenFilters( $openFilters ) {
 		$openFiltersRefined = array();
 
-		foreach($this->panelSearchFields as $panelFiled)
-		{
+		foreach( $this->panelSearchFields as $panelFiled ) {
 			$key = array_search($panelFiled, $openFilters);
-			if($key !== FALSE)
+			if( $key !== FALSE )
 				array_splice($openFilters, $key, 1);
 		}
 
-		foreach($openFilters as $field)
-		{
+		foreach( $openFilters as $field ) {
 			if( in_array($field, $this->allSearchFields) ) 
 				$openFiltersRefined[] = $field;
 		}

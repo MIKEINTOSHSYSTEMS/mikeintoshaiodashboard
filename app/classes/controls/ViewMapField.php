@@ -3,36 +3,73 @@ class ViewMapField extends ViewControl
 {
 	public function showDBValue( &$data, $keylink, $html = true )
 	{
-		if( !$this->pageObject)
-		{
-			return runner_htmlspecialchars($data[$this->field]);
- 		}
-		elseif($this->pageObject->pageType == PAGE_EXPORT || ($this->pageObject->pageType == PAGE_RPRINT && $this->container->forExport == "excel") )
-		{
-			return runner_htmlspecialchars($data[$this->field]);
+		if( !$this->pageObject ) 
+			return runner_htmlspecialchars( $data[ $this->field ] );
+ 	
+		if( $this->pageObject->pageType == PAGE_EXPORT 
+			|| ($this->pageObject->pageType == PAGE_RPRINT && $this->container->forExport == "excel") ) {
+			return runner_htmlspecialchars( $data[ $this->field ] );
  		}
 
-		if($this->pageObject->pageType != PAGE_LIST)
-		{
-			$mapData = $this->pageObject->addGoogleMapData($this->field, $data);
+		$mapId = 'littleMap_'.GoodFieldName( $this->field ).'_'.$this->pageObject->recId;
+		
+		if( $this->pageObject->pageType != PAGE_LIST )
+			$mapData = $this->pageObject->addGoogleMapData( $this->field, $data );
+		else
+			$mapData = &$this->pageObject->googleMapCfg['mapsData'][ $mapId ];		
+
+		if( $this->pageObject->pageType != PAGE_PRINT && $this->pageObject->pageType != PAGE_MASTER_INFO_PRINT 
+				&& $this->pageObject->pageType != PAGE_RPRINT && $this->pageObject->pageType != PAGE_REPORT 
+						&& !($this->pageObject->mode == VIEW_SIMPLE && $this->pageObject->pdfMode) ) {
+			return $this->getFieldMap( $mapData, $mapId );
 		}
 
-		if($this->pageObject->pageType != PAGE_PRINT && $this->pageObject->pageType != PAGE_MASTER_INFO_PRINT && $this->pageObject->pageType != PAGE_RPRINT && $this->pageObject->pageType != PAGE_REPORT && !($this->pageObject->mode == VIEW_SIMPLE && $this->pageObject->pdfMode))
-		{
-			return '<div id="littleMap_'.GoodFieldName($this->field).'_'.$this->pageObject->recId.
-				'" style="width:'.
-				(!isset($this->pageObject->googleMapCfg['fieldsAsMap']) ? "300" : $this->pageObject->googleMapCfg['fieldsAsMap'][$this->field]['width']).'px; '.
-				'height: '.(!isset($this->pageObject->googleMapCfg['fieldsAsMap']) ? "225" : $this->pageObject->googleMapCfg['fieldsAsMap'][$this->field]['height']).'px; '.
-				'" data-gridlink class="littleMap"></div>';
+		return $this->getMapImage( $mapData );
+	}
+	
+	
+	protected function getFieldMap( &$mapData, $mapId ) {
+		$width = 300;
+		if( isset( $this->pageObject->googleMapCfg['fieldsAsMap'] ) )
+			$width = $this->pageObject->googleMapCfg['fieldsAsMap'][ $this->field ]['width'];
+		
+		$height = 225;
+		if( isset( $this->pageObject->googleMapCfg['fieldsAsMap'] ) )
+			$height = $this->pageObject->googleMapCfg['fieldsAsMap'][ $this->field ]['height'];
+		
+		if( GetGlobalData("useEmbedMapsAPI", false) && getMapProvider() == GOOGLE_MAPS ) {
+			$mapData["skipped"] = true;
+			
+			$q = $this->getPlaceDefinition( $mapData );
+			if( !$q )
+				return '';
+			
+			$src = 'https://www.google.com/maps/embed/v1/place?q='.$q.'&zoom='.$mapData['zoom']
+				.'&key='.$this->pageObject->googleMapCfg["APIcode"];
+			
+			return '<iframe width="'.$width.'" height="'.$height.'" frameborder="0" style="border:0"
+				src="'.$src.'" allowfullscreen></iframe>';
 		}
-
-
-		$location = $this->getLocation( $mapData['markers'][0] );
-		$icon = $mapData['markers'][0]['mapIcon'];
-
-		return '<img border="0" alt="" src="'.$this->getStaticMapURL( $location, $mapData['zoom'], $icon ).'">';
+		
+		return '<div id="'.$mapId.'" style="width:'.$width.'px; height:'.$height.'px;" data-gridlink class="littleMap">'
+			.'</div>';	
+	
 	}
 
+	/**
+	 * @return String
+	 */
+	function getPlaceDefinition( &$mapData ) {
+		$markerData = $mapData['markers'][0];
+		if( $markerData['lat'] == '' && $markerData['lng'] == '' )
+			return $markerData['address'];
+		
+		return $markerData['lat'].','.$markerData['lng'];	
+	}
+	
+	/**
+	 * @return String
+	 */
 	function getLocation( $markerData )
 	{
 		if( $markerData['lat'] == "" && $markerData['lng'] == "" )
@@ -50,7 +87,19 @@ class ViewMapField extends ViewControl
 		return $markerData['lat'].','.$markerData['lng'];
 	}
 
+	/**
+	 * @return String
+	 */
+	protected function getMapImage( &$mapData ) {
+		$markerData = $mapData['markers'][0];
 
+		return '<img border="0" alt="" 
+			src="'.$this->getStaticMapURL( $this->getLocation( $markerData ), $mapData['zoom'], $markerData['mapIcon'] ).'">';		
+	}
+
+	/**
+	 * @return String
+	 */
 	function getStaticMapURL( $location, $zoom, $icon )
 	{
 		$markerLocation = $location;
@@ -89,6 +138,21 @@ class ViewMapField extends ViewControl
 			case BING_MAPS:
 				return 'https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/'.$location.'/'
 					.$zoom.'?mapSize='.$width.','.$height.'&pp='.$markerLocation.';63;&key='.$apiKey;
+					
+			case HERE_MAPS:
+				return 'https://image.maps.ls.hereapi.com/mia/1.6/mapview?'
+					.'apiKey='.$apiKey
+					.'&z='.$zoom
+					.'&c='.$location
+					.'&w='.$width
+					.'&h='.$height;
+					
+			case MAPQUEST_MAPS:
+				return 'https://www.mapquestapi.com/staticmap/v5/map?'
+					.'key='.$apiKey
+					.'&zoom='.$zoom
+					.'&locations='.$location
+					.'&size='.$width.','.$height;
 
 			default:
 				return '';

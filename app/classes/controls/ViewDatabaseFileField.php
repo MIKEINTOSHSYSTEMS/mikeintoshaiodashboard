@@ -1,6 +1,10 @@
 <?php
-class ViewDatabaseFileField extends ViewControl
+include_once getabspath("classes/controls/ViewFileDownloadField.php");
+
+class ViewDatabaseFileField extends ViewFileDownloadField
 {
+	protected $defaultFileName = "file.bin";
+	
 	public function getPdfValue(&$data, $keylink = "")
 	{
 		return my_json_encode( array(
@@ -8,35 +12,19 @@ class ViewDatabaseFileField extends ViewControl
 		) );
 	}
 
-	public function getFileName($data)
+	public function getFileName( &$data)
 	{
 		$fileNameF = $this->container->pSet->getFilenameField($this->field);
 		if($fileNameF) 
 		{
-			$fileName = $data[$fileNameF];
+			$fileName = $data[ $fileNameF ];
 			if(!$fileName)
-				$fileName = "file.bin";
+				$fileName = $this->defaultFileName;
 		} 
 		else 
-			$fileName = "file.bin";
+			$fileName = $this->defaultFileName;
 		
 		return $fileName;
-	}
-
-	public function showDBValue(&$data, $keylink, $html = true )
-	{
-		$value = "";
-		$fileName = $this->getFileName($data);
-		
-		if( strlen($data[$this->field]) ) 
-		{
-			$value = "<a href='".GetTableLink("getfile", "", 
-				"table=".GetTableURL($this->container->pSet->_table)."&filename=".rawurlencode($fileName)
-					.'&pagename='.runner_htmlspecialchars( $this->container->pSet->pageName() )."&field=".rawurlencode($this->field).$keylink)."'>";
-			$value.= runner_htmlspecialchars($fileName);
-			$value.= "</a>";
-		}
-		return $value;
 	}
 
 	/**
@@ -62,9 +50,58 @@ class ViewDatabaseFileField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return "LONG BINARY DATA - CANNOT BE DISPLAYED";
 	}
+
+	/**
+	 * @return Array of arrays (
+	 * 		url => link to the file,
+	 * 		imageUrl => link to te image, if any
+	 * 		htmlLabel => (optional) custom filename to display.  HTML code can be here
+	 * 		filename => filename 
+	 * 		size => file size
+	 * 		thumbnailMode => boolean
+	 * 		newTab => boolean, open in new tab
+	 * )
+	 */
+	protected function getFileURLs( &$data, $keylink )
+	{
+		$fileURLs = array();
+		if( !$data[ $this->field ] ) {
+			return array();
+		}
+		$pSet = $this->pSettings();
+		
+		$filename = $this->getFileName( $data );
+
+		$params = array();
+		$params["filename"] = $filename;
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["nodisp"] = 1;
+		$params["hash"] = fileAttrHash( $keylink, strlen_bin( $data[ $this->field ] ) );
+		$url = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+
+		$ext = getFileExtension( $params["filename"] );
+		$imageUrl = "images/icons/" . ViewFileDownloadField::getFileIconByType( $filename, "" );
+
+		$newTab = false;
+		if( $this->displayPDF() && strtolower( getFileExtension( $params["filename"] ) ) == "pdf" ) {
+//			$url = "include/pdfjs/web/viewer.html?file=" . rawurlencode( "../../../" . $url );
+			$url = "include/pdfjs/web/viewer.html?file=" . rawurlencode( projectPath() . $url );
+			$newTab = true;
+		}
+		
+		return array( array(
+			"url" => $url,
+			"filename" => $filename,
+			"imageUrl" => $imageUrl,
+			"size" => strlen_bin( $data[ $this->field ] ),
+			"newTab" => $newTab
+		));
+	}
+
 }
 ?>

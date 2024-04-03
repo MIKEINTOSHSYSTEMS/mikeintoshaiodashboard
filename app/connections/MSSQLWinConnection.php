@@ -1,18 +1,18 @@
 <?php
 class MSSQLWinConnection extends Connection
-{	
+{
 	protected $host;
-		
+
 	protected $dbname;
-	
+
 	protected $user = "";
-	
+
 	protected $pwd = "";
-	
+
 	protected $options = "";
-	
+
 	protected $ODBCString;
-	
+
 	/**
 	 * A date format string
 	 * @type String
@@ -20,8 +20,8 @@ class MSSQLWinConnection extends Connection
 	protected $mssql_dmy;
 
 	protected $errExeprionMess = "";
-	
-	
+
+
 	function __construct( $params )
 	{
 		parent::__construct( $params );
@@ -34,10 +34,10 @@ class MSSQLWinConnection extends Connection
 	protected function assignConnectionParams( $params )
 	{
 		parent::assignConnectionParams( $params );
-		
-		$this->ODBCString = $params["ODBCString"];		
+
+		$this->ODBCString = $params["ODBCString"];
 		$this->host = $params["connInfo"][0]; //strConnectInfo1
-		
+
 		if( $params["connInfo"][2] == "SSPI" )
 		{
 			$this->dbname = $params["connInfo"][1];  //strConnectInfo2
@@ -45,57 +45,52 @@ class MSSQLWinConnection extends Connection
 		}
 		else
 		{
-			$this->user = $params["connInfo"][1];  //strConnectInfo2 
-			$this->pwd = $params["connInfo"][2]; //strConnectInfo3 
+			$this->user = $params["connInfo"][1];  //strConnectInfo2
+			$this->pwd = $params["connInfo"][2]; //strConnectInfo3
 			$this->dbname = $params["connInfo"][3];  //strConnectInfo4
 		}
 	}
-	
+
 	/**
 	 * Open a connection to db
 	 */
 	public function connect()
 	{
 		global $cCodepage;
-		
+
 		$connStrings = array();
 		if( $_SESSION["MSSQLConnString"] )
 			$connStrings[] = $_SESSION["SQLConnString"];
-		
+
 		$connStrings[] = $this->ODBCString;
-		
-	//	SQLOLEDB provider
-		if( $options == "SSPI" )
-			$connStrings[] = "PROVIDER=SQLOLEDB;SERVER=".$this->host.";DATABASE=".$this->dbname.";Integrated Security=SSPI";
-		else
-			$connStrings[] = "PROVIDER=SQLOLEDB;SERVER=".$this->host.";UID=".$this->user.";PWD=".$this->pwd.";DATABASE=".$this->dbname;	
-	//	SQLNCLI provider
-		if( $options=="SSPI" )
-			$connStrings[] = "PROVIDER=SQLNCLI;SERVER=".$this->host.";DATABASE=".$this->dbname.";Integrated Security=SSPI";
-		else
-			$connStrings[] = "PROVIDER=SQLNCLI;SERVER=".$this->host.";UID=".$this->user.";PWD=".$this->pwd.";DATABASE=".$this->dbname;	
-	
+		$providers = array( "MSOLEDBSQL", "SQLOLEDB", "SQLNCLI" );
+		foreach( $providers as $p ) {
+			if( $options == "SSPI" )
+				$connStrings[] = "PROVIDER=".$p.";SERVER=".$this->host.";DATABASE=".$this->dbname.";Integrated Security=SSPI";
+			else
+				$connStrings[] = "PROVIDER=".$p.";SERVER=".$this->host.";UID=".$this->user.";PWD=".$this->pwd.";DATABASE=".$this->dbname;
+		}
 	//	go thru connection strings one by one
 		$errorString = "";
 		foreach($connStrings as $connStr)
 		{
-			try 
+			try
 			{
 				$this->conn = new COM("ADODB.Connection", NULL, $cCodepage);
 				$this->conn->Open( $connStr );
 				$rs = $this->conn->Execute("select convert(datetime,'2000-11-22',121)");
-			
+
 				$str = $rs->Fields[0]->Value;
 				$y = strpos($str, "2000");
 				$m = strpos($str, "11");
 				$d = strpos($str, "22");
-			
+
 				$this->mssql_dmy = "mdy";
 				if( $y < $m && $m < $d )
 					$this->mssql_dmy = "ymd";
 				if( $d < $m && $m < $y )
 					$this->mssql_dmy = "dmy";
-					
+
 				$_SESSION["MSSQLConnString"] = $connStr;
 				$this->conn->CommandTimeout = 120;
 				return $this->conn;
@@ -107,7 +102,7 @@ class MSSQLWinConnection extends Connection
 		}
 		$this->triggerError($errorString);
 	}
-	
+
 	/**
 	 * Close the db connection
 	 */
@@ -115,8 +110,8 @@ class MSSQLWinConnection extends Connection
 	{
 		$this->conn->Close();
 	}
-	
-	/**	
+
+	/**
 	 * Send an SQL query
 	 * @param String sql
 	 * @return Mixed
@@ -124,20 +119,20 @@ class MSSQLWinConnection extends Connection
 	public function query( $sql )
 	{
 		$this->debugInfo($sql);
-		
+
 		try
 		{
 			$qHandle = $this->conn->Execute( $sql );
 			return new QueryResult( $this, $qHandle );
-		} 
+		}
 		catch(com_exception $e)
 		{
 			$this->triggerError($e->getMessage());
 			return FALSE;
 		}
 	}
-	
-	/**	
+
+	/**
 	 * Execute an SQL query
 	 * @param String sql
 	 */
@@ -146,11 +141,11 @@ class MSSQLWinConnection extends Connection
 		$qResult = $this->query( $sql );
 		if( $qResult )
 			return $qResult->getQueryHandle();
-		
-		return FALSE;	
+
+		return FALSE;
 	}
-	
-	/**	
+
+	/**
 	 * Get a description of the last error
 	 * @return String
 	 */
@@ -158,15 +153,16 @@ class MSSQLWinConnection extends Connection
 	{
 		if( $this->conn->Errors->Count )
 		{
-			$description = $this->errExeprionMess;
-			$this->errExeprionMess = "";
-				
-			return $description." ".$this->conn->Errors[ $this->conn->Errors->Count - 1 ]->Description;
+			$errors = array();
+			for( $i=0; $i < $this->conn->Errors->Count; ++$i ) {
+				$errors[] = $this->conn->Errors[ $i ]->Description;
+			}
+			return implode( ' ', $errors );
 		}
-		
+
 		return '';
 	}
-	
+
 	/**
 	 * Fetch a result row as an array
 	 * @param Mixed qHanle		The query handle
@@ -176,11 +172,11 @@ class MSSQLWinConnection extends Connection
 	protected function _fetch_array($qHandle, $assoc = 1)
 	{
 		$ret = array();
-		
+
 		if( $qHandle->EOF() )
 			  return $ret;
-			   
-		try {		
+
+		try {
 			for( $i = 0; $i < $this->num_fields($qHandle); $i++ )
 			{
 				if( IsBinaryType( $qHandle->Fields[$i]->Type ) && $qHandle->Fields[$i]->Type != 128 )
@@ -196,7 +192,7 @@ class MSSQLWinConnection extends Connection
 							$str[ $j++ ] = chr($byte);
 						}
 					}
-					
+
 					if( $assoc )
 						$ret[ $qHandle->Fields[$i]->Name ] = $str;
 					else
@@ -206,7 +202,7 @@ class MSSQLWinConnection extends Connection
 				{
 					$value = $qHandle->Fields[$i]->Value;
 					if( is_null($value) )
-						$val = NULL;	
+						$val = NULL;
 					else
 					{
 						if( isdatefieldtype($qHandle->Fields[$i]->Type) )
@@ -223,15 +219,15 @@ class MSSQLWinConnection extends Connection
 				}
 			}
 			$qHandle->MoveNext();
-		} 
+		}
 		catch(com_exception $e)
 		{
 			$this->triggerError( $e->getMessage() );
 		}
 
 		return $ret;
-	}	
-	
+	}
+
 	/**
 	 * Fetch a result row as an associative array
 	 * @param Mixed qHanle		The query handle
@@ -241,27 +237,27 @@ class MSSQLWinConnection extends Connection
 	{
 		return $this->_fetch_array( $qHandle );
 	}
-	
-	/**	
+
+	/**
 	 * Fetch a result row as a numeric array
-	 * @param Mixed qHanle		The query handle	 
+	 * @param Mixed qHanle		The query handle
 	 * @return Array
 	 */
 	public function fetch_numarray( $qHandle )
 	{
 		return $this->_fetch_array( $qHandle, 0 );
 	}
-	
-	/**	
-	 * Free resources associated with a query result set 
-	 * @param Mixed qHanle		The query handle		 
+
+	/**
+	 * Free resources associated with a query result set
+	 * @param Mixed qHanle		The query handle
 	 */
 	public function closeQuery( $qHandle )
 	{
 		$qHandle->Close();
 	}
 
-	/**	
+	/**
 	 * Get number of fields in a result
 	 * @param Mixed qHanle		The query handle
 	 * @return Number
@@ -269,19 +265,19 @@ class MSSQLWinConnection extends Connection
 	public function num_fields( $qHandle )
 	{
 		return $qHandle->Fields->Count;
-	}	
-	
-	/**	
+	}
+
+	/**
 	 * Get the name of the specified field in a result
 	 * @param Mixed qHanle		The query handle
 	 * @param Number offset
 	 * @return String
-	 */	 
+	 */
 	public function field_name( $qHandle, $offset )
 	{
 		return $qHandle->Fields($offset)->Name;
 	}
-	
+
 	/**
 	 * @param Mixed qHandle
 	 * @param Number pageSize
@@ -291,13 +287,13 @@ class MSSQLWinConnection extends Connection
 	{
 		if( !$n )
 			return;
-			
+
 		if( $qHandle->EOF() )
 			return;
-			
+
 	   $qHandle->Move( $n );
 	}
-	
+
 	/**
 	 * Execute an SQL query with blob fields processing
 	 * @param String sql
@@ -305,20 +301,20 @@ class MSSQLWinConnection extends Connection
 	 * @param Array blobTypes
 	 * @return Boolean
 	 */
-	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array() )
+	public function execWithBlobProcessing( $sql, $blobs, $blobTypes = array(), $autoincField = null )
 	{
 		$this->debugInfo($sql);
-		
+
 		try
 		{
 			$this->conn->Execute( $sql );
 			return true;
-		} 
+		}
 		catch(com_exception $e)
 		{
 			$this->errExeprionMess = $e->getMessage();
 			return false;
-		}		
+		}
 	}
 }
 ?>

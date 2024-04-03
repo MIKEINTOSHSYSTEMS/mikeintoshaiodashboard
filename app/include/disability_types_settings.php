@@ -60,14 +60,9 @@ $tdatadisability_types[".showEditInPopup"] = false;
 
 $tdatadisability_types[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatadisability_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatadisability_types[".listAjax"] = false;
 //	temporary
-$tdatadisability_types[".listAjax"] = false;
+//$tdatadisability_types[".listAjax"] = false;
 
 	$tdatadisability_types[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatadisability_types[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatadisability_types[".isUseAjaxSuggest"] = true;
 
-$tdatadisability_types[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatadisability_types[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatadisability_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdatadisability_types[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Disability_Types","DisabilityID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatadisability_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Disability_Types","Disability_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatadisability_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatadisability_types[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["Disability_Types"] = &$fieldToolTipsdisability_types;
 $placeHolders["Disability_Types"] = &$placeHoldersdisability_types;
 $page_titles["Disability_Types"] = &$pageTitlesdisability_types;
 
+
+changeTextControlsToDate( "Disability_Types" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["Disability_Types"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Disability_Types"] = array();
@@ -675,7 +673,6 @@ $tdatadisability_types[".sqlquery"] = $queryData_disability_types;
 
 
 
-$tableEvents["Disability_Types"] = new eventsBase;
 $tdatadisability_types[".hasEvents"] = false;
 
 ?>

@@ -88,5 +88,8 @@
 [data-cellid="grid_headcell_checkbox"][data-page="training_participants_list"][data-cellid="grid_headcell_checkbox"][data-page="training_participants_list"][data-cellid="grid_headcell_checkbox"][data-page="training_participants_list"] {
   width: 30px;
 }
+[data-page="training_participants_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
 
 

@@ -24,7 +24,7 @@ class ChartPage_Master extends ChartPage
 
 	public function preparePage() 
 	{
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !$this->masterRecordData )
 			return;
 
 		$this->xt->assign("chart_block", true);		
@@ -54,17 +54,15 @@ class ChartPage_Master extends ChartPage
 		
 		if( $this->pageLayout )
 			$this->xt->assign("pageattrs", 'class="'.$this->pageLayout->style." page-".$this->pageLayout->name.'"');
-		
-		//$this->xt->load_template( GetTemplateName($this->shortTableName, "masterchart") );
-		$this->xt->load_template( $this->templatefile );
 	}
 
 	public function showMaster( $params ) 
 	{
-
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !$this->masterRecordData )
 			return;
 
+		$this->xt->load_template( $this->templatefile );
+		
 		$this->xt->assign( "masterlist_title", false );
 		$this->xt->display_loaded();
 	}

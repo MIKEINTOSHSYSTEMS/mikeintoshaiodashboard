@@ -388,6 +388,8 @@ class SQLFunctionCall extends SQLEntity
 			case 'SQLF_COUNT':
 			return true;
 		}
+		if( strtolower( $this->m_strFunctionName ) == "group_concat" )
+			return true;
 		return false;
 	}
 }
@@ -517,6 +519,9 @@ class SQLLogicalExpr extends SQLEntity
 			return $ret;
 		}
 		
+		if( $this->m_sql ) {
+			return $this->m_sql;
+		}
 		if(!$this->m_column)
 		{
 			$ret = $this->m_sql;

@@ -93,14 +93,9 @@ $tdatacandidate_employment_tracker[".showEditInPopup"] = false;
 
 $tdatacandidate_employment_tracker[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatacandidate_employment_tracker[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatacandidate_employment_tracker[".listAjax"] = false;
 //	temporary
-$tdatacandidate_employment_tracker[".listAjax"] = false;
+//$tdatacandidate_employment_tracker[".listAjax"] = false;
 
 	$tdatacandidate_employment_tracker[".audit"] = false;
 
@@ -163,8 +158,6 @@ $tdatacandidate_employment_tracker[".allowFieldsReordering"] = true; // temp fix
 //
 
 $tdatacandidate_employment_tracker[".isUseAjaxSuggest"] = true;
-
-$tdatacandidate_employment_tracker[".rowHighlite"] = true;
 
 
 
@@ -230,8 +223,6 @@ $tdatacandidate_employment_tracker[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatacandidate_employment_tracker[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacandidate_employment_tracker[".orderindexes"] = array();
@@ -307,7 +298,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","CandidateID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -338,7 +329,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -400,8 +392,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -420,7 +411,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -474,7 +465,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","JobID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -505,7 +496,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -566,8 +558,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -586,7 +577,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -640,7 +631,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Referral_from_Dereja_service");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -671,7 +662,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -717,8 +709,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -736,7 +727,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -790,7 +781,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Company_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -821,7 +812,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -881,8 +873,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -900,7 +891,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -954,7 +945,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Company_Phone_Number");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -985,7 +976,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1043,8 +1035,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1062,7 +1053,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1116,7 +1107,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Sector");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1147,7 +1138,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1205,8 +1197,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1224,7 +1215,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1278,7 +1269,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Job_Position");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1309,7 +1300,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1367,8 +1359,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1386,7 +1377,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1440,7 +1431,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Job_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1471,7 +1462,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1529,8 +1521,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1548,7 +1539,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1602,7 +1593,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Job_Placement_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -1633,7 +1624,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1663,8 +1655,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1685,7 +1676,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1739,7 +1730,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Employment_End_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -1770,7 +1761,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1800,8 +1792,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1822,7 +1813,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1876,7 +1867,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","First_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1907,7 +1898,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1937,8 +1929,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1959,7 +1950,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2013,7 +2004,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Middle_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2044,7 +2035,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2074,8 +2066,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2096,7 +2087,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2150,7 +2141,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Last_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2181,7 +2172,8 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2211,8 +2203,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2233,7 +2224,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2285,9 +2276,16 @@ $fieldToolTips["Candidate_Employment_Tracker"] = &$fieldToolTipscandidate_employ
 $placeHolders["Candidate_Employment_Tracker"] = &$placeHolderscandidate_employment_tracker;
 $page_titles["Candidate_Employment_Tracker"] = &$pageTitlescandidate_employment_tracker;
 
+
+changeTextControlsToDate( "Candidate_Employment_Tracker" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["Candidate_Employment_Tracker"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Candidate_Employment_Tracker"] = array();
@@ -2295,7 +2293,8 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 
 
 	
-				$strOriginalDetailsTable="candidates";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="candidates";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -2310,8 +2309,10 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="CandidateID";
 		
+	//endif
 	
-				$strOriginalDetailsTable="Jobs";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="Jobs";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="Jobs";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -2330,6 +2331,7 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Job_Position";
 				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Job_Type";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -2636,7 +2638,6 @@ $tdatacandidate_employment_tracker[".sqlquery"] = $queryData_candidate_employmen
 
 
 
-$tableEvents["Candidate_Employment_Tracker"] = new eventsBase;
 $tdatacandidate_employment_tracker[".hasEvents"] = false;
 
 ?>

@@ -87,8 +87,7 @@ else
 
 if($searchClauseObj)
 { 
-	if($searchClauseObj->bIsUsedSrch || $useViewControl) 
-	{
+	if( $searchClauseObj->searchStarted() || $useViewControl ) {
 		$cViewControl->searchClauseObj = $searchClauseObj;
 		$cViewControl->searchHighlight = true;
 	}

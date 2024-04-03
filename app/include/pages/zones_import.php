@@ -28,12 +28,15 @@
 'import_field1',
 'import_field2' ) ),
 'cellMaps' => array(  ) ),
-'page' => array( 'labeledButtons' => array( 'update_records' => array(  ),
+'loginForm' => array( 'loginForm' => 3 ),
+'page' => array( 'verticalBar' => false,
+'labeledButtons' => array( 'update_records' => array(  ),
 'print_pages' => array(  ),
 'register_activate_message' => array(  ),
 'details_found' => array(  ) ),
 'hasCustomButtons' => false,
-'customButtons' => array(  ) ),
+'customButtons' => array(  ),
+'hasNotifications' => false ),
 'events' => array( 'maps' => array(  ),
 'mapsData' => array(  ),
 'buttons' => array(  ) ) );
@@ -82,5 +85,9 @@
 'import_field2' => array( 'field' => 'SubCityID',
 'type' => 'import_field' ) ),
 'dbProps' => array(  ),
-'version' => 4 );
+'version' => 11,
+'imageItem' => array( 'type' => 'page_image' ),
+'imageBgColor' => '#f2f2f2',
+'controlsBgColor' => 'white',
+'imagePosition' => 'right' );
 		?>

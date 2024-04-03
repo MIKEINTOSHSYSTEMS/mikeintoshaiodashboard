@@ -19,6 +19,7 @@ define( 'dsotLIST', 2 );	//	list of constants, array of values
 define( 'dsotCONDITION', 3 );
 define( 'dsotSQL', 4 ); 	// User-provided SQL expression.
 define( 'dsotNULL', 5 );	//	NULL in SQL sense
+define( 'dsotROWNO', 6 );	//	row_number in an SQL query. Currently only used in the initial update of reorderRows feature 
 
 class DsOperand {
 	public $type;
@@ -64,7 +65,7 @@ define( 'dsopMORE', '>' );
 define( 'dsopLESS', '<' );
 define( 'dsopEQUAL', '=' );
 define( 'dsopEMPTY', 'null' );
-define( 'dsopIN', 'in' );
+define( 'dsopIN', 'in' );	//not implemented yet
 define( 'dsopAND', 'and' );
 define( 'dsopOR', 'or' );
 define( 'dsopNOT', 'not' );
@@ -88,6 +89,11 @@ define( 'dsopALL_IN_LIST', 'listall' );
 define( 'dsopSQL', 'sql' );
 
 
+define( 'dsCASE_DEFAULT', 0 );		//	default case sensitivity. Let database decide
+define( 'dsCASE_INSENSITIVE', 1 ); 	//	Strict case insensitivity
+define( 'dsCASE_STRICT', 2 ); 		//	Strict case sensitivity
+
+
 class DsCondition {
 	/**
 	 * basic array of DsOperand
@@ -97,12 +103,40 @@ class DsCondition {
 	 * operation, one of dsopXXX constants
 	*/
 	public $operation;
+	
+	/**
+	 * dsCASE_... constant
+	 */
 	public $caseInsensitive;
 
-	function __construct( $operands, $operation, $caseInsensitive = false ) {
+	function __construct( $operands, $operation, $caseInsensitive = dsCASE_DEFAULT ) {
 		$this->operands = $operands;
 		$this->operation = $operation;
 		$this->caseInsensitive = $caseInsensitive;
+	}
+
+	/**
+	 * Find constant value the field is filtered against
+	 * Return first found value
+	 */
+	function findFieldValue( $field ) {
+		$fieldFound = false;
+		foreach( $this->operands as $op ) {
+			if( $op->type == dsotCONDITION && $op->value ) {
+				$condition = $op->value;
+				$ret = $condition->findFieldValue( $field );
+				if( $ret !== null ) {
+					return $ret;
+				}
+			}
+			if( $op->type == dsotFIELD ) {
+				$fieldFound = ( $op->value == $field );
+			}
+			if( $fieldFound && $op->type == dsotCONST ) {
+				return $op->value;
+			}
+		}
+		return null;
 	}
 }
 
@@ -119,7 +153,7 @@ class DsCommand {
 	 * "keyfield" => value
 	 * @var Array
 	 */
-	public $keys;
+	public $keys = array();
 
 	/**
 	 * @var Array of DsFieldData
@@ -148,7 +182,8 @@ class DsCommand {
 	 * each element is array(
 	 * 		alias => "<name in result>",
 	 *
-	 * 		field => "<field to sum>". caseStatement must be empty if field is specified
+	 * 		***ONLY one of the following two members can be specified***
+	 * 		field => "<field to sum>". 
 	 * 		caseStatement => DsCaseExpression. When specified, (CASE WHEN ... ) expression is used instead of field. 
 	 * 						 field must be empty in this case
 	 * 
@@ -156,7 +191,8 @@ class DsCommand {
 	 * 		modifier => integer, 0 - as is, 1, 2 etc
 	 * 		skipEmpty => boolean. for GROUP BY fields, skip empty values
 	 * 		direction => "ASC|DESC". Order direction.
-	 * 		caseInsensitive => boolean. for GROUP BY fields, case-insensitive
+	 * 		caseInsensitive => dCASE_... constant. for GROUP BY fields, case-insensitive
+	 *		timeToSec => boolean. for time fields to convert a time value into seconds. 
 	 * 	 )
 	 *
 	 *  "distinct" returns list of unique values of a field. It is used for search suggest and is heavily customized for its needs
@@ -168,9 +204,17 @@ class DsCommand {
 
 	/**
 	 * Associative array of field values for Insert and Update operations
+	 * See $advValues
 	 */
 	public $values = array();
 
+	/**
+	 * @var Array of DsOperand
+	 * Advanced version of $values
+	 * Associative array of field values for Insert and Update operations
+	 * For each field $advValues[<field>] is used if not empty, otherwise $values[<field>] or nothing
+	 */
+	public $advValues = array();
 
 	/* Datasource-specific flags */
 
@@ -262,6 +306,46 @@ class DsCommand {
 		}
 		return false;
 	}
+
+	/**
+	 * Find extra column by alias
+	 * @param String
+	 * @return DsFieldData or false
+	 */
+	public function getExtraColumnIndex( $alias ) {
+		foreach( $this->extraColumns as $idx => $ec ) {
+			if( $ec->alias == $alias )
+				return $idx;
+		}
+		return false;
+	}
+
+	/**
+	 * Find a value in filter that the field is filtered by
+	 * Return first found value
+	 */
+	public function findFieldFilterValue( $field )	{
+		if( isset( $this->keys[ $field ] ) ) {
+			return $this->keys[ $field ];
+		}
+		if( !$this->filter ) {
+			return null;
+		}
+		return $this->filter->findFieldValue( $field );
+	}
+
+	public function invertOrder() {
+		//	array is copied explicitly for ASP.NET conversion
+		$order = array();
+		foreach( $this->order as $o ) {
+			$newO = $o;
+			$newO["dir"] = $newO["dir"] == "DESC"
+				? "ASC"
+				: "DESC";
+			$order[] = $newO;
+		}
+		$this->order = $order;
+	}
 }
 
 
@@ -271,7 +355,7 @@ class DataCondition {
 	/**
 	 * field = constant
 	 */
-	 static function FieldEquals( $fieldname, $value, $fieldModifier = 0, $caseInsensitive = false ) {
+	 static function FieldEquals( $fieldname, $value, $fieldModifier = 0, $caseInsensitive = dsCASE_DEFAULT ) {
 		return new DsCondition( array(
 				new DsOperand( dsotFIELD, $fieldname, $fieldModifier ),
 				new DsOperand( dsotCONST, $value )
@@ -306,7 +390,7 @@ class DataCondition {
 		);
 	}
 
-	static function FieldIs( $fieldname, $operation, $value, $caseInsensitive = false, $modifier = 0, $likeWrapper = null, $tochar = false ) {
+	static function FieldIs( $fieldname, $operation, $value, $caseInsensitive = dsCASE_DEFAULT, $modifier = 0, $likeWrapper = null, $tochar = false ) {
 		return new DsCondition( array(
 				new DsOperand( dsotFIELD, $fieldname, $modifier, null, null, $tochar ),
 				new DsOperand( dsotCONST, $value, 0, null, $likeWrapper )
@@ -318,7 +402,7 @@ class DataCondition {
 
 	/**
 	 * @param String field name
-	 * @param Integer operation - either dsopSOME_IN_LIST or dsopALL_IN_LIST
+	 * @param Integer operation - dsopSOME_IN_LIST, or dsopALL_IN_LIST
 	 * @param Array array of values
 	 */
 	static function FieldHasList( $fieldname, $operation, $values ) {
@@ -331,8 +415,22 @@ class DataCondition {
 			);
 	}
 
+	/**
+	 * @param String field name
+	 * @param Array array of values
+	 */
+	static function FieldInList( $fieldname, $values, $caseInsensitive = dsCASE_DEFAULT ) {
+		return new DsCondition( array(
+				new DsOperand( dsotFIELD, $fieldname ),
+				new DsOperand( dsotLIST, $values )
+				),
+				dsopIN,
+				$caseInsensitive
+			);
+	}
 
-	static function SQLIs( $expr, $operation, $value, $caseInsensitive = false ) {
+
+	static function SQLIs( $expr, $operation, $value, $caseInsensitive = dsCASE_DEFAULT ) {
 		return new DsCondition( array(
 				new DsOperand( dsotSQL, $expr ),
 				new DsOperand( dsotCONST, $value )
@@ -417,8 +515,9 @@ class DataCondition {
  * Describres additional column that shall be added to the SQL
  * SELECT ..., <expression> AS <alias>
  *
- * expression is either $sql or $field with $modifier
- * if $sql is empty, $field should be used instead
+ * expression is either $sql or $field 
+ * only one of the two should be specified
+ * $modifier and $joinData should only be used with $field
  */
 class DsFieldData {
 	/**
@@ -430,6 +529,13 @@ class DsFieldData {
 	 *  field name  and modifier
 	 */
 	var $field;
+
+	/**
+	 * Should be used only together with $field
+	 * @var DsJoinData
+	 */
+	var $joinData;
+
 	/**
 	 * See DsOperand::modifier
 	 */
@@ -440,11 +546,12 @@ class DsFieldData {
 	 */
 	var $alias;
 
-	function __construct( $sql, $alias, $field, $modifier = 0 ) {
+	function __construct( $sql, $alias, $field, $modifier = 0, $joinData = null ) {
 		$this->sql = $sql;
 		$this->alias = $alias;
 		$this->field = $field;
 		$this->modifier = $modifier;
+		$this->joinData = $joinData;
 
 	}
 

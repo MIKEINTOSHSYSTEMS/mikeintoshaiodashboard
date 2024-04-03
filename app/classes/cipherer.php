@@ -34,9 +34,12 @@ class RunnerCipherer
 		$this->strTableName = $strTableName;
 
 		$this->setConnection();
-		$this->key = $this->connection->_encryptInfo["key"];
-		$this->alg = $this->connection->_encryptInfo["alg"];
-		$this->mode = $this->connection->_encryptInfo["mode"];
+		
+		if( $this->connection->dbBased() ) {
+			$this->key = $this->connection->_encryptInfo["key"];
+			$this->alg = $this->connection->_encryptInfo["alg"];
+			$this->mode = $this->connection->_encryptInfo["mode"];
+		}
 		
 		if($pSet != null)
 			$this->pSet = $pSet;
@@ -58,7 +61,7 @@ class RunnerCipherer
 
 		if ( $this->connection->dbType == nDATABASE_MSSQLServer && $this->connection->_encryptInfo["alg"] == ENCRYPTION_ALG_AES && $this->connection->_encryptInfo["mode"] == ENCRYPTION_DB )
 		{
-			$symmetricSql = mysprintf("OPEN SYMMETRIC KEY %s DECRYPTION BY CERTIFICATE %s;", array($this->connection->_encryptInfo["slqserverkey"], $this->connection->_encryptInfo["slqservercert"]));
+			$symmetricSql = mysprintf("OPEN SYMMETRIC KEY [%s] DECRYPTION BY CERTIFICATE [%s];", array($this->connection->_encryptInfo["slqserverkey"], $this->connection->_encryptInfo["slqservercert"]));
 			$this->connection->setInitializingSQL($symmetricSql);
 		}
 	}
@@ -148,38 +151,6 @@ class RunnerCipherer
 		return $this->EncryptValueByDB( $field, add_db_quotes($field, $this->EncryptField($field, $value), $this->strTableName) );
 	}
 	
-	/**
-	 *
-	 */
-	public function GetLikeClause($field, $value)
-	{
-		global $ajaxSearchStartsWith;
-		if( $this->connection->isEncryptionByPHPEnabled() && $this->isFieldEncrypted($field) )
-			return "=".$this->connection->prepareString( $this->EncryptField($field, $value) );
-		
-		if( $ajaxSearchStartsWith )
-			$searchPattern = $value."%";
-		else
-			$searchPattern = "%".$value."%";
-		return " LIKE ".$this->connection->prepareString( $searchPattern );
-	}
-	
-	/**
-	 * GetLookupFieldName
-	 * Add to lookup and autofil field name decryption function if master field is encrypted by database 
-	 * @param {string} field name
-	 * @param {string} master field name
-	 * @param {string} alias of field name
-	 * @param {bool} shows if 'as' construction needed
-	 * @return {string}
-	 */
-	public function GetLookupFieldName($field, $fieldForCheck, $alias = null, $addAs = false)
-	{			
-		if( $this->connection->isEncryptionByPHPEnabled() || !$this->isFieldEncrypted($fieldForCheck) )
-			return $field;
-
-		return $this->GetEncryptedFieldName($field, $alias, $addAs);
-	}
 	
 	/**
 	 * GetFieldName
@@ -361,6 +332,9 @@ class RunnerCipherer
 	 */
 	public static function getForLogin( $loginSet = null )
 	{	
+		if( !!Security::loginTable() ) {
+			return new RunnerCipherer( "derejame_users", $loginSet);
+		}
 		return new RunnerCipherer( GLOBAL_PAGES, null);
 	}	
 }

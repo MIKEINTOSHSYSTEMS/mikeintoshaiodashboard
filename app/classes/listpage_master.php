@@ -38,7 +38,7 @@ class ListPage_Master extends ListPage
 	
 	public function preparePage() 
 	{
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !$this->masterRecordData )
 			return;
 		
 		$this->xt->assign("pagetitlelabel", $this->getPageTitle( $this->pageType, GoodFieldName($this->tName), $this->masterRecordData ));	
@@ -89,7 +89,7 @@ class ListPage_Master extends ListPage
 	
 	public function showMaster( $params ) 
 	{
-		if( !$this->masterRecordData || !count($this->masterRecordData) )
+		if( !$this->masterRecordData || !$this->masterRecordData )
 			return;
 		
 		$this->xt->assign( "masterlist_title", false );
@@ -98,6 +98,7 @@ class ListPage_Master extends ListPage
 		{
 			$this->xt->assign("body", true );
 			$this->xt->assign("embedded_grid", true );
+			$this->xt->assign("embedded_grid_caption", true );
 
 			$this->xt->load_templateJSON( $this->templatefile);
 			echo  $this->xt->fetch_loadedJSON("body");

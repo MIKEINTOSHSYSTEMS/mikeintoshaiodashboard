@@ -36,6 +36,10 @@ class FilterValuesList extends FilterControl
 
 	protected $hiddenExtraItemClassName = "filter-item-hidden";
 
+	//	SQL aliases for current and parent fields
+	protected $aliases = array();
+
+
 	public function __construct($fName, $pageObject, $id, $viewControls)
 	{
 		parent::__construct($fName, $pageObject, $id, $viewControls);
@@ -48,20 +52,19 @@ class FilterValuesList extends FilterControl
 		$this->numberOfVisibleItems = $this->pSet->getNumberOfVisibleFilterItems($fName);
 
 		$this->parentFilterName = $this->pSet->getParentFilterName($fName);
-		$this->dependent = $this->parentFilterName != "";
+		$this->dependent = !!$this->parentFilterName;
 
 		$this->assignDependentFiltersData();
-		$this->hasDependent = $this->dependentFilterName != "";
+		$this->hasDependent = !!$this->dependentFilterName;
 
 
 		$this->assignParentFiltersData();
 
 		$this->setSortingParams();
-		$this->setAggregateType();
 	}
 
 	/**
-	 * Assign 'parentFiltersNames', 'parentFiltersNamesData' properties to
+	 * Assign 'parentFiltersNames' properties to
 	 * the corresponding data if the current filter is dependent
 	 */
 	protected function assignParentFiltersData()
@@ -70,20 +73,7 @@ class FilterValuesList extends FilterControl
 			return;
 
 		$this->parentFiltersNames = FilterValuesList::getParentFilterFields( $this->fName, $this->pSet );
-		$parentFiltersData = array();
 
-		foreach($this->parentFiltersNames as $parentName)
-		{
-			$dbName = $this->getDbFieldName($parentName);
-			$hasAlias = $dbName != $this->connection->addFieldWrappers($parentName);
-			$rsName = $hasAlias ? $this->connection->addFieldWrappers($parentName) : $dbName;
-
-			$parentFiltersData[$parentName]['dbName'] = $dbName;
-			$parentFiltersData[$parentName]['rsName'] = $rsName;
-			$parentFiltersData[$parentName]['hasAlias'] = $hasAlias;
-		}
-
-		$this->parentFiltersNamesData = $parentFiltersData;
 	}
 
 	public static function getParentFilterFields( $field, $pSet ) {
@@ -106,7 +96,6 @@ class FilterValuesList extends FilterControl
 	public function hasDependentFilter() {
 		return !!$this->dependentFilterName;
 	}
-
 
 	protected function findDependentFilters( $field, &$filterFields, &$dependents ) {
 		foreach( $filterFields as $f ) {
@@ -131,13 +120,14 @@ class FilterValuesList extends FilterControl
 
 	protected function getDataCommand()
 	{
-
 		$dc = new DsCommand;
 		$dc->filter = $this->pageObject->getDataSourceFilterCriteria( $this->fName );
 
+		$alias = generateAlias();
+		$this->aliases[ $this->fName ] = $alias;
 		$dc->totals[] = array(
 			"field" => $this->fName,
-			"alias" => "_grval_"  . $this->fName,
+			"alias" => $alias,
 			"modifier" => $this->pSet->getFilterByInterval($this->fName),
 			"skipEmpty" => true
 		 );
@@ -154,9 +144,11 @@ class FilterValuesList extends FilterControl
 		if( $this->dependent )
 		{
 			foreach( $this->parentFiltersNames as $p ) {
+				$pAlias = generateAlias();
+				$this->aliases[ $p ] = $pAlias;
 				$dc->totals[] = array(
 					"field" => $p,
-					"alias" => "_grval_"  . $p,
+					"alias" => $pAlias,
 					"modifier" => $this->pSet->getFilterByInterval( $p ),
 					"skipEmpty" => true
 				);
@@ -170,7 +162,7 @@ class FilterValuesList extends FilterControl
 			$direction = $this->pSet->isFilterSortOrderDescending($this->fName)
 				? "DESC"
 				: "ASC";
-			
+
 			if( $sortingType == SORT_BY_GR_VALUE && $totalsType ) {
 				$dc->totals[ 1 ][ "direction" ] = $direction;
 			} else {
@@ -180,11 +172,15 @@ class FilterValuesList extends FilterControl
 		return $dc;
 	}
 
-
+	/**
+	 * @deprecated
+	 */
 	protected function getFilterSQLExpr( $expr ) {
 		return FilterValuesList::_getFilterSQLExpr( $this->fName, $expr, $this->pSet, $this->connection );
 	}
+	
 	/**
+	 * @deprecated	
 	 * @return String
 	 */
 	protected static function _getFilterSQLExpr( $fName, $expr, $pSet, $connection )
@@ -220,25 +216,8 @@ class FilterValuesList extends FilterControl
 	{
 		$this->sortingType = $this->pSet->getFilterSortValueType($this->fName);
 		$this->isDescendingSortOrder = $this->pSet->isFilterSortOrderDescending($this->fName);
-		$this->useFormatedValueInSorting = $this->sortingType == SORT_BY_DISP_VALUE || IsCharType($this->fieldType) || $this->pSet->getEditFormat($this->fName) == EDIT_FORMAT_LOOKUP_WIZARD;
-	}
-
-	/**
-	 * Set the type of the aggregate funtion
-	 */
-	protected function setAggregateType()
-	{
-		$this->aggregate = $this->totalsOptions[ $this->totals ];
-	}
-
-	/**
-	 * Get the sql string containing the filter totals
-	 * to add it to the SELECT clause
-	 * @return String
-	 */
-	protected function getTotals()
-	{
-		return $this->aggregate."( ". $this->connection->addFieldWrappers( $this->totalsfName ) .") as ".$this->connection->addFieldWrappers( $this->fName."TOTAL" );
+		$this->useFormatedValueInSorting = $this->sortingType == SORT_BY_DISP_VALUE 
+			|| IsCharType($this->fieldType) || $this->pSet->getEditFormat($this->fName) == EDIT_FORMAT_LOOKUP_WIZARD;
 	}
 
 	/**
@@ -267,12 +246,12 @@ class FilterValuesList extends FilterControl
 	 */
 	protected function addFilterBlocksFromDB( &$filterCtrlBlocks )
 	{
-		$alias = "_grval_"  . $this->fName;
 		$containsFilteredDependentOnDemandFilter = !$this->dependent && !$this->filtered && $this->hasFilteredDependentOnDemandFilter();
 		$visibilityClass = $this->filtered && $this->multiSelect == FM_ON_DEMAND ? $this->onDemandHiddenItemClassName : "";
 
 		//query to database with current where settings
 		$qResult = $this->dataSource->getTotals( $this->getDataCommand() );
+		$alias = $this->aliases[ $this->fName ];
 		while( $data = $qResult->fetchAssoc() )
 		{
 			$this->decryptDataRow($data);
@@ -284,46 +263,7 @@ class FilterValuesList extends FilterControl
 			{
 				foreach($this->parentFiltersNames as $pName)
 				{
-					$parentFiltersData[ $pName ] = $data[ "_grval_" . $pName ];
-				}
-			}
-
-			$this->valuesObtainedFromDB[] = $rawValue;
-
-			$filterControl = $this->buildControl( $data, $parentFiltersData );
-			if( $containsFilteredDependentOnDemandFilter )
-				$filterControl = $this->getDelButtonHtml( $this->gfName, $this->id,  $rawValue ).$filterControl;
-
-			$filterCtrlBlocks[] = $this->getFilterBlockStructure($filterControl, $visibilityClass, $rawValue, $parentFiltersData);
-		}
-	}
-
-	/**
-	 * Get the filter blocks data using the database query
-	 * and add it the the existing blocks
-	 * @param &Array
-	 */
-	protected function addFilterBlocksFromDBOld( &$filterCtrlBlocks )
-	{
-		$filterInterval = $this->pSet->getFilterByInterval($this->fName);
-		$alias = "_grval_"  . $this->fName;
-		$containsFilteredDependentOnDemandFilter = !$this->dependent && !$this->filtered && $this->hasFilteredDependentOnDemandFilter();
-		$visibilityClass = $this->filtered && $this->multiSelect == FM_ON_DEMAND ? $this->onDemandHiddenItemClassName : "";
-
-		//query to database with current where settings
-		$qResult = $this->connection->query( $this->strSQL );
-		while( $data = $qResult->fetchAssoc() )
-		{
-			$this->decryptDataRow($data);
-
-			$rawValue = $data[ $alias ];
-
-			$parentFiltersData = array();
-			if( $this->dependent )
-			{
-				foreach($this->parentFiltersNames as $pName)
-				{
-					$parentFiltersData[ $pName ] = $data[ "_grval_" . $pName ];
+					$parentFiltersData[ $pName ] = $data[ $this->aliases[ $pName ] ];
 				}
 			}
 
@@ -348,7 +288,7 @@ class FilterValuesList extends FilterControl
 
 		foreach( $this->dependentFilterNames as $dName )
 		{
-			if( count( $this->filteredFields[ $dName ] ) && $this->pSet->getFilterFiledMultiSelect($dName) == FM_ON_DEMAND )
+			if( !!$this->filteredFields[ $dName ] && $this->pSet->getFilterFiledMultiSelect($dName) == FM_ON_DEMAND )
 				return true;
 		}
 
@@ -413,7 +353,7 @@ class FilterValuesList extends FilterControl
 	 * @param Array parentFiltersData (optional)
 	 * @return Array
 	 */
-	protected function getFilterBlockStructure( $filterControl, $visibilityClass, $value, $parentFiltersData = array() )
+	protected function getFilterBlockStructure( $filterControl, $visibilityClass = "", $value = "", $parentFiltersData = array() )
 	{
 		if( !$this->viewControl )
 			return array();
@@ -445,8 +385,7 @@ class FilterValuesList extends FilterControl
 	protected function buildControl( $data, $parentFiltersData = array() )
 	{
 		$filterInterval = $this->pSet->getFilterByInterval($this->fName);
-		$alias = "_grval_"  . $this->fName;
-		$value = $data[ $alias ];
+		$value = $data[ $this->aliases[ $this->fName ] ];
 
 		// pass to attributes
 		$dataValue = $value;
@@ -643,7 +582,9 @@ class FilterValuesList extends FilterControl
 		if( $this->sortingType != SORT_BY_DISP_VALUE )
 			return;
 
-		$compareFunction = IsNumberType($this->fieldType) ? "compareBlocksByNumericValues" : "compareBlocksByStringValues";
+		//	always sort as strings. Lookups must be sorted as strings no matter field type
+		$compareFunction = "compareBlocksByStringValues";
+
 		usort( $filterCtrlBlocks, array("FilterControl", $compareFunction) );
 
 		if( $this->isDescendingSortOrder )
@@ -764,18 +705,19 @@ class FilterValuesList extends FilterControl
 		if( !$mExtraCtrls['selectAllAttrs'] || $this->multiSelect == FM_ON_DEMAND && $dExtraCtrls['selectAllAttrs'] )
 			$mExtraCtrls['selectAllAttrs'] = $dExtraCtrls['selectAllAttrs'];
 
-		if( !$mExtraCtrls['clearLink'] )
-			$mExtraCtrls['clearLink'] = $dExtraCtrls['clearLink'];
+		if( !$mExtraCtrls['filtered'] )
+			$mExtraCtrls['filtered'] = $dExtraCtrls['filtered'];
 
 		return $mExtraCtrls;
 	}
 
 	public static function getFilterCondition( $fName, $value, $pSet ) {
+		if( $pSet->multiSelectLookupEdit( $fName ) ) {
+			include_once getabspath("classes/controls/FilterMultiselectLookup.php");
+			return FilterMultiselectLookup::getFilterCondition( $fName, $value, $pSet );
+		}
+		
 		return DataCondition::FieldEquals( $fName, $value, $pSet->getFilterByInterval($fName) );
-	}
-
-	public static function getFilterWhere($fName, $fValue, $pSet, $fullFieldName, $cipherer, $connection) {
-
 	}
 }
 ?>

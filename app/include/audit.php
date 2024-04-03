@@ -3,7 +3,7 @@ class AuditTrailTable
 {
 	var $logTableName="";
 	var $params;
-	
+
 	var $strLogin="login";
 	var $strFailLogin="failed login";
 	var $strLogout="logout";
@@ -14,6 +14,7 @@ class AuditTrailTable
 	var $strAccess="access";
 	var $strKeysHeader="---Keys";
 	var $strFieldsHeader="---Fields";
+	var $strUserinfo="change userinfo";
 	var $columnDate="Date";
 	var $columnTime="Time";
 	var $columnIP="IP";
@@ -32,38 +33,38 @@ class AuditTrailTable
 	 * @type Connection
 	 */
 	protected $connection;
-	
+
 	function __construct()
 	{
 		global $cman;
 		global $auditMaxFieldLength;
-		
-		$this->connection = $cman->getForAudit();		
+
+		$this->connection = $cman->getForAudit();
 		$userid="";
-		if(@$_SESSION["UserID"])
-			$userid=$_SESSION["UserID"];
-			
+		if( Security::getUserName())
+			$userid = Security::getUserName();
+
 		$this->params=array($_SERVER["REMOTE_ADDR"],$userid);
-		
+
 		$this->maxFieldLength = $auditMaxFieldLength;
 	}
-	
+
     function LogLogin($pUsername)
     {
     }
-	
+
     function LogLoginFailed($pUsername)
     {
     }
-	
+
     function LogLogout()
     {
     }
-	
+
     function LogChPassword( $username )
     {
     }
-	
+
     function LogAdd($str_table,$values,$keys)
     {
 		global $globalEvents;
@@ -103,13 +104,66 @@ class AuditTrailTable
 			}
 			if($strFields!="")
 				$str.=$this->strFieldsHeader."\r\n".$strFields;
-			
+
 			$this->insert(now(), $this->params[0], $this->params[1], $str_table, $this->strAdd, $str);
 		}
 		return $retval;
-    }
+	}
 	
-    function LogEdit($str_table,$newvalues,$oldvalues,$keys)
+	/**
+	* not used yet 
+	* format audit values as a string
+	 * @param Array $newValues
+	 * @param Array $oldValues
+	 * @param Array include - list of fields to include into return value
+	 * @return String
+	 */
+	function formatChangedValues( $pSet, $newValues, $oldValues, $include = null ) {
+		
+		$strings = array();
+		foreach($newValues as $kefieldy => $value )
+		{
+			if( $include ) {
+				//	ASP
+				if( !isset( $include[ $field ] ) ) {
+					continue;
+				}
+			}
+
+			$type = $pSet->getFieldType( $field );
+			if( IsBinaryType($type) )
+				continue;
+			
+			if( IsDateFieldType($type) ) {
+				$newValue = format_datetime_custom(db2time( $newValues[$field] ),"yyyy-MM-dd HH:mm:ss");
+				$oldValue = format_datetime_custom(db2time( $oldValues[$field] ),"yyyy-MM-dd HH:mm:ss");
+			} else {
+				$newValue = $newValues[$field];
+				$oldValue = $oldValues[$field];
+			}
+			
+			if( $newValue == $oldValue ) {
+				continue;
+			}
+			
+			$strOld = $field . " [old]: " . $this->formatValue( $type, $oldValue );
+			$strNew = $field . " [new]: " . $this->formatValue( $type, $newValue );
+			$string[] = $strOld . "\r\n" . $strNew;
+
+		}
+		return implode( "\r\n", $strings );
+	}
+
+	function formatValue( $type, $value ) {
+		if(IsBinaryType($type)) {
+			return "<binary value>"; 
+		} else {
+			$value = str_replace(array("\r\n","\n","\t")," ", $value );
+			return $this->getMaxLengthSubstr( $value );
+		}
+	}
+
+    function LogEdit($str_table,$newvalues,$oldvalues, $keys )
     {
 		global $globalEvents;
 		$retval=true;
@@ -167,7 +221,7 @@ class AuditTrailTable
 							$v = $this->getMaxLengthSubstr( $v );
 						}
 						$strFields.=$v."\r\n";
-												
+
 						$strFields.=$idx." [new]: ";
 						if(IsBinaryType($type))
 							$v="<binary value>";
@@ -183,12 +237,12 @@ class AuditTrailTable
 			}
 			if($strFields!="")
 				$str.=$this->strFieldsHeader."\r\n".$strFields;
-			
+
 			$this->insert(now(), $this->params[0], $this->params[1], $str_table, $this->strEdit, $str);
 		}
 		return $retval;
     }
-	
+
     function LogDelete($str_table,$values,$keys)
     {
 		global $globalEvents;
@@ -219,7 +273,7 @@ class AuditTrailTable
 						if(IsBinaryType($pSet->getFieldType($idx)))
 							$v="<binary value>";
 						else
-						{	
+						{
 							$v = str_replace(array("\r\n","\n","\t")," ",$val);
 							$v = $this->getMaxLengthSubstr( $v );
 						}
@@ -229,12 +283,12 @@ class AuditTrailTable
 			}
 			if($strFields!="")
 				$str.=$this->strFieldsHeader."\r\n".$strFields;
-			
+
 			$this->insert(now(), $this->params[0], $this->params[1], $str_table, $this->strDelete, $str);
 		}
 		return $retval;
     }
-    
+
     function LogAddEvent($message,$description="",$stable="")
     {
 		global $globalEvents;
@@ -249,20 +303,20 @@ class AuditTrailTable
 		}
 		return $retval;
     }
-	
+
     function LoginSuccessful()
     {
 		if($this->attLogin>0 && $this->timeLogin>0)
 		{
-			$where = $this->connection->addFieldWrappers("ip"). "=" .$this->connection->prepareString($_SERVER["REMOTE_ADDR"]). 
+			$where = $this->connection->addFieldWrappers("ip"). "=" .$this->connection->prepareString($_SERVER["REMOTE_ADDR"]).
 				" AND " .$this->connection->addFieldWrappers("action"). "=" .$this->connection->prepareString($this->strAccess);
 			$sql = "DELETE FROM " .$this->connection->addTableWrappers( $this->logTableName ). " WHERE " .$where;
-			
+
 			$this->connection->exec( $sql );
 		}
-		
+
     }
-	
+
     function LoginUnsuccessful($pUsername)
     {
 		if($this->attLogin>0 && $this->timeLogin>0)
@@ -270,18 +324,18 @@ class AuditTrailTable
 			$this->insert(now(), $_SERVER["REMOTE_ADDR"], $pUsername, "", $this->strAccess, "");
 		}
     }
-    
+
 	function LoginAccess()
 	{
 		if( $this->attLogin > 0 && $this->timeLogin > 0 )
 		{
-			$where = $this->connection->addFieldWrappers("ip"). "=" .$this->connection->prepareString($_SERVER["REMOTE_ADDR"]). 
+			$where = $this->connection->addFieldWrappers("ip"). "=" .$this->connection->prepareString($_SERVER["REMOTE_ADDR"]).
 				" AND " .$this->connection->addFieldWrappers("action"). "=".$this->connection->prepareString("access");
 			$orderBy = $this->connection->addFieldWrappers("id")." asc";
 			$sql = "SELECT * FROM " .$this->connection->addTableWrappers( $this->logTableName ). " WHERE " .$where. " ORDER BY " .$orderBy;
-			
+
 			$qResult = $this->connection->query( $sql );
-			
+
 			$i = 0;
 			while( $data = $qResult->fetchAssoc() )
 			{
@@ -292,14 +346,14 @@ class AuditTrailTable
 					$i+=1;
 				}
 			}
-			
+
 			if( $i >= $this->attLogin )
 				return ceil($this->timeLogin-secondsPassedFrom($firstAccess) / 60);
 		}
 
 		return false;
 	}
-	
+
 	function logValueEnable($table)
 	{
 		if($table=="events")
@@ -442,35 +496,51 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="derejame_users")
+		{
+			return false;
+		}
+		if($table=="admin_rights")
+		{
+			return false;
+		}
+		if($table=="admin_members")
+		{
+			return false;
+		}
+		if($table=="admin_users")
+		{
+			return false;
+		}
 	}
-	
+
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
 	{
 		$sql = "INSERT INTO " .$this->connection->addTableWrappers( $this->logTableName ).
 			" (" .$this->connection->addFieldWrappers("datetime").
 			"," .$this->connection->addFieldWrappers("ip").
 			"," .$this->connection->addFieldWrappers("user").
-			"," .$this->connection->addFieldWrappers("table"). 
+			"," .$this->connection->addFieldWrappers("table").
 			"," .$this->connection->addFieldWrappers("action").
 			"," .$this->connection->addFieldWrappers("description").
 			") VALUES (" .$this->connection->addDateQuotes($datetime).
-			"," .$this->connection->prepareString($ip). 
+			"," .$this->connection->prepareString($ip).
 			"," .$this->connection->prepareString($user).
 			"," .$this->connection->prepareString($table).
-			"," .$this->connection->prepareString($action). 
+			"," .$this->connection->prepareString($action).
 			"," .$this->connection->prepareString($description).
 			")";
-		
+
 		return $this->connection->exec( $sql );
 	}
-	
+
 	protected function getMaxLengthSubstr( $value )
-	{		
+	{
 		if( $this->maxFieldLength && strlen($value) > $this->maxFieldLength )
 			return runner_substr($value, 0, $this->maxFieldLength);
-		
+
 		return $value;
-	}	
+	}
 }
 
 class AuditTrailFile
@@ -498,36 +568,36 @@ class AuditTrailFile
 	var $columnNewValue="New value";
 	var $params;
 	var $maxFieldLength;
-	
+
 	function __construct()
 	{
 		global $auditMaxFieldLength;
-		
+
 		$userid = "";
-		if(@$_SESSION["UserID"])
-			$userid = $_SESSION["UserID"];
-		
+		if(@Security::getUserName())
+			$userid = Security::getUserName();
+
 		$this->params = array($_SERVER["REMOTE_ADDR"], $userid);
-		
+
 		$this->maxFieldLength = $auditMaxFieldLength;
 	}
-	
+
     function LogLogin($pUsername)
     {
 		    }
-	
+
     function LogLoginFailed($pUsername)
     {
 		    }
-	
+
     function LogLogout()
     {
     }
-	
-    function LogChPassword()
+
+    function LogChPassword( $username )
     {
     }
-	
+
     function LogAdd($str_table,$values,$keys)
     {
 		global $globalEvents;
@@ -572,12 +642,12 @@ class AuditTrailFile
 			}
 			else
 				$str_add.=$str."\r\n";
-			
+
 			$this->writeToLogFile( $str_add );
 		}
 		return $retval;
     }
-	
+
     function LogEdit($str_table,$newvalues,$oldvalues,$keys)
     {
 		global $globalEvents;
@@ -629,7 +699,7 @@ class AuditTrailFile
 							$v1 = str_replace(array("\r\n","\n","\t")," ",$oldvalue);
 							$v = $this->getMaxLengthSubstr( $v );
 						}
-						
+
 						$v2="";
 						if(IsBinaryType($type))
 							$v2="<binary value>";
@@ -648,7 +718,7 @@ class AuditTrailFile
 		}
 		return $retval;
     }
-	
+
     function LogDelete($str_table,$values,$keys)
     {
 		global $globalEvents;
@@ -689,19 +759,19 @@ class AuditTrailFile
 			}
 			else
 				$str_add=$str."\r\n";
-				
+
 			$this->writeToLogFile( $str_add );
 		}
 		return $retval;
     }
-	
+
 	function writeToLogFile( $str )
 	{
 		$p=strrpos($this->logfile,".");
 		$logfileName=runner_substr($this->logfile,0,$p);
 		$logfileExt=runner_substr($this->logfile,$p+1, strlen($this->logfile)-1);
 		$tn=$logfileName."_".format_datetime_custom(db2time(now()),"yyyyMMdd").".".$logfileExt;
-		
+
 		$fullname = getabspath($tn);
 		$fsize = 0;
 		if (file_exists($fullname)){
@@ -714,9 +784,9 @@ class AuditTrailFile
 		}
 		$str_to_append .= $str;
 		append_to_file( $fullname, $str_to_append );
-		
+
 	}
-	
+
 	function LogAddEvent($message,$description="",$str_table="")
     {
 		global $globalEvents;
@@ -732,22 +802,22 @@ class AuditTrailFile
 		}
 		return $retval;
     }
-    
+
     function LoginAccess()
 	{
 		return false;
 	}
-	
+
 	function LoginSuccessful()
     {
 		return true;
     }
-	
+
     function LoginUnsuccessful($pUsername)
-    {	
+    {
 		return true;
 	}
-	
+
 	function logValueEnable($table)
 	{
 		if($table=="events")
@@ -890,13 +960,29 @@ class AuditTrailFile
 		{
 			return false;
 		}
+		if($table=="derejame_users")
+		{
+			return false;
+		}
+		if($table=="admin_rights")
+		{
+			return false;
+		}
+		if($table=="admin_members")
+		{
+			return false;
+		}
+		if($table=="admin_users")
+		{
+			return false;
+		}
 	}
-	
+
 	protected function getMaxLengthSubstr( $value )
-	{		
+	{
 		if( $this->maxFieldLength && strlen($value) > $this->maxFieldLength )
 			return runner_substr($value, 0, $this->maxFieldLength);
-		
+
 		return $value;
 	}
 }

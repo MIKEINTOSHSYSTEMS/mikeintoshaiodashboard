@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -97,15 +99,14 @@ pdfDocument = {
 	
 		body: [
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_c3}
+																{BEGIN cellblock_grid_c3}
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	dynamic colspan/rowspan
 
@@ -117,20 +118,23 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$DisabilityID_pdfvalue}},
+			{"text":{$DisabilityID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field1}","text":{$Disability_Type_pdfvalue}},
+			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_c3}
 											],
 				{END row_grid_0}
-					]
+		
+		]
 	}
 }
 ,
@@ -150,13 +154,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -179,11 +182,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

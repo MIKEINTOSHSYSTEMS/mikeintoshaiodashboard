@@ -81,10 +81,12 @@ class ListPage_Dashboard extends ListPage_Embed
 	function prepareForResizeColumns()
 	{
 		parent::prepareForResizeColumns();
-		if(  !$this->isBootstrap() )
+		if( !$this->isBootstrap() )
 			return;
+
 		include_once getabspath("classes/paramsLogger.php");
 		$logger = new paramsLogger( $this->dashTName."_".$this->dashElementName, CRESIZE_PARAMS_TYPE );
+
 		$columnsData = $logger->getData();
 		if( $columnsData )
 			$this->pageData[ "resizableColumnsData" ] = $columnsData;
@@ -103,20 +105,14 @@ class ListPage_Dashboard extends ListPage_Embed
 		//	do nothing
 	}
 
-	protected function getSubsetSQLComponents() {
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
+		$dc = parent::getSubsetDataCommand();
 
-		$sql = parent::getSubsetSQLComponents();
-
-		if( $this->mode == LIST_DASHBOARD && $this->hasMainDashMapElem() )
-			$sql["mandatoryWhere"][] = $this->mapRefresh ? $this->getWhereByMap() : "1=0";
-
-		if( $this->showNoData )
-			$sql["mandatoryWhere"][] = "1=0";
-
-		return $sql;
+		if( $this->showNoData ) {
+			$dc->filter = DataCondition::_False();
+		}
+		return $dc;
 	}
-
-
 
 	/**
 	 *
@@ -137,7 +133,6 @@ class ListPage_Dashboard extends ListPage_Embed
 		$this->showPageAjax();
 	}
 
-
 	/**
 	 * Display blocks after loaded template of page
 	 */
@@ -145,43 +140,27 @@ class ListPage_Dashboard extends ListPage_Embed
 	{
 		$this->addControlsJSAndCSS();
 		$this->fillSetCntrlMaps();
-		$returnJSON = array();
+
 		global $pagesData;
+
+		$returnJSON = array();
 		$returnJSON["pagesData"] = $pagesData;
 		$returnJSON['controlsMap'] = $this->controlsHTMLMap;
 		$returnJSON['viewControlsMap'] = $this->viewControlsHTMLMap;
 		$returnJSON['settings'] = $this->jsSettings;
+
 		$this->xt->assign("header",false);
 		$this->xt->assign("footer",false);
 
-		if( !$this->isPD() ) {
-			if( $this->formBricks["header"] )
-				$returnJSON['headerCont'] = $this->fetchBlocksList( $this->formBricks["header"], true );
-
-			//	prepend headerCont with the page title
-			$returnJSON['headerCont'] = '<span class="rnr-dbebrick">'
-				. $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) )
-				. "</span>"
-				. $returnJSON['headerCont'];
-
-			if( $this->formBricks["footer"] )
-				$returnJSON["footerCont"] = $this->fetchBlocksList( $this->formBricks["footer"], true );
-
-			$this->assignFormFooterAndHeaderBricks(false);
-			$this->xt->prepareContainers();
-			if( $this->isBootstrap() )
-				$returnJSON["html"] = $this->xt->fetch_loaded("message_block").$this->xt->fetch_loaded("reorder_records").$this->xt->fetch_loaded("grid_block");
-			else
-				$returnJSON["html"] = $this->xt->fetch_loaded("body");
-		} else {
-			$this->hideForm("above-grid");
-			$returnJSON["html"] = $this->fetchForms( array( "above-grid", "grid" ) );
-			$returnJSON['headerCont'] = '<span class="rnr-dbebrick">'
-			. $this->getPageTitle( $this->pageType, GoodFieldName($this->tName) )
-			. "</span>";
-			$returnJSON["footerCont"] = $this->fetchForms( array( "below-grid" ) );
-		}
-
+		$this->hideForm("above-grid");
+		$returnJSON["html"] = $this->fetchBlocksList( array( "above-grid_block", "grid_tabs", "grid_block" ) );
+		$returnJSON['headerCont'] = '<span class="rnr-dbebrick">'
+		. $this->getPageTitle( $this->pageName, GoodFieldName($this->tName) )
+		. "</span>";
+		$returnJSON["footerCont"] = $this->fetchForms( array( "below-grid" ) );
+		$icon = getIconHTML( $this->dashElementData["item"]["icon"] );
+		if( $icon )
+			$returnJSON["iconHtml"] = $icon;
 
 
 		$returnJSON['idStartFrom'] = $this->flyId;
@@ -240,10 +219,6 @@ class ListPage_Dashboard extends ListPage_Embed
 		return parent::viewAvailable() && $this->dashElementData["popupView"];
 	}
 
-	function detailsInGridAvailable()
-	{
-		return false;
-	}
 
 	/**
 	 * @return Boolean
@@ -345,6 +320,8 @@ class ListPage_Dashboard extends ListPage_Embed
 	 * A stub
 	 */
 	function buildSearchPanel() {}
+	public function assignSimpleSearch() {}
+
 
 	/**
 	 *
@@ -362,14 +339,45 @@ class ListPage_Dashboard extends ListPage_Embed
 		return $dc;
 	}
 
-	/*
-	function prepareGridTabs()
-	{
-		parent::prepareGridTabs();
-		$this->pageData["gridTabs"] = $this->getTabsHtml();
-		$this->pageData["tabId"] = $this->getCurrentTabId();
+	public function setGoogleMapsParams( $params ) {
+		parent::setGoogleMapsParams( $params );
+		$this->googleMapCfg['isUseMainMaps'] = false;
 	}
-	*/
+
+	function addCenterLink(&$value, $fName) {
+		return $value;
+	}
+
+	function inDashboardMode() {
+		return true;
+	}
+	function dependsOnDashMap() {
+		return $this->hasMainDashMapElem() && $this->mapRefresh;
+	}
+
+	protected function detailInGridAvailable( $detailTableData ) {
+		$detTable = $detailTableData['dDataSourceTable'];
+		if( $this->pSet->detailsPreview( $detTable ) == DP_NONE ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	protected function proceedLinkAvailable( $dTable ) {
+		return false;
+	}
+
+	protected function detailsHrefAvailable() {
+		return false;
+	}
+
+	function displayTabsInPage()
+	{
+		return $this->dashElementData["tabLocation"] == "body";
+
+	}
+
 
 }
 ?>

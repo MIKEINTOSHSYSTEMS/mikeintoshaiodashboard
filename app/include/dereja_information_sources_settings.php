@@ -60,14 +60,9 @@ $tdatadereja_information_sources[".showEditInPopup"] = false;
 
 $tdatadereja_information_sources[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatadereja_information_sources[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatadereja_information_sources[".listAjax"] = false;
 //	temporary
-$tdatadereja_information_sources[".listAjax"] = false;
+//$tdatadereja_information_sources[".listAjax"] = false;
 
 	$tdatadereja_information_sources[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatadereja_information_sources[".allowFieldsReordering"] = true; // temp fix #
 
 $tdatadereja_information_sources[".isUseAjaxSuggest"] = true;
 
-$tdatadereja_information_sources[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatadereja_information_sources[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatadereja_information_sources[".strOrderBy"] = $tstrOrderBy;
 
 $tdatadereja_information_sources[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("dereja_information_sources","SourceID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("dereja_information_sources","SourceName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatadereja_information_sources[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["dereja_information_sources"] = &$fieldToolTipsdereja_information
 $placeHolders["dereja_information_sources"] = &$placeHoldersdereja_information_sources;
 $page_titles["dereja_information_sources"] = &$pageTitlesdereja_information_sources;
 
+
+changeTextControlsToDate( "dereja_information_sources" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["dereja_information_sources"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["dereja_information_sources"] = array();
@@ -675,7 +673,6 @@ $tdatadereja_information_sources[".sqlquery"] = $queryData_dereja_information_so
 
 
 
-$tableEvents["dereja_information_sources"] = new eventsBase;
 $tdatadereja_information_sources[".hasEvents"] = false;
 
 ?>

@@ -19,10 +19,9 @@ class TextField extends TextControl
 		if( $this->pageObject->isBootstrap() )
 			$classString = " class=\"form-control\"";
 			
-		global $cUserNameField, $cPasswordField;
 		$autocomplete = true;
 		if( $mode == MODE_SEARCH ||
-			$this->pageObject->pageType == 'register' && ( $this->field == $cUserNameField || $this->field == $cPasswordField))
+			$this->pageObject->pageType == 'register' && ( $this->field == Security::usernameField() || $this->field == Security::passwordField() ))
 			$autocomplete = false;
 		
 		echo '<input id="'.$this->cfield.'" '. $classString . $this->inputStyle.' type="'.$inputType.'" '

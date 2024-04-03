@@ -38,12 +38,6 @@ class ListPage_Embed extends ListPage
 			if(!$this->rowsFound)
 			{
 				$this->hideElement("grid");
-				/*
-				if( $this->isPD())
-					$this->hideForm("grid");
-				else 
-					$this->xt->displayBrickHidden("grid");
-				*/					
 			}
 		}
 	}

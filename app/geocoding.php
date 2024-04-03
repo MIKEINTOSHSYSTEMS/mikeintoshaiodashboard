@@ -41,7 +41,8 @@ if( $_SERVER['PHP_SELF'] == '/'.GetTableLink("geocoding") )
 
 if( postvalue("geocoding") )
 {
-	global $cman, $gSettings, $strTableName, $strOriginalTableName;
+	global $cman, $strTableName, $strOriginalTableName;
+	$gSettings = new ProjectSettings( $strTableName );
 
 	$_connection = $cman->byTable( $strTableName );
 	$origTableName = $strOriginalTableName;
@@ -62,7 +63,7 @@ if( postvalue("geocoding") )
 		$lngField = $gData["lngField"];
 	
 	// an address field is not defined or lat&lng fields are undefined while an address field is set 
-	if( !isset($addressField) && !count( $addressFields ) ||  $latField == "" && $lngField == "" ) 
+	if( !isset($addressField) && !( $addressFields ) ||  $latField == "" && $lngField == "" ) 
 	{  
 		foreach($gSettings->getFieldsList() as $field)
 		{
@@ -71,7 +72,7 @@ if( postvalue("geocoding") )
 		}
 		if( count($fieldsMapData) > 0 )
 		{
-			if( !count( $addressFields ) )
+			if( !( $addressFields ) )
 				$addressFields[] = $fieldsMapData[0]['address'];
 			
 			if( $latField == "" )
@@ -84,7 +85,7 @@ if( postvalue("geocoding") )
 	  
 	if( !postvalue("ajax") ) 
 	{
-		if( !count($addressFields) ||  $latField == ""  || $lngField == "" )
+		if( !($addressFields) ||  $latField == ""  || $lngField == "" )
 		{ 
 			//some fields are empty
 			echo "<!DOCTYPE html>

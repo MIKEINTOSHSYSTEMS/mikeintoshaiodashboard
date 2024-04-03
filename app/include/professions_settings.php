@@ -60,14 +60,9 @@ $tdataprofessions[".showEditInPopup"] = false;
 
 $tdataprofessions[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataprofessions[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataprofessions[".listAjax"] = false;
 //	temporary
-$tdataprofessions[".listAjax"] = false;
+//$tdataprofessions[".listAjax"] = false;
 
 	$tdataprofessions[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataprofessions[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataprofessions[".isUseAjaxSuggest"] = true;
 
-$tdataprofessions[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataprofessions[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataprofessions[".strOrderBy"] = $tstrOrderBy;
 
 $tdataprofessions[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataprofessions[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("professions","ProfessionID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataprofessions[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataprofessions[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataprofessions[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataprofessions[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("professions","ProfessionName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataprofessions[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataprofessions[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataprofessions[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["professions"] = &$fieldToolTipsprofessions;
 $placeHolders["professions"] = &$placeHoldersprofessions;
 $page_titles["professions"] = &$pageTitlesprofessions;
 
+
+changeTextControlsToDate( "professions" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["professions"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["professions"] = array();
@@ -675,7 +673,6 @@ $tdataprofessions[".sqlquery"] = $queryData_professions;
 
 
 
-$tableEvents["professions"] = new eventsBase;
 $tdataprofessions[".hasEvents"] = false;
 
 ?>

@@ -7,14 +7,18 @@ class SecurityPluginFB extends SecurityPlugin {
 	 */
 	public $fbObj;
 
+	protected $appId = "";
+	protected $appSecret = "";
+
+
 	/**
 	 * @constructor
 	 */
-	function __construct()
+	function __construct( $params )
 	{
-		parent::__construct();
-		$this->appId = GetGlobalData("FBappId", "");
-		$this->appSecret = GetGlobalData("FBappSecret", "");
+		parent::__construct( $params );
+		$this->appId = $params["appId"];
+		$this->appSecret = $params["secretId"];
 
 		$this->fbObj = fbCreateObject( $this->appId, $this->appSecret );
 	}
@@ -24,7 +28,7 @@ class SecurityPluginFB extends SecurityPlugin {
 		global $cCharset;
 
 		//	facebook API ignores $token and uses $_REQUEST["signed_request"] instead
-		$infoData = fbGetUserInfo( $this->fbObj );
+		$infoData = fbGetUserInfo( $this->fbObj, $token );
 		$fbme = $infoData["info"];
 
 		if( !$fbme )
@@ -32,6 +36,9 @@ class SecurityPluginFB extends SecurityPlugin {
 			$this->error = $infoData["error"];
 			return array();
 		}
+
+		// save signed request token in cookies
+		setProjectCookie( 'fb_sr_token', $token, time() + 30 * 1440 * 60, true );
 
 		$ret = array(
 				"id" => "fb".(string)$fbme["id"],
@@ -41,7 +48,7 @@ class SecurityPluginFB extends SecurityPlugin {
 			);
 
 		if( $fbme["picture"] && is_array( $fbme["picture"] )) {
-			$picResult = runner_http_request( @$fbme["picture"]["data"]["url"], array(), "GET", array(), false );
+			$picResult = runner_http_request( @$fbme["picture"]["data"]["url"], "", "GET", array(), false );
 			if( $picResult["content"] )
 				$ret["picture"] = $picResult["content"];
 		}
@@ -60,11 +67,13 @@ class SecurityPluginFB extends SecurityPlugin {
 	public function onLogout()
 	{
 		fbDestroySession( $this->fbObj );
+		setProjectCookie( 'fb_sr_token', "", time() - 1, true );
 	}
 
 	public function savedToken()
 	{
-		return fbGetSignedRequest( $this->fbObj );
+		// get fb signed request from cookie
+		return $_COOKIE['fb_sr_token'];
 	}
 }
 

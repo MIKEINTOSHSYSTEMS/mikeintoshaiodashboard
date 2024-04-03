@@ -60,14 +60,9 @@ $tdatainstitution_types[".showEditInPopup"] = false;
 
 $tdatainstitution_types[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatainstitution_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatainstitution_types[".listAjax"] = false;
 //	temporary
-$tdatainstitution_types[".listAjax"] = false;
+//$tdatainstitution_types[".listAjax"] = false;
 
 	$tdatainstitution_types[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatainstitution_types[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatainstitution_types[".isUseAjaxSuggest"] = true;
 
-$tdatainstitution_types[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatainstitution_types[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatainstitution_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdatainstitution_types[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("institution_types","InstitutionTypeID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("institution_types","InstitutionTypeName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatainstitution_types[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["institution_types"] = &$fieldToolTipsinstitution_types;
 $placeHolders["institution_types"] = &$placeHoldersinstitution_types;
 $page_titles["institution_types"] = &$pageTitlesinstitution_types;
 
+
+changeTextControlsToDate( "institution_types" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["institution_types"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["institution_types"] = array();
@@ -675,7 +673,6 @@ $tdatainstitution_types[".sqlquery"] = $queryData_institution_types;
 
 
 
-$tableEvents["institution_types"] = new eventsBase;
 $tdatainstitution_types[".hasEvents"] = false;
 
 ?>

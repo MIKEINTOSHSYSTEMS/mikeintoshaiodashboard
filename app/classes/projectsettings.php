@@ -37,6 +37,14 @@ class ProjectSettings
 
 	var $_dashboardElemPSet = array();
 
+	/**
+	 * @param String table - project entity where table and field-level settings are read from
+	 * @param pageType
+	 * @param page - specific page id. When empty, the default page of type $pageType is used.
+	 * 				 IMPORTANT! $page is stronger that $pageType. When page contradicts pageType,
+	 * 	  			 e.g. $page.type is 'view', but $pageType is 'list', $pageType is ignored
+	 * @param $pageTable - project entity where page-level settigns are read from. When empty, $table is used
+	 */
 	function __construct($table = "", $pageType = "", $page = "", $pageTable = "")
 	{
 		if( !$table )
@@ -50,15 +58,29 @@ class ProjectSettings
 		} else {
 			$this->loadAuxTable( $pageTable );
 		}
-		if($page && array_key_exists($page, $this->getPageIds())) {
+		if( $page ) {
+			//	determine the page type to avoid unnecessary permission reading
+			//	when creating pSetSearch
+			$this->_pageType = $this->getOriginalPageType( $page );
+		}
+
+
+
+		if( $page && array_key_exists($page, $this->getPageIds()) ) {
 			$this->setPage($page);
 			$this->setPageType( $this->getPageType() );
-		} else if( $pageType ) {
-			$this->_pageType = $pageType;
-			$page = $this->getDefaultPage( $pageType );
-			if( $page )
-			{
-				$this->setPage( $page );
+		} else {
+			if( !$pageType ) {
+				//	pick default page type for the entity
+				$pageType = $this->getDefaultPageType();
+			}
+			if( $pageType ) {
+				$this->_pageType = $pageType;
+				$page = $this->getDefaultPage( $pageType );
+				if( $page )
+				{
+					$this->setPage( $page );
+				}
 			}
 		}
 		if( $page && !$pageType ) {
@@ -67,6 +89,36 @@ class ProjectSettings
 		if ( $pageType ) {
 			$this->setPageType($pageType);
 		}
+
+		//	substitute page if mobile substitution needed
+		global $mediaType;
+		$mobileSub = $this->getMobileSub();
+		if( $mediaType && $mobileSub ) {
+			if( array_key_exists( $mobileSub, $this->getPageIds()) ) {
+				$this->setPage( $mobileSub );
+			}
+		}
+	}
+
+	/**
+	 * Return default poage type for the current entity
+	 */
+	function getDefaultPageType() {
+		$pageTypes = array();
+
+		$pageTypes[ titTABLE ] = "list";
+		$pageTypes[ titVIEW ] = "list";
+		$pageTypes[ titREPORT ] = "report";
+		$pageTypes[ titCHART ] = "chart";
+		$pageTypes[ titDASHBOARD ] = "dashboard";
+		$pageTypes[ titSQL ] = "list";
+		$pageTypes[ titREST ] = "list";
+		$pageTypes[ titSQL_REPORT ] = "report";
+		$pageTypes[ titSQL_CHART ] = "chart";
+		$pageTypes[ titREST_REPORT ] = "report";
+		$pageTypes[ titREST_CHART ] = "chart";
+		return $pageTypes[ $this->getEntityType() ];
+
 	}
 
 	function table() {
@@ -95,7 +147,7 @@ class ProjectSettings
 	function setTable($table)
 	{
 		$this->_table = $table;
-		global $tables_data, $field_labels, $fieldToolTips, $placeHolders, $page_titles, $detailsTablesData, $masterTablesData, $tableEvents, $bSubqueriesSupported;
+		global $tables_data, $field_labels, $fieldToolTips, $placeHolders, $page_titles, $detailsTablesData, $masterTablesData, $bSubqueriesSupported;
 		if(GetTableURL($table) != "") {
 			importTableSettings( $table );
 		}
@@ -130,6 +182,11 @@ class ProjectSettings
 	function pageName() {
 		return $this->_page;
 	}
+
+	function pageType() {
+		return $this->_pageType;
+	}
+
 
 	/**
 	 * Return table where the page belongs. <global> for Login, Register page desite table==usersTable
@@ -215,6 +272,10 @@ class ProjectSettings
 		return in_array(strtolower($ptype), $pageTypesForEdit);
 	}
 
+	/**
+	 * DEPRECATED
+	 * Use new ProjectSettings instead
+	 */
 	function getTable($table, $page = "")
 	{
 		return new ProjectSettings($table, $page);
@@ -275,6 +336,17 @@ class ProjectSettings
 			$opt = &$opt[$k];
 		}
 		return $opt;
+	}
+
+	/**
+	 * Like getPageOption, but always returns an array
+	 */
+	function getPageOptionAsArray($key1, $key2 = FALSE, $key3 = FALSE, $key4 = FALSE, $key5 = FALSE ) {
+		$ret =& $this->getPageOption( $key1, $key2, $key3, $key4, $key5);
+		if( !is_array( $ret ) ) {
+			return array();
+		}
+		return $ret;
 	}
 
 	/**
@@ -495,10 +567,9 @@ class ProjectSettings
 
 	/**
 	 * Returns array of master tables , which are master for current detail table
-	 * @param string $tName - it's data source detail table name
 	 * @return array if success otherwise false
 	 */
-	function getMasterTablesArr($tName)
+	function getMasterTablesArr()
 	{
 		return $this->_mastersTableData;
 	}
@@ -528,6 +599,8 @@ class ProjectSettings
 	 */
 	function getDetailTablesArr()
 	{
+		if( !is_array( $this->_detailsTableData ) )
+			return array();
 		return $this->_detailsTableData;
 	}
 
@@ -535,7 +608,7 @@ class ProjectSettings
 	 * Returns array of detail keys for passed masterTable
 	 *
 	 * @param string $mTableName - it's master table name,
-	 * @param string $tName - it's current (detail) table
+	 * @param array $default
 	 * @return array if success otherwise default value
 	 */
 	function getDetailKeysByMasterTable($mTableName = "", $default = array())
@@ -673,11 +746,6 @@ class ProjectSettings
 		return $this->getFieldData($field, "AutoInc");
 	}
 
-	function getOraSequenceName($field)
-	{
-		return $this->getFieldData($field, "OraSequenceName");
-	}
-
 	function getDefaultValue($field, $table = "")
 	{
 		$tableName = $table ? $table : $this->_table;
@@ -705,13 +773,6 @@ class ProjectSettings
 	function getEditFormat($field)
 	{
 		return $this->getFieldData($field, "EditFormat");
-	}
-
-	function isReadonly($field)
-	{
-		if($this->getEditFormat($field) == EDIT_FORMAT_READONLY)
-			return true;
-		return false;
 	}
 
 	//	return View format
@@ -759,14 +820,41 @@ class ProjectSettings
 	}
 
 	/**
+	 * Returns list of fields in the table that use cloud storage providers
+	 * Only OAuth providers are checked here
+	 * GoogleDrive, OneDrive, Dropbox
+	 * @return Array of string
+	 */
+	function getOAuthCloudFields() {
+		if( !GetGlobalData( "GoogleDriveClientID" )
+			&& !GetGlobalData( "OneDriveClientID" )
+			&& !GetGlobalData( "DropboxClientID" )
+		) {
+			//	nothing to check
+			return array();
+		}
+		$fields = array();
+		foreach( $this->getFieldsList() as $field ) {
+			$stp = $this->fileStorageProvider( $field );
+			if( $stp === stpGOOGLEDRIVE
+				|| $stp === stpDROPBOX
+				|| $stp === stpONEDRIVE ) {
+
+				$fields[] = $field;
+			}
+		}
+		return $fields;
+	}
+
+	/**
 	 * When a field is edited as single-select lookup wizard
 	 * Use case:
 	 * if( $pSet->multiSelect() && $pSet->singleSelectLookupEdit() )
-	 * multiselect on search, single-select on add/edit. 
-	 * In that specific case multiple selected search values 
+	 * multiselect on search, single-select on add/edit.
+	 * In that specific case multiple selected search values
 	 * should be interpreted as:
 	 * field=value1 or field=value2 or etc
-	 * 
+	 *
 	 */
 	function singleSelectLookupEdit( $field )
 	{
@@ -783,6 +871,23 @@ class ProjectSettings
 		return $hasLookup;
 	}
 
+	/**
+	 * Check whether the field is a true multiselect lookup.
+	 * True multiselect has this option on Add or Edit page, not only on Search.
+	*/
+	function multiSelectLookupEdit( $field )
+	{
+		$hasLookup = false;
+		foreach( $this->_tableData[$field][FORMAT_EDIT] as $pageType => $editFormat ) {
+			if( $pageType != "edit" && $pageType != "add" )
+				continue;
+			if( $editFormat["EditFormat"] != EDIT_FORMAT_LOOKUP_WIZARD )
+				continue;
+			if( $editFormat["Multiselect"] )
+				return true;
+		}
+		return false;
+	}
 
 	// Lookup wizard select size
 	function selectSize($field)
@@ -808,6 +913,11 @@ class ProjectSettings
 	function showFileSize($field)
 	{
 		return $this->getFieldData($field, "ShowFileSize");
+	}
+
+	function displayPDF($field)
+	{
+		return $this->getFieldData($field, "DisplayPDF");
 	}
 
 	function showIcon($field)
@@ -892,7 +1002,11 @@ class ProjectSettings
 
 	function getConnId()
 	{
-		return $this->getTableData( ".connId" );
+		$connId = $this->getTableData( ".connId" );
+		if( $connId == "" ) {
+			return "deredevatderejadevmerqconsulta";
+		}
+		return $connId;
 	}
 
 	function getLinkField($field)
@@ -967,7 +1081,7 @@ class ProjectSettings
 	 */
 	function appearOnAddPage($field)
 	{
-		return array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE;
+		return $this->appearOnPage( $field );
 	}
 
 	/**
@@ -976,8 +1090,11 @@ class ProjectSettings
 	 */
 	function appearOnInlineAdd($field)
 	{
-		return array_search( $field, $this->getInlineAddFields() ) !== FALSE;
-		//return $this->getFieldData($field, "bInlineAdd");
+		$fields =& $this->getInlineAddFields();
+		if( !$fields ) {
+			return false;
+		}
+		return array_search( $field, $fields ) !== FALSE;
 	}
 
 	/**
@@ -986,7 +1103,7 @@ class ProjectSettings
 	 */
 	function appearOnEditPage($field)
 	{
-		return array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE;
+		return $this->appearOnPage( $field );
 	}
 
 	/**
@@ -995,7 +1112,11 @@ class ProjectSettings
 	 */
 	function appearOnInlineEdit($field)
 	{
-		return array_search( $field, $this->getInlineEditFields() ) !== FALSE;
+		$inlineFields =& $this->getInlineEditFields();
+		if( !$inlineFields ) {
+			return false;
+		}
+		return array_search( $field, $inlineFields ) !== FALSE;
 		//return $this->getFieldData($field, "bInlineEdit");
 	}
 
@@ -1048,7 +1169,7 @@ class ProjectSettings
 
 	function getPageFields()
 	{
-		$fields = $this->getPageOption("fields", "gridFields" );
+		$fields = $this->getPageOptionAsArray("fields", "gridFields" );
 		if( isReport( $this->getEntityType() ) ) {
 			return array_merge( $fields, $this->getReportGroupFields() );
 		}
@@ -1061,7 +1182,7 @@ class ProjectSettings
 	 */
 	function appearOnViewPage($field)
 	{
-		return array_search( $field, $this->getPageOption("fields", "gridFields") ) !== FALSE;
+		return $this->appearOnPage( $field );
 	}
 
 	/**
@@ -1202,12 +1323,12 @@ class ProjectSettings
 	function getViewAsTimeFormatData( $field ) {
 		return $this->getFieldData( $field, "timeFormatData" );
 	}
-	
+
 	function showDaysInTimeTotals( $field ) {
 		$formatData = $this->getViewAsTimeFormatData( $field );
 		return $formatData ? $formatData["showDaysInTotals"] : false;
-	}	
-	
+	}
+
 	/**
 	 * Check is appear current field on export page
 	 * return boolean - true or false
@@ -1228,7 +1349,7 @@ class ProjectSettings
 	function getSearchableFields()
 	{
 		if( $this->getEntityType() == titDASHBOARD ) {
-			return $this->getTableData('.allSearchFields');
+			return $this->getPageOption( 'dashSearch', 'allSearchFields');
 		}
 		return $this->getTableData(".searchableFields");
 	}
@@ -1298,11 +1419,6 @@ class ProjectSettings
 		return $this->getPageOption("list", "viewInPopup");
 	}
 
-	function getPopupPagesLayoutNames()
-	{
-		return $this->getTableData(".popupPagesLayoutNames");
-	}
-
 	function isResizeColumns()
 	{
 		return $this->getTableData(".isResizeColumns");
@@ -1327,7 +1443,7 @@ class ProjectSettings
 
 	function getPanelSearchFields()
 	{
-		return $this->getPageOption("listSearch", "alwaysOnPanelFields");
+		return $this->getPageOptionAsArray("listSearch", "alwaysOnPanelFields");
 	}
 
 	function getSearchPanelOptions()
@@ -1337,7 +1453,12 @@ class ProjectSettings
 
 	function getGoogleLikeFields()
 	{
+		if( $this->getEntityType() == titDASHBOARD )
+		{
+			return $this->getPageOption( 'dashSearch', 'googleLikeFields');
+		}
 		return $this->getTableData(".googleLikeFields");
+		
 	}
 
 	function getInlineEditFields()
@@ -1378,7 +1499,7 @@ class ProjectSettings
 
 	function getMasterListFields()
 	{
-		return $this->getTableData(".masterListFields");
+		return $this->getPageOption("fields", "gridFields" );
 	}
 
 	function getViewFields()
@@ -1712,8 +1833,8 @@ class ProjectSettings
 	{
 		global $isUseRTECKNew;
 		return $this->isUseRTE($field) && $isUseRTECKNew;
-	}	
-	
+	}
+
 	/**
 	 * Is use Rich Text Editor INNOVA or not
 	 */
@@ -1945,7 +2066,7 @@ class ProjectSettings
 
 	function getAdvancedSecurityType()
 	{
-		if( !GetGlobalData("createLoginPage",null) || (GetGlobalData("nLoginMethod", null) != SECURITY_TABLE && GetGlobalData("nLoginMethod", null) != SECURITY_AD ) )
+		if( !Security::advancedSecurityAvailable() )
 			return ADVSECURITY_ALL;
 		return $this->getTableData(".nSecOptions");
 	}
@@ -1964,62 +2085,117 @@ class ProjectSettings
 
 	function isReportWithGroups()
 	{
-		return $this->getTableData(".reportGroupFields");
+		return !!$this->getPageOption("newreport", "reportInfo", "groupFields" );
+		//return $this->getTableData(".reportGroupFields");
 	}
 
 	function isCrossTabReport()
 	{
-		return $this->getTableData(".crossTabReport");
+		return $this->getPageOption("newreport", "reportInfo", "crosstab" );
+		//return $this->getTableData(".crossTabReport");
 	}
 
 	function getReportGroupFields()
 	{
-		return $this->getTableData(".reportGroupFieldsList");
+		$ret = array();
+		foreach( $this->getPageOption("newreport", "reportInfo", "groupFields" ) as $g ) {
+			$ret[] = $g["field"];
+		}
+		return $ret;
 	}
 
 	function getReportGroupFieldsData()
 	{
-		return $this->getTableData(".reportGroupFieldsData");
+		$ret = array();
+		foreach( $this->getPageOption("newreport", "reportInfo", "groupFields" ) as $idx => $g ) {
+			$gdata = array();
+			$gdata["strGroupField"] = $g["field"];
+			$gdata["groupInterval"] = $g["interval"];
+			$gdata["groupOrder"] = $idx + 1;
+			$gdata["showGroupSummary"] = $g["summary"];
+			$gdata["crossTabAxis"] = $g["axis"];
+			$ret[] = $gdata;
+		}
+		return $ret;
+//		return $this->getTableData(".reportGroupFieldsData");
 	}
 
 	function reportHasHorizontalSummary()
 	{
-		return $this->getTableData(".reportHorizontalSummary");
+		return $this->getPageOption("newreport", "reportInfo", "horizSummary" );
 	}
 
 	function reportHasVerticalSummary()
 	{
-		return $this->getTableData(".reportVerticalSummary");
+		return $this->getPageOption("newreport", "reportInfo", "vertSummary" );
 	}
 
 	function reportHasPageSummary()
 	{
-		return $this->getTableData(".reportPageSummary");
+		return $this->getPageOption("newreport", "reportInfo", "pageSummary" );
 	}
 
 	function reportHasGlobalSummary()
 	{
-		return $this->getTableData(".reportGlobalSummary");
+		return $this->getPageOption("newreport", "reportInfo", "globalSummary" );
 	}
 
 	function getReportLayout()
 	{
-		return  $this->getTableData(".reportLayout");
+		//return  $this->getTableData(".reportLayout");
+		$rLayout =  $this->getPageOption("newreport", "reportInfo", "layout" );
+		if( $rLayout === 'stepped' ) {
+			return REPORT_STEPPED;
+		}
+		else if( $rLayout === 'align' ) {
+			return REPORT_ALIGN;
+		}
+		else if( $rLayout === 'outline' ) {
+			return REPORT_OUTLINE;
+		}
+		else if( $rLayout === 'block' ) {
+			return REPORT_BLOCK;
+		} else {
+			return REPORT_TABULAR;
+		}
 	}
 
 	function isGroupSummaryCountShown()
 	{
-		return  $this->getTableData(".showGroupSummaryCount");
+		foreach( $this->getPageOption("newreport", "reportInfo", "groupFields" ) as $g ) {
+			if( $g["summary"] ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	function reportDetailsShown()
 	{
-		return $this->getTableData(".repShowDet");
+		return $this->getPageOption("newreport", "reportInfo", "showData" );
 	}
 
 	function reportTotalFieldsExist()
 	{
-		return $this->getTableData(".isExistTotalFields");
+		foreach( $this->getPageOption("newreport", "reportInfo", "fields" ) as $f ) {
+			if( $f["sum"] || $f["min"] || $f["max"] || $f["avg"] ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * boolean
+	 * True if the field has 'max' total in report
+	 */
+	function reportFieldInfo( $field ) {
+		foreach( $this->getPageOption("newreport", "reportInfo", "fields" ) as $f ) {
+			if( $f["field"] === $field ) {
+				return $f;
+			}
+		}
+		return null;
 	}
 
 	function noRecordsOnFirstPage()
@@ -2111,6 +2287,14 @@ class ProjectSettings
 
 	function getInitialPageSize()
 	{
+		if( isReport( $this->getEntityType() ) ) {
+			if( $this->isReportWithGroups() ) {
+				return $this->getTableData(".pageSizeGroups");
+			} else {
+				return $this->getTableData(".pageSizeRecords");
+			}
+
+		}
 		return $this->getTableData(".pageSize");
 	}
 
@@ -2134,11 +2318,6 @@ class ProjectSettings
 		return $this->getPageOption( "misc", "nextPrev" );
 	}
 
-	function highlightRows()
-	{
-		return $this->getTableData(".rowHighlite");
-	}
-
 	function hasInlineAdd()
 	{
 		return $this->getpageOption("list", "inlineAdd");
@@ -2154,35 +2333,31 @@ class ProjectSettings
 		return $this->getPageOption("page", "gridType");
 	}
 
+	/*
 	function getReportPrintLayout()
 	{
 		return $this->getTableData(".printReportLayout");
 	}
+	*/
 
 	function getPrinterPageOrientation()
 	{
 		return $this->getTableData(".printerPageOrientation");
 	}
 
-	function getReportPrintPartitionType()
-	{
-		return $this->getTableData(".reportPrintPartitionType");
-	}
 
 	function getReportPrintGroupsPerPage()
 	{
-		return $this->getTableData(".reportPrintGroupsPerPage");
+		if( $this->isReportWithGroups() )
+			return $this->getTableData(".reportPrintGroupsPerPage");
+		else
+			return $this->getTableData(".reportPrintRecordsPerPage");
+
 	}
 
 	function getReportPrintPDFGroupsPerPage()
 	{
 		return $this->getTableData(".reportPrintPDFGroupsPerPage");
-	}
-
-
-	function getLowGroup()
-	{
-		return $this->getTableData(".lowGroup");
 	}
 
 	function ajaxBasedListPage()
@@ -2194,6 +2369,12 @@ class ProjectSettings
 	{
 		return $this->getPageOption("page", "multiStep");
 	}
+
+	function hasVerticalBar()
+	{
+		return $this->getPageOption("page", "verticalBar");
+	}
+
 
 	/**
 	 * Returns array of tabs, which use on list/report/chart page
@@ -2222,6 +2403,11 @@ class ProjectSettings
 				$arr[] = $f;
 		return $arr;
 	}
+
+	function getFieldCount() {
+		return count( $this->getFieldsList() );
+	}
+
 
 	function getBinaryFieldsIndices()
 	{
@@ -2254,7 +2440,7 @@ class ProjectSettings
 	{
 		foreach($this->_tableData as $key => $value)
 		{
-			if(count($value) > 1)
+			if( is_array( $value ) && count($value) > 1)
 			{
 				if($value["GoodName"] == $field)
 					return $key;
@@ -2380,7 +2566,6 @@ class ProjectSettings
 			return false;
 
 		return $this->getPageOption( "list", "reorderFields" );
-		//return $this->getTableData(".allowFieldsReordering");
 	}
 
 	function lockingEnabled()
@@ -2423,7 +2608,10 @@ class ProjectSettings
 
 	function getFilterFields()
 	{
-		return $this->getPageOption("fields", "filterFields");
+		$ret = $this->getPageOption("fields", "filterFields");
+		if( !$ret )
+			return array();
+		return $ret;
 	}
 
 	function getFilterFieldFormat($field)
@@ -2502,7 +2690,7 @@ class ProjectSettings
 	{
 		return $this->getFieldData($field, "filterMultiSelect");
 	}
-	
+
 	function getBooleanFilterMessageData( $field, $checked ) {
 		if( $checked ) {
 			return array (
@@ -2515,7 +2703,7 @@ class ProjectSettings
 				"type" => $this->getFieldData($field, "filterUncheckedMessageType")
 			);
 	}
-	
+
 
 	function getFilterStepType($field)
 	{
@@ -2537,29 +2725,6 @@ class ProjectSettings
 		return $this->getFieldData($field, "filterApplyBtn");
 	}
 
-	function isCaseInsensitiveUsername()
-	{
-		global $caseInsensitiveUsername;
-		return $caseInsensitiveUsername;
-	}
-
-	function getCaseSensitiveUsername($value)
-	{
-		if (!$this->isCaseInsensitiveUsername())
-			return $value;
-		return strtoupper($value);
-	}
-
-	/**
-	 * Returns true if Users table is included into the project ( and has ist own SQL string )
-	 * @return boolean
-	 */
-	function usersTableInProject()
-	{
-		return GetGlobalData("usersTableInProject",false);
-	}
-
-
 	function getStrField($field)
 	{
 		return $this->getFieldData($field, "strField");
@@ -2572,7 +2737,7 @@ class ProjectSettings
 
 	function getFieldSource( $field, $listRequest )
 	{
-		return $listRequest 
+		return $listRequest
 			? $this->getFieldData( $field, "strField" )
 			: $this->getFieldData( $field, "sourceSingle" );
 	}
@@ -2693,12 +2858,12 @@ class ProjectSettings
 		{
 			return "RTE";
 		}
-		
+
 		if( $this->isUseRTECKNew($field) )
 		{
 			return "RTECK_NEW";
 		}
-		
+
 		if($this->isUseRTEFCK($field))
 		{
 			return "RTECK";
@@ -2806,7 +2971,9 @@ class ProjectSettings
 	 */
 	public static function getForLogin()
 	{
-		return null;
+		return !!Security::dbProvider()
+			? new ProjectSettings("derejame_users", PAGE_LIST)
+			: null;
 	}
 
 	/**
@@ -2815,16 +2982,18 @@ class ProjectSettings
 	 */
 	function getDashboardSearchFields()
 	{
-		return $this->getTableData(".searchFields");
+		return $this->getPageOption( 'dashSearch', 'searchFields');
 	}
 	/**
 	 * Returns the list of the dashboard elements
 	 * Each element is represented by the array of "name", "table" and "type"
 	 */
-	function getDashboardElements()
+/*
+	 function getDashboardElements()
 	{
 		return $this->getTableData(".dashElements");
 	}
+	*/
 
 	/**
 	 * @param String dashElementName
@@ -2832,7 +3001,7 @@ class ProjectSettings
 	 */
 	function getDashboardElementData( $dashElementName )
 	{
-		$dElements = $this->getTableData(".dashElements");
+		$dElements = $this->getDashboardElements();
 		foreach( $dElements as $dElemData )
 		{
 			if( $dElemData["elementName"] == $dashElementName )
@@ -2921,14 +3090,34 @@ class ProjectSettings
 		return "";
 	}
 
+	/**
+	 * @param String dashElementName
+	 * @param Array data
+	 * @return String
+	 */
+	function getDashMapLocationIcon( $dashElementName, $data )
+	{
+		$dashElementData = $this->getDashboardElementData( $dashElementName );
+		if( $dashElementData["isLocationMarkerIconCustom"] )
+			return getDashMapCustomLocationIcon( $this->_table, $dashElementName, $data );
+
+		if( $dashElementData["currentLocationIcon"] )
+			return $dashElementData["currentLocationIcon"];
+
+		return "";
+	}
+
 	function isMapIconCustom($field)
 	{
 		$mapData = $this->getMapData($field);
 		return $mapData["isMapIconCustom"];
 	}
 
-	function getDetailsBadgeColor()
-	{
+	function getDetailsBadgeColor( $dTable ) {
+		return $this->getPageOption( "details", $dTable, "badgeColor" );
+	}
+
+	function getDefaultBadgeColor() {
 		return $this->getTableData(".badgeColor");
 	}
 
@@ -2965,11 +3154,11 @@ class ProjectSettings
 	{
 		return $this->getPageOption("details", $dTable, "hideEmptyChild" );
 	}
-	
+
 	function detailsHideEmptyPreview($dTable)
 	{
 		return $this->getPageOption("details", $dTable, "hideEmptyPreview" );
-	}	
+	}
 
 	function detailsPreview($dTable)
 	{
@@ -3039,9 +3228,22 @@ class ProjectSettings
 		return $this->_auxTableData[ ".originalPages" ][ $page ];
 	}
 
+	/**
+	 * @return Array( pageId => pageType )
+	 */
+	function & getOriginalPages()
+	{
+		return $this->_auxTableData[ ".originalPages" ];
+	}
+
 	function welcomeItems()
 	{
 		return $this->getPageOption("welcome", "welcomeItems");
+	}
+
+	function welcomePageSkip()
+	{
+		return $this->getPageOption("welcome", "welcomePageSkip");
 	}
 
 	function getMultipleImgMode( $field )
@@ -3093,13 +3295,24 @@ class ProjectSettings
 	}
 
 	function updatePages() {
+
 		if( $this->_auxTableData[".pagesUpdated"] ) {
 			return;
 		}
+
+		//	don't filter pages available to all users
+		if( $this->_pageType == PAGE_LOGIN
+			|| $this->_pageType == PAGE_REGISTER
+			|| $this->_pageType == PAGE_REMIND
+			|| $this->_pageType == PAGE_REMIND_SUCCESS
+		) {
+			return;
+		}
+
+
 		$this->_auxTableData[".pagesUpdated"] = true;
-//		if( !Security::permissionsAvailable() )
-//			return;
-		$restrictedPages = Security::getRestrictedPages( $this->_auxTable );
+
+		$restrictedPages = Security::getRestrictedPages( $this->_auxTable, $this );
 		if( !$restrictedPages ) {
 			return;
 		}
@@ -3126,7 +3339,7 @@ class ProjectSettings
 		}
 		$this->_auxTableData[".pages"] = &$newPages;
 	}
-	
+
 	/**
 	 * Revert pages list to original.
 	 * This is called from Security::setRestrictedPages/setAllowedPages
@@ -3181,29 +3394,116 @@ class ProjectSettings
 		return $this->_viewPage;
 	}
 
+	function spreadsheetGrid() {
+		return $this->getPageOption( "list", "spreadsheetMode");
+	}
+
+	/**
+	 * Tell whether the edit format involves file uploading
+	 * @return boolean
+	 */
+	public static function uploadEditType( $editFormat ) {
+		return $editFormat == EDIT_FORMAT_DATABASE_FILE || $editFormat == EDIT_FORMAT_DATABASE_IMAGE || $editFormat == EDIT_FORMAT_FILE;
+	}
+
+	public function addNewRecordAutomatically() {
+		return $this->getPageOption( "list", "addNewRecordAutomatically" );
+	}
+
+	public function reorderRows() {
+		return $this->getPageOption( "list", "reorderRows" ) && $this->reorderRowsField() != '';
+	}
+
+	public function reorderRowsField() {
+		return $this->getPageOption( "list", "reorderRowsField");
+	}
+
+	public function inlineAddBottom() {
+		return !!( $this->getPageOption( "list", "addToBottom") || $this->spreadsheetGrid() && $this->addNewRecordAutomatically() );
+	}
+
+	function listColumnsOrderOnPrint() {
+		return $this->getPageOption( "misc", "listColumnsOrderOnPrint" );
+	}
+
+	function fileStorageProvider( $field ) {
+		return $this->getFieldData($field, "fileStorageProvider");
+	}
+
+	function googleDriveFolder( $field ) {
+		return $this->getFieldData($field, "googleDriveFolder");
+	}
+
+	function hideAdGroupsUntilSearch() {
+		return $this->getPageOption("adGroups", "hideUntilSearch");
+	}
+
+	function hasNotifications()
+	{
+		return $this->getPageOption("page", "hasNotifications");
+	}
+
+
+	function amazonSecretKey( $field ) {
+		return GetGlobalData( "S3SecretKey" );
+	}
+
+	function amazonAccessKey( $field ) {
+		return GetGlobalData( "S3AccessKey" );
+	}
+
+	function amazonPath( $field ) {
+		return $this->getFieldData( $field, "S3Path" );
+	}
+
+	function amazonBucket( $field ) {
+		return GetGlobalData( "S3Bucket" );
+	}
+
+	function amazonRegion( $field ) {
+		return GetGlobalData( "S3Region" );
+	}
+
+	function oneDrivePath( $field ) {
+		return $this->getFieldData( $field, "oneDrivePath" );
+	}
+
+	function oneDriveDrive( $field ) {
+		return GetGlobalData( "OneDriveDrive" );
+	}
+
+	function dropboxPath( $field ) {
+		return $this->getFieldData( $field, "dropBoxPath" );
+	}
+
+	/**
+	 * check if change password page has 'Old password' field
+	 */
+	function hasOldPassField() {
+		return $this->getPageOption("changepwd", "oldPassFieldOnPage");
+	}
+
+	/**
+	 * @return Array of dashboard elements
+	 * See DasboardItem in TS code
+	 */
+	function getDashboardElements() {
+		return $this->getPageOption("dashboard", "elements");
+	}
+
+	function getMobileSub() {
+		return $this->getPageOption("page", "mobileSub");
+	}
+
+	/**
+	 * returns number of charts on the page
+	 */
+	function getChartCount() {
+		return $this->getPageOption("chart", "chartCount");
+	}
+
 }
 
-$pageTypesForView = array();
-$pageTypesForView[] = "list";
-$pageTypesForView[] = "view";
-$pageTypesForView[] = "export";
-$pageTypesForView[] = "print";
-$pageTypesForView[] = "report";
-$pageTypesForView[] = "rprint";
-$pageTypesForView[] = "chart";
-
-$pageTypesForEdit = array();
-$pageTypesForEdit[] = "add";
-$pageTypesForEdit[] = "edit";
-$pageTypesForEdit[] = "search";
-$pageTypesForEdit[] = "register";
-
-
-$projectEntities = array();
-$projectEntitiesReverse = array();
-$tablesByGoodName = array();
-$tablesByUpperCase = array();
-$tablesByUpperGoodname = array();
 
 function fillProjectEntites()
 {
@@ -3280,6 +3580,14 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "disability_types" ] = "Disability_Types";
 	$projectEntities[ "Trainer" ] = array( "url" => "trainer", "type" => 0 );
 	$projectEntitiesReverse[ "trainer" ] = "Trainer";
+	$projectEntities[ "derejame_users" ] = array( "url" => "derejame_users", "type" => 0 );
+	$projectEntitiesReverse[ "derejame_users" ] = "derejame_users";
+	$projectEntities[ "admin_rights" ] = array( "url" => "admin_rights", "type" => 1 );
+	$projectEntitiesReverse[ "admin_rights" ] = "admin_rights";
+	$projectEntities[ "admin_members" ] = array( "url" => "admin_members", "type" => 1 );
+	$projectEntitiesReverse[ "admin_members" ] = "admin_members";
+	$projectEntities[ "admin_users" ] = array( "url" => "admin_users", "type" => 1 );
+	$projectEntitiesReverse[ "admin_users" ] = "admin_users";
 }
 
 function findTable( $table ) {
@@ -3308,13 +3616,11 @@ function findTable( $table ) {
 	return "";
 }
 //	return table short name
-function GetTableURL($table = "")
+function GetTableURL( $table )
 {
 	if( $table == "<global>")
-		return ".global";
+		return GLOBAL_PAGES_SHORT;
 	global $strTableName, $projectEntities;
-	if(!$table)
-		$table=$strTableName;
 
 	if(!$table) {
 		return "";
@@ -3353,7 +3659,7 @@ function GetTableByShort( $shortTName )
 
 //	A
 	$g_defaultOptionValues["Absolute"] = false;
-	$g_defaultOptionValues["acceptFileTypes"] = ".+$";
+	$g_defaultOptionValues["acceptFileTypes"] = array();
 	$g_defaultOptionValues["addFields"] = array();
 	$g_defaultOptionValues["addPageEvents"] = false;
 	$g_defaultOptionValues["ajaxCodeSnippetAdded"] = false;
@@ -3489,10 +3795,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["isUseVideo"] = false;
 	$g_defaultOptionValues["listGridLayout"] = 0;
 	$g_defaultOptionValues["isExistTotalFields"] = false;
-	$g_defaultOptionValues["isTotalMin"] = false;
-	$g_defaultOptionValues["isTotalAvg"] = false;
-	$g_defaultOptionValues["isTotalMax"] = false;
-	$g_defaultOptionValues["isTotalSum"] = false;
 	$g_defaultOptionValues["isViewPagePDFFitToPage"] = 1;
 	$g_defaultOptionValues["isPrinterPagePDFFitToPage"] = 1;
 	$g_defaultOptionValues["isLandscapeViewPDFOrientation"] = 0;
@@ -3564,7 +3866,6 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["parentFilterField"] = "";
 	$g_defaultOptionValues["printFriendly"] = false;
 	$g_defaultOptionValues["printFields"] = array();
-	$g_defaultOptionValues["popupPagesLayoutNames"] = array();
 	$g_defaultOptionValues["printGridLayout"] = 0;
 	$g_defaultOptionValues["printReportLayout"] = 0;
 	$g_defaultOptionValues["printerPageOrientation"] = 0;
@@ -3574,19 +3875,9 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["recsPerRowList"] = 1;
 	$g_defaultOptionValues["recsPerRowPrint"] = 1;
 
-	$g_defaultOptionValues["reportGroupFields"] = false;
-	$g_defaultOptionValues["reportGroupFieldsData"] = array();
-	$g_defaultOptionValues["reportGroupFieldsList"] = array();
-	$g_defaultOptionValues["reportHorizontalSummary"] = false;
-	$g_defaultOptionValues["reportVerticalSummary"] = false;
-	$g_defaultOptionValues["reportPageSummary"] = false;
-	$g_defaultOptionValues["reportGlobalSummary"] = false;
-	$g_defaultOptionValues["repShowDet"] = false;
 	$g_defaultOptionValues["ResizeImage"] = false;
 	$g_defaultOptionValues["RewindEnabled"] = false;
-	$g_defaultOptionValues["rowHighlite"] = false;
 	$g_defaultOptionValues["requiredSearchFields"] = array();
-	$g_defaultOptionValues["reportPrintPartitionType"] = 0;
 	$g_defaultOptionValues["reportPrintGroupsPerPage"] = 3;
 	$g_defaultOptionValues["reportPrintPDFGroupsPerPage"] = 0;
 
@@ -3604,6 +3895,7 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["ShowCustomExpr"] = false;
 	$g_defaultOptionValues["showEditInPopup"] = false;
 	$g_defaultOptionValues["ShowFileSize"] = false;
+	$g_defaultOptionValues["DisplayPDF"] = false;
 	$g_defaultOptionValues["ShowIcon"] = false;
 	$g_defaultOptionValues["showSearchPanel"] = false;
 	$g_defaultOptionValues["showSimpleSearchOptions"] = false;
@@ -3629,7 +3921,9 @@ function GetTableByShort( $shortTName )
 	$g_defaultOptionValues["strClickActionJSON"] = "";
 	$g_defaultOptionValues["ThumbnailSize"] = 0;
 	$g_defaultOptionValues["scrollGridBody"] = false;
-	$g_defaultOptionValues["showGroupSummaryCount"] = false;
+	$g_defaultOptionValues["fileStorageProvider"] = 0;
+	$g_defaultOptionValues["googleDriveFolder"] = "";
+
 //	T
 	$g_defaultOptionValues["totalsFields"] = array();
 	$g_defaultOptionValues["ThumbHeight"] = 72;
@@ -3745,7 +4039,6 @@ $g_defaultOptionValues["chartSeries"] = array();
 	$g_settingsType["LookupValues"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LookupWhere"] = SETTING_TYPE_EDIT;
 	$g_settingsType["LookupWhereCode"] = SETTING_TYPE_EDIT;
-	$g_settingsType["lowGroup"] = 1;
 //	M
 	$g_settingsType["mapData"] = SETTING_TYPE_VIEW;
 	$g_settingsType["maxFileSize"] = SETTING_TYPE_EDIT;
@@ -3773,6 +4066,7 @@ $g_defaultOptionValues["chartSeries"] = array();
 	$g_settingsType["SelectSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ShowCustomExpr"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ShowFileSize"] = SETTING_TYPE_VIEW;
+	$g_settingsType["DisplayPDF"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ShowIcon"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ShowThumbnail"] = SETTING_TYPE_VIEW;
 	$g_settingsType["ShowTime"] = SETTING_TYPE_EDIT;
@@ -3784,6 +4078,8 @@ $g_defaultOptionValues["chartSeries"] = array();
 	$g_settingsType["strEditMask"] = SETTING_TYPE_EDIT;
 	$g_settingsType["strName"] = SETTING_TYPE_GLOBAL;
 	$g_settingsType["StrThumbnail"] = SETTING_TYPE_EDIT;
+	$g_settingsType["fileStorageProvider"] = SETTING_TYPE_GLOBAL;
+	$g_settingsType["googleDriveFolder"] = SETTING_TYPE_GLOBAL;
 //	T
 	$g_settingsType["ThumbnailSize"] = SETTING_TYPE_EDIT;
 	$g_settingsType["ThumbHeight"] = SETTING_TYPE_VIEW;

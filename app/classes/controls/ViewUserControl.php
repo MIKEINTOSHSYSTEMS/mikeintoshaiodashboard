@@ -41,7 +41,7 @@ class ViewUserControl extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return $data[ $this->field ];
 	}

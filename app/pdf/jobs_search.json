@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -97,15 +99,14 @@ pdfDocument = {
 	
 		body: [
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_c3}
+																{BEGIN cellblock_grid_c3}
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	dynamic colspan/rowspan
 
@@ -117,35 +118,38 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$JobID_pdfvalue}},
+			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field1}","text":{$JobName_pdfvalue}},
+			{"text":{$JobName_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field2}","text":{$JobCategory_pdfvalue}},
+			{"text":{$JobCategory_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field3}","text":{$JobType_pdfvalue}},
+			{"text":{$JobType_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field4}","text":{$JobPosition_pdfvalue}},
+			{"text":{$JobPosition_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field5}","text":{$JobDetails_pdfvalue}},
+			{"text":{$JobDetails_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field6}","text":{$CompanyName_pdfvalue}},
+			{"text":{$CompanyName_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_c3}
 											],
 				{END row_grid_0}
-					]
+		
+		]
 	}
 }
 ,
@@ -165,13 +169,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -194,11 +197,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

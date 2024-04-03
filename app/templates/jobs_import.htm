@@ -15,7 +15,7 @@
 	{END styleCSSFiles}
 	</head>
 
-	<body class="{$stylename} function-import" {$bodyattrs}>
+	<body class="{$stylename} function-import" >
 	{BEGIN body}
 		{$header}
 		<style>
@@ -25,7 +25,7 @@
 								{BEGIN supertop_block}
 <div class="r-form" data-location="supertop" id="form_supertop_{$pageid}" data-makeup="panel" {$form_supertop} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="supertop_c1" data-pageid="{$pageid}"	{$cell_supertop_c1}
@@ -33,7 +33,7 @@
 	
 ">
 			</div>					</div>
-	</div>		
+			</div>		
 {END supertop_block}
 					<div class="bs-pagepanel panel panel-primary">
 					<div class="panel-heading">
@@ -94,9 +94,20 @@
 	<div id="importPreview{$id}" class="form-group" style="display:none;">
 		<div id="importSettings{$id}" class="rnr-import-settings form-group">
 			<div class="rnr-is-control checkbox">
-	    		<label>
-	    			<input class="rnr-checkbox" checked="checked" id="columnsInFirstLine{$id}" name="columnsInFirstLine" type="checkbox">Column headers in the first line	    		</label>
-	  		</div>
+				<label>
+					<input class="rnr-checkbox" id="headersLineOption{$id}" name="headersLineOption" type="checkbox">
+					Column headers in line #					<input type="number" class="rnr-import-input-small" id="headersLineNumber{$id}" value="1">
+				</label>
+			</div>
+			<div class="rnr-is-control checkbox">
+				<label>
+					<input class="rnr-checkbox" id="skipLinesOption{$id}" name="skipLinesOption" type="checkbox">
+					{$messagepart IMPORT_SKIP_N_LINES 1}
+					<input type="number" class="rnr-import-input-small" id="skipLinesAmount{$id}" value="1"> 
+					{$messagepart IMPORT_SKIP_N_LINES 2}
+				</label>
+			</div>
+
 
 			<ul id="delimiterSettings{$id}" style="display:none;" class="rnr-is-control list-inline">
 				<li class="radio">
@@ -164,7 +175,7 @@
 	</div>
 											</div>
 				</div>
-								
+				
 			</div>
 		{$footer}
 	{END body}

@@ -36,6 +36,7 @@ class DataSourceSQL extends DataSource {
 		RunnerContext::pop();
 		if( $sql ) {
 			$result = $this->connection->limitedQuery( $sql, 0, 1, true );
+			$result->setFieldSubstitutions( $this->getFieldSubs( false ) );
 			$result = $this->filterResult( $result, $dc->filter );
 		} else {
 			$result = $this->getListData( $dc, false );
@@ -49,8 +50,9 @@ class DataSourceSQL extends DataSource {
 	 * @param Boolean
 	 * @return DataResult
 	 */
-	protected function getListData( $dc, $listRequest ) {
+	protected function getListData( $dc, $listRequest = true ) {
 		if( $dc->_cache["listData"] ) {
+			$dc->_cache["listData"]->seekRecord(0);
 			return $dc->_cache["listData"];
 		}
 		$op = "selectList";
@@ -71,8 +73,9 @@ class DataSourceSQL extends DataSource {
 			$res = $this->filterResult( $res, $dc->filter );
 			$this->reorderResult( $dc, $res );
 		}
-		$dc->_cache["listData"] = $res;
-		return $dc->_cache["listData"];
+		if( $res->randomAccess() )
+			$dc->_cache["listData"] = $res;
+		return $res;
 	}
 
 	public function getCount( $dc ) {
@@ -98,6 +101,12 @@ class DataSourceSQL extends DataSource {
 			//	use List command
 			$ret = $this->getListData( $dc, true );
 			if( $ret ) {
+				if( !$ret->randomAccess() ) {
+					//	convert recordset to ArrayResult, save in cache
+					$ret = ArrayResult::createFromResult( $ret );
+					$dc->_cache["listData"] = $ret;
+
+				}
 				//	apply totals
 				return $ret->count();
 			}
@@ -112,13 +121,15 @@ class DataSourceSQL extends DataSource {
 		return $this->opDescriptors[ $op ]["sql"];
 	}
 
-	public function updateSingle( $dc ) {
+	public function updateSingle( $dc, $requireKeys = true ) {
 		$op = "update";
 		if( $this->codeOp( $op ) ) {
 			return $this->callCodeOp( $op, $dc );
 		}
+
 		if( !count($dc->values) )
 			return true;
+
 		RunnerContext::pushDataCommandContext( $dc );
 		$sql = DB::PrepareSQL( $this->getSQL( $op ) );
 		RunnerContext::pop();
@@ -130,13 +141,16 @@ class DataSourceSQL extends DataSource {
 		return false;
 	}
 
-	public function deleteSingle( $dc ) {
+	public function deleteSingle( $dc, $requireKeys = true ) {
 		$op = "delete";
 		if( $this->codeOp( $op ) ) {
-			return $this->callCodeOp( $op, $dc );
+			return $this->callCodeOp( "deleteRecord", $dc );
 		}
-		if(  !count($dc->keys) )
+
+		if(  !count($dc->keys) && $requireKeys ) {
 			return true;
+		}
+
 		RunnerContext::pushDataCommandContext( $dc );
 		$sql = DB::PrepareSQL( $this->getSQL( $op ) );
 		RunnerContext::pop();
@@ -167,23 +181,10 @@ class DataSourceSQL extends DataSource {
 		if( $this->connection->exec( $sql ) ) {
 			return $dc->values;
 		}
-		
+
 		$this->setError( $this->connection->lastError() );
 		return false;
 	}
-
-	protected function getFieldSubs( $listRequest ) {
-		$ret = array();
-		foreach( $this->pSet->getFieldsList() as $f ) {
-			$source = $this->pSet->getFieldSource( $f, $listRequest );
-			if( !$source ) {
-				continue;
-			}
-			$ret[ $source ] = $f;
-		}
-		return $ret;
-	}
-
 }
 
 ?>

@@ -355,7 +355,7 @@ function simpledate2db($strdate,$formatid)
 {
 	$str=$strdate;
 	$numbers=parsenumbers($str);
-	if(!count($numbers))
+	if( !$numbers )
 		return $strdate;
 	while(count($numbers)<3)
 		$numbers[]=1;
@@ -398,6 +398,18 @@ function localdate2db($strdate)
 {
 	global $locale_info;
 	return simpledate2db($strdate,$locale_info["LOCALE_IDATE"]);
+}
+
+/**
+ * verifies if the value represents a valid time of day
+ * @param String $value in format "HH:MM:SS"
+ * @return Boolean
+ */
+function validTimeValue( $value ) {
+	$timeArr = explode( ":", $value );
+	return $timeArr[0] >=0 && $timeArr[0] < 24
+		&& $timeArr[1] >=0 && $timeArr[1] < 60
+		&& $timeArr[2] >=0 && $timeArr[2] < 60;
 }
 
 /**
@@ -635,108 +647,76 @@ function getdayofweek($time)
 }
 
 /**
- * 	returns abstract week number, 0 - January 1, 2004 (Thursday)
- * @param {array} time - array(year, month, day, hour, minute, second)
- * @param {int} firstdayofweek - the first day of the week. 0 - monday, 6 - sunday, -1 - use system settings
- * @intellisense
+ * @return Intger 0 - Monday, 6 - Sunday
  */
-function getweeknumber($time, $firstdayofweek = -1 )
-{
-//	January 1, 2004 - Thursday
-	global $locale_info;
-	if( $firstdayofweek < 0 )
+function getFirstJanuaryDay( $year ) {
+	//	January 1, 2004 - Thursday
+	$daydif = 0;
+	if( $year >=2004)
 	{
-		$firstdayofweek = $locale_info["LOCALE_IFIRSTDAYOFWEEK"];
-	}
-	
-	if($firstdayofweek<=3)
-		$startweekday=3-$firstdayofweek;
-	else
-		$startweekday=10-$firstdayofweek;
-//	Get the differewnce in days between January 1, 2004 and January 1 of given year
-	$daydif=0;
-	if($time[0]>=2004)
-	{
-		for($i=2004;$i<$time[0];$i++)
+		for( $i = 2004; $i < $year; $i++ )
 			if(isleapyear($i))
 				$daydif+=366;
 			else
 				$daydif+=365;
 	}
-	else
-		for($i=2003;$i>=$time[0];$i--)
+	else {
+		for( $i = 2003; $i >= $year; $i-- )
 			if(isleapyear($i))
-				$daydif-=366;
+				$daydif -= 366;
 			else
-				$daydif-=365;
-//	to given month
-	$mdays=array(1=>31,2=>28,3=>31,4=>30,5=>31,6=>30,7=>31,8=>31,9=>30,10=>31,11=>30,12=>31);
-	if(isleapyear($time[0]))
-		$mdays[2]=29;
-	for($i=1;$i<$time[1];$i++)
-		$daydif+=$mdays[$i];
-//	to given day
-	$daydif+=$time[2]-1;
-	
-	$daydif+=$startweekday;
-	$daydif = $daydif-($daydif%7);
-	return $daydif/7;
+				$daydif -= 365;
+	}
+	$ret = (3 + $daydif) % 7;
+	if( $ret < 0 )
+		$ret += 7;
+	return $ret;
 }
 
-/**
- * @intellisense
- */
-function adddays_old($tm,$days)
+function getDatesByWeek( $week, $year )
 {
-	$mdays=array(1=>31,2=>28,3=>31,4=>30,5=>31,6=>30,7=>31,8=>31,9=>30,10=>31,11=>30,12=>31);
-	$time=$tm;
-	if(isleapyear($time[0]))
-		$mdays[2]=29;
-
-	if($days>0)
-		for($i=0;$i<$days;$i++)
-		{
-			if($time[2]<$mdays[$time[1]])
-				$time[2]++;
-			else
-			{
-				$time[2]=1;
-				$time[1]++;
-				if($time[1]>12)
-				{
-					$time[1]=1;
-					$time[0]++;
-					if(isleapyear($time[0]))
-						$mdays[2]=29;
-					else
-						$mdays[2]=28;
-				}
-			}
-		}
-	else
-		for($i=0;$i<-$days;$i++)
-		{
-			if($time[2]>1)
-				$time[2]--;
-			else
-			{
-				$time[1]--;
-				if($time[1]<1)
-				{
-					$time[0]--;
-					if(isleapyear($time[0]))
-						$mdays[2]=29;
-					else
-						$mdays[2]=28;
-					$time[1]=12;
-				}
-				$time[2]=$mdays[$time[1]];
-			}
-		}
-	return $time;
+	$firstJanDay = getFirstJanuaryDay( $year );
+	global $locale_info;
+	$firstdayofweek = (int)$locale_info["LOCALE_IFIRSTDAYOFWEEK"];
+	$firstJan = array( $year, 1,1,0,0,0 );
+	if( $firstJanDay  >= $firstdayofweek )
+		$firstDayFirstWeek = adddays( $firstJan, $firstdayofweek - $firstJanDay );
+	else 
+		$firstDayFirstWeek = adddays( $firstJan, $firstdayofweek - $firstJanDay - 7 );
+	
+	
+	$weekStartDate = adddays( $firstDayFirstWeek, 7 * ( $week - 1 ) );
+	$weekEndDate = adddays( $weekStartDate, 6 );
+	return array( date2db( $weekStartDate ), date2db( $weekEndDate ) );
 }
 
 
+function getweeknumber($time, $firstdayofweek = -1 ) 
+{
+	global $locale_info;
+	if( $firstdayofweek < 0 )
+	{
+		$firstdayofweek = (int)$locale_info["LOCALE_IFIRSTDAYOFWEEK"];
+	}
+	//	get number of days since 1 jan
+	//	to given month
+	$mdays=array(1=>31,2=>28,3=>31,4=>30,5=>31,6=>30,7=>31,8=>31,9=>30,10=>31,11=>30,12=>31);
+	if( isleapyear( $time[0] ) )
+		$mdays[2] = 29;
+	for( $i=1; $i<$time[1]; $i++ )
+		$daydif += $mdays[$i];
+	//	to given day
+	$daydif += $time[2] - 1;
+	
+	$firstYearDay = getFirstJanuaryDay( $time[0] );
+	if( $firstYearDay >= $firstdayofweek ) {
+		$firstWeekFirstDayDelta = $firstYearDay - $firstdayofweek;
+	} else {
+		$firstWeekFirstDayDelta = 7 + $firstYearDay - $firstdayofweek;
+	}
+	$daydif += $firstWeekFirstDayDelta;
+	return ( $daydif - ( $daydif % 7 ) ) / 7;
+}
 
 /**
  *	Get nubmer of days in a month
@@ -752,6 +732,11 @@ function getMonthDays($vYear, $vMonth)
 	return isleapyear( $vYear ) ? 29 : 28;
 }
 
+/**
+ * @param Array tm - array of 6 elements [ year, month, etc ]
+ * @param Integer days - positive or negative number of days to add
+ * @return Array
+ */
 function adddays($tm,$days)
 {
 	$time = $tm;
@@ -1188,6 +1173,14 @@ function dateInDbFormat($str)
 			return false;
 	}
 	return true;
+}
+
+/**
+ * @param Array $dt - 6-element array with datetime
+ * @return String in DB-ready format
+ */
+function dbFormatDateTime( $dt ) {
+	return format_datetime_custom( $dt, "yyyy-MM-dd HH:mm:ss" );
 }
 
 ?>

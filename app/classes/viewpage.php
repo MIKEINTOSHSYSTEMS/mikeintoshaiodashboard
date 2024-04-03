@@ -16,18 +16,9 @@ class ViewPage extends RunnerPage
 
 		$this->setKeysForJs();
 
-		if( $this->getLayoutVersion() === PD_BS_LAYOUT )
-		{
-			$this->headerForms = array( "top" );
-			$this->footerForms = array( "below-grid" );
-			$this->bodyForms = array( "above-grid", "grid" );
-		}
-		else
-		{
-			$this->formBricks["header"] = "viewheader";
-			$this->formBricks["footer"] = array( "viewbuttons", "rightviewbuttons");
-			$this->assignFormFooterAndHeaderBricks( true );
-		}
+		$this->headerForms = array( "top" );
+		$this->footerForms = array( "below-grid" );
+		$this->bodyForms = array( "above-grid", "grid" );
 	}
 
 	/**
@@ -59,7 +50,7 @@ class ViewPage extends RunnerPage
 		$pageMode = ViewPage::readViewModeFromRequest();
 		$messageLink = "";
 
-		if( !isLogged() || isLoggedAsGuest() )
+		if( !isLogged() || Security::isGuest() )
 			$messageLink = " <a href='#' id='loginButtonContinue'>". "Login" . "</a>";
 
 		if( !Security::processPageSecurity( $table, "S", $pageMode != VIEW_SIMPLE, $messageLink) )
@@ -126,7 +117,7 @@ class ViewPage extends RunnerPage
 		if( !is_null( $this->data ) )
 			return $this->data;
 
-		$dc = $this->getSubsetDataCommand();
+		$dc = $this->getSingleRecordCommand();
 
 		if( $this->eventsObject->exists("BeforeQueryView") )
 		{
@@ -205,8 +196,10 @@ class ViewPage extends RunnerPage
 
 		$this->prepareMaps();
 
-		if ( $this->mode == VIEW_SIMPLE )
+		if ( $this->mode == VIEW_SIMPLE ) {
 			$this->preparePdfControls();
+			$this->pageData['pdfFonts'] = getPdfFonts();
+		}
 
 		$this->doCommonAssignments();
 		$this->prepareBreadcrumbs();
@@ -250,20 +243,13 @@ class ViewPage extends RunnerPage
 	 */
 	protected function doCommonAssignments()
 	{
-		$this->xt->assign( "id", $this->id );
 
-		if ( $this->isBootstrap() )
-		{
-			if ( $this->mode === VIEW_SIMPLE )
-			{
-				$this->headerCommonAssign();
-			}
-			else
-			{
-				$this->xt->assign("menu_chiddenattr", "data-hidden" );
-			}
+		if ( $this->mode === VIEW_SIMPLE ) {
+			$this->headerCommonAssign();
+		} else {
+			$this->xt->assign("menu_chiddenattr", "data-hidden" );
 		}
-
+		
 		$this->setLangParams();
 
 		//	display legacy page caption - key values
@@ -364,7 +350,7 @@ class ViewPage extends RunnerPage
 
 		$dpParams = $this->getDetailsParams( $this->id );
 
-		if( !count($dpParams['ids']) )
+		if( !$dpParams['ids'] )
 			return;
 
 		$this->xt->assign("detail_tables", true);
@@ -380,9 +366,14 @@ class ViewPage extends RunnerPage
 			else
 			{
 				$this->xt->assign("details_". $dpParams['shorTNames'][ $d ], true);
-				$dpTablesParams[] = array("tName" => $dpParams['strTableNames'][ $d ], "id" => $dpParams['ids'][ $d ], "pType" => $dpParams['type'][ $d ]);
-				$this->xt->assign("displayDetailTable_". goodFieldName( $dpParams['strTableNames'][ $d ] ), "<div id='dp_".goodFieldName( $this->tName )
-					."_".$this->pageType."_". $dpParams['ids'][ $d ]."'></div>");
+				
+				$dpTablesParams[] = array(
+					"tName" => $dpParams['strTableNames'][ $d ], 
+					"id" => $dpParams['ids'][ $d ], 
+					"pType" => $dpParams['type'][ $d ]
+				);
+				$this->xt->assign("displayDetailTable_" . $dpParams['shorTNames'][ $d ], 
+					"<div id='dp_".goodFieldName( $this->tName )."_".$this->pageType."_". $dpParams['ids'][ $d ]."'></div>");
 			}
 		}
 
@@ -468,8 +459,11 @@ class ViewPage extends RunnerPage
 
 	protected function prepareNextPrevButtons()
 	{
-		if( !$this->pSet->useMoveNext() || $this->pdfMode || $this->mode == VIEW_PDFJSON )
+		if( !$this->pSet->useMoveNext() || $this->pdfMode || $this->mode == VIEW_PDFJSON ) {
+			$this->hideItemType("prev");
+			$this->hideItemType("next");
 			return;
+		}
 
 		$next = array();
 		$prev = array();
@@ -477,7 +471,7 @@ class ViewPage extends RunnerPage
 		$nextPrev = $this->getNextPrevRecordKeys( $this->getCurrentRecordInternal() );
 
 		//show Prev/Next buttons
-		$this->assignPrevNextButtons( count( $nextPrev["next"] ) > 0, count( $nextPrev["prev"] ) > 0, $this->mode == VIEW_DASHBOARD && ($this->hasTableDashGridElement() || $this->hasDashMapElement()) ); // TODO: hasMajorDashElem
+		$this->assignPrevNextButtons( !!$nextPrev["next"], !!$nextPrev["prev"], $this->mode == VIEW_DASHBOARD && ($this->hasTableDashGridElement() || $this->hasDashMapElement()) ); // TODO: hasMajorDashElem
 
 		$this->jsSettings["tableSettings"][ $this->tName] ["prevKeys"] = $nextPrev["prev"];
 		$this->jsSettings["tableSettings"][ $this->tName ]["nextKeys"] = $nextPrev["next"];
@@ -495,11 +489,8 @@ class ViewPage extends RunnerPage
 
 		$this->prepareNextPrevButtons();
 
-		if( $this->mode == VIEW_DASHBOARD )
-		{
-			if ( $this->isBootstrap() )
-				$this->xt->assign("groupbutton_class", "rnr-invisible-button");
-
+		if( $this->mode == VIEW_DASHBOARD ) {
+			$this->xt->assign("groupbutton_class", "rnr-invisible-button");
 			return;
 		}
 
@@ -574,26 +565,9 @@ class ViewPage extends RunnerPage
 			$this->xt->assign($gfName."_fieldblock", true);
 
 			$this->xt->assign($gfName."_label", true);
-			if( $this->is508 && !$this->isBootstrap() )
-				$this->xt->assign_section($gfName."_label","<label for=\"" . $this->getInputElementId( $fName ) . "\">","</label>");
 		}
 	}
 
-	/**
-	 * @deprecated
-	 */
-	protected function getSubsetSQLComponents() {
-
-		$sql = parent::getSubsetSQLComponents();
-
-		if( $this->connection->dbType == nDATABASE_DB2 )
-			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
-
-		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search" );
-
-		return $sql;
-	}
 
 	protected function checkShowBreadcrumbs()
 	{
@@ -604,30 +578,24 @@ class ViewPage extends RunnerPage
 		return $this->mode == VIEW_PDFJSON;
 	}
 
-	public function getSubsetDataCommand() {
+	public function getSingleRecordCommand() {
 		if( $this->checkKeysSet() ) {
 			$dc = new DsCommand();
 			$dc->filter = $this->getSecurityCondition();
 			$dc->keys = $this->keys;
-
 		} else {
-			$dc = parent::getSubsetDataCommand();
-
-			$dc->filter = DataCondition::_And( array(
-				$dc->filter,
-				$this->getSecurityCondition()
-			));
+			return $this->getSubsetDataCommand();
 		}
 		return $dc;
 	}
-/*
-	protected function getKeysCondition() {
-		return DataCondition::FieldsEqual( $this->pSet->getTableKeys(), $this->keys );
-	}
-*/
 
 	public function getSecurityCondition() {
-		Security::SelectCondition( "S", $this->pSet );
+		return Security::SelectCondition( "S", $this->pSet );
 	}
+
+	function inDashboardMode() {
+		return $this->mode == VIEW_DASHBOARD;
+	}
+
 }
 ?>

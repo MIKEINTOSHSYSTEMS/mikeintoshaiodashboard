@@ -1,27 +1,13 @@
 <?php
+require_once getabspath('classes/filehandler.php');
+
 class FileFieldSingle extends EditControl
 {
-	var $upload_handler = null;
-
 	function __construct($field, $pageObject, $id, $connection)
 	{
 		parent::__construct($field, $pageObject, $id, $connection);
 		$this->format = EDIT_FORMAT_FILE;
 
-	}
-
-	function initUploadHandler()
-	{
-		if(is_null($this->upload_handler))
-		{
-			require_once getabspath("classes/uploadhandler.php");
-			$this->upload_handler = new UploadHandler(getOptionsForMultiUpload($this->pageObject->pSet, $this->field));
-			$this->upload_handler->pSet = $this->pageObject->pSetEdit;
-			$this->upload_handler->field = $this->field;
-			$this->upload_handler->table = $this->pageObject->tName;
-			$this->upload_handler->pageType = $this->pageObject->pageType;
-			$this->upload_handler->pageName = $this->pageObject->pageName;
-		}
 	}
 
 
@@ -45,22 +31,17 @@ class FileFieldSingle extends EditControl
 	{
 		parent::buildControl($value, $mode, $fieldNum, $validate, $additionalCtrlParams, $data);
 
-		$this->initUploadHandler();
-		$keyParams = array();
-		foreach( $this->pageObject->pSetEdit->getTableKeys() as $i => $kf )
+		if( $mode == MODE_SEARCH  )
 		{
-			$keyParams[] = "key".($i + 1). "=".runner_htmlspecialchars(rawurlencode( @$data[ $kf ] ));
-		}
-		$this->upload_handler->tkeys = "&" . implode("&", $keyParams);
-
-		if( $this->pageObject->pageType == PAGE_SEARCH || $this->pageObject->pageType == PAGE_LIST )
-		{
+			$this->format = "";
+			
 			$classString = "";
 			if( $this->pageObject->isBootstrap() )
 				$classString = " class=\"form-control\"";
+			
 			echo '<input id="'.$this->cfield.'" '.$classString.$this->inputStyle.' type="text" '
-				.($mode == MODE_SEARCH ? 'autocomplete="off" ' : '')
-				.(($mode==MODE_INLINE_EDIT || $mode==MODE_INLINE_ADD) && $this->is508==true ? 'alt="'.$this->strLabel.'" ' : '')
+				.('autocomplete="off" ')
+				.( $this->is508 == true ? 'alt="'.$this->strLabel.'" ' : '' )
 				.'name="'.$this->cfield.'" '.$this->pageObject->pSetEdit->getEditParams($this->field).' value="'
 				.runner_htmlspecialchars($value).'">';
 
@@ -68,28 +49,34 @@ class FileFieldSingle extends EditControl
 			return;
 		}
 
-		if( $mode == MODE_SEARCH )
-			$this->format = "";
+		$keyParams = array();
+		foreach( $this->pageObject->pSetEdit->getTableKeys() as $i => $kf ) {
+			$keyParams[] = "key".($i + 1). "=".runner_htmlspecialchars(rawurlencode( @$data[ $kf ] ));
+		}
+		$keyLink = "&" . implode("&", $keyParams);
+
 
 		$disp = "";
 		$strfilename = "";
 
-		$filename_size = 30;
-		if( $this->pageObject->pSetEdit->isUseTimestamp( $this->field ) )
-			$filename_size = 50;
+		$filename_size = $this->pageObject->pSetEdit->isUseTimestamp( $this->field )
+			? 50
+			: 30;
 
 		if( $mode == MODE_EDIT || $mode == MODE_INLINE_EDIT )
 		{
 			// show current file
-			$newUploaderFilesData = my_json_decode($value);
-			$newUploaderWasUsed = is_array($newUploaderFilesData) && count($newUploaderFilesData) > 0;
+			$filesArray = $this->getFileData( $value );
+			$fileName = "";
+			if( $filesArray ) {
+				$fileData = $filesArray[0];
+				$fileName = $fileData["usrName"];
 
-			$fileData = $newUploaderWasUsed ? $newUploaderFilesData[0] : array();
-			$fileName = $newUploaderWasUsed ? $fileData["usrName"] : $value;
+				$viewFormat = $this->pageObject->pSetEdit->getViewFormat( $this->field );
+				if( $viewFormat == FORMAT_FILE || $viewFormat == FORMAT_FILE_IMAGE )
+					$disp = $this->getFileOrImageMarkup( $fileData, $keyLink ) . "<br />";
+			}
 
-			$viewFormat = $this->pageObject->pSetEdit->getViewFormat( $this->field );
-			if( $viewFormat == FORMAT_FILE || $viewFormat == FORMAT_FILE_IMAGE )
-				$disp = $this->getFileOrImageMarkup( $value, $fileName, $newUploaderWasUsed, $fileData )."<br />";
 
 			//	filename edit
 			$strfilename = '<input type=hidden name="filenameHidden_'.$this->cfieldname.'" value="'.runner_htmlspecialchars( $fileName ).'"><br>'
@@ -141,69 +128,29 @@ class FileFieldSingle extends EditControl
 	 * @param Array fileData
 	 * @return String
 	 */
-	function getFileOrImageMarkup( $value, $fileName, $newUploaderWasUsed, $fileData )
+	function getFileOrImageMarkup( $fileData, $keylink )
 	{
-		$cachedValue = $value;
-
-
-		if( $newUploaderWasUsed ) {
-			$finalFilePath = $filePath = $fileData["name"];
-			$usrFile = $this->upload_handler->buildUserFile( $fileData );
+		$fileName = $fileData["usrName"];
+		$urls = $this->getFileUrls( $fileData, $keylink );
+		if( !$urls["url"] ) {
+			return "";
 		}
-		else
+
+
+		if( !CheckImageExtension( $fileName ) )
 		{
-			$uploadFolder = $this->pageObject->pSetEdit->getUploadFolder( $this->field );
-			$filePath = $uploadFolder.$value;
-
-			$finalUploadFolder = $this->pageObject->pSetEdit->getFinalUploadFolder( $this->field );
-			$finalFilePath = $finalUploadFolder.$value;
-			$sourceFile = array( 
-				"usrName" => $fileName
-			);
-			if( $this->pageObject->pSetEdit->showThumbnail( $this->field ) )
-			{
-				$thumbprefix = $this->pageObject->pSetEdit->getStrThumbnail( $this->field );
-				$thumbPath = $uploadFolder.$thumbprefix.$fileName;
-				$finalThumbPath = $finalUploadFolder.$thumbprefix.$fileName;
-				if( substr($thumbPath, 0, 7) != "http://" )
-				{
-					if( myfile_exists(getabspath( $finalThumbPath )) )
-						$sourceFile["thumbnail"] = 1;
-				}
-			}
-			$usrFile = $this->upload_handler->buildUserFile( $sourceFile );
+			return "<a target=\"_blank\" href=\"". runner_htmlspecialchars( $urls["url"] )."\">"
+				.runner_htmlspecialchars( $fileName )."</a>";
 		}
 
-		if( !CheckImageExtension($fileName) )
-		{
-			return "<a target=\"_blank\" href=\"". runner_htmlspecialchars( $usrFile["url"] )."\">"
-				.runner_htmlspecialchars($fileName)."</a>";
+		if( !$urls["thumbnail"] ) {
+			$urls["thumbnail"] = $urls["url"];
 		}
 
-		$altAttr = $this->is508 ? " alt=\"".runner_htmlspecialchars( $fileName )."\"" : "";
+		$altAttr = " alt=\"".runner_htmlspecialchars( $fileName )."\"" ;
+		return "<a target=\"_blank\" href=\"". runner_htmlspecialchars( $urls["url"] ) . "\" >"
+				."<img class=\"r-editfile-img\" ". $altAttr ." border=0 src=\"". runner_htmlspecialchars( $urls["thumbnail"] ) . "\"></a>";
 
-		if( !myfile_exists(getabspath( $finalFilePath ) ) )
-			$filePath = "images/no_image.gif";
-
-		if( $usrFile["thumbnail_url"] )
-		{
-			// show thumbnail
-			return "<a target=\"_blank\" href=\"". runner_htmlspecialchars( $usrFile["url"] ) . "\" >"
-				."<img". $altAttr ." border=0 src=\"". runner_htmlspecialchars( $usrFile["thumbnail_url"] ) . "\"></a>";
-		}
-
-		$imageValue = $usrFile["url"];
-		if( $filePath != "images/no_image.gif" && !$newUploaderWasUsed )
-		{
-			if( filesize($finalUploadFolder.$fileName) > 51200 )
-				$imageValue = "images/icons/jpg.png";
-		}
-
-		$disp = '<img '.$altAttr.'src="'.GetRootPathForResources(runner_htmlspecialchars( $imageValue )).'" border=0>';
-		if( $imageValue != "images/no_image.gif" )
-			$disp = "<a target=\"_blank\" href=\"".runner_htmlspecialchars( $usrFile["url"] )."\">".$disp."</a>";
-
-		return $disp;
 	}
 
 	/**
@@ -274,5 +221,57 @@ class FileFieldSingle extends EditControl
 			return "";
 		return "min-width: ".$widthPx."px";
 	}
+
+	protected function getFileData( $value ) {
+		return RunnerFileHandler::getFileArray( $value, $this->field, $this->pageObject->pSet );
+	}
+
+	/**
+	 * @return Array
+	 * 	"url" => string
+	 * 	"thumbnail" => string 
+	 * Each element can be empty if no corresponding file exists
+	 * 
+	 */
+	protected function getFileUrls( $fileData, $keylink ) {
+		$pSet = $this->pageObject->pSet;
+		$fs = getStorageProvider( $pSet, $this->field );
+		$fsInfo = $fs->getFileInfo( $fileData["name"] );
+		if( !$fsInfo ) {
+			return array();
+		}
+		$lastModified = time();
+		if( $fsInfo["lastModified"]) {
+			$lastModified = $fsInfo["lastModified"];
+		}
+
+		$params = array();
+		$params["file"] = $fileData["usrName"];
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["hash"] = fileAttrHash( $keylink, $file["size"], $lastModified );
+		
+		foreach( $additionalParams as $k => $val ) {
+			$params[ $k ] = $val;
+		}
+		$ret = array();
+		$ret["url"] = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+
+
+		if( $fileData["thumbnail"] && $fs->getFileInfo( $fileData["thumbnail"] ) ) {
+			$params["thumbnail"] = 1;
+			$ret["thumbnail"] = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+		}
+
+		if( !$ret["thumbnail"] && $fsInfo["size"] > 512000 ) {
+			$ret["thumbnail"] = "images/icons/jpg.png";
+		}
+
+		
+		return $ret;
+		
+
+	}
+
 }
 ?>

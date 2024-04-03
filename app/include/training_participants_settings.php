@@ -135,14 +135,9 @@ $tdatatraining_participants[".showEditInPopup"] = false;
 
 $tdatatraining_participants[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatatraining_participants[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatatraining_participants[".listAjax"] = false;
 //	temporary
-$tdatatraining_participants[".listAjax"] = false;
+//$tdatatraining_participants[".listAjax"] = false;
 
 	$tdatatraining_participants[".audit"] = false;
 
@@ -205,8 +200,6 @@ $tdatatraining_participants[".allowFieldsReordering"] = true; // temp fix #13449
 //
 
 $tdatatraining_participants[".isUseAjaxSuggest"] = true;
-
-$tdatatraining_participants[".rowHighlite"] = true;
 
 
 
@@ -286,8 +279,6 @@ $tdatatraining_participants[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatatraining_participants[".strOrderBy"] = $tstrOrderBy;
 
 $tdatatraining_participants[".orderindexes"] = array();
@@ -352,7 +343,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","TrainingID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -383,7 +374,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -471,7 +462,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,7 +516,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","CandidateID");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -556,7 +547,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -622,8 +614,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -642,7 +633,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -696,7 +687,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","StudentID");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -727,7 +718,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -757,8 +749,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -779,7 +770,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -833,7 +824,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_Organizer");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -864,7 +855,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -922,8 +914,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -941,7 +932,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -995,7 +986,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1026,7 +1017,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1084,8 +1076,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1103,7 +1094,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1157,7 +1148,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Program_Area");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1188,7 +1179,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1246,8 +1238,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1265,7 +1256,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1319,7 +1310,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_City_Town");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1350,7 +1341,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1408,8 +1400,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1427,7 +1418,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1481,7 +1472,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_Venue");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -1512,7 +1503,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1570,8 +1562,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1589,7 +1580,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1643,7 +1634,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_Start_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -1674,7 +1665,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1734,8 +1726,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1753,7 +1744,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1807,7 +1798,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Training_End_Date");
 	$fdata["FieldType"] = 7;
 
-	
+
 	
 	
 			
@@ -1838,7 +1829,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -1898,8 +1890,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -1917,7 +1908,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -1971,7 +1962,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","First_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2002,7 +1993,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2032,8 +2024,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2054,7 +2045,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2108,7 +2099,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Middle_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2139,7 +2130,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2169,8 +2161,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2191,7 +2182,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2245,7 +2236,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Last_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2276,7 +2267,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2306,8 +2298,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2328,7 +2319,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2382,7 +2373,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Sex");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2413,7 +2404,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2459,8 +2451,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2478,7 +2469,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2532,7 +2523,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Email");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2563,7 +2554,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2593,8 +2585,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2615,7 +2606,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2669,7 +2660,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Phone");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2700,7 +2691,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2730,8 +2722,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2752,7 +2743,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2806,7 +2797,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Disability_Status");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -2837,7 +2828,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -2883,8 +2875,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -2902,7 +2893,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -2956,7 +2947,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Disability_Type");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -2987,7 +2978,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3045,8 +3037,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3064,7 +3055,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 							
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3118,7 +3109,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Disability_Type_Other");
 	$fdata["FieldType"] = 3;
 
-	
+
 	
 	
 			
@@ -3149,7 +3140,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3179,8 +3171,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3201,7 +3192,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3255,7 +3246,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Participant_Profession");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3286,7 +3277,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3316,8 +3308,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3338,7 +3329,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3392,7 +3383,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Participant_Field_of_Study");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3423,7 +3414,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3453,8 +3445,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3475,7 +3466,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3529,7 +3520,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Participant_Facility_Organization_Type");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3560,7 +3551,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3590,8 +3582,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3612,7 +3603,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3666,7 +3657,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Participant_Organization_Name");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3697,7 +3688,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3727,8 +3719,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3749,7 +3740,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3803,7 +3794,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Participants_Home_Address");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3834,7 +3825,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -3864,8 +3856,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -3886,7 +3877,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -3940,7 +3931,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","PreTest_Score");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -3971,7 +3962,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -4001,8 +3993,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4023,7 +4014,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -4077,7 +4068,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Skill_Test");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -4108,7 +4099,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -4138,8 +4130,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4160,7 +4151,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -4214,7 +4205,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_participants","Post_Test_Score");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -4245,7 +4236,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -4275,8 +4267,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -4297,7 +4288,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -4349,9 +4340,16 @@ $fieldToolTips["training_participants"] = &$fieldToolTipstraining_participants;
 $placeHolders["training_participants"] = &$placeHolderstraining_participants;
 $page_titles["training_participants"] = &$pageTitlestraining_participants;
 
+
+changeTextControlsToDate( "training_participants" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["training_participants"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["training_participants"] = array();
@@ -4359,7 +4357,8 @@ $masterTablesData["training_participants"] = array();
 
 
 	
-				$strOriginalDetailsTable="candidates";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="candidates";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -4374,8 +4373,10 @@ $masterTablesData["training_participants"] = array();
 				$masterTablesData["training_participants"][0]["detailKeys"] = array();
 	$masterTablesData["training_participants"][0]["detailKeys"][]="CandidateID";
 		
+	//endif
 	
-				$strOriginalDetailsTable="trainings";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="trainings";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="trainings";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -4394,6 +4395,7 @@ $masterTablesData["training_participants"] = array();
 				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_Start_Date";
 				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_End_Date";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -4910,7 +4912,6 @@ $tdatatraining_participants[".sqlquery"] = $queryData_training_participants;
 
 
 
-$tableEvents["training_participants"] = new eventsBase;
 $tdatatraining_participants[".hasEvents"] = false;
 
 ?>

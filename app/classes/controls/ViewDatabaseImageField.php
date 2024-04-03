@@ -42,31 +42,34 @@ class ViewDatabaseImageField extends ViewImageDownloadField
 		return '""';
 	}
 
-	public function getFileURLs(&$data, $keylink)
+	protected function getFileURLs( &$data, $keylink )
 	{
 		$fileURLs = array();
-
-		$this->upload_handler->tkeys = $keylink;
+		if( !$data[ $this->field ] ) {
+			return array();
+		}
+		$pSet = $this->pSettings();
+		
 		$fileName = 'file.jpg';
-		$fileNameF = $this->container->pSet->getFilenameField($this->field);
+		$fileNameF = $pSet->getFilenameField($this->field);
 		if( $fileNameF && $data[$fileNameF] )
 			$fileName = $data[$fileNameF];
 
-		$url = array(
-			"image" => GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table)
-						."&field=".rawurlencode($this->field)
-						."&nodisp=1"
-						."&page=".$this->container->pSet->pageName()
-						."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768)),
-			"filename" => $fileNameF
-		);
-		if( $this->showThumbnails ) {
-			$hrefBegin = GetTableLink("mfhandler", "", "filename=".$fileName."&table=".rawurlencode($this->container->pSet->_table));
-			$thumbPref = $this->container->pSet->getStrThumbnail($this->field);
-			$hasThumbnail = $thumbPref != "" && strlen($data[ $thumbPref ]);
-			$hrefEnd = "&nodisp=1&page=".$this->container->pSet->pageName()."&pageType=".$this->container->pageType.$keylink."&rndVal=".rand(0,32768);
+		$params = array();
+		$params["filename"] = $fileName;
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["hash"] = fileAttrHash( $keylink, strlen_bin( $data[ $this->field ] ) );
 
-			$url["thumbnail"] = $hrefBegin."&field=".rawurlencode($this->field).( $hasThumbnail ? "&thumb=1" : ""  ).$hrefEnd;
+		$url = array(
+			"image" => GetTableLink("file", "", prepareUrlQuery( $params ).$keylink ),
+			"filename" => $fileName
+		);
+		$thumbField = $pSet->getStrThumbnail( $this->field );
+		if( $thumbField && $this->showThumbnails ) {
+			$params["thumbnail"] = 1;
+			$params["hash"] = fileAttrHash( $keylink, strlen_bin( $data[ $thumbField ] ) );
+			$url["thumbnail"] = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
 		}
 		$fileURLs[] = $url;
 
@@ -95,7 +98,7 @@ class ViewDatabaseImageField extends ViewImageDownloadField
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return "LONG BINARY DATA - CANNOT BE DISPLAYED";
 	}
@@ -107,7 +110,7 @@ class ViewDatabaseImageField extends ViewImageDownloadField
 	 * @param Boolean hasThumbnail
 	 * @return String
 	 */
-	protected function getSmallThumbnailStyle( $imageSrc, $hasThumbnail )
+	protected function getSmallThumbnailStyle( $imageSrc = false, $hasThumbnail = true )
 	{
 		$styles = array();
 

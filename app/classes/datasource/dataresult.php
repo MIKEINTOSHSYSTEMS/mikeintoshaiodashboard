@@ -10,9 +10,9 @@ class DataResult
 	protected $fieldMap = array();
 
 	/**
-	 * Field substitutions 
+	 * Field substitutions
 	 * @var Array of "source field name" => "output field name"
-	 * 
+	 *
 	 */
 	protected $fieldSubs = array();
 
@@ -26,9 +26,9 @@ class DataResult
 	public function closeQuery() {}
 	public function numFields() { return 0; }
 	public function fieldName( $offset ) { return ""; }
-	
+
 	public function seekRecord( $n ) {}
-	
+
 	public function eof() { return true; }
 	public function next() {}
 	public function getData() {}
@@ -49,7 +49,7 @@ class DataResult
 			$ret[ $this->fieldNames[ $i ] ] = $data[ $i ];
 		}
 		if( $this->fieldSubs ) {
-			return $this->substituteField( $ret );
+			return $this->substituteFields( $ret );
 		}
 		return $ret;
 	}
@@ -66,7 +66,7 @@ class DataResult
 	}
 
 
-	public function value( $field ) 
+	public function value( $field )
 	{
 		if( !$this->prepareRecord() )
 			return null;
@@ -78,7 +78,7 @@ class DataResult
 			return $this->data[ $this->upperMap[ strtoupper( $field ) ] ];
 		return null;
 	}
-	
+
 	public function seekPage( $pageSize, $page )
 	{
 		$this->seekRecord( $pageSize * ( $page - 1 ) );
@@ -109,6 +109,20 @@ class DataResult
 		}
 		return $ret;
 	}
-	
+
+	//	whether resordset is random-access or forward-only
+	function randomAccess() {
+		return false;
+	}
+
+	public function reorder( $callback ) {
+		return $this;
+	}
+
+	public function fieldExists( $fieldName ) {
+		$this->fillColumnNames();
+		return array_key_exists( $fieldName, $this->fieldMap );
+	}
+
 }
 ?>

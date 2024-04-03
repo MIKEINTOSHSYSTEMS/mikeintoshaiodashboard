@@ -9,6 +9,10 @@ require_once("classes/sql.php");
 
 require_once("include/industry_specific_skills_variables.php");
 
+if( Security::hasLogin() ) {
+	if( !Security::processPageSecurity( $strtablename, 'P' ) )
+		return;
+}
 
 
 require_once("include/export_functions.php");
@@ -24,9 +28,6 @@ $params["xt"] = &$xt;
 $params["tName"] = $strTableName;
 $params["pageType"] = PAGE_EXPORT;
 $params["pageName"] = postvalue("page");
-
-if( !$eventObj->exists("ListGetRowCount") && !$eventObj->exists("ListQuery") )
-	$params["needSearchClauseObj"] = false;
 
 $params["selectedFields"] = postvalue("exportFields");
 $params["exportType"] = postvalue("type");

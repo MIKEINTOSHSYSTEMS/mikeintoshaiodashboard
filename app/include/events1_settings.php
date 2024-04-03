@@ -60,14 +60,9 @@ $tdataevents1[".showEditInPopup"] = false;
 
 $tdataevents1[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataevents1[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataevents1[".listAjax"] = false;
 //	temporary
-$tdataevents1[".listAjax"] = false;
+//$tdataevents1[".listAjax"] = false;
 
 	$tdataevents1[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataevents1[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdataevents1[".isUseAjaxSuggest"] = true;
 
-$tdataevents1[".rowHighlite"] = true;
-
 
 
 
@@ -186,8 +179,6 @@ $tdataevents1[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataevents1[".strOrderBy"] = $tstrOrderBy;
 
 $tdataevents1[".orderindexes"] = array();
@@ -251,7 +242,7 @@ $tdataevents1[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("events","EventID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -283,7 +274,8 @@ $tdataevents1[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -314,8 +306,7 @@ $tdataevents1[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -337,7 +328,7 @@ $tdataevents1[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -391,7 +382,7 @@ $tdataevents1[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("events","EventName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -422,7 +413,8 @@ $tdataevents1[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -452,8 +444,7 @@ $tdataevents1[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -474,7 +465,7 @@ $tdataevents1[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -526,8 +517,14 @@ $fieldToolTips["events"] = &$fieldToolTipsevents1;
 $placeHolders["events"] = &$placeHoldersevents1;
 $page_titles["events"] = &$pageTitlesevents1;
 
+
+changeTextControlsToDate( "events" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["events"] = array();
 //	event_participants
 	
@@ -589,6 +586,7 @@ $detailsTablesData["events"] = array();
 				$detailsTablesData["events"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["events"][$dIndex]["detailKeys"][]="EventID";
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["events"] = array();
@@ -736,7 +734,6 @@ $tdataevents1[".sqlquery"] = $queryData_events1;
 
 
 
-$tableEvents["events"] = new eventsBase;
 $tdataevents1[".hasEvents"] = false;
 
 ?>

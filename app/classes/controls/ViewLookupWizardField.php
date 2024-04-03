@@ -18,12 +18,6 @@ class ViewLookupWizardField extends ViewControl
 
 	public $localControlsContainer;
 
-
-	/**
-	* @type Connection
-	*/
-	protected $lookupConnection;
-
 	protected $lookupDataSource;
 
 	public function __construct($field, $container, $pageObject)
@@ -32,10 +26,6 @@ class ViewLookupWizardField extends ViewControl
 
 		$this->lookupPSet = null;
 		$this->cipherer = null;
-//		$this->lookupQueryObj = null;
-//		$this->displayFieldIndex = 0;
-//		$this->linkFieldIndex = 1;
-//		$this->LookupSQL = "";
 
 		if($this->container->pSet->getEditFormat($field) != EDIT_FORMAT_LOOKUP_WIZARD)
 		{
@@ -50,7 +40,6 @@ class ViewLookupWizardField extends ViewControl
 
 		$this->nLookupType = $this->pSet->getLookupType($this->field);
 		$this->lookupTable = $this->pSet->getLookupTable($this->field);
-		//$this->setLookupConnection();
 		$this->lookupDataSource = getLookupDataSource( $this->field, $this->pSet );
 
 
@@ -61,121 +50,14 @@ class ViewLookupWizardField extends ViewControl
 		{
 			$this->lookupPSet = new ProjectSettings($this->lookupTable, $this->container->pageType);
 			$this->cipherer = new RunnerCipherer($this->lookupTable);
-			/*
-			$this->lookupQueryObj = $this->lookupPSet->getSQLQuery()->CloneObject();
-			if($this->pSet->getCustomDisplay($this->field))
-				$this->lookupQueryObj->AddCustomExpression($this->displayFieldName, $this->lookupPSet, $this->pSet->_table, $this->field);
-			$this->lookupQueryObj->ReplaceFieldsWithDummies($this->lookupPSet->getBinaryFieldsIndices());
-			$lookupIndexes = GetLookupFieldsIndexes($this->pSet, $this->field);
-			$this->displayFieldIndex = $lookupIndexes["displayFieldIndex"];
-			$this->linkFieldIndex = $lookupIndexes["linkFieldIndex"];
-			*/
 		}
 		else
 		{
 			$this->cipherer = new RunnerCipherer($this->pSet->_table);
-/*
-			$this->LookupSQL = "SELECT ";
-			$this->LookupSQL.= RunnerPage::sqlFormattedDisplayField($this->field, $this->lookupConnection, $this->pSet);
-			$this->LookupSQL.= ", ".$this->lookupConnection->addFieldWrappers($this->pSet->getLinkField($this->field));
-			$this->LookupSQL.= " FROM ".$this->lookupConnection->addTableWrappers( $this->lookupTable )." WHERE ";
-*/
 		}
 
 		$this->localControlsContainer = new ViewControlsContainer($this->pSet, $this->container->pageType, $pageObject);
 		$this->localControlsContainer->isLocal = true;
-	}
-
-	/**
-	 * Set the lookupConnection property
-	 */
-	protected function setLookupConnection()
-	{
-		global $cman;
-
-		if( $this->nLookupType == LT_QUERY )
-		{
-			$this->lookupConnection = $cman->byTable( $this->lookupTable );
-			return;
-		}
-
-		$connId = $this->pSet->getNotProjectLookupTableConnId( $this->field );
-		$this->lookupConnection = strlen( $connId ) ? $cman->byId( $connId ) : $cman->getDefault();
-	}
-
-	/**
-	 * @param String value
-	 * @return String
-	 */
-	protected function getDbPreparedValuesList( $value )
-	{
-		if( !$this->pSet->multiSelect($this->field) )
-			return "";
-
-		$values = splitvalues($value);
-		$type = $this->pSet->getLWLinkFieldType($this->field);
-
-		$numeric = true;
-		if(!$type)
-		{
-			foreach($values as $val)
-			{
-				if( strlen($val) && !is_numeric($val) )
-				{
-					$numeric = false;
-					break;
-				}
-			}
-		}
-		else
-			$numeric = !NeedQuotes($type);
-
-		$listValues = array();
-		foreach($values as $val)
-		{
-			if( $numeric && !strlen($val) )
-				continue;
-
-			if( $numeric )
-				$listValues[] = ($val + 0);
-			else
-			{
-				$fName = $this->nLookupType == LT_QUERY ? $this->linkFieldName : $this->field;
-				$listValues[] = $this->lookupConnection->prepareString( $this->cipherer->EncryptField($fName, $val) );
-			}
-		}
-		return implode(",", $listValues);
-	}
-
-	/**
-	 * @param String value
-	 * @param String in
-	 * @return String
-	 */
-	protected function getMultiselectLookupResolvingSQL( $value, $in, $withoutWhere = false )
-	{
-		if( !$this->pSet->multiSelect($this->field) )
-			return "";
-
-		$where = prepareLookupWhere( $this->field, $this->pSet );
-
-		if( $this->nLookupType == LT_QUERY )
-		{
-			$inWhere = RunnerPage::_getFieldSQLDecrypt( $this->linkFieldName, $this->lookupConnection, $this->lookupPSet, $this->cipherer )
-				." in (".$in.")";
-			if( !$withoutWhere && strlen($where) )
-				$inWhere.=" and (".$where.")";
-
-			$LookupSQL = $this->lookupQueryObj->buildSQL_default( $inWhere );
-		}
-		else
-		{
-			$LookupSQL = $this->LookupSQL.$this->lookupConnection->addFieldWrappers($this->pSet->getLinkField($this->field))." in (".$in.")";
-			if( !$withoutWhere && strlen($where) )
-				$LookupSQL.=" and (".$where.")";
-		}
-
-		return $LookupSQL;
 	}
 
 	/**
@@ -217,7 +99,7 @@ class ViewLookupWizardField extends ViewControl
 		}
 
 		//	security filter
-		$filters[] = Security::SelectCondition( "S", $this->lookupPSet );
+		$filters[] = Security::SelectCondition( "S", $this->lookupPSet, true );
 
 		$dc->filter = DataCondition::_And( $filters );
 		return array( "command" => $dc, "displayAlias" => $displayFieldAlias );
@@ -225,40 +107,6 @@ class ViewLookupWizardField extends ViewControl
 	}
 
 
-	/**
-	 * @param String value
-	 * @return String
-	 */
-/*
-	 protected function getNotMultiselectLookupResolvingSQL( $value, $withoutWhere )
-	{
-		if( $this->pSet->multiSelect($this->field) )
-			return "";
-
-		$where = prepareLookupWhere( $this->field, $this->pSet );
-
-		$strdata = $this->cipherer->MakeDBValue($this->nLookupType == LT_QUERY ? $this->linkFieldName : $this->field, $value, "", true);
-		if( $this->nLookupType == LT_QUERY )
-		{
-			$strWhere = GetFullFieldName($this->linkFieldName, $this->lookupTable, false)." = " . $strdata;
-			if( !$withoutWhere && strlen($where) )
-				$strWhere.= " and (".$where.")";
-
-			$LookupSQL = $this->lookupQueryObj->buildSQL_default( $strWhere );
-
-		}
-		else
-		{
-			$strWhere = $this->lookupConnection->addFieldWrappers($this->pSet->getLinkField($this->field))." = " . $strdata;
-			if( !$withoutWhere && strlen($where) )
-				$strWhere.= " and (".$where.")";
-
-			$LookupSQL = $this->LookupSQL.$strWhere;
-		}
-
-		return $LookupSQL;
-	}
-*/
 	/**
 	 * @param String lookupValue
 	 * @return String
@@ -271,84 +119,7 @@ class ViewLookupWizardField extends ViewControl
 		return $lookupValue;
 	}
 
-	/**
-	 * @param String value
-	 * return Array
-	 */
-	protected function getMultiselectLookupValues( $value )
-	{
-		$in = $this->getDbPreparedValuesList( $value );
-		if( !strlen($in) )
-			return array( $value );
-
-		if( count($this->resolvedLookupValues[ $value ]) )
-			return $this->resolvedLookupValues[ $value ];
-
-		$withoutWhere = false;
-		for ( $i=0; $i<2; $i++ )
-		{
-			$LookupSQL = $this->getMultiselectLookupResolvingSQL($value, $in, $withoutWhere);
-			LogInfo($LookupSQL);
-
-			$lookupArr = array();
-			$qResult = $this->lookupConnection->querySilent( $LookupSQL );
-			if( !$qResult )
-				continue;
-			while( $lookuprow = $qResult->fetchNumeric() )
-			{
-				$displayValue = $lookuprow[ $this->displayFieldIndex ];
-				$lookupArr[] = $displayValue;
-				$this->resolvedLinkLookupValues[ $value ][ $displayValue ] = $lookuprow[ $this->linkFieldIndex ];
-			}
-			if ( count($lookupArr) == count(explode(',', $in)) ) break;
-			$withoutWhere = true;
-		}
-
-		$lookupValues = array();
-		$lookupArr = array_unique( $lookupArr );
-		foreach($lookupArr as $lookupvalue)
-		{
-			$lookupValues[] = $this->getDecryptLookupValue( $lookupvalue );
-		}
-
-		if( count($lookupValues) )
-			$this->resolvedLookupValues[ $value ] = $lookupValues;
-
-		return $lookupValues;
-	}
-
-	/**
-	 * @param String value
-	 * return Array
-	 */
-	protected function getNotMultiselectLookupValues( $value )
-	{
-		if( isset( $this->resolvedLookupValues[ $value ] ) )
-			return array( $this->resolvedLookupValues[ $value ] );
-
-		$lookupvalue = $value;
-
-		$withoutWhere = false;
-		for ($i=0; $i<2; $i++)
-		{
-			$LookupSQL = $this->getNotMultiselectLookupResolvingSQL( $value, $withoutWhere );
-			LogInfo($LookupSQL);
-
-			$qResult = $this->lookupConnection->querySilent( $LookupSQL );
-			if( !$qResult )
-				continue;
-			if( $lookuprow = $qResult->fetchNumeric() )
-			{
-				$lookupvalue = $this->getDecryptLookupValue( $lookuprow[ $this->displayFieldIndex ] );
-				break;
-			}
-			$withoutWhere = true;
-		}
-
-		$this->resolvedLookupValues[ $value ] = $lookupvalue;
-
-		return array( $lookupvalue );
-	}
+	
 
 	/**
 	 * @param String value
@@ -358,16 +129,13 @@ class ViewLookupWizardField extends ViewControl
 	protected function getLookupValues( $value )
 	{
 		if( $this->pSet->multiSelect($this->field) ) {
-			$values = splitvalues($value);
+			$values = splitLookupValues($value);
 		} else {
 			$values = array( $value );
 		}
-		$ret = array();
 		$unresolved = array();
 		foreach( $values as $v ) {
-			if( $this->resolvedLookupValues[ $v ] ) {
-				$ret[] = array( "link" => $v, "display" => $this->resolvedLookupValues[ $v ] );
-			} else {
+			if( !$this->resolvedLookupValues[ $v ] ) {
 				$unresolved[] = $v;
 			}
 		}
@@ -377,7 +145,6 @@ class ViewLookupWizardField extends ViewControl
 			$resolved = $this->fetchLookupValues( $unresolved, false );
 			if( $resolved ) {
 				foreach( $resolved as $r ) {
-					$ret[] = $r;
 					$this->resolvedLookupValues[ $r["link"] ] = $r[ "display" ];
 				}
 			}
@@ -398,9 +165,16 @@ class ViewLookupWizardField extends ViewControl
 				showError( $this->lookupDataSource->lastError() );
 			} else {
 				foreach( $resolved as $r ) {
-					$ret[] = $r;
 					$this->resolvedLookupValues[ $r["link"] ] = $r[ "display" ];
 				}
+			}
+		}
+		$ret = array();
+		foreach( $values as $v ) {
+			if( $this->resolvedLookupValues[ $v ] ) {
+				$ret[] = array( "link" => $v, "display" => $this->resolvedLookupValues[ $v ] );
+			} else {
+				$ret[] = array( "link" => $v, "display" => $v );
 			}
 		}
 		return $ret;
@@ -420,11 +194,16 @@ class ViewLookupWizardField extends ViewControl
 			return false;
 		}
 		$ret = array();
+		$fetchedLinkValues = array();
 		while( $data = $rs->fetchAssoc() ) {
-			$ret[] = array(
-				"link" => $data[ $this->linkFieldName ],
-				"display" => $data[ $dispAlias ]
-			);
+			$linkValue = $data[ $this->linkFieldName ];
+			if( !$fetchedLinkValues[ $linkValue ] ) {
+				$ret[] = array(
+					"link" => $linkValue,
+					"display" => $data[ $dispAlias ]
+				);
+				$fetchedLinkValues[ $linkValue ] = true;
+			}
 		}
 		return $ret;
 	}
@@ -438,6 +217,10 @@ class ViewLookupWizardField extends ViewControl
 		$value = $data[ $this->field ];
 		if( !strlen($value) )
 			return "";
+
+		if ( !$this->lookupTable ) {
+			return $value;
+		}
 
 		$outValues = array();
 		$localData = $data;
@@ -455,16 +238,16 @@ class ViewLookupWizardField extends ViewControl
 			if( $this->pSet->getViewFormat($this->field) != "Custom" )
 				$localData[ $this->field ] = $displayValue;
 
-			$outputValue = $this->localControlsContainer->showDBValue($this->field, $localData, $keylink, $displayValue );
+			$outputValue = $this->localControlsContainer->showDBValue( $this->field, $localData, $keylink, $displayValue, $html );
 
-			if( $html ) {
+			if( $html && !$this->container->forExport ) {
 				$outputValue = '<span class="r-lookup-value">' . $outputValue . '</span>';
 			}
 
 			$outValues[] = $outputValue;
 		}
 
-		return implode('<span class="r-lookup-sep">,</span>', $outValues);
+		return implode( $html ? '<span class="r-lookup-sep">,</span>' : ',', $outValues);
 	}
 
 	/**
@@ -501,10 +284,10 @@ class ViewLookupWizardField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		$this->localControlsContainer->setForExportVar( $this->container->forExport );
-		return $this->showDBValue($data, $keylink);
+		return $this->showDBValue($data, $keylink, $html );
 	}
 }
 ?>

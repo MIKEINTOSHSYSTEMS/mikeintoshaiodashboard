@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -97,15 +99,14 @@ pdfDocument = {
 	
 		body: [
 				
-					{BEGIN row_grid_0}
+				{BEGIN row_grid_0}
 				[
-												{BEGIN cellblock_grid_c3}
+																{BEGIN cellblock_grid_c3}
 {
 	cellId: 'c3',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	dynamic colspan/rowspan
 
@@ -117,38 +118,41 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_search_field}","text":{$CompanyID_pdfvalue}},
+			{"text":{$CompanyID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field1}","text":{$CompanyName_pdfvalue}},
+			{"text":{$CompanyName_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field2}","text":{$CompanyEmail_pdfvalue}},
+			{"text":{$CompanyEmail_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field3}","text":{$CompanyPhone_pdfvalue}},
+			{"text":{$CompanyPhone_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field4}","text":{$CompanyWebsite_pdfvalue}},
+			{"text":{$CompanyWebsite_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field5}","text":{$CompanySector_pdfvalue}},
+			{"text":{$CompanySector_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field6}","text":{$CompanyProfile_pdfvalue}},
+			{"text":{$CompanyProfile_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
 				
 				
-			{"hidden":"{$item_hide_integrated_search_field7}","text":{$CompanyJob_pdfvalue}},
+			{"text":{$CompanyJob_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 {END cellblock_grid_c3}
 											],
 				{END row_grid_0}
-					]
+		
+		]
 	}
 }
 ,
@@ -168,13 +172,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -197,11 +200,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

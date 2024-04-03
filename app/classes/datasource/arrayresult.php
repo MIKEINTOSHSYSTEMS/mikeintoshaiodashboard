@@ -14,7 +14,7 @@ class ArrayResult extends DataResult
 	 * 	{ field1: value, field2: value},
 	 * ]
 	 */
-	protected $source;
+	public $source;
 
 	protected $dummy = null;
 
@@ -119,6 +119,20 @@ class ArrayResult extends DataResult
 	public function reorder( $callback ) {
 		usort( $this->source, $callback );
 		$this->recIdx = 0;
+		return $this;
+	}
+
+	//	import other result data, return new ArrayResult
+	public static function createFromResult( $result ) {
+		$newData = array();
+		while( $data = $result->fetchAssoc() ) {
+			$newData[] = $data;
+		}
+		return new ArrayResult( $newData );
+	}
+	
+	function randomAccess() {
+		return true;
 	}
 
 

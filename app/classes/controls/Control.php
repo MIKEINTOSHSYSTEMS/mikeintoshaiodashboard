@@ -66,6 +66,8 @@ class EditControl
 	 */
 	protected $connection;
 	
+	public $forSpreadsheetGrid;
+	
 	
 	function __construct($field, $pageObject, $id, $connection)
 	{
@@ -185,7 +187,7 @@ class EditControl
 			if( $this->format == EDIT_FORMAT_READONLY )
 				$additionalClass.= "form-control-static ";
 			
-			if( count($validate['basicValidate']) && array_search('IsRequired', $validate['basicValidate']) !== false )	
+			if( $validate['basicValidate'] && array_search('IsRequired', $validate['basicValidate']) !== false )	
 				$additionalClass.= "bs-inlinerequired";
 		}
 		else
@@ -216,7 +218,7 @@ class EditControl
 	{
 		if( $this->pageObject->isBootstrap() )
 			echo '</span>';
-		else if(count($validate['basicValidate']) && array_search('IsRequired', $validate['basicValidate'])!==false)
+		else if( $validate['basicValidate'] && array_search('IsRequired', $validate['basicValidate'])!==false)
 			echo'&nbsp;<font color="red">*</font></span>';
 		else
 			echo '</span>';
@@ -242,13 +244,14 @@ class EditControl
 		else
 			$this->webValue = false;
 			
-		if($this->pageObject->pageType == PAGE_EDIT && $this->pageObject->pSetEdit->isReadonly($this->field))
+		if($this->pageObject->pageType == PAGE_EDIT && $this->pageObject->getEditFormat( $this->field) === EDIT_FORMAT_READONLY )
 		{
+			//	??
 			if( $this->pageObject->pSetEdit->getAutoUpdateValue($this->field) ) 
 				$this->webValue = $this->pageObject->pSetEdit->getAutoUpdateValue($this->field);
-			else
-				if($this->pageObject->pSetEdit->getOwnerTable($this->field) != $this->pageObject->pSetEdit->getStrOriginalTableName())
-					$this->webValue = false;
+			else if( !originalTableField( $this->field, $this->pageObject->pSetEdit ) ){
+				$this->webValue = false;
+			}
 		}
 		
 		if(!($this->webValue===false))
@@ -258,224 +261,20 @@ class EditControl
 				if(IsTextType($this->pageObject->pSetEdit->getFieldType($this->field)))
 					$blobfields[] = $this->field;
 			}
+			if($this->field == Security::passwordField() && $this->pageObject->tName == "admin_users")
+			{	
+				$needHashPass = true;
+				if ( $this->pageObject->pageType == PAGE_EDIT )
+				{
+					$oldData = $this->pageObject->getOldRecordData();
+					$needHashPass = $oldData[$this->field] != $this->webValue;
+				}
+
+				if ( $needHashPass )
+					$this->webValue = $this->pageObject->getPasswordHash( $this->webValue );	
+			}
 			$avalues[ $this->field ] = $this->webValue;
 		}
-	} 
-	
-	/**
-	 * @param String strSearchOption
-	 * @return String | Boolean
-	 */
-	function baseSQLWhere($strSearchOption)
-	{
-		if(IsBinaryType($this->type))
-			return false;
-		
-		if( $this->connection->dbType != nDATABASE_MySQL )	
-			$this->btexttype = IsTextType($this->type);
-		
-		if( $this->connection->dbType == nDATABASE_MSSQLServer )
-		{
-			if($this->btexttype && $strSearchOption!="Contains" && $strSearchOption!="Starts with" )
-				return false;
-		}
-		
-		if($strSearchOption != 'Empty')
-			return "";
-		
-		$fullFieldName = $this->getFieldSQLDecrypt();
-		
-		if( IsCharType($this->type) && (!$this->ismssql || !$this->btexttype) && !$this->isOracle )
-			return "(".$fullFieldName." is null or ".$fullFieldName."='')";
-		
-		if( $this->ismssql && $this->btexttype )
-			return "(".$fullFieldName." is null or ".$fullFieldName." LIKE '')";
-		
-		return $fullFieldName." is null";
-	}
-	
-	/**
-	 * Get the WHERE clause conditions string for the search or suggest SQL query
-	 * @param String SearchFor
-	 * @param String strSearchOption
-	 * @param String SearchFor2
-	 * @param String etype
-	 * @param Boolean isSuggest
-	 */
-	function SQLWhere($SearchFor, $strSearchOption, $SearchFor2, $etype, $isSuggest)
-	{
-		$baseResult = $this->baseSQLWhere($strSearchOption);
-		
-		if( $baseResult === false )
-			return "";
-		
-		if( $baseResult != "" )
-			return $baseResult;
-		
-		if( !strlen($SearchFor) && !strlen($SearchFor2) )
-			return "";
-		
-		$value1 = $this->pageObject->cipherer->MakeDBValue($this->field, $SearchFor, $etype, true);
-		$value2 = false;
-		$cleanvalue2 = false;
-		
-		if( $strSearchOption == "Between" )
-		{
-			$cleanvalue2 = prepare_for_db($this->field, $SearchFor2, $etype);
-			$value2 = make_db_value($this->field, $SearchFor2, $etype);
-		}
-			
-		if( $strSearchOption != "Contains" && $strSearchOption != "Starts with" && ($value1 === "null" && $value2 === "null" )
-			&& !$this->pageObject->cipherer->isFieldPHPEncrypted($this->field) )
-		{	
-			return "";
-		}
-		
-		if( ($strSearchOption == "Contains" || $strSearchOption == "Starts with") && !$this->isStringValidForLike($SearchFor) )
-			return "";
-		
-		$searchIsCaseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
-		
-		if( IsCharType($this->type) && !$this->btexttype )
-		{
-			$gstrField = $this->getFieldSQLDecrypt();
-			
-			if( !$this->pageObject->cipherer->isFieldPHPEncrypted($this->field) && $searchIsCaseInsensitive )
-			{
-				if ( strlen($SearchFor) )
-					$value1 = $this->connection->upper( $value1 );
-				if ( strlen($SearchFor2) )
-					$value2 = $this->connection->upper( $value2 );
-				$gstrField = $this->connection->upper( $gstrField );
-			}
-		}	
-		elseif( $strSearchOption == "Contains" || $strSearchOption == "Starts with" )
-		{
-			$gstrField = $this->connection->field2char($this->getFieldSQLDecrypt(), $this->type);
-		}
-		elseif( $this->pageObject->pSetEdit->getViewFormat($this->field) == FORMAT_TIME )
-		{
-			$gstrField = $this->connection->field2time($this->getFieldSQLDecrypt(), $this->type);
-		}
-		else 
-		{
-			$gstrField = $this->getFieldSQLDecrypt();
-		}
-
-		
-		if( $strSearchOption == "Contains" )
-		{
-			if( $this->pageObject->cipherer->isFieldPHPEncrypted($this->field) )
-				return $gstrField."=".$this->pageObject->cipherer->MakeDBValue($this->field, $SearchFor);
-			
-			$SearchFor = $this->connection->escapeLIKEpattern( $SearchFor );
-			
-			if( IsCharType($this->type) && !$this->btexttype && $searchIsCaseInsensitive )
-				return $gstrField." ".$this->like." ".$this->connection->upper( $this->connection->prepareString("%".$SearchFor."%") );
-			
-			return $gstrField." ".$this->like." ".$this->connection->prepareString("%".$SearchFor."%");
-		}
-		
-		if( $strSearchOption == "Equals" ) 
-			return $gstrField."=".$value1;
-		
-		if( $strSearchOption == "Starts with" )
-		{
-			$SearchFor = $this->connection->escapeLIKEpattern( $SearchFor );
-			
-			if( IsCharType($this->type) && !$this->btexttype && $searchIsCaseInsensitive )
-				return $gstrField." ".$this->like." ".$this->connection->upper( $this->connection->prepareString($SearchFor."%") );
-			
-			return $gstrField." ".$this->like." ".$this->connection->prepareString($SearchFor."%");
-		}
-		
-		if( $strSearchOption == "More than" )
-			return $gstrField.">".$value1;
-		
-		if( $strSearchOption == "Less than" ) 
-			return $gstrField."<".$value1;
-		
-		if( $strSearchOption == "Equal or more than" ) 
-			return $gstrField.">=".$value1;
-			
-		if( $strSearchOption == "Equal or less than" )
-			return $gstrField."<=".$value1;
-			
-		if( $strSearchOption == "Between" )
-		{
-			$betweenRange = array();
-			if ( $value1 !== "null" && strlen($SearchFor) )
-			{
-				$betweenRange["from"] = $gstrField.">=".$value1;
-			}
-
-			if ( $value2 !== "null" && strlen($SearchFor2) )
-			{
-				if (IsDateFieldType($this->type))
-				{
-					$timeArr = db2time($cleanvalue2);
-					// for dates without time, add one day
-					if ($timeArr[3] == 0 && $timeArr[4] == 0 && $timeArr[5] == 0)
-					{
-						$timeArr = adddays($timeArr, 1);
-
-						$value2 = mysprintf("%02d-%02d-%02d",$timeArr);
-						$value2 = add_db_quotes($this->field, $value2, $this->pageObject->tName);
-						$betweenRange["to"] = $gstrField . "<" . $value2;
-					}
-					else
-					{
-						$betweenRange["to"] = $gstrField . "<=" . $value2;
-					}
-				}
-				else 
-				{
-					$betweenRange["to"] = $gstrField . "<=" . $value2;
-				}
-			}
-
-			return implode(" and ", $betweenRange);
-		}
-		
-		return "";
-	}
-	
-	/**
-	 * A wrapper for the SearchClause SQLWhere method
-	 */
-	public function getSearchWhere($searchFor, $strSearchOption, $searchFor2, $etype)
-	{
-		return $this->SQLWhere($searchFor, $strSearchOption, $searchFor2, $etype, false);
-	}
-
-	/**
-	 * Get an extra WHERE clause condtion	
-	 * that helps to retrieve a field's search suggest value
-	 * @param String searchOpt
-	 * @param String searchFor
-	 * @param Boolean isAggregateField (optional)
-	 * @return String
-	 */
-	public function getSuggestWhere($searchOpt, $searchFor, $isAggregateField = false) 
-	{
-		if( $isAggregateField )
-			return "";
-		return $this->SQLWhere($searchFor, $searchOpt, "", "", true);
-	}
-	
-	/**
-	 * Get an extra HAVING clause condtion	
-	 * that helps to retrieve a field's search suggest value
-	 * @param String searchOpt
-	 * @param String searchFor
-	 * @param Boolean isAggregateField (optional)
-	 * @return String
-	 */
-	public function getSuggestHaving($searchOpt, $searchFor, $isAggregateField = true)
-	{
-		if( $isAggregateField )
-			return $this->SQLWhere($searchFor, $searchOpt, "", "", true);
-		return "";
 	}
 	
 	/**
@@ -516,10 +315,10 @@ class EditControl
 		$userSearchOptions = $this->pageObject->pSetEdit->getSearchOptionsList( $this->field );
 		
 		$currentOption = $not ? 'NOT '.$selOpt : $selOpt;
-		if( count($userSearchOptions) && isset( $this->searchOptions[ $currentOption ] ) )
+		if( $userSearchOptions && isset( $this->searchOptions[ $currentOption ] ) )
 			$userSearchOptions[] = $currentOption;
 			
-		if( count($userSearchOptions) ) 
+		if( !!$userSearchOptions ) 
 			$optionsArray = array_intersect($optionsArray, $userSearchOptions);
 
 		$defaultOption = $this->pageObject->pSetEdit->getDefaultSearchOption( $this->field );	
@@ -644,14 +443,14 @@ class EditControl
 	function cutSuggestString( $_value, $searchFor ) 
 	{
 		$suggestStringSize = GetGlobalData("suggestStringSize", 40);
-		$caseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
+		$caseIns = $this->pageObject->pSetEdit->getNCSearch();
 		
 		//	split to lines. Line breaks shouldn't appear in the suggested values
 		$lines = explode( "\n", $_value );
 		$value = "";
 		for( $lineIdx = 0; $lineIdx< count( $lines); ++$lineIdx ) {
 			$line = $lines[ $lineIdx ];
-			if( $this->pageObject->pSetEdit->getNCSearch() )
+			if( $caseIns )
 			{
 					// case-insensitive search 
 					$startPos = stripos($line, $searchFor);
@@ -819,7 +618,7 @@ class EditControl
 	protected function getPlaceholderAttr()
 	{
 		if( !$this->searchPanelControl && $this->container->pageType != PAGE_SEARCH )
-			return ' placeholder="'.GetFieldPlaceHolder( GoodFieldname( $this->pageObject->tName ), GoodFieldname( $this->field ) ).'"';
+			return ' placeholder="'.runner_htmlspecialchars(GetFieldPlaceHolder( GoodFieldname( $this->pageObject->tName ), GoodFieldname( $this->field ) )).'"';
 			
 		return "";
 	}
@@ -835,8 +634,10 @@ class EditControl
 	/**
 	 * 	Returns basic condition, where first operand is field itself
 	 */
-	public function getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2 = "" ) {
-		$caseInsensitive = $this->pageObject->pSetEdit->getNCSearch();
+	public function getBasicFieldCondition( $svalue, $strSearchOption, $svalue2 = "", $etype = "" ) {
+		$searchFor = $this->processControlValue( $svalue, $etype );
+		$searchFor2 = $this->processControlValue( $svalue2, $etype );
+		$caseInsensitive = $this->pageObject->pSetEdit->getNCSearch() ? dsCASE_INSENSITIVE : dsCASE_DEFAULT;
 		if( $strSearchOption == EQUALS ) {
 			return DataCondition::FieldEquals( $this->field, $searchFor, 0, $caseInsensitive );
 		} else if( $strSearchOption == STARTS_WITH ) {
@@ -847,7 +648,13 @@ class EditControl
 			return DataCondition::FieldIs( $this->field, dsopMORE, $searchFor, $caseInsensitive );
 		} else if( $strSearchOption == LESS_THAN ) {
 			return DataCondition::FieldIs( $this->field, dsopLESS, $searchFor, $caseInsensitive );
-		} else if( $strSearchOption == BETWEEN && $searchFor != "" && $searchFor2 != "" ) {
+		} else if( $strSearchOption == BETWEEN && ( $searchFor != "" || $searchFor2 != "") ) {
+			if( $searchFor == "" ) {
+				return $this->getSearchCondition( $svalue2, NOT_MORE_THAN, "", $etype );
+			} 
+			if( $searchFor2 == "" ) {
+				return $this->getSearchCondition( $svalue, NOT_LESS_THAN, "", $etype );
+			}
 			return DataCondition::FieldBetween( $this->field, $searchFor, $searchFor2, $caseInsensitive );
 		} else if( $strSearchOption == EMPTY_SEARCH ) {
 			return DataCondition::FieldIs( $this->field, dsopEMPTY, $searchFor );
@@ -855,13 +662,13 @@ class EditControl
 		return null;
 	}
 
-	public function getSearchCondition( $searchFor, $strSearchOption, $searchFor2 = "", $not = false )
+	public function getSearchCondition( $searchFor, $strSearchOption, $searchFor2 = "", $not = false, $etype = "" )
 	{
 		if( substr( $strSearchOption, 0, 4) == "NOT " ) {
 			$strSearchOption = substr( $strSearchOption, 4 );
 			$not = true;
 		}
-		$cond = $this->getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2 );
+		$cond = $this->getBasicFieldCondition( $searchFor, $strSearchOption, $searchFor2, $etype );
 
 		if( $not ) {
 			$cond = DataCondition::_Not( $cond );
@@ -869,6 +676,127 @@ class EditControl
 		return $cond;
 	}
 
+	/**
+	 * Reduce value passed from web to standard format using controlType
+	 * Currently is used for Date and Time controls only
+	 */
+	public function processControlValue( $value, $controlType ) {
+	
+		if(substr($controlType, 0, 4) == "date")
+		{
+			$dformat = substr($controlType, 4);
+			if($dformat == EDIT_DATE_SIMPLE || $dformat == EDIT_DATE_SIMPLE_INLINE || $dformat == EDIT_DATE_SIMPLE_DP)
+			{
+				$time = localdatetime2db($value);
+				if($time == "null")
+					return "";
+				return $time;
+			}
+			else if($dformat == EDIT_DATE_DD || $dformat == EDIT_DATE_DD_INLINE || $dformat == EDIT_DATE_DD_DP)
+			{
+				$a = explode("-",$value);
+				if(count($a) < 3)
+					return "";
+				else
+				{
+					$y = $a[0];
+					$m = $a[1];
+					$d = $a[2];
+				}
+				if($y < 100)
+				{
+					if($y < 70)
+						$y += 2000;
+					else
+						$y += 1900;
+				}
+				return mysprintf("%04d-%02d-%02d",array($y,$m,$d));
+			}
+			else
+				return "";
+		} 
+		else if($controlType == "time")
+		{
+			if(!strlen($value))
+				return "";
+			$ret = localtime2db($value);
+			if( IsDateFieldType( $this->type ) )
+				$ret = "2000-01-01 ".$ret;
+			return $ret;
 
+		}
+	
+		return $value;
+	}
+	
+	/**
+	 *
+	 * @returgn String
+	 */
+	public function getControlMarkup( &$params, $data ) {
+		$fieldNum = 0;
+		if( $params["fieldNum"] )
+			$fieldNum = $params["fieldNum"];
+		
+		$validate = array();
+		if( $params["validate"] )
+			$validate = $params["validate"];
+		
+		$additionalCtrlParams = array();
+		if( $params["additionalCtrlParams"] )
+			$additionalCtrlParams = $params["additionalCtrlParams"];
+		
+		ob_start();
+		
+		$this->buildControl( $data[ $this->field ], $params["mode"], $fieldNum, $validate, $additionalCtrlParams, $data );
+		$markup = ob_get_contents() ;
+		
+		ob_end_clean();
+		return $markup;
+	}
+
+	/**
+	 * 	@return DsCommand - create data command for search suggest
+	 */
+	public function getSuggestCommand( $searchFor, $searchOpt, $numberOfSuggests ) 
+	{
+		$dc = new DsCommand();
+		$dc->filter = DataCondition::_And( array(
+			$this->getSearchCondition( $searchFor, $searchOpt ),
+			Security::SelectCondition( "S", $this->pageObject->pSetEdit )
+		));
+		$dc->totals[] = array(
+			"field" => $this->field,
+			"total" => "distinct"
+		);
+		$dc->skipAggregated = true;
+		$dc->reccount = $numberOfSuggests;
+		return $dc;
+	}
+
+	/**
+	 * Get the field's content
+	 * @param &Array data
+	 * @param Array
+	 * @return String
+	 */
+	public function getDisplayValue( &$data )
+	{
+		$fName = $this->field;
+		$htmlType = $this->pageObject->pSetEdit->getHTML5InputType( $fName );
+		$value = $data[ $fName ];
+		if( $this->format !== EDIT_FORMAT_READONLY ) {
+			if( IsFloatType( $this->type ) && !is_null( $value ) ) {
+				if( $htmlType == "number" ) {
+					//	no thousand delimiters, only dot as decimal delimiter
+					$value = formatNumberForHTML5( $value );
+				} else {
+					$value = formatNumberForEdit( $value );
+				}
+			}
+		}
+		return $value;
+	}
+	
 }
 ?>

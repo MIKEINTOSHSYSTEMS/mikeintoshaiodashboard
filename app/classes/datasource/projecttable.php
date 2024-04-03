@@ -13,6 +13,16 @@ class DataSourceProjectTable extends DataSourceTable {
 		$this->cipherer = new RunnerCipherer( $this->_name );
 	}
 
+	protected function getAutoincField()
+	{
+		foreach ($this->getKeyFields() as $keyField) {
+			if ($this->pSet->isAutoincField($keyField)) {
+				return $keyField;
+			}
+		}
+		return null;
+	}
+
 	protected function getKeyFields() {
 		return $this->pSet->getTableKeys();
 	}
@@ -21,7 +31,7 @@ class DataSourceProjectTable extends DataSourceTable {
 		return $this->pSet->getListOfFieldsByExprType( true );
 	}
 
-	protected function getFieldType( $field ) {
+	public function getFieldType( $field ) {
 		return $this->pSet->getFieldType( $field );
 	}
 
@@ -64,92 +74,57 @@ class DataSourceProjectTable extends DataSourceTable {
 	 * Update single record
 	 * @return Array or false
 	 */
-	public function insertSingle( $dc ) {
-		$this->prepareInsertValues( $dc );
+	public function insertSingle($dc)
+	{
+		$this->prepareInsertValues($dc);
 
 		$table = $this->dbTableName();
 		$fields = array();
 		$values = array();
 
-		foreach( $dc->_cache["sqlValues"] as $sf => $sv ) {
+		foreach ($dc->_cache["sqlValues"] as $sf => $sv) {
 			$fields[] = $sf;
 			$values[] = $sv;
 		}
 
 		$sql = "INSERT INTO "
-			. $this->connection->addTableWrappers( $table )
-			. "(" .implode( ", ", $fields ). ")"
+		. $this->connection->addTableWrappers($table)
+			. "(" . implode(", ", $fields) . ")"
 			. " VALUES "
-			. "(" .implode( ", ", $values ). ")";
+			. "(" . implode(", ", $values) . ")";
 
-		if( $this->connection->execWithBlobProcessing( $sql, $dc->_cache["blobs"], $dc->_cache["blobTypes"] ) ) {
+		$autoincField = $this->getAutoincField();
+		if ($dc->identiyInsertOff && $this->connection->dbType == nDATABASE_MSSQLServer) {
+			// import mode
+			$sqls = array();
+			$sqls[] = "SET IDENTITY_INSERT " . $this->connection->addTableWrappers($table) . " ON";
+			$sqls[] = $sql;
+			$sqls[] = "SET IDENTITY_INSERT " . $this->connection->addTableWrappers($table) . " OFF";
+			$execResult = $this->connection->execMultiple($sqls);
+		} else {
+			//	normal mode, add page etc
+			$execResult = $this->connection->execSilentWithBlobProcessing($sql, $dc->_cache["blobs"], $dc->_cache["blobTypes"], $autoincField);
+		}
+
+		if ($execResult) {
 			$data = $dc->values;
-
-			foreach( $this->getKeyFields() as $keyField ) {
-				if( !array_key_exists( $keyField, $data ) && $this->pSet->isAutoincField( $keyField ) )
-					$data[ $keyField ] = $this->connection->getInsertedId( $keyField, $table, $this->pSet->getOraSequenceName( $keyField ) );
+			if ($autoincField != null && !array_key_exists($autoincField, $data)) {
+				$data[$autoincField] = $this->connection->getInsertedId($autoincField, $table);
 			}
-
 			return $data;
 		}
 
-		$this->setError( $this->connection->lastError() );
+		$this->setError($this->connection->lastError());
 		return false;
 	}
 
 
-	/**
-	 * Returns SQL substitution if the field is BLOB and needs special processing.
-	 */
-	protected function prepareBlob( $field, &$values, &$blobs, &$blobTypes ) {
-		if( !IsBinaryType( $this->getFieldType( $field ) ) )
-			return false;
-
-		global $projectLanguage;
-
-		if( $projectLanguage == "php" ) {
-			if( $this->connection->dbType == nDATABASE_Oracle
-				|| $this->connection->dbType == nDATABASE_DB2
-				|| $this->connection->dbType == nDATABASE_Informix ) {
-
-				$blobKey = $field;
-				if( $this->connection->dbType == nDATABASE_Oracle ) {
-					$blobKey = $this->getUpdateFieldSQL( $field );
-				}
-				$blobs[ $blobKey ] = $values[ $field ];
-				$blobTypes[ $blobKey ] = $this->getFieldType( $field );
-
-				$blobExpression = $this->connection->dbType == nDATABASE_Oracle
-					? "EMPTY_BLOB()"
-					: "?";
-				$values[ $field ] = $blobExpression;
-				return true;
-			}
-		} else if( $projectLanguage == "aspx" ) {
-			if( $this->connection->dbType == nDATABASE_Oracle
-				|| $this->connection->dbType == nDATABASE_SQLite3 ) {
-
-				$blobKey = "bnd" . ( count( $blobs ) + 1 );
-				$blobs[ $blobKey ] = $values[ $field ];
-				$blobTypes[ $blobKey ] = $this->getFieldType( $field );
-
-				$blobExpression = $this->connection->dbType == nDATABASE_Oracle
-					? ":" . $blobKey
-					: "@" . $blobKey;
-				$values[ $field ] = $blobExpression;
-				return true;
-			}
-		} else {
-			//	nothing for ASP?
-		}
-		return false;
-	}
 
 	public function updateMany( $keys, $values ) {
 
 	}
 
-	protected function getUpdateFieldSQL($field)
+	protected function getUpdateFieldSQL( $field )
 	{
 		$strField = $this->pSet->getStrField($field);
 
@@ -165,41 +140,14 @@ class DataSourceProjectTable extends DataSourceTable {
 		return $fname;
 	}
 
-	/**
-	 * save prepared SQL parts into
-	 * $dc->_cache["sqlValues"]
-	 * $dc->_cache["blobs"]
-	 * $dc->_cache["blobTypes"]
-	 */
-	protected function prepareInsertValues( $dc ) {
-		$values = $dc->values;
-		$sqlValues = array();
-		$blobs = array();
-		$blobTypes = array();
-		foreach( $values as $field => $value)
-		{
-			$sqlField = $this->getUpdateFieldSQL( $field );
-			if ( $this->pSet->insertNull( $field ) && trim( $value ) === "" )
-			{
-				$sqlValues[ $sqlField ] = "NULL";
-			} else if( $this->prepareBlob( $field, $values, $blobs, $blobTypes ) ) {
-				$sqlValues[ $sqlField ] = $values[ $field ];
-			} else
-			{
-				$sqlValues[ $sqlField ] = $this->cipherer->AddDBQuotes( $field, $value );
-			}
-		}
-		$dc->_cache["sqlValues"] = &$sqlValues;
-		$dc->_cache["blobs"] = &$blobs;
-		$dc->_cache["blobTypes"] = &$blobTypes;
-	}
+
 
 	/**
 	 * Update single record
 	 * @return Boolean - success or not
 	 */
-	public function updateSingle( $dc ) {
-		if( !count($dc->values) || !count($dc->keys) )
+	public function updateSingle( $dc, $requireKeys = true ) {
+		if( !count($dc->values) && !count($dc->advValues) || ( !count($dc->keys) && $requireKeys ) )
 			return true;
 
 		$this->prepareInsertValues( $dc );
@@ -211,14 +159,14 @@ class DataSourceProjectTable extends DataSourceTable {
 			$fieldList[] = $sf . '=' . $sv;
 		}
 
-		$sql = " UPDATE "
+		$sql = "UPDATE "
 			. $this->connection->addTableWrappers( $table )
 			. " SET "
 			. implode( ",\n ", $fieldList )
 			. " WHERE "
 			. $where;
 
-		if( $this->connection->execWithBlobProcessing( $sql, $dc->_cache["blobs"], $dc->_cache["blobTypes"] ) ) {
+		if( $this->connection->execSilentWithBlobProcessing( $sql, $dc->_cache["blobs"], $dc->_cache["blobTypes"] ) ) {
 			return true;
 		}
 		$this->setError( $this->connection->lastError() );
@@ -229,10 +177,10 @@ class DataSourceProjectTable extends DataSourceTable {
 	 * Delete single record
 	 * @return Boolean - success or not
 	 */
-	public function deleteSingle( $dc ) {
-
-		if( !count($dc->keys) )
+	public function deleteSingle( $dc, $requireKeys = true ) {
+		if( !count($dc->keys) && $requireKeys )
 			return true;
+
 		$table = $this->dbTableName();
 		$where = $this->getWhereClause( $dc );
 
@@ -253,12 +201,48 @@ class DataSourceProjectTable extends DataSourceTable {
 	public function lastAutoincValue( $field ) {
 		$table = $this->dbTableName();
 		if( $this->pSet->isAutoincField( $field ) ) {
-			$oraSequenceName = $this->pSet->getOraSequenceName( $field );
-			return $this->connection->getInsertedId( $field, $table, $oraSequenceName );
+			return $this->connection->getInsertedId( $field, $table );
 		}
 		return "";
 	}
 
+	protected function getColumnCount() {
+		return $this->pSet->getFieldCount();
+	}
+
+	public function getColumnList() {
+		return $this->pSet->getFieldsList();
+	}
+
+	protected function encryptField( $field, $value ) {
+		return $this->cipherer->EncryptField( $field, $value );
+	}
+
+	public function & decryptRecord( &$data ) {
+		return $this->cipherer->DecryptFetchedArray( $data );
+	}
+
+	protected function getOrderClause( $dc, $forceColumnNames = false ) {
+		if( $dc->order ) {
+			return parent::getOrderClause( $dc, $forceColumnNames );
+		}
+		//	use the original ORDER BY clause
+		return $this->pSet->getStrOrderBy();
+	}
+
+	/**
+	 * Returns true when empty string should be interpreted as NULL in insert/update operations
+	 * @return Boolean
+	 */
+	protected function insertNull( $field )
+	{
+		return $this->pSet->insertNull( $field );
+	}
+
+	function prepareInsertSQLValue( $field, $value ) {
+		return $this->cipherer->AddDBQuotes( $field, $value );
+
+	}
 
 }
 

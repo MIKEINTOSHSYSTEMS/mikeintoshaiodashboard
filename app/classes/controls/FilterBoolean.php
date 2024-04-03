@@ -79,11 +79,6 @@ class FilterBoolean extends FilterControl
 						FilterBoolean::getFilterCondition( $this->fName, $v, $this->pSet ),
 						1
 					)
-					/*
-					"ifCondition" => FilterBoolean::getFilterCondition( $this->fName, $v, $this->pSet ),
-					"thenField" => $this->fName,
-					"elseConst" => 'null'
-					*/
 				);				
 			}
 		}

@@ -65,48 +65,30 @@ class TLayout
 		if( $rtl )
 			$suffix = "RTL";
 			
-		if( $this->version == BOOTSTRAP_LAYOUT )
-		{
-			$files[] = "include/bootstrap/css/bootstrap.min.css";
-			if(strlen($this->bootstrapTheme))
-				$files[] = "styles/bootstrap/".$this->bootstrapTheme."/css/bootstrap-theme.min.css";
-			else
-				$files[] = "include/bootstrap/css/bootstrap-theme.min.css";
-
-				if($pdf)
-				$files[] = "styles/pdf.css";
-
-			$files[] = "styles/bs".$suffix.".css";
-
-			// tweaks.css must follow bs.css
-			if(strlen($this->bootstrapTheme))
-			{
-				if( file_exists( getabspath( "styles/bootstrap/".$this->bootstrapTheme."/css/tweaks".$suffix.".css" ) ) )
-					$files[] = "styles/bootstrap/".$this->bootstrapTheme."/css/tweaks".$suffix.".css";
-			}
-
-			if( file_exists( getabspath( "styles/custom/custom.css" ) ) )
-				$files[] = "styles/custom/custom".$suffix.".css";
-			
-			if( strlen( $this->customCssPageName ) && file_exists( getabspath( "styles/custom/".$this->customCssPageName.".css" ) ) )
-				$files[] = "styles/custom/".$this->customCssPageName.$suffix.".css";
-		}
+		$files[] = "include/bootstrap/css/bootstrap.min.css";
+		if(strlen($this->bootstrapTheme))
+			$files[] = "styles/bootstrap/".$this->bootstrapTheme."/css/bootstrap-theme.min.css";
 		else
+			$files[] = "include/bootstrap/css/bootstrap-theme.min.css";
+
+		if($pdf)
+			$files[] = "styles/pdf.css";
+
+		$files[] = "styles/bs".$suffix.".css";
+
+		// tweaks.css must follow bs.css
+		if(strlen($this->bootstrapTheme))
 		{
-			$files[] = "styles/general.css";
-			if($this->version == 1)
-				$files[] = "styles/defaultOld.css";
-			$pageStyle = $this->style;
-			if($pdf)
-				$pageStyle = $this->pdfStyle();
-			$files[] = "styles/".$pageStyle."/style".($rtl ? 'RTL' : '').".css";
-			if($this->version == 1)
-				$files[] = "styles/".$pageStyle."/style".($rtl ? 'RTL' : '')."Old.css";
-			if($mobile)
-				$files[] = "pagestyles/mobile/".$this->name.($rtl ? 'RTL' : '').".css";
-			else
-				$files[] = "pagestyles/".$this->name.($rtl ? 'RTL' : '').".css";
+			if( file_exists( getabspath( "styles/bootstrap/".$this->bootstrapTheme."/css/tweaks".$suffix.".css" ) ) )
+				$files[] = "styles/bootstrap/".$this->bootstrapTheme."/css/tweaks".$suffix.".css";
 		}
+
+		if( file_exists( getabspath( "styles/custom/custom.css" ) ) )
+			$files[] = "styles/custom/custom".$suffix.".css";
+		
+		if( strlen( $this->customCssPageName ) && file_exists( getabspath( "styles/custom/".$this->customCssPageName.".css" ) ) )
+			$files[] = "styles/custom/".$this->customCssPageName.$suffix.".css";
+
 		return $files;
 	}
 };

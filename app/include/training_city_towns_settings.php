@@ -60,14 +60,9 @@ $tdatatraining_city_towns[".showEditInPopup"] = false;
 
 $tdatatraining_city_towns[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatatraining_city_towns[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatatraining_city_towns[".listAjax"] = false;
 //	temporary
-$tdatatraining_city_towns[".listAjax"] = false;
+//$tdatatraining_city_towns[".listAjax"] = false;
 
 	$tdatatraining_city_towns[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatatraining_city_towns[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatatraining_city_towns[".isUseAjaxSuggest"] = true;
 
-$tdatatraining_city_towns[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatatraining_city_towns[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatatraining_city_towns[".strOrderBy"] = $tstrOrderBy;
 
 $tdatatraining_city_towns[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_city_towns","CityTownID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("training_city_towns","CityTownName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatatraining_city_towns[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["training_city_towns"] = &$fieldToolTipstraining_city_towns;
 $placeHolders["training_city_towns"] = &$placeHolderstraining_city_towns;
 $page_titles["training_city_towns"] = &$pageTitlestraining_city_towns;
 
+
+changeTextControlsToDate( "training_city_towns" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["training_city_towns"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["training_city_towns"] = array();
@@ -675,7 +673,6 @@ $tdatatraining_city_towns[".sqlquery"] = $queryData_training_city_towns;
 
 
 
-$tableEvents["training_city_towns"] = new eventsBase;
 $tdatatraining_city_towns[".hasEvents"] = false;
 
 ?>

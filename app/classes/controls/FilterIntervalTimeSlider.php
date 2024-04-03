@@ -129,12 +129,5 @@ class FilterIntervalTimeSlider extends FilterIntervalDateSlider
 		
 		$pageObj->controlsMap["filters"]["controls"][] = $ctrlsMap;	
 	}
-	
-	/**
-	 * @deprecated
-	 * stub for search suggest
-	 */
-	static function getTimeSliderWhere($fName, $pSet, $cipherer, $table, $SearchFor, $SearchFor2, $strSearchOption, $fullFieldName) {
-	}
 }
 ?>

@@ -11,6 +11,7 @@ if( !$table )
 	exit(0);
 
 $pageType = postvalue("pageType");
+$pageName = postvalue("page");
 $fieldName = postvalue("fieldName");
 $fieldControlType = postvalue("fieldControlType");
 $value = postvalue("value");
@@ -18,59 +19,62 @@ $value = postvalue("value");
 if( !Security::userHasFieldPermissions( $table, $fieldName, $pageType, $pageName, true ) )
 	return;
 
-// set db connection
-$_connection = $cman->byTable( $table );
-
-$pSet = new ProjectSettings($table, $pageType);
+$pSet = new ProjectSettings( $table, $pageType );
 $denyChecking = $pSet->allowDuplicateValues( $fieldName );
+
 $regEmailMode = false;
 $regUsernameMode = false;
+$userNameField = Security::usernameField();
+if( Security::registerPage() && $table == Security::loginDataSource() ) {
+	$regEmailMode = $fieldName == Security::emailField();
+	$regUsernameMode = $fieldName == $userNameField;
+	$denyChecking = $denyChecking && $fieldName != $userNameField && $fieldName != Security::emailField();
+}
 
-
-if( $denyChecking )
-{
-	$returnJSON = array("success" => false, "error" => "Duplicated values are allowed");
-	echo printJSON($returnJSON);
+if( $denyChecking ) {
+	$returnJSON = array( "success" => false, "error" => "Duplicated values are allowed" );
+	echo printJSON( $returnJSON) ;
 	return;
 }
 
-$cipherer = new RunnerCipherer($table, $pSet);
+// set db connection
+$_connection = $cman->byTable( $table );
+$dataSource = getDataSource( $table, $pSet, $_connection );
+$dc = new DsCommand();
 
-if( $cipherer->isFieldEncrypted($fieldName) )
-	$value = $cipherer->MakeDBValue($fieldName, $value, $fieldControlType, true);	
-else
-	$value = make_db_value($fieldName, $value, $fieldControlType, "", $table);
+$dc->totals = array();
+$dc->totals[] = array(
+	"total" => "count",
+	"alias" => "count_".$fieldName,
+	"field" => $fieldName,
+);
 
-if( $value == "null" )
-{
-	$fieldSQL = RunnerPage::_getFieldSQL($fieldName, $_connection, $pSet);
-}
-else
-{
-	$fieldSQL = RunnerPage::_getFieldSQLDecrypt($fieldName, $_connection, $pSet, $cipherer);
-}
-$where = $fieldSQL . ( $value == "null" ? ' is ' : '=' ) . $value; 
+$dc->filter = DataCondition::FieldEquals( $fieldName, $value, 0, dsCASE_DEFAULT ); 
 
-/* emails should always be compared case-insensitively */
+// emails should always be compared case-insensitively
 if( $regEmailMode ) {
-	$where = $_connection->comparisonSQL( $fieldSQL, $value, true );
+	$dc->filter = DataCondition::FieldEquals( $fieldName, $value, 0, dsCASE_INSENSITIVE ); 
 }
-/* username on register page */
+// username on register page
 if( $regUsernameMode ) {
-	$where = $_connection->comparisonSQL( $fieldSQL, $value, $pSet->isCaseInsensitiveUsername() );
+	$where = $_connection->comparisonSQL( $fieldSQL, $value, Security::caseInsensitiveUsername() );
+	$dc->filter = DataCondition::FieldEquals( $fieldName, $value, 0, 
+		Security::caseInsensitiveUsername() ? dsCASE_INSENSITIVE : dsCASE_STRICT );
 }
-$sql = "SELECT count(*) from ".$_connection->addTableWrappers( $pSet->getOriginalTableName() )." where ".$where;
 
-$qResult = $_connection->query( $sql );
-if( !$qResult || !($data = $qResult->fetchNumeric()) )
-{
-	$returnJSON = array("success" => false, "error" => "Error: Wrong SQL query");
-	echo printJSON($returnJSON);
+$qResult = $dataSource->getTotals( $dc );
+if( !$qResult ) {
+	$returnJSON = array( "success" => false, "error" => "Error: Wrong SQL query" );
+	echo printJSON( $returnJSON );
 	return;
 }
 
-$hasDuplicates = $data[0] ? true : false;
-$returnJSON = array("success" => true, "hasDuplicates" => $hasDuplicates, "error"=>"");	
-echo printJSON($returnJSON);
+$hasDuplicates = false;
+$data = $qResult->fetchAssoc();
+if( $data )
+	$hasDuplicates = $data[ "count_".$fieldName ] ? true : false;
+
+$returnJSON = array( "success" => true, "hasDuplicates" => $hasDuplicates, "error" => "" );	
+echo printJSON( $returnJSON );
 return;
 ?>

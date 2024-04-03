@@ -140,13 +140,11 @@ class ListPage extends RunnerPage
 	 * records weren't deleted due locking
 	 * @type Array
 	 */
-	protected $lockDelRec;
+	protected $lockDelRec = array();
 
 	public $firstTime = 0;
 
 	protected $gMapFields = array();
-
-	public $nLoginMethod; //fix it
 
 	/**
 	 * Types of all fields in a list row
@@ -194,8 +192,14 @@ class ListPage extends RunnerPage
 
 	protected $fieldsWithRawValues = array();
 
-	protected $queryCommand = null;
+	protected $editPage = null;
 
+	/**
+	 * goto field value from the request
+	 */
+	public $requestGoto = null;
+	
+	
 	/**
 	 * Constructor, set initial params
 	 * @param array $params
@@ -240,6 +244,14 @@ class ListPage extends RunnerPage
 		if($this->searchClauseObj) //for asp & .net
 			$this->jsSettings['tableSettings'][$this->tName]['simpleSearchActive'] = $this->searchClauseObj->simpleSearchActive;
 
+		if( $this->pSet->reorderRows() ) {
+			$this->jsSettings['tableSettings'][ $this->tName ]['reorderRows'] = true;
+		}
+		$this->jsSettings['tableSettings'][ $this->tName ]['addToBottom'] = $this->pSet->inlineAddBottom();
+
+
+	
+
 		for($i = 0; $i < count($this->allDetailsTablesArr); $i ++)
 		{
 			// get perm for det tables
@@ -276,8 +288,9 @@ class ListPage extends RunnerPage
 		$this->jsSettings['tableSettings'][$this->tName]['scrollGridBody'] = (( $this->listGridLayout == gltHORIZONTAL || $this->listGridLayout == gltFLEXIBLE )&& $this->isScrollGridBody);
 
 		$this->jsSettings['tableSettings'][$this->tName]['permissions'] = $this->permis[$this->tName];
-		if($this->pSet->getAdvancedSecurityType() == ADVSECURITY_EDIT_OWN)
+		if($this->pSet->getAdvancedSecurityType() == ADVSECURITY_EDIT_OWN) {
 			$this->jsSettings['tableSettings'][$this->tName]['isEditOwn'] = $this->permis[$this->tName];
+		}
 
 		$this->settingsMap["tableSettings"]['inlineEdit'] = array("default"=>false,"jsName"=>"isInlineEdit", "option" => array("list", "inlineEdit") );
 		$this->settingsMap["tableSettings"]['inlineAdd'] = array("default"=>false,"jsName"=>"isInlineAdd", "option" => array("list", "inlineAdd"));
@@ -295,8 +308,6 @@ class ListPage extends RunnerPage
 
 		$this->processClickAction();
 
-		$this->addPopupLayoutNamesToSettings();
-
 		$this->createOrderByObject();
 
 		// init setting for params in hash URL for ajax list
@@ -307,6 +318,12 @@ class ListPage extends RunnerPage
 
 		// RunnerPage fillTableSettings doesn't work well with listGridLayout key
 		$this->jsSettings['tableSettings'][ $this->tName ]['listGridLayout'] = $this->listGridLayout;
+		
+		if( $this->spreadsheetGridApplicable() ) {
+			$this->pageData['spreadsheet'] = true;
+			$this->jsSettings['tableSettings'][ $this->tName ]['autoAddNewRecord'] = $this->pSet->addNewRecordAutomatically();
+			$this->setupRelatedInlineEditPage();
+		}
 	}
 
 	protected function createOrderByObject() {
@@ -441,17 +458,6 @@ class ListPage extends RunnerPage
 	}
 
 	/**
-	 * Add array popupPagesLayoutNames data to the current table settings
-	 * if it makes sense
-	 */
-	protected function addPopupLayoutNamesToSettings()
-	{
-		$layoutNames = $this->pSet->getPopupPagesLayoutNames();
-		if( count( $layoutNames ) )
-			$this->jsSettings['tableSettings'][$this->tName]['popupPagesLayoutNames'] = $this->pSet->getPopupPagesLayoutNames();
-	}
-
-	/**
 	 * Add common html code for all modes on list page
 	 */
 	function addCommonHtml()
@@ -486,6 +492,11 @@ class ListPage extends RunnerPage
 		{
 			$this->AddCSSFile("include/jquery-ui/smoothness/jquery-ui.min.css");
 			$this->AddCSSFile("include/jquery-ui/smoothness/jquery-ui.theme.min.css");
+		}
+		
+		if( $this->spreadsheetGridApplicable() ) {
+			$this->editPage->addControlsJSAndCSS();
+			$this->includes_js = array_merge( $this->includes_js, $this->editPage->includes_js );
 		}
 	}
 
@@ -534,10 +545,13 @@ class ListPage extends RunnerPage
 	{
 		parent::processMasterKeyValue();
 
+		/*
+		// obsolete ?
 		//	reset search and page number
 		$_SESSION[$this->sessionPrefix."_search"] = 0;
 		if($this->firstTime)
 			$_SESSION[$this->sessionPrefix."_pagenumber"] = 1;
+		*/
 	}
 
 	/**
@@ -580,8 +594,8 @@ class ListPage extends RunnerPage
 
 
 		//set session goto
-		if(@$_REQUEST["goto"])
-			$_SESSION[$this->sessionPrefix."_pagenumber"]= @$_REQUEST["goto"];
+		if( $this->requestGoto )
+			$_SESSION[$this->sessionPrefix."_pagenumber"]= $this->requestGoto;
 
 
 
@@ -632,6 +646,10 @@ class ListPage extends RunnerPage
 		if( @$_REQUEST["a"] != "delete" )
 			return;
 
+		//	CSRF protection
+		if( !isPostRequest() )
+			return;
+
 		$message_class = "alert-warning";
 		$this->deleteMessage = "";
 		if(@$_REQUEST["mdelete"])
@@ -666,21 +684,10 @@ class ListPage extends RunnerPage
 		$this->lockDelRec = array();
 		foreach($this->selectedRecs as $keys)
 		{
-			$where = KeyWhere($keys, $this->tName);
-			$mandatoryWhere = array();
-			$mandatoryWhere[]= $where;
-
-			//	delete only owned records
-			if($this->nSecOptions != ADVSECURITY_ALL && $this->nLoginMethod == SECURITY_TABLE && $this->createLoginPage)
-			{
-				$where = whereAdd($where, $this->SecuritySQL("Delete" ) );
-				$mandatoryWhere[] = $this->SecuritySQL("Delete" );
-			}
-
 			$dc = $this->getDeleteCommand( $keys );
 
 			$retval = true;
-			
+
 			$deletedResult = $this->dataSource->getSingle( $dc );
 			$deleted_values = $deletedResult
 				? $this->cipherer->DecryptFetchedArray( $deletedResult->fetchAssoc() )
@@ -690,6 +697,10 @@ class ListPage extends RunnerPage
 			{
 				if(!$globalEvents->IsRecordEditable($deleted_values, true, $this->tName))
 					continue;
+			}
+			if( $this->eventExists("BeforeDelete") || $this->eventExists("AfterDelete") ) {
+				$prep = $this->dataSource->prepareSQL( $dc );
+				$where = $prep["where"];
 			}
 
 			if($this->eventExists("BeforeDelete"))
@@ -727,9 +738,9 @@ class ListPage extends RunnerPage
 				// delete associated uploaded files if any
 				DeleteUploadedFiles($this->pSet, $deleted_values);
 
-				//LogInfo($strSQL);
-				//$this->connection->exec( $strSQL );
-				$this->dataSource->deleteSingle( $dc );
+				if( !$this->dataSource->deleteSingle( $dc ) ) {
+					$this->deleteMessage .= ( $this->deleteMessage ? '<br>' : '' ) . $this->dataSource->lastError();
+				}
 
 				if($this->audit && $deleted_values)
 				{
@@ -745,7 +756,22 @@ class ListPage extends RunnerPage
 					}
 					$this->audit->LogDelete($this->tName, $deleted_audit_values, $keys);
 				}
-		
+				if ( $this->tName == ADMIN_USERS && Security::dynamicPermissions() ) {
+					// delete _ugmembers corr. rec.
+					$dataSource = Security::getUgMembersDatasource();
+					
+					$user = $deleted_values[ Security::usernameField() ];
+					//	TODO - delete plugin user
+					$dc = new DsCommand();
+					$dc->filter = DataCondition::FieldEquals( 
+						"UserName", 
+						$user, 
+						0, 
+						Security::caseInsensitiveUsername() ? dsCASE_INSENSITIVE : dsCASE_STRICT 
+					);
+					
+					$dataSource->deleteSingle( $dc, false );
+				}
 				if($this->eventExists("AfterDelete"))
 				{
 					RunnerContext::pushRecordContext( $deleted_values, $this );
@@ -758,15 +784,16 @@ class ListPage extends RunnerPage
 				}
 			}
 
-			if (strlen($this->deleteMessage))
-			{
-				$this->xt->assignbyref("message", $this->deleteMessage);
-				$this->xt->assignbyref( "message_class", $message_class );
-				$this->xt->assign("message_block",true);
-			}
 		}
 		if( count($this->selectedRecs) && $this->eventExists("AfterMassDelete") )
 			$this->eventsObject->AfterMassDelete($this->recordsDeleted, $this);
+		
+		if ( $this->deleteMessage ) {
+			$this->xt->assignbyref("message", $this->deleteMessage);
+			$this->xt->assignbyref( "message_class", $message_class );
+			$this->xt->assign("message_block",true);
+		}
+
 	}
 
 	/**
@@ -812,7 +839,6 @@ class ListPage extends RunnerPage
 	{
 		parent::commonAssign();
 
-		$this->xt->assign("id", $this->id);
 		$this->xt->assignbyref("body", $this->body);
 
 		$this->xt->assign("newrecord_controls_block", $this->inlineAddAvailable() || $this->addAvailable() );
@@ -883,7 +909,6 @@ class ListPage extends RunnerPage
 		//cansel all link, attr, span
 		$this->cancelAllLinkAttrs();
 
-		$this->assignDetailsTablesBadgeColors();
 		$this->hideItemType("details_preview");
 		$this->hideItemType("grid_inline_save");
 		$this->hideItemType("grid_inline_cancel");
@@ -894,6 +919,12 @@ class ListPage extends RunnerPage
 	 */
 	function addAssignForGrid()
 	{
+		if( !$this->rowsFound && $this->listAjax ) {
+			$this->deleteSelectedLink();
+			$this->hideItem("delete");
+		}
+		
+		
 		if( !$this->isDispGrid() )
 			return;
 
@@ -966,7 +997,7 @@ class ListPage extends RunnerPage
 			$this->xt->assign("edit_footercolumn", true);
 		}
 
-		if( $this->inlineEditAvailable() )
+		if( $this->inlineEditAvailable() && !$this->spreadsheetGridApplicable() )
 		{
 			$this->xt->assign("inlineedit_column", true);
 			$this->xt->assign("inlineedit_headercolumn", true);
@@ -977,6 +1008,11 @@ class ListPage extends RunnerPage
 		{
 			$this->xt->assign("inline_cancel", true);
 			$this->xt->assign("inline_save", true);
+		}
+
+		if( $this->inlineAddAvailable() && $this->spreadsheetGridApplicable() ) {
+			$this->xt->assign("grid_inline_add_link", true);
+			
 		}
 
 		//copy link
@@ -1128,21 +1164,27 @@ class ListPage extends RunnerPage
 	/**
 	 * Assign saveAll link and attrs
 	 */
-	function saveAllLinkAttrs()
-	{
-		$this->xt->assign("saveall_link",$this->permis[$this->tName]['edit'] || $this->permis[$this->tName]['add']);
-		$this->xt->assign("savealllink_span",$this->buttonShowHideStyle('saveall'));
-		$this->xt->assign("savealllink_attrs","name=\"saveall_edited".$this->id."\" id=\"saveall_edited".$this->id."\"");
+	function saveAllLinkAttrs() {
+		if( $this->spreadsheetGridApplicable() ) {
+			$this->xt->assign("saveall_link", false);
+			return;
+		}
+		$this->xt->assign("saveall_link", $this->permis[$this->tName]['edit'] || $this->permis[$this->tName]['add']);
+		$this->xt->assign("savealllink_span", $this->buttonShowHideStyle('saveall'));
+		$this->xt->assign("savealllink_attrs", "name=\"saveall_edited".$this->id."\" id=\"saveall_edited".$this->id."\"");
 	}
 
 	/**
 	 * Assign cancelAll link and attrs
 	 */
-	function cancelAllLinkAttrs()
-	{
-		$this->xt->assign("cancelall_link",$this->permis[$this->tName]['edit'] || $this->permis[$this->tName]['add']);
-		$this->xt->assign("cancelalllink_span",$this->buttonShowHideStyle('cancelall'));
-		$this->xt->assign("cancelalllink_attrs","name=\"revertall_edited".$this->id."\" id=\"revertall_edited".$this->id."\"");
+	function cancelAllLinkAttrs() {
+		if( $this->spreadsheetGridApplicable() ) {
+			$this->xt->assign("cancelall_link", false);
+			return;
+		}		
+		$this->xt->assign("cancelall_link", $this->permis[$this->tName]['edit'] || $this->permis[$this->tName]['add']);
+		$this->xt->assign("cancelalllink_span", $this->buttonShowHideStyle('cancelall'));
+		$this->xt->assign("cancelalllink_attrs", "name=\"revertall_edited".$this->id."\" id=\"revertall_edited".$this->id."\"");
 	}
 
 	/**
@@ -1179,217 +1221,12 @@ class ListPage extends RunnerPage
 		return '';
 	}
 
-	/**
-	 * Seeks recs, depending on page number etc.
-	 * @param string $strSQL
-	 */
-	protected function seekPageInRecSet( $strSQL )
-	{
-		$listarray = false;
-
-		if( $this->eventExists("ListQuery") )
-		{
-			$orderData = $this->orderClause->getListQueryData();
-
-			$listarray = $this->eventsObject->ListQuery( $this->searchClauseObj, $orderData["fieldsForSort"], $orderData["howToSortData"],
-				$this->masterTable, $this->masterKeysReq, null, $this->pageSize, $this->myPage, $this );
-		}
-
-		if( $listarray !== false )
-			$this->recSet = $listarray;
-		else
-			$this->recSet = $this->connection->queryPage( $strSQL, $this->myPage, $this->pageSize, $this->maxPages > 1 );
-	}
-
-	protected function getSubsetSQLComponents() {
-
-		$sql = parent::getSubsetSQLComponents();
-
-		if( $this->connection->dbType == nDATABASE_DB2 )
-			$sql["sqlParts"]["head"] .= ", ROW_NUMBER() over () as DB2_ROW_NUMBER ";
-
-		//	security
-		$sql["mandatoryWhere"][] = $this->SecuritySQL("Search" );
-
-		//	no records on first page
-		if( $this->mode != LIST_DETAILS && $this->noRecordsFirstPage && !$this->isSearchFunctionalityActivated() )
-			$sql["mandatoryWhere"][] = "1=0";
-
-		//	add details subqueries
-		$detailsSubqueries = $this->getMasterDetailSubQuery();
-		if( $detailsSubqueries )
-			$sql["sqlParts"]["head"] .= ", " . implode( ", ", $detailsSubqueries );
-
-		return $sql;
-	}
-
 	public function getOrderByClause()
 	{
 		// use builtin orderClause object
 		return $this->orderClause->getOrderByExpression();
 	}
 
-	/**
-	 * Builds SQL query, for retrieve data from DB
-	 */
-	function buildSQL()
-	{
-		$sql = $this->getSubsetSQLComponents();
-//	build SQL
-		$strSQL = SQLQuery::buildSQL( $sql["sqlParts"], $sql["mandatoryWhere"], $sql["mandatoryHaving"], $sql["optionalWhere"], $sql["optionalHaving"] );
-		$countSQL = $strSQL;
-
-		$strOrderBy = $this->getOrderByClause();
-		$strSQL.= " ".trim( $strOrderBy );
-
-//	do Before SQL Query event
-		$strSQLbak = $strSQL;
-		$sqlModifiedInEvent = false;
-		$whereModifiedInEvent = false;
-		$orderbyModifiedInEvent = false;
-
-		if( $this->eventsObject->exists("BeforeQueryList") )
-		{
-			$tstrWhereClause = SQLQuery::combineCases( array(
-					SQLQuery::combineCases( $sql["mandatoryWhere"], "and" ),
-					SQLQuery::combineCases( $sql["optionalWhere"], "or" )
-				), "and" );
-
-			$strWhereBak = $tstrWhereClause;
-			$tstrOrderBy = $strOrderBy;
-
-			$this->eventsObject->BeforeQueryList($strSQL, $tstrWhereClause, $tstrOrderBy, $this);
-
-			$whereModifiedInEvent = ( $tstrWhereClause != $strWhereBak );
-			$orderbyModifiedInEvent = ( $tstrOrderBy != $strOrderBy );
-			$sqlModifiedInEvent = ( $strSQL != $strSQLbak );
-
-			$strOrderBy = $tstrOrderBy;
-
-
-			//	Rebuild SQL if needed
-			if( $sqlModifiedInEvent )
-			{
-
-				//	changed $strSQL - old style
-				$this->numRowsFromSQL = GetRowCount($strSQL, $this->connection);
-			}
-			else if( $whereModifiedInEvent )
-			{
-				$strSQL = SQLQuery::buildSQL($sql["sqlParts"], array( $tstrWhereClause ), $sql["mandatoryHaving"] );
-				$countSQL = $strSQL;
-				$strSQL.= " ".trim( $strOrderBy );
-			}
-			else if( $orderbyModifiedInEvent )
-			{
-				$strSQL = SQLQuery::buildSQL($sql["sqlParts"], $sql["mandatoryWhere"], $sql["mandatoryHaving"], $sql["optionalWhere"], $sql["optionalHaving"] );
-				$countSQL = $strSQL;
-				$strSQL.= " ".trim( $strOrderBy );
-			}
-		}
-
-//	custom GetRowCount event:
-		$rowcount = false;
-
-		if($this->eventExists("ListGetRowCount"))
-		{
-			$rowcount = $this->eventsObject->ListGetRowCount($this->searchClauseObj, $this->masterTable, $this->masterKeysReq, null, $this);
-			if( $rowcount !== false )
-				$this->numRowsFromSQL = $rowcount;
-		}
-
-//	normal mode row count
-		if( $rowcount === false && !$sqlModifiedInEvent )
-		{
-			$this->numRowsFromSQL = $this->connection->getFetchedRowsNumber( $countSQL );
-		}
-
-		$this->numRowsFromSQL = $this->limitRowCount( $this->numRowsFromSQL );
-
-		// check if we need to count details number using a sub-query when numRowsFromSQL prop is calculated
-		if( $this->useDetailsCountBySubquery() )
-		{
-			// rebuild SQL query to add a details counting sub-query #12991
-			// when numRowsFromSQL isn't set the sub-query doesn't go to SQLComponents subset
-			$sql = $this->getSubsetSQLComponents();
-			$strSQL = SQLQuery::buildSQL( $sql["sqlParts"], $sql["mandatoryWhere"], $sql["mandatoryHaving"], $sql["optionalWhere"], $sql["optionalHaving"] );
-			$strSQL.= " ".trim( $this->getOrderByClause() );
-		}
-
-		LogInfo($strSQL);
-		$this->querySQL = $strSQL;
- 	}
-
-
-
-	/**
-	 * Returns array of subqueries for counting details records
-	 * These queries should be added to the select-list of the main SQL query
-	 * @return Array
-	 */
-	protected function getMasterDetailSubQuery()
-	{
-		if( $this->numRowsFromSQL == 0 )
-			return array();
-
-		$ret = array();
-
-		for($i = 0; $i < count($this->allDetailsTablesArr); $i++)
-		{
-			$detailData = $this->allDetailsTablesArr[$i];
-			$dataSourceTName = $detailData['dDataSourceTable'];
-
-			if( !$this->pSet->detailsShowCount( $dataSourceTName ) && !$this->pSet->detailsHideEmpty( $dataSourceTName ) )
-				continue;
-
-
-			if( !$this->isDetailTableSubquerySupported( $dataSourceTName, $i ) )
-				continue;
-
-			$detailsSettings = $this->pSet->getTable($dataSourceTName);
-			$detailsQuery = $detailsSettings->getSQLQuery();
-			$detailsSqlWhere = $detailsQuery->WhereToSql();
-
-			$masterWhere = "";
-			foreach($this->masterKeysByD[$i] as $idx => $val)
-			{
-				if($masterWhere)
-					$masterWhere.= " and ";
-
-				$masterWhere.= $this->cipherer->GetFieldName( $this->connection->addTableWrappers("subQuery_cnt")."."
-						.$this->connection->addFieldWrappers($this->detailKeysByD[$i][$idx]), $this->masterKeysByD[$i][$idx] )
-					."=".$this->cipherer->GetFieldName( $this->connection->addTableWrappers($this->origTName)."."
-						.$this->connection->addFieldWrappers($this->masterKeysByD[$i][$idx]), $this->masterKeysByD[$i][$idx] );
-			}
-
-			//	add a key field to the select list
-			$subQ = "";
-			foreach($this->detailKeysByD[$i] as $k)
-			{
-				if( strlen($subQ) )
-					$subQ.= ",";
-				$subQ.= RunnerPage::_getFieldSQL($k, $this->connection, $detailsSettings);
-			}
-			$subQ = "SELECT ".$subQ." ".$detailsQuery->FromToSql();
-
-			//	add security where clause for sub query
-			$securityClause = SecuritySQL("Search", $dataSourceTName);
-			if( strlen($securityClause) )
-				$subQ.= " WHERE ".whereAdd($detailsSqlWhere, $securityClause);
-			elseif( strlen($detailsSqlWhere) )
-				$subQ.= " WHERE ".whereAdd("", $detailsSqlWhere);
-
-			$subQ.= " ".$detailsQuery->GroupByHavingToSql();
-
-			$countsql = "SELECT count(*) FROM (".$subQ.") ".$this->connection->addTableWrappers("subQuery_cnt")." WHERE ".$masterWhere;
-			$ret[] = "(".$countsql.") as ".$this->connection->addFieldWrappers( $dataSourceTName."_cnt" );
-
-			$this->addedDetailsCountSubqueries[ $dataSourceTName ] = true;
-		}
-
-		return $ret;
-
-	}
 
 	/**
 	 * Check if its possible to add to the main table query a subquery that contes the number of details. #9875
@@ -1414,12 +1251,19 @@ class ListPage extends RunnerPage
 	 */
 	protected function useDetailsCountBySubquery()
 	{
-		 //	mind ASP conversion before modifying this code!!!
-		 $manyPages = false;
-		 if( $this->numRowsFromSQL > 0 )
-			 $manyPages = ($this->pageSize / $this->numRowsFromSQL < 0.1);
+		$entType = $this->pSet->getEntityType();
+		if( $entType !== titTABLE && $entType !== titVIEW ) {
+			return false;
+		}
+		//	mind ASP conversion before modifying this code!!!
+		$manyPages = false;
+		if( $this->numRowsFromSQL > 0 )
+			$manyPages = ($this->pageSize / $this->numRowsFromSQL < 0.1);
+		if( $this->pageSize < 0 ) {
+			$manyPages = false;
+		}
 
-		 return count($this->allDetailsTablesArr) > 0 &&
+		return count($this->allDetailsTablesArr) > 0 &&
 			( max($this->pageSize, $this->numRowsFromSQL) <= 20
 			|| $manyPages )
 			&& !$this->eventExists("BeforeQueryList")
@@ -1472,7 +1316,9 @@ class ListPage extends RunnerPage
 	 */
 	protected function isInlineAreaToSet()
 	{
-		return $this->inlineAddAvailable() || $this->addAvailable() && $this->showAddInPopup;
+		return $this->inlineAddAvailable() 
+		|| $this->addAvailable() && $this->showAddInPopup 
+		|| $this->spreadsheetGridApplicable() && $this->pSet->addNewRecordAutomatically() && $this->permis[$this->tName]["add"];
 	}
 
 	/**
@@ -1529,7 +1375,9 @@ class ListPage extends RunnerPage
 			$dDataSourceTable = $this->allDetailsTablesArr[$i]['dDataSourceTable'];
 			$dShortTable = $this->allDetailsTablesArr[$i]['dShortTable'];
 
-			$record[$dShortTable."_dtable_link"]=($this->permis[$dDataSourceTable]['add'] || $this->permis[$dDataSourceTable]['search']);
+			if( $this->detailInGridAvailable( $this->allDetailsTablesArr[$i] ) ) {
+				$record[$dShortTable."_dtable_link"] = ($this->permis[$dDataSourceTable]['add'] || $this->permis[$dDataSourceTable]['search']);
+			}
 
 			if( $this->pSet->detailsShowCount( $dDataSourceTable ) )
 			{
@@ -1552,9 +1400,11 @@ class ListPage extends RunnerPage
 
 			$htmlAttributes = array();
 			$record[$indXTtag] = "";
-			$htmlAttributes["href"] = GetTableLink($dShortTable, "list")."?";
 			$htmlAttributes["id"] = $indIdAttr;
 			$htmlAttributes["style"] = "display:none;";
+			if( $this->detailsHrefAvailable() ) {
+				$htmlAttributes["href"] = GetTableLink($dShortTable, "list")."?";
+			}
 			if( $this->pSet->detailsPreview( $dDataSourceTable ) == DP_INLINE )
 			{
 				$htmlAttributes["caption"] = GetTableCaption(GoodFieldName($dDataSourceTable));
@@ -1648,6 +1498,12 @@ class ListPage extends RunnerPage
 					continue;
 				}
 			}
+			
+			if( $this->spreadsheetGridApplicable() ) {
+				if( $this->eventsObject->exists("ProcessValuesEdit") )
+					$this->eventsObject->ProcessValuesEdit( $data, $this );
+			}
+			
 			return $data;
 		}
 	}
@@ -1675,7 +1531,7 @@ class ListPage extends RunnerPage
 	function fillGridData()
 	{
 		global $globalEvents;
-		$totals=array();
+		$totals = array();
 		//	fill $rowinfo array
 		$rowinfo = array();
 		$this->prepareInlineAddArea($rowinfo);
@@ -1732,15 +1588,30 @@ class ListPage extends RunnerPage
 				$isEditable = Security::userCan('E', $this->tName, $data[$this->mainTableOwnerID] )
 					|| Security::userCan('D', $this->tName, $data[$this->mainTableOwnerID] );
 
-				if($globalEvents->exists("IsRecordEditable", $this->tName))
+				if($globalEvents->exists("IsRecordEditable", $this->tName)) {
 					$isEditable = $globalEvents->IsRecordEditable($data, $isEditable, $this->tName);
-					$currentRow['isEditOwnRow'] = $isEditable;
-					$currentRow['gridLayout'] = $this->listGridLayout;
-					$currentRow['keyFields'] = array();
-					$currentRow['keys'] = array();
+				}
+
+				//	for compatibility only, use canEditRecord, canDeleteRecord instead
+				$currentRow['isEditOwnRow'] = $isEditable;
+				
+				$currentRow['canEditRecord'] = $isEditable;
+				$currentRow['canDeleteRecord'] = $isEditable;
+				if( $this->tName == ADMIN_USERS && Security::dynamicPermissions() ) {
+					
+					if( Security::currentUserRecord( $data ) ) {
+						$currentRow['canDeleteRecord'] = false;
+					}
+				}
+				$currentRow['gridLayout'] = $this->listGridLayout;
+				$currentRow['keyFields'] = array();
+				$currentRow['keys'] = array();
 				for($i = 0; $i < count($tKeys); $i ++) {
 					$currentRow['keyFields'][$i] = $tKeys[$i];
 					$currentRow['keys'][$i] = $data[$tKeys[$i]];
+				}
+				if( $this->pSet->reorderRows() ) {
+					$currentRow['order'] = $data[ $this->pSet->reorderRowsField() ];
 				}
 				$record["edit_link"] = $isEditable;
 				$record["inlineedit_link"] = $isEditable;
@@ -1751,12 +1622,12 @@ class ListPage extends RunnerPage
 				//get record id for locking record
 				if($this->lockingObj)
 				{
-					if($this->mode == LIST_SIMPLE && !count($this->lockDelRec) && isset($_SESSION[$this->sessionPrefix."_lockDelRec"]))
+					if($this->mode == LIST_SIMPLE && !$this->lockDelRec && isset($_SESSION[$this->sessionPrefix."_lockDelRec"]))
 					{
 						$this->lockDelRec = $_SESSION[$this->sessionPrefix."_lockDelRec"];
 						unset($_SESSION[$this->sessionPrefix."_lockDelRec"]);
 					}
-					for($i=0;$i<count($this->lockDelRec);$i++)
+					for( $i=0; !!$this->lockDelRec && $i < count( $this->lockDelRec ); $i++)
 					{
 						$lockDelRec = true;
 						foreach($this->lockDelRec[$i] as $key => $val)
@@ -1980,7 +1851,7 @@ class ListPage extends RunnerPage
 	 */
 	protected function hasBigMap()
 	{
-		return $this->googleMapCfg['isUseMainMaps'];
+		return $this->pSet->hasMap();
 	}
 
 	/**
@@ -2188,12 +2059,63 @@ class ListPage extends RunnerPage
 	 * @param array $data
 	 * @param string $keylink
 	 */
-	function proccessRecordValue(&$data, &$keylink, $listFieldInfo)
+	function proccessRecordValue( &$data, &$keylink, $listFieldInfo )
 	{
-		$dbVal = $this->showDBValue($listFieldInfo['fName'], $data, $keylink);
-		return $this->addCenterLink($dbVal, $listFieldInfo['fName']);;
+		$fName = $listFieldInfo['fName'];
+		
+		if( $this->spreadsheetGridApplicable() ) {
+			if( in_array( $fName, $this->pSet->getInlineEditFields() ) ) {
+				return $this->getInlineEditControl( $fName, $this->recId, $data);
+			}			
+		}
+
+		$dbVal = $this->showDBValue( $fName, $data, $keylink );
+		return $this->addCenterLink( $dbVal, $fName );
 	}
 
+	/**
+	 * new
+	 */
+	protected function getInlineEditControl( $fName, $recId, &$data ) {
+		$controls = $this->editPage->getContolMapData( $fName, $recId, $data, $this->editPage->editFields );
+		$this->fillControlsMap( $controls );
+		
+		if( $this->editPage->getEditFormat( $fName ) == EDIT_FORMAT_READONLY )
+			$this->editPage->readOnlyFields[ $fName ] = $this->showDBValue( $fName, $data );	
+		
+		$ctrlParams = $this->editPage->getEditContolParams( $fName, $recId, $data );
+		$ctrlParams["mode"] = MODE_INLINE_EDIT;
+		$ctrlParams["extraParams"]["spreadsheet"] = true;
+			
+		// form control markup
+		$ctrl = $this->editPage->getControl( $fName, $recId, $ctrlParams["extraParams"] );
+		return $ctrl->getControlMarkup( $ctrlParams, $data );
+	}
+	
+	/**
+	 *
+	 */
+	function addCenterLink( &$value, $fName )
+	{
+		if( !$this->googleMapCfg['isUseMainMaps'] )
+			return $value;
+
+		foreach ($this->googleMapCfg['mainMapIds'] as $mapId)
+		{
+			// if no center link than continue;
+			if ($this->googleMapCfg['mapsData'][$mapId]['addressField'] != $fName || !$this->googleMapCfg['mapsData'][$mapId]['showCenterLink'])
+				continue;
+
+			// if use user defined link if prop = 1 or use value if prop = 2
+			if($this->googleMapCfg['mapsData'][$mapId]['showCenterLink'] === 1)
+				$value = $this->googleMapCfg['mapsData'][$mapId]['centerLinkText'];
+
+			return '<a href="#" type="centerOnMarker'.$this->id.'" recId="'.$this->recId.'">'.$value.'</a>';
+		}
+
+		return $value;
+	}	
+	
 	/**
 	 * Checks if need to display grid
 	 */
@@ -2215,21 +2137,126 @@ class ListPage extends RunnerPage
 	 */
 	function fillCheckAttr(&$record, $data, $keyblock)
 	{
-		if( $this->exportAvailable() || $this->printAvailable() || $this->deleteAvailable() || $this->inlineEditAvailable() || $this->updateSelectedAvailable() )
-		{
-			$record["checkbox"]= true;
-			/*
-			$keyValues = array();
-			$keyFields = $this->pSet->getTableKeys();
-			foreach( $keyFields as $idx => $k ) {
-				$keyValues[ $idx ] = $data[ $k ];
-			}
-			*/
-			$record["checkbox_attrs"]= "name=\"selection[]\" ".
-				"value=\"".runner_htmlspecialchars($keyblock)."\" ".
-				"id=\"check".$this->id."_".$this->recId."\" ";
-				//"data-keys=\"".runner_htmlspecialchars(my_json_encode( $keyValues ))."\"";
+		
+		$record["checkbox"]= true;
+		$record["checkbox_attrs"]= "name=\"selection[]\" ".
+			"value=\"".runner_htmlspecialchars($keyblock)."\" ".
+			"id=\"check".$this->id."_".$this->recId."\" ";
+			//"data-keys=\"".runner_htmlspecialchars(my_json_encode( $keyValues ))."\"";
+	
+	}
+
+	protected function getRecordset() {
+		$rs = $this->dataSource->getList( $this->queryCommand );
+		if( !$rs || !$this->pSet->reorderRows() ) {
+			return $rs;
 		}
+		//	'reorder rows' feature preparations
+		$vResult = $this->getVerifiedOrderRecordset( $rs );
+		$rs = $vResult[ "rs" ];
+		if( !$vResult["hasNulls"] )
+			return $rs;
+
+		$orderField = $this->pSet->reorderRowsField();
+
+		// the reorderRowsField is empty. Fill it in the whole table
+		$keys = $this->pSet->getTableKeys();
+
+		$updateCommand = new DsCommand;
+		$updateCommand->advValues[ $this->pSet->reorderRowsField() ] = new DsOperand( dsotROWNO, '' );
+		$updateCommand->order = $this->queryCommand->order;		
+		if( !$this->pSet->inlineAddBottom() ) {
+			$updateCommand->invertOrder();
+		}
+
+		if( $this->dataSource->updateRowNumberAvailable( $updateCommand ) ) {
+			// easy way, one requests covers all table
+			$updateCommand->filter = DataCondition::FieldIs( $this->pSet->reorderRowsField(), dsopEMPTY, '' );
+			$this->dataSource->updateRowNumber( $updateCommand, $this->getMaxOrderValue( $this->pSet ) );
+		} else {
+			//	hard way. Update all records in the table with null order one by one
+			$selectCommand = new DsCommand;
+			$selectCommand->filter = DataCondition::FieldIs( $this->pSet->reorderRowsField(), dsopEMPTY, '' );
+			$selectCommand->order = $this->queryCommand->order;
+			if( !$this->pSet->inlineAddBottom() ) {
+				$selectCommand->invertOrder();
+			}
+			//	fetch all key values from the table where order is null
+			$rKeys = array();
+			$orderRs = $this->dataSource->getList( $selectCommand );
+			while( $data = $orderRs->fetchAssoc() ) {
+				$keyValues = array();
+				foreach( $keys as $k ) {
+					$keyValues[ $k ] = $data[ $k ];
+				}
+				$rKeys[] = $keyValues;
+			}
+
+			//	update all records from $rKeys with incrementing order
+			$maxOrder = $this->getMaxOrderValue( $this->pSet );
+			foreach( $rKeys as $keyValues ) {
+				$updateCommand = new DsCommand;
+				$updateCommand->keys = $keyValues;
+				
+				$updateCommand->values = array();
+				$updateCommand->values[ $this->pSet->reorderRowsField() ] = ++$maxOrder;
+				$this->dataSource->updateSingle( $updateCommand );
+			}
+		}
+		
+		return $this->dataSource->getList( $this->queryCommand );
+	}
+
+	/**
+	 * Verify that field value is not empty in the whole recordset
+	 * If non-unique orders are found, update order in the recordset and at the same time create command to update 
+	 * the record in the database
+	 * Return the recordset on success or null otherwise
+	 * @param DataResult rs
+	 * @param String field
+	 * @return Array( 
+	 * 	"hasNulls" => boolean
+	 *  "rs" => DataResult
+	 * )
+	 */
+	protected function getVerifiedOrderRecordset( $rs ) {
+		$orderField = $this->pSet->reorderRowsField();
+		$keyFields = $this->pSet->getTableKeys();
+		$hasNulls = false;
+		$commands = array();
+		$records = array();
+		$orders = array();
+		while( $data = $rs->fetchAssoc() ) {
+			$order = $data[ $orderField ];
+			if(  $order == '' ) {
+				$hasNulls = true;
+				continue;
+			}
+			//	fix non unique 'order' field values
+			if( $orders[ $order ] ) {
+				$updateCommand = new DsCommand;
+				foreach( $keyFields as $k ) {
+					$updateCommand->keys[ $k ] = $data[ $k ];
+				}
+				while( $orders[ $order ] )
+					++$order;
+				$updateCommand->values[ $orderField ] = $order;
+				$commands[] = $updateCommand;
+				$data[ $orderField ] = $order;
+			}
+			$orders[ $order ] = true;
+			$records[] = $data;
+		}
+
+		//	run all the commands, update database
+		foreach( $commands as $dc ) {
+			$this->dataSource->updateSingle( $dc );
+		}
+		
+		return array(
+			"rs" => new ArrayResult( $records ),
+			"hasNulls" => $hasNulls
+		);
 	}
 
 	/**
@@ -2260,6 +2287,8 @@ class ListPage extends RunnerPage
 		//	we need to decide which tab to display first
 		$this->processGridTabs();
 
+		$this->setGoogleMapsParams($this->listFields);
+
 		
 		RunnerContext::pushSearchContext( $this->searchClauseObj );
 		
@@ -2269,7 +2298,7 @@ class ListPage extends RunnerPage
 		// build pagination block
 		$this->buildPagination();
 
-		$this->recSet = $this->dataSource->getList( $this->queryCommand );
+		$this->recSet = $this->getRecordset();
 		
 		RunnerContext::pop();	//	search context
 
@@ -2277,21 +2306,19 @@ class ListPage extends RunnerPage
 			showError( $this->dataSource->lastError() );
 		}
 		
+		// must run ASAP after dataSource->getList()
+		$this->fillGridData();
+		$this->fillAdvancedMapData();
 
-		// seek page must be executed after build pagination
-		// ***Datasource must nandle this
-		//$this->seekPageInRecSet($this->querySQL);
 
-
-		$this->setGoogleMapsParams($this->listFields);
 		$this->setGridUserParams();
 		$this->assignColumnHeaderClasses();
 
-		// fill grid data
-		$this->fillGridData();
 
-		if( $this->mode != LIST_MASTER )
+		if( $this->mode != LIST_MASTER ) {
 			$this->buildSearchPanel();
+			$this->assignSimpleSearch();
+		}
 
 		// add common js code
 		$this->addCommonJs();
@@ -2476,8 +2503,6 @@ class ListPage extends RunnerPage
 	 */
 	static function & createListPage($strTableName, $options)
 	{
-		global $isGroupSecurity;
-
 		$gSettings = new ProjectSettings($strTableName, $options['pageType'], $options['pageName']);
 
 		$gQuery = $gSettings->getSQLQuery();
@@ -2487,13 +2512,11 @@ class ListPage extends RunnerPage
 		$params['gPageSize'] = $gSettings->getInitialPageSize();
 
 		$params['nSecOptions'] = $gSettings->getAdvancedSecurityType();
-		$params['nLoginMethod'] = GetGlobalData("nLoginMethod",0);
 		$params['recsPerRowList'] = $gSettings->getRecordsPerRowList();
 		$params['mainTableOwnerID'] = $gSettings->getTableOwnerIdField();
 		$params['exportTo'] = $gSettings->hasExportPage();
 		$params['printFriendly'] = $gSettings->hasPrintPage();
 		$params['deleteRecs'] = $gSettings->hasDelete();
-		$params["isGroupSecurity"] = $isGroupSecurity;
 		$params['arrKeyFields'] = $gSettings->getTableKeys();
 		$params["panelSearchFields"] = $gSettings->getPanelSearchFields();
 		$params['listGridLayout'] = $gSettings->getListGridLayout();
@@ -2527,11 +2550,15 @@ class ListPage extends RunnerPage
 			$pageObject = new ListPage_DPDash($params);
 		else if($params["mode"] == RIGHTS_PAGE)
 		{
-				$pageObject = new RightsPage($params);
+			$pageObject = new RightsPage($params);
 		}
 		else if($params["mode"]==MEMBERS_PAGE)
 		{
+			if( $params[ "providerType" ] == stAD ) {
+				$pageObject = new MembersPage_AD($params);
+			} else {
 				$pageObject = new MembersPage($params);
+			}
 		}
 		else if($params["mode"] == LIST_DASHBOARD)
 			$pageObject = new ListPage_Dashboard($params);
@@ -2649,6 +2676,8 @@ class ListPage extends RunnerPage
 
 	protected static function readMainTableSettingsFromRequest( $table )
 	{
+		if( postvalue("pageType") == "register" && postvalue("table") == "derejame_users" )
+			return new ProjectSettings( "derejame_users", PAGE_REGISTER, "", GLOBAL_PAGES);
 		$mainTableShortName = GetTableURL( postvalue("table") );
 		return getLookupMainTableSettings($table, $mainTableShortName, postvalue("field"));
 	}
@@ -2666,6 +2695,11 @@ class ListPage extends RunnerPage
 			return true;
 
 		//	otherwise check if the page is called from the register page
+		if( $mainTable == "derejame_users" )
+		{
+			if( $lookupMainSettings->appearOnPage( postvalue("field") ) !== FALSE )
+				return true;
+		}
 		return false;
 	}
 
@@ -2692,7 +2726,7 @@ class ListPage extends RunnerPage
 
 		// The user is logged in but lacks necessary permissions
 		// redirect to List page or Menu.
-		if( isLogged() && !isLoggedAsGuest() )
+		if( isLogged() && !Security::isGuest() )
 		{
 			HeaderRedirect("menu");
 			return false;
@@ -2794,7 +2828,8 @@ class ListPage extends RunnerPage
 
 	function displayTabsInPage()
 	{
-		return $this->simpleMode() || ( $this->mode == LIST_DETAILS && ($this->masterPageType == PAGE_VIEW || $this->masterPageType == PAGE_EDIT));
+		return $this->simpleMode() 
+			|| ( $this->mode == LIST_DETAILS && ($this->masterPageType == PAGE_VIEW || $this->masterPageType == PAGE_EDIT));
 	}
 
 	function element2Item( $name ) {
@@ -2832,7 +2867,7 @@ class ListPage extends RunnerPage
 		return $this->fieldsWithRawValues[ $field ];
 	}
 
-	public function getSubsetDataCommand() {
+	public function getSubsetDataCommand( $ignoreFilterField = "" ) {
 
 		$dc = parent::getSubsetDataCommand();
 
@@ -2841,13 +2876,16 @@ class ListPage extends RunnerPage
 			$dc->filter = DataCondition::_False();
 
 		$dc->reccount = $this->pageSize;
-		$dc->startRecord = $this->pageSize * ($this->myPage - 1);
+		if( $this->pageSize >= 0 )
+			$dc->startRecord = $this->pageSize * ($this->myPage - 1);
+		else
+			$dc->startRecord = 0;
 
-		/*
-		$detailsSubqueries = $this->getMasterDetailSubQuery();
-		if( $detailsSubqueries )
-			$sql["sqlParts"]["head"] .= ", " . implode( ", ", $detailsSubqueries );
-		*/
+		if( $this->pSet->getRecordsLimit() )
+			$dc->reccount = $this->pSet->getRecordsLimit();	
+
+		$this->reoderCommandForReoderedRows( $this->pSet, $dc );
+
 		return $dc;
 	}
 
@@ -2859,8 +2897,14 @@ class ListPage extends RunnerPage
 	function calculateRecordCount()
 	{
 		$this->queryCommand = $this->getSubsetDataCommand();
+		$prep = $this->dataSource->prepareSQL( $this->queryCommand );
+		$this->querySQL = $prep["sql"];
 		$this->callBeforeQueryEvent( $this->queryCommand );
 		$this->numRowsFromSQL = $this->dataSource->getCount( $this->queryCommand );
+		$recordLimit = $this->pSet->getRecordsLimit();
+		if( $recordLimit && $this->numRowsFromSQL > $recordLimit ) {
+			$this->numRowsFromSQL = $recordLimit;
+		}
 	 }
 
 	 /**
@@ -2884,14 +2928,163 @@ class ListPage extends RunnerPage
 			if( $order != $prep["order"] )
 				$this->dataSource->overrideOrder( $dc, $order );
 		}
+		$prep = $this->dataSource->prepareSQL( $dc );
+		$this->querySQL = $prep["sql"];
 	}
 
 	protected function getDeleteCommand( $keys ) {
 		$dc = new DsCommand();
 		$dc->filter = Security::SelectCondition( "D", $this->pSet );
+
+		//	the admin sghould not be able to delete himself from admin_users table
+		if( $this->tName == ADMIN_USERS && Security::dynamicPermissions() ) {
+			$dc->filter = DataCondition::_And( array(
+				$dc->filter,
+				DataCondition::_Not( Security::currentUserCondition() )
+			) );
+		}
+
 		$dc->keys = $keys;
 		return $dc;
 	}
+	
+	protected function spreadsheetGridApplicable() {
+		return ( $this->mode == LIST_SIMPLE || $this->mode == LIST_AJAX 
+			|| $this->mode == LIST_DASHBOARD || $this->mode == LIST_DETAILS )
+			&& $this->pSet->spreadsheetGrid()
+			&& $this->permis[$this->tName]["edit"];
+	}
+	
+	protected function setupRelatedInlineEditPage() {
+		$this->editPage = $this->getRelatedInlineEditPage( $this->pageName );
+	}
+	
+	/**
+	 * Fill field settings for current table
+	 * @intellisense
+	 */
+	function fillFieldSettings()
+	{
+		parent::fillFieldSettings();
+		if( $this->spreadsheetGridApplicable() && $this->editPage ) {
+			$this->addFieldsSettings( $this->pSet->getInlineEditFields(), $this->editPage->pSet, PAGE_EDIT );
+		}
+	}	
 
+	public function updateRowOrder()
+	{
+		$action = postvalue( "a" );
+		$postData = postvalue( "data" );
+		if( !$this->pSet->reorderRows() ) {
+			return false;
+		}	
+		if( $action !== "saveRowOrder" ) {
+			return false;
+		}
+		$updateData = runner_json_decode( $postData );
+		$newOrder = $updateData[ "newOrder" ];
+		$oldOrder = $updateData[ "oldOrder" ];
+		$keys = $updateData[ "keys" ];
+		$allRecordKeys = $updateData[ "allRecordKeys" ];
+		$recordId = $updateData[ "recordId" ];
+
+		if( !$newOrder || !$oldOrder ) {
+			echo "wrong parameters";
+			return true;
+		}
+		$orderField = $this->pSet->reorderRowsField();
+		
+		//	update all records in between the old and the new position
+		$updateOrderDc = new DsCommand();
+		$updateOrderDc->advValues = array();
+		$forward = $newOrder > $oldOrder;
+		if( $forward ) {
+			//	update table set order=order-1 where order>oldOrder and order<=newOrder
+			$updateOrderDc->advValues[ $orderField ] = new DsOperand( dsotSQL, $this->dataSource->wrap( $orderField ) . " - 1 " );
+			$updateOrderDc->filter = DataCondition::_And( array(
+				DataCondition::FieldIs( $orderField, dsopMORE, $oldOrder ),
+				DataCondition::_Not( DataCondition::FieldIs( $orderField, dsopMORE, $newOrder ) ),
+			) );
+
+		} else {
+			//	update table set order=order+1 where order>=newOrder and order<oldOrder
+			$updateOrderDc->advValues[ $orderField ] = new DsOperand( dsotSQL, $this->dataSource->wrap( $orderField ) . " + 1 " );
+			$updateOrderDc->filter = DataCondition::_And( array(
+				DataCondition::FieldIs( $orderField, dsopLESS, $oldOrder ),
+				DataCondition::_Not( DataCondition::FieldIs( $orderField, dsopLESS, $newOrder ) ),
+			) );
+		}
+		$this->dataSource->updateSingle( $updateOrderDc, false );
+
+		//	update the moved record with new order
+		//	if there are no keys, the record is being inline-added
+		$keyFields = $this->pSet->getTableKeys();
+		if( $keys ) {
+			$updateDc = new DsCommand;
+			foreach( $keyFields as $i => $k ) {
+				$updateDc->keys[ $k ] = $keys[ $i ];
+			}
+			$updateDc->values[ $orderField ] = $newOrder;
+			$this->dataSource->updateSingle( $updateDc );
+		}
+
+		//	return order values for all records displayed
+		$idKeys = array();	//	auxiliary array, used below
+		$conditions = array();
+		foreach( $allRecordKeys as $rKeys ) {
+			if( !$rKeys["keys"] ) {
+				//	inline-added record
+				continue;
+			}
+			//	make an associative array
+			$keyValues = numericToAssoc( $keyFields, $rKeys["keys"] );
+			$conditions[] = DataCondition::FieldsEqual( $keyFields, $keyValues );
+			$idKeys[ $rKeys["recordId"] ] = $keyValues;
+
+		}
+
+		$selectDc = new DsCommand;
+		$selectDc->filter = DataCondition::_Or( $conditions );
+		$selectDc->order = array( array( 
+			"column" => $orderField,
+			"dir" => "ASC"
+		) );
+		$rs = $this->dataSource->getList( $selectDc );
+		//	assoc array of ( recId => order )
+		$orders = array();
+		while( $data = $rs->fetchAssoc() ) {
+			//	find recId
+			$keyValues = array();
+			foreach( $keyFields as $k ) {
+				$keyValues[ $k ] = $data[ $k ];
+			}
+			$recId = findArrayInArray( $idKeys, $keyValues );
+			if( $recId === false ) {
+				//	this should never happen actually
+				continue;
+			}
+			$orders[ $recId ] = $data[ $orderField ];
+		}
+		//	insert order of the element being moved. If inline add in progress, it is not there yet.
+		$orders[ $recordId ] = $newOrder;
+
+		//	for security reasons send it is important to send only the order field values
+		echo runner_json_encode( array( "orders" => $orders ) );
+		return true;
+	}
+	
+
+	/**
+	 * Returns edit format of a field, apply format overrides
+	 */
+	public function getEditFormat( $field, $pSet = null ) {
+		if( $this->spreadsheetGridApplicable() ) {
+			$isDetKeyField = in_array( $field, $this->detailKeysByM );
+			
+			if( $isDetKeyField )
+				return EDIT_FORMAT_READONLY;
+		}
+		return parent::getEditFormat( $field, $pSet );
+	}	
 }
 ?>

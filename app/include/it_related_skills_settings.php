@@ -60,14 +60,9 @@ $tdatait_related_skills[".showEditInPopup"] = false;
 
 $tdatait_related_skills[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatait_related_skills[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatait_related_skills[".listAjax"] = false;
 //	temporary
-$tdatait_related_skills[".listAjax"] = false;
+//$tdatait_related_skills[".listAjax"] = false;
 
 	$tdatait_related_skills[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatait_related_skills[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatait_related_skills[".isUseAjaxSuggest"] = true;
 
-$tdatait_related_skills[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatait_related_skills[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatait_related_skills[".strOrderBy"] = $tstrOrderBy;
 
 $tdatait_related_skills[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("it_related_skills","SkillID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("it_related_skills","SkillName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatait_related_skills[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["it_related_skills"] = &$fieldToolTipsit_related_skills;
 $placeHolders["it_related_skills"] = &$placeHoldersit_related_skills;
 $page_titles["it_related_skills"] = &$pageTitlesit_related_skills;
 
+
+changeTextControlsToDate( "it_related_skills" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["it_related_skills"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["it_related_skills"] = array();
@@ -675,7 +673,6 @@ $tdatait_related_skills[".sqlquery"] = $queryData_it_related_skills;
 
 
 
-$tableEvents["it_related_skills"] = new eventsBase;
 $tdatait_related_skills[".hasEvents"] = false;
 
 ?>

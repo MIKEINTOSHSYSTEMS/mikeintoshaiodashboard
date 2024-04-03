@@ -57,12 +57,9 @@ class ReportPrintPage extends ReportPage
 		else if( !$this->pdfJsonMode() )
 		{
 			//	print mode
-			if( $this->pSet->getReportPrintPartitionType() != 0 )
-			{
-				$this->splitAtServer = true;
-				if( !$this->splitByGroups )
-					$this->splitByGroups = $this->pSet->getReportPrintGroupsPerPage();
-			}
+			$this->splitAtServer = true;
+			if( !$this->splitByGroups )
+				$this->splitByGroups = $this->pSet->getReportPrintGroupsPerPage();
 			$this->pageData["printRecords"] = $this->splitByGroups;
 
 		} else if ( $this->pdfJsonMode() ) {
@@ -85,10 +82,9 @@ class ReportPrintPage extends ReportPage
 		if( isRTL() )
 			$this->jsSettings['tableSettings'][ $this->tName ]['isRTL'] = true;
 
-		$this->jsSettings['tableSettings'][ $this->tName ]['reportPrintPartitionType'] = $this->pSet->getReportPrintPartitionType();
+		$this->jsSettings['tableSettings'][ $this->tName ]['reportPrintPartitionType'] = 1;
 		$this->jsSettings['tableSettings'][ $this->tName ]['reportPrintGroupsPerPage'] = $this->pSet->getReportPrintGroupsPerPage();
-		$this->jsSettings['tableSettings'][ $this->tName ]['reportPrintLayout'] = $this->pSet->getReportPrintLayout();
-		$this->jsSettings['tableSettings'][ $this->tName ]['lowGroup'] = $this->pSet->getLowGroup();
+		$this->jsSettings['tableSettings'][ $this->tName ]['reportPrintLayout'] = $this->pSet->getReportLayout();
 
 		$this->jsSettings['tableSettings'][ $this->tName ]['printerPagePDF'] = $this->pSet->isPrinterPagePDF();
 
@@ -96,10 +92,7 @@ class ReportPrintPage extends ReportPage
 		$this->jsSettings['tableSettings'][ $this->tName ]['printerPageScale'] = $this->pSet->getPrinterPageScale();
 		$this->jsSettings['tableSettings'][ $this->tName ]['isPrinterPageFitToPage'] = $this->pSet->isPrinterPageFitToPage();
 
-		if( $this->pSet->getReportPrintPartitionType() == 0 )
-			$this->jsSettings['tableSettings'][ $this->tName ]['printerSplitRecords'] = 0;
-		else
-			$this->jsSettings['tableSettings'][ $this->tName ]['printerSplitRecords'] = $this->pSet->getReportPrintGroupsPerPage();
+		$this->jsSettings['tableSettings'][ $this->tName ]['printerSplitRecords'] = $this->pSet->getReportPrintGroupsPerPage();
 
 		$this->jsSettings['tableSettings'][ $this->tName ]['printerPDFSplitRecords'] = $this->pSet->getReportPrintPDFGroupsPerPage();
 		
@@ -197,9 +190,12 @@ class ReportPrintPage extends ReportPage
 		// the table info params
 		$extraParams = $this->getExtraReportParams();	
 		$this->setGoogleMapsParams( $extraParams['fieldsArr'] );
+		$this->fillAdvancedMapData();
+
 		if( $this->pdfJsonMode() ) {
 			$this->assignTotalsDefaults();
 		}
+		RunnerContext::pushSearchContext( $this->searchClauseObj );
 		$this->setReportData( $extraParams );
 
 		// add button events if exist
@@ -227,7 +223,7 @@ class ReportPrintPage extends ReportPage
 		{
 			$this->xt->assign("pdflink_block", false);
 		}
-		else if( !$this->isPD() || $this->crossTable )
+		else if( $this->crossTable )
 		{
 			$this->xt->assign("pdflink_block", $this->pSet->isPrinterPagePDF() && !$this->pdfMode );
 		}
@@ -238,6 +234,13 @@ class ReportPrintPage extends ReportPage
 			$this->xt->assign("printtabheader",true);
 			$this->xt->assign("printtabheader_text", $this->getTabTitle($curTabId));
 		}
+		foreach( $this->pSet->getPageFields() as $f )
+		{
+			$gf = GoodFieldName($f);
+			$this->xt->assign( $gf . "_class", $this->fieldClass( $f ));
+			$this->xt->assign( $gf . "_align", $this->fieldAlign( $f ));
+		}
+
 	}
 
 	protected function setRecordsId() {
@@ -371,9 +374,6 @@ class ReportPrintPage extends ReportPage
 		}
 
 
-		//$sqlArray = $this->getReportSQLData();
-		
-
 		$rb = new Report( $this->pSet->getOrderIndexes(), $this->connection
 			, $PageSize, $this->splitByGroups, $_options, $this);
 
@@ -401,7 +401,7 @@ class ReportPrintPage extends ReportPage
 		}
 
 		// for print as details
-		if ( $this->isDetail && !count($this->arrReport['list']) )
+		if ( $this->isDetail && !$this->arrReport['list'] )
 		{
 			$this->isReportEmpty = true;
 			return;
@@ -456,18 +456,17 @@ class ReportPrintPage extends ReportPage
 
 		$this->xt->assign("maxpages", $pageno);
 		
-		if ( $this->isPD() )
-		{
-			// update %total% value
-			$total = count( $this->pages );
-			foreach ( $this->pSet->printPagesLabelsData() as $itemId => $mLString )
-			{			
-				foreach( $this->pages as $idx => $pageBody ) 
-				{
-					$this->pages[$idx][ "print_pages_label".$itemId ] = str_replace( "%total%", $total, $pageBody["print_pages_label".$itemId] );
-				}
+
+		// update %total% value
+		$total = count( $this->pages );
+		foreach ( $this->pSet->printPagesLabelsData() as $itemId => $mLString )
+		{			
+			foreach( $this->pages as $idx => $pageBody ) 
+			{
+				$this->pages[$idx][ "print_pages_label".$itemId ] = str_replace( "%total%", $total, $pageBody["print_pages_label".$itemId] );
 			}
-		}		
+		}
+				
 		
 		$this->body[ "data" ] = $this->pages;
 		$this->xt->assign( "page_number", true );
@@ -487,7 +486,7 @@ class ReportPrintPage extends ReportPage
 		//	hide buttons on second and other pages. xt->assign("printbuttons", true) is required to display the container
 		$page["printbuttons"] = ($pageno == 1 && !$this->pdfMode);
 
-		if( $this->isPD() && $pageno == 1 )
+		if( $pageno == 1 )
 		{
 			$page["pdflink_block"] = $this->pSet->isPrinterPagePDF();
 		}		
@@ -512,15 +511,14 @@ class ReportPrintPage extends ReportPage
 		}
 		$page["pageno"] = $pageno;
 		
-		if ( $this->isPD() )
-		{
-			$this->xt->assign( "print_pages", true );
-			foreach ( $this->pSet->printPagesLabelsData() as $itemId => $mLString )
-			{			
-				$label = str_replace( "%current%", $pageno, GetMLString( $mLString ) );
-				$page[ "print_pages_label".$itemId ] = $label;
-			}	
-		}		
+
+		$this->xt->assign( "print_pages", true );
+		foreach ( $this->pSet->printPagesLabelsData() as $itemId => $mLString )
+		{			
+			$label = str_replace( "%current%", $pageno, GetMLString( $mLString ) );
+			$page[ "print_pages_label".$itemId ] = $label;
+		}	
+				
 		
 		$this->pages[] = $page;
 	}
@@ -565,6 +563,8 @@ class ReportPrintPage extends ReportPage
 		if ( $this->isReportEmpty )
 			return;
 
+		$this->xt->assign("grid_header", true);
+
 		$this->showDetailPrint();
 	}
 
@@ -577,6 +577,7 @@ class ReportPrintPage extends ReportPage
 		{
 			$this->xt->assign( "body", true );
 			$this->xt->assign( "embedded_grid", true );
+			$this->xt->assign("embedded_page_title", true );
 			
 			$this->xt->load_templateJSON( $this->templatefile );
 			echo  $this->xt->fetch_loadedJSON("body");
@@ -588,31 +589,15 @@ class ReportPrintPage extends ReportPage
 
 		$this->xt->load_template( $this->templatefile );
 		
-		if( $this->isPD() ) 
-		{
-			echo '<div class="panel panel-info details-grid">
-				<div class="panel-heading">
-					<h4 class="panel-title">' . $this->getPageTitle( $this->pageType, GoodFieldName($this->tName)) . '</h4>
-				</div>
-				<div class="panel-body">';
-			echo $this->fetchForms( array( "grid" ) );	
-			echo '</div>
-			</div>';			
-		} 
-		else 
-		{		
-			echo "<div class='rnr-print-details'>";
-			if( $this->multipleDetails )
-			{
-				echo "<div class='rnr-pd-title'>";
-				echo $this->getPageTitle( $this->pageType, GoodFieldName($this->tName));
-				echo "</div>";
-			}
-			echo "<div class='rnr-pd-grid'>";
-			echo $this->xt->fetch_loaded("container_grid");
-			echo "</div>";
-			echo "</div>";
-		}
+
+		echo '<div class="panel panel-info details-grid">
+			<div class="panel-heading">
+				<h4 class="panel-title">' . $this->getPageTitle( $this->pageName, GoodFieldName($this->tName) ) . '</h4>
+			</div>
+			<div class="panel-body">';
+		echo $this->fetchForms( array( "grid" ) );	
+		echo '</div>
+		</div>';
 	}
 
 	/**

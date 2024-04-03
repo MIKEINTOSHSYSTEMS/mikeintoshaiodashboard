@@ -31,276 +31,229 @@ class paramsLogger
 	 */
 	protected $tableNameId;
 
-	protected $dbParamsTableName;
-	protected $dbTypeFieldName;
-	protected $dbDataFieldName;
-	protected $dbTableNameFieldName;
-	protected $dbCookieFieldName;
-	protected $dbUserNameFieldName;
-	protected $dbNameFieldName;
+	protected $dataSource;
+	
 
-	/**
-	 * @type Connection
-	 */
-	protected $connection;
-
-
-	public function __construct( $tableNameId, $type )
-	{
+	public function __construct( $tableNameId, $type ) {
 		global $cman;
-
+		
 		$this->type = $type;
 		$this->tableNameId = $tableNameId;
-		$this->connection = $cman->getForSavedSearches();
-
-		$this->assignDbFieldsAndTableNames();
+		
 		$this->assignUserId();
 		$this->assignCookieParams();
-	}
-
-	/**
-	 * Add fields wrappers to the real fields name
-	 * and assign them to the corresponding class properties
-	 */
-	protected function assignDbFieldsAndTableNames()
-	{
-		$this->dbParamsTableName = $this->connection->addTableWrappers( $this->paramsTableName );
-		$this->dbTypeFieldName = $this->connection->addFieldWrappers( "TYPE" );
-		$this->dbDataFieldName = $this->connection->addFieldWrappers( "SEARCH" );
-		$this->dbTableNameFieldName = $this->connection->addFieldWrappers( "TABLENAME" );
-		$this->dbCookieFieldName = $this->connection->addFieldWrappers( "COOKIE" );
-		$this->dbUserNameFieldName = $this->connection->addFieldWrappers( "USERNAME" );
-		$this->dbNameFieldName = $this->connection->addFieldWrappers( "NAME" );
+		
+		$this->dataSource = getTableDataSource( $this->paramsTableName, $cman->getSavedSearchesConnId() );
 	}
 
 	/**
 	 * Assign the userID prop with the currenly logged in user`s name
 	 */
-	protected function assignUserId()
-	{
-		if( isset($_SESSION["UserID"]) && $_SESSION["UserID"] != "Guest" )
-			$this->userID = $_SESSION["UserID"];
+	protected function assignUserId() {
+		if( Security::isLoggedIn() )
+			$this->userID = Security::getUserName();
 	}
 
 	/**
 	 * Set a COOKIE 'searchSaving' param If It isn`t set before.
 	 * Assign the 'cookie' property with the COOKIE 'searchSaving' param
 	 */
-	protected function assignCookieParams()
-	{
+	protected function assignCookieParams() {
 		if( !strlen($_COOKIE["paramsLogger"]) && !$this->userID )
-			setcookie("paramsLogger", generatePassword(24), time() + 5 * 365 * 86400, "", "", false, false);
-
+			runner_setcookie("paramsLogger", generatePassword(24), time() + 5 * 365 * 86400, "", "", false, false);
+		
 		$this->cookie = $_COOKIE["paramsLogger"];
 	}
 
 	/**
-	 * Get the commont where condition envolving
-	 * user id and cookie values
-	 * @return String
+	 *
 	 */
-	protected function getCommonWhere()
-	{
-		$wheres = array();
-
+	protected function getCommonFilter() {
+		$userConditions = array();
+		
 		if( $this->userID )
-			$wheres[] = $this->dbUserNameFieldName."=".$this->connection->prepareString( $this->userID );
-
+			$userConditions[] = DataCondition::FieldEquals( "USERNAME", $this->userID );
+		
 		if( $this->cookie )
-			$wheres[] = $this->dbCookieFieldName."=".$this->connection->prepareString( $this->cookie );
-
-		if( !count( $wheres ) )
-			return "1=0";
-
-		$typeWhere = "1=1";
+			$userConditions[] = DataCondition::FieldEquals( "COOKIE", $this->cookie );
+		
+		if( !$userConditions )
+			return DataCondition::_False();
+		
+		$conditions = array(
+			DataCondition::_Or( $userConditions ),
+			DataCondition::FieldEquals( "TABLENAME", $this->tableNameId )
+		);
+		
 		// if not searchParamsLogger
-		if ( $this->type !== SSEARCH_PARAMS_TYPE )
-		{
-			$typeWhere = $this->dbTypeFieldName . "=" . $this->type;
-		}
-
-		$addWhere = whereAdd($typeWhere, implode(" OR ", $wheres));
-
-		return whereAdd( $this->dbTableNameFieldName."=".$this->connection->prepareString( $this->tableNameId ), $addWhere );
+		if( $this->type !== SSEARCH_PARAMS_TYPE )
+			$conditions[] = DataCondition::FieldEquals( "TYPE", $this->type );
+		
+		return DataCondition::_And( $conditions );
 	}
 
 	/**
-	 * Save the param
-	 *
+	 * Save params
 	 * @param array $data
-	 * @param String $addColumnsList (optional)
-	 * @param String $addValuesList (optional)
+	 * @param array values (optional)
 	 */
-	public function save( $data, $addColumnsList = "", $addValuesList = "" )
-	{
+	public function save( $data, $_values = array() ) {
 		$issetData = strlen( $this->readData() ) != 0;
-		if ( $issetData && $this->type != SSEARCH_PARAMS_TYPE )
-		{
-			$this->update( $data );
+		if ( $issetData && $this->type != SSEARCH_PARAMS_TYPE ) {
+			$dc = $this->getUpdateCommand( $data );
+			$this->dataSource->updateSingle( $dc, false );
 			return;
 		}
-
-		$columnsList = $addColumnsList . implode( ",", array($this->dbDataFieldName, $this->dbTableNameFieldName));
-
-		$valuesList = $addValuesList
-			.$this->connection->prepareString( my_json_encode( $data ) ).", "
-			.$this->connection->prepareString( $this->tableNameId );
-
-		if ( $this->userID )
-		{
-			$columnsList.= ", ".$this->dbUserNameFieldName;
-			$valuesList.= ", ".$this->connection->prepareString( $this->userID );
+		
+		$dc = new DsCommand();
+		
+		$values = $_values;
+		$values["SEARCH"] = my_json_encode( $data );
+		$values["TABLENAME"] = $this->tableNameId;
+		
+		if ( $this->userID ) {
+			$values["USERNAME"] = $this->userID;
+		} else if ( $this->cookie ) {
+			$values["COOKIE"] = $this->cookie;
 		}
-		else if ( $this->cookie )
-		{
-			$columnsList.= ", ".$this->dbCookieFieldName;
-			$valuesList.= ", ".$this->connection->prepareString( $this->cookie );
-		}
-
+		
 		if ( $this->type != SSEARCH_PARAMS_TYPE )
-		{
-			$columnsList.= ", ".$this->dbTypeFieldName;
-			$valuesList.= ", ".$this->type;
-		}
-
-		$sql = "INSERT INTO ". $this->dbParamsTableName." (".$columnsList.") values (".$valuesList.")";
-		$this->connection->execSilent( $sql );
+			$values["TYPE"] = $this->type;
+		
+		$dc->values = $values;
+		
+		$this->dataSource->insertSingle( $dc );
 	}
 
 
-		/**
-	 * Save the param
-	 *
+	/**
+	 * Save show/hide
 	 * @param array $data
-	 * @param String $addColumnsList (optional)
-	 * @param String $addValuesList (optional)
 	 */
 	public function saveShowHideData( $deviceClass, $data )
 	{
 		if( $this->getShowHideData( $deviceClass ) ) {
-			$this->update( $data, $this->dbNameFieldName . "=" . $this->connection->prepareString( $deviceClass ) );
+			$dc = $this->getUpdateCommand( $data );
+			
+			$dc->filter = DataCondition::_And( array( 
+				$dc->filter, 
+				DataCondition::FieldEquals( "NAME", $deviceClass )
+			));
+			
+			$this->dataSource->updateSingle( $dc, false );	
 			return;
 		}
-
-		$columnsList = implode( ",", array( $this->dbNameFieldName, $this->dbDataFieldName, $this->dbTableNameFieldName) );
-
-		$valuesList = $this->connection->prepareString( $deviceClass )  .", "
-			.$this->connection->prepareString( my_json_encode( $data ) ).", "
-			.$this->connection->prepareString( $this->tableNameId );
-
-		if ( $this->userID )
-		{
-			$columnsList.= ", ".$this->dbUserNameFieldName;
-			$valuesList.= ", ".$this->connection->prepareString( $this->userID );
+		
+		$dc = new DsCommand();
+		
+		$values = array();
+		$values["NAME"] = $deviceClass;
+		$values["SEARCH"] = my_json_encode( $data );
+		$values["TABLENAME"] = $this->tableNameId;
+		$values["TYPE"] = $this->type;
+		
+		if ( $this->userID ) {
+			$values["USERNAME"] = $this->userID;
+		} else if ( $this->cookie ) {
+			$values["COOKIE"] = $this->cookie;
 		}
-		else if ( $this->cookie )
-		{
-			$columnsList.= ", ".$this->dbCookieFieldName;
-			$valuesList.= ", ".$this->connection->prepareString( $this->cookie );
-		}
-
-		$columnsList.= ", ".$this->dbTypeFieldName;
-		$valuesList.= ", ".$this->type;
-
-		$sql = "INSERT INTO ". $this->dbParamsTableName." (".$columnsList.") values (".$valuesList.")";
-		$this->connection->execSilent( $sql );
+		
+		$dc->values = $values;
+		
+		$this->dataSource->insertSingle( $dc );
 	}
 
-
-    /**
+	/**
 	 * Update the existing params
 	 *
 	 * @param array $data
 	 * @param String $addWhere (optional)
+	 * @deprecated ?
 	 */
-	protected function update( $data, $addWhere = '' )
-	{
-		if( $addWhere != '' )
-			$addWhere .= ' AND ';
-		$sql = "UPDATE ". $this->dbParamsTableName
-			." SET ". $this->dbDataFieldName ."=".$this->connection->prepareString( my_json_encode( $data ) )
-			." WHERE " . $addWhere.$this->getCommonWhere();
-
-		$this->connection->execSilent( $sql );
+	protected function update( $data, $addWhere = '' ) {
+		$dc = $this->getUpdateCommand( $data );
+		$this->dataSource->updateSingle( $dc );
+	}
+	
+	protected function getUpdateCommand( $data ) {
+		$dc = $this->getDataCommand();
+		$dc->values = array();
+		$dc->values[ "SEARCH" ] = my_json_encode( $data );
+		return $dc;
 	}
 
 	/**
 	 * Delete param
 	 * @param String $addWhere (optional)
 	 */
-	protected function delete( $addWhere = '' )
-	{
-		if( $addWhere != '' )
-			$addWhere .= ' AND ';
-		$sql = "DELETE FROM " . $this->dbParamsTableName . " WHERE " . $addWhere.$this->getCommonWhere();
-
-		$this->connection->execSilent( $sql );
+	protected function delete() {
+		$dc = $this->getDataCommand();
+		$dataSource->deleteSingle( $dc, false );
 	}
 
 
 	/**
 	 * @return array or null
 	 */
-	public function getData()
-	{
+	public function getData() {
 		return $this->decode( $this->readData() );
 	}
 
-
-
 	/**
 	 * @return array or null
 	 */
-	public function decode( $data )
-	{
-		$parsed = my_json_decode($data);
+	public function decode( $data ) {
+		$parsed = my_json_decode( $data );
 		if( !is_array( $parsed ) )
-			$parsed = runner_unserialize_array( $data );
+			return runner_unserialize_array( $data );
 		return $parsed;
 	}
 
 
-	protected function queryData( $addWhere = '' )
-	{
-		if( $addWhere != '' )
-		$addWhere .= ' AND ';
-		$sql = "SELECT ". $this->dbNameFieldName . "," . $this->dbDataFieldName ." from ". $this->dbParamsTableName
-			." where " . $addWhere . $this->getCommonWhere();
-		return $this->connection->querySilent( $sql );
+	protected function getDataCommand() {
+		$dc = new DsCommand();
+		$dc->filter = $this->getCommonFilter();
+		return $dc;
 	}
 
-	/**
-	 * @return String
-	 */
-	protected function readData()
-	{
-		$qResult = $this->queryData();
+
+	protected function readData() {
+		$dc = $this->getDataCommand();
+		
+		$qResult = $this->dataSource->getSingle( $dc );
 		if( !$qResult )
 			return "";
+		
 		$data = $qResult->fetchAssoc();
 		if( !isset( $data["SEARCH"] ) )
 			return false;
-
+		
 		return $data["SEARCH"];
 	}
 
 	/**
-	 * @return array or null
+	 * @return array
 	 */
-	public function getShowHideData( $deviceClass = -1 )
-	{
-		$where = "";
-		if( $deviceClass >= 0)
-			$where = $this->dbNameFieldName . "=" . $this->connection->prepareString( $deviceClass );
-		$qResult = $this->queryData( $where );
+	public function getShowHideData( $deviceClass = -1 ) {
+		$dc = $this->getDataCommand();
+		
+		if( $deviceClass >= 0 ) {
+			$dc->filter = DataCondition::_And( array(
+				$dc->filter, 
+				DataCondition::FieldEquals( "NAME", $deviceClass ) 
+			));
+		}
+		
+		$qResult = $this->dataSource->getList( $dc );
+		
 		if( !$qResult )
-			return array();
-
+			return array();	
+		
 		$ret = array();
-		while( $data = $qResult->fetchAssoc() )
+		while( $data = $qResult->fetchAssoc() ) {
 			$ret[ $data["NAME"] ] = $this->decode( $data["SEARCH"] );
+		}
 		return $ret;
 	}
-
 }
 ?>

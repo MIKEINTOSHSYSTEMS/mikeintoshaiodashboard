@@ -191,5 +191,19 @@ class QueryResult extends DataResult
 		return $this->data;
 	}
 
+	public function count()
+	{
+		$cnt = 0;
+		while( $data = $this->fetchAssoc() ) {
+			++$cnt;
+		}
+		return $cnt;
+	}
+
+	public function reorder( $callback ) {
+		$arrayResult = ArrayResult::createFromResult( $this );
+		return $arrayResult->reorder( $callback );
+	}
+
 }
 ?>

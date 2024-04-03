@@ -1,6 +1,5 @@
 <?php 
 @ini_set("display_errors","1");
-@ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
 require_once("classes/searchclause.php");
@@ -13,6 +12,10 @@ add_nocache_headers();
 
 InitLookupLinks();
 
+if( Security::hasLogin() ) {
+	if( !AddPage::processAddPageSecurity( $strTableName ) )
+		return;
+}
 
 AddPage::handleBrokenRequest();
 
@@ -36,6 +39,9 @@ $params["action"] = postvalue("a");
 $params["needSearchClauseObj"] = false;
 $params["afterAdd_id"] = postvalue("afteradd");
 
+$params["hostPageName"] = postvalue("hostPageName");
+$params["newRowId"] = postvalue("newRowId");
+
 $params["masterTable"] = postvalue("mastertable");
 if( $params["masterTable"] )
 	$params["masterKeysReq"] = RunnerPage::readMasterKeysFromRequest();
@@ -48,6 +54,19 @@ $params["captchaValue"] = postvalue("value_captcha_1209xre_" . $id);
 $params["dashElementName"] = postvalue("dashelement");
 $params["fromDashboard"] = postvalue("fromDashboard");
 $params["dashTName"] = $params["fromDashboard"] ? $params["fromDashboard"] : postvalue("dashTName");
+
+$params["forSpreadsheetGrid"] = postvalue("spreadsheetGrid");
+
+if ( $pageMode == ADD_POPUP ) {
+	$params["forListPageLookup"] = postvalue('forLookup');
+}
+
+if( $pageMode == ADD_DASHBOARD ) 
+{
+	$params["dashElementName"] = postvalue("dashelement");
+	$params["dashTName"] = postvalue("table");
+}
+
 
 if( $pageMode == ADD_INLINE )
 {
@@ -62,7 +81,7 @@ if( $pageMode == ADD_INLINE )
 }	
 
 
-if( $pageMode == ADD_ONTHEFLY || $pageMode == ADD_INLINE && postvalue('forLookup') )	
+if( $pageMode == ADD_ONTHEFLY || ( $pageMode == ADD_INLINE || $pageMode == ADD_POPUP ) && postvalue('forLookup') )	
 {
 	//table where lookup is set
 	$params["lookupTable"] = postvalue("table");

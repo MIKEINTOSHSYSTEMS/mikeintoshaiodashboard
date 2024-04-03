@@ -26,9 +26,7 @@ class ListPage_DPDash extends ListPage_Dashboard
 		$this->showEditInPopup = $dashDetails["edit"];
 		$this->showViewInPopup = $dashDetails["view"];		
 
-		if($this->mobileTemplateMode())
-			$this->pageSize = -1;
-		
+	
 		$this->searchClauseObj->clearSearch();
 		
 		$this->jsSettings['tableSettings'][$this->tName]['masterTable'] = $this->masterTable;
@@ -77,9 +75,12 @@ class ListPage_DPDash extends ListPage_Dashboard
 	/**
 	 * A stub preventing the Search Panel from building
 	 */
-	function buildSearchPanel()
-	{
-	}
+	function buildSearchPanel(){}
+	/**
+	 * A stub preventing simple_search from building
+	 */
+	public function assignSimpleSearch() {}
+	
 	function deleteAvailable() {
 		return ListPage_Embed::deleteAvailable() &&  $this->dashElementData["details"][$this->tName]["delete"];
 	}
@@ -102,5 +103,11 @@ class ListPage_DPDash extends ListPage_Dashboard
 	function inlineAddAvailable() {
 		return false;
 	}
+
+	function displayTabsInPage()
+	{
+		return false;
+	}
+
 }
 ?>

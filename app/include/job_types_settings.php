@@ -60,14 +60,9 @@ $tdatajob_types[".showEditInPopup"] = false;
 
 $tdatajob_types[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdatajob_types[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdatajob_types[".listAjax"] = false;
 //	temporary
-$tdatajob_types[".listAjax"] = false;
+//$tdatajob_types[".listAjax"] = false;
 
 	$tdatajob_types[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdatajob_types[".allowFieldsReordering"] = true; // temp fix #13449
 
 $tdatajob_types[".isUseAjaxSuggest"] = true;
 
-$tdatajob_types[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdatajob_types[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdatajob_types[".strOrderBy"] = $tstrOrderBy;
 
 $tdatajob_types[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdatajob_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Job_Types","TypeID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdatajob_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdatajob_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdatajob_types[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdatajob_types[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("Job_Types","TypeName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdatajob_types[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdatajob_types[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdatajob_types[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["Job_Types"] = &$fieldToolTipsjob_types;
 $placeHolders["Job_Types"] = &$placeHoldersjob_types;
 $page_titles["Job_Types"] = &$pageTitlesjob_types;
 
+
+changeTextControlsToDate( "Job_Types" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["Job_Types"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["Job_Types"] = array();
@@ -535,7 +533,8 @@ $masterTablesData["Job_Types"] = array();
 
 
 	
-				$strOriginalDetailsTable="Jobs";
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="Jobs";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="Jobs";
 	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
@@ -550,6 +549,7 @@ $masterTablesData["Job_Types"] = array();
 				$masterTablesData["Job_Types"][0]["detailKeys"] = array();
 	$masterTablesData["Job_Types"][0]["detailKeys"][]="TypeName";
 		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -691,7 +691,6 @@ $tdatajob_types[".sqlquery"] = $queryData_job_types;
 
 
 
-$tableEvents["Job_Types"] = new eventsBase;
 $tdatajob_types[".hasEvents"] = false;
 
 ?>

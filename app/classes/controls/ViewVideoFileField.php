@@ -1,5 +1,6 @@
 <?php
 include_once getabspath("classes/controls/ViewFileField.php");
+
 class ViewVideoFileField extends ViewFileField
 {
 	/**
@@ -23,102 +24,99 @@ class ViewVideoFileField extends ViewFileField
 	
 	public function showDBValue( &$data, $keylink, $html = true )
 	{
-		$value = "";
-		$fieldIsUrl = $this->container->pSet->isVideoUrlField($this->field);
-		$fileName = $data[$this->field];
-		if (strlen($fileName))
-		{
-			if(!$fieldIsUrl)
-			{
-				$this->upload_handler->tkeys = $keylink;
-				$filesArray = $this->getFilesArray($fileName);
-			}
-			else 
-				$filesArray = array($fileName);
-			
-			$pageType = $this->container->pageType;
-			$printOrExportPage = $pageType == PAGE_EXPORT || $pageType == PAGE_PRINT || $this->container->forExport != '';
-			$counter = 0;
-			foreach ($filesArray as $file)
-			{
-				if($printOrExportPage)
-				{
-					if($value != "")
-						$value .= ", ";
-					if($fieldIsUrl)
-						$value .= $fileName;
-					else
-						$value .= $file["usrName"] ;
-					continue;
-				}
-				if(!$fieldIsUrl)
-				{
-					if(!file_exists(getabspath($file["name"])))
-						continue;
-				}
-				$videoId = 'video_'.GoodFieldName(runner_htmlspecialchars($this->field)).'_';
-				$videoId .= $this->getContainer()->id."_";
-				if($pageType != PAGE_ADD && $pageType != PAGE_EDIT)
-					$videoId .= $this->getContainer()->recId;
-				else
-					$videoId .= postvalue_number("id");
-				$videoId .= '_'.$counter++;
-				
-				if($fieldIsUrl)
-				{
-					$href = $fileName;
-					if($fileName != "")
-					{
-						$pos = strrpos($fileName,".");
-						$ext = substr($fileName,$pos);
-						$type = getContentTypeByExtension($ext);
-						if($type == "application/octet-stream")
-							$type = "video/flv";
-					}
-				}
-				else
-				{
-					$userFile = $this->upload_handler->buildUserFile($file);
-					$href = $userFile["url"];
-					if(!$this->getContainer()->pSet->isRewindEnabled($this->field))
-						$href .= (strpos($href, '?') === false ? '?' : '&').'norange=1';
-					if($file["type"] == "application/octet-stream")
-						$type = "video/flv";
-					else 
-						$type = $file["type"];
-				}
-				if(strpos($type, 'video') !== 0)
-					continue;
-					
-				if(strpos($href, 'rndVal=') === false)
-					$href .= (strpos($href, '?') === false ? '?' : '&').'rndVal='.rand(0, 99999999);
-				else
-				{
-					$startPos = strpos($href, 'rndVal=') + 7;
-					$endPos = strpos($href, '&', $startPos);
-					$href = substr($href, 0, $startPos).rand(0, 99999999).($endPos != -1 ? substr($href, $endPos) : '');
-				}
-
-				$vWidth = $this->getContainer()->pSet->getVideoWidth($this->field);
-				$vHeight = $this->getContainer()->pSet->getVideoHeight($this->field);
-				if($vWidth == 0)
-					$vWidth = 300;
-				if($vHeight == 0)
-					$vHeight = 200;
-				$value .= '<div style="width:'.$vWidth.'px; height:'.$vHeight.'px;">
-					<video class="projekktor"  width="'.$vWidth.'" height="'.$vHeight.'"  id="'.$videoId.'" type="'.$type.'" src="'.$href.'">
-					</video></div>';
-
-				if($this->pageObject != null)
-					$this->pageObject->controlsMap['video'][] = $videoId;
-			}
+		$pageType = $this->container->pageType;
+		//	 print or export
+		if( !$html || $pageType == PAGE_EXPORT || $pageType == PAGE_PRINT || $this->container->forExport != '' ) {
+			$ret = $this->getTextValue( $data );
+			return $html 
+				? runner_htmlspecialchars( $ret )
+				: $ret;
 		}
-		return $value;
+
+		$urls = $this->getFileURLs( $data, $keylink );
+		$values = array();
+		foreach( $urls as $u ) {
+			$values[] = $this->makeVideoControl( $u );
+		}
+		return implode( "", $values );
 	}
+
+	/**
+	 * @param Array urlData - element of array returned by getFileURLs
+	 * @return String (HTML)
+	 */
+	protected function makeVideoControl( $urlData ) {
+		$pSet = $this->pSettings();
+		$vWidth = $pSet->getVideoWidth( $this->field );
+		$vHeight = $pSet->getVideoHeight( $this->field );
+		$vWidth = $vWidth ? $vWidth : 300;
+		$vHeight = $vHeight ? $vHeight : 200;
+
+		return '<div style="width:'.$vWidth.'px; height:'.$vHeight.'px;">'.
+			'<video class="projekktor"  width="'.$vWidth.'" height="'.$vHeight.'" type="' . runner_htmlspecialchars( $urlData["type"] ).'" src="' . runner_htmlspecialchars( $urlData["url"] ) . '">'.
+			'</video></div>';
+	}
+
 	public function getPdfValue(&$data, $keylink = "")
 	{
 		return "''";
 	}
 
-}
+	/**
+	 * @return Array of array(
+	 * 		"url" => link to the file
+	 * 		"type" => MIME type
+	 * )
+	 */
+	protected function getFileURLs( &$data, $keylink )
+	{
+		$pSet = $this->pSettings();
+		$fileData = $this->getFilesData( $data[ $this->field ] );
+		$fieldIsUrl = $pSet->isVideoUrlField( $this->field );
+
+		$ret = array();
+		foreach( $fileData as $file ) {
+			if( !$file["name"] ) {
+				continue;
+			}
+			if( !$fieldIsUrl ) {
+				if( !$this->fastFileExists( $file["name"] ) ) {
+					continue;
+				}
+			}
+			if( $fieldIsUrl ) {
+				$url = $file["name"];
+				$ext = getFileExtension( $url );
+			} else {
+				$addParams = array();
+				//$addParams["nodisp"] = "1";
+				if( !$pSet->isRewindEnabled( $this->field ) ) {
+					$addParams["norange"] = "1";
+				}
+				$url = projectURL() . $this->getFileUrl( $file, $keylink, false, $addParams );
+				$ext = getFileExtension( $file["usrName"] );
+			}
+			$type = $file["type"];
+			if( !$type ) {
+				$type = mimeTypeByExt( $ext );
+			}
+			if( $type == "application/octet-stream" )
+				$type = "video/flv";
+			if(strpos($type, 'video') !== 0)
+				continue;
+
+			$ret[] = array(
+				"url" => $url,
+				"type" => $type
+			);
+		}
+		return $ret;
+	}
+
+	protected function isUrl() {
+		return $this->pSettings()->isVideoUrlField( $this->field );
+	}
+
+}	
+
 ?>

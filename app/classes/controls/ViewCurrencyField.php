@@ -15,6 +15,18 @@ class ViewCurrencyField extends ViewControl
 	}
 
 	/**
+	 * Highlight the search word within the $value string
+	 * @param String value		The field's content
+	 * @param Boolean encoded	An indicator showing if the field's content is htmlspecialchars encoded
+	 * @param String dbValue	The database field's value
+	 * @return string
+	 */
+	public function highlightSearchWord($value, $encoded, $dbValue = "")
+	{
+		return $this->highlightSearchWordForNumber( $value, $encoded, $dbValue );
+	}	
+	
+	/**
 	 * @param &Array data
 	 * @return String	 
 	 */

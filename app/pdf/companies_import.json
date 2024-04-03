@@ -39,13 +39,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -59,11 +58,14 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,
@@ -89,13 +91,12 @@ pdfDocument = {
 	
 		body: [
 				
-					[
-												{
+				[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
-			style: 'cell',
-		
+			
 		
 	//	static colspan/rowspan
 		
@@ -105,36 +106,39 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"hidden":"{$item_hide_import_field}","text":{$CompanyID_pdfvalue}},
+			{"text":{$CompanyID_pdfvalue},"hidden":"{$item_hide_import_field}"},
 				
 				
-			{"hidden":"{$item_hide_import_field1}","text":{$CompanyName_pdfvalue}},
+			{"text":{$CompanyName_pdfvalue},"hidden":"{$item_hide_import_field1}"},
 				
 				
-			{"hidden":"{$item_hide_import_field2}","text":{$CompanyEmail_pdfvalue}},
+			{"text":{$CompanyEmail_pdfvalue},"hidden":"{$item_hide_import_field2}"},
 				
 				
-			{"hidden":"{$item_hide_import_field3}","text":{$CompanyPhone_pdfvalue}},
+			{"text":{$CompanyPhone_pdfvalue},"hidden":"{$item_hide_import_field3}"},
 				
 				
-			{"hidden":"{$item_hide_import_field4}","text":{$CompanyWebsite_pdfvalue}},
+			{"text":{$CompanyWebsite_pdfvalue},"hidden":"{$item_hide_import_field4}"},
 				
 				
-			{"hidden":"{$item_hide_import_field5}","text":{$CompanySector_pdfvalue}},
+			{"text":{$CompanySector_pdfvalue},"hidden":"{$item_hide_import_field5}"},
 				
 				
-			{"hidden":"{$item_hide_import_field6}","text":{$CompanyProfile_pdfvalue}},
+			{"text":{$CompanyProfile_pdfvalue},"hidden":"{$item_hide_import_field6}"},
 				
 				
-			{"hidden":"{$item_hide_import_field7}","text":{$CompanyJob_pdfvalue}},
+			{"text":{$CompanyJob_pdfvalue},"hidden":"{$item_hide_import_field7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-          "alignment": 'left',
-  },
+              "alignment": 'left',
+     
+      
+      },
 
 											],
-					]
+		
+		]
 	}
 }
 ,

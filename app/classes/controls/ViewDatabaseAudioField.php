@@ -1,31 +1,8 @@
 <?php
-class ViewDatabaseAudioField extends ViewControl
-{
-	public function showDBValue(&$data, $keylink, $html = true )
-	{	
-		$value = "";
-		$title = "";
-		$titleField = $this->container->pSet->getAudioTitleField($this->field);
-		if ($titleField)
-			$title = runner_htmlspecialchars( $data[$titleField] );
-		
-		if (@$data[$this->field] != NULL && $this->container->pageType != PAGE_PRINT)
-		{
-			if( !$title)
-				$title = "Track.mp3";
-			
-			$href = GetTableLink('getfile', '', 'table='.GetTableURL($this->container->pSet->_table).'&field='.rawurlencode($this->field).$keylink
-				.'&pagename='.runner_htmlspecialchars( $this->container->pSet->pageName() ).'&filename='.$title);
-				
-			$link = '<a title="'.$title.'" href="'.$href.'">'.$title.'</a>';
-			$value = '<audio controls preload="none" src="'.$href.'">'.$link.'</audio>';
-		}
-		else
-			$value = $title;
-		
-		return $value;
-	}
+include_once getabspath("classes/controls/ViewAudioFileField.php");
 
+class ViewDatabaseAudioField extends ViewAudioFileField
+{
 	/**
 	 * @param &Array data
 	 * @return String	 
@@ -48,9 +25,43 @@ class ViewDatabaseAudioField extends ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
 		return "LONG BINARY DATA - CANNOT BE DISPLAYED";
 	}
+
+	protected function getFileURLs( &$data, $keylink )
+	{
+		$fileURLs = array();
+		if( !$data[ $this->field ] ) {
+			return array();
+		}
+		$pSet = $this->pSettings();
+		
+		$params = array();
+
+		$fileNameField = $pSet->getFilenameField( $this->field );
+		$params["filename"] = $fileNameField && $data[ $fileNameField ] 
+			? $data[ $fileNameField ]
+			: 'Track.mp3';
+		$params["table"] = $pSet->table();
+		$params["field"] = $this->field;
+		$params["nodisp"] = 1;
+		$params["hash"] = fileAttrHash( $keylink, strlen_bin( $data[ $this->field ] ) );
+		$url = GetTableLink("file", "", prepareUrlQuery( $params ).$keylink );
+
+		$title = "";
+		$titleField = $pSet->getAudioTitleField( $this->field );
+		if ( $titleField ) {
+			$title = $data[ $titleField ];
+		}
+
+		return array( array(
+			"url" => $url,
+			"title" => $title,
+			"altTitle" => $title,
+		));
+	}
+
 }
 ?>

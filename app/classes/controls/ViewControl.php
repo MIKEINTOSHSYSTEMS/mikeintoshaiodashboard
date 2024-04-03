@@ -134,11 +134,10 @@ class ViewControl
 		$this->viewFormat = $container->pSet->getViewFormat($this->field);
 		$this->editFormat = $container->pSet->getEditFormat($this->field);
 
-		if( $this->pageObject )
-		{
+		if( $this->pageObject ) {
 			$this->searchClauseObj = $this->pageObject->searchClauseObj;
 			if ( $this->searchClauseObj )
-				$this->searchHighlight = $container->searchHighlight &&	$this->searchClauseObj->bIsUsedSrch;
+				$this->searchHighlight = $container->searchHighlight &&	$this->searchClauseObj->searchStarted();
 		}
 	}
 
@@ -148,9 +147,9 @@ class ViewControl
 	 * @prarm String keylink
 	 * @return String
 	 */
-	public function getExportValue(&$data, $keylink = "")
+	public function getExportValue(&$data, $keylink = "", $html = false )
 	{
-		return $this->showDBValue($data, $keylink);
+		return $this->showDBValue($data, $keylink, $html );
 	}
 
 
@@ -366,7 +365,7 @@ class ViewControl
 		if( !$this->needLookupValueProcessing )
 			return $value;
 
-		return implode(",", splitvalues($value));
+		return implode(",", splitLookupValues($value));
 	}
 
 	/**
@@ -391,6 +390,23 @@ class ViewControl
 		}
 		return $this->getValueHighlighted($value, $highlightData);
 	}
+	
+	/**
+	 * Highlight a search word for number-like fields
+	 * @param String value
+	 * @param Boolean encoded
+	 * @param String dbValue
+	 * @return string
+	 */
+	public function highlightSearchWordForNumber( $value, $encoded, $dbValue )
+	{
+		$lookupParams = $this->getLookupParams();
+		$highlightData = $this->searchClauseObj->getSearchHighlightingData( $this->field, $dbValue, $encoded, $lookupParams, true );
+		if( $highlightData )
+			return $this->getValueHighlighted( $value, $highlightData );
+
+		return $value;
+	}		
 
 	/**
 	 * Form the the string with the search word highlighted
@@ -423,6 +439,56 @@ class ViewControl
 				return $value;
 		}
 	}
+	
+	/**
+	 * search highliting for view as number, percent
+	 * @param String value			The field's content
+	 * @param Array highlightData
+	 * @return string
+	 */
+	public function getNumberValueHighlighted( $value, $highlightData ) {
+		$searchWordArr = array();
+		$decimalPlaces = $this->container->pSet->isDecimalDigits( $this->field );
+		$quantifier = $decimalPlaces <= 1 ? '?' :  '{1,'.$decimalPlaces.'}';
+		
+		foreach( $highlightData['searchWords'] as $searchWord ) {
+			$currSearchWord = $searchWord;
+			if( !preg_match( '/^[\d]+$/', $searchWord ) ) {
+				$currSearchWord	= $this->formatSearchWord( $searchWord );
+				$currSearchWord = preg_replace( '/0'.$quantifier.'$/', '', $currSearchWord );
+				$currSearchWord = preg_replace( '/\.$/', '', $currSearchWord );	
+			}
+			
+			$searchWordArray = str_split( $currSearchWord );
+			// chain of numbers an possible separators 
+			$searchWordArr[] = implode('[^\d]?', $searchWordArray );
+		}
+		
+		$searchWord = implode( '|', $searchWordArr );
+		$searchOpt = $highlightData['searchOpt'];
+		
+		switch( $searchOpt ) {
+			case 'Equals':
+				return $this->addHighlightingSpan( $value );
+			
+			case 'Starts with':
+				return preg_replace('/^('.$searchWord.')/', $this->addHighlightingSpan('$1'), $value);
+			
+			case 'Contains':
+				return preg_replace('/('.$searchWord.')/', $this->addHighlightingSpan('$1'), $value);
+			
+			default:
+				return $value;
+		}
+	}
+	
+	/**
+	 * @param String searchWord
+	 * return String
+	 */
+	protected function formatSearchWord( $searchWord ) {
+		return $searchWord;
+	}	
 
 	/**
 	 * Check if the pattern string is contained in any special chars codes

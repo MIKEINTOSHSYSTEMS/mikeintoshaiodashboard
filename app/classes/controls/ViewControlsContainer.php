@@ -200,14 +200,14 @@ class ViewControlsContainer
 	 * @param {array} associative array with record data
 	 * @param {string} string with record keys and values
 	 */
-	function showDBValue($field, &$data, $keylink = "", $value = "")
+	function showDBValue($field, &$data, $keylink = "", $value = "", $html = true)
 	{
 		$control = $this->getControl($field);
 		if($value != ""){
 			$control->displayField = $value;
 		}
 		
-		return $control->showDBValue($data, $keylink);
+		return $control->showDBValue( $data, $keylink, $html );
 	}
 	
 	/**

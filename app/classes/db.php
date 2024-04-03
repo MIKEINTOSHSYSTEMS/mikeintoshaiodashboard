@@ -62,182 +62,130 @@ class DB
 	{
 		return DB::CurrentConnection()->lastError();
 	}
-
-	public static function Select($table, $userConditions = array() )
+	/**
+	 * @param Array $userOrders array("field1", "field2") -> ORDER BY field1, field2
+	 * array( array( "field1", "d" ), "field2" ) -> ORDER BY field1 DESC, field2
+	 * array( array( "field1", "a" ), array( "field2", "d" ) ) -> ORDER BY field1 ASC, field2 DESC
+	*/
+	public static function Select( $table, $userConditions = array(), $userOrders = array() )
 	{
-		$tableInfo = DB::_getTableInfo($table);
-
-		if ( !$tableInfo )
+		$dataSource = getDbTableDataSource( $table, DB::CurrentConnectionId() );
+		if( !$dataSource )
 			return false;
+		
+		$dc = new DsCommand();
+		$dc->filter = DB::_createFilterCondition( $userConditions );
+		$dc->order = array();
 
-		$whereSql = DB::_getWhereSql($userConditions, $tableInfo["fields"]);
-
-		$sql = "SELECT * FROM ".DB::CurrentConnection()->addTableWrappers( $tableInfo['fullName'] ) . $whereSql;
-		$queryResult = DB::CurrentConnection()->querySilent( $sql );
-
+		foreach( $userOrders as $userOrder ){
+			if( is_array( $userOrder ) ){
+				$orderClause = array( "column" => $userOrder[0] );
+				$dir = $userOrder[1];
+				switch ( $dir ) {
+					case "a":
+						$orderClause["dir"] = "ASC";
+						break;
+					case "d":
+						$orderClause["dir"] = "DESC";
+						break;
+				}
+			}	
+			else
+				$orderClause = array( "column" => $userOrder );
+			
+			$dc->order[] = $orderClause;
+		}
+		$queryResult = $dataSource->getList( $dc );
 		return $queryResult;
+	}
+
+	public static function SelectValue( $field, $table, $userConditions = array(), $order = array() ){
+		$rs = DB::Select( $table, $userConditions, $order );
+		if( !$rs )
+			return false;
+		$data = $rs->fetchAssoc();
+		if( $data[ $field ] )
+			return $data[ $field ];
+		return false;
 	}
 
 	public static function Delete($table, $userConditions = array() )
 	{
-		$tableInfo = DB::_getTableInfo($table);
-
-		if ( !$tableInfo )
+		$dataSource = getDbTableDataSource( $table, DB::CurrentConnectionId() );
+		if( !$dataSource )
 			return false;
-
-		$whereSql = DB::_getWhereSql($userConditions, $tableInfo["fields"]);
-
-		if( $whereSql == "" )
+		
+		$dc = new DsCommand();
+		$dc->filter = DB::_createFilterCondition( $userConditions );
+		$prep = $dataSource->prepareSQL( $dc );
+		if( $prep["where"] == "" )
 			return false;
-
-		$sql = "DELETE FROM ".DB::CurrentConnection()->addTableWrappers( $tableInfo['fullName'] ) . $whereSql;
-		$ret = DB::CurrentConnection()->execSilent( $sql );
-
+		$ret = $dataSource->deleteSingle( $dc, false );
 		return $ret;
 	}
 
 	public static function Insert($table, $data)
 	{
-		$result = false;
-		$tableInfo = DB::_getTableInfo($table);
-
-		if ( !$tableInfo )
+		$dataSource = getDbTableDataSource( $table, DB::CurrentConnectionId() );
+		if( !$dataSource ) {
 			return false;
-
-		$iFields = "";
-		$iValues = "";
-		$blobs = array();
-		foreach($data as $fieldname => $value)
-		{
-			$field = getArrayElementNC($tableInfo["fields"], $fieldname);
-
-			// user field not found in table
-			if ( is_null($field) )
-				continue;
-
-			$iFields.= DB::CurrentConnection()->addFieldWrappers( $field["name"] ).",";
-			$iValues.= DB::_prepareValue($value, $field["type"]) . ",";
-
-			if( DB::CurrentConnection()->dbType == nDATABASE_Oracle || DB::CurrentConnection()->dbType == nDATABASE_DB2 || DB::CurrentConnection()->dbType == nDATABASE_Informix )
-			{
-				if( IsBinaryType( $field["type"] ) )
-					$blobs[ $field["name"] ] = $value;
-
-				if( DB::CurrentConnection()->dbType == nDATABASE_Informix && IsTextType( $field["type"] ) )
-					$blobs[ $field["name"] ] = $value;
-			}
 		}
-
-		if( $iFields != "" && $iValues != "" )
-		{
-			$iFields = substr($iFields, 0, -1);
-			$iValues = substr($iValues, 0, -1);
-			$sql = "INSERT INTO ".DB::CurrentConnection()->addTableWrappers( $tableInfo['fullName'] )." (".$iFields.") values (".$iValues.")";
-
-			if ( count($blobs) > 0 )
-				$result = DB::_execSilentWithBlobProcessing($blobs, $sql, $tableInfo['fields']);
-			else
-				$result = DB::CurrentConnection()->execSilent( $sql );
-		}
-
-		return $result;
+		$dc = new DsCommand();
+		$dc->values = $data;
+		$result = $dataSource->insertSingle( $dc );
+		return !!$result;
 	}
 
 	public static function Update($table, $data, $userConditions)
 	{
-		$result = false;
-		$tableInfo = DB::_getTableInfo($table);
-
-		if ( !$tableInfo )
+		$dataSource = getDbTableDataSource( $table, DB::CurrentConnectionId() );
+		if( !$dataSource ) {
 			return false;
-
-		$whereSql = DB::_getWhereSql($userConditions, $tableInfo["fields"]);
-
-		if( $whereSql == "" )
+		}
+		if( !$userConditions ) {
 			return false;
-
-		$updateValues = array();
-		$blobs = array();
-		foreach( $data as $fieldname => $value )
-		{
-			$field = getArrayElementNC($tableInfo["fields"], $fieldname);
-
-			// user field not found in table
-			if ( is_null($field) )
-				continue;
-
-			$prepareFieldName = DB::CurrentConnection()->addFieldWrappers( $field["name"] );
-			$prepareValue = DB::_prepareValue($value, $field["type"]);
-			$updateValues[] = $prepareFieldName."=".$prepareValue;
-
-			if ( DB::CurrentConnection()->dbType == nDATABASE_Oracle || DB::CurrentConnection()->dbType == nDATABASE_DB2 || DB::CurrentConnection()->dbType == nDATABASE_Informix )
-			{
-				if ( IsBinaryType( $field["type"] ) )
-					$blobs[ $field["name"] ] = $value;
-
-				if ( DB::CurrentConnection()->dbType == nDATABASE_Informix && IsTextType( $field["type"] ) )
-					$blobs[ $field["name"] ] = $value;
-			}
 		}
-
-		if ( count($updateValues) > 0 )
-		{
-			$updateSQL = implode(",", $updateValues);
-			$sql = "UPDATE ".DB::CurrentConnection()->addTableWrappers( $tableInfo['fullName'] )." SET ". $updateSQL . $whereSql;
-
-			if ( count($blobs) > 0 )
-				$result = DB::_execSilentWithBlobProcessing($blobs, $sql, $tableInfo['fields']);
-			else
-				$result = DB::CurrentConnection()->execSilent( $sql );
-		}
-
-		return $result;
+		$dc = new DsCommand();
+		$dc->values = $data;
+		$dc->filter = DB::_createFilterCondition( $userConditions );
+		$result = $dataSource->updateSingle( $dc, false );
+		return !!$result;
 	}
 
-	protected static function _getWhereSql($userConditions, $founedfields)
+	public static function Count( $table, $userConditions = array() ){
+		$dataSource = getDbTableDataSource( $table, DB::CurrentConnectionId() );
+        if( !$dataSource )
+            return false;
+        $dc = new DsCommand();
+        $dc->filter = DB::_createFilterCondition( $userConditions );
+        $count = $dataSource->getCount( $dc );
+        return $count;
+	}
+	protected static function _createFilterCondition( $userConditions )
 	{
-		if( !is_array( $userConditions ) )
-		{
-			$whereSql = trim( $userConditions );
-			if( $whereSql != "")
-				$whereSql = " WHERE " . $whereSql;
-			return $whereSql;
+		if( !is_array( $userConditions ) ) {
+			return DataCondition::SQLCondition( $userConditions );
 		}
 
 		$conditions = array();
-		foreach($userConditions as $fieldname => $value)
+		foreach($userConditions as $fieldName => $value)
 		{
-			$field = getArrayElementNC($founedfields, $fieldname);
-			// user field not found in table
-			if ( is_null($field) )
-				continue;
-
-			$wrappedField = DB::CurrentConnection()->addFieldWrappers( $field["name"] );
-			if ( is_null($value) )
-			{
-				$conditions[] = $wrappedField . " IS NULL";
-			}
-			else
-			{
-				$conditions[] = $wrappedField . "=" . DB::_prepareValue($value, $field["type"]);
+			if ( is_null($value) ) {
+				$conditions[] = DataCondition::FieldIs( $fieldName, dsopEMPTY, '' );
+			} else {
+				$conditions[] = DataCondition::FieldEquals( $fieldName, $value );
 			}
 		}
-
-		$whereSql = "";
-		if( count($conditions) > 0 )
-		{
-			$whereSql .= " WHERE " . implode(" AND ", $conditions);
-		}
-
-		return $whereSql;
+		return DataCondition::_And( $conditions );
 	}
+
 
 	/**
 	 * @param Array blobs
 	 * @param String dalSQL
 	 * @param Array tableinfo
 	 */
-	protected static function _execSilentWithBlobProcessing($blobs, $dalSQL, $tableinfo)
+	protected static function _execSilentWithBlobProcessing($blobs, $dalSQL, $tableinfo, $autoincField = null)
 	{
 		$blobTypes = array();
 		if( DB::CurrentConnection()->dbType == nDATABASE_Informix )
@@ -248,7 +196,7 @@ class DB
 			}
 		}
 
-		DB::CurrentConnection()->execSilentWithBlobProcessing( $dalSQL, $blobs, $blobTypes );
+		DB::CurrentConnection()->execSilentWithBlobProcessing( $dalSQL, $blobs, $blobTypes, $autoincField );
 	}
 
 	protected static function _prepareValue($value, $type)
@@ -316,12 +264,12 @@ class DB
 			$conn = DB::CurrentConnection();
 		$tableName = $conn->getTableNameComponents( $table );
 
-		DB::_fillTablesList();
+		DB::_fillTablesList( $conn );
 
 		//	exact match
-		foreach( $dalTables[$conn->connId] as $t )
-		{
-			if( $t["schema"] == $tableName["schema"] && $t["name"] == $tableName["table"] )
+		foreach( $dalTables[$conn->connId] as $t ) {
+			if( ( !$tableName["schema"] || $t["schema"] == $tableName["schema"] )
+				&& $t["name"] == $tableName["table"] )
 				return $t;
 		}
 
@@ -331,7 +279,8 @@ class DB
 
 		foreach( $dalTables[$conn->connId] as $t )
 		{
-			if( strtoupper( $t["schema"] ) == $tableName["schema"] && strtoupper( $t["name"] ) == $tableName["table"] )
+			if( ( !$tableName["schema"] || strtoupper( $t["schema"] ) == $tableName["schema"] )
+				&& strtoupper( $t["name"] ) == $tableName["table"] )
 				return $t;
 		}
 		return null;
@@ -344,7 +293,7 @@ class DB
 	 */
 	public static function _getTableInfo($table, $connId = null )
 	{
-		global $dal_info, $tableinfo_cache;
+		global $dal_info, $tableinfo_cache, $cman;
 		if( !$connId )
 			$connId = DB::CurrentConnectionId();
 
@@ -355,7 +304,7 @@ class DB
 		$tableInfo = array();
 
 
-		$tableDescriptor = DB::_findDalTable( $table );
+		$tableDescriptor = DB::_findDalTable( $table, $cman->byId( $connId ) );
 
 		if ( $tableDescriptor )
 		{
@@ -395,10 +344,11 @@ class DB
 	}
 
 
-	protected static function _fillTablesList()
+	protected static function _fillTablesList( $conn )
 	{
 		global $dalTables;
-		$conn = DB::CurrentConnection();
+		if( !$conn )
+			$conn = DB::CurrentConnection();
 		if( $dalTables[ $conn->connId ] )
 			return;
 		$dalTables[ $conn->connId ] = array();
@@ -414,6 +364,10 @@ class DB
 			$dalTables[$conn->connId][] = array("name" => "dereja_information_sources", "varname" => "deredevatderejadevmerqconsulta__dereja_information_sources", "altvarname" => "dereja_information_sources", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "dereja_services", "varname" => "deredevatderejadevmerqconsulta__dereja_services", "altvarname" => "dereja_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "dereja_training_services", "varname" => "deredevatderejadevmerqconsulta__dereja_training_services", "altvarname" => "dereja_training_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "derejame_uggroups", "varname" => "deredevatderejadevmerqconsulta__derejame_uggroups", "altvarname" => "derejame_uggroups", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "derejame_ugmembers", "varname" => "deredevatderejadevmerqconsulta__derejame_ugmembers", "altvarname" => "derejame_ugmembers", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "derejame_ugrights", "varname" => "deredevatderejadevmerqconsulta__derejame_ugrights", "altvarname" => "derejame_ugrights", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "derejame_users", "varname" => "deredevatderejadevmerqconsulta__derejame_users", "altvarname" => "derejame_users", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "Disability_Types", "varname" => "deredevatderejadevmerqconsulta__Disability_Types", "altvarname" => "Disability_Types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "education_levels", "varname" => "deredevatderejadevmerqconsulta__education_levels", "altvarname" => "education_levels", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "event_participants", "varname" => "deredevatderejadevmerqconsulta__event_participants", "altvarname" => "event_participants", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
@@ -442,8 +396,26 @@ class DB
 		}
 	}
 
+	public static function PrepareConnectionSQL( $conn, $sql, 
+		$arg1 = null,
+		$arg2 = null, 
+		$arg3 = null, 
+		$arg4 = null, 
+		$arg5 = null, 
+		$arg6 = null, 
+		$arg7 = null, 
+		$arg8 = null, 
+		$arg9 = null, 
+		$arg10 = null ) {
 
-	public static function PrepareSQL($sql)
+		$prevConn = DB::CurrentConnection();
+		DB::SetConnection( $conn );
+		$result = DB::PrepareSQL( $sql, $arg1, $arg2, $arg3, $arg4, $arg5, $arg6, $arg7, $arg8, $arg9, $arg10 );
+		DB::SetConnection( $prevConn );
+		return $result;
+	}
+
+	public static function PrepareSQL( $sql )
 	{
 		$args = func_get_args();
 
@@ -465,23 +437,39 @@ class DB
 				"offset" => $offset,
 				"len" => strlen($match)
 			);
-
+			
 			$val = "";
 			if (is_numeric($token) && count( $args ) > $token) {
 				$val = $args[(int)$token];
 			} else {
 				$val = RunnerContext::getValue($token);
 			}
-
+			
+			
 			/**
 			 * Don't ever dare to alter this code!
 			 * Everything outside quotes must be converted to number to avoid SQL injection
 			 */
-			if ($conn->positionQuoted($sql, $offset))
-				$repl["insert"] = $conn->addSlashes($val);
-			else
-				$repl["insert"] = DB::prepareNumberValue($val);
-
+			 $inQuotes = $conn->positionQuoted( $sql, $offset );
+			 if( is_array( $val ) ) {
+				$_values = array();
+				foreach( $val as $v ) {
+					if ( $inQuotes ) {
+						$_values[] = '\''.$conn->addSlashes( $v ).'\'';
+					} else {
+						$_values[] = DB::prepareNumberValue( $v );
+					}
+				}
+				$glued = implode( ",", $_values );
+				$repl["insert"] = $inQuotes ? substr( $glued, 1, strlen( $glued ) - 2 ) : $glued;
+			} else {
+				if( $inQuotes ) {
+					$repl["insert"] = $conn->addSlashes( $val );
+				} else {
+					$repl["insert"] = DB::prepareNumberValue( $val );
+				}
+			}
+			
 			$replacements[] = $repl;
 		}
 
@@ -546,8 +534,7 @@ class DB
 		//	match aaa, old.bbb, master.order date from:
 		//	insert into table values (':aaa', :old.bbb, ':{master.order date}')
 
-		$pattern = '/(?:[^\w\:]|^)(\:([a-zA-Z_]{1}[\w\.]*))|\:\{(.*?)\}|(?:[^\w\:]|^)(\:([1-9]+[0-9]*))/';
-
+		$pattern = '/(?:[^\w\:]|^)(\:([a-zA-Z_]{1}[\w\.]*))|\:\{([^\:]*?)\}|(?:[^\w\:]|^)(\:([1-9]+[0-9]*))/';
 
 		$result = findMatches($pattern, $sql);
 		foreach ($result as $m) {
@@ -600,10 +587,26 @@ class DB
 
 	public static function prepareNumberValue( $value )
 	{
-		$strvalue = (string)$value;
-		if(is_numeric($strvalue))
-			return str_replace(",",".",$strvalue);
+		$strvalue = str_replace( ",", ".", (string)$value );
+		if( is_numeric($strvalue) )
+			return $strvalue;
 		return 0;
+	}
+
+	public static function Lookup( $sql ) {
+		$result = DB::Query( $sql );
+		if( !$result ) {
+			return null;
+		}
+		$data = $result->fetchNumeric();
+		if( !$data ) {
+			return null;
+		}
+		return $data[0];
+	}
+
+	public static function DBLookup( $sql ) {
+		return DB::Lookup( $sql );
 	}
 
 }

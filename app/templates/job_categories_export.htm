@@ -13,9 +13,10 @@
 	{BEGIN styleCSSFiles}
 	<link REL="stylesheet" href="{$stylepath}" type="text/css">
 	{END styleCSSFiles}
+			
 	</head>
 
-	<body class="{$stylename} function-export" {$bodyattrs}>
+	<body class="{$stylename} function-export" >
 	{BEGIN body}
 		{$header}
 		<style>
@@ -25,7 +26,7 @@
 								{BEGIN supertop_block}
 <div class="r-form" data-location="supertop" id="form_supertop_{$pageid}" data-makeup="panel" {$form_supertop} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="supertop_c1" data-pageid="{$pageid}"	{$cell_supertop_c1}
@@ -33,7 +34,7 @@
 	
 ">
 			</div>					</div>
-	</div>		
+			</div>		
 {END supertop_block}
 					<div class="bs-pagepanel panel panel-primary">
 					<div class="panel-heading">
@@ -130,7 +131,7 @@
 											{BEGIN footer_block}
 <div class="r-form" data-location="footer" id="form_footer_{$pageid}" data-makeup="panel" {$form_footer} data-pageid="{$pageid}" >		
 	 
-		<div class="row">
+				<div class="row">
 			 
 				<div 
 	data-cellId="footer_c1" data-pageid="{$pageid}" data-page="job_categories_export"	{$cell_footer_c1}
@@ -158,11 +159,11 @@
 </span>
 {END cancel_button}
 		</div>					</div>
-	</div>		
+			</div>		
 {END footer_block}
 						</div>
 				</div>
-										
+						
 			</div>
 		{$footer}
 	{END body}

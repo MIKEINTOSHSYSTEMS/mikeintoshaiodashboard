@@ -219,39 +219,8 @@ class ReportDateField extends ReportField
 				return str_format_datetime($date);
 			}
 		}
+		return formatDateIntervalValue( $fieldValue, $this->_interval );
 
-		switch($this->_interval)
-		{
-			case 1:
-				$date = cached_db2time($value);
-				return $date[0];
-
-			case 2:
-				$date = cached_db2time($value);
-				return $date[0] . '/Q' . ( floor(($date[1]-1)/3) + 1 );
-
-			case 3:
-				$date = cached_db2time($value);
-				return @$locale_info["LOCALE_SABBREVMONTHNAME".$date[1]]." ".$date[0];
-
-			case 4:
-				return cached_formatweekstart($value);
-
-			case 5:
-				$date = cached_db2time($value);
-				return format_shortdate($date);
-
-			case 6:
-				$date = db2time($value);
-				$date[4]=0;
-				$date[5]=0;
-				return str_format_datetime($date);
-
-			case 7:
-				$date = db2time($value);
-				$date[5]=0;
-				return str_format_datetime($date);
-		}
 	}
 
 	function getGroup($data)
@@ -261,12 +230,6 @@ class ReportDateField extends ReportField
 		else
 		{
 			return DataSource::groupValueDate( $data[$this->alias()], $this->_interval );
-			/*
-			if($data[$this->alias().'MIN'] == null || $data[$this->alias().'MAX'] == null)
-				return null;
-			else
-				return array('MIN' => $data[$this->alias().'MIN'], 'MAX' => $data[$this->alias().'MAX']);
-			*/				
 		}
 	}
 
@@ -275,65 +238,10 @@ class ReportDateField extends ReportField
 		if(!$this->_recordBasedRequest)
 		{
 			return $data[$this->alias()];
-			/*
-			if($this->_interval == 0)
-			{
-				return $data[$this->alias()];
-			}
-			else
-			{
-		        $key = array();
-				for($nCnt = $this->_start; $nCnt < $this->_interval + $this->_start; $nCnt++)
-				{
-		            $key []= $data[$this->_alias.$nCnt];
-		        }
-		        return join('-', $key);
-			}
-			*/
 		}
 		else
 		{
-			$strdate = $data[$this->_name];
-			if($strdate == null)
-				return 'NULL';
-
-			if($this->_interval == 0)
-			{
-				return $strdate;
-			}
-			else
-			{
-				switch($this->_interval)
-				{
-					case 1:
-						$date = cached_db2time($strdate);
-						return $date[0];
-
-					case 2:
-						$date = cached_db2time($strdate);
-						return $date[0].'-'.intval($date[1]/3);
-
-					case 3:
-						$date = cached_db2time($strdate);
-						return $date[0].'-'.$date[1];
-
-					case 4:
-						$start = cached_getweekstart($strdate);
-						return $start[0].'-'.$start[1].'-'.$start[2];
-
-					case 5:
-						$date = cached_db2time($strdate);
-						return $date[0].'-'.$date[1].'-'.$date[2];
-
-					case 6:
-						$date = db2time($strdate);
-						return $date[0].'-'.$date[1].'-'.$date[2].'-'.$date[3];
-
-					case 7:
-						$date = db2time($strdate);
-						return $date[0].'-'.$date[1].'-'.$date[2].'-'.$date[3].'-'.$date[4];
-				}
-			}
+			return DataSource::groupValueDate( $data[ $this->_name ], $this->_interval );
 		}
 	}
 
@@ -345,38 +253,29 @@ class ReportDateField extends ReportField
 
 }
 
-function getFormattedValue($pageObject, $value, $fieldName, $strViewFormat, $strEditFormat = '', $mode = MODE_LIST, $record = array() )
-{
-	if($strViewFormat == FORMAT_TIME && is_numeric($value))
-	{
-		$val = '';
+function getFormattedValue( $pageObject, $value, $fieldName, $strViewFormat, $total = '', $record = array() ) {
+	if( $strViewFormat == FORMAT_TIME && is_numeric( $value ) ) {
+		if( $total == 'AVG' )
+			$value = round( $value, 0 );
 
-		$d = intval($value / 86400);
-		$h = intval(($value % 86400) / 3600);
-		$m = intval((($value % 86400) % 3600) / 60);
-		$s = (($value % 86400) % 3600) % 60;
-
-		$val .= $d > 0 ? $d . 'd ' : '';
-		$val .= str_format_time(array(0, 0, 0, $h, $m, $s));
-		if( $pageObject->pdfJsonMode() ) {
-			$val = "'" . $val . "'";
-		}
-	}
-	else
-	{
-		if( basicViewFormat( $strViewFormat ) )
-		{
-			$arrValues = array($fieldName => $value);
-		}
-		else
-		{
-			$arrValues = $record;
-			$arrValues[ $fieldName ] = $value;
-		}
-		$val = $pageObject->formatReportFieldValue( $fieldName, $arrValues );
+		include_once getabspath('classes/controls/ViewTimeField.php');
+		return ViewTimeField::getFormattedTotals(
+			$fieldName,
+			$value,
+			$pageObject->pSet,
+			$pageObject->pdfJsonMode(),
+			$total == 'SUM'
+		);
 	}
 
-	return $val;
+	if( basicViewFormat( $strViewFormat ) ) {
+		$arrValues = array( $fieldName => $value );
+	} else {
+		$arrValues = $record;
+		$arrValues[ $fieldName ] = $value;
+	}
+
+	return $pageObject->formatReportFieldValue( $fieldName, $arrValues );
 }
 
 $cache_db2time = array();
@@ -666,6 +565,8 @@ class Summarable
 	var $fieldsArr = array();
 
 	var $cipherer = null;
+	var $_from;
+
 
     function __construct(&$params)
     {
@@ -905,7 +806,6 @@ class ReportGroups extends Summarable
 	var $_maxpages;
 	var $_nGroup;
 	var	$_oldFirst;
-	var $_from;
 	var $_sql;
 
 	/*
@@ -1015,7 +915,7 @@ class ReportGroups extends Summarable
 						"alias" => "grp0",
 						"field" => $this->repGroupFields[0]["strGroupField"],
 						"modifier" => $this->repGroupFields[0]["groupInterval"],
-						"direction" => $this->_report->groupOrderDirection( $idx )
+						"direction" => $this->_report->groupOrderDirection( 0 )
 					)
 				);
 				$dc->startRecord = $this->_from;
@@ -1321,7 +1221,11 @@ class ReportLogic extends Summarable
 
 				if(!isset($level['values'][ $groupKey ]))
 				{
-					$level['values'][ $groupKey ] = array();
+					/* required for ASP conversion, $groupKey can be big int, 2.2E9 and more */
+					$newArray = array();
+					$level['values'][ $groupKey ] = $newArray;
+
+
 					$level =& $level['values'][ $groupKey ];
 					$field = $this->_sql->field( $groupIndex );
 					$this->_printRecordCount +=  $field->_rowsInHeader;
@@ -1462,26 +1366,28 @@ class ReportLogic extends Summarable
 
 		//	select all records, add group values to the field list
 		$dc = $this->pageObject->getSubsetDataCommand();
-		$groupFields = array();
+		$orderFieldIndices = array();
 		$dc->order = array();
 		foreach( $this->repGroupFields as $idx => $grp ) {
 			$gField = $grp["strGroupField"];
-			$groupFields[ $gField ] = true;
+			if( !$grp["groupInterval"] ) {
+				$orderFieldIndices[ $this->pSet->getFieldIndex( $gField ) ] = true;
+			}
 			$alias = "grp" . $idx;
 			$dc->extraColumns[] = new DsFieldData( "", $alias, $gField , $grp["groupInterval"] );
 
-			$dc->order[] = array( "column" => $gField, "dir" => $this->groupOrderDirection( $idx ) );
+			$dc->order[] = array( "column" => $alias, "dir" => $this->groupOrderDirection( $idx ) );
 		}
 		//	add the rest of orders
 		foreach( $orderIndices as $o ) {
-			if(  !$groupFields[ $o[2] ] )
-			$dc->order[] = array( "idx" => $o[0], "dir" => $o[1] );
+			if(  !$orderFieldIndices[ $o[0] ] )
+				$dc->order[] = array( "index" => $o[0], "dir" => $o[1] );
 		}
 
 		//	add limits
 		if( !count( $this->repGroupFields ) ) {
 			$dc->startRecord = $from;
-			$dc->reccount = $this->_groupsTotal;
+			$dc->reccount = $this->_groupsTotal ? $this->_groupsTotal : -1;
 		}
 		return $dc;
 	}
@@ -1497,7 +1403,6 @@ class ReportLogic extends Summarable
 		if( $addGroups ) {
 			foreach( $this->repGroupFields as $idx => $grp ) {
 				$gField = $grp["strGroupField"];
-				$groupFields[ $gField ] = true;
 				$alias = "grp" . $idx;
 				$dc->totals[] = array(
 					"alias" => $alias,
@@ -1563,13 +1468,13 @@ class ReportLogic extends Summarable
 		$modifier = $this->repGroupFields[0]["groupInterval"];
 		$firstGroup = $groups[0];
 		$lastGroup = $groups[ count( $groups ) - 1 ];
-		if( $this->groupOrderDirection( $idx ) == "DESC" ) {
+		if( $this->groupOrderDirection( 0 ) == "DESC" ) {
 			$t = $firstGroup;
 			$firstGroup = $lastGroup;
 			$lastGroup = $t;
 		}
-		$condition1 = DataCondition::_Not( DataCondition::FieldIs( $gField, dsopLESS, $firstGroup, false, $modifier ) );
-		$condition2 = DataCondition::_Not( DataCondition::FieldIs( $gField, dsopMORE, $lastGroup, false, $modifier ) );
+		$condition1 = DataCondition::_Not( DataCondition::FieldIs( $gField, dsopLESS, $firstGroup, dsCASE_DEFAULT, $modifier ) );
+		$condition2 = DataCondition::_Not( DataCondition::FieldIs( $gField, dsopMORE, $lastGroup, dsCASE_DEFAULT, $modifier ) );
 		return DataCondition::_And( array( $condition1, $condition2 ) );
 	}
 
@@ -1641,7 +1546,7 @@ class ReportLogic extends Summarable
 			$groups = $this->_groups->getDisplayGroups($from);
 
 			$dc = $this->repShowDet
-				? $dc = $this->getDataCommand( $from )
+				? $this->getDataCommand( $from )
 				: $this->getTotalCommand( true );
 
 			if( count( $groups ) ) {
@@ -1776,8 +1681,9 @@ class Report extends ReportLogic
 	function groupOrderDirection( $grIdx ) {
 		$orderIndices =& $this->pSet->getOrderIndexes();
 		$gField = $this->repGroupFields[ $grIdx ]["strGroupField"];
+		$grFieldIdx = $this->pSet->getFieldIndex( $gField );
 		foreach( $orderIndices as $o ) {
-			if( $o[2] == $gField ) {
+			if( $o[0] == $grFieldIdx ) {
 				return $o[1];
 			}
 		}
@@ -1797,30 +1703,30 @@ class Report extends ReportLogic
 
 		if($this->forExport)
 			$this->pageObject->setForExportVar($this->forExport);
-		for($i=0; $i<count($this->fieldsArr); $i++)
-		{
-			// for change pseudo foreach with condition with PHP for
-			// foreach Fields as @f filter @f.bReportPage && (@TABLE.bReportShowDetails || @TABLE.arrReportGroupFields[strGroupField==@f.strName && nGroupInterval==0].len) order nReportPageOrder
 
-			$pass = false;
 
-			for($j=0; $j<count($this->repGroupFields); $j++)
+		if ($this->pageObject->pdfJsonMode()) {
+			//	make sure all group fields in the row have values
+			for ($j = 0; $j < count($this->repGroupFields); $j++) {
+				$groupField = &$this->repGroupFields[$j];
+				$row[GoodFieldName($groupField['strGroupField']) . "_grval"] = "''";
+			}
+		}
+
+
+		if( $this->repShowDet ) {
+			for( $i=0; $i<count($this->fieldsArr); $i++ )
 			{
-				if (!$this->fieldsArr[$i]['repPage'] || !($this->repShowDet
-					|| ($this->repGroupFields[$j]['strGroupField'] == $this->fieldsArr[$i]['name']
-					&& $this->repGroupFields[$j]['groupInterval'] === 0)))
-				{
-					$pass = true;
+				$fieldData = &$this->fieldsArr[ $i ];
+
+				//	field value is not shown on the page
+				if( !$fieldData['repPage'] ) {
+					continue;
 				}
-			}
 
-			if ($pass)
-			{
-				continue;
+				$row[ $fieldData['goodName'] . "_value" ] = $this->pageObject->formatReportFieldValue( $fieldData['name'], $value, $keylink );
+				$row[ $fieldData['goodName'] . "_dbvalue" ] = $value[ $fieldData['name'] ];
 			}
-
-			$row[$this->fieldsArr[$i]['goodName']."_value"] = $this->pageObject->formatReportFieldValue($this->fieldsArr[$i]['name'], $value, $keylink);
-			$row[$this->fieldsArr[$i]['goodName']."_dbvalue"] = $value[$this->fieldsArr[$i]['name']];
 		}
 
 		if ($this->repLayout == REPORT_BLOCK)
@@ -1860,10 +1766,7 @@ class Report extends ReportLogic
 						$begin[GoodFieldName($gname.'_firstnewgroup')] = true;
 					unset($begin[GoodFieldName('nonewgroup')]);
 				}
-				else
-				{
-					$begin[GoodFieldName($gname.'_newgroup')] = true;
-				}
+				$begin[GoodFieldName($gname.'_newgroup')] = true;
 				$end[GoodFieldName($gname.'_endgroup')] = true;
 
 				if ($this->repGroupFields[$i]['showGroupSummary'])
@@ -1880,19 +1783,47 @@ class Report extends ReportLogic
 							if ($this->fieldsArr[$j]['totalMax'])
 							{
 								$end["group".GoodFieldName($gname)."_total".$this->fieldsArr[$j]['goodName']."_max"] =
-									getFormattedValue($this->pageObject, $grp['summary'][$this->fieldsArr[$j]['name']]['MAX'], $this->fieldsArr[$j]['name'], $this->fieldsArr[$j]['viewFormat'], $this->fieldsArr[$j]['editFormat'], $this->mode, $values);
+									getFormattedValue(
+										$this->pageObject,
+										$grp['summary'][$this->fieldsArr[$j]['name']]['MAX'],
+										$this->fieldsArr[$j]['name'],
+										$this->fieldsArr[$j]['viewFormat'],
+										'MAX',
+										$values
+									);
 							}
 							if ($this->fieldsArr[$j]['totalMin']){
 								$end["group".GoodFieldName($gname)."_total".$this->fieldsArr[$j]['goodName']."_min"] =
-									getFormattedValue($this->pageObject, $grp['summary'][$this->fieldsArr[$j]['name']]['MIN'], $this->fieldsArr[$j]['name'], $this->fieldsArr[$j]['viewFormat'], $this->fieldsArr[$j]['editFormat'], $this->mode, $values);
+									getFormattedValue(
+										$this->pageObject,
+										$grp['summary'][$this->fieldsArr[$j]['name']]['MIN'],
+										$this->fieldsArr[$j]['name'],
+										$this->fieldsArr[$j]['viewFormat'],
+										'MIN',
+										$values
+									);
 							}
 							if ($this->fieldsArr[$j]['totalAvg']){
 								$end["group".GoodFieldName($gname)."_total".$this->fieldsArr[$j]['goodName']."_avg"] =
-									getFormattedValue($this->pageObject, $grp['summary'][$this->fieldsArr[$j]['name']]['AVG'], $this->fieldsArr[$j]['name'], $this->fieldsArr[$j]['viewFormat'], $this->fieldsArr[$j]['editFormat'], $this->mode, $values);
+									getFormattedValue(
+										$this->pageObject,
+										$grp['summary'][$this->fieldsArr[$j]['name']]['AVG'],
+										$this->fieldsArr[$j]['name'],
+										$this->fieldsArr[$j]['viewFormat'],
+										'AVG',
+										$values
+									);
 							}
 							if ($this->fieldsArr[$j]['totalSum']){
 								$end["group".GoodFieldName($gname)."_total".$this->fieldsArr[$j]['goodName']."_sum"] =
-									getFormattedValue($this->pageObject, $grp['summary'][$this->fieldsArr[$j]['name']]['SUM'], $this->fieldsArr[$j]['name'], $this->fieldsArr[$j]['viewFormat'], $this->fieldsArr[$j]['editFormat'], $this->mode, $values);
+									getFormattedValue(
+										$this->pageObject,
+										$grp['summary'][$this->fieldsArr[$j]['name']]['SUM'],
+										$this->fieldsArr[$j]['name'],
+										$this->fieldsArr[$j]['viewFormat'],
+										'SUM',
+										$values
+									);
 							}
 						}
 					}
@@ -1919,7 +1850,15 @@ class Report extends ReportLogic
 						}
 						else
 						{
-							$formattedValue = getFormattedValue($this->pageObject, $gvalue, $this->fieldsArr[$j]['name'], $this->fieldsArr[$j]['viewFormat'], $this->fieldsArr[$j]['editFormat'], $this->mode, $values);
+							$formattedValue = getFormattedValue(
+								$this->pageObject,
+								$gvalue,
+								$this->fieldsArr[$j]['name'],
+								$this->fieldsArr[$j]['viewFormat'],
+								'',
+								$values
+							);
+
 							$begin[GoodFieldName($gname.'_grval')] = ($this->forExport == 'excel') ? runner_htmlspecialchars($formattedValue) : $formattedValue;
 							if ($this->showGroupSummaryCount)
 							{
@@ -1944,18 +1883,43 @@ class Report extends ReportLogic
 				$fGoodName = $field['goodName'];
 				if(is_array($src[$fieldName]))
 				{
-					if ($field['totalSum'])
-					{
-						$page["page_total".$fGoodName."_sum"] = getFormattedValue($this->pageObject, $src[$fieldName]['SUM'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+					if( $field['totalSum'] ) {
+						$page["page_total".$fGoodName."_sum"] = getFormattedValue(
+							$this->pageObject,
+							$src[$fieldName]['SUM'],
+							$fieldName,
+							$field['viewFormat'],
+							'SUM'
+						);
 					}
-					if ($field['totalAvg']){
-						$page["page_total".$fGoodName."_avg"] = getFormattedValue($this->pageObject, $src[$fieldName]['AVG'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+					if( $field['totalAvg'] ) {
+						$page["page_total".$fGoodName."_avg"] = getFormattedValue(
+							$this->pageObject,
+							$src[$fieldName]['AVG'],
+							$fieldName,
+							$field['viewFormat'],
+							'AVG'
+						);
 					}
-					if ($field['totalMin']){
-						$page["page_total".$fGoodName."_min"] = getFormattedValue($this->pageObject, $src[$fieldName]['MIN'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+
+					if( $field['totalMin'] ) {
+						$page["page_total".$fGoodName."_min"] = getFormattedValue(
+							$this->pageObject,
+							$src[$fieldName]['MIN'],
+							$fieldName,
+							$field['viewFormat'],
+							'MIN'
+						);
 					}
-					if ($field['totalMax']){
-						$page["page_total".$fGoodName."_max"] = getFormattedValue($this->pageObject, $src[$fieldName]['MAX'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+
+					if( $field['totalMax'] ) {
+						$page["page_total".$fGoodName."_max"] = getFormattedValue(
+							$this->pageObject,
+							$src[$fieldName]['MAX'],
+							$fieldName,
+							$field['viewFormat'],
+							'MAX'
+						);
 					}
 				}
 			}
@@ -1978,18 +1942,44 @@ class Report extends ReportLogic
 				$fGoodName = $field['goodName'];
 				if(is_array($source["summary"][$fieldName]))
 				{
-					if ($field['totalMax'])
-					{
-						$result["global_total".$fGoodName."_max"] = getFormattedValue($this->pageObject, $source['summary'][$fieldName]['MAX'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+					if( $field['totalMax'] ) {
+						$result["global_total".$fGoodName."_max"] = getFormattedValue(
+							$this->pageObject,
+							$source['summary'][$fieldName]['MAX'],
+							$fieldName,
+							$field['viewFormat'],
+							'MAX'
+						);
 					}
-					if ($field['totalMin']){
-						$result["global_total".$fGoodName."_min"] = getFormattedValue($this->pageObject, $source['summary'][$fieldName]['MIN'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+
+					if( $field['totalMin'] ) {
+						$result["global_total".$fGoodName."_min"] = getFormattedValue(
+							$this->pageObject,
+							$source['summary'][$fieldName]['MIN'],
+							$fieldName,
+							$field['viewFormat'],
+							'MIN'
+						);
 					}
-					if ($field['totalAvg']){
-						$result["global_total".$fGoodName."_avg"] = getFormattedValue($this->pageObject, $source['summary'][$fieldName]['AVG'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+
+					if( $field['totalAvg'] ) {
+						$result["global_total".$fGoodName."_avg"] = getFormattedValue(
+							$this->pageObject,
+							$source['summary'][$fieldName]['AVG'],
+							$fieldName,
+							$field['viewFormat'],
+							'AVG'
+						);
 					}
-					if ($field['totalSum']){
-						$result["global_total".$fGoodName."_sum"] = getFormattedValue($this->pageObject, $source['summary'][$fieldName]['SUM'], $fieldName, $field['viewFormat'], $field['editFormat'], $this->mode);
+
+					if( $field['totalSum'] ) {
+						$result["global_total".$fGoodName."_sum"] = getFormattedValue(
+							$this->pageObject,
+							$source['summary'][$fieldName]['SUM'],
+							$fieldName,
+							$field['viewFormat'],
+							'SUM'
+						);
 					}
 				}
 			}

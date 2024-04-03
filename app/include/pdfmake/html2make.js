@@ -46,7 +46,7 @@ case"color":{ret.push({key:"color",value:parseColor(value)})
 break;}
 case"background-color":{ret.push({key:"background",value:parseColor(value)})
 break;}
-default:{if(key.indexOf("-")>-1)key=toCamelCase(key);if(value){value=value.replace(/(\d+)(\.\d+)?([^\d]+)/g,"$1$2 ").trim();if(!isNaN(value))value=+value;ret.push({key:key,value:value});}}}});return ret;}
+case"font-size":{value=value.replace(/(\d+)(\.\d+)?([^\d]+)/g,"$1$2 ").trim();if(!isNaN(value))ret.push({key:"fontSize",value:value});break;}}});return ret;}
 var setComputedStyle=function(ret,cssStyle){if(cssStyle){cssStyle=computeStyle(cssStyle);cssStyle.forEach(function(style){ret[style.key]=style.value;})}}
 var toCamelCase=function(str){return str.replace(/-([a-z])/g,function(g){return g[1].toUpperCase()});}
 var parseColor=function(color){var haxRegex=new RegExp('^#([0-9a-f]{3}|[0-9a-f]{6})$');var rgbRegex=new RegExp('^rgb\\((\\d+),\\s*(\\d+),\\s*(\\d+)\\)$');var nameRegex=new RegExp('^[a-z]+$');if(haxRegex.test(color)){return color;}else if(rgbRegex.test(color)){var decimalColors=rgbRegex.exec(color).slice(1);for(var i=0;i<3;i++){var decimalValue=+decimalColors[i];if(decimalValue>255){decimalValue=255;}

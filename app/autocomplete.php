@@ -1,6 +1,5 @@
 <?php
 @ini_set("display_errors","1");
-@ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
 header("Expires: Thu, 01 Jan 1970 00:00:01 GMT"); 
@@ -31,10 +30,12 @@ $contextParams = array();
 $contextParams["data"] = my_json_decode( postvalue('data') );
 
 $masterTable = postvalue('masterTable');
-if ( $masterTable != "" && isset($_SESSION[ $masterTable . "_masterRecordData" ]) )
+if ( $masterTable != "" &&  isset($_SESSION[ $masterTable . "_masterRecordData" ] ) || postvalue('masterData') )
 {
 	$masterData = $_SESSION[ $masterTable . "_masterRecordData" ];
-
+	if( !is_array($masterData) ) {
+		$masterData = array();
+	}
 	$masterControlsData = my_json_decode( postvalue('masterData') );
 	foreach( $masterControlsData as $mField => $mValue )
 	{

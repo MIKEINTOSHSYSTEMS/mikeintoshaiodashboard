@@ -5,6 +5,7 @@ class LookupTextField extends LookupField
 	var $localPSet;
 	var $linkAndDisplaySame = false;
 	var $ciphererLink = null;
+	var $ciphererDisplay = null;
 	function __construct($field, $pageObject, $id, $connection)
 	{
 		EditControl::__construct($field, $pageObject, $id, $connection);
@@ -14,6 +15,9 @@ class LookupTextField extends LookupField
 
 		$this->localPSet = new ProjectSettings($this->pageObject->tName, $this->lookupPageType);
 
+		$this->lookupDataSource = getLookupDataSource( $this->field, $this->localPSet );
+
+
 		$this->lookupTable = $this->localPSet->getLookupTable($this->field);
 		$this->lookupType = $this->localPSet->getLookupType($this->field);
 		if($this->lookupType == LT_QUERY)
@@ -21,7 +25,6 @@ class LookupTextField extends LookupField
 		$this->displayFieldName = $this->localPSet->getDisplayField($this->field);
 		$this->linkFieldName = $this->localPSet->getLinkField($this->field);
 		$this->linkAndDisplaySame = $this->displayFieldName == $this->linkFieldName;
-		$this->setLookupConnection();
 
 		$this->ciphererLink = new RunnerCipherer($this->pageObject->tName);
 		if($this->lookupType == LT_QUERY)
@@ -50,14 +53,6 @@ class LookupTextField extends LookupField
 		$this->buildControlEnd($validate, $mode);
 	}
 
-	/*
-	public function fillLookupFieldsIndexes()
-	{
-		$lookupIndexes = GetLookupFieldsIndexes($this->localPSet, $this->field);
-		$this->linkFieldIndex = $lookupIndexes["linkFieldIndex"];
-		$this->displayFieldIndex = $lookupIndexes["displayFieldIndex"];
-	}
-	*/
 
 	/**
 	 * Form the control specified search options array and built the control's search options markup

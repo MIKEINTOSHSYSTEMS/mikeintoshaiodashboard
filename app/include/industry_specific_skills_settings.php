@@ -60,14 +60,9 @@ $tdataindustry_specific_skills[".showEditInPopup"] = false;
 
 $tdataindustry_specific_skills[".showViewInPopup"] = false;
 
-//page's base css files names
-$popupPagesLayoutNames = array();
-$tdataindustry_specific_skills[".popupPagesLayoutNames"] = $popupPagesLayoutNames;
-
-
 $tdataindustry_specific_skills[".listAjax"] = false;
 //	temporary
-$tdataindustry_specific_skills[".listAjax"] = false;
+//$tdataindustry_specific_skills[".listAjax"] = false;
 
 	$tdataindustry_specific_skills[".audit"] = false;
 
@@ -131,8 +126,6 @@ $tdataindustry_specific_skills[".allowFieldsReordering"] = true; // temp fix #13
 
 $tdataindustry_specific_skills[".isUseAjaxSuggest"] = true;
 
-$tdataindustry_specific_skills[".rowHighlite"] = true;
-
 
 
 
@@ -185,8 +178,6 @@ $tdataindustry_specific_skills[".warnLeavingPages"] = true;
 
 
 $tstrOrderBy = "";
-if(strlen($tstrOrderBy) && strtolower(substr($tstrOrderBy,0,8))!="order by")
-	$tstrOrderBy = "order by ".$tstrOrderBy;
 $tdataindustry_specific_skills[".strOrderBy"] = $tstrOrderBy;
 
 $tdataindustry_specific_skills[".orderindexes"] = array();
@@ -250,7 +241,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("industry_specific_skills","SkillID");
 	$fdata["FieldType"] = 3;
 
-	
+
 		$fdata["AutoInc"] = true;
 
 	
@@ -282,7 +273,8 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -313,8 +305,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -336,7 +327,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -390,7 +381,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	$fdata["Label"] = GetFieldLabel("industry_specific_skills","SkillName");
 	$fdata["FieldType"] = 200;
 
-	
+
 	
 	
 			
@@ -421,7 +412,8 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	
 	
 	
-		
+	
+	
 	
 		$vdata["NeedEncode"] = true;
 
@@ -451,8 +443,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	
 	
 	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
+			$edata["acceptFileTypesHtml"] = "";
 
 		$edata["maxNumberOfFiles"] = 1;
 
@@ -473,7 +464,7 @@ $tdataindustry_specific_skills[".hideMobileList"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
 	
-	//	End validation
+//	End validation
 
 	
 			
@@ -525,9 +516,16 @@ $fieldToolTips["industry_specific_skills"] = &$fieldToolTipsindustry_specific_sk
 $placeHolders["industry_specific_skills"] = &$placeHoldersindustry_specific_skills;
 $page_titles["industry_specific_skills"] = &$pageTitlesindustry_specific_skills;
 
+
+changeTextControlsToDate( "industry_specific_skills" );
+
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
+
+//if !@TABLE.bReportCrossTab
+
 $detailsTablesData["industry_specific_skills"] = array();
+//endif
 
 // tables which are master tables for current table (detail)
 $masterTablesData["industry_specific_skills"] = array();
@@ -675,7 +673,6 @@ $tdataindustry_specific_skills[".sqlquery"] = $queryData_industry_specific_skill
 
 
 
-$tableEvents["industry_specific_skills"] = new eventsBase;
 $tdataindustry_specific_skills[".hasEvents"] = false;
 
 ?>
