@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Dereja - M&E - System</title>
@@ -13,98 +14,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script type="text/javascript" src="dist/js/jquery.min.js"></script>
     <script type="text/javascript" src="dist/js/menu.js"></script>
-   
     <!-- Matomo -->
- <!--
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//healthemergencydashboard.moh.gov.et/analytics/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
--->
-<!-- End Matomo Code -->
+    <!--
+         <script>
+           var _paq = window._paq = window._paq || [];
+           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+           _paq.push(['trackPageView']);
+           _paq.push(['enableLinkTracking']);
+           (function() {
+             var u="//healthemergencydashboard.moh.gov.et/analytics/";
+             _paq.push(['setTrackerUrl', u+'matomo.php']);
+             _paq.push(['setSiteId', '1']);
+             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+             g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+           })();
+         </script>
+         -->
+    <!-- End Matomo Code -->
+    <!-- Google tag (gtag.js) -->
+    <!--
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWXRQJ8HW4"></script>
+         <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-DWXRQJ8HW4');
+         </script>
+          -->
+    <!-- 01 -->
+    <!-- Google tag (gtag.js) -->
+    <!--
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-43ZGCC253M"></script>
+         <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-43ZGCC253M');
+         </script>
+          -->
+    <!--  <link rel="stylesheet" href="dist/font-awesome/css/all.css">
+         System Developed By MIKEINTOSHSYSTEMS AKA MICHAEL KIFLE TEFERRA
+         -->
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+        function printFunction() {
+            var navigationBar = document.getElementById('navigations');
+            navigationBar.style.display = "none";
+            document.getElementById('graphaFrames').style.width = "100%";
+            window.print();
+        }
 
-    
-<!-- Google tag (gtag.js) -->
- <!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWXRQJ8HW4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        var selectedPreviusly = null;
+        var selectedPreviuslyBackgroundColor = null;
 
-  gtag('config', 'G-DWXRQJ8HW4');
-</script>
- -->
-<!-- 01 -->
- 
-<!-- Google tag (gtag.js) -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-43ZGCC253M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        function changeIframe(url, self) {
+            console.log(self);
+            if (selectedPreviusly == null) {
+                selectedPreviuslyBackgroundColor = self.style.backgroundColor;
+                self.style.backgroundColor = "#ff9257";
+                selectedPreviusly = self;
 
-  gtag('config', 'G-43ZGCC253M');
-</script>
- -->
+            } else {
+                selectedPreviusly.style.backgroundColor = selectedPreviuslyBackgroundColor;
+                selectedPreviuslyBackgroundColor = self.style.backgroundColor;
+                self.style.backgroundColor = "#f32770";
 
-  <!--  <link rel="stylesheet" href="dist/font-awesome/css/all.css">
-System Developed By MIKEINTOSHSYSTEMS AKA MICHAEL KIFLE TEFERRA
--->
-  
-  <link rel="stylesheet" href="./styles.css">
-  <script>
+                selectedPreviusly = self;
+            }
+            document.getElementById("iFramer").src = url;
 
-      function printFunction() {
-          var navigationBar = document.getElementById('navigations');
-          navigationBar.style.display = "none";
-          document.getElementById('graphaFrames').style.width = "100%";
-          window.print();
-      }
-
-      var selectedPreviusly = null;
-      var selectedPreviuslyBackgroundColor = null;
-
-      function changeIframe(url, self) {
-          console.log(self);
-          if (selectedPreviusly == null) {
-              selectedPreviuslyBackgroundColor = self.style.backgroundColor;
-              self.style.backgroundColor = "#ff9257";
-              selectedPreviusly = self;
-
-          } else {
-              selectedPreviusly.style.backgroundColor = selectedPreviuslyBackgroundColor;
-              selectedPreviuslyBackgroundColor = self.style.backgroundColor;
-              self.style.backgroundColor = "#f32770";
-
-              selectedPreviusly = self;
-          }
-          document.getElementById("iFramer").src = url;
-
-      }
-  </script>
-
-
+        }
+    </script>
 </head>
+
 <body>
     <!--wrapper start-->
     <div class="wrapper">
-
         <!--sidebar start-->
         <div class="sidebar">
             <div class="sidebar-menu">
                 <center class="profile">
-                    <a href="index.html"><img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt=""><p></p></a>
+                    <a href="index.html">
+                        <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="">
+                        <p></p>
+                    </a>
                 </center>
                 <li class="item">
                     <a href="" class="menu-btn"><i class="fas fa-bar-chart-o"></i><span>Dashboard</span></a>
@@ -115,316 +110,246 @@ System Developed By MIKEINTOSHSYSTEMS AKA MICHAEL KIFLE TEFERRA
                     </a>
                     <div align="left" class="sub-menu">
                         <span
-                        onClick="changeIframe('https://derejademo.merqconsultancy.org/public/dashboard/9277d4b1-7410-47e7-861e-274051922cb0',this)"
-                        class="parentCatagory">
-                  
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Event Participants AIO</span></a>
-                                          
-                        </p>
-                    </span>
-      <span
-      onClick="changeIframe('test.php',this)"
-      class="parentCatagory">
-
-      <p class="subButtons">
-          <!-- cnd:] -->
-          <span>Report 02</span></a>
-                        
-      </p>
-  </span>
-  <span
-  onClick="changeIframe('test.php',this)"
-  class="parentCatagory">
-
-  <p class="subButtons">
-      <!-- cnd:] -->
-      <span>Report 03</span></a>
-                    
-  </p>
-</span>
-<span
-onClick="changeIframe('test.php',this)"
-class="parentCatagory">
-
-<p class="subButtons">
-    <!-- cnd:] -->
-    <span>Report 04</span></a>
-                  
-</p>
-</span>
-<span
-onClick="changeIframe('test.php',this)"
-class="parentCatagory">
-
-<p class="subButtons">
-    <!-- cnd:] -->
-    <span>Report 05</span></a>
-                  
-</p>
-</span>
-<span
-onClick="changeIframe('test.php',this)"
-class="parentCatagory">
-
-<p class="subButtons">
-    <!-- cnd:] -->
-    <span>Report 06</span></a>
-                  
-</p>
-</span>
-                        
-</div>
-</li>
-
+                            onClick="changeIframe('https://derejademo.merqconsultancy.org/public/dashboard/9277d4b1-7410-47e7-861e-274051922cb0',this)"
+                            class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Event Participants AIO</span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Report 02</span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Report 03</span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Report 04</span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Report 05</span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Report 06</span></a>
+                            </p>
+                        </span>
+                    </div>
+                </li>
                 <li class="item" id="additional_reports">
                     <a href="#additional_reports" class="menu-btn">
                         <i class="fas fa-plus"></i><span>Trainings<i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
-                    
                     <div class="sub-menu">
                         <span
-                        onClick="changeIframe('https://derejademo.merqconsultancy.org/public/dashboard/faee4927-cfc4-4cc9-a177-9d0b8ce46c01',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span> Training Participants AIO</span></a>
-                                          
-                        </p>
+                            onClick="changeIframe('https://derejademo.merqconsultancy.org/public/dashboard/faee4927-cfc4-4cc9-a177-9d0b8ce46c01',this)"
+                            class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span> Training Participants AIO</span></a>
+                            </p>
                         </span>
                     </div>
                 </li>
                 <li class="item" id="tabular">
                     <a href="#tabular" class="menu-btn">
-                        <i class="fas fa-table"></i><span>Tabular Reports <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-table"></i><span>Tabular Reports <i
+                                class="fas fa-chevron-down drop-down"></i></span>
                     </a>
-                    
                     <div class="sub-menu">
-                        <span
-                        onClick="changeIframe('test.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Table 1</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Table 1</span></a>
+                            </p>
                         </span>
-                        <span
-                        onClick="changeIframe('test.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Table 2</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Table 2</span></a>
+                            </p>
                         </span>
                     </div>
                 </li>
                 <li class="item" id="data_admin">
                     <a href="#data_admin" class="menu-btn">
-                        <i class="fas fa-cog"></i><span>Administration <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-cog"></i><span>Administration <i
+                                class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div class="sub-menu">
-                        <span
-                        onClick="changeIframe('./app/login.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>User's Data Exploration </span></a>
-                                          
-                        </p>
-                        </span>
-                        <span
-                    onClick="changeIframe('./app/login.php',this)"
-                                                class="parentCatagory">
-
-                    <p class="subButtons">
+                        <span onClick="changeIframe('./app/login.php',this)" class="parentCatagory">
+                            <p class="subButtons">
                                 <!-- cnd:] -->
-                    <span>Data Entry &amp; Admin Login </span></a>
-                  
-                                </p>
-                            </span>
-
-                    <span onClick="changeIframe('./backend/forms/index.php',this)" class="parentCatagory">
-                    
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Forms Managment &amp; Admin </span></a>
-                    
-                        </p>
-                    </span>
-
-
-
+                                <span>User's Data Exploration </span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('./app/login.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Data Entry &amp; Admin Login </span></a>
+                            </p>
+                        </span>
+                        <span onClick="changeIframe('./backend/forms/index.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Forms Managment &amp; Admin </span></a>
+                            </p>
+                        </span>
                     </div>
                 </li>
                 <li class="item">
-                    <a href="compareData.html" class="menu-btn"><i class="fa fa-balance-scale"></i><span>Compare</span></a>
+                    <a href="compareData.html" class="menu-btn"><i
+                            class="fa fa-balance-scale"></i><span>Compare</span></a>
                 </li>
-             
                 <li class="item" id="feedback">
                     <a href="#feedback" class="menu-btn">
-                        <i class="fas fa-envelope"></i><span>Feedback <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-envelope"></i><span>Feedback <i
+                                class="fas fa-chevron-down drop-down"></i></span>
                     </a>
-                    
                     <div class="sub-menu">
-                        <span
-                        onClick="changeIframe('backend/forms/user_feedback.html',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>User Feedbacks</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('backend/forms/user_feedback.html',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>User Feedbacks</span></a>
+                            </p>
                         </span>
                     </div>
                 </li>
-                
-                                <li class="item" id="analytics">
+                <li class="item" id="analytics">
                     <a href="#analytics" class="menu-btn">
-                        <i class="fas fa-line-chart"></i><span>Data Monitoring & Visitors Analytics <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-line-chart"></i><span>Data Monitoring & Visitors Analytics <i
+                                class="fas fa-chevron-down drop-down"></i></span>
                     </a>
-                    
                     <div class="sub-menu">
-                        <span
-                        onClick="changeIframe('test.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Null Reports 1</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Null Reports 1</span></a>
+                            </p>
                         </span>
-                        <span
-                        onClick="changeIframe('test.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Null Reports 2</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Null Reports 2</span></a>
+                            </p>
                         </span>
-                        <span
-                        onClick="changeIframe('test.php',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span>Dashboard Visitors Report</span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span>Dashboard Visitors Report</span></a>
+                            </p>
                         </span>
                     </div>
                 </li>
             </div>
             <!--
-            <p style="text-align: center;"><strong><span style="color: #00ffff;">_______________________</span></strong></p>
-            <marquee behavior="scroll" direction="up" scrollamount="2">
-                <p style="text-align: center;"><span style="color: white;"><strong><span style="text-decoration: underline;">Users Guide</span></strong></span></p>
-                <p style="text-align: left;"><span style="color: #808080;"><strong><span style="text-decoration: underline;"><br></span></strong></span><span style="color: #00ccff;">Please use the <span style="text-decoration: underline;"><strong>Filters</strong> </span>available at the <span style="text-decoration: underline;"><strong>TOP</strong> </span>from <span style="text-decoration: underline;"><strong>Left</strong> </span>TO <span style="text-decoration: underline;"><strong>Right</strong> </span>starting from <span style="text-decoration: underline;"><strong>Year</strong> </span>to narrow down your filtered results!</span></p>
-                <div class="Card bordered rounded flex flex-column hover-parent hover--visibility">
-                <div class="flex-full overflow-hidden flex flex-column full-height">
-                <div class="CardVisualization flex-full flex-basis-none _2dBdQ">
-                <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;">If you would like to see each visualizations please use the Navigation Menu to select your desired Data set and filter accordingly.</span></div>
-                <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;"><br></span><span style="color: #00ccff;">→Keep Hovering on the Graphs to View detailed dataset values and Insights!</span></div>
-                <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;"><br>To view large visualizations please scroll down </span><span class="EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk"><span style="color: #ff6600;"></span></span>
-                <p style="text-align: left;"><span style="color: #00ccff;">&nbsp;</span></p>
-                </div>
-                </div>
-                </div>
-                </div>
-                </marquee>
-                -->
-                <br>
-                <br>
-
-                
-                <p style="text-align: center;"><strong><span style="color: #00ffff;">_________________________</span></strong></p>
-                <br>
-                <p style="text-align: center;"><small><span style="color: red;">Powered By MERQ Consultancy &copy; 2024<br /></span></small><strong><small><span style="color: red;"></span></small></strong></p>
-                <p style="text-align: center;"><strong><span style="color: #00ffff;">_________________________</span></strong></p>
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>
-            <!--
-                <div id="widgetIframe"><iframe width="100%" height="100" src="https://healthemergencydashboard.moh.gov.et/analytics/index.php?module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=CoreVisualizations&actionToWidgetize=singleMetricView&idSite=1&period=year&date=2022-08-19" scrolling="yes" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
-            -->
-        <font color="white">By MERQ Consultancy</font>
-           </p>
-
-            </div>
+               <p style="text-align: center;"><strong><span style="color: #00ffff;">_______________________</span></strong></p>
+               <marquee behavior="scroll" direction="up" scrollamount="2">
+                   <p style="text-align: center;"><span style="color: white;"><strong><span style="text-decoration: underline;">Users Guide</span></strong></span></p>
+                   <p style="text-align: left;"><span style="color: #808080;"><strong><span style="text-decoration: underline;"><br></span></strong></span><span style="color: #00ccff;">Please use the <span style="text-decoration: underline;"><strong>Filters</strong> </span>available at the <span style="text-decoration: underline;"><strong>TOP</strong> </span>from <span style="text-decoration: underline;"><strong>Left</strong> </span>TO <span style="text-decoration: underline;"><strong>Right</strong> </span>starting from <span style="text-decoration: underline;"><strong>Year</strong> </span>to narrow down your filtered results!</span></p>
+                   <div class="Card bordered rounded flex flex-column hover-parent hover--visibility">
+                   <div class="flex-full overflow-hidden flex flex-column full-height">
+                   <div class="CardVisualization flex-full flex-basis-none _2dBdQ">
+                   <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;">If you would like to see each visualizations please use the Navigation Menu to select your desired Data set and filter accordingly.</span></div>
+                   <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;"><br></span><span style="color: #00ccff;">→Keep Hovering on the Graphs to View detailed dataset values and Insights!</span></div>
+                   <div class="full flex-full flex flex-column text-card-markdown dEs6g" style="text-align: left;"><span style="color: #00ccff;"><br>To view large visualizations please scroll down </span><span class="EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk"><span style="color: #ff6600;"></span></span>
+                   <p style="text-align: left;"><span style="color: #00ccff;">&nbsp;</span></p>
+                   </div>
+                   </div>
+                   </div>
+                   </div>
+                   </marquee>
+                   -->
+            <br>
+            <br>
+            <p style="text-align: center;"><strong><span
+                        style="color: #00ffff;">_________________________</span></strong></p>
+            <br>
+            <p style="text-align: center;"><small><span style="color: red;">Powered By MERQ Consultancy &copy;
+                        2024<br /></span></small><strong><small><span style="color: red;"></span></small></strong></p>
+            <p style="text-align: center;"><strong><span
+                        style="color: #00ffff;">_________________________</span></strong></p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>
+                <!--
+                  <div id="widgetIframe"><iframe width="100%" height="100" src="https://healthemergencydashboard.moh.gov.et/analytics/index.php?module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=CoreVisualizations&actionToWidgetize=singleMetricView&idSite=1&period=year&date=2022-08-19" scrolling="yes" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
+                  -->
+                <font color="white">By MERQ Consultancy</font>
+            </p>
+        </div>
         <!--sidebar end-->
-                <!--header menu start-->
+        <!--header menu start-->
         <div class="header">
             <div class="header-menu">
-                <div class="title"><a href="index.html"><span class="title-hide"><a href="index.html"><img src="assets/moh_logo_c.png" alt="" width="1" height="1"><p></p></a></a><span class="sec-span"></span></span></div>
+                <div class="title">
+                    <a href="index.html">
+                        <span class="title-hide">
+                            <a href="index.html"><img src="assets/moh_logo_c.png" alt="" width="1" height="1">
+                                <p></p>
+                            </a></a><span class="sec-span"></span></span>
+                </div>
                 <div class="sidebar-btn">
                     <i class="fas fa-bars"></i>
                 </div>
-              <div align="center"><font color="white"> <h2> Dereja - M&E - System </h2></font></div>
+                <div align="center">
+                    <font color="white">
+                        <h2> Dereja - M&E - System </h2>
+                    </font>
+                </div>
                 <ul>
-
                     <ul>
-                        <span
-                        onClick="('guide.html',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span><i class="fas fa-question-circle"></i> </span></a>
-                                          
-                        </p>
+                        <span onClick="('guide.html',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span><i class="fas fa-question-circle"></i> </span></a>
+                            </p>
                         </span>
-                        <span
-                        onClick="changeIframe('./test.html',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span><i class="fas fa-bell"></i> </span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span><i class="fas fa-bell"></i> </span></a>
+                            </p>
                         </span>
-
-                        <span
-                        onClick="changeIframe('https://merqconsultancy.org',this)"
-                        class="parentCatagory">
-                        
-                        <p class="subButtons">
-                            <!-- cnd:] -->
-                            <span><i class="fas fa-power-off"></i> </span></a>
-                                          
-                        </p>
+                        <span onClick="changeIframe('https://merqconsultancy.org',this)" class="parentCatagory">
+                            <p class="subButtons">
+                                <!-- cnd:] -->
+                                <span><i class="fas fa-power-off"></i> </span></a>
+                            </p>
                         </span>
-
                     </ul>
                 </ul>
             </div>
         </div>
         <!--header menu end-->
         <!--main container start-->
- <div id="graphaFrames" class="main-container">
-     <!--
-     <iframe id="iFramer" src="https://metabase.healthemergencydashboard.moh.gov.et/public/dashboard/2e35785b-da15-4479-98eb-701e566d5c8b?year=2023&week="
-                frameborder="0" width="100%" height="100%" allowtransparency=""></iframe>
-     -->
-            <iframe id="iFramer" src="https://derejademo.merqconsultancy.org/public/dashboard/d0941f92-57bd-4c4a-9fe6-f961b6a573a2"
+        <div id="graphaFrames" class="main-container">
+            <!--
+               <iframe id="iFramer" src="https://metabase.healthemergencydashboard.moh.gov.et/public/dashboard/2e35785b-da15-4479-98eb-701e566d5c8b?year=2023&week="
+                          frameborder="0" width="100%" height="100%" allowtransparency=""></iframe>
+               -->
+            <iframe id="iFramer"
+                src="https://derejademo.merqconsultancy.org/public/dashboard/d0941f92-57bd-4c4a-9fe6-f961b6a573a2"
                 frameborder="0" width="100%" height="100%" allowtransparency=""></iframe>
         </div>
         <!--main container end-->
     </div>
     <!--wrapper end-->
-
 </body>
+
 </html>
