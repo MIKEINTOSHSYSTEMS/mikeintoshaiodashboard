@@ -282,6 +282,11 @@ class ConnectionManager_Base
 		$connectionsIds["admin_rights"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_members"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_users"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["webreports"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["webreport_style"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["webreport_sql"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["webreport_admin"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["webreports_view"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

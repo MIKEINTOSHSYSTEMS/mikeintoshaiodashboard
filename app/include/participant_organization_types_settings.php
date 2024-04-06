@@ -557,7 +557,7 @@ $proto0["m_strFrom"] = "FROM participant_organization_types";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -665,7 +665,7 @@ $queryData_participant_organization_types = createSqlQuery_participant_organizat
 
 
 	
-		;
+																								;
 
 		
 

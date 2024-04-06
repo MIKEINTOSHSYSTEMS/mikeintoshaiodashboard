@@ -392,6 +392,10 @@ class DB
 			$dalTables[$conn->connId][] = array("name" => "training_types", "varname" => "deredevatderejadevmerqconsulta__training_types", "altvarname" => "training_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "training_venues", "varname" => "deredevatderejadevmerqconsulta__training_venues", "altvarname" => "training_venues", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "trainings", "varname" => "deredevatderejadevmerqconsulta__trainings", "altvarname" => "trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "webreport_admin", "varname" => "deredevatderejadevmerqconsulta__webreport_admin", "altvarname" => "webreport_admin", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "webreport_sql", "varname" => "deredevatderejadevmerqconsulta__webreport_sql", "altvarname" => "webreport_sql", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "webreport_style", "varname" => "deredevatderejadevmerqconsulta__webreport_style", "altvarname" => "webreport_style", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+			$dalTables[$conn->connId][] = array("name" => "webreports", "varname" => "deredevatderejadevmerqconsulta__webreports", "altvarname" => "webreports", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "zones", "varname" => "deredevatderejadevmerqconsulta__zones", "altvarname" => "zones", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		}
 	}

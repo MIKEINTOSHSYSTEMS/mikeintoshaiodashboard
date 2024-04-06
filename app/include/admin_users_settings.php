@@ -192,6 +192,7 @@ $tdataadmin_users[".geocodingEnabled"] = false;
 
 
 
+$tdataadmin_users[".isDisplayLoading"] = true;
 
 
 
@@ -1560,7 +1561,7 @@ $proto0["m_strFrom"] = "FROM derejame_users";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -1737,6 +1738,8 @@ $proto25["m_columns"][] = "groupid";
 $proto25["m_columns"][] = "active";
 $proto25["m_columns"][] = "ext_security_id";
 $proto25["m_columns"][] = "userpic";
+$proto25["m_columns"][] = "reset_token";
+$proto25["m_columns"][] = "reset_date";
 $obj = new SQLTable($proto25);
 
 $proto24["m_table"] = $obj;
@@ -1773,7 +1776,7 @@ $queryData_admin_users = createSqlQuery_admin_users();
 
 
 	
-		;
+																								;
 
 																															
 

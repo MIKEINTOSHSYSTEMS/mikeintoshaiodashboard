@@ -23,7 +23,7 @@
 		</style>
 		<div class="r-topbar-page">
 			<div data-menu-width="full" 
-				 
+				data-fixed 
 				class="r-topheader" 
 				data-resize-name="topbar"
 				data-body-align="center"
@@ -33,7 +33,7 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-left r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-header" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -44,12 +44,12 @@
 					<span class="icon-bar"></span>					
 				</button>				
 			</span>
-							 
-							 
-				<span data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-right navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
-				{$menu secondary horizontal}			</span>
 		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class="r-align-left navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
+				{$menu secondary horizontal}			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
 				{BEGIN guestloginbutton}
 <span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
@@ -60,7 +60,17 @@
 {END guestloginbutton}
 			</span>
 		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_register" {$item_loginform_register} data-topcell-item-type="loginform_register" >
+				{BEGIN guest_register}
+<span data-itemtype="loginform_register" data-itemid="loginform_register" {$item_loginform_register} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$registerlink_attrs} href="register.php" >
+							Sign Up			</a>
+</span>
+{END guest_register}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
 				{BEGIN loggedas_message}
 <span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<span class="dropdown ">
@@ -123,15 +133,29 @@
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class="r-align-center r-ori-vert			col-md-12
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class="r-align-right r-ori-vert			col-md-6
 	
 ">
 		{BEGIN firstAboveGridCell}
 		 
 		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_menu" />
 			{END firstAboveGridCell}	
-	</div>					</div>
+	</div>			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		{BEGIN exitadminarea_link}
+<span data-itemtype="exit_adminarea_link" data-itemid="exit_adminarea_link" {$item_exit_adminarea_link} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$exitaalink_attrs} >
+							Exit Admin Area			</a>
+</span>
+{END exitadminarea_link}
+		</div>					</div>
 			</div>		
 {END above-grid_block}
 	</div>
@@ -231,7 +255,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item27" {$item_welcome_item27} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="candidate_employment_tracker_list.php"  > 
-							<span class="fa fa-dashboard"></span>Candidate Employment Tracker					</a>
+							<span class="fa fa-arrows"></span>Employment Tracker					</a>
 	</div>
 
 	</div>
@@ -241,7 +265,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item32" {$item_welcome_item32} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="companysectors_list.php"  > 
-							Company Sectors					</a>
+							<span class="glyphicon glyphicon-level-up"></span>Company Sectors					</a>
 	</div>
 
 	</div>
@@ -261,7 +285,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item30" {$item_welcome_item30} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="job_categories_list.php"  > 
-							Job Categories					</a>
+							<span class="glyphicon glyphicon-tags"></span>Job Categories					</a>
 	</div>
 
 	</div>
@@ -271,7 +295,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item31" {$item_welcome_item31} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="job_types_list.php"  > 
-							Job Types					</a>
+							<span class="glyphicon glyphicon-tag"></span>Job Types					</a>
 	</div>
 
 	</div>
@@ -341,7 +365,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item11" {$item_welcome_item11} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="dereja_training_services_list.php"  > 
-							<span class="fa fa-gears"></span>Dereja Training Services					</a>
+							<span class="fa fa-gears"></span>Training Services					</a>
 	</div>
 
 	</div>
@@ -401,7 +425,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item17" {$item_welcome_item17} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="dereja_information_sources_list.php"  > 
-							<span class="fa fa-info"></span>Dereja Information Sources					</a>
+							<span class="fa fa-info"></span>Information Sources					</a>
 	</div>
 
 	</div>
@@ -461,7 +485,7 @@
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item22" {$item_welcome_item22} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="participant_organization_types_list.php"  > 
-							<span class="fa fa-first-order"></span>Participant Organization Types					</a>
+							<span class="fa fa-first-order"></span>Participant Org Types					</a>
 	</div>
 
 	</div>
@@ -512,6 +536,66 @@
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="trainer_list.php"  > 
 							Trainer					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item35" {$item_welcome_item35} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreports_list.php"  > 
+							Webreports					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item36" {$item_welcome_item36} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_style_list.php"  > 
+							Webreport Style					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item37" {$item_welcome_item37} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_sql_list.php"  > 
+							Webreport Sql					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item38" {$item_welcome_item38} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_admin_list.php"  > 
+							Webreport Admin					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item39" {$item_welcome_item39} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreports_view_report.php"  > 
+							Webreports View					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item40" {$item_welcome_item40} data-pageid="{$pageid}" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="./webreport.php"  > 
+							<span class="fa fa-pie-chart"></span>Web Reports Builder					</a>
 	</div>
 
 	</div>

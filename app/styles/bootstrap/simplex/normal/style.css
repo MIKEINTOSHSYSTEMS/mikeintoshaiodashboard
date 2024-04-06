@@ -7598,8 +7598,8 @@ td::before {
   color: #777777;
 }
 .r-vbar-page .r-left .panel .panel-heading {
-  border-bottom-color: #fcd6d2;
-  background-color: rgba(217, 35, 15, 0.6);
+  border-bottom-color: #fffbf8;
+  background-color: rgba(253, 126, 20, 0.6);
 }
 .r-vbar-page .r-left .panel .panel-footer {
   border: none;
@@ -7909,8 +7909,8 @@ td::before {
     color: #777777;
   }
   .r-leftbar-top-page > .r-under .r-left .panel .panel-heading {
-    border-bottom-color: #fcd6d2;
-    background-color: rgba(217, 35, 15, 0.6);
+    border-bottom-color: #fffbf8;
+    background-color: rgba(253, 126, 20, 0.6);
   }
   .r-leftbar-top-page > .r-under .r-left .panel .panel-footer {
     border: none;
@@ -11242,8 +11242,8 @@ However there might have been the case where dropdown showed up where it shouldn
   display: none;
 }
 .filterPanelContainer .panel-heading {
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .filterPanelContainer .panel-heading label {
   margin-bottom: 0;
@@ -11272,7 +11272,7 @@ However there might have been the case where dropdown showed up where it shouldn
 .filterPanelContainer .filter-show-more > *:first-child,
 .filterPanelContainer .filter-multiselect > *:first-child,
 .filterPanelContainer .filter-btn-apply > *:first-child {
-  padding: 7px 15px;
+  padding: 4px 15px;
   display: block;
   flex: 1 1 auto;
 }
@@ -11335,8 +11335,8 @@ However there might have been the case where dropdown showed up where it shouldn
   color: #777777;
 }
 .r-vbar-page .r-left [data-itemtype="filter_panel"] .panel .panel-heading {
-  background-color: rgba(217, 35, 15, 0.6);
-  color: white;
+  background-color: rgba(253, 126, 20, 0.6);
+  color: #1f2d3d;
   font-size: 15px;
 }
 .r-vbar-page .r-left [data-itemtype="filter_panel"] .panel .panel-body {
@@ -11584,7 +11584,7 @@ However there might have been the case where dropdown showed up where it shouldn
 .r-left:not(.r-left-collapsed) .r-menu [data-menu-inline] {
   padding: 0;
   font-size: 16px;
-  padding: 8px 16px;
+  padding: 4px 8px;
   margin: 0px 8px;
   margin-bottom: 3px;
   border-radius: 4px;
@@ -11712,9 +11712,9 @@ However there might have been the case where dropdown showed up where it shouldn
   background: rgba(0, 0, 0, 0.1);
 }
 .r-left .r-menu li.active.active.active > [data-menu-link] {
-  background: #D9230F;
+  background: #fd7e14;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0px, rgba(0, 0, 0, 0.24) 0px 1px 2px 0px;
-  color: white;
+  color: #1f2d3d;
 }
 .r-left:not(.r-left-collapsed) .r-menu.menu-treelike [data-menulevel="2"] > li > a {
   margin-left: 24px;

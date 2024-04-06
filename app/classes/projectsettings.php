@@ -3588,6 +3588,16 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "admin_members" ] = "admin_members";
 	$projectEntities[ "admin_users" ] = array( "url" => "admin_users", "type" => 1 );
 	$projectEntitiesReverse[ "admin_users" ] = "admin_users";
+	$projectEntities[ "webreports" ] = array( "url" => "webreports", "type" => 0 );
+	$projectEntitiesReverse[ "webreports" ] = "webreports";
+	$projectEntities[ "webreport_style" ] = array( "url" => "webreport_style", "type" => 0 );
+	$projectEntitiesReverse[ "webreport_style" ] = "webreport_style";
+	$projectEntities[ "webreport_sql" ] = array( "url" => "webreport_sql", "type" => 0 );
+	$projectEntitiesReverse[ "webreport_sql" ] = "webreport_sql";
+	$projectEntities[ "webreport_admin" ] = array( "url" => "webreport_admin", "type" => 0 );
+	$projectEntitiesReverse[ "webreport_admin" ] = "webreport_admin";
+	$projectEntities[ "webreports_view" ] = array( "url" => "webreports_view", "type" => 2 );
+	$projectEntitiesReverse[ "webreports_view" ] = "webreports_view";
 }
 
 function findTable( $table ) {

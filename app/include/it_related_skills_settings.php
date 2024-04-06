@@ -557,7 +557,7 @@ $proto0["m_strFrom"] = "FROM it_related_skills";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -665,7 +665,7 @@ $queryData_it_related_skills = createSqlQuery_it_related_skills();
 
 
 	
-		;
+																								;
 
 		
 

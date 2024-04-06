@@ -281,6 +281,16 @@ function checkTableName($shortTName )
 		return true;
 	if ("admin_users" == $shortTName )
 		return true;
+	if ("webreports" == $shortTName )
+		return true;
+	if ("webreport_style" == $shortTName )
+		return true;
+	if ("webreport_sql" == $shortTName )
+		return true;
+	if ("webreport_admin" == $shortTName )
+		return true;
+	if ("webreports_view" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -682,6 +692,51 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="admin_users";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("webreports");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="webreports";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("webreport_style");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="webreport_style";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("webreport_sql");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="webreport_sql";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("webreport_admin");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="webreport_admin";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("webreports_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="webreports_view";
+	}
 	return $arr;
 }
 
@@ -730,6 +785,11 @@ function GetTablesListWithoutSecurity()
 	$arr[]="admin_rights";
 	$arr[]="admin_members";
 	$arr[]="admin_users";
+	$arr[]="webreports";
+	$arr[]="webreport_style";
+	$arr[]="webreport_sql";
+	$arr[]="webreport_admin";
+	$arr[]="webreports_view";
 	return $arr;
 }
 
@@ -1551,6 +1611,31 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
+	}
+	if( $table=="webreports" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="webreport_style" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="webreport_sql" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="webreport_admin" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="webreports_view" )
+	{
+//	default permissions
+		return "SP".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

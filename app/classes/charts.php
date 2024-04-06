@@ -456,6 +456,16 @@ class Chart
 			return true;
 		if("derejame_users" == $this->chrt_array['tables'][0])
 			return true;
+		if("webreports" == $this->chrt_array['tables'][0])
+			return true;
+		if("webreport_style" == $this->chrt_array['tables'][0])
+			return true;
+		if("webreport_sql" == $this->chrt_array['tables'][0])
+			return true;
+		if("webreport_admin" == $this->chrt_array['tables'][0])
+			return true;
+		if("webreports" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

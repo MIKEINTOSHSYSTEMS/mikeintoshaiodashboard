@@ -627,6 +627,7 @@ $globalSettings["useCookieBanner"] = 0 != 0;
 
 $globalSettings["htmlEmailTemplates"] = array();
 
+$globalSettings["isAddWebRep"] = true;
 
 $globalSettings["createLoginPage"] = true;
 $globalSettings["userGroupCount"] = 1;
@@ -692,6 +693,7 @@ $wr_pagestylepath = "OfficeOffice";
 $wr_is_standalone = false;
 $WRAdminPagePassword = "";
 
+$WRAdminPagePassword = "webreports";
 
 
 /**
@@ -737,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "93_1712159860";
+$projectBuildKey = "104_1712415086";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "93";
+$projectBuildNumber = "104";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -747,6 +749,7 @@ $mlang_charsets = array();
 
 $projectMenus = array();
 $projectMenus[] = "main";
+$projectMenus[] = "DEREJA_MENU";
 $projectMenus[] = "mikeintosh";
 $projectMenus[] = "secondary";
 
@@ -755,6 +758,7 @@ $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
 
+$menuTreelikeFlags["DEREJA_MENU"] = 1;
 $menuTreelikeFlags["mikeintosh"] = 1;
 $menuTreelikeFlags["secondary"] = 1;
 
@@ -803,6 +807,11 @@ $tableCaptions["English"]["derejame_users"] = "Derejame Users";
 $tableCaptions["English"]["admin_rights"] = "Admin Rights";
 $tableCaptions["English"]["admin_members"] = "Admin Members";
 $tableCaptions["English"]["admin_users"] = "Admin Users";
+$tableCaptions["English"]["webreports"] = "Webreports";
+$tableCaptions["English"]["webreport_style"] = "Webreport Style";
+$tableCaptions["English"]["webreport_sql"] = "Webreport Sql";
+$tableCaptions["English"]["webreport_admin"] = "Webreport Admin";
+$tableCaptions["English"]["webreports_view"] = "Webreports View";
 
 
 $globalEvents = new class_GlobalEvents;

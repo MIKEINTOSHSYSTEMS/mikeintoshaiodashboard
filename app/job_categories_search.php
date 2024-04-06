@@ -23,7 +23,21 @@ if( !isLogged() )
 $cname = postvalue("cname");
 $rname = postvalue("rname");
 
-$accessGranted = CheckTablePermissions($strTableName, "S");
+$chrt_array = array();
+$rpt_array = array();
+require_once( "include/reportfunctions.php" );
+if( $rname )
+{
+	$rpt_array = getReportArray( $rname );
+	$accessGranted = @$rpt_array['status'] != "private" || @$rpt_array['owner'] != Security::getUserName();
+}
+else if( $cname )
+{
+	$chrt_array = getChartArray( $cname );
+	$accessGranted = @$chrt_array['status'] != "private" || @$chrt_array['owner'] != Security::getUserName();
+}
+else	
+	$accessGranted = CheckTablePermissions($strTableName, "S");
 if(!$accessGranted)
 {
 	HeaderRedirect("menu");

@@ -1042,3 +1042,210 @@ text-align: center;
 border-radius:5px
      } 
 
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    /* Material-like background color */
+}
+
+/* Header styles */
+.wrapper .header {
+    background: #f44336;
+    /* Material-like red color */
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.7);
+    /* Material-like shadow */
+}
+
+.wrapper .header .header-menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.wrapper .header .header-menu .title {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    transition: color 0.3s;
+}
+
+.wrapper .header .header-menu .title-hide {
+    color: #4caf50;
+    /* Material-like green color */
+    font-family: monospace;
+}
+
+.wrapper .header .header-menu .title span .sec-span {
+    color: #4caf50;
+    /* Material-like green color */
+    font-family: cursive;
+}
+
+.wrapper .header .header-menu .sidebar-btn {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.wrapper .header .header-menu .sidebar-btn:hover {
+    color: #4caf50;
+    /* Material-like green color */
+}
+
+.wrapper .header .header-menu ul {
+    display: flex;
+    float: right;
+}
+
+.wrapper .header .header-menu ul li a {
+    background: #fff;
+    color: #000;
+    display: block;
+    margin-right: 10px;
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
+}
+
+.wrapper .header .header-menu ul li a:hover {
+    background: #4caf50;
+    /* Material-like green color */
+    color: #fff;
+}
+
+/* Sidebar styles */
+.wrapper .sidebar {
+    background: #fff;
+    position: fixed;
+    top: 50px;
+    width: 250px;
+    height: calc(100% - 50px);
+    padding-bottom: 50px;
+    transition: width 0.3s;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Material-like shadow */
+}
+
+.wrapper .sidebar .sidebar-menu img {
+    margin: 20px auto;
+    display: block;
+    width: 150px;
+    /* Adjust image width */
+    height: auto;
+    /* Maintain aspect ratio */
+    /*border-radius: 50%;*/
+    /* Make the image circular */
+}
+
+.wrapper .sidebar .sidebar-menu .profile p {
+    color: #4caf50;
+    /* Material-like green color */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn {
+    color: #333;
+    /* Adjust text color */
+    font-weight: bold;
+    padding: 15px 20px;
+    transition: color 0.3s;
+}
+
+.wrapper .sidebar .sidebar-menu .item .menu-btn:hover {
+    color: #f44336;
+    /* Material-like red color */
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu {
+    background: #f5f5f5;
+    /* Material-like background color */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a {
+    color: #333;
+    /* Adjust text color */
+    padding: 12px 20px;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu a:hover {
+    background: #e0e0e0;
+    /* Material-like hover background color */
+    color: #f44336;
+    /* Material-like red color */
+}
+
+.wrapper .sidebar .sidebar-menu .item.active .sub-menu {
+    max-height: 500px;
+    /* Adjust max height */
+}
+
+/* Main container styles */
+.main-container {
+    margin-top: 50px;
+    margin-left: 250px;
+    background: #fff;
+    /* Material-like background color */
+    transition: margin-left 0.3s;
+    padding: 20px;
+    /* Add padding for content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Material-like shadow */
+}
+
+/* Collapse styles */
+.collapse .sidebar {
+    width: 70px;
+}
+
+.collapse .sidebar .profile img,
+.collapse .sidebar .profile p,
+.collapse .sidebar a span,
+.collapse .header .header-menu .title-hide {
+    display: none;
+}
+
+.collapse .sidebar .sidebar-menu .item .menu-btn {
+    font-size: 23px;
+}
+
+.collapse .sidebar .sidebar-menu .item .sub-menu {
+    font-size: 18px;
+    padding-left: 3px;
+}
+
+.collapse .header .header-menu .sidebar-btn {
+    font-size: 28px;
+}
+
+.collapse .main-container {
+    margin-left: 70px;
+}

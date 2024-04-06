@@ -587,7 +587,7 @@ $proto0["m_strFrom"] = "FROM regions";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -695,7 +695,7 @@ $queryData_regions = createSqlQuery_regions();
 
 
 	
-		;
+																								;
 
 		
 

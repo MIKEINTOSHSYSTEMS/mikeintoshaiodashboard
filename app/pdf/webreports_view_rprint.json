@@ -1,0 +1,406 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+						pagesummary: {
+		fillColor: '#ffffbb',
+	},
+	globalsummary: {
+		fillColor: '#ffe0b0',
+	},
+		
+	blackshade: {
+		fontSize: 15,
+	},
+	summarycell: {
+		border:[false, true, false, true ]
+	},
+/*
+		.grouptotalsrow + :not(.grouptotalsrow) > * {
+		border-top:solid #808080 1px; 
+	}
+	*/	
+			},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+		{BEGIN body}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption webreports_view}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel webreports_view rprint}',
+			},
+		{END embedded_page_title}		
+		{ 
+			{BEGIN standalone_page}
+			pageBreak: 'before',
+			standAlonePage: true,
+			{END standalone_page}
+			{BEGIN embedded_grid}
+			embeddedPage: true,
+			{END embedded_grid}
+			layout: {
+				hLineWidth: function(i, node) { return 0.1; },
+				vLineWidth: function(i, node) { 
+					return 0.1; 
+				},
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
+			},
+			table: {
+				{BEGIN embedded_grid}
+				embeddedPage: true,
+				{END embedded_grid}
+				
+				tableForm: true,
+				headerRows: 1 
+								{BEGIN embedded_grid} -1 {END embedded_grid} ,
+
+				widths: [
+														"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+															],
+							
+				body: [
+				{BEGIN standalone_page}
+					[
+						{
+							colSpan: 9,
+							border:[false, false,false,false],
+							stack: [
+
+																										
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"{$jspagetitlelabel webreports_view rprint}","hidden":"{$item_hide_print_header}","fontSize":30},
+				
+				
+			{"text":"{$printtabheader_text}","hidden":"{$item_hide_print_subheader}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+								
+																										
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"Page %current% of %total%","hidden":"{$item_hide_print_pages}","isHtml":true,"page_indicator":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+															]
+						},
+					],
+				{END standalone_page}
+
+																
+[	
+		{
+		text: '{$jslabel webreports_view rpt_id }',
+		alignment: '{$rpt_id_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_name }',
+		alignment: '{$rpt_name_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_title }',
+		alignment: '{$rpt_title_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_cdate }',
+		alignment: '{$rpt_cdate_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_mdate }',
+		alignment: '{$rpt_mdate_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_content }',
+		alignment: '{$rpt_content_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_owner }',
+		alignment: '{$rpt_owner_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_status }',
+		alignment: '{$rpt_status_align}',
+	},
+		{
+		text: '{$jslabel webreports_view rpt_type }',
+		alignment: '{$rpt_type_align}',
+	},
+	],
+
+{BEGIN grid_row}
+	{BEGIN row_data}
+[	
+		{	
+		text: {$rpt_id_value},
+		alignment: '{$rpt_id_align}',
+	},
+		{	
+		text: {$rpt_name_value},
+		alignment: '{$rpt_name_align}',
+	},
+		{	
+		text: {$rpt_title_value},
+		alignment: '{$rpt_title_align}',
+	},
+		{	
+		text: {$rpt_cdate_value},
+		alignment: '{$rpt_cdate_align}',
+	},
+		{	
+		text: {$rpt_mdate_value},
+		alignment: '{$rpt_mdate_align}',
+	},
+		{	
+		text: {$rpt_content_value},
+		alignment: '{$rpt_content_align}',
+	},
+		{	
+		text: {$rpt_owner_value},
+		alignment: '{$rpt_owner_align}',
+	},
+		{	
+		text: {$rpt_status_value},
+		alignment: '{$rpt_status_align}',
+	},
+		{	
+		text: {$rpt_type_value},
+		alignment: '{$rpt_type_align}',
+	},
+	],
+	{END row_data}
+{END grid_row}
+
+[
+		{	
+		text: '{$jslabel webreports_view rpt_id }',
+		alignment: '{$rpt_id_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_name }',
+		alignment: '{$rpt_name_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_title }',
+		alignment: '{$rpt_title_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_cdate }',
+		alignment: '{$rpt_cdate_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_mdate }',
+		alignment: '{$rpt_mdate_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_content }',
+		alignment: '{$rpt_content_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_owner }',
+		alignment: '{$rpt_owner_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_status }',
+		alignment: '{$rpt_status_align}',
+	},
+		{	
+		text: '{$jslabel webreports_view rpt_type }',
+		alignment: '{$rpt_type_align}',
+	},
+	],
+
+
+
+
+
+
+
+	[
+		{	
+			text: 'Page summary {$page_total_cnt} - records total',
+			colSpan: 9,
+			style: 'pagesummary',
+		}
+	],
+
+	
+	
+	
+	
+
+
+{BEGIN global_summary}
+	[
+		{
+			text: 'Global summary {$global_total_cnt} - records total',
+			colSpan: 9,
+			style: 'globalsummary',
+		}
+	],
+
+	
+	
+	
+	
+{END global_summary}
+									]
+			
+			}
+		},
+		{END body}
+	],
+	footer: [
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+			],
+	}

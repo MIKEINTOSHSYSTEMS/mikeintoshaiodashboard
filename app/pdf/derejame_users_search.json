@@ -189,6 +189,9 @@ pdfDocument = {
 				
 			{"text":{$ext_security_id_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
 				
+				
+			{"text":{$reset_token_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

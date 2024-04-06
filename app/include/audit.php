@@ -512,6 +512,26 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="webreports")
+		{
+			return false;
+		}
+		if($table=="webreport_style")
+		{
+			return false;
+		}
+		if($table=="webreport_sql")
+		{
+			return false;
+		}
+		if($table=="webreport_admin")
+		{
+			return false;
+		}
+		if($table=="webreports_view")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -973,6 +993,26 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="admin_users")
+		{
+			return false;
+		}
+		if($table=="webreports")
+		{
+			return false;
+		}
+		if($table=="webreport_style")
+		{
+			return false;
+		}
+		if($table=="webreport_sql")
+		{
+			return false;
+		}
+		if($table=="webreport_admin")
+		{
+			return false;
+		}
+		if($table=="webreports_view")
 		{
 			return false;
 		}

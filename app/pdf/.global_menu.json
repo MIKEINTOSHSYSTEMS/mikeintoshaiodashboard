@@ -35,6 +35,7 @@ pdfDocument = {
 		
 		widths: [
 								"*", 
+											"*", 
 					 ],	
 		
 	
@@ -42,7 +43,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c1',
+	cellId: 'c',
 	col:0,
 	row:0,
 			
@@ -59,7 +60,30 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'right',
+     
+      
+      },
+
+																							{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_exit_adminarea_link}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
      
       
       },
@@ -209,6 +233,24 @@ pdfDocument = {
 				
 				
 			{"text":"","background":"#CD853F","hidden":"{$item_hide_welcome_item34}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item35}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item36}"},
+				
+				
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item37}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item38}"},
+				
+				
+			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item39}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_welcome_item40}"},
 				
 		  ],
   "border": [ false, false, false, false ],

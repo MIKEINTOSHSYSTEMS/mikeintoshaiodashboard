@@ -54,6 +54,11 @@ $nonAdminTablesArr[] = "CompanySectors";
 $nonAdminTablesArr[] = "Disability_Types";
 $nonAdminTablesArr[] = "Trainer";
 $nonAdminTablesArr[] = "derejame_users";
+$nonAdminTablesArr[] = "webreports";
+$nonAdminTablesArr[] = "webreport_style";
+$nonAdminTablesArr[] = "webreport_sql";
+$nonAdminTablesArr[] = "webreport_admin";
+$nonAdminTablesArr[] = "webreports_view";
 
 $ug_connection = $cman->getForUserGroups();
 

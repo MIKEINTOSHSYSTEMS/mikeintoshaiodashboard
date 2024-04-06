@@ -216,7 +216,7 @@ $tdataderejame_users[".strOrderBy"] = $tstrOrderBy;
 $tdataderejame_users[".orderindexes"] = array();
 
 
-$tdataderejame_users[".sqlHead"] = "SELECT ID,  username,  password,  email,  fullname,  groupid,  active,  ext_security_id,  userpic,  reset_token,  reset_date";
+$tdataderejame_users[".sqlHead"] = "SELECT ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $tdataderejame_users[".sqlFrom"] = "FROM derejame_users";
 $tdataderejame_users[".sqlWhereExpr"] = "";
 $tdataderejame_users[".sqlTail"] = "";
@@ -1378,7 +1378,7 @@ $tdataderejame_users[".hideMobileList"] = array();
 	$fdata["GoodName"] = "userpic";
 	$fdata["ownerTable"] = "derejame_users";
 	$fdata["Label"] = GetFieldLabel("derejame_users","userpic");
-	$fdata["FieldType"] = 205;
+	$fdata["FieldType"] = 128;
 
 
 	
@@ -1389,7 +1389,8 @@ $tdataderejame_users[".hideMobileList"] = array();
 
 		$fdata["sourceSingle"] = "userpic";
 
-		$fdata["FullName"] = "userpic";
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "userpic";
 
 	
 	
@@ -1523,7 +1524,7 @@ $tdataderejame_users[".hideMobileList"] = array();
 	$fdata["GoodName"] = "reset_token";
 	$fdata["ownerTable"] = "derejame_users";
 	$fdata["Label"] = GetFieldLabel("derejame_users","reset_token");
-	$fdata["FieldType"] = 202;
+	$fdata["FieldType"] = 201;
 
 
 	
@@ -1534,7 +1535,8 @@ $tdataderejame_users[".hideMobileList"] = array();
 
 		$fdata["sourceSingle"] = "reset_token";
 
-		$fdata["FullName"] = "reset_token";
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "reset_token";
 
 	
 	
@@ -1571,7 +1573,7 @@ $tdataderejame_users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Text area");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1589,16 +1591,16 @@ $tdataderejame_users[".hideMobileList"] = array();
 	
 			$edata["acceptFileTypesHtml"] = "";
 
-		$edata["maxNumberOfFiles"] = 1;
+		$edata["maxNumberOfFiles"] = 0;
 
 	
 	
 	
-	
-			$edata["HTML5InuptType"] = "text";
+				$edata["nRows"] = 100;
+			$edata["nCols"] = 200;
 
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -1609,7 +1611,10 @@ $tdataderejame_users[".hideMobileList"] = array();
 	
 //	End validation
 
-	
+		$edata["CreateThumbnail"] = true;
+	$edata["StrThumbnail"] = "th";
+			$edata["ThumbnailSize"] = 600;
+
 			
 	
 	
@@ -1670,7 +1675,8 @@ $tdataderejame_users[".hideMobileList"] = array();
 
 		$fdata["sourceSingle"] = "reset_date";
 
-		$fdata["FullName"] = "reset_date";
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "reset_date";
 
 	
 	
@@ -1832,12 +1838,12 @@ function createSqlQuery_derejame_users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ID,  username,  password,  email,  fullname,  groupid,  active,  ext_security_id,  userpic,  reset_token,  reset_date";
+$proto0["m_strFieldList"] = "ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $proto0["m_strFrom"] = "FROM derejame_users";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -2080,7 +2086,7 @@ $queryData_derejame_users = createSqlQuery_derejame_users();
 
 
 	
-		;
+																								;
 
 											
 

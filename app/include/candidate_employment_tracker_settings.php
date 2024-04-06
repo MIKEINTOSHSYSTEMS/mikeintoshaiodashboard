@@ -2357,7 +2357,7 @@ $proto0["m_strFrom"] = "FROM Candidate_Employment_Tracker";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
-		;
+																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
 $proto2["m_sql"] = "";
@@ -2630,7 +2630,7 @@ $queryData_candidate_employment_tracker = createSqlQuery_candidate_employment_tr
 
 
 	
-		;
+																								;
 
 													
 
