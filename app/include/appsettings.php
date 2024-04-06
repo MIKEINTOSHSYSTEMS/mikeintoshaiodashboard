@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "104_1712415086";
+$projectBuildKey = "105_1712426313";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "104";
+$projectBuildNumber = "105";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -749,7 +749,6 @@ $mlang_charsets = array();
 
 $projectMenus = array();
 $projectMenus[] = "main";
-$projectMenus[] = "DEREJA_MENU";
 $projectMenus[] = "mikeintosh";
 $projectMenus[] = "secondary";
 
@@ -758,7 +757,6 @@ $menuTreelikeFlags = array();
 $menuTreelikeFlags["main"] = 1;
 
 
-$menuTreelikeFlags["DEREJA_MENU"] = 1;
 $menuTreelikeFlags["mikeintosh"] = 1;
 $menuTreelikeFlags["secondary"] = 1;
 
