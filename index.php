@@ -118,31 +118,31 @@
                                 <span>Candidates AIO</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 02</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 03</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 04</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 05</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 06</span></a>
@@ -166,31 +166,31 @@
                                 <span>Event Participants AIO</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 02</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 03</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 04</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 05</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Report 06</span></a>
@@ -236,13 +236,13 @@
                                 class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div class="sub-menu">
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Table 1</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Table 2</span></a>
@@ -300,19 +300,19 @@
                                 class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div class="sub-menu">
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Null Reports 1</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Null Reports 2</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('test.php',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span>Dashboard Visitors Report</span></a>
@@ -380,7 +380,7 @@
                 </div>
                 <ul>
                     <ul>
-                        <span onClick="('guide.html',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./guide.html',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span><i class="fas fa-question-circle"></i> </span></a>
@@ -392,7 +392,7 @@
                                 <span><i class="fas fa-bell"></i> </span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('https://merqconsultancy.org',this)" class="parentCatagory">
+                        <span onClick="changeIframe('https://derejademo.merqconsultancy.org/auth/login?redirect=%2F',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span><i class="fas fa-power-off"></i> </span></a>
