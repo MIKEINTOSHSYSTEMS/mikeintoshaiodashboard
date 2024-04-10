@@ -217,6 +217,9 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -286,6 +289,38 @@ pdfDocument = {
 
 																		{ 
 				cellId: 'c2',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_captcha}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c3',
 				row:  0,
 				col:  1,
 				text: ''
