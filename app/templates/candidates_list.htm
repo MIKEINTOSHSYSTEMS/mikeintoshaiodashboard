@@ -2201,7 +2201,7 @@
 {BEGIN edit_link}
 <span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Edit" class="btn-link   
-	 glyphicon glyphicon-pencil" href="candidates_edit.php?{$editlink}" {$editlink_attrs} title="Edit" >		
+	 glyphicon glyphicon-pencil" href="candidates_edit.php?{$editlink}" {$editlink_attrs} title="Edit" tabindex=-1 >		
 				
 								</a>
 </span>
@@ -2212,7 +2212,7 @@
 {BEGIN inlineedit_link}
 <span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Inline Edit" class="btn-link   
-	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" >		
+	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" tabindex=-1 >		
 				
 								</a>
 </span>
@@ -2222,7 +2222,7 @@
 		{BEGIN inline_save}
 <span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Save" class="btn-link   
-	 glyphicon glyphicon-ok" {$inlinesavelink_attrs} title="Save" >		
+	 glyphicon glyphicon-ok" {$inlinesavelink_attrs} title="Save" tabindex=-1 >		
 				
 								</a>
 </span>
@@ -2231,7 +2231,7 @@
 		{BEGIN inline_cancel}
 <span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Cancel" class="btn-link   
-	 glyphicon glyphicon-remove" {$inlinerevertlink_attrs} title="Cancel" >		
+	 glyphicon glyphicon-remove" {$inlinerevertlink_attrs} title="Cancel" tabindex=-1 >		
 				
 								</a>
 </span>
@@ -2241,12 +2241,19 @@
 {BEGIN view_link}
 <span data-itemtype="grid_view" data-itemid="grid_view" {$item_grid_view} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="View record" class="btn-link   
-	 glyphicon glyphicon-search" href="candidates_view.php?{$editlink}" {$viewlink_attrs} title="View" >		
+	 glyphicon glyphicon-search" href="candidates_view.php?{$editlink}" {$viewlink_attrs} title="View" tabindex=-1 >		
 				
 								</a>
 </span>
 {END view_link}
 {END view_column}
+	 
+		
+<span data-itemtype="saving_icon" data-itemid="saving_icon" {$item_saving_icon} data-pageid="{$pageid}" data-record-id="{$recId}" > 
+    <span class="glyphicon glyphicon-repeat"></span>
+<span/>
+
+
 	
 	</td>
 	{END cellblock_grid_cell_icons}
@@ -2268,6 +2275,7 @@
 		{BEGIN checkbox_column}
 <span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
 	<input type="checkbox" {$checkbox_attrs}
+		tabIndex="-1"
 		>
 </span>	
 {END checkbox_column}
@@ -2296,6 +2304,7 @@
 			{$event_participants_link_attrs} 
 			class="{$dtables_link_class} details-badge badge event_participants_badge" 
 			title="Show details"
+						 tabIndex="-1"
 						
 		>
 							<span class="glyphicon glyphicon-th-list"></span>

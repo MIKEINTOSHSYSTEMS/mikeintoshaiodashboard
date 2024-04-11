@@ -96,7 +96,7 @@
         <div class="sidebar">
             <div class="sidebar-menu">
                 <center class="profile">
-                    <a href="index.html">
+                    <a href="index.php">
                         <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="">
                         <p></p>
                     </a>
@@ -364,9 +364,9 @@
         <div class="header">
             <div class="header-menu">
                 <div class="title">
-                    <a href="index.html">
+                    <a href="index.php">
                         <span class="title-hide">
-                            <a href="index.html"><img src="assets/moh_logo_c.png" alt="" width="1" height="1">
+                            <a href="index.php"><img src="assets/moh_logo_c.png" alt="" width="1" height="1">
                                 <p></p>
                             </a></a><span class="sec-span"></span></span>
                 </div>
