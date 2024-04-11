@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Counter | Dereja M & E System</title>
+</head>
+
+<body>
+    <h3> </h3>
+
+    <p> </p>
+
+    <div id="counter">Loading...</div>
+
+    <script>
+        // Function to fetch the current count from the server
+        function fetchCounter() {
+            fetch('./visits/counter.php') // Change 'counter.php' to the server-side script that updates the counter
+                .then(response => response.text())
+                .then(count => {
+                    document.getElementById('counter').innerText = 'Total visitors: ' + count;
+                });
+        }
+
+        // Call the function when the page loads
+        fetchCounter();
+
+        // Optionally, you can refresh the counter at intervals
+        // setInterval(fetchCounter, 5000); // Refresh every 5 seconds (adjust as needed)
+    </script>
+</body>
+
+</html>

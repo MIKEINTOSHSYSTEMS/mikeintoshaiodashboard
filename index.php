@@ -107,7 +107,7 @@
                 <!-- Start Candidates -->
                 <li class="item" id="candidates_report">
                     <a href="#candidates_report" class="menu-btn">
-                        <i class="fas fa-bars"></i><span>Candidates <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-users"></i><span>Candidates <i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div align="left" class="sub-menu">
                         <span
@@ -155,7 +155,7 @@
 
                 <li class="item" id="service_reports">
                     <a href="#service_reports" class="menu-btn">
-                        <i class="fas fa-bars"></i><span>Events <i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-calendar"></i><span>Events <i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div align="left" class="sub-menu">
                         <span
@@ -200,7 +200,7 @@
                 </li>
                 <li class="item" id="additional_reports">
                     <a href="#additional_reports" class="menu-btn">
-                        <i class="fas fa-plus"></i><span>Trainings<i class="fas fa-chevron-down drop-down"></i></span>
+                        <i class="fas fa-book"></i><span>Trainings<i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div class="sub-menu">
                         <span
@@ -340,6 +340,27 @@
                    </marquee>
                    -->
             <br>
+            <br>
+            <br>
+                <div id="counter" align="center">Loading...</div>
+
+    <script>
+        // Function to fetch the current count from the server
+        function fetchCounter() {
+            fetch('./analytics/visits/counter.php') // Change 'counter.php' to the server-side script that updates the counter
+                .then(response => response.text())
+                .then(count => {
+                    document.getElementById('counter').innerText = 'Total visitors: ' + count;
+                });
+        }
+
+        // Call the function when the page loads
+        fetchCounter();
+
+        // Optionally, you can refresh the counter at intervals
+        // setInterval(fetchCounter, 5000); // Refresh every 5 seconds (adjust as needed)
+    </script>
+            
             <br>
             <p style="text-align: center;"><strong><span
                         style="color: #00ffff;">_________________________</span></strong></p>
