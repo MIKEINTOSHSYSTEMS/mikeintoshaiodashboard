@@ -1469,6 +1469,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("webreports" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("Languages" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

@@ -193,9 +193,6 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel candidates Phone_Number }","bold":true},{"text":{$Phone_Number_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel candidates Phone_Number_Family }","bold":true},{"text":{$Phone_Number_Family_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel candidates Email_Address }","bold":true},{"text":{$Email_Address_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
@@ -269,6 +266,66 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field36}","stack":[{"text":"{$jslabel candidates GPA }","bold":true},{"text":{$GPA_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field37}","stack":[{"text":"{$jslabel candidates Institution_Name }","bold":true},{"text":{$Institution_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field38}","stack":[{"text":"{$jslabel candidates Languages }","bold":true},{"text":{$Languages_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field39}","stack":[{"text":"{$jslabel candidates Employment_Status }","bold":true},{"text":{$Employment_Status_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field40}","stack":[{"text":"{$jslabel candidates Employment_Company }","bold":true},{"text":{$Employment_Company_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field41}","stack":[{"text":"{$jslabel candidates Employment_Position }","bold":true},{"text":{$Employment_Position_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field42}","stack":[{"text":"{$jslabel candidates Remark }","bold":true},{"text":{$Remark_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel candidates Phone_Number_Alternate }","bold":true},{"text":{$Phone_Number_Alternate_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field43}","stack":[{"text":"{$jslabel candidates Enrollement_Type }","bold":true},{"text":{$Enrollement_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field44}","stack":[{"text":"{$jslabel candidates Intervention }","bold":true},{"text":{$Intervention_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field45}","stack":[{"text":"{$jslabel candidates Campaign }","bold":true},{"text":{$Campaign_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field46}","stack":[{"text":"{$jslabel candidates Attend_Employability_Skill }","bold":true},{"text":{$Attend_Employability_Skill_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field47}","stack":[{"text":"{$jslabel candidates DAAP_enrolled_1st_Round }","bold":true},{"text":{$DAAP_enrolled_1st_Round_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field48}","stack":[{"text":"{$jslabel candidates DAAP_Completed }","bold":true},{"text":{$DAAP_Completed_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field49}","stack":[{"text":"{$jslabel candidates DAAP_Completed_Courses }","bold":true},{"text":{$DAAP_Completed_Courses_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field50}","stack":[{"text":"{$jslabel candidates Job_Fair_Clinic }","bold":true},{"text":{$Job_Fair_Clinic_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field51}","stack":[{"text":"{$jslabel candidates Job_Fair }","bold":true},{"text":{$Job_Fair_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field52}","stack":[{"text":"{$jslabel candidates Exit_Exam_Score }","bold":true},{"text":{$Exit_Exam_Score_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field53}","stack":[{"text":"{$jslabel candidates Exit_Exam_Status }","bold":true},{"text":{$Exit_Exam_Status_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field54}","stack":[{"text":"{$jslabel candidates DAAP_enrolled_2nd_Round }","bold":true},{"text":{$DAAP_enrolled_2nd_Round_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field55}","stack":[{"text":"{$jslabel candidates Upload_on_Tracker }","bold":true},{"text":{$Upload_on_Tracker_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

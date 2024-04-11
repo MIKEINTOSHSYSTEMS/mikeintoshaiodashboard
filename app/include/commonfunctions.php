@@ -291,6 +291,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("webreports_view" == $shortTName )
 		return true;
+	if ("languages" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -737,6 +739,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="webreports_view";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Languages");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Languages";
+	}
 	return $arr;
 }
 
@@ -790,6 +801,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="webreport_sql";
 	$arr[]="webreport_admin";
 	$arr[]="webreports_view";
+	$arr[]="Languages";
 	return $arr;
 }
 
@@ -1636,6 +1648,11 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "SP".$extraPerm;
+	}
+	if( $table=="Languages" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

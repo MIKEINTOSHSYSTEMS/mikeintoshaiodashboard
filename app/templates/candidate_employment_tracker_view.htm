@@ -23,7 +23,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="300px"  class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -467,6 +467,25 @@
 
 
 {END Last_Name_fieldblock}
+											
+{BEGIN CurrentEmploymentStatus_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CurrentEmploymentStatus}  r-vertical-field" data-fieldname="CurrentEmploymentStatus" data-signal-error-for="CurrentEmploymentStatus{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="CurrentEmploymentStatus" data-fieldname="CurrentEmploymentStatus" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CurrentEmploymentStatus}">
+		
+		{BEGIN CurrentEmploymentStatus_label}{$label Candidate_Employment_Tracker CurrentEmploymentStatus }{END CurrentEmploymentStatus_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$CurrentEmploymentStatus_value}	</div>
+
+		
+</div>
+
+
+{END CurrentEmploymentStatus_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

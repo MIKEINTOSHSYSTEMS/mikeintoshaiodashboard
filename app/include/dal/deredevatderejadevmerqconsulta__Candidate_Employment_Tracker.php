@@ -13,6 +13,7 @@ $dalTableCandidate_Employment_Tracker["Employment_End_Date"] = array("type"=>7,"
 $dalTableCandidate_Employment_Tracker["First_Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First_Name", "autoInc" => "0");
 $dalTableCandidate_Employment_Tracker["Middle_Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle_Name", "autoInc" => "0");
 $dalTableCandidate_Employment_Tracker["Last_Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last_Name", "autoInc" => "0");
+$dalTableCandidate_Employment_Tracker["CurrentEmploymentStatus"] = array("type"=>200,"varname"=>"CurrentEmploymentStatus", "name" => "CurrentEmploymentStatus", "autoInc" => "0");
 $dalTableCandidate_Employment_Tracker["CandidateID"]["key"]=true;
 $dalTableCandidate_Employment_Tracker["JobID"]["key"]=true;
 

@@ -116,6 +116,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
 						</div>
 		{END searchCtrlBlock_CandidateID}
+																{BEGIN searchCtrlBlock_CurrentEmploymentStatus}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CurrentEmploymentStatus}" {$filterRow_attrs_CurrentEmploymentStatus}>
+			<label>{$label Candidate_Employment_Tracker CurrentEmploymentStatus }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CurrentEmploymentStatus}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CurrentEmploymentStatus}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CurrentEmploymentStatus}</span>
+						</div>
+		{END searchCtrlBlock_CurrentEmploymentStatus}
 																{BEGIN searchCtrlBlock_Last_Name}
 
 
@@ -711,6 +724,9 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Last_Name"]:before {
 		content: "{$label Candidate_Employment_Tracker Last_Name}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="CurrentEmploymentStatus"]:before {
+		content: "{$label Candidate_Employment_Tracker CurrentEmploymentStatus}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -779,7 +795,7 @@
 	 
 		{BEGIN CandidateID_fieldheadercolumn}
 	{BEGIN CandidateID_fieldheader}
-	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
+	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
 	{$label Candidate_Employment_Tracker CandidateID }	{$arrow_icon_CandidateID}
 	</SPAN>
 	{END CandidateID_fieldheader}
@@ -804,7 +820,7 @@
 	 
 		{BEGIN JobID_fieldheadercolumn}
 	{BEGIN JobID_fieldheader}
-	<SPAN {$JobID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID" data-fieldname="JobID">
+	<SPAN {$JobID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="JobID" data-fieldname="JobID">
 	{$label Candidate_Employment_Tracker JobID }	{$arrow_icon_JobID}
 	</SPAN>
 	{END JobID_fieldheader}
@@ -829,7 +845,7 @@
 	 
 		{BEGIN First_Name_fieldheadercolumn}
 	{BEGIN First_Name_fieldheader}
-	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
+	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
 	{$label Candidate_Employment_Tracker First_Name }	{$arrow_icon_First_Name}
 	</SPAN>
 	{END First_Name_fieldheader}
@@ -854,7 +870,7 @@
 	 
 		{BEGIN Middle_Name_fieldheadercolumn}
 	{BEGIN Middle_Name_fieldheader}
-	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
+	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
 	{$label Candidate_Employment_Tracker Middle_Name }	{$arrow_icon_Middle_Name}
 	</SPAN>
 	{END Middle_Name_fieldheader}
@@ -879,7 +895,7 @@
 	 
 		{BEGIN Last_Name_fieldheadercolumn}
 	{BEGIN Last_Name_fieldheader}
-	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
+	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
 	{$label Candidate_Employment_Tracker Last_Name }	{$arrow_icon_Last_Name}
 	</SPAN>
 	{END Last_Name_fieldheader}
@@ -904,7 +920,7 @@
 	 
 		{BEGIN Referral_from_Dereja_service_fieldheadercolumn}
 	{BEGIN Referral_from_Dereja_service_fieldheader}
-	<SPAN {$Referral_from_Dereja_service_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service">
+	<SPAN {$Referral_from_Dereja_service_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service">
 	{$label Candidate_Employment_Tracker Referral_from_Dereja_service }	{$arrow_icon_Referral_from_Dereja_service}
 	</SPAN>
 	{END Referral_from_Dereja_service_fieldheader}
@@ -929,7 +945,7 @@
 	 
 		{BEGIN Company_Name_fieldheadercolumn}
 	{BEGIN Company_Name_fieldheader}
-	<SPAN {$Company_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Company_Name" data-fieldname="Company_Name">
+	<SPAN {$Company_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Company_Name" data-fieldname="Company_Name">
 	{$label Candidate_Employment_Tracker Company_Name }	{$arrow_icon_Company_Name}
 	</SPAN>
 	{END Company_Name_fieldheader}
@@ -954,7 +970,7 @@
 	 
 		{BEGIN Company_Phone_Number_fieldheadercolumn}
 	{BEGIN Company_Phone_Number_fieldheader}
-	<SPAN {$Company_Phone_Number_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number">
+	<SPAN {$Company_Phone_Number_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number">
 	{$label Candidate_Employment_Tracker Company_Phone_Number }	{$arrow_icon_Company_Phone_Number}
 	</SPAN>
 	{END Company_Phone_Number_fieldheader}
@@ -979,7 +995,7 @@
 	 
 		{BEGIN Sector_fieldheadercolumn}
 	{BEGIN Sector_fieldheader}
-	<SPAN {$Sector_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sector" data-fieldname="Sector">
+	<SPAN {$Sector_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sector" data-fieldname="Sector">
 	{$label Candidate_Employment_Tracker Sector }	{$arrow_icon_Sector}
 	</SPAN>
 	{END Sector_fieldheader}
@@ -1004,7 +1020,7 @@
 	 
 		{BEGIN Job_Position_fieldheadercolumn}
 	{BEGIN Job_Position_fieldheader}
-	<SPAN {$Job_Position_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Position" data-fieldname="Job_Position">
+	<SPAN {$Job_Position_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Position" data-fieldname="Job_Position">
 	{$label Candidate_Employment_Tracker Job_Position }	{$arrow_icon_Job_Position}
 	</SPAN>
 	{END Job_Position_fieldheader}
@@ -1029,7 +1045,7 @@
 	 
 		{BEGIN Job_Type_fieldheadercolumn}
 	{BEGIN Job_Type_fieldheader}
-	<SPAN {$Job_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Type" data-fieldname="Job_Type">
+	<SPAN {$Job_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Type" data-fieldname="Job_Type">
 	{$label Candidate_Employment_Tracker Job_Type }	{$arrow_icon_Job_Type}
 	</SPAN>
 	{END Job_Type_fieldheader}
@@ -1054,7 +1070,7 @@
 	 
 		{BEGIN Job_Placement_Date_fieldheadercolumn}
 	{BEGIN Job_Placement_Date_fieldheader}
-	<SPAN {$Job_Placement_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Placement_Date" data-fieldname="Job_Placement_Date">
+	<SPAN {$Job_Placement_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Placement_Date" data-fieldname="Job_Placement_Date">
 	{$label Candidate_Employment_Tracker Job_Placement_Date }	{$arrow_icon_Job_Placement_Date}
 	</SPAN>
 	{END Job_Placement_Date_fieldheader}
@@ -1079,7 +1095,7 @@
 	 
 		{BEGIN Employment_End_Date_fieldheadercolumn}
 	{BEGIN Employment_End_Date_fieldheader}
-	<SPAN {$Employment_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_End_Date" data-fieldname="Employment_End_Date">
+	<SPAN {$Employment_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_End_Date" data-fieldname="Employment_End_Date">
 	{$label Candidate_Employment_Tracker Employment_End_Date }	{$arrow_icon_Employment_End_Date}
 	</SPAN>
 	{END Employment_End_Date_fieldheader}
@@ -1088,6 +1104,31 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field12}
+									{BEGIN cellblock_grid_headcell_field13}
+	<th
+	
+	{$cell_grid_headcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$CurrentEmploymentStatus_class}	"
+
+			data-field="CurrentEmploymentStatus"
+	
+	data-cellId="grid_headcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CurrentEmploymentStatus_fieldheadercolumn}
+	{BEGIN CurrentEmploymentStatus_fieldheader}
+	<SPAN {$CurrentEmploymentStatus_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CurrentEmploymentStatus" data-fieldname="CurrentEmploymentStatus">
+	{$label Candidate_Employment_Tracker CurrentEmploymentStatus }	{$arrow_icon_CurrentEmploymentStatus}
+	</SPAN>
+	{END CurrentEmploymentStatus_fieldheader}
+{END CurrentEmploymentStatus_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field13}
 							</tr>
 															
 					{END grid_header}
@@ -1463,6 +1504,27 @@
 {END Employment_End_Date_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field12}
+									{BEGIN cellblock_grid_cell_field13}
+	<td
+	
+	{$cell_grid_cell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$CurrentEmploymentStatus_class}	"
+
+			data-field="CurrentEmploymentStatus"
+	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN CurrentEmploymentStatus_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CurrentEmploymentStatus" data-fieldname="CurrentEmploymentStatus" data-default-width >
+{$CurrentEmploymentStatus_value}
+</span>
+{END CurrentEmploymentStatus_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field13}
 							</tr>
 										
 											{END grid_row}
@@ -1699,6 +1761,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field12}
+									{BEGIN cellblock_grid_footcell_field13}
+	<td
+	
+	{$cell_grid_footcell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$CurrentEmploymentStatus_class}	"
+
+	
+	data-cellId="grid_footcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidate_employment_tracker_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field13}
 							</tr>
 					
 					</tfoot>

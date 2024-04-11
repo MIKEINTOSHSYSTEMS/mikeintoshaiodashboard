@@ -71,6 +71,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__Job_Categories;
 	var $tblderedevatderejadevmerqconsulta__Job_Types;
 	var $tblderedevatderejadevmerqconsulta__Jobs;
+	var $tblderedevatderejadevmerqconsulta__Languages;
 	var $tblderedevatderejadevmerqconsulta__minor_major;
 	var $tblderedevatderejadevmerqconsulta__participant_organization_types;
 	var $tblderedevatderejadevmerqconsulta__professions;
@@ -121,6 +122,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "Job_Categories", "varname" => "deredevatderejadevmerqconsulta__Job_Categories", "altvarname" => "Job_Categories", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Job_Types", "varname" => "deredevatderejadevmerqconsulta__Job_Types", "altvarname" => "Job_Types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Jobs", "varname" => "deredevatderejadevmerqconsulta__Jobs", "altvarname" => "Jobs", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "Languages", "varname" => "deredevatderejadevmerqconsulta__Languages", "altvarname" => "Languages", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "minor_major", "varname" => "deredevatderejadevmerqconsulta__minor_major", "altvarname" => "minor_major", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "participant_organization_types", "varname" => "deredevatderejadevmerqconsulta__participant_organization_types", "altvarname" => "participant_organization_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "professions", "varname" => "deredevatderejadevmerqconsulta__professions", "altvarname" => "professions", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

@@ -156,6 +156,9 @@ pdfDocument = {
 				
 			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field12}"},
 				
+				
+			{"text":{$CurrentEmploymentStatus_pdfvalue},"hidden":"{$item_hide_integrated_search_field13}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

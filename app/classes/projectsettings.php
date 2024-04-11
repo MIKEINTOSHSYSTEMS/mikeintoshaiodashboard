@@ -3598,6 +3598,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "webreport_admin" ] = "webreport_admin";
 	$projectEntities[ "webreports_view" ] = array( "url" => "webreports_view", "type" => 2 );
 	$projectEntitiesReverse[ "webreports_view" ] = "webreports_view";
+	$projectEntities[ "Languages" ] = array( "url" => "languages", "type" => 0 );
+	$projectEntitiesReverse[ "languages" ] = "Languages";
 }
 
 function findTable( $table ) {

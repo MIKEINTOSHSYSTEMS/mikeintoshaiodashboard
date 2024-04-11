@@ -1,0 +1,6 @@
+Import into candidates
+4/11/2024 7:12:24 PM
+
+20 out of 20 records processed successfully.
+20 records added.
+0 records updated.

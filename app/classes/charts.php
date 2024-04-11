@@ -466,6 +466,8 @@ class Chart
 			return true;
 		if("webreports" == $this->chrt_array['tables'][0])
 			return true;
+		if("Languages" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

@@ -287,6 +287,7 @@ class ConnectionManager_Base
 		$connectionsIds["webreport_sql"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreport_admin"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreports_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Languages"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

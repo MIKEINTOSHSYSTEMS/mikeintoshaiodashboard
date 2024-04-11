@@ -152,6 +152,13 @@ function InitLookupLinks()
 			$lookupTableLinks["skills"]["candidates.Skills"] = array();
 		}
 		$lookupTableLinks["skills"]["candidates.Skills"]["edit"] = array("table" => "candidates", "field" => "Skills", "page" => "edit");
+		if( !isset( $lookupTableLinks["Languages"] ) ) {
+			$lookupTableLinks["Languages"] = array();
+		}
+		if( !isset( $lookupTableLinks["Languages"]["candidates.Languages"] )) {
+			$lookupTableLinks["Languages"]["candidates.Languages"] = array();
+		}
+		$lookupTableLinks["Languages"]["candidates.Languages"]["edit"] = array("table" => "candidates", "field" => "Languages", "page" => "edit");
 		if( !isset( $lookupTableLinks["industry_specific_skills"] ) ) {
 			$lookupTableLinks["industry_specific_skills"] = array();
 		}
@@ -166,6 +173,13 @@ function InitLookupLinks()
 			$lookupTableLinks["it_related_skills"]["candidates.IT_Related_Skills"] = array();
 		}
 		$lookupTableLinks["it_related_skills"]["candidates.IT_Related_Skills"]["edit"] = array("table" => "candidates", "field" => "IT_Related_Skills", "page" => "edit");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["candidates.DAAP_Completed_Courses"] )) {
+			$lookupTableLinks["trainings"]["candidates.DAAP_Completed_Courses"] = array();
+		}
+		$lookupTableLinks["trainings"]["candidates.DAAP_Completed_Courses"]["edit"] = array("table" => "candidates", "field" => "DAAP_Completed_Courses", "page" => "edit");
 		if( !isset( $lookupTableLinks["dereja_services"] ) ) {
 			$lookupTableLinks["dereja_services"] = array();
 		}
@@ -194,6 +208,20 @@ function InitLookupLinks()
 			$lookupTableLinks["dereja_information_sources"]["candidates.Dereja_Information_Source"] = array();
 		}
 		$lookupTableLinks["dereja_information_sources"]["candidates.Dereja_Information_Source"]["edit"] = array("table" => "candidates", "field" => "Dereja_Information_Source", "page" => "edit");
+		if( !isset( $lookupTableLinks["Companies"] ) ) {
+			$lookupTableLinks["Companies"] = array();
+		}
+		if( !isset( $lookupTableLinks["Companies"]["candidates.Employment_Company"] )) {
+			$lookupTableLinks["Companies"]["candidates.Employment_Company"] = array();
+		}
+		$lookupTableLinks["Companies"]["candidates.Employment_Company"]["edit"] = array("table" => "candidates", "field" => "Employment_Company", "page" => "edit");
+		if( !isset( $lookupTableLinks["Jobs"] ) ) {
+			$lookupTableLinks["Jobs"] = array();
+		}
+		if( !isset( $lookupTableLinks["Jobs"]["candidates.Employment_Position"] )) {
+			$lookupTableLinks["Jobs"]["candidates.Employment_Position"] = array();
+		}
+		$lookupTableLinks["Jobs"]["candidates.Employment_Position"]["edit"] = array("table" => "candidates", "field" => "Employment_Position", "page" => "edit");
 		if( !isset( $lookupTableLinks["events"] ) ) {
 			$lookupTableLinks["events"] = array();
 		}
