@@ -401,7 +401,7 @@
                 </div>
                 <ul>
                     <ul>
-                        <span onClick="changeIframe('./guide.html',this)" class="parentCatagory">
+                        <span onClick="changeIframe('./help/index.htm',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span><i class="fas fa-question-circle"></i> </span></a>

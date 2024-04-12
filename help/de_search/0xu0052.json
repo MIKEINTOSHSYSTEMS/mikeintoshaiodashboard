@@ -1,0 +1,21 @@
+[
+	{ "s": "R", "p": [33] },
+	{ "s": "RAM", "p": [4] },
+	{ "s": "RANDOM", "p": [4] },
+	{ "s": "READ", "p": [49] },
+	{ "s": "REAL", "p": [40] },
+	{ "s": "RECOMMEND", "p": [8, 7] },
+	{ "s": "RECOMMENDED", "p": [5, 4] },
+	{ "s": "REDO", "p": [33] },
+	{ "s": "REGARDED", "p": [1] },
+	{ "s": "REGISTER", "p": [7, 5] },
+	{ "s": "REGISTRATION", "p": [7] },
+	{ "s": "REPLACE", "p": [33] },
+	{ "s": "REQUIREMENTS", "p": [4, 7, 5] },
+	{ "s": "RESPOND", "p": [45] },
+	{ "s": "RESULT", "p": [43, 42, 41] },
+	{ "s": "RESULTS", "p": [43, 42, 41] },
+	{ "s": "REVIEW", "p": [7, 5] },
+	{ "s": "RIGHT", "p": [33] },
+	{ "s": "ROLE", "p": [16] }
+]
