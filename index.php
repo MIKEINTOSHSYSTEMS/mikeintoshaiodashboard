@@ -407,13 +407,18 @@
                                 <span><i class="fas fa-question-circle"></i> </span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
+
+                        <!--
+                                                <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
                             <p class="subButtons">
-                                <!-- cnd:] -->
+                                
                                 <span><i class="fas fa-bell"></i> </span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('https://derejademo.merqconsultancy.org/auth/login?redirect=%2F',this)" class="parentCatagory">
+
+                        -->
+
+                        <span onClick="changeIframe('./app/login.php',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
                                 <span><i class="fas fa-power-off"></i> </span></a>
