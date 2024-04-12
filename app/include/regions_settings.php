@@ -703,6 +703,7 @@ $tdataregions[".sqlquery"] = $queryData_regions;
 
 
 
-$tdataregions[".hasEvents"] = false;
+include_once(getabspath("include/regions_events.php"));
+$tdataregions[".hasEvents"] = true;
 
 ?>

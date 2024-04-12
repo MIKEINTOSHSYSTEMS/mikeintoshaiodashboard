@@ -904,6 +904,7 @@ $tdatacities[".sqlquery"] = $queryData_cities;
 
 
 
-$tdatacities[".hasEvents"] = false;
+include_once(getabspath("include/cities_events.php"));
+$tdatacities[".hasEvents"] = true;
 
 ?>
