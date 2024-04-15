@@ -362,6 +362,27 @@
 
 {END Last_Name_fieldblock}
 											
+{BEGIN Full_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Full_Name}  r-vertical-field" 
+	data-signal-error-for="Full_Name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field56" {$item_integrated_edit_field56} data-pageid="{$pageid}" data-field="Full_Name" data-fieldname="Full_Name" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Full_Name}">
+		{BEGIN Full_Name_label}{$label candidates Full_Name }{END Full_Name_label}
+	</label>
+	<div class="r-edit-field">
+		{$Full_Name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Full_Name">
+		<div class="text-muted" >
+		{$tooltip candidates Full_Name }		</div>
+	</div>
+</div>
+
+
+{END Full_Name_fieldblock}
+											
 {BEGIN Sex_fieldblock}
 
 
@@ -1474,12 +1495,48 @@
 
 
 {END Upload_on_Tracker_fieldblock}
-	
-								</td>
+										</td>
 			{END cellblock_grid_c3}
-								</tr>
-			</tbody></table>
-{END grid_block}
+										</tr>
+										</tbody></table>
+				
+{BEGIN details_job_fair}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_job_fair}			
+							<span>
+					{$detailslButtons_job_fair}
+																															</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_job_fair}
+		</div>
+	</div>
+</div>
+{END details_job_fair}
+											
+{BEGIN details_website_data}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_website_data}			
+							<span>
+					{$detailslButtons_website_data}
+																															</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_website_data}
+		</div>
+	</div>
+</div>
+{END details_website_data}
+	
+				{END grid_block}
 	</div>
 <div class="r-below">
 					{BEGIN below-grid_block}

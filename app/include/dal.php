@@ -70,6 +70,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__institution_types;
 	var $tblderedevatderejadevmerqconsulta__it_related_skills;
 	var $tblderedevatderejadevmerqconsulta__Job_Categories;
+	var $tblderedevatderejadevmerqconsulta__Job_Fair;
 	var $tblderedevatderejadevmerqconsulta__Job_Types;
 	var $tblderedevatderejadevmerqconsulta__Jobs;
 	var $tblderedevatderejadevmerqconsulta__Languages;
@@ -91,6 +92,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__webreport_sql;
 	var $tblderedevatderejadevmerqconsulta__webreport_style;
 	var $tblderedevatderejadevmerqconsulta__webreports;
+	var $tblderedevatderejadevmerqconsulta__website_data;
 	var $tblderedevatderejadevmerqconsulta__zones;
 	var $lstTables;
 	var $Table = array();
@@ -122,6 +124,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "institution_types", "varname" => "deredevatderejadevmerqconsulta__institution_types", "altvarname" => "institution_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "it_related_skills", "varname" => "deredevatderejadevmerqconsulta__it_related_skills", "altvarname" => "it_related_skills", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Job_Categories", "varname" => "deredevatderejadevmerqconsulta__Job_Categories", "altvarname" => "Job_Categories", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "Job_Fair", "varname" => "deredevatderejadevmerqconsulta__Job_Fair", "altvarname" => "Job_Fair", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Job_Types", "varname" => "deredevatderejadevmerqconsulta__Job_Types", "altvarname" => "Job_Types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Jobs", "varname" => "deredevatderejadevmerqconsulta__Jobs", "altvarname" => "Jobs", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Languages", "varname" => "deredevatderejadevmerqconsulta__Languages", "altvarname" => "Languages", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
@@ -143,6 +146,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "webreport_sql", "varname" => "deredevatderejadevmerqconsulta__webreport_sql", "altvarname" => "webreport_sql", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "webreport_style", "varname" => "deredevatderejadevmerqconsulta__webreport_style", "altvarname" => "webreport_style", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "webreports", "varname" => "deredevatderejadevmerqconsulta__webreports", "altvarname" => "webreports", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "website_data", "varname" => "deredevatderejadevmerqconsulta__website_data", "altvarname" => "website_data", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "zones", "varname" => "deredevatderejadevmerqconsulta__zones", "altvarname" => "zones", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 	}
 

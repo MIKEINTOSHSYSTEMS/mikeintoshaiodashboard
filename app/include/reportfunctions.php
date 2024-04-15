@@ -617,6 +617,14 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="website_data")
+		{
+			return 1;
+		}
+		if($table=="Job_Fair")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1057,6 +1065,14 @@ function getCaptionTable($table)
 	if($table=="Languages")
 	{
 		return "Languages";
+	}
+	if($table=="website_data")
+	{
+		return "Website Data";
+	}
+	if($table=="Job_Fair")
+	{
+		return "Job Fair";
 	}
 	return $table;
 }
@@ -2446,6 +2462,30 @@ function GetTablesListReport()
 		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
 		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
 			$arr[]="Languages";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("website_data");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="website_data";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="website_data";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("Job_Fair");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="Job_Fair";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="Job_Fair";
 	}
 	return $arr;
 }

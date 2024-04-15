@@ -536,6 +536,14 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="website_data")
+		{
+			return false;
+		}
+		if($table=="Job_Fair")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1021,6 +1029,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Languages")
+		{
+			return false;
+		}
+		if($table=="website_data")
+		{
+			return false;
+		}
+		if($table=="Job_Fair")
 		{
 			return false;
 		}

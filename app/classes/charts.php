@@ -468,6 +468,10 @@ class Chart
 			return true;
 		if("Languages" == $this->chrt_array['tables'][0])
 			return true;
+		if("website_data" == $this->chrt_array['tables'][0])
+			return true;
+		if("Job_Fair" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

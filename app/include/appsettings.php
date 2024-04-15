@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "134_1712936684";
+$projectBuildKey = "137_1713204347";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "134";
+$projectBuildNumber = "137";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -811,6 +811,8 @@ $tableCaptions["English"]["webreport_sql"] = "Webreport Sql";
 $tableCaptions["English"]["webreport_admin"] = "Webreport Admin";
 $tableCaptions["English"]["webreports_view"] = "Webreports View";
 $tableCaptions["English"]["Languages"] = "Languages";
+$tableCaptions["English"]["website_data"] = "Website Data";
+$tableCaptions["English"]["Job_Fair"] = "Job Fair";
 
 
 $globalEvents = new class_GlobalEvents;

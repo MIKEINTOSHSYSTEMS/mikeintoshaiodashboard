@@ -106,6 +106,9 @@ pdfDocument = {
 										{BEGIN col_grid_13}
 					"%",
 					{END col_grid_13}
+										{BEGIN col_grid_14}
+					"%",
+					{END col_grid_14}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -259,7 +262,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker CandidateID }","hidden":"{$item_hide_simple_grid_field14}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker CandidateID }","hidden":"{$item_hide_simple_grid_field15}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -288,7 +291,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker JobID }","hidden":"{$item_hide_simple_grid_field15}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker JobID }","hidden":"{$item_hide_simple_grid_field16}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -317,7 +320,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Referral_from_Dereja_service }","hidden":"{$item_hide_simple_grid_field16}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Referral_from_Dereja_service }","hidden":"{$item_hide_simple_grid_field17}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -346,7 +349,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Company_Name }","hidden":"{$item_hide_simple_grid_field17}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Company_Name }","hidden":"{$item_hide_simple_grid_field18}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -375,7 +378,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Company_Phone_Number }","hidden":"{$item_hide_simple_grid_field18}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Company_Phone_Number }","hidden":"{$item_hide_simple_grid_field19}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -404,7 +407,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Sector }","hidden":"{$item_hide_simple_grid_field19}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Sector }","hidden":"{$item_hide_simple_grid_field20}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -433,7 +436,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Job_Position }","hidden":"{$item_hide_simple_grid_field20}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Job_Position }","hidden":"{$item_hide_simple_grid_field21}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -462,7 +465,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Job_Type }","hidden":"{$item_hide_simple_grid_field21}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Job_Type }","hidden":"{$item_hide_simple_grid_field22}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -491,7 +494,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Job_Placement_Date }","hidden":"{$item_hide_simple_grid_field22}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Job_Placement_Date }","hidden":"{$item_hide_simple_grid_field23}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -520,7 +523,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Employment_End_Date }","hidden":"{$item_hide_simple_grid_field23}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Employment_End_Date }","hidden":"{$item_hide_simple_grid_field24}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -549,7 +552,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker First_Name }","hidden":"{$item_hide_simple_grid_field24}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker First_Name }","hidden":"{$item_hide_simple_grid_field25}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -578,7 +581,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Middle_Name }","hidden":"{$item_hide_simple_grid_field25}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Middle_Name }","hidden":"{$item_hide_simple_grid_field26}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -607,7 +610,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker Last_Name }","hidden":"{$item_hide_simple_grid_field26}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker Last_Name }","hidden":"{$item_hide_simple_grid_field27}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -636,7 +639,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel Candidate_Employment_Tracker CurrentEmploymentStatus }","hidden":"{$item_hide_simple_grid_field27}","bold":true},
+			{"text":"{$jslabel Candidate_Employment_Tracker CurrentEmploymentStatus }","hidden":"{$item_hide_simple_grid_field28}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -646,6 +649,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_field13}
+																							{BEGIN cellblock_grid_headcell_field14}
+{
+	cellId: 'headcell_field14',
+	col:0,
+	row:0,
+			fieldName: 'Full_Name',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel Candidate_Employment_Tracker Full_Name }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Full_Name_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field14}
 											],
 				{END row_grid_0}
 		
@@ -1061,6 +1093,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_field13}
+																							{BEGIN cellblock_grid_cell_field14}
+{
+	cellId: 'cell_field14',
+	col:0,
+	row:0,
+			fieldName: 'Full_Name',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_simple_grid_field14}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Full_Name_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field14}
 											],
 				{END row_grid_1}
 		
@@ -1434,6 +1495,32 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field13}
+																							{BEGIN cellblock_grid_footcell_field14}
+{
+	cellId: 'footcell_field14',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field14}
 											],
 				{END row_grid_2}
 		

@@ -196,7 +196,7 @@ $tdataregions[".strOrderBy"] = $tstrOrderBy;
 $tdataregions[".orderindexes"] = array();
 
 
-$tdataregions[".sqlHead"] = "SELECT RegionID,  RegionName,  Lat,  Lng";
+$tdataregions[".sqlHead"] = "SELECT RegionID,  	RegionName,  	Lat,  	Lng";
 $tdataregions[".sqlFrom"] = "FROM regions";
 $tdataregions[".sqlWhereExpr"] = "";
 $tdataregions[".sqlTail"] = "";
@@ -873,7 +873,7 @@ function createSqlQuery_regions()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "RegionID,  RegionName,  Lat,  Lng";
+$proto0["m_strFieldList"] = "RegionID,  	RegionName,  	Lat,  	Lng";
 $proto0["m_strFrom"] = "FROM regions";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";

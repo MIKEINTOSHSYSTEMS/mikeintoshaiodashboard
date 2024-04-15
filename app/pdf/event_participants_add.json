@@ -216,6 +216,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel event_participants Participant_Home_Address }","bold":true},{"text":{$Participant_Home_Address_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel event_participants Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

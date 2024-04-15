@@ -133,22 +133,28 @@ pdfDocument = {
 			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item}"},
 				
 				
-			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item3}"},
-				
-				
-			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item4}"},
-				
-				
 			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item1}"},
 				
 				
 			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item2}"},
 				
 				
-			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item28}"},
-				
-				
 			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item27}"},
+				
+				
+			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item43}"},
+				
+				
+			{"text":"","background":"#7B68EE","hidden":"{$item_hide_welcome_item42}"},
+				
+				
+			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item3}"},
+				
+				
+			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item4}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item28}"},
 				
 				
 			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item32}"},
@@ -173,6 +179,9 @@ pdfDocument = {
 				
 				
 			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item8}"},
+				
+				
+			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item41}"},
 				
 				
 			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item9}"},
@@ -251,9 +260,6 @@ pdfDocument = {
 				
 				
 			{"text":"","hidden":"{$item_hide_welcome_item40}"},
-				
-				
-			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item41}"},
 				
 		  ],
   "border": [ false, false, false, false ],

@@ -60,6 +60,8 @@ $nonAdminTablesArr[] = "webreport_sql";
 $nonAdminTablesArr[] = "webreport_admin";
 $nonAdminTablesArr[] = "webreports_view";
 $nonAdminTablesArr[] = "Languages";
+$nonAdminTablesArr[] = "website_data";
+$nonAdminTablesArr[] = "Job_Fair";
 
 $ug_connection = $cman->getForUserGroups();
 

@@ -3600,6 +3600,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "webreports_view" ] = "webreports_view";
 	$projectEntities[ "Languages" ] = array( "url" => "languages", "type" => 0 );
 	$projectEntitiesReverse[ "languages" ] = "Languages";
+	$projectEntities[ "website_data" ] = array( "url" => "website_data", "type" => 0 );
+	$projectEntitiesReverse[ "website_data" ] = "website_data";
+	$projectEntities[ "Job_Fair" ] = array( "url" => "job_fair", "type" => 0 );
+	$projectEntitiesReverse[ "job_fair" ] = "Job_Fair";
 }
 
 function findTable( $table ) {

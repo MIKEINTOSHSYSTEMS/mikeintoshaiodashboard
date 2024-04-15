@@ -118,6 +118,9 @@ pdfDocument = {
 			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
 				
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_export_field57}"},
+				
+				
 			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_export_field4}"},
 				
 				

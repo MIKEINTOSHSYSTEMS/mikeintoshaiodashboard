@@ -288,6 +288,8 @@ class ConnectionManager_Base
 		$connectionsIds["webreport_admin"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreports_view"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Languages"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["website_data"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Job_Fair"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

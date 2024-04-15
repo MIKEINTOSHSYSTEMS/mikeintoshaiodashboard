@@ -293,6 +293,10 @@ function checkTableName($shortTName )
 		return true;
 	if ("languages" == $shortTName )
 		return true;
+	if ("website_data" == $shortTName )
+		return true;
+	if ("job_fair" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -748,6 +752,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Languages";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("website_data");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="website_data";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Job_Fair");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Job_Fair";
+	}
 	return $arr;
 }
 
@@ -802,6 +824,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="webreport_admin";
 	$arr[]="webreports_view";
 	$arr[]="Languages";
+	$arr[]="website_data";
+	$arr[]="Job_Fair";
 	return $arr;
 }
 
@@ -1650,6 +1674,16 @@ function GetUserPermissionsStatic( $table )
 		return "SP".$extraPerm;
 	}
 	if( $table=="Languages" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="website_data" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Job_Fair" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

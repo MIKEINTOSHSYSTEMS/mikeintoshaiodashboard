@@ -169,6 +169,9 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel candidates Last_Name }","bold":true},{"text":{$Last_Name_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
+			{"hidden":"{$item_hide_integrated_edit_field56}","stack":[{"text":"{$jslabel candidates Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
 			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel candidates Sex }","bold":true},{"text":{$Sex_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
@@ -326,6 +329,16 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field55}","stack":[{"text":"{$jslabel candidates Upload_on_Tracker }","bold":true},{"text":{$Upload_on_Tracker_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			 {BEGIN details_job_fair}
+			{$displayDetailTable_job_fair }
+		{END details_job_fair},
+				
+				
+			 {BEGIN details_website_data}
+			{$displayDetailTable_website_data }
+		{END details_website_data},
 				
 		  ],
   "border": [ false, false, false, false ],
