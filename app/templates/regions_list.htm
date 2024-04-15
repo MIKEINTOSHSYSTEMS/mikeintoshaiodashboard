@@ -116,6 +116,32 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_RegionID}</span>
 						</div>
 		{END searchCtrlBlock_RegionID}
+																{BEGIN searchCtrlBlock_Lng}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Lng}" {$filterRow_attrs_Lng}>
+			<label>{$label regions Lng }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Lng}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Lng}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Lng}</span>
+						</div>
+		{END searchCtrlBlock_Lng}
+																{BEGIN searchCtrlBlock_Lat}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Lat}" {$filterRow_attrs_Lat}>
+			<label>{$label regions Lat }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Lat}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Lat}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Lat}</span>
+						</div>
+		{END searchCtrlBlock_Lat}
 																{BEGIN searchCtrlBlock_RegionName}
 
 
@@ -408,7 +434,16 @@
 					<div class="r-top">
 									{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
-	</div>		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c3" data-pageid="{$pageid}"	{$cell_top_c3}
+	class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
 {END top_block}
 						</div>
 											<div class="r-grid"
@@ -577,6 +612,12 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="RegionName"]:before {
 		content: "{$label regions RegionName}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Lat"]:before {
+		content: "{$label regions Lat}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Lng"]:before {
+		content: "{$label regions Lng}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -660,7 +701,7 @@
 	 
 		{BEGIN RegionID_fieldheadercolumn}
 	{BEGIN RegionID_fieldheader}
-	<SPAN {$RegionID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="RegionID" data-fieldname="RegionID">
+	<SPAN {$RegionID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="RegionID" data-fieldname="RegionID">
 	{$label regions RegionID }	{$arrow_icon_RegionID}
 	</SPAN>
 	{END RegionID_fieldheader}
@@ -685,7 +726,7 @@
 	 
 		{BEGIN RegionName_fieldheadercolumn}
 	{BEGIN RegionName_fieldheader}
-	<SPAN {$RegionName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="RegionName" data-fieldname="RegionName">
+	<SPAN {$RegionName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="RegionName" data-fieldname="RegionName">
 	{$label regions RegionName }	{$arrow_icon_RegionName}
 	</SPAN>
 	{END RegionName_fieldheader}
@@ -694,6 +735,56 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field2}
+	<th
+	
+	{$cell_grid_headcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lat_class}	"
+
+			data-field="Lat"
+	
+	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Lat_fieldheadercolumn}
+	{BEGIN Lat_fieldheader}
+	<SPAN {$Lat_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Lat" data-fieldname="Lat">
+	{$label regions Lat }	{$arrow_icon_Lat}
+	</SPAN>
+	{END Lat_fieldheader}
+{END Lat_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field3}
+	<th
+	
+	{$cell_grid_headcell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lng_class}	"
+
+			data-field="Lng"
+	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Lng_fieldheadercolumn}
+	{BEGIN Lng_fieldheader}
+	<SPAN {$Lng_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Lng" data-fieldname="Lng">
+	{$label regions Lng }	{$arrow_icon_Lng}
+	</SPAN>
+	{END Lng_fieldheader}
+{END Lng_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field3}
 							</tr>
 																				
 					{END grid_header}
@@ -844,6 +935,48 @@
 {END RegionName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
+	<td
+	
+	{$cell_grid_cell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lat_class}	"
+
+			data-field="Lat"
+	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Lat_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Lat" data-fieldname="Lat" data-default-width >
+{$Lat_value}
+</span>
+{END Lat_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
+	<td
+	
+	{$cell_grid_cell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lng_class}	"
+
+			data-field="Lng"
+	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Lng_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Lng" data-fieldname="Lng" data-default-width >
+{$Lng_value}
+</span>
+{END Lng_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field3}
 							</tr>
 											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 				
@@ -958,6 +1091,36 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field2}
+	<td
+	
+	{$cell_grid_footcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lat_class}	"
+
+	
+	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="regions_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field2}
+									{BEGIN cellblock_grid_footcell_field3}
+	<td
+	
+	{$cell_grid_footcell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Lng_class}	"
+
+	
+	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="regions_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field3}
 							</tr>
 					
 					</tfoot>
@@ -969,6 +1132,19 @@
 			{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c" data-pageid="{$pageid}"	{$cell_below-grid_c}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+		 
+		<span data-itemtype="map" data-itemid="map1" {$item_map1} data-pageid="{$pageid}" data-page="regions_list" >
+	{$map regions_map2}
+</span>
+		</div>					</div>
+			 
 				<div class="row">
 			 
 				<div 

@@ -111,6 +111,12 @@ pdfDocument = {
 				
 			{"text":{$RegionName_pdfvalue},"hidden":"{$item_hide_export_field1}"},
 				
+				
+			{"text":{$Lat_pdfvalue},"hidden":"{$item_hide_export_field2}"},
+				
+				
+			{"text":{$Lng_pdfvalue},"hidden":"{$item_hide_export_field3}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

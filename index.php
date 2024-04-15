@@ -118,10 +118,10 @@
                                 <span>Candidates AIO</span></a>
                             </p>
                         </span>
-                        <span onClick="changeIframe('./test.html',this)" class="parentCatagory">
+                        <span onClick="changeIframe('https://derejademo.merqconsultancy.org/public/dashboard/225fd007-55f4-47f1-ba16-d784f64abd8f',this)" class="parentCatagory">
                             <p class="subButtons">
                                 <!-- cnd:] -->
-                                <span>Report 02</span></a>
+                                <span>Summary Reports</span></a>
                             </p>
                         </span>
                         <span onClick="changeIframe('./test.html',this)" class="parentCatagory">

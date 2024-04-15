@@ -31,6 +31,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsregions["English"]["RegionName"] = "Region Name";
 	$fieldToolTipsregions["English"]["RegionName"] = "";
 	$placeHoldersregions["English"]["RegionName"] = "";
+	$fieldLabelsregions["English"]["Lat"] = "Lat";
+	$fieldToolTipsregions["English"]["Lat"] = "";
+	$placeHoldersregions["English"]["Lat"] = "";
+	$fieldLabelsregions["English"]["Lng"] = "Lng";
+	$fieldToolTipsregions["English"]["Lng"] = "";
+	$placeHoldersregions["English"]["Lng"] = "";
 	if (count($fieldToolTipsregions["English"]))
 		$tdataregions[".isUseToolTips"] = true;
 }
@@ -150,6 +156,8 @@ $tdataregions[".requiredSearchFields"] = array();
 $tdataregions[".googleLikeFields"] = array();
 $tdataregions[".googleLikeFields"][] = "RegionID";
 $tdataregions[".googleLikeFields"][] = "RegionName";
+$tdataregions[".googleLikeFields"][] = "Lat";
+$tdataregions[".googleLikeFields"][] = "Lng";
 
 
 
@@ -160,7 +168,12 @@ $tdataregions[".nPrinterPageScale"] = 100;
 
 $tdataregions[".nPrinterSplitRecords"] = 40;
 
-$tdataregions[".geocodingEnabled"] = false;
+$tdataregions[".geocodingEnabled"] = true;
+$tdataregions[".geocodingData"] = array();
+$tdataregions[".geocodingData"]["latField"] = "Lat";
+$tdataregions[".geocodingData"]["lngField"] = "Lng";
+$tdataregions[".geocodingData"]["addressFields"] = array();
+	$tdataregions[".geocodingData"]["addressFields"][] = "RegionName";
 
 
 
@@ -183,7 +196,7 @@ $tdataregions[".strOrderBy"] = $tstrOrderBy;
 $tdataregions[".orderindexes"] = array();
 
 
-$tdataregions[".sqlHead"] = "SELECT RegionID,  	RegionName";
+$tdataregions[".sqlHead"] = "SELECT RegionID,  RegionName,  Lat,  Lng";
 $tdataregions[".sqlFrom"] = "FROM regions";
 $tdataregions[".sqlWhereExpr"] = "";
 $tdataregions[".sqlTail"] = "";
@@ -508,6 +521,284 @@ $tdataregions[".hideMobileList"] = array();
 
 	$tdataregions["RegionName"] = $fdata;
 		$tdataregions[".searchableFields"][] = "RegionName";
+//	Lat
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 3;
+	$fdata["strName"] = "Lat";
+	$fdata["GoodName"] = "Lat";
+	$fdata["ownerTable"] = "regions";
+	$fdata["Label"] = GetFieldLabel("regions","Lat");
+	$fdata["FieldType"] = 14;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Lat";
+
+		$fdata["sourceSingle"] = "Lat";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Lat";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Number");
+
+	
+	
+	
+	
+	
+	
+	
+		$vdata["DecimalDigits"] = 10;
+
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataregions["Lat"] = $fdata;
+		$tdataregions[".searchableFields"][] = "Lat";
+//	Lng
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 4;
+	$fdata["strName"] = "Lng";
+	$fdata["GoodName"] = "Lng";
+	$fdata["ownerTable"] = "regions";
+	$fdata["Label"] = GetFieldLabel("regions","Lng");
+	$fdata["FieldType"] = 14;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Lng";
+
+		$fdata["sourceSingle"] = "Lng";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Lng";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Number");
+
+	
+	
+	
+	
+	
+	
+	
+		$vdata["DecimalDigits"] = 10;
+
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataregions["Lng"] = $fdata;
+		$tdataregions[".searchableFields"][] = "Lng";
 
 
 $tables_data["regions"]=&$tdataregions;
@@ -582,7 +873,7 @@ function createSqlQuery_regions()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "RegionID,  	RegionName";
+$proto0["m_strFieldList"] = "RegionID,  RegionName,  Lat,  Lng";
 $proto0["m_strFrom"] = "FROM regions";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -650,38 +941,68 @@ $proto8["m_alias"] = "";
 $obj = new SQLFieldListItem($proto8);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto10=array();
-$proto10["m_link"] = "SQLL_MAIN";
-			$proto11=array();
-$proto11["m_strName"] = "regions";
-$proto11["m_srcTableName"] = "regions";
-$proto11["m_columns"] = array();
-$proto11["m_columns"][] = "RegionID";
-$proto11["m_columns"][] = "RegionName";
-$obj = new SQLTable($proto11);
+						$proto10=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Lat",
+	"m_strTable" => "regions",
+	"m_srcTableName" => "regions"
+));
 
-$proto10["m_table"] = $obj;
-$proto10["m_sql"] = "regions";
-$proto10["m_alias"] = "";
+$proto10["m_sql"] = "Lat";
 $proto10["m_srcTableName"] = "regions";
-$proto12=array();
-$proto12["m_sql"] = "";
-$proto12["m_uniontype"] = "SQLL_UNKNOWN";
+$proto10["m_expr"]=$obj;
+$proto10["m_alias"] = "";
+$obj = new SQLFieldListItem($proto10);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto12=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Lng",
+	"m_strTable" => "regions",
+	"m_srcTableName" => "regions"
+));
+
+$proto12["m_sql"] = "Lng";
+$proto12["m_srcTableName"] = "regions";
+$proto12["m_expr"]=$obj;
+$proto12["m_alias"] = "";
+$obj = new SQLFieldListItem($proto12);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto14=array();
+$proto14["m_link"] = "SQLL_MAIN";
+			$proto15=array();
+$proto15["m_strName"] = "regions";
+$proto15["m_srcTableName"] = "regions";
+$proto15["m_columns"] = array();
+$proto15["m_columns"][] = "RegionID";
+$proto15["m_columns"][] = "RegionName";
+$proto15["m_columns"][] = "Lat";
+$proto15["m_columns"][] = "Lng";
+$obj = new SQLTable($proto15);
+
+$proto14["m_table"] = $obj;
+$proto14["m_sql"] = "regions";
+$proto14["m_alias"] = "";
+$proto14["m_srcTableName"] = "regions";
+$proto16=array();
+$proto16["m_sql"] = "";
+$proto16["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto12["m_column"]=$obj;
-$proto12["m_contained"] = array();
-$proto12["m_strCase"] = "";
-$proto12["m_havingmode"] = false;
-$proto12["m_inBrackets"] = false;
-$proto12["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto12);
+$proto16["m_column"]=$obj;
+$proto16["m_contained"] = array();
+$proto16["m_strCase"] = "";
+$proto16["m_havingmode"] = false;
+$proto16["m_inBrackets"] = false;
+$proto16["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto16);
 
-$proto10["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto10);
+$proto14["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto14);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -697,7 +1018,7 @@ $queryData_regions = createSqlQuery_regions();
 	
 																								;
 
-		
+				
 
 $tdataregions[".sqlquery"] = $queryData_regions;
 

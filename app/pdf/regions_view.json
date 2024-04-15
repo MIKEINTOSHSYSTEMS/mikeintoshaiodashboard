@@ -123,6 +123,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel regions RegionName }","bold":true},{"text":{$RegionName_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel regions Lat }","bold":true},{"text":{$Lat_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel regions Lng }","bold":true},{"text":{$Lng_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
