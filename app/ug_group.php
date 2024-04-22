@@ -62,6 +62,13 @@ $nonAdminTablesArr[] = "webreports_view";
 $nonAdminTablesArr[] = "Languages";
 $nonAdminTablesArr[] = "website_data";
 $nonAdminTablesArr[] = "Job_Fair";
+$nonAdminTablesArr[] = "kbarticles";
+$nonAdminTablesArr[] = "kbcategories";
+$nonAdminTablesArr[] = "kbcomments";
+$nonAdminTablesArr[] = "kbusers";
+$nonAdminTablesArr[] = "main";
+$nonAdminTablesArr[] = "faicons";
+$nonAdminTablesArr[] = "admin_comments";
 
 $ug_connection = $cman->getForUserGroups();
 

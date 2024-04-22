@@ -134,7 +134,7 @@ $tdataadmin_rights[".isUseAjaxSuggest"] = true;
 
 
 
-
+			
 
 $tdataadmin_rights[".ajaxCodeSnippetAdded"] = false;
 

@@ -1,0 +1,6 @@
+Import into Job_Fair
+4/15/2024 6:56:05 PM
+
+17 out of 17 records processed successfully.
+17 records added.
+0 records updated.

@@ -3604,6 +3604,20 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "website_data" ] = "website_data";
 	$projectEntities[ "Job_Fair" ] = array( "url" => "job_fair", "type" => 0 );
 	$projectEntitiesReverse[ "job_fair" ] = "Job_Fair";
+	$projectEntities[ "kbarticles" ] = array( "url" => "kbarticles", "type" => 0 );
+	$projectEntitiesReverse[ "kbarticles" ] = "kbarticles";
+	$projectEntities[ "kbcategories" ] = array( "url" => "kbcategories", "type" => 0 );
+	$projectEntitiesReverse[ "kbcategories" ] = "kbcategories";
+	$projectEntities[ "kbcomments" ] = array( "url" => "kbcomments", "type" => 0 );
+	$projectEntitiesReverse[ "kbcomments" ] = "kbcomments";
+	$projectEntities[ "kbusers" ] = array( "url" => "kbusers", "type" => 0 );
+	$projectEntitiesReverse[ "kbusers" ] = "kbusers";
+	$projectEntities[ "main" ] = array( "url" => "main", "type" => 1 );
+	$projectEntitiesReverse[ "main" ] = "main";
+	$projectEntities[ "faicons" ] = array( "url" => "faicons", "type" => 0 );
+	$projectEntitiesReverse[ "faicons" ] = "faicons";
+	$projectEntities[ "admin_comments" ] = array( "url" => "admin_comments", "type" => 1 );
+	$projectEntitiesReverse[ "admin_comments" ] = "admin_comments";
 }
 
 function findTable( $table ) {

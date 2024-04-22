@@ -128,7 +128,7 @@ $tdataindustry_specific_skills[".isUseAjaxSuggest"] = true;
 
 
 
-
+			
 
 $tdataindustry_specific_skills[".ajaxCodeSnippetAdded"] = false;
 

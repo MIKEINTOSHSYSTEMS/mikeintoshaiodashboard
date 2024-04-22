@@ -1,0 +1,21 @@
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > * > input,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > * > textarea,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > * > select,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > * > * > select,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > .form-control-static,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > [id^=view],
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] label,
+[data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"][data-page="kbarticles_view"][data-itemid="edit_field"] > * > .r-readonly-control {
+  font-weight: bold;
+  font-size: 18px;
+}
+[data-page="kbarticles_view"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="top_c1"][data-page="kbarticles_view"][data-cellid="top_c1"][data-page="kbarticles_view"][data-cellid="top_c1"][data-page="kbarticles_view"] {
+  margin-bottom:50px;
+}
+

@@ -1475,6 +1475,20 @@ class CrossTableWebReport
 			$isDB = true;
 		if("Job_Fair" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("kbarticles" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("kbcategories" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("kbcomments" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("kbusers" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("kbarticles" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("faicons" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("kbcomments" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

@@ -290,6 +290,13 @@ class ConnectionManager_Base
 		$connectionsIds["Languages"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["website_data"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Job_Fair"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["kbarticles"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["kbcategories"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["kbcomments"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["kbusers"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["main"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["faicons"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["admin_comments"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

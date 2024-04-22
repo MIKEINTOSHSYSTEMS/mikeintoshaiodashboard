@@ -111,6 +111,9 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -139,127 +142,152 @@ pdfDocument = {
 			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item2}"},
 				
 				
-			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item27}"},
-				
-				
-			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item43}"},
-				
-				
-			{"text":"","background":"#7B68EE","hidden":"{$item_hide_welcome_item42}"},
-				
-				
-			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item3}"},
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item3}"},
 				
 				
 			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item4}"},
 				
 				
-			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item28}"},
+			{"text":"","background":"#7B68EE","hidden":"{$item_hide_welcome_item5}"},
 				
 				
-			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item32}"},
+			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item6}"},
 				
 				
-			{"text":"","background":"#6493EA","hidden":"{$item_hide_welcome_item29}"},
+			{"text":"","background":"#00C2C5","hidden":"{$item_hide_welcome_item7}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item8}"},
+				
+				
+			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item9}"},
+				
+				
+			{"text":"","background":"#6493EA","hidden":"{$item_hide_welcome_item10}"},
+				
+				
+			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item11}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item12}"},
+				
+				
+			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item13}"},
+				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item14}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item15}"},
+				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item16}"},
+				
+				
+			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item17}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item18}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item19}"},
+				
+				
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item20}"},
+				
+				
+			{"text":"","background":"#4682B4","hidden":"{$item_hide_welcome_item21}"},
+				
+				
+			{"text":"","background":"#DC143C","hidden":"{$item_hide_welcome_item22}"},
+				
+				
+			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item23}"},
+				
+				
+			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item24}"},
+				
+				
+			{"text":"","background":"#D2691E","hidden":"{$item_hide_welcome_item25}"},
+				
+				
+			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item26}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item27}"},
+				
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item28}"},
+				
+				
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item29}"},
 				
 				
 			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item30}"},
 				
 				
-			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item31}"},
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item31}"},
 				
 				
-			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item6}"},
+			{"text":"","background":"#6B8E23","hidden":"{$item_hide_welcome_item32}"},
 				
 				
-			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item5}"},
+			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item33}"},
 				
 				
-			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item7}"},
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item34}"},
 				
 				
-			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item8}"},
+			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item35}"},
 				
 				
-			{"text":"","background":"#5F9EA0","hidden":"{$item_hide_welcome_item41}"},
+			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item36}"},
 				
 				
-			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item9}"},
-				
-				
-			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item10}"},
-				
-				
-			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item11}"},
-				
-				
-			{"text":"","background":"#4682B4","hidden":"{$item_hide_welcome_item12}"},
-				
-				
-			{"text":"","background":"#DC143C","hidden":"{$item_hide_welcome_item13}"},
-				
-				
-			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item15}"},
-				
-				
-			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item14}"},
-				
-				
-			{"text":"","background":"#D2691E","hidden":"{$item_hide_welcome_item16}"},
-				
-				
-			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item17}"},
-				
-				
-			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item18}"},
-				
-				
-			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item19}"},
-				
-				
-			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item20}"},
-				
-				
-			{"text":"","background":"#2F4F4F","hidden":"{$item_hide_welcome_item21}"},
-				
-				
-			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item23}"},
-				
-				
-			{"text":"","background":"#6B8E23","hidden":"{$item_hide_welcome_item22}"},
-				
-				
-			{"text":"","background":"#DAA520","hidden":"{$item_hide_welcome_item24}"},
-				
-				
-			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item25}"},
-				
-				
-			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item26}"},
-				
-				
-			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item33}"},
-				
-				
-			{"text":"","background":"#CD853F","hidden":"{$item_hide_welcome_item34}"},
-				
-				
-			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item35}"},
-				
-				
-			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item36}"},
-				
-				
-			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item37}"},
+			{"text":"","background":"#CD853F","hidden":"{$item_hide_welcome_item37}"},
 				
 				
 			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item38}"},
 				
 				
-			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item39}"},
+			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item39}"},
 				
 				
-			{"text":"","hidden":"{$item_hide_welcome_item40}"},
+			{"text":"","background":"#D2AF80","hidden":"{$item_hide_welcome_item40}"},
+				
+				
+			{"text":"","background":"#BC8F8F","hidden":"{$item_hide_welcome_item41}"},
+				
+				
+			{"text":"","background":"#6DA5C8","hidden":"{$item_hide_welcome_item42}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_welcome_item43}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group}"},
 				
 		  ],
   "border": [ false, false, false, false ],

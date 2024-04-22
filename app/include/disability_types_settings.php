@@ -128,7 +128,7 @@ $tdatadisability_types[".isUseAjaxSuggest"] = true;
 
 
 
-
+			
 
 $tdatadisability_types[".ajaxCodeSnippetAdded"] = false;
 

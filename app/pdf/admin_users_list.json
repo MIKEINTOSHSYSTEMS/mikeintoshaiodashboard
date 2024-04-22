@@ -161,6 +161,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_delete}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_update_selected}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

@@ -134,7 +134,7 @@ $tdatawebreport_admin[".isUseAjaxSuggest"] = true;
 
 
 
-
+			
 
 $tdatawebreport_admin[".ajaxCodeSnippetAdded"] = false;
 

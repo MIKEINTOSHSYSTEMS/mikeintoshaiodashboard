@@ -152,7 +152,7 @@ $tdatawebsite_data[".isUseAjaxSuggest"] = true;
 
 
 
-
+						
 
 $tdatawebsite_data[".ajaxCodeSnippetAdded"] = false;
 
@@ -1236,7 +1236,7 @@ $tdatawebsite_data[".hideMobileList"] = array();
 	$fdata["GoodName"] = "Program_Year";
 	$fdata["ownerTable"] = "website_data";
 	$fdata["Label"] = GetFieldLabel("website_data","Program_Year");
-	$fdata["FieldType"] = 200;
+	$fdata["FieldType"] = 7;
 
 
 	
@@ -1288,7 +1288,7 @@ $tdatawebsite_data[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Text field");
 
 	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+		$edata["weekdayMessage"] = array("message" => "Invalid week day", "messageType" => "Text");
 	$edata["weekdays"] = "[]";
 
 
@@ -1320,7 +1320,8 @@ $tdatawebsite_data[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-	
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Time");
+							
 	
 //	End validation
 
@@ -1342,7 +1343,7 @@ $tdatawebsite_data[".hideMobileList"] = array();
 		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
 // the end of search options settings
 
 

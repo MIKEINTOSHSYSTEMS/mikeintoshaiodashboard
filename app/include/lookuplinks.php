@@ -474,6 +474,27 @@ function InitLookupLinks()
 			$lookupTableLinks["Trainer"]["trainer.Trainer_Skills"] = array();
 		}
 		$lookupTableLinks["Trainer"]["trainer.Trainer_Skills"]["edit"] = array("table" => "Trainer", "field" => "Trainer_Skills", "page" => "edit");
+		if( !isset( $lookupTableLinks["kbcategories"] ) ) {
+			$lookupTableLinks["kbcategories"] = array();
+		}
+		if( !isset( $lookupTableLinks["kbcategories"]["kbarticles.Category"] )) {
+			$lookupTableLinks["kbcategories"]["kbarticles.Category"] = array();
+		}
+		$lookupTableLinks["kbcategories"]["kbarticles.Category"]["edit"] = array("table" => "kbarticles", "field" => "Category", "page" => "edit");
+		if( !isset( $lookupTableLinks["faicons"] ) ) {
+			$lookupTableLinks["faicons"] = array();
+		}
+		if( !isset( $lookupTableLinks["faicons"]["kbcategories.faicon"] )) {
+			$lookupTableLinks["faicons"]["kbcategories.faicon"] = array();
+		}
+		$lookupTableLinks["faicons"]["kbcategories.faicon"]["edit"] = array("table" => "kbcategories", "field" => "faicon", "page" => "edit");
+		if( !isset( $lookupTableLinks["kbarticles"] ) ) {
+			$lookupTableLinks["kbarticles"] = array();
+		}
+		if( !isset( $lookupTableLinks["kbarticles"]["admin_comments.ArticleID"] )) {
+			$lookupTableLinks["kbarticles"]["admin_comments.ArticleID"] = array();
+		}
+		$lookupTableLinks["kbarticles"]["admin_comments.ArticleID"]["edit"] = array("table" => "admin_comments", "field" => "ArticleID", "page" => "edit");
 }
 
 ?>

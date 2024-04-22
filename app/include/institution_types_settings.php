@@ -128,7 +128,7 @@ $tdatainstitution_types[".isUseAjaxSuggest"] = true;
 
 
 
-
+			
 
 $tdatainstitution_types[".ajaxCodeSnippetAdded"] = false;
 

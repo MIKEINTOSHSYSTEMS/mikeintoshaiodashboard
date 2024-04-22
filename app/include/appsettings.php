@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "137_1713204347";
+$projectBuildKey = "154_1713797322";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "137";
+$projectBuildNumber = "154";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -765,7 +765,6 @@ $menuTreelikeFlags["secondary"] = 1;
 // table captions
 $tableCaptions = array();
 $tableCaptions["English"] = array();
-$tableCaptions["English"][""] = "";
 $tableCaptions["English"]["events"] = "Events";
 $tableCaptions["English"]["trainings"] = "Trainings";
 $tableCaptions["English"]["candidates"] = "Candidates";
@@ -813,6 +812,14 @@ $tableCaptions["English"]["webreports_view"] = "Webreports View";
 $tableCaptions["English"]["Languages"] = "Languages";
 $tableCaptions["English"]["website_data"] = "Website Data";
 $tableCaptions["English"]["Job_Fair"] = "Job Fair";
+$tableCaptions["English"][""] = "";
+$tableCaptions["English"]["kbarticles"] = "Articles";
+$tableCaptions["English"]["kbcategories"] = "Categories";
+$tableCaptions["English"]["kbcomments"] = "Comments";
+$tableCaptions["English"]["kbusers"] = "Users";
+$tableCaptions["English"]["main"] = "";
+$tableCaptions["English"]["faicons"] = "Faicons";
+$tableCaptions["English"]["admin_comments"] = "Admin Comments";
 
 
 $globalEvents = new class_GlobalEvents;

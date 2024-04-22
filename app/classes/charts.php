@@ -472,6 +472,20 @@ class Chart
 			return true;
 		if("Job_Fair" == $this->chrt_array['tables'][0])
 			return true;
+		if("kbarticles" == $this->chrt_array['tables'][0])
+			return true;
+		if("kbcategories" == $this->chrt_array['tables'][0])
+			return true;
+		if("kbcomments" == $this->chrt_array['tables'][0])
+			return true;
+		if("kbusers" == $this->chrt_array['tables'][0])
+			return true;
+		if("kbarticles" == $this->chrt_array['tables'][0])
+			return true;
+		if("faicons" == $this->chrt_array['tables'][0])
+			return true;
+		if("kbcomments" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 
