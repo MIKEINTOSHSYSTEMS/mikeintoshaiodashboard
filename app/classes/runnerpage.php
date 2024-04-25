@@ -2618,6 +2618,11 @@ class RunnerPage
 				return $this->menuNodes[$name];
 			}
 
+			if($name == 'DerejaMenuSet')
+			{
+				getMenuNodes_DerejaMenuSet($menuNodesObject);
+				return $this->menuNodes[$name];
+			}
 			if($name == 'mikeintosh')
 			{
 				getMenuNodes_mikeintosh($menuNodesObject);
