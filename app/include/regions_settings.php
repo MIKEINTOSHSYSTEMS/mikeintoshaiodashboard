@@ -70,7 +70,7 @@ $tdataregions[".listAjax"] = false;
 //	temporary
 //$tdataregions[".listAjax"] = false;
 
-	$tdataregions[".audit"] = false;
+	$tdataregions[".audit"] = true;
 
 	$tdataregions[".locking"] = false;
 

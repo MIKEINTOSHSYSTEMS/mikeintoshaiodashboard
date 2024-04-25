@@ -64,7 +64,7 @@ $tdatadisability_types[".listAjax"] = false;
 //	temporary
 //$tdatadisability_types[".listAjax"] = false;
 
-	$tdatadisability_types[".audit"] = false;
+	$tdatadisability_types[".audit"] = true;
 
 	$tdatadisability_types[".locking"] = false;
 

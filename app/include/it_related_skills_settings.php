@@ -64,7 +64,7 @@ $tdatait_related_skills[".listAjax"] = false;
 //	temporary
 //$tdatait_related_skills[".listAjax"] = false;
 
-	$tdatait_related_skills[".audit"] = false;
+	$tdatait_related_skills[".audit"] = true;
 
 	$tdatait_related_skills[".locking"] = false;
 

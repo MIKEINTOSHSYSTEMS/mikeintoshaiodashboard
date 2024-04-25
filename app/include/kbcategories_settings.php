@@ -191,7 +191,7 @@ $tdatakbcategories[".strOrderBy"] = $tstrOrderBy;
 $tdatakbcategories[".orderindexes"] = array();
 
 
-$tdatakbcategories[".sqlHead"] = "SELECT Category, 	CategoryID, 	Description, 	faicon";
+$tdatakbcategories[".sqlHead"] = "SELECT Category,  	CategoryID,  	Description,  	faicon";
 $tdatakbcategories[".sqlFrom"] = "FROM kbcategories";
 $tdatakbcategories[".sqlWhereExpr"] = "";
 $tdatakbcategories[".sqlTail"] = "";
@@ -892,7 +892,7 @@ function createSqlQuery_kbcategories()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "Category, 	CategoryID, 	Description, 	faicon";
+$proto0["m_strFieldList"] = "Category,  	CategoryID,  	Description,  	faicon";
 $proto0["m_strFrom"] = "FROM kbcategories";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";

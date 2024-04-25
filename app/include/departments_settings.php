@@ -64,7 +64,7 @@ $tdatadepartments[".listAjax"] = false;
 //	temporary
 //$tdatadepartments[".listAjax"] = false;
 
-	$tdatadepartments[".audit"] = false;
+	$tdatadepartments[".audit"] = true;
 
 	$tdatadepartments[".locking"] = false;
 

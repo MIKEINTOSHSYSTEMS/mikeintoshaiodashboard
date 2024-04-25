@@ -76,7 +76,7 @@ $tdatatrainer[".listAjax"] = false;
 //	temporary
 //$tdatatrainer[".listAjax"] = false;
 
-	$tdatatrainer[".audit"] = false;
+	$tdatatrainer[".audit"] = true;
 
 	$tdatatrainer[".locking"] = false;
 

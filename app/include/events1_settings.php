@@ -64,7 +64,7 @@ $tdataevents1[".listAjax"] = false;
 //	temporary
 //$tdataevents1[".listAjax"] = false;
 
-	$tdataevents1[".audit"] = false;
+	$tdataevents1[".audit"] = true;
 
 	$tdataevents1[".locking"] = false;
 

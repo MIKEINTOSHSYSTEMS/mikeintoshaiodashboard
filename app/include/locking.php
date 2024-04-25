@@ -1,7 +1,7 @@
 <?php
 class oLocking
 {
-	var $lockTableName = "";
+	var $lockTableName = "˂Create new˃";
 	var $ConfirmTime=15;
 	var $UnlockTime=30;
 	var $ConfirmAdmin;

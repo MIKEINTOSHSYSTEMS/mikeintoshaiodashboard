@@ -191,7 +191,7 @@ $tdatakbusers[".strOrderBy"] = $tstrOrderBy;
 $tdatakbusers[".orderindexes"] = array();
 
 
-$tdatakbusers[".sqlHead"] = "SELECT email, 	fullname, 	password, 	username";
+$tdatakbusers[".sqlHead"] = "SELECT email,  	fullname,  	password,  	username";
 $tdatakbusers[".sqlFrom"] = "FROM kbusers";
 $tdatakbusers[".sqlWhereExpr"] = "";
 $tdatakbusers[".sqlTail"] = "";
@@ -831,7 +831,7 @@ function createSqlQuery_kbusers()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "email, 	fullname, 	password, 	username";
+$proto0["m_strFieldList"] = "email,  	fullname,  	password,  	username";
 $proto0["m_strFrom"] = "FROM kbusers";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";

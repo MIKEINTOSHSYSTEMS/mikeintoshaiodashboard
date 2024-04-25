@@ -64,7 +64,7 @@ $tdatatraining_city_towns[".listAjax"] = false;
 //	temporary
 //$tdatatraining_city_towns[".listAjax"] = false;
 
-	$tdatatraining_city_towns[".audit"] = false;
+	$tdatatraining_city_towns[".audit"] = true;
 
 	$tdatatraining_city_towns[".locking"] = false;
 

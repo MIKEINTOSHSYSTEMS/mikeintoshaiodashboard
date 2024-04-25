@@ -79,7 +79,7 @@ $tdatajobs[".listAjax"] = false;
 //	temporary
 //$tdatajobs[".listAjax"] = false;
 
-	$tdatajobs[".audit"] = false;
+	$tdatajobs[".audit"] = true;
 
 	$tdatajobs[".locking"] = false;
 

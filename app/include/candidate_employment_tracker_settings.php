@@ -103,7 +103,7 @@ $tdatacandidate_employment_tracker[".listAjax"] = false;
 //	temporary
 //$tdatacandidate_employment_tracker[".listAjax"] = false;
 
-	$tdatacandidate_employment_tracker[".audit"] = false;
+	$tdatacandidate_employment_tracker[".audit"] = true;
 
 	$tdatacandidate_employment_tracker[".locking"] = false;
 

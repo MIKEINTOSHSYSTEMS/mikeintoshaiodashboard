@@ -64,7 +64,7 @@ $tdatainstitution_types[".listAjax"] = false;
 //	temporary
 //$tdatainstitution_types[".listAjax"] = false;
 
-	$tdatainstitution_types[".audit"] = false;
+	$tdatainstitution_types[".audit"] = true;
 
 	$tdatainstitution_types[".locking"] = false;
 

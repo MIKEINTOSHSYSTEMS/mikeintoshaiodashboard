@@ -311,6 +311,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("admin_comments" == $shortTName )
 		return true;
+	if ("derejame_audit" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -847,6 +849,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="admin_comments";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("derejame_audit");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="derejame_audit";
+	}
 	return $arr;
 }
 
@@ -910,6 +921,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="main";
 	$arr[]="faicons";
 	$arr[]="admin_comments";
+	$arr[]="derejame_audit";
 	return $arr;
 }
 
@@ -1807,6 +1819,11 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "".$extraPerm;
 	}
+	if( $table=="derejame_audit" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
 	// grant nothing by default
 	return "";
 }
@@ -2534,7 +2551,6 @@ function GetFullSiteUrl()
  */
 function GetAuditObject($table="")
 {
-	return NULL;
 
 	$linkAudit = false;
 	if(!$table)
@@ -2549,6 +2565,7 @@ function GetAuditObject($table="")
 	if ($linkAudit)
 	{
 		require_once(getabspath("include/audit.php"));
+		return new AuditTrailTable();
 	}
 	else
 	{

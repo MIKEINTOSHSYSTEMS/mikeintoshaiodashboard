@@ -67,7 +67,7 @@ $tdatadereja_event_services[".listAjax"] = false;
 //	temporary
 //$tdatadereja_event_services[".listAjax"] = false;
 
-	$tdatadereja_event_services[".audit"] = false;
+	$tdatadereja_event_services[".audit"] = true;
 
 	$tdatadereja_event_services[".locking"] = false;
 

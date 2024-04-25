@@ -118,7 +118,7 @@ $tdataevent_participants[".listAjax"] = false;
 //	temporary
 //$tdataevent_participants[".listAjax"] = false;
 
-	$tdataevent_participants[".audit"] = false;
+	$tdataevent_participants[".audit"] = true;
 
 	$tdataevent_participants[".locking"] = false;
 

@@ -1489,6 +1489,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("kbcomments" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("derejame_audit" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "154_1713797322";
+$projectBuildKey = "156_1713890482";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "154";
+$projectBuildNumber = "156";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -820,6 +820,7 @@ $tableCaptions["English"]["kbusers"] = "Users";
 $tableCaptions["English"]["main"] = "";
 $tableCaptions["English"]["faicons"] = "Faicons";
 $tableCaptions["English"]["admin_comments"] = "Admin Comments";
+$tableCaptions["English"]["derejame_audit"] = "Derejame Audit";
 
 
 $globalEvents = new class_GlobalEvents;

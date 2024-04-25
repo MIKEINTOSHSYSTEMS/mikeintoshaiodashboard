@@ -149,7 +149,7 @@ class ConnectionManager_Base
 	 */
 	public function getForAudit()
 	{
-		return $this->getDefault();
+		return $this->byId( "deredevatderejadevmerqconsulta" );
 	}
 
 	/**
@@ -158,7 +158,7 @@ class ConnectionManager_Base
 	 */
 	public function getForLocking()
 	{
-		return $this->getDefault();
+		return $this->byId( "deredevatderejadevmerqconsulta" );
 	}
 
 	/**
@@ -297,6 +297,7 @@ class ConnectionManager_Base
 		$connectionsIds["main"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["faicons"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_comments"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["derejame_audit"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

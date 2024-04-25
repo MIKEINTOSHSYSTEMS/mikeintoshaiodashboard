@@ -91,7 +91,7 @@ $tdataderejame_users[".listAjax"] = false;
 //	temporary
 //$tdataderejame_users[".listAjax"] = false;
 
-	$tdataderejame_users[".audit"] = false;
+	$tdataderejame_users[".audit"] = true;
 
 	$tdataderejame_users[".locking"] = false;
 

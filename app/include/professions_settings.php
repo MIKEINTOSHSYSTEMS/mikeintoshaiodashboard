@@ -64,7 +64,7 @@ $tdataprofessions[".listAjax"] = false;
 //	temporary
 //$tdataprofessions[".listAjax"] = false;
 
-	$tdataprofessions[".audit"] = false;
+	$tdataprofessions[".audit"] = true;
 
 	$tdataprofessions[".locking"] = false;
 

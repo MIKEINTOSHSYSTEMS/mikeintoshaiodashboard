@@ -67,7 +67,7 @@ $tdatasub_cities[".listAjax"] = false;
 //	temporary
 //$tdatasub_cities[".listAjax"] = false;
 
-	$tdatasub_cities[".audit"] = false;
+	$tdatasub_cities[".audit"] = true;
 
 	$tdatasub_cities[".locking"] = false;
 

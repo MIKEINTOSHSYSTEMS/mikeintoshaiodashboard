@@ -85,7 +85,7 @@ $tdatajob_fair[".listAjax"] = false;
 //	temporary
 //$tdatajob_fair[".listAjax"] = false;
 
-	$tdatajob_fair[".audit"] = false;
+	$tdatajob_fair[".audit"] = true;
 
 	$tdatajob_fair[".locking"] = false;
 

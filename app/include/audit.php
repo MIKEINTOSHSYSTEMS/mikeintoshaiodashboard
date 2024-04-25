@@ -1,7 +1,7 @@
 <?php
 class AuditTrailTable
 {
-	var $logTableName="";
+	var $logTableName="derejame_audit";
 	var $params;
 
 	var $strLogin="login";
@@ -51,18 +51,70 @@ class AuditTrailTable
 
     function LogLogin($pUsername)
     {
+		global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$this->params[1]=$pUsername;
+		$arr=array();
+		$this->params=array($_SERVER["REMOTE_ADDR"], Security::getUserName() );
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strLogin, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$this->insert(now(), $this->params[0], $this->params[1], $table, $this->strLogin, "");
+		}
+		return $retval;
     }
 
     function LogLoginFailed($pUsername)
     {
+		global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$this->params[1]=$pUsername;
+		$arr=array();
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strFailLogin, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$this->insert(now(), $this->params[0], $this->params[1], $table, $this->strFailLogin, "");
+		}
+		$this->params=array($_SERVER["REMOTE_ADDR"],"");
+		return $retval;
     }
 
     function LogLogout()
     {
+	global $globalEvents;
+	if( Security::getUserName() !="" )
+	{
+		$retval=true;
+		$table=Security::loginTable();
+		$arr=array();
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strLogout, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$this->insert(now(), $this->params[0], $this->params[1], $table, $this->strLogout, "");
+		}
+		return $retval;
+	}
     }
 
     function LogChPassword( $username )
     {
+		global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$arr=array();
+		$this->params[ 1 ] = $username;
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strChPass, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$this->insert(now(), $this->params[0], $this->params[1], $table, $this->strChPass, "");
+		}
+		return $retval;
     }
 
     function LogAdd($str_table,$values,$keys)
@@ -358,147 +410,147 @@ class AuditTrailTable
 	{
 		if($table=="events")
 		{
-			return false;
+			return true;
 		}
 		if($table=="trainings")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates")
 		{
-			return false;
+			return true;
 		}
 		if($table=="event_participants")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_participants")
 		{
-			return false;
+			return true;
 		}
 		if($table=="cities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="regions")
 		{
-			return false;
+			return true;
 		}
 		if($table=="sub_cities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="zones")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_event_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_training_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="institution_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="departments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="education_levels")
 		{
-			return false;
+			return true;
 		}
 		if($table=="minor_major")
 		{
-			return false;
+			return true;
 		}
 		if($table=="skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_information_sources")
 		{
-			return false;
+			return true;
 		}
 		if($table=="it_related_skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="industry_specific_skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="professions")
 		{
-			return false;
+			return true;
 		}
 		if($table=="participant_organization_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_venues")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_organizers")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_city_towns")
 		{
-			return false;
+			return true;
 		}
 		if($table=="program_areas")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Candidate_Employment_Tracker")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Companies")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Jobs")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Categories")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="CompanySectors")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Disability_Types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Trainer")
 		{
-			return false;
+			return true;
 		}
 		if($table=="derejame_users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_rights")
 		{
@@ -534,15 +586,15 @@ class AuditTrailTable
 		}
 		if($table=="Languages")
 		{
-			return false;
+			return true;
 		}
 		if($table=="website_data")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Fair")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbarticles")
 		{
@@ -569,6 +621,10 @@ class AuditTrailTable
 			return false;
 		}
 		if($table=="admin_comments")
+		{
+			return false;
+		}
+		if($table=="derejame_audit")
 		{
 			return false;
 		}
@@ -644,18 +700,72 @@ class AuditTrailFile
 
     function LogLogin($pUsername)
     {
-		    }
+				global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$this->params[1]=$pUsername;
+		$arr=array();
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strLogin, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$str=format_datetime_custom(db2time(now()),"MMM dd,yyyy").chr(9).format_datetime_custom(db2time(now()),"HH:mm:ss").chr(9).$this->params[0].chr(9).$this->params[1].chr(9).$table.chr(9).$this->strLogin."\r\n";
+			$this->writeToLogFile( $str );
+		}
+		return $retval;
+    }
 
     function LogLoginFailed($pUsername)
     {
-		    }
+				global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$this->params[1]=$pUsername;
+		$arr=array();
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strFailLogin, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$str=format_datetime_custom(db2time(now()),"MMM dd,yyyy").chr(9).format_datetime_custom(db2time(now()),"HH:mm:ss").chr(9).$this->params[0].chr(9).$this->params[1].chr(9).$table.chr(9).$this->strFailLogin."\r\n";
+			$this->writeToLogFile( $str );
+		}
+		return $retval;
+    }
 
     function LogLogout()
     {
+		global $globalEvents;
+		if(Security::getUserName() != "" )
+		{
+			$retval=true;
+			$table=Security::loginTable();
+			$arr=array();
+			if($globalEvents->exists("OnAuditLog"))
+				$retval=$globalEvents->OnAuditLog($this->strLogout, $this->params, $table, $arr, $arr, $arr);
+			if($retval)
+			{
+				$str=format_datetime_custom(db2time(now()),"MMM dd,yyyy").chr(9).format_datetime_custom(db2time(now()),"HH:mm:ss").chr(9).$this->params[0].chr(9).$this->params[1].chr(9).$table.chr(9).$this->strLogout."\r\n";
+				$this->writeToLogFile( $str );
+			}
+			return $retval;
+		}
     }
 
     function LogChPassword( $username )
     {
+		global $globalEvents;
+		$retval=true;
+		$table=Security::loginTable();
+		$arr=array();
+		$this->params[ 1 ] = $username;
+		if($globalEvents->exists("OnAuditLog"))
+			$retval=$globalEvents->OnAuditLog($this->strChPass, $this->params, $table, $arr, $arr, $arr);
+		if($retval)
+		{
+			$str=format_datetime_custom(db2time(now()),"MMM dd,yyyy").chr(9).format_datetime_custom(db2time(now()),"HH:mm:ss").chr(9).$this->params[0].chr(9).$this->params[1].chr(9).$table.chr(9).$this->strChPass."\r\n";
+			$this->writeToLogFile( $str );
+		}
+		return $retval;
     }
 
     function LogAdd($str_table,$values,$keys)
@@ -882,147 +992,147 @@ class AuditTrailFile
 	{
 		if($table=="events")
 		{
-			return false;
+			return true;
 		}
 		if($table=="trainings")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates")
 		{
-			return false;
+			return true;
 		}
 		if($table=="event_participants")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_participants")
 		{
-			return false;
+			return true;
 		}
 		if($table=="cities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="regions")
 		{
-			return false;
+			return true;
 		}
 		if($table=="sub_cities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="zones")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_event_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_training_services")
 		{
-			return false;
+			return true;
 		}
 		if($table=="institution_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="departments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="education_levels")
 		{
-			return false;
+			return true;
 		}
 		if($table=="minor_major")
 		{
-			return false;
+			return true;
 		}
 		if($table=="skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dereja_information_sources")
 		{
-			return false;
+			return true;
 		}
 		if($table=="it_related_skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="industry_specific_skills")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="professions")
 		{
-			return false;
+			return true;
 		}
 		if($table=="participant_organization_types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_venues")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_organizers")
 		{
-			return false;
+			return true;
 		}
 		if($table=="training_city_towns")
 		{
-			return false;
+			return true;
 		}
 		if($table=="program_areas")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Candidate_Employment_Tracker")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Companies")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Jobs")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Categories")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="CompanySectors")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Disability_Types")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Trainer")
 		{
-			return false;
+			return true;
 		}
 		if($table=="derejame_users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_rights")
 		{
@@ -1058,15 +1168,15 @@ class AuditTrailFile
 		}
 		if($table=="Languages")
 		{
-			return false;
+			return true;
 		}
 		if($table=="website_data")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Job_Fair")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbarticles")
 		{
@@ -1093,6 +1203,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="admin_comments")
+		{
+			return false;
+		}
+		if($table=="derejame_audit")
 		{
 			return false;
 		}

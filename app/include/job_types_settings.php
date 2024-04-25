@@ -64,7 +64,7 @@ $tdatajob_types[".listAjax"] = false;
 //	temporary
 //$tdatajob_types[".listAjax"] = false;
 
-	$tdatajob_types[".audit"] = false;
+	$tdatajob_types[".audit"] = true;
 
 	$tdatajob_types[".locking"] = false;
 

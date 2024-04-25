@@ -70,7 +70,7 @@ $tdataminor_major[".listAjax"] = false;
 //	temporary
 //$tdataminor_major[".listAjax"] = false;
 
-	$tdataminor_major[".audit"] = false;
+	$tdataminor_major[".audit"] = true;
 
 	$tdataminor_major[".locking"] = false;
 

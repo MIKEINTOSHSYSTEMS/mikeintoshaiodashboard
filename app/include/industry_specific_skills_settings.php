@@ -64,7 +64,7 @@ $tdataindustry_specific_skills[".listAjax"] = false;
 //	temporary
 //$tdataindustry_specific_skills[".listAjax"] = false;
 
-	$tdataindustry_specific_skills[".audit"] = false;
+	$tdataindustry_specific_skills[".audit"] = true;
 
 	$tdataindustry_specific_skills[".locking"] = false;
 

@@ -69,6 +69,7 @@ $nonAdminTablesArr[] = "kbusers";
 $nonAdminTablesArr[] = "main";
 $nonAdminTablesArr[] = "faicons";
 $nonAdminTablesArr[] = "admin_comments";
+$nonAdminTablesArr[] = "derejame_audit";
 
 $ug_connection = $cman->getForUserGroups();
 

@@ -183,7 +183,7 @@ $tdatafaicons[".strOrderBy"] = $tstrOrderBy;
 $tdatafaicons[".orderindexes"] = array();
 
 
-$tdatafaicons[".sqlHead"] = "SELECT id, 	icon";
+$tdatafaicons[".sqlHead"] = "SELECT id,  	icon";
 $tdatafaicons[".sqlFrom"] = "FROM faicons";
 $tdatafaicons[".sqlWhereExpr"] = "";
 $tdatafaicons[".sqlTail"] = "";
@@ -552,7 +552,7 @@ function createSqlQuery_faicons()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id, 	icon";
+$proto0["m_strFieldList"] = "id,  	icon";
 $proto0["m_strFrom"] = "FROM faicons";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";

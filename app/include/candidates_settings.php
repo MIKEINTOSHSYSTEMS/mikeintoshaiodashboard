@@ -232,7 +232,7 @@ $tdatacandidates[".listAjax"] = false;
 //	temporary
 //$tdatacandidates[".listAjax"] = false;
 
-	$tdatacandidates[".audit"] = false;
+	$tdatacandidates[".audit"] = true;
 
 	$tdatacandidates[".locking"] = false;
 

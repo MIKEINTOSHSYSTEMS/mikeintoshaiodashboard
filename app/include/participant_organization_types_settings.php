@@ -64,7 +64,7 @@ $tdataparticipant_organization_types[".listAjax"] = false;
 //	temporary
 //$tdataparticipant_organization_types[".listAjax"] = false;
 
-	$tdataparticipant_organization_types[".audit"] = false;
+	$tdataparticipant_organization_types[".audit"] = true;
 
 	$tdataparticipant_organization_types[".locking"] = false;
 

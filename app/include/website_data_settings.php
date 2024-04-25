@@ -88,7 +88,7 @@ $tdatawebsite_data[".listAjax"] = false;
 //	temporary
 //$tdatawebsite_data[".listAjax"] = false;
 
-	$tdatawebsite_data[".audit"] = false;
+	$tdatawebsite_data[".audit"] = true;
 
 	$tdatawebsite_data[".locking"] = false;
 

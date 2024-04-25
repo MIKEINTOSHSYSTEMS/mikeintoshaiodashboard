@@ -64,7 +64,7 @@ $tdataskills[".listAjax"] = false;
 //	temporary
 //$tdataskills[".listAjax"] = false;
 
-	$tdataskills[".audit"] = false;
+	$tdataskills[".audit"] = true;
 
 	$tdataskills[".locking"] = false;
 

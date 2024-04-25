@@ -64,7 +64,7 @@ $tdatacompanysectors[".listAjax"] = false;
 //	temporary
 //$tdatacompanysectors[".listAjax"] = false;
 
-	$tdatacompanysectors[".audit"] = false;
+	$tdatacompanysectors[".audit"] = true;
 
 	$tdatacompanysectors[".locking"] = false;
 

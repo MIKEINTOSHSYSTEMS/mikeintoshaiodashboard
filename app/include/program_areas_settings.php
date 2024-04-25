@@ -64,7 +64,7 @@ $tdataprogram_areas[".listAjax"] = false;
 //	temporary
 //$tdataprogram_areas[".listAjax"] = false;
 
-	$tdataprogram_areas[".audit"] = false;
+	$tdataprogram_areas[".audit"] = true;
 
 	$tdataprogram_areas[".locking"] = false;
 

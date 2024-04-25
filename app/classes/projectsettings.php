@@ -3618,6 +3618,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "faicons" ] = "faicons";
 	$projectEntities[ "admin_comments" ] = array( "url" => "admin_comments", "type" => 1 );
 	$projectEntitiesReverse[ "admin_comments" ] = "admin_comments";
+	$projectEntities[ "derejame_audit" ] = array( "url" => "derejame_audit", "type" => 0 );
+	$projectEntitiesReverse[ "derejame_audit" ] = "derejame_audit";
 }
 
 function findTable( $table ) {

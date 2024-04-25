@@ -64,7 +64,7 @@ $tdataeducation_levels[".listAjax"] = false;
 //	temporary
 //$tdataeducation_levels[".listAjax"] = false;
 
-	$tdataeducation_levels[".audit"] = false;
+	$tdataeducation_levels[".audit"] = true;
 
 	$tdataeducation_levels[".locking"] = false;
 

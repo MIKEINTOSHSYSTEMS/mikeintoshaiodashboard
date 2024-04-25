@@ -64,7 +64,7 @@ $tdatatraining_organizers[".listAjax"] = false;
 //	temporary
 //$tdatatraining_organizers[".listAjax"] = false;
 
-	$tdatatraining_organizers[".audit"] = false;
+	$tdatatraining_organizers[".audit"] = true;
 
 	$tdatatraining_organizers[".locking"] = false;
 

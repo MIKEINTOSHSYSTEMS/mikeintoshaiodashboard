@@ -67,7 +67,7 @@ $tdatazones[".listAjax"] = false;
 //	temporary
 //$tdatazones[".listAjax"] = false;
 
-	$tdatazones[".audit"] = false;
+	$tdatazones[".audit"] = true;
 
 	$tdatazones[".locking"] = false;
 

@@ -57,6 +57,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__dereja_information_sources;
 	var $tblderedevatderejadevmerqconsulta__dereja_services;
 	var $tblderedevatderejadevmerqconsulta__dereja_training_services;
+	var $tblderedevatderejadevmerqconsulta__derejame_audit;
 	var $tblderedevatderejadevmerqconsulta__derejame_noti;
 	var $tblderedevatderejadevmerqconsulta__derejame_uggroups;
 	var $tblderedevatderejadevmerqconsulta__derejame_ugmembers;
@@ -116,6 +117,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "dereja_information_sources", "varname" => "deredevatderejadevmerqconsulta__dereja_information_sources", "altvarname" => "dereja_information_sources", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "dereja_services", "varname" => "deredevatderejadevmerqconsulta__dereja_services", "altvarname" => "dereja_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "dereja_training_services", "varname" => "deredevatderejadevmerqconsulta__dereja_training_services", "altvarname" => "dereja_training_services", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "derejame_audit", "varname" => "deredevatderejadevmerqconsulta__derejame_audit", "altvarname" => "derejame_audit", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "derejame_noti", "varname" => "deredevatderejadevmerqconsulta__derejame_noti", "altvarname" => "derejame_noti", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "derejame_uggroups", "varname" => "deredevatderejadevmerqconsulta__derejame_uggroups", "altvarname" => "derejame_uggroups", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "derejame_ugmembers", "varname" => "deredevatderejadevmerqconsulta__derejame_ugmembers", "altvarname" => "derejame_ugmembers", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

@@ -64,7 +64,7 @@ $tdatalanguages[".listAjax"] = false;
 //	temporary
 //$tdatalanguages[".listAjax"] = false;
 
-	$tdatalanguages[".audit"] = false;
+	$tdatalanguages[".audit"] = true;
 
 	$tdatalanguages[".locking"] = false;
 
