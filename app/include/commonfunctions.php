@@ -313,6 +313,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("derejame_audit" == $shortTName )
 		return true;
+	if ("dashboard_pages" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -858,6 +860,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="derejame_audit";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dashboard_pages");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dashboard_pages";
+	}
 	return $arr;
 }
 
@@ -922,6 +933,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="faicons";
 	$arr[]="admin_comments";
 	$arr[]="derejame_audit";
+	$arr[]="dashboard_pages";
 	return $arr;
 }
 
@@ -1820,6 +1832,11 @@ function GetUserPermissionsStatic( $table )
 		return "".$extraPerm;
 	}
 	if( $table=="derejame_audit" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="dashboard_pages" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

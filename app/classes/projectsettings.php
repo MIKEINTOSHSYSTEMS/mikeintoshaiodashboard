@@ -3620,6 +3620,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "admin_comments" ] = "admin_comments";
 	$projectEntities[ "derejame_audit" ] = array( "url" => "derejame_audit", "type" => 0 );
 	$projectEntitiesReverse[ "derejame_audit" ] = "derejame_audit";
+	$projectEntities[ "dashboard_pages" ] = array( "url" => "dashboard_pages", "type" => 0 );
+	$projectEntitiesReverse[ "dashboard_pages" ] = "dashboard_pages";
 }
 
 function findTable( $table ) {

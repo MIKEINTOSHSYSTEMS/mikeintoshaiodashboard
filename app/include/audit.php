@@ -628,6 +628,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="dashboard_pages")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1207,6 +1211,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="derejame_audit")
+		{
+			return false;
+		}
+		if($table=="dashboard_pages")
 		{
 			return false;
 		}

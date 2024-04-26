@@ -1,0 +1,838 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-menu"   
+		>
+	{BEGIN body}
+		<style>
+		{$containerCss}
+		</style>
+		<div class="r-vbar-page">
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu DerejaMenuSet}			</div>
+		
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-left navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
+				<div class="dropdown" data-itemtype="notifications" data-itemid="notifications" {$item_notifications} data-pageid="{$pageid}" id="notifications{$id}">
+	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+		<i class="fa fa-bell"></i>
+		<span class="badge badge-warning" ></span>
+	</button>
+	<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+		<div class="r-noti-header">
+			<span class="r-noti-h-text">
+				Notifications			</span>
+			<!--
+			<a class="r-noti-all">
+				see all
+			</a>
+			-->
+			<a class="r-noti-close" href="#">
+				<i class="fa fa-times"></i>
+			</a>
+		</div>
+		<div class="r-noti-messages">
+		</div>
+	</div>
+	
+<script type="text/x-tmpl" id="noti-message">
+	<a draggable="false" class="r-noti-message" 
+		{% if (o.url ) { %} 
+			href="{%=o.url%}" 
+		{% } %}
+		>
+		<span class="r-noti-img">
+			{% if (o.iconType == 'fa') { %}
+			<span class="fa {%=o.icon%}"></span>
+			{% } else if (o.iconType == 'bs') { %}
+			<span class="glyphicon {%=o.icon%}"></span>
+			{% } else if (o.icon) { %}
+			<img src="{%=o.icon%}">
+			{% } %}
+		</span>
+		<span class="r-noti-text">
+			<span class="r-noti-title">
+				{% if (o.title) { %}
+					<span class="r-noti-title-text">
+						{%=o.title%}
+					</span>
+				{% } %}
+				<span class="r-noti-when">
+					{%=o.time%}
+				</span>
+			</span>
+			<span class="r-noti-body">
+				{%=o.message%}
+			</span>
+		</span>
+		{% if (o.new) { %}
+		<span class="r-noti-new">
+			<span class="fa fa-circle"></span>
+		</span>
+		{% } %}
+	</a>
+</script>	
+
+</div>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+												</div>
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+				{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
+{$event _global__snippet}
+</span>		</div>					</div>
+			</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+<table class="r-fluid r-form" data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" >
+						<tbody>
+			
+								<tr {$row_grid_0} >
+									<td 
+	
+			 
+	data-cellId="grid_c1" data-pageid="{$pageid}">
+<div class="r-welcome-align">
+ 
+		
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item" {$item_welcome_item} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="candidates_list.php"  > 
+							<span class="fa fa-users"></span>Candidates					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+ 
+		
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item1" {$item_welcome_item1} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="event_participants_list.php"  > 
+							<span class="glyphicon glyphicon-user"></span>Event Participants					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+ 
+		
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item2" {$item_welcome_item2} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_participants_list.php"  > 
+							<span class="glyphicon glyphicon-user"></span>Training Participants					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item3" {$item_welcome_item3} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="candidate_employment_tracker_list.php"  > 
+							<span class="fa fa-arrows"></span>Employment Tracker					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item4" {$item_welcome_item4} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="job_fair_list.php"  > 
+							<span class="fa fa-connectdevelop"></span>Job Fair					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item5" {$item_welcome_item5} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="website_data_list.php"  > 
+							<span class="fa fa-internet-explorer"></span>Website Data					</a>
+	</div>
+
+	</div>
+
+ 
+		
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item6" {$item_welcome_item6} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="events1_list.php"  > 
+							<span class="glyphicon glyphicon-calendar"></span>Events					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+ 
+		
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item7" {$item_welcome_item7} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="trainings1_list.php"  > 
+							<span class="fa fa-book"></span>Trainings					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item8" {$item_welcome_item8} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="companies_list.php"  > 
+							<span class="fa fa-suitcase"></span>Companies					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item9" {$item_welcome_item9} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="companysectors_list.php"  > 
+							<span class="glyphicon glyphicon-level-up"></span>Company Sectors					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item10" {$item_welcome_item10} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="jobs_list.php"  > 
+							<span class="fa fa-briefcase"></span>Jobs					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item11" {$item_welcome_item11} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="job_categories_list.php"  > 
+							<span class="glyphicon glyphicon-tags"></span>Job Categories					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item12" {$item_welcome_item12} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="job_types_list.php"  > 
+							<span class="glyphicon glyphicon-tag"></span>Job Types					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item13" {$item_welcome_item13} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="regions_list.php"  > 
+							<span class="fa fa-map-pin"></span>Regions					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item14" {$item_welcome_item14} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="cities_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Cities					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item15" {$item_welcome_item15} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="sub_cities_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Sub Cities					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item16" {$item_welcome_item16} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="zones_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Zones					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item17" {$item_welcome_item17} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="languages_list.php"  > 
+							<span class="fa fa-language"></span>Languages					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item18" {$item_welcome_item18} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_services_list.php"  > 
+							<span class="fa fa-gear"></span>Dereja Services					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item19" {$item_welcome_item19} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_event_services_list.php"  > 
+							<span class="fa fa-gears"></span>Dereja Event Services					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item20" {$item_welcome_item20} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_training_services_list.php"  > 
+							<span class="fa fa-gears"></span>Training Services					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item21" {$item_welcome_item21} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="institution_types_list.php"  > 
+							<span class="fa fa-institution"></span>Institution Types					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item22" {$item_welcome_item22} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="departments_list.php"  > 
+							<span class="fa fa-building-o"></span>Departments					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item23" {$item_welcome_item23} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="minor_major_list.php"  > 
+							<span class="fa fa-paper-plane-o"></span>Minor Major					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item24" {$item_welcome_item24} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="education_levels_list.php"  > 
+							<span class="fa fa-graduation-cap"></span>Education Levels					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item25" {$item_welcome_item25} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="skills_list.php"  > 
+							<span class="glyphicon glyphicon-list-alt"></span>Skills					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item26" {$item_welcome_item26} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_information_sources_list.php"  > 
+							<span class="fa fa-info"></span>Information Sources					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item27" {$item_welcome_item27} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="it_related_skills_list.php"  > 
+							<span class="fa fa-laptop"></span>IT Related Skills					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item28" {$item_welcome_item28} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="industry_specific_skills_list.php"  > 
+							<span class="fa fa-file"></span>Industry Specific Skills					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item29" {$item_welcome_item29} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_types_list.php"  > 
+							<span class="fa fa-magic"></span>Training Types					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item30" {$item_welcome_item30} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="professions_list.php"  > 
+							<span class="fa fa-certificate"></span>Professions					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item31" {$item_welcome_item31} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_venues_list.php"  > 
+							<span class="fa fa-compass"></span>Training Venues					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item32" {$item_welcome_item32} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="participant_organization_types_list.php"  > 
+							<span class="fa fa-first-order"></span>Participant Org Types					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item33" {$item_welcome_item33} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_organizers_list.php"  > 
+							<span class="glyphicon glyphicon-screenshot"></span>Training Organizers					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item34" {$item_welcome_item34} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_city_towns_list.php"  > 
+							<span class="glyphicon glyphicon-globe"></span>Training City Towns					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item35" {$item_welcome_item35} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="program_areas_list.php"  > 
+							<span class="fa fa-tasks"></span>Program Areas					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item36" {$item_welcome_item36} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="disability_types_list.php"  > 
+							<span class="fa fa-wheelchair"></span>Disability Types					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item37" {$item_welcome_item37} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="trainer_list.php"  > 
+							Trainer					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item38" {$item_welcome_item38} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreports_list.php"  > 
+							Webreports					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item39" {$item_welcome_item39} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_style_list.php"  > 
+							Webreport Style					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item40" {$item_welcome_item40} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_sql_list.php"  > 
+							Webreport Sql					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item41" {$item_welcome_item41} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreport_admin_list.php"  > 
+							Webreport Admin					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item42" {$item_welcome_item42} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="webreports_view_report.php"  > 
+							Webreports View					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item43" {$item_welcome_item43} data-pageid="{$pageid}" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="./webreport.php"  > 
+							<span class="fa fa-pie-chart"></span>Web Reports Builder					</a>
+	</div>
+
+	</div>
+
+ 
+
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item44" {$item_welcome_item44} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="derejame_audit_list.php"  > 
+							Derejame Audit					</a>
+	</div>
+
+	</div>
+
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_1} >
+									<td 
+	
+			 
+	data-cellId="grid_c" data-pageid="{$pageid}">
+<div class="r-welcome-align">
+ 
+<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group" {$item_welcome_group} data-pageid="{$pageid}">
+	<h2>
+					KnowledgeBase		
+			</h2>
+	 
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item45" {$item_welcome_item45} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="16">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="main_list.php"  > 
+							<span class="glyphicon glyphicon-camera"></span>Main					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+		Main description	</div>
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item46" {$item_welcome_item46} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="22">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="kbarticles_list.php"  > 
+							<span class="glyphicon glyphicon-headphones"></span>Articles					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+		Kbarticles description	</div>
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item47" {$item_welcome_item47} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="24">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="kbcategories_list.php"  > 
+							<span class="glyphicon glyphicon-camera"></span>Categories					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+		Kbcategories description	</div>
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item48" {$item_welcome_item48} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="19">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="kbusers_list.php"  > 
+							<span class="glyphicon glyphicon-fire"></span>Users					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+		Kbusers description	</div>
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item49" {$item_welcome_item49} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="19">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="faicons_list.php"  > 
+							<span class="glyphicon glyphicon-shopping-cart"></span>Faicons					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+		Faicons description	</div>
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item50" {$item_welcome_item50} data-pageid="{$pageid}" data-page=".global_testdashboard" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="admin_comments_list.php"  > 
+							<span class="glyphicon glyphicon-camera"></span>Admin Comments					</a>
+	</div>
+
+	</div>
+
+<div class="clearfix"></div>
+</div>
+</td>
+							</tr>
+					
+					</tbody>
+				</table>
+{END grid_block}
+	</div>
+<div class="r-below">
+			</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	{END body}
+	</body>
+</html>

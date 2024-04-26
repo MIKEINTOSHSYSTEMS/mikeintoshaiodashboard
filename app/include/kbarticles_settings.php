@@ -194,7 +194,6 @@ $tdatakbarticles[".geocodingEnabled"] = false;
 
 
 
-$tdatakbarticles[".isDisplayLoading"] = true;
 
 
 

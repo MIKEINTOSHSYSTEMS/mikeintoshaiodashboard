@@ -11242,8 +11242,8 @@ However there might have been the case where dropdown showed up where it shouldn
   display: none;
 }
 .filterPanelContainer .panel-heading {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 .filterPanelContainer .panel-heading label {
   margin-bottom: 0;
@@ -11272,7 +11272,7 @@ However there might have been the case where dropdown showed up where it shouldn
 .filterPanelContainer .filter-show-more > *:first-child,
 .filterPanelContainer .filter-multiselect > *:first-child,
 .filterPanelContainer .filter-btn-apply > *:first-child {
-  padding: 4px 15px;
+  padding: 7px 15px;
   display: block;
   flex: 1 1 auto;
 }
@@ -11584,7 +11584,7 @@ However there might have been the case where dropdown showed up where it shouldn
 .r-left:not(.r-left-collapsed) .r-menu [data-menu-inline] {
   padding: 0;
   font-size: 16px;
-  padding: 4px 8px;
+  padding: 8px 16px;
   margin: 0px 8px;
   margin-bottom: 3px;
   border-radius: 4px;

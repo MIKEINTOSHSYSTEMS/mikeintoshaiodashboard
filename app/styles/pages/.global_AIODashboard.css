@@ -1,0 +1,24 @@
+[data-page=".global_AIODashboard"][data-itemid="image"] {
+  width: 47px;
+  height: 47px;
+}
+[data-page=".global_AIODashboard"][data-itemid="menu"] > .nav {
+  background-color: #f7f7f7;
+}
+[data-page=".global_AIODashboard"][data-itemid="menu"] > .nav > * > a {
+  color: #700000;
+  font-weight: bold;
+}
+[data-page=".global_AIODashboard"][data-itemid="username_button"] > .btn {
+  font-weight: bold;
+}
+[data-page=".global_AIODashboard"][data-itemid="loginform_login"] > .btn {
+  text-shadow: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+[data-page=".global_AIODashboard"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+

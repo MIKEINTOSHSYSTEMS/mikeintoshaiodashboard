@@ -173,6 +173,9 @@
 [data-page=".global_menu"][data-itemid="welcome_item50"] > .bs-welcome-header {
   background-color: #8FBC8B;
 }
+[data-page=".global_menu"][data-itemid="welcome_item51"] > .bs-welcome-header {
+  background-color: #DC143C;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

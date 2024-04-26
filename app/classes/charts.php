@@ -488,6 +488,8 @@ class Chart
 			return true;
 		if("derejame_audit" == $this->chrt_array['tables'][0])
 			return true;
+		if("dashboard_pages" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

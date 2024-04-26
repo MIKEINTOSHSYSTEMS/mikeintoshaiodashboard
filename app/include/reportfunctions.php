@@ -657,6 +657,10 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="dashboard_pages")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1137,6 +1141,10 @@ function getCaptionTable($table)
 	if($table=="derejame_audit")
 	{
 		return "Derejame Audit";
+	}
+	if($table=="dashboard_pages")
+	{
+		return "Dashboard Pages";
 	}
 	return $table;
 }
@@ -2646,6 +2654,18 @@ function GetTablesListReport()
 		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
 		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
 			$arr[]="derejame_audit";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("dashboard_pages");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="dashboard_pages";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="dashboard_pages";
 	}
 	return $arr;
 }

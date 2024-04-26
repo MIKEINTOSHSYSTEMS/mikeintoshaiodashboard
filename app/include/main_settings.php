@@ -205,7 +205,6 @@ $tdatamain[".geocodingEnabled"] = false;
 
 
 
-$tdatamain[".isDisplayLoading"] = true;
 
 
 
