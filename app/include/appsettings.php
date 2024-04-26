@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "176_1714142431";
+$projectBuildKey = "180_1714145510";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "176";
+$projectBuildNumber = "180";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -824,6 +824,7 @@ $tableCaptions["English"]["faicons"] = "Faicons";
 $tableCaptions["English"]["admin_comments"] = "Admin Comments";
 $tableCaptions["English"]["derejame_audit"] = "Derejame Audit";
 $tableCaptions["English"]["dashboard_pages"] = "Dashboard Pages";
+$tableCaptions["English"]["dashboards"] = "Dashboards";
 
 
 $globalEvents = new class_GlobalEvents;
@@ -952,9 +953,9 @@ Security::updateCSRFCookie();
 
 $isUseRTEBasic = false;
 
-$isUseRTECK = true;
+$isUseRTECK = false;
 
-$isUseRTEInnova = false;
+$isUseRTEInnova = true;
 
 $menuNodesIndex=0;
 

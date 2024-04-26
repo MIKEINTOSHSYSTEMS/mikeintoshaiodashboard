@@ -299,6 +299,7 @@ class ConnectionManager_Base
 		$connectionsIds["admin_comments"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["derejame_audit"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["dashboard_pages"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dashboards"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

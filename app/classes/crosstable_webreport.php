@@ -1493,6 +1493,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("dashboard_pages" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("dashboards" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

@@ -315,6 +315,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("dashboard_pages" == $shortTName )
 		return true;
+	if ("dashboards" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -869,6 +871,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="dashboard_pages";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dashboards");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dashboards";
+	}
 	return $arr;
 }
 
@@ -934,6 +945,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="admin_comments";
 	$arr[]="derejame_audit";
 	$arr[]="dashboard_pages";
+	$arr[]="dashboards";
 	return $arr;
 }
 
@@ -1837,6 +1849,11 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="dashboard_pages" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="dashboards" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -3863,6 +3880,7 @@ function GetBaseScriptsForPage($isDisplayLoading, $additionalScripts = "", $cust
 	$result .= $additionalScripts;
 	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?39558")."\"></script>";
 
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("plugins/innovaeditor/scripts/innovaeditor.js")."\"></script>";
 
 
 	if( getMapProvider() == BING_MAPS )

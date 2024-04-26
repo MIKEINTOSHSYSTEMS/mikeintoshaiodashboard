@@ -176,6 +176,9 @@
 [data-page=".global_menu"][data-itemid="welcome_item51"] > .bs-welcome-header {
   background-color: #DC143C;
 }
+[data-page=".global_menu"][data-itemid="welcome_item52"] > .bs-welcome-header {
+  background-color: #6DA5C8;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

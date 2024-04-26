@@ -1150,6 +1150,11 @@ function fileCustomExpression($file, $data, $field, $ptype, $table )
 		;
 		return $value;
 	}
+				if($table=="dashboards" && $field=="dashboard_commentfiles")
+	{
+		;
+		return $value;
+	}
 	return $value;
 }
 
@@ -1181,6 +1186,14 @@ function GetDefaultValue($field, $ptype, $table="")
 				if($table=="admin_comments" && $field=="moderated")
 	{
 		return 0;
+	}
+				if($table=="dashboards" && $field=="dashboard_commentdate")
+	{
+		return strftime("%Y-%m-%d %H:%M:%S");
+	}
+				if($table=="dashboards" && $field=="dashboard_userdetails")
+	{
+		return $_SESSION["UserName"];
 	}
 	return "";
 }

@@ -693,7 +693,7 @@ $tdatadashboard_pages[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "HTML");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -709,7 +709,8 @@ $tdatadashboard_pages[".hideMobileList"] = array();
 	
 	
 	
-	
+		$vdata["NeedEncode"] = true;
+
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;

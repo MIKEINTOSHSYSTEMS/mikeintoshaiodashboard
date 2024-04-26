@@ -3622,6 +3622,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "derejame_audit" ] = "derejame_audit";
 	$projectEntities[ "dashboard_pages" ] = array( "url" => "dashboard_pages", "type" => 0 );
 	$projectEntitiesReverse[ "dashboard_pages" ] = "dashboard_pages";
+	$projectEntities[ "dashboards" ] = array( "url" => "dashboards", "type" => 0 );
+	$projectEntitiesReverse[ "dashboards" ] = "dashboards";
 }
 
 function findTable( $table ) {

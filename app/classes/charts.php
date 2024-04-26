@@ -490,6 +490,8 @@ class Chart
 			return true;
 		if("dashboard_pages" == $this->chrt_array['tables'][0])
 			return true;
+		if("dashboards" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

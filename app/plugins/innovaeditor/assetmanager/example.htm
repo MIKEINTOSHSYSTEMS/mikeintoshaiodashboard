@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- MUST INCLUDE innovaeditor.js -->
+<link rel="StyleSheet" href="../scripts/style/editor.css"></script>
+<link rel="StyleSheet" href="../scripts/style/istoolbar.css"></script>
+<script language=JavaScript src='../scripts/innovaeditor.js'></script>
+
+<script>
+/***************************************
+  Required Functions
+***************************************/
+var sActiveAssetInput;
+function setAssetValue(v) //required by the asset manager
+    {
+    document.getElementById(sActiveAssetInput).value = v;
+    }
+function openAsset(s)
+  {
+    sActiveAssetInput = s
+    modalDialogShow("assetmanager.asp",640,465,window);
+  }
+/*****************************************/
+</script>
+</head>
+<body>
+
+<form id=Form1 action=# method=post>
+
+  <input type="text" name=inpURL id=inpURL size=50 value="">
+  <input type="button" value="Browse" onclick="openAsset('inpURL')">
+
+  <br><br>
+
+  <input type="text" name=inpURL2 id=inpURL2 size=50 value="">
+  <input type="button" value="Browse" onclick="openAsset('inpURL2')">
+
+</form>
+
+</body>
+</html>

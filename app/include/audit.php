@@ -632,6 +632,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="dashboards")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1215,6 +1219,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="dashboard_pages")
+		{
+			return false;
+		}
+		if($table=="dashboards")
 		{
 			return false;
 		}

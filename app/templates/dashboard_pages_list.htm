@@ -17,7 +17,6 @@
 	</head>
 
 	<body class="{$stylename} function-list"   
-			data-panel-bg
 		>
 	{BEGIN body}
 		<style>
@@ -463,18 +462,8 @@
 	</div>		
 {END top_block}
 						</div>
-											<div class="r-grid"
-			data-responsive
-	>
-	{BEGIN grid_tabs}
-  <ul class="nav nav-tabs bsgrid_tabs">
-	{$grid_tabs_content}
-  </ul>
-{END grid_tabs}
-	<div class="panel panel-default"
-	>
-		<div class="panel-heading">
-							{BEGIN above-grid_block}
+											<div class="r-above">
+					{BEGIN above-grid_block}
 <div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
 				<div class="row">
@@ -632,259 +621,44 @@
 		</div>					</div>
 			</div>		
 {END above-grid_block}
-			</div>
-
-					{BEGIN grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					
+{BEGIN grid_block}
 {BEGIN message_block}
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
-{END message_block}	<style>
-@media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_id"]:before {
-		content: "{$label dashboard_pages dashboard_id}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_name"]:before {
-		content: "{$label dashboard_pages dashboard_name}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_category"]:before {
-		content: "{$label dashboard_pages dashboard_category}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_link"]:before {
-		content: "{$label dashboard_pages dashboard_link}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_file"]:before {
-		content: "{$label dashboard_pages dashboard_file}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_comments"]:before {
-		content: "{$label dashboard_pages dashboard_comments}";
-	}
-	}
-</style>
-<table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
-	cellpadding="0"
-	data-body-height="1"
->
-						<thead>
-			{BEGIN grid_header}
-			
-																									<tr {$rowattrs} {$row_grid_0} class="{$rowclass}
-									{$gridHeader_class}
+{END message_block}<div data-vcolumns=1 class="r-fluid r-grid-vertical bs-grid-vertical" data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" >
+{BEGIN grid_row}
+	{BEGIN grid_record}
+	{BEGIN grid_vrecord}
+	<div class="r-record-body {$rowclass}" {$rowattrs} {$rowstyle} data-record-id="{$recId}">
+		<div class="panel panel-default" {$recordattrs}>
+											{BEGIN grid_recordheader}
+			<div class="panel-heading">
 					
-								r-gridrow
-							">
-									{BEGIN cellblock_grid_headcell_icons}
-	<th
 	
-	{$cell_grid_headcell_icons}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_headcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"		data-control-cell
-	
-	>
-
-	
-	</th>
-	{END cellblock_grid_headcell_icons}
-									{BEGIN cellblock_grid_headcell_checkbox}
-	<th
-	
-	{$cell_grid_headcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkboxheader_attrs}>
-</span>
+				<table data-width="2" class="header-table">
+				 
+										<tr>
+						 
+							<td 
+	class="			"
+	colspan="2"		 
+	data-cellId="grid_cell_top" data-pageid="{$pageid}" data-record-id="{$recId}">
+ 
+{BEGIN checkbox_column}
+<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
+	<input type="checkbox" {$checkbox_attrs}
+		>
+</span>	
 {END checkbox_column}
-	
-	</th>
-	{END cellblock_grid_headcell_checkbox}
-									{BEGIN cellblock_grid_headcell_field}
-	<th
-	
-	{$cell_grid_headcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_id_class}	"
-
-			data-field="dashboard_id"
-	
-	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_id_fieldheadercolumn}
-	{BEGIN dashboard_id_fieldheader}
-	<SPAN {$dashboard_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_id" data-fieldname="dashboard_id">
-	{$label dashboard_pages dashboard_id }	{$arrow_icon_dashboard_id}
-	</SPAN>
-	{END dashboard_id_fieldheader}
-{END dashboard_id_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field}
-									{BEGIN cellblock_grid_headcell_field1}
-	<th
-	
-	{$cell_grid_headcell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_name_class}	"
-
-			data-field="dashboard_name"
-	
-	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_name_fieldheadercolumn}
-	{BEGIN dashboard_name_fieldheader}
-	<SPAN {$dashboard_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_name" data-fieldname="dashboard_name">
-	{$label dashboard_pages dashboard_name }	{$arrow_icon_dashboard_name}
-	</SPAN>
-	{END dashboard_name_fieldheader}
-{END dashboard_name_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field1}
-									{BEGIN cellblock_grid_headcell_field2}
-	<th
-	
-	{$cell_grid_headcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_category_class}	"
-
-			data-field="dashboard_category"
-	
-	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_category_fieldheadercolumn}
-	{BEGIN dashboard_category_fieldheader}
-	<SPAN {$dashboard_category_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_category" data-fieldname="dashboard_category">
-	{$label dashboard_pages dashboard_category }	{$arrow_icon_dashboard_category}
-	</SPAN>
-	{END dashboard_category_fieldheader}
-{END dashboard_category_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field2}
-									{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_link_class}	"
-
-			data-field="dashboard_link"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_link_fieldheadercolumn}
-	{BEGIN dashboard_link_fieldheader}
-	<SPAN {$dashboard_link_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_link" data-fieldname="dashboard_link">
-	{$label dashboard_pages dashboard_link }	{$arrow_icon_dashboard_link}
-	</SPAN>
-	{END dashboard_link_fieldheader}
-{END dashboard_link_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
-									{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_file_class}	"
-
-			data-field="dashboard_file"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_file_fieldheadercolumn}
-	{BEGIN dashboard_file_fieldheader}
-	<SPAN {$dashboard_file_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_file" data-fieldname="dashboard_file">
-	{$label dashboard_pages dashboard_file }	{$arrow_icon_dashboard_file}
-	</SPAN>
-	{END dashboard_file_fieldheader}
-{END dashboard_file_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field4}
-									{BEGIN cellblock_grid_headcell_field5}
-	<th
-	
-	{$cell_grid_headcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comments_class}	"
-
-			data-field="dashboard_comments"
-	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_comments_fieldheadercolumn}
-	{BEGIN dashboard_comments_fieldheader}
-	<SPAN {$dashboard_comments_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_comments" data-fieldname="dashboard_comments">
-	{$label dashboard_pages dashboard_comments }	{$arrow_icon_dashboard_comments}
-	</SPAN>
-	{END dashboard_comments_fieldheader}
-{END dashboard_comments_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field5}
-							</tr>
-															
-					{END grid_header}
-			</thead>
-															<tbody>
-					{BEGIN grid_row}
-							
-																														<tr {$rowattrs} {$row_grid_1} class="{$rowclass}
-				
-								r-gridrow
-							">
-									{BEGIN cellblock_grid_cell_icons}
-	<td
-	
-	{$cell_grid_cell_icons}
-	{$recordattrs}
-	class="
-					"
-
-	
-	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"		data-control-cell
-	
-	>
-
-	 
-		{BEGIN edit_column}
+ 
+{BEGIN edit_column}
 {BEGIN edit_link}
 <span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Edit" class="btn-link   
@@ -894,8 +668,8 @@
 </span>
 {END edit_link}
 {END edit_column}
-	 
-		{BEGIN view_column}
+ 
+{BEGIN view_column}
 {BEGIN view_link}
 <span data-itemtype="grid_view" data-itemid="grid_view" {$item_grid_view} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="View record" class="btn-link   
@@ -905,299 +679,242 @@
 </span>
 {END view_link}
 {END view_column}
-	
-	</td>
-	{END cellblock_grid_cell_icons}
-									{BEGIN cellblock_grid_cell_checkbox}
-	<td
-	
-	{$cell_grid_cell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
+</td>
+											</tr>
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+													</table>
 
+					</div>
+		{END grid_recordheader}
+									
+			<div class="panel-body">					
+					
 	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
-	
-		data-checkbox-cell
-	>
-
+				<table data-width="2" >
+				 
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_id_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}
-		>
-</span>	
-{END checkbox_column}
-	
-	</td>
-	{END cellblock_grid_cell_checkbox}
-									{BEGIN cellblock_grid_cell_field}
-	<td
-	
-	{$cell_grid_cell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_id_class}	"
+	data-cellId="grid_cell_label" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_id_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_id" data-fieldname="dashboard_id">
+	{$label dashboard_pages dashboard_id }	</span>
+{END dashboard_id_fieldheadercolumn}
 
-			data-field="dashboard_id"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_id_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_id_fieldcolumn}
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_id_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_id" data-fieldname="dashboard_id" data-default-width >
 {$dashboard_id_value}
 </span>
-{END dashboard_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-									{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_name_class}	"
-
-			data-field="dashboard_name"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+{END dashboard_id_fieldcolumn}</td>
+											</tr>
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_name_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_name_fieldcolumn}
+	data-cellId="grid_cell_label1" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_name_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_name" data-fieldname="dashboard_name">
+	{$label dashboard_pages dashboard_name }	</span>
+{END dashboard_name_fieldheadercolumn}
+
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_name_class}
+			"
+			 
+		data-field=""
+	 
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_name_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_name" data-fieldname="dashboard_name" data-default-width >
 {$dashboard_name_value}
 </span>
-{END dashboard_name_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-									{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_category_class}	"
-
-			data-field="dashboard_category"
-	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+{END dashboard_name_fieldcolumn}</td>
+											</tr>
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_category_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_category_fieldcolumn}
+	data-cellId="grid_cell_label2" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_category_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_category" data-fieldname="dashboard_category">
+	{$label dashboard_pages dashboard_category }	</span>
+{END dashboard_category_fieldheadercolumn}
+
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_category_class}
+			"
+			 
+		data-field=""
+	 
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_category_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_category" data-fieldname="dashboard_category" data-default-width >
 {$dashboard_category_value}
 </span>
-{END dashboard_category_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_link_class}	"
-
-			data-field="dashboard_link"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+{END dashboard_category_fieldcolumn}</td>
+											</tr>
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_link_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_link_fieldcolumn}
+	data-cellId="grid_cell_label3" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_link_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_link" data-fieldname="dashboard_link">
+	{$label dashboard_pages dashboard_link }	</span>
+{END dashboard_link_fieldheadercolumn}
+
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_link_class}
+			"
+			 
+		data-field=""
+	 
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_link_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_link" data-fieldname="dashboard_link" data-default-width >
 {$dashboard_link_value}
 </span>
-{END dashboard_link_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_file_class}	"
-
-			data-field="dashboard_file"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+{END dashboard_link_fieldcolumn}</td>
+											</tr>
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_file_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_file_fieldcolumn}
+	data-cellId="grid_cell_label4" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_file_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_file" data-fieldname="dashboard_file">
+	{$label dashboard_pages dashboard_file }	</span>
+{END dashboard_file_fieldheadercolumn}
+
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_file_class}
+			"
+			 
+		data-field=""
+	 
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_file_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_file" data-fieldname="dashboard_file" data-default-width >
 {$dashboard_file_value}
 </span>
-{END dashboard_file_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-									{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comments_class}	"
-
-			data-field="dashboard_comments"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
+{END dashboard_file_fieldcolumn}</td>
+											</tr>
+									 
+										<tr>
+						 
+							<td 
+	class="r-align-right r-ori-vert				{$dashboard_comments_class}
+			"
+			 
+		data-field=""
 	 
-		{BEGIN dashboard_comments_fieldcolumn}
+	data-cellId="grid_cell_label5" data-pageid="{$pageid}" data-record-id="{$recId}" data-label-col>
+ 
+{BEGIN dashboard_comments_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_comments" data-fieldname="dashboard_comments">
+	{$label dashboard_pages dashboard_comments }	</span>
+{END dashboard_comments_fieldheadercolumn}
+
+</td>
+						 
+							<td 
+	class=" r-ori-vert				{$dashboard_comments_class}
+			"
+			 
+		data-field=""
+	 
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-value-col>
+ 
+{BEGIN dashboard_comments_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_comments" data-fieldname="dashboard_comments" data-default-width >
 {$dashboard_comments_value}
 </span>
-{END dashboard_comments_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-							</tr>
-										
-											{END grid_row}
-					</tbody>
-													<tfoot>
-			
-																																			<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
-									{$gridFooter_class}
-					
-								r-gridrow
-							">
-									{BEGIN cellblock_grid_footcell_icons}
-	<td
-	
-	{$cell_grid_footcell_icons}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
+{END dashboard_comments_fieldcolumn}</td>
+											</tr>
+									 
+													</table>
 
-	
-	data-cellId="grid_footcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
+				
+			</div>				
+									
+		</div>
+</div>
+		
 
-	
-	</td>
-	{END cellblock_grid_footcell_icons}
-									{BEGIN cellblock_grid_footcell_checkbox}
-	<td
-	
-	{$cell_grid_footcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_checkbox}
-									{BEGIN cellblock_grid_footcell_field}
-	<td
-	
-	{$cell_grid_footcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_id_class}	"
-
-	
-	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field}
-									{BEGIN cellblock_grid_footcell_field1}
-	<td
-	
-	{$cell_grid_footcell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_name_class}	"
-
-	
-	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field1}
-									{BEGIN cellblock_grid_footcell_field2}
-	<td
-	
-	{$cell_grid_footcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_category_class}	"
-
-	
-	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field2}
-									{BEGIN cellblock_grid_footcell_field3}
-	<td
-	
-	{$cell_grid_footcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_link_class}	"
-
-	
-	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field3}
-									{BEGIN cellblock_grid_footcell_field4}
-	<td
-	
-	{$cell_grid_footcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_file_class}	"
-
-	
-	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field4}
-									{BEGIN cellblock_grid_footcell_field5}
-	<td
-	
-	{$cell_grid_footcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comments_class}	"
-
-	
-	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboard_pages_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field5}
-							</tr>
-					
-					</tfoot>
-				</table>
+ 
+			{END grid_vrecord}
+	{END grid_record}
+{END grid_row}
+</div>
 {END grid_block}
-	
-			{BEGIN below-grid_outerblock}
-		<div class="panel-footer">
-			{BEGIN below-grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
 <div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
 	 
 				<div class="row">
@@ -1216,11 +933,7 @@
 		</div>					</div>
 			</div>		
 {END below-grid_block}
-		</div>
-	{END below-grid_outerblock}
-		</div>
-
-</div>
+	</div>
 
 
 

@@ -33,17 +33,17 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "2";
-	$menuNode["name"] = "AIO Dashboard";
+	$menuNode["name"] = "";
 	$menuNode["href"] = "../index.php";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "";
+	$menuNode["table"] = "dashboards";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "1";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "External";
-	$menuNode["pageType"] = strtolower("");//
-	$menuNode["pageId"] = "list";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
 
 	$menuNode["icon"] = "fa-dashboard";
@@ -52,7 +52,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "AIO Dashboard";
+	$menuNode["title"] = "Dashboards";
 
 
 
