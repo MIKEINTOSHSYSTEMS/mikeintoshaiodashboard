@@ -1145,6 +1145,11 @@ $value.="<span class='thankyou'> Thank you!</span>";;
 function fileCustomExpression($file, $data, $field, $ptype, $table )
 {
 	$value = "";
+				if($table=="dashboard_pages" && $field=="dashboard_file")
+	{
+		;
+		return $value;
+	}
 	return $value;
 }
 

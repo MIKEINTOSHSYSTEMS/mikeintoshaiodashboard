@@ -82,6 +82,12 @@ pdfDocument = {
 										{BEGIN col_grid_5}
 					"%",
 					{END col_grid_5}
+										{BEGIN col_grid_6}
+					"%",
+					{END col_grid_6}
+										{BEGIN col_grid_7}
+					"%",
+					{END col_grid_7}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -393,7 +399,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel dashboard_pages dashboard_id }","hidden":"{$item_hide_simple_grid_field4}","bold":true},
+			{"text":"{$jslabel dashboard_pages dashboard_id }","hidden":"{$item_hide_simple_grid_field6}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -422,7 +428,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel dashboard_pages dashboard_name }","hidden":"{$item_hide_simple_grid_field5}","bold":true},
+			{"text":"{$jslabel dashboard_pages dashboard_name }","hidden":"{$item_hide_simple_grid_field7}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -451,7 +457,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel dashboard_pages dashboard_category }","hidden":"{$item_hide_simple_grid_field6}","bold":true},
+			{"text":"{$jslabel dashboard_pages dashboard_category }","hidden":"{$item_hide_simple_grid_field8}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -480,7 +486,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel dashboard_pages dashboard_link }","hidden":"{$item_hide_simple_grid_field7}","bold":true},
+			{"text":"{$jslabel dashboard_pages dashboard_link }","hidden":"{$item_hide_simple_grid_field9}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -490,6 +496,64 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_field3}
+																							{BEGIN cellblock_grid_headcell_field4}
+{
+	cellId: 'headcell_field4',
+	col:0,
+	row:0,
+			fieldName: 'dashboard_file',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel dashboard_pages dashboard_file }","hidden":"{$item_hide_simple_grid_field10}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$dashboard_file_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field4}
+																							{BEGIN cellblock_grid_headcell_field5}
+{
+	cellId: 'headcell_field5',
+	col:0,
+	row:0,
+			fieldName: 'dashboard_comments',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel dashboard_pages dashboard_comments }","hidden":"{$item_hide_simple_grid_field11}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$dashboard_comments_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field5}
 											],
 				{END row_grid_0}
 		
@@ -674,6 +738,64 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_field3}
+																							{BEGIN cellblock_grid_cell_field4}
+{
+	cellId: 'cell_field4',
+	col:0,
+	row:0,
+			fieldName: 'dashboard_file',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$dashboard_file_pdfvalue},"hidden":"{$item_hide_simple_grid_field4}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$dashboard_file_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field4}
+																							{BEGIN cellblock_grid_cell_field5}
+{
+	cellId: 'cell_field5',
+	col:0,
+	row:0,
+			fieldName: 'dashboard_comments',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$dashboard_comments_pdfvalue},"hidden":"{$item_hide_simple_grid_field5}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$dashboard_comments_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field5}
 											],
 				{END row_grid_1}
 		
@@ -839,6 +961,58 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field3}
+																							{BEGIN cellblock_grid_footcell_field4}
+{
+	cellId: 'footcell_field4',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field4}
+																							{BEGIN cellblock_grid_footcell_field5}
+{
+	cellId: 'footcell_field5',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field5}
 											],
 				{END row_grid_2}
 		

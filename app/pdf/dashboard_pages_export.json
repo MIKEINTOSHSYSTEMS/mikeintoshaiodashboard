@@ -117,6 +117,12 @@ pdfDocument = {
 				
 			{"text":{$dashboard_link_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
+				
+			{"text":{$dashboard_file_pdfvalue},"hidden":"{$item_hide_export_field4}"},
+				
+				
+			{"text":{$dashboard_comments_pdfvalue},"hidden":"{$item_hide_export_field5}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

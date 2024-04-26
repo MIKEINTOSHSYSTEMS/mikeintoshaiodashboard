@@ -37,6 +37,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsdashboard_pages["English"]["dashboard_link"] = "Dashboard Link";
 	$fieldToolTipsdashboard_pages["English"]["dashboard_link"] = "";
 	$placeHoldersdashboard_pages["English"]["dashboard_link"] = "";
+	$fieldLabelsdashboard_pages["English"]["dashboard_file"] = "Dashboard File";
+	$fieldToolTipsdashboard_pages["English"]["dashboard_file"] = "";
+	$placeHoldersdashboard_pages["English"]["dashboard_file"] = "";
+	$fieldLabelsdashboard_pages["English"]["dashboard_comments"] = "Dashboard Comments";
+	$fieldToolTipsdashboard_pages["English"]["dashboard_comments"] = "";
+	$placeHoldersdashboard_pages["English"]["dashboard_comments"] = "Comments";
 	if (count($fieldToolTipsdashboard_pages["English"]))
 		$tdatadashboard_pages[".isUseToolTips"] = true;
 }
@@ -158,6 +164,8 @@ $tdatadashboard_pages[".googleLikeFields"][] = "dashboard_id";
 $tdatadashboard_pages[".googleLikeFields"][] = "dashboard_name";
 $tdatadashboard_pages[".googleLikeFields"][] = "dashboard_category";
 $tdatadashboard_pages[".googleLikeFields"][] = "dashboard_link";
+$tdatadashboard_pages[".googleLikeFields"][] = "dashboard_file";
+$tdatadashboard_pages[".googleLikeFields"][] = "dashboard_comments";
 
 
 
@@ -191,7 +199,7 @@ $tdatadashboard_pages[".strOrderBy"] = $tstrOrderBy;
 $tdatadashboard_pages[".orderindexes"] = array();
 
 
-$tdatadashboard_pages[".sqlHead"] = "SELECT dashboard_id,  	dashboard_name,  	dashboard_category,  	dashboard_link";
+$tdatadashboard_pages[".sqlHead"] = "SELECT dashboard_id,  	dashboard_name,  	dashboard_category,  	dashboard_link,  	dashboard_file,  	dashboard_comments";
 $tdatadashboard_pages[".sqlFrom"] = "FROM dashboard_pages";
 $tdatadashboard_pages[".sqlWhereExpr"] = "";
 $tdatadashboard_pages[".sqlTail"] = "";
@@ -685,7 +693,7 @@ $tdatadashboard_pages[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "");
+	$vdata = array("ViewFormat" => "HTML");
 
 	
 	
@@ -701,8 +709,7 @@ $tdatadashboard_pages[".hideMobileList"] = array();
 	
 	
 	
-		$vdata["NeedEncode"] = true;
-
+	
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
@@ -794,6 +801,288 @@ $tdatadashboard_pages[".hideMobileList"] = array();
 
 	$tdatadashboard_pages["dashboard_link"] = $fdata;
 		$tdatadashboard_pages[".searchableFields"][] = "dashboard_link";
+//	dashboard_file
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 5;
+	$fdata["strName"] = "dashboard_file";
+	$fdata["GoodName"] = "dashboard_file";
+	$fdata["ownerTable"] = "dashboard_pages";
+	$fdata["Label"] = GetFieldLabel("dashboard_pages","dashboard_file");
+	$fdata["FieldType"] = 200;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "dashboard_file";
+
+		$fdata["sourceSingle"] = "dashboard_file";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "dashboard_file";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Document Download");
+
+	
+	
+	
+								$vdata["ShowIcon"] = true;
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Document upload");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = array();
+			$edata["acceptFileTypes"][] = strtoupper("docx");
+						$edata["acceptFileTypesHtml"] = ".docx";
+			$edata["acceptFileTypes"][] = strtoupper("jpg");
+						$edata["acceptFileTypesHtml"] .= ",.jpg";
+			$edata["acceptFileTypes"][] = strtoupper("pdf");
+						$edata["acceptFileTypesHtml"] .= ",.pdf";
+			$edata["acceptFileTypes"][] = strtoupper("png");
+						$edata["acceptFileTypesHtml"] .= ",.png";
+
+		$edata["maxNumberOfFiles"] = 4;
+
+		$edata["maxFileSize"] = 1024;
+
+		$edata["maxTotalFilesSize"] = 4096;
+
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatadashboard_pages["dashboard_file"] = $fdata;
+		$tdatadashboard_pages[".searchableFields"][] = "dashboard_file";
+//	dashboard_comments
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 6;
+	$fdata["strName"] = "dashboard_comments";
+	$fdata["GoodName"] = "dashboard_comments";
+	$fdata["ownerTable"] = "dashboard_pages";
+	$fdata["Label"] = GetFieldLabel("dashboard_pages","dashboard_comments");
+	$fdata["FieldType"] = 200;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "dashboard_comments";
+
+		$fdata["sourceSingle"] = "dashboard_comments";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "dashboard_comments";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "HTML");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text area");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+		$edata["UseRTE"] = true;
+
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+				$edata["nRows"] = 600;
+			$edata["nCols"] = 200;
+
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatadashboard_pages["dashboard_comments"] = $fdata;
+		$tdatadashboard_pages[".searchableFields"][] = "dashboard_comments";
 
 
 $tables_data["dashboard_pages"]=&$tdatadashboard_pages;
@@ -838,7 +1127,7 @@ function createSqlQuery_dashboard_pages()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "dashboard_id,  	dashboard_name,  	dashboard_category,  	dashboard_link";
+$proto0["m_strFieldList"] = "dashboard_id,  	dashboard_name,  	dashboard_category,  	dashboard_link,  	dashboard_file,  	dashboard_comments";
 $proto0["m_strFrom"] = "FROM dashboard_pages";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -934,40 +1223,70 @@ $proto12["m_alias"] = "";
 $obj = new SQLFieldListItem($proto12);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto14=array();
-$proto14["m_link"] = "SQLL_MAIN";
-			$proto15=array();
-$proto15["m_strName"] = "dashboard_pages";
-$proto15["m_srcTableName"] = "dashboard_pages";
-$proto15["m_columns"] = array();
-$proto15["m_columns"][] = "dashboard_id";
-$proto15["m_columns"][] = "dashboard_name";
-$proto15["m_columns"][] = "dashboard_category";
-$proto15["m_columns"][] = "dashboard_link";
-$obj = new SQLTable($proto15);
+						$proto14=array();
+			$obj = new SQLField(array(
+	"m_strName" => "dashboard_file",
+	"m_strTable" => "dashboard_pages",
+	"m_srcTableName" => "dashboard_pages"
+));
 
-$proto14["m_table"] = $obj;
-$proto14["m_sql"] = "dashboard_pages";
-$proto14["m_alias"] = "";
+$proto14["m_sql"] = "dashboard_file";
 $proto14["m_srcTableName"] = "dashboard_pages";
-$proto16=array();
-$proto16["m_sql"] = "";
-$proto16["m_uniontype"] = "SQLL_UNKNOWN";
+$proto14["m_expr"]=$obj;
+$proto14["m_alias"] = "";
+$obj = new SQLFieldListItem($proto14);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto16=array();
+			$obj = new SQLField(array(
+	"m_strName" => "dashboard_comments",
+	"m_strTable" => "dashboard_pages",
+	"m_srcTableName" => "dashboard_pages"
+));
+
+$proto16["m_sql"] = "dashboard_comments";
+$proto16["m_srcTableName"] = "dashboard_pages";
+$proto16["m_expr"]=$obj;
+$proto16["m_alias"] = "";
+$obj = new SQLFieldListItem($proto16);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto18=array();
+$proto18["m_link"] = "SQLL_MAIN";
+			$proto19=array();
+$proto19["m_strName"] = "dashboard_pages";
+$proto19["m_srcTableName"] = "dashboard_pages";
+$proto19["m_columns"] = array();
+$proto19["m_columns"][] = "dashboard_id";
+$proto19["m_columns"][] = "dashboard_name";
+$proto19["m_columns"][] = "dashboard_category";
+$proto19["m_columns"][] = "dashboard_link";
+$proto19["m_columns"][] = "dashboard_file";
+$proto19["m_columns"][] = "dashboard_comments";
+$obj = new SQLTable($proto19);
+
+$proto18["m_table"] = $obj;
+$proto18["m_sql"] = "dashboard_pages";
+$proto18["m_alias"] = "";
+$proto18["m_srcTableName"] = "dashboard_pages";
+$proto20=array();
+$proto20["m_sql"] = "";
+$proto20["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto16["m_column"]=$obj;
-$proto16["m_contained"] = array();
-$proto16["m_strCase"] = "";
-$proto16["m_havingmode"] = false;
-$proto16["m_inBrackets"] = false;
-$proto16["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto16);
+$proto20["m_column"]=$obj;
+$proto20["m_contained"] = array();
+$proto20["m_strCase"] = "";
+$proto20["m_havingmode"] = false;
+$proto20["m_inBrackets"] = false;
+$proto20["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto20);
 
-$proto14["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto14);
+$proto18["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto18);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -983,7 +1302,7 @@ $queryData_dashboard_pages = createSqlQuery_dashboard_pages();
 	
 																								;
 
-				
+						
 
 $tdatadashboard_pages[".sqlquery"] = $queryData_dashboard_pages;
 

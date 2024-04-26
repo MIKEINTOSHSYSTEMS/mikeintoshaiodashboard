@@ -25,18 +25,6 @@ pdfDocument = {
 	globalsummary: {
 		fillColor: '#ffe0b0',
 	},
-		
-	blackshade: {
-		fontSize: 15,
-	},
-	summarycell: {
-		border:[false, true, false, true ]
-	},
-/*
-		.grouptotalsrow + :not(.grouptotalsrow) > * {
-		border-top:solid #808080 1px; 
-	}
-	*/	
 			},
 	defaultStyle: {
 		fontSize: 14,

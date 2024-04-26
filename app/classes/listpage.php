@@ -488,6 +488,17 @@ class ListPage extends RunnerPage
 		// add button events if exist
 		$this->addButtonHandlers();
 
+		$addPSet = new ProjectSettings($this->tName, PAGE_ADD);
+		$editPSet = new ProjectSettings($this->tName, PAGE_EDIT);
+		for($i=0;$i<count($this->listFields);$i++)
+		{
+			if($this->pSet->appearOnInlineAdd($this->listFields[$i]['fName']) && $addPSet->isUseRTE($this->listFields[$i]['fName'])
+				|| $this->pSet->appearOnInlineEdit($this->listFields[$i]['fName']) && $editPSet->isUseRTE($this->listFields[$i]['fName']))
+			{
+				$this->AddJSFile("plugins/ckeditor/ckeditor.js");
+				break;
+			}
+		}
 		if( $this->allDetailsTablesArr )
 		{
 			$this->AddCSSFile("include/jquery-ui/smoothness/jquery-ui.min.css");

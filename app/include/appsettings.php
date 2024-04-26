@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "175_1714069770";
+$projectBuildKey = "176_1714142431";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "175";
+$projectBuildNumber = "176";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -950,9 +950,9 @@ Security::autoLoginAsGuest();
 Security::updateCSRFCookie();
 
 
-$isUseRTEBasic = true;
+$isUseRTEBasic = false;
 
-$isUseRTECK = false;
+$isUseRTECK = true;
 
 $isUseRTEInnova = false;
 

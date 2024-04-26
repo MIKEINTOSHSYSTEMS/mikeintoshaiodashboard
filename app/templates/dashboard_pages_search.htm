@@ -338,6 +338,50 @@
 </div>
 
 {END dashboard_link_fieldblock}
+											
+{BEGIN dashboard_file_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_dashboard_file}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="dashboard_file{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="dashboard_file" data-fieldname="dashboard_file" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_dashboard_file}">
+		{$label dashboard_pages dashboard_file }	</label>
+	<div class="r-search-option">
+		{$searchtype_dashboard_file}
+	</div>
+	<div class="r-search-field">
+		{$dashboard_file_editcontrol}	</div>
+	<div class="r-search-field">
+		{$dashboard_file_editcontrol1}
+	</div>
+	
+</div>
+
+{END dashboard_file_fieldblock}
+											
+{BEGIN dashboard_comments_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_dashboard_comments}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="dashboard_comments{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="dashboard_comments" data-fieldname="dashboard_comments" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_dashboard_comments}">
+		{$label dashboard_pages dashboard_comments }	</label>
+	<div class="r-search-option">
+		{$searchtype_dashboard_comments}
+	</div>
+	<div class="r-search-field">
+		{$dashboard_comments_editcontrol}	</div>
+	<div class="r-search-field">
+		{$dashboard_comments_editcontrol1}
+	</div>
+	
+</div>
+
+{END dashboard_comments_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

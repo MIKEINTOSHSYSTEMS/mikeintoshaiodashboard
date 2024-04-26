@@ -366,6 +366,48 @@
 
 
 {END dashboard_link_fieldblock}
+											
+{BEGIN dashboard_file_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_dashboard_file}  r-vertical-field" 
+	data-signal-error-for="dashboard_file{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="dashboard_file" data-fieldname="dashboard_file" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_dashboard_file}">
+		{BEGIN dashboard_file_label}{$label dashboard_pages dashboard_file }{END dashboard_file_label}
+	</label>
+	<div class="r-edit-field">
+		{$dashboard_file_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="dashboard_file">
+		<div class="text-muted" >
+		{$tooltip dashboard_pages dashboard_file }		</div>
+	</div>
+</div>
+
+
+{END dashboard_file_fieldblock}
+											
+{BEGIN dashboard_comments_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_dashboard_comments}  r-vertical-field" 
+	data-signal-error-for="dashboard_comments{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="dashboard_comments" data-fieldname="dashboard_comments" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_dashboard_comments}">
+		{BEGIN dashboard_comments_label}{$label dashboard_pages dashboard_comments }{END dashboard_comments_label}
+	</label>
+	<div class="r-edit-field">
+		{$dashboard_comments_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="dashboard_comments">
+		<div class="text-muted" >
+		{$tooltip dashboard_pages dashboard_comments }		</div>
+	</div>
+</div>
+
+
+{END dashboard_comments_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
