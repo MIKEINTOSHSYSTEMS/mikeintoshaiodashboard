@@ -207,24 +207,6 @@
 								</a>
 </span>
 			</span>
-		 
-				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="breadcrumb" {$item_breadcrumb} data-topcell-item-type="breadcrumb" >
-				{BEGIN breadcrumb}
-<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
-<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
-{BEGIN crumb}
-  <li class="{$crumb_item_class}">
-{BEGIN crumb_title_link}
-	<a {$crumb_attrs}>{$crumb_title}</a>
-{END crumb_title_link}
-{BEGIN crumb_title_span}
-	<span {$crumb_attrs}>{$crumb_title}</span>
-{END crumb_title_span}	
-	{$crumb_dropdown}
-  </li>
-{END crumb}
-</ol>
-{END breadcrumb}			</span>
 							 
 							 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
@@ -482,130 +464,19 @@
 	class="r-align-center r-ori-vert			col-md-12
 	
 ">
-			</div>					</div>
-			 
-				<div class="row">
-			 
-				<div 
-	data-cellId="above-grid_c5" data-pageid="{$pageid}"	{$cell_above-grid_c5}
-	class="r-align-right r-ori-vert			col-md-12
-	
-">
-			</div>					</div>
+		 
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-small > 
+	<iframe    src="../backend/forms/index.php"    frameborder="0"    width="100%"    height="1200"    allowtransparency></iframe></span>
+		</div>					</div>
 			 
 				<div class="row">
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class="			col-md-6
+	class="r-align-right r-ori-vert			col-md-12
 	
 ">
-		 
-		{BEGIN add_link}
-<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" {$addlink_attrs} href="dashboards_add.php?page=add{$stateLink}" data-page="add" data-popup >
-					<span class="fa fa-edit"></span>
-							Add Comment			</a>
-</span>
-{END add_link}
-	 
-		{BEGIN deleteselected_link}
-<span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-default   
-	" {$deleteselectedlink_attrs} {$deleteselectedlink_span} disabled >
-							Delete			</a>
-</span>
-{END deleteselected_link}
-		</div>			 
-				<div 
-	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
-	class="r-align-right			col-md-6
-	
-">
-		 
-		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
-{$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
-		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
-		{$recsPerPage}
-</span>	 
-		{BEGIN print_friendly}
-<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
-	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<span class="glyphicon glyphicon-print"></span>
-				<span class="caret"></span>
-	</button>
-	<ul class="dropdown-menu pull-right">
-										 
-				 
-					<li class="container-fluid 
-										">
-									<div id="print_friendly_scope{$id}">
-	<div class="row">
-		<div class="col-md-4">
-			Scope:		</div>
-
-			 
-		{BEGIN print_friendly_all}
-		<div class="col-md-8">
-			<label for="printAll{$id}">
-				<input type="radio" id="printAll{$id}" data-href="dashboards_print.php?all=1&amp;{$crosstable_attrs}" name="printScope" >
-									Print all pages							</label>
-		</div>
-		{END print_friendly_all}
-		</div>
-		<div class="row">
-		<div class="col-md-4">&nbsp;</div>
-		<div class="col-md-8">
-			<label for="printPage{$id}">
-				<input name="printScope" id="printPage{$id}" type="radio" checked data-href="dashboards_print.php?{$crosstable_attrs}">
-				Print this page			</label>
-		</div>
-	</div>
-		
-		 
-	<div class="row">
-		<div class="col-md-4">
-			&nbsp;
-		</div>
-		<div class="col-md-8">
-			<label style="color: gray;" for="printSelection{$id}">
-			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
-			Print selected			</label>
-		</div>
-	</div>
-	</div>
-				 
-					</li>
-											<li class="divider" role="separator"></li>
-																				 
-				 
-					<li class="container-fluid 
-										">
-									<div>
-	<label for="printPerPage{$id}">
-					Records Per Page							
-	</label>
-	<input type="number" id="printPerPage{$id}" value="{$print_recspp}" class="rnr-printrecspp">		
-</div>
-				 
-					</li>
-											<li class="divider" role="separator"></li>
-																				 
-				 
-					<li class="container-fluid 
-					 text-center 					">
-									<span data-itemtype="print_button" data-itemid="print_button" {$item_print_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" id="print_friendly_button{$id}" >
-							Print			</a>
-</span>
-				 
-					</li>
-															</ul>
-</span>
-{END print_friendly}
-		</div>					</div>
+			</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>
@@ -615,22 +486,7 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
 @media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_commentid"]:before {
-		content: "{$label dashboards dashboard_commentid}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_comment"]:before {
-		content: "{$label dashboards dashboard_comment}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_commentdate"]:before {
-		content: "{$label dashboards dashboard_commentdate}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_userdetails"]:before {
-		content: "{$label dashboards dashboard_userdetails}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="dashboard_commentfiles"]:before {
-		content: "{$label dashboards dashboard_commentfiles}";
-	}
-	}
+					}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
 	cellpadding="0"
@@ -653,7 +509,7 @@
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_headcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"		data-control-cell
+	data-cellId="grid_headcell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_Forms_Management"		data-control-cell
 	
 	>
 
@@ -669,7 +525,7 @@
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
+	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_Forms_Management"	
 		data-checkbox-cell
 	>
 
@@ -682,131 +538,6 @@
 	
 	</th>
 	{END cellblock_grid_headcell_checkbox}
-									{BEGIN cellblock_grid_headcell_field}
-	<th
-	
-	{$cell_grid_headcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentid_class}	"
-
-			data-field="dashboard_commentid"
-	
-	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentid_fieldheadercolumn}
-	{BEGIN dashboard_commentid_fieldheader}
-	<SPAN {$dashboard_commentid_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentid" data-fieldname="dashboard_commentid">
-	{$label dashboards dashboard_commentid }	{$arrow_icon_dashboard_commentid}
-	</SPAN>
-	{END dashboard_commentid_fieldheader}
-{END dashboard_commentid_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field}
-									{BEGIN cellblock_grid_headcell_field1}
-	<th
-	
-	{$cell_grid_headcell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_userdetails_class}	"
-
-			data-field="dashboard_userdetails"
-	
-	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_userdetails_fieldheadercolumn}
-	{BEGIN dashboard_userdetails_fieldheader}
-	<SPAN {$dashboard_userdetails_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_userdetails" data-fieldname="dashboard_userdetails">
-	{$label dashboards dashboard_userdetails }	{$arrow_icon_dashboard_userdetails}
-	</SPAN>
-	{END dashboard_userdetails_fieldheader}
-{END dashboard_userdetails_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field1}
-									{BEGIN cellblock_grid_headcell_field2}
-	<th
-	
-	{$cell_grid_headcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentdate_class}	"
-
-			data-field="dashboard_commentdate"
-	
-	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentdate_fieldheadercolumn}
-	{BEGIN dashboard_commentdate_fieldheader}
-	<SPAN {$dashboard_commentdate_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentdate" data-fieldname="dashboard_commentdate">
-	{$label dashboards dashboard_commentdate }	{$arrow_icon_dashboard_commentdate}
-	</SPAN>
-	{END dashboard_commentdate_fieldheader}
-{END dashboard_commentdate_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field2}
-									{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comment_class}	"
-
-			data-field="dashboard_comment"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_comment_fieldheadercolumn}
-	{BEGIN dashboard_comment_fieldheader}
-	<SPAN {$dashboard_comment_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_comment" data-fieldname="dashboard_comment">
-	{$label dashboards dashboard_comment }	{$arrow_icon_dashboard_comment}
-	</SPAN>
-	{END dashboard_comment_fieldheader}
-{END dashboard_comment_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
-									{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentfiles_class}	"
-
-			data-field="dashboard_commentfiles"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentfiles_fieldheadercolumn}
-	{BEGIN dashboard_commentfiles_fieldheader}
-	<SPAN {$dashboard_commentfiles_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentfiles" data-fieldname="dashboard_commentfiles">
-	{$label dashboards dashboard_commentfiles }	{$arrow_icon_dashboard_commentfiles}
-	</SPAN>
-	{END dashboard_commentfiles_fieldheader}
-{END dashboard_commentfiles_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field4}
 							</tr>
 															
 					{END grid_header}
@@ -827,8 +558,7 @@
 					"
 
 	
-	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"		data-control-cell
-	
+	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_Forms_Management"	
 	>
 
 	 
@@ -865,8 +595,7 @@
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
-	
+	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
 		data-checkbox-cell
 	>
 
@@ -880,111 +609,6 @@
 	
 	</td>
 	{END cellblock_grid_cell_checkbox}
-									{BEGIN cellblock_grid_cell_field}
-	<td
-	
-	{$cell_grid_cell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentid_class}	"
-
-			data-field="dashboard_commentid"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentid_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentid" data-fieldname="dashboard_commentid" data-default-width >
-{$dashboard_commentid_value}
-</span>
-{END dashboard_commentid_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-									{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_userdetails_class}	"
-
-			data-field="dashboard_userdetails"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_userdetails_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_userdetails" data-fieldname="dashboard_userdetails" data-default-width >
-{$dashboard_userdetails_value}
-</span>
-{END dashboard_userdetails_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-									{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentdate_class}	"
-
-			data-field="dashboard_commentdate"
-	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentdate_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentdate" data-fieldname="dashboard_commentdate" data-default-width >
-{$dashboard_commentdate_value}
-</span>
-{END dashboard_commentdate_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comment_class}	"
-
-			data-field="dashboard_comment"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_comment_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_comment" data-fieldname="dashboard_comment" data-default-width >
-{$dashboard_comment_value}
-</span>
-{END dashboard_comment_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentfiles_class}	"
-
-			data-field="dashboard_commentfiles"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN dashboard_commentfiles_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="dashboard_commentfiles" data-fieldname="dashboard_commentfiles" data-default-width >
-{$dashboard_commentfiles_value}
-</span>
-{END dashboard_commentfiles_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
 							</tr>
 										
 											{END grid_row}
@@ -1026,81 +650,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_checkbox}
-									{BEGIN cellblock_grid_footcell_field}
-	<td
-	
-	{$cell_grid_footcell_field}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentid_class}	"
-
-	
-	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field}
-									{BEGIN cellblock_grid_footcell_field1}
-	<td
-	
-	{$cell_grid_footcell_field1}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_userdetails_class}	"
-
-	
-	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field1}
-									{BEGIN cellblock_grid_footcell_field2}
-	<td
-	
-	{$cell_grid_footcell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentdate_class}	"
-
-	
-	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field2}
-									{BEGIN cellblock_grid_footcell_field3}
-	<td
-	
-	{$cell_grid_footcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_comment_class}	"
-
-	
-	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field3}
-									{BEGIN cellblock_grid_footcell_field4}
-	<td
-	
-	{$cell_grid_footcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$dashboard_commentfiles_class}	"
-
-	
-	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="dashboards_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field4}
 							</tr>
 					
 					</tfoot>

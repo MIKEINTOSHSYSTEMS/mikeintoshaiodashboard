@@ -32,7 +32,7 @@ pdfDocument = {
 		{END embedded_grid_caption}
 		{BEGIN embedded_page_title}
 			{
-				text: '{$jspagetitlelabel dashboards list}',
+				text: '{$jspagetitlelabel dashboards Events_Participant_Dashboard}',
 			},
 		{END embedded_page_title}		
 		{ 
@@ -174,8 +174,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"<iframe    src=\"https://derejademo.merqconsultancy.org/public/dashboard/9277d4b1-7410-47e7-861e-274051922cb0\"    frameborder=\"0\"    width=\"100%\"    height=\"1200\"    allowtransparency></iframe>","hidden":"{$item_hide_text}","isHtml":true},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
      

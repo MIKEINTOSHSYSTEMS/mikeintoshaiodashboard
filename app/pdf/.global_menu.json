@@ -157,13 +157,25 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
 				],
 	
 		body: [
 				
 				[
 																{
-	cellId: 'c10',
+	cellId: 'c24',
 	col:0,
 	row:0,
 			
@@ -185,7 +197,7 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c10',
+				cellId: 'c24',
 				row:  0,
 				col:  1,
 				text: ''
@@ -193,7 +205,7 @@ pdfDocument = {
 							],
 						[
 																{
-	cellId: 'c1',
+	cellId: 'c10',
 	col:0,
 	row:0,
 			
@@ -208,9 +220,6 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_welcome_group1}"},
 				
-				
-			{"text":"","hidden":"{$item_hide_welcome_group9}"},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
@@ -219,7 +228,7 @@ pdfDocument = {
       },
 
 																							{
-	cellId: 'c8',
+	cellId: 'c23',
 	col:0,
 	row:0,
 			
@@ -232,19 +241,140 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group3}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_welcome_group2}"},
+			{"text":"","hidden":"{$item_hide_welcome_group9}"},
 				
 		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+         "pageBreak": 'after',
+   
+      },
+
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
       
       },
 
-											],
+																		{ 
+				cellId: 'c4',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+         "pageBreak": 'after',
+   
+      },
+
+																		{ 
+				cellId: 'c8',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group3}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c7',
@@ -325,7 +455,8 @@ pdfDocument = {
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
-      
+         "pageBreak": 'after',
+   
       },
 
 																		{ 
@@ -337,12 +468,13 @@ pdfDocument = {
 							],
 						[
 																{
-	cellId: 'c16',
+	cellId: 'c19',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
@@ -359,30 +491,13 @@ pdfDocument = {
       
       },
 
-																							{
-	cellId: 'c19',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group5}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-											],
+																		{ 
+				cellId: 'c19',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c15',
@@ -463,7 +578,8 @@ pdfDocument = {
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
-      
+         "pageBreak": 'after',
+   
       },
 
 																		{ 
@@ -601,7 +717,8 @@ pdfDocument = {
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
-      
+         "pageBreak": 'after',
+   
       },
 
 																		{ 
@@ -630,7 +747,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+      fillColor: '#f3f3f3',        "alignment": 'left',
      
       
       },
@@ -653,7 +770,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+      fillColor: '#f3f3f3',        "alignment": 'left',
      
       
       },

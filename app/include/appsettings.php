@@ -612,11 +612,11 @@ $ajaxSearchStartsWith = true;
 
 
 
-$globalSettings["LandingPageType"] = 0;
+$globalSettings["LandingPageType"] = 1;
 $globalSettings["LandingTable"] = "";
-$globalSettings["LandingPage"] = "";
-$globalSettings["LandingURL"] = "";
-$globalSettings["LandingPageId"] = "";
+$globalSettings["LandingPage"] = "login";
+$globalSettings["LandingURL"] = "login.php?page=login";
+$globalSettings["LandingPageId"] = "login";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["English"] = "<p style=\"text-align: center;\"><a href=\"./menu.php\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>";
@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "180_1714145510";
+$projectBuildKey = "190_1714145510";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "180";
+$projectBuildNumber = "190";
 
 $mlang_messages = array();
 $mlang_charsets = array();

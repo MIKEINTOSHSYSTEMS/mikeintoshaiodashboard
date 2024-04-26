@@ -15,25 +15,22 @@
 	{END styleCSSFiles}
 			
 	</head>
-	<body class="{$stylename} function-menu"  >
+
+	<body class="{$stylename} function-menu"   
+		>
 	{BEGIN body}
-		{$header}
 		<style>
-			{$containerCss}
+		{$containerCss}
 		</style>
-		<div class="r-topbar-page">
-			<div data-menu-width="full" 
-				data-fixed 
-				class="r-topheader" 
-				data-resize-name="topbar"
-				data-body-align="center"
-			>
-								{BEGIN supertop_block}
-<nav class="navbar navbar-default" 
-	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
-			 
-							 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-left r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+		<div class="r-vbar-page">
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -43,13 +40,55 @@
 					<span class="sr-only">Toggle navigation</span>	
 					<span class="icon-bar"></span>					
 				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
+				{$menu DerejaMenuSet}			</div>
+		
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form r-align-left navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-left navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
 			</span>
 							 
 							 
-				<span data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" class="r-align-right navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}" data-page=".global_menu">
-				{$menu secondary horizontal}			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
 				<div class="dropdown" data-itemtype="notifications" data-itemid="notifications" {$item_notifications} data-pageid="{$pageid}" id="notifications{$id}">
 	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 		<i class="fa fa-bell"></i>
@@ -113,7 +152,7 @@
 </div>
 			</span>
 		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
 				{BEGIN guestloginbutton}
 <span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
@@ -124,7 +163,7 @@
 {END guestloginbutton}
 			</span>
 		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="loginform_register" {$item_loginform_register} data-topcell-item-type="loginform_register" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_register" {$item_loginform_register} data-topcell-item-type="loginform_register" >
 				{BEGIN guest_register}
 <span data-itemtype="loginform_register" data-itemid="loginform_register" {$item_loginform_register} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-default   
@@ -134,7 +173,7 @@
 {END guest_register}
 			</span>
 		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-page=".global_menu" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
 				{BEGIN loggedas_message}
 <span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-page=".global_menu" data-small data-button-item>
 	<span class="dropdown ">
@@ -182,17 +221,15 @@
 			</span>
 								</nav>
 {END supertop_block}
-					{$locking}
-			</div>	
-			<div data-body-align="center"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
-				<div class="r-top">
-										</div>
-				<div class="r-content">
-										<div class="r-data-block" data-body-width="standard" >
-						
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="full">
+					{$header}
+					<div class="r-top">
+												</div>
 											<div class="r-above">
 					{BEGIN above-grid_block}
-<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
 	 
 				<div class="row">
 			 
@@ -230,14 +267,14 @@
   </ul>
 {END grid_tabs}
 					{BEGIN grid_block}
-<table class="r-fluid r-form" data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" >
+<table class="r-fluid r-form" data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" >
 						<tbody>
 			
 								<tr {$row_grid_0} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c10" data-pageid="{$pageid}">
+	data-cellId="grid_c24" data-pageid="{$pageid}">
 <div class="r-welcome-align">
 </div>
 </td>
@@ -246,8 +283,8 @@
 									<td 
 	
 			 
-	data-cellId="grid_c1" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+	data-cellId="grid_c10" data-pageid="{$pageid}">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group1" {$item_welcome_group1} data-pageid="{$pageid}">
 	<h2>
@@ -311,6 +348,13 @@
 	</div>
 
 <div class="clearfix"></div>
+</div>
+</td>
+									<td 
+	
+			 
+	data-cellId="grid_c23" data-pageid="{$pageid}">
+<div class="r-welcome-align-right">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group9" {$item_welcome_group9} data-pageid="{$pageid}">
 	<h2>
@@ -385,15 +429,44 @@
 <div class="clearfix"></div>
 </div>
 </td>
+							</tr>
+											<tr {$row_grid_2} >
 									<td 
 	
-			 
-	data-cellId="grid_c8" data-pageid="{$pageid}">
+	colspan="2"		 
+	data-cellId="grid_c3" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_3} >
+									<td 
+	
+	colspan="2"		 
+	data-cellId="grid_c4" data-pageid="{$pageid}">
+<div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_4} >
+									<td 
+	
+	colspan="2"		 
+	data-cellId="grid_c8" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_5} >
+									<td 
+	
+	colspan="2"		 
+	data-cellId="grid_c1" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group3" {$item_welcome_group3} data-pageid="{$pageid}">
 	<h2>
-					Training Data Management		
+					Training and Events Data Management		
 			</h2>
 	 
 	</div>
@@ -403,6 +476,18 @@
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="trainings1_list.php"  > 
 							<span class="fa fa-book"></span>Trainings					</a>
+	</div>
+
+			
+	<div class="bs-welcome-content">
+			</div>
+	</div>
+
+			
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item6" {$item_welcome_item6} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="events1_list.php"  > 
+							<span class="glyphicon glyphicon-calendar"></span>Events					</a>
 	</div>
 
 			
@@ -464,27 +549,6 @@
 
 	</div>
 
-<div class="clearfix"></div>
- 
-<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group2" {$item_welcome_group2} data-pageid="{$pageid}">
-	<h2>
-					Events Data Management		
-			</h2>
-	 
-	</div>
-
-			
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item6" {$item_welcome_item6} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="events1_list.php"  > 
-							<span class="glyphicon glyphicon-calendar"></span>Events					</a>
-	</div>
-
-			
-	<div class="bs-welcome-content">
-			</div>
-	</div>
-
 	
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item19" {$item_welcome_item19} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
@@ -498,7 +562,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_2} >
+											<tr {$row_grid_6} >
 									<td 
 	
 	colspan="2"		 
@@ -507,7 +571,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_3} >
+											<tr {$row_grid_7} >
 									<td 
 	
 	colspan="2"		 
@@ -516,25 +580,25 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_4} >
+											<tr {$row_grid_8} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c12" data-pageid="{$pageid}">
+	data-cellId="grid_c12" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_5} >
+											<tr {$row_grid_9} >
 									<td 
 	
-			 
-	data-cellId="grid_c16" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+	colspan="2"		 
+	data-cellId="grid_c19" data-pageid="{$pageid}">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group4" {$item_welcome_group4} data-pageid="{$pageid}">
 	<h2>
-					Jobs Data Management		
+					Jobs and Companies Data Management		
 			</h2>
 	 
 	</div>
@@ -575,22 +639,6 @@
 
 	</div>
 
-<div class="clearfix"></div>
-</div>
-</td>
-									<td 
-	
-			 
-	data-cellId="grid_c19" data-pageid="{$pageid}">
-<div class="r-welcome-align">
- 
-<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group5" {$item_welcome_group5} data-pageid="{$pageid}">
-	<h2>
-					Company Data Management		
-			</h2>
-	 
-	</div>
-
 	
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item8" {$item_welcome_item8} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
@@ -613,7 +661,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_6} >
+											<tr {$row_grid_10} >
 									<td 
 	
 	colspan="2"		 
@@ -622,7 +670,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_7} >
+											<tr {$row_grid_11} >
 									<td 
 	
 	colspan="2"		 
@@ -631,21 +679,21 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_8} >
+											<tr {$row_grid_12} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c17" data-pageid="{$pageid}">
+	data-cellId="grid_c17" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_9} >
+											<tr {$row_grid_13} >
 									<td 
 	
 			 
 	data-cellId="grid_c11" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group7" {$item_welcome_group7} data-pageid="{$pageid}">
 	<h2>
@@ -742,11 +790,11 @@
 	
 			 
 	data-cellId="grid_c" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group6" {$item_welcome_group6} data-pageid="{$pageid}">
 	<h2>
-					Localization Data Management		
+					Localization and Regional Data Management		
 			</h2>
 	 
 	</div>
@@ -800,7 +848,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_10} >
+											<tr {$row_grid_14} >
 									<td 
 	
 	colspan="2"		 
@@ -809,7 +857,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_11} >
+											<tr {$row_grid_15} >
 									<td 
 	
 	colspan="2"		 
@@ -818,21 +866,21 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_12} >
+											<tr {$row_grid_16} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c14" data-pageid="{$pageid}">
+	data-cellId="grid_c14" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_13} >
+											<tr {$row_grid_17} >
 									<td 
 	
 			 
-	data-cellId="grid_c6" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+	data-cellId="grid_c6" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group8" {$item_welcome_group8} data-pageid="{$pageid}">
 	<h2>
@@ -901,8 +949,8 @@
 									<td 
 	
 			 
-	data-cellId="grid_c20" data-pageid="{$pageid}">
-<div class="r-welcome-align">
+	data-cellId="grid_c20" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-left">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group" {$item_welcome_group} data-pageid="{$pageid}">
 	<h2>
@@ -984,7 +1032,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_14} >
+											<tr {$row_grid_18} >
 									<td 
 	
 	colspan="2"		 
@@ -993,7 +1041,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_15} >
+											<tr {$row_grid_19} >
 									<td 
 	
 	colspan="2"		 
@@ -1013,12 +1061,12 @@
 
 
 
-											
-					</div>
+										{$footer}
 				</div>
 			</div>
+			<div class="r-body-shadow">
+			</div>
 		</div>
-		{$footer}
 	{END body}
 	</body>
 </html>
