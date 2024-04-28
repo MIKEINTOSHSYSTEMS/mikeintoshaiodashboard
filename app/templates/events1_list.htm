@@ -558,7 +558,7 @@
 					Event Participants View				</label>
 			</div>
 			{END print_details_event_participants_view}
-						</div>
+														</div>
 </div>
 {END print_details}
 				 
@@ -908,6 +908,25 @@
 	{END event_participants_view_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN _dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link3" {$item_grid_details_link3} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$_link_attrs} data-short-details=""
+		class="{$_dlink_class}" 
+		title="{$caption event_participants_view1 }"			>
+								
+									{BEGIN _childcount}
+				<span class="details-badge badge _badge" {$_childnumber_attr}>
+					{$_childnumber}				
+				</span>
+				{END _childcount}
+						</a>
+	</span>
+	{END _dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -970,9 +989,9 @@
 	>
 
 	 
-						<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders=",event_participants,dereja_event_services,event_participants_view"
-			data-details-			data-details-event_participants			data-details-dereja_event_services			data-details-event_participants_view	>
+							<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders=",event_participants,dereja_event_services,event_participants_view,"
+			data-details-			data-details-event_participants			data-details-dereja_event_services			data-details-event_participants_view			data-details-	>
 		<span data-details-inside data-short-table="">
 			</span>
 		<span data-details-inside data-short-table="event_participants">
@@ -981,10 +1000,13 @@
 			</span>
 		<span data-details-inside data-short-table="event_participants_view">
 			</span>
+		<span data-details-inside data-short-table="">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			 
 			 
 			

@@ -3745,6 +3745,16 @@ pdfDocument = {
 			{$displayDetailTable_regions }
 		{END details_regions},
 				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
+				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

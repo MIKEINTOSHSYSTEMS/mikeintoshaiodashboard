@@ -327,6 +327,14 @@ function checkTableName($shortTName )
 		return true;
 	if ("candidates_by_sex" == $shortTName )
 		return true;
+	if ("candidates_by_region" == $shortTName )
+		return true;
+	if ("event_participants_by_events" == $shortTName )
+		return true;
+	if ("training_participants_by_trainings" == $shortTName )
+		return true;
+	if ("candidates_reports" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -935,6 +943,42 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="candidates_by_sex";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_by_region");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_by_region";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("event_participants_by_events");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="event_participants_by_events";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("training_participants_by_trainings");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="training_participants_by_trainings";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_reports");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_reports";
+	}
 	return $arr;
 }
 
@@ -1006,6 +1050,10 @@ function GetTablesListWithoutSecurity()
 	$arr[]="training_participants_view";
 	$arr[]="AIO_Reporting_Dashboard";
 	$arr[]="candidates_by_sex";
+	$arr[]="candidates_by_region";
+	$arr[]="event_participants_by_events";
+	$arr[]="training_participants_by_trainings";
+	$arr[]="candidates_reports";
 	return $arr;
 }
 
@@ -1051,6 +1099,14 @@ function GetChartType($shorttable)
 {
 	if($shorttable=="candidates_by_sex")
 		return "2DColumn";
+	if($shorttable=="candidates_by_region")
+		return "2DColumn";
+	if($shorttable=="event_participants_by_events")
+		return "2DColumn";
+	if($shorttable=="training_participants_by_trainings")
+		return "2DBar";
+	if($shorttable=="candidates_reports")
+		return "Line";
 	return "";
 }
 
@@ -1941,6 +1997,26 @@ function GetUserPermissionsStatic( $table )
 		return "S".$extraPerm;
 	}
 	if( $table=="candidates_by_sex" )
+	{
+//	default permissions
+		return "S".$extraPerm;
+	}
+	if( $table=="candidates_by_region" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="event_participants_by_events" )
+	{
+//	default permissions
+		return "S".$extraPerm;
+	}
+	if( $table=="training_participants_by_trainings" )
+	{
+//	default permissions
+		return "S".$extraPerm;
+	}
+	if( $table=="candidates_reports" )
 	{
 //	default permissions
 		return "S".$extraPerm;

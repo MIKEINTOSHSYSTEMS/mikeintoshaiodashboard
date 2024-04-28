@@ -25,7 +25,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipscandidates_by_sex["English"] = array();
 	$placeHolderscandidates_by_sex["English"] = array();
 	$pageTitlescandidates_by_sex["English"] = array();
-	$fieldLabelscandidates_by_sex["English"]["Sex"] = "Sex";
+	$fieldLabelscandidates_by_sex["English"]["Sex"] = "Sex / Gender";
 	$fieldToolTipscandidates_by_sex["English"]["Sex"] = "";
 	$placeHolderscandidates_by_sex["English"]["Sex"] = "";
 	$fieldLabelscandidates_by_sex["English"]["CandidateID"] = "Candidates";

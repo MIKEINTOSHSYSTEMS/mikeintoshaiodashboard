@@ -4,6 +4,8 @@
 'dereja_event_services' => array( 'displayPreview' => 2,
 'previewPageId' => '' ),
 'event_participants_view' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'event_participants_by_events' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'EventID',

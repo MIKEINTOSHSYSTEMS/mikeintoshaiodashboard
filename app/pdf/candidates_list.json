@@ -2223,6 +2223,12 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link5}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link6}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link7}"},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
@@ -3947,6 +3953,16 @@ pdfDocument = {
 			 {BEGIN details_regions}
 			{$displayDetailTable_regions }
 		{END details_regions},
+				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
+				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
 				
 		  ],
   "border": [ true, true, true, true ],

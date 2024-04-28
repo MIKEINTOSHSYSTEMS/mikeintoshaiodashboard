@@ -370,6 +370,11 @@ pdfDocument = {
 			{$displayDetailTable_event_participants_view }
 		{END details_event_participants_view},
 				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

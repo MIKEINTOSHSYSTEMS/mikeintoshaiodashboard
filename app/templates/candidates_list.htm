@@ -1358,7 +1358,7 @@
 					Regions				</label>
 			</div>
 			{END print_details_regions}
-						</div>
+																						</div>
 </div>
 {END print_details}
 				 
@@ -3305,6 +3305,44 @@
 	{END regions_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN _dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link6" {$item_grid_details_link6} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$_link_attrs} data-short-details=""
+		class="{$_dlink_class}" 
+		title="{$caption event_participants_view1 }"			>
+								
+									{BEGIN _childcount}
+				<span class="details-badge badge _badge" {$_childnumber_attr}>
+					{$_childnumber}				
+				</span>
+				{END _childcount}
+						</a>
+	</span>
+	{END _dtable_link}
+
+
+	 
+		
+		
+	{BEGIN _dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link7" {$item_grid_details_link7} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$_link_attrs} data-short-details=""
+		class="{$_dlink_class}" 
+		title="{$caption training_participants_view1 }"			>
+								
+									{BEGIN _childcount}
+				<span class="details-badge badge _badge" {$_childnumber_attr}>
+					{$_childnumber}				
+				</span>
+				{END _childcount}
+						</a>
+	</span>
+	{END _dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -4522,9 +4560,9 @@
 	>
 
 	 
-										<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view,regions"
-			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view			data-details-regions	>
+												<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view,regions,,"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view			data-details-regions			data-details-			data-details-	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
@@ -4541,10 +4579,16 @@
 			</span>
 		<span data-details-inside data-short-table="regions">
 			</span>
+		<span data-details-inside data-short-table="">
+			</span>
+		<span data-details-inside data-short-table="">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
+			 
 			 
 			 
 			 

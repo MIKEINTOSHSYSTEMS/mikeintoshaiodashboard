@@ -142,6 +142,26 @@ class XTempl_Base
 				"chartName"=>"candidates_by_sex",
 				"table"=>"candidates_by_sex",
 				"ctype"=>"2DColumn"));
+			$this->assign_function("candidates_by_region_chart","xt_showchart",
+			array(
+				"chartName"=>"candidates_by_region",
+				"table"=>"candidates_by_region",
+				"ctype"=>"2DColumn"));
+			$this->assign_function("event_participants_by_events_chart","xt_showchart",
+			array(
+				"chartName"=>"event_participants_by_events",
+				"table"=>"event_participants_by_events",
+				"ctype"=>"2DColumn"));
+			$this->assign_function("training_participants_by_trainings_chart","xt_showchart",
+			array(
+				"chartName"=>"training_participants_by_trainings",
+				"table"=>"training_participants_by_trainings",
+				"ctype"=>"2DBar"));
+			$this->assign_function("candidates_reports_chart","xt_showchart",
+			array(
+				"chartName"=>"candidates_reports",
+				"table"=>"candidates_reports",
+				"ctype"=>"Line"));
 		}
 
 

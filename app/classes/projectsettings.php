@@ -3634,6 +3634,14 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "aio_reporting_dashboard" ] = "AIO_Reporting_Dashboard";
 	$projectEntities[ "candidates_by_sex" ] = array( "url" => "candidates_by_sex", "type" => 3 );
 	$projectEntitiesReverse[ "candidates_by_sex" ] = "candidates_by_sex";
+	$projectEntities[ "candidates_by_region" ] = array( "url" => "candidates_by_region", "type" => 3 );
+	$projectEntitiesReverse[ "candidates_by_region" ] = "candidates_by_region";
+	$projectEntities[ "event_participants_by_events" ] = array( "url" => "event_participants_by_events", "type" => 3 );
+	$projectEntitiesReverse[ "event_participants_by_events" ] = "event_participants_by_events";
+	$projectEntities[ "training_participants_by_trainings" ] = array( "url" => "training_participants_by_trainings", "type" => 3 );
+	$projectEntitiesReverse[ "training_participants_by_trainings" ] = "training_participants_by_trainings";
+	$projectEntities[ "candidates_reports" ] = array( "url" => "candidates_reports", "type" => 3 );
+	$projectEntitiesReverse[ "candidates_reports" ] = "candidates_reports";
 }
 
 function findTable( $table ) {

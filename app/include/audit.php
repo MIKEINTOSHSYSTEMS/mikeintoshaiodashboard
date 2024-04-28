@@ -656,6 +656,22 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="candidates_by_region")
+		{
+			return false;
+		}
+		if($table=="event_participants_by_events")
+		{
+			return false;
+		}
+		if($table=="training_participants_by_trainings")
+		{
+			return false;
+		}
+		if($table=="candidates_reports")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1263,6 +1279,22 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="candidates_by_sex")
+		{
+			return false;
+		}
+		if($table=="candidates_by_region")
+		{
+			return false;
+		}
+		if($table=="event_participants_by_events")
+		{
+			return false;
+		}
+		if($table=="training_participants_by_trainings")
+		{
+			return false;
+		}
+		if($table=="candidates_reports")
 		{
 			return false;
 		}

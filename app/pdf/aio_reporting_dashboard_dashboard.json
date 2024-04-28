@@ -41,12 +41,11 @@ pdfDocument = {
 								"%", 
 											"%", 
 											"%", 
+											"%", 
+											350, 
 					 ],	
 		
 			heights: [
-								
-			"%",
-			 
 								
 			"%",
 			 
@@ -97,75 +96,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
-	cellId: 'c4',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-											],
-						[
-																{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
 				
-			{"text":"","hidden":"{$item_hide_dashboard-item}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
-	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item1}"},
+			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -188,7 +120,53 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":"","hidden":"{$item_hide_dashboard-item2}"},
+			{"text":"","hidden":"{$item_hide_dashboard-item8}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item9}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item5}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -200,7 +178,7 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c9',
+	cellId: 'c',
 	col:0,
 	row:0,
 			
@@ -214,7 +192,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":"","hidden":"{$item_hide_dashboard-item6}"},
+			{"text":"","hidden":"{$item_hide_dashboard-item}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -224,13 +202,59 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c9',
+				cellId: 'c',
 				row:  0,
 				col:  1,
 				text: ''
 			},
 																			{
 	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item1}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item2}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c9',
 	col:0,
 	row:0,
 			
@@ -255,55 +279,54 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c10',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c10',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-																			{
 	cellId: 'c12',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 5,
 		
 			
 	
 	
 			"stack": [
 		
-				'',
-	  ],
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item6}"},
+				
+		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
 
-											],
+																		{ 
+				cellId: 'c12',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c12',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c12',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+														{ 
+				cellId: 'c12',
+				row:  0,
+				col:  4,
+				text: ''
+			},
+							],
 		
 		]
 	}

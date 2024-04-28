@@ -448,6 +448,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link3}"},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
@@ -557,6 +560,11 @@ pdfDocument = {
 			 {BEGIN details_event_participants_view}
 			{$displayDetailTable_event_participants_view }
 		{END details_event_participants_view},
+				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
 				
 		  ],
   "border": [ true, true, true, true ],

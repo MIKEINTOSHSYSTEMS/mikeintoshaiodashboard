@@ -16,7 +16,7 @@
 			<style>
 			body {
 				height:100%;
-				background:transparent url("images/clipart/bgphoto/pexels-lukas-590041.jpg") no-repeat center center fixed;
+				background:transparent url("images/clipart/bgphoto/pexels-mentatdgt-1319854.jpg") no-repeat center center fixed;
 				background-size:cover;
 			}
 		</style>
@@ -273,7 +273,7 @@
 											
 			<tr 
 			{$row_grid_0} 
-						data-row-width="3"
+						data-row-width="5"
 						>
 									<td 
 	class="r-align-center r-ori-vert			"
@@ -295,22 +295,76 @@
 	class="r-align-center r-ori-vert			"
 			 
 	data-cellId="grid_c3" data-pageid="{$pageid}">
-</td>
+ 
+<div 
+	data-dashtype="1" 
+	id="dashelement_event_participants_by_events_chart{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item7" {$item_dashboard-item7} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_event_participants_by_events_chart}
+</div></td>
+									<td 
+	class="r-align-center r-ori-vert			"
+			 
+	data-cellId="grid_c6" data-pageid="{$pageid}">
+ 
+<div 
+	data-dashtype="1" 
+	id="dashelement_training_participants_by_trainings_chart{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item8" {$item_dashboard-item8} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_training_participants_by_trainings_chart}
+</div></td>
+									<td 
+	class="r-align-center r-ori-vert			"
+			 
+	data-cellId="grid_c5" data-pageid="{$pageid}">
+ 
+<div 
+	data-dashtype="1" 
+	id="dashelement_candidates_reports_chart{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item9" {$item_dashboard-item9} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_candidates_reports_chart}
+</div></td>
 									<td 
 	class="r-align-center r-ori-vert			"
 			 
 	data-cellId="grid_c4" data-pageid="{$pageid}">
-</td>
+ 
+<div 
+	data-dashtype="1" 
+	id="dashelement_candidates_by_region_chart{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item5" {$item_dashboard-item5} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_candidates_by_region_chart}
+</div></td>
 							</tr>
 											
 			<tr 
 			{$row_grid_1} 
-						data-row-width="3"
+						data-row-width="4"
 						>
 									<td 
 	class="r-align-center r-ori-vert			"
-			 
-	data-cellId="grid_c1" data-pageid="{$pageid}">
+	colspan="2"		 
+	data-cellId="grid_c" data-pageid="{$pageid}">
  
 <div 
 	data-dashtype="0" 
@@ -326,7 +380,7 @@
 									<td 
 	class="r-align-center r-ori-vert			"
 			 
-	data-cellId="grid_c" data-pageid="{$pageid}">
+	data-cellId="grid_c7" data-pageid="{$pageid}">
  
 <div 
 	data-dashtype="0" 
@@ -342,7 +396,7 @@
 									<td 
 	class="r-align-center r-ori-vert			"
 			 
-	data-cellId="grid_c6" data-pageid="{$pageid}">
+	data-cellId="grid_c8" data-pageid="{$pageid}">
  
 <div 
 	data-dashtype="0" 
@@ -355,32 +409,10 @@
 >
 	{$db_training_participants_grid}
 </div></td>
-							</tr>
-											
-			<tr 
-			{$row_grid_2} 
-						data-row-width="2"
-						>
-									<td 
-	class="r-align-center r-ori-vert			"
-	colspan="2"		 
-	data-cellId="grid_c9" data-pageid="{$pageid}">
- 
-<div 
-	data-dashtype="4" 
-	id="dashelement_candidates_search{$pageid}"
-	data-tablocation="above" 
-
-	
-	
-	data-itemtype="dashboard-item" data-itemid="dashboard-item6" {$item_dashboard-item6} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
->
-	{$db_candidates_search}
-</div></td>
 									<td 
 	class="r-align-center r-ori-vert			"
 			 
-	data-cellId="grid_c7" data-pageid="{$pageid}">
+	data-cellId="grid_c9" data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard">
  
 <div 
 	data-dashtype="6" 
@@ -396,19 +428,25 @@
 							</tr>
 											
 			<tr 
-			{$row_grid_3} 
-						data-row-width="2"
+			{$row_grid_2} 
+						data-row-width="1"
 						>
 									<td 
-	class=" r-ori-vert			"
-	colspan="2"		 
-	data-cellId="grid_c10" data-pageid="{$pageid}">
-</td>
-									<td 
-	class=" r-ori-vert			"
-			 
+	class="r-align-center r-ori-vert			"
+	colspan="5"		 
 	data-cellId="grid_c12" data-pageid="{$pageid}">
-</td>
+ 
+<div 
+	data-dashtype="4" 
+	id="dashelement_candidates_search{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item6" {$item_dashboard-item6} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_candidates_search}
+</div></td>
 							</tr>
 		
 	</tbody>

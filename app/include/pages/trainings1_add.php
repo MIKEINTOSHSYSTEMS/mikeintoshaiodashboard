@@ -3,6 +3,8 @@
 'dereja_training_services' => array( 'displayPreview' => 2,
 'previewPageId' => '' ),
 'training_participants_view' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'training_participants_by_trainings' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'master' => array( 'Trainer' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),

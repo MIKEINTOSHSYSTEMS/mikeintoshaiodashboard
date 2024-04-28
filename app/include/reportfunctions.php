@@ -685,6 +685,22 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="candidates_by_region")
+		{
+			return 1;
+		}
+		if($table=="event_participants_by_events")
+		{
+			return 1;
+		}
+		if($table=="training_participants_by_trainings")
+		{
+			return 1;
+		}
+		if($table=="candidates_reports")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1193,6 +1209,22 @@ function getCaptionTable($table)
 	if($table=="candidates_by_sex")
 	{
 		return "Candidates By Sex";
+	}
+	if($table=="candidates_by_region")
+	{
+		return "Candidates By Region";
+	}
+	if($table=="event_participants_by_events")
+	{
+		return "Event Participants By Events";
+	}
+	if($table=="training_participants_by_trainings")
+	{
+		return "Training Participants By Trainings";
+	}
+	if($table=="candidates_reports")
+	{
+		return "Candidates Reports";
 	}
 	return $table;
 }

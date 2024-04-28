@@ -9233,6 +9233,66 @@ $detailsTablesData["candidates"] = array();
 				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="RegionName";
+//	event_participants_by_events
+	
+	
+
+		$dIndex = 8;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="event_participants_by_events";
+		$detailsParam["dOriginalTable"] = "event_participants";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "event_participants_by_events";
+	$detailsParam["dCaptionTable"] = GetTableCaption("event_participants_by_events");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+//	training_participants_by_trainings
+	
+	
+
+		$dIndex = 9;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="training_participants_by_trainings";
+		$detailsParam["dOriginalTable"] = "training_participants";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "training_participants_by_trainings";
+	$detailsParam["dCaptionTable"] = GetTableCaption("training_participants_by_trainings");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
 //endif
 
 // tables which are master tables for current table (detail)

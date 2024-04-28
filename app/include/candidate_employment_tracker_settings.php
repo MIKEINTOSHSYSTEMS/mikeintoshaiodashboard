@@ -167,7 +167,7 @@ $tdatacandidate_employment_tracker[".isUseAjaxSuggest"] = true;
 
 
 
-												
+																		
 
 $tdatacandidate_employment_tracker[".ajaxCodeSnippetAdded"] = false;
 
@@ -2644,6 +2644,44 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][2]["masterKeys"][]="CandidateID";
 				$masterTablesData["Candidate_Employment_Tracker"][2]["detailKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][2]["detailKeys"][]="CandidateID";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_by_region";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_by_region";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+			$masterParams["type"] = PAGE_CHART;
+			$masterTablesData["Candidate_Employment_Tracker"][3] = $masterParams;
+				$masterTablesData["Candidate_Employment_Tracker"][3]["masterKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][3]["masterKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][3]["detailKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][3]["detailKeys"][]="CandidateID";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_reports";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_reports";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+			$masterParams["type"] = PAGE_CHART;
+			$masterTablesData["Candidate_Employment_Tracker"][4] = $masterParams;
+				$masterTablesData["Candidate_Employment_Tracker"][4]["masterKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][4]["masterKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][4]["detailKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][4]["detailKeys"][]="CandidateID";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

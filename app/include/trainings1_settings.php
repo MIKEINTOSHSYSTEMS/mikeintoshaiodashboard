@@ -2186,6 +2186,36 @@ $detailsTablesData["trainings"] = array();
 				$detailsTablesData["trainings"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="TrainingID";
+//	training_participants_by_trainings
+	
+	
+
+		$dIndex = 3;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="training_participants_by_trainings";
+		$detailsParam["dOriginalTable"] = "training_participants";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "training_participants_by_trainings";
+	$detailsParam["dCaptionTable"] = GetTableCaption("training_participants_by_trainings");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["trainings"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["trainings"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["trainings"][$dIndex]["masterKeys"][]="TrainingID";
+
+				$detailsTablesData["trainings"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["trainings"][$dIndex]["detailKeys"][]="TrainingID";
 //endif
 
 // tables which are master tables for current table (detail)

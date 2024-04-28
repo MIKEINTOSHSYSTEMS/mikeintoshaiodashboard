@@ -206,7 +206,7 @@ $tdatatraining_participants[".isUseAjaxSuggest"] = true;
 
 
 
-												
+																		
 
 $tdatatraining_participants[".ajaxCodeSnippetAdded"] = false;
 
@@ -4553,6 +4553,44 @@ $masterTablesData["training_participants"] = array();
 	$masterTablesData["training_participants"][2]["masterKeys"][]="CandidateID";
 				$masterTablesData["training_participants"][2]["detailKeys"] = array();
 	$masterTablesData["training_participants"][2]["detailKeys"][]="CandidateID";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_by_region";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_by_region";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+			$masterParams["type"] = PAGE_CHART;
+			$masterTablesData["training_participants"][3] = $masterParams;
+				$masterTablesData["training_participants"][3]["masterKeys"] = array();
+	$masterTablesData["training_participants"][3]["masterKeys"][]="CandidateID";
+				$masterTablesData["training_participants"][3]["detailKeys"] = array();
+	$masterTablesData["training_participants"][3]["detailKeys"][]="CandidateID";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_reports";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_reports";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+			$masterParams["type"] = PAGE_CHART;
+			$masterTablesData["training_participants"][4] = $masterParams;
+				$masterTablesData["training_participants"][4]["masterKeys"] = array();
+	$masterTablesData["training_participants"][4]["masterKeys"][]="CandidateID";
+				$masterTablesData["training_participants"][4]["detailKeys"] = array();
+	$masterTablesData["training_participants"][4]["detailKeys"][]="CandidateID";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
