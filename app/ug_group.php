@@ -75,6 +75,8 @@ $nonAdminTablesArr[] = "dashboards";
 $nonAdminTablesArr[] = "candidates_view";
 $nonAdminTablesArr[] = "event_participants_view";
 $nonAdminTablesArr[] = "training_participants_view";
+$nonAdminTablesArr[] = "AIO_Reporting_Dashboard";
+$nonAdminTablesArr[] = "candidates_by_sex";
 
 $ug_connection = $cman->getForUserGroups();
 

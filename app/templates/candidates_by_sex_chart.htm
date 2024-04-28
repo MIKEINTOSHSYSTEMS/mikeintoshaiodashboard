@@ -1,0 +1,1193 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-chart"   
+			data-panel-bg
+		>
+	{BEGIN body}
+		<style>
+		{$containerCss}
+		</style>
+		<div class="r-vbar-page">
+			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main}			</div>
+		
+ 
+
+			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
+				<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_Sex}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Sex}" {$filterRow_attrs_Sex}>
+			<label>{$label candidates_by_sex Sex }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Sex}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Sex}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Sex}</span>
+						</div>
+		{END searchCtrlBlock_Sex}
+																{BEGIN searchCtrlBlock_Remark}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Remark}" {$filterRow_attrs_Remark}>
+			<label>{$label candidates_by_sex Remark }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Remark}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Remark}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Remark}</span>
+						</div>
+		{END searchCtrlBlock_Remark}
+																{BEGIN searchCtrlBlock_Employment_Position}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Employment_Position}" {$filterRow_attrs_Employment_Position}>
+			<label>{$label candidates_by_sex Employment_Position }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Employment_Position}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Employment_Position}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Employment_Position}</span>
+						</div>
+		{END searchCtrlBlock_Employment_Position}
+																{BEGIN searchCtrlBlock_Employment_Company}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Employment_Company}" {$filterRow_attrs_Employment_Company}>
+			<label>{$label candidates_by_sex Employment_Company }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Employment_Company}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Employment_Company}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Employment_Company}</span>
+						</div>
+		{END searchCtrlBlock_Employment_Company}
+																{BEGIN searchCtrlBlock_Employment_Status}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Employment_Status}" {$filterRow_attrs_Employment_Status}>
+			<label>{$label candidates_by_sex Employment_Status }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Employment_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Employment_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Employment_Status}</span>
+						</div>
+		{END searchCtrlBlock_Employment_Status}
+																{BEGIN searchCtrlBlock_Dereja_Information_Source}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Dereja_Information_Source}" {$filterRow_attrs_Dereja_Information_Source}>
+			<label>{$label candidates_by_sex Dereja_Information_Source }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Dereja_Information_Source}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Dereja_Information_Source}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_Information_Source}</span>
+						</div>
+		{END searchCtrlBlock_Dereja_Information_Source}
+																{BEGIN searchCtrlBlock_Dereja_web_profile_completion}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Dereja_web_profile_completion}" {$filterRow_attrs_Dereja_web_profile_completion}>
+			<label>{$label candidates_by_sex Dereja_web_profile_completion }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Dereja_web_profile_completion}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Dereja_web_profile_completion}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_web_profile_completion}</span>
+						</div>
+		{END searchCtrlBlock_Dereja_web_profile_completion}
+																{BEGIN searchCtrlBlock_Dereja_Event_Services}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Dereja_Event_Services}" {$filterRow_attrs_Dereja_Event_Services}>
+			<label>{$label candidates_by_sex Dereja_Event_Services }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Dereja_Event_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Dereja_Event_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_Event_Services}</span>
+						</div>
+		{END searchCtrlBlock_Dereja_Event_Services}
+																{BEGIN searchCtrlBlock_Dereja_Training_Services}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Dereja_Training_Services}" {$filterRow_attrs_Dereja_Training_Services}>
+			<label>{$label candidates_by_sex Dereja_Training_Services }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Dereja_Training_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Dereja_Training_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_Training_Services}</span>
+						</div>
+		{END searchCtrlBlock_Dereja_Training_Services}
+																{BEGIN searchCtrlBlock_Dereja_Services}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Dereja_Services}" {$filterRow_attrs_Dereja_Services}>
+			<label>{$label candidates_by_sex Dereja_Services }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Dereja_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Dereja_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_Services}</span>
+						</div>
+		{END searchCtrlBlock_Dereja_Services}
+																{BEGIN searchCtrlBlock_Joined_Dereja_Services}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Joined_Dereja_Services}" {$filterRow_attrs_Joined_Dereja_Services}>
+			<label>{$label candidates_by_sex Joined_Dereja_Services }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Joined_Dereja_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Joined_Dereja_Services}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Joined_Dereja_Services}</span>
+						</div>
+		{END searchCtrlBlock_Joined_Dereja_Services}
+																{BEGIN searchCtrlBlock_Work_Experience}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Work_Experience}" {$filterRow_attrs_Work_Experience}>
+			<label>{$label candidates_by_sex Work_Experience }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Work_Experience}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Work_Experience}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Work_Experience}</span>
+						</div>
+		{END searchCtrlBlock_Work_Experience}
+																{BEGIN searchCtrlBlock_Upload_on_Tracker}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Upload_on_Tracker}" {$filterRow_attrs_Upload_on_Tracker}>
+			<label>{$label candidates_by_sex Upload_on_Tracker }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Upload_on_Tracker}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Upload_on_Tracker}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Upload_on_Tracker}</span>
+						</div>
+		{END searchCtrlBlock_Upload_on_Tracker}
+																{BEGIN searchCtrlBlock_DAAP_enrolled_2nd_Round}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DAAP_enrolled_2nd_Round}" {$filterRow_attrs_DAAP_enrolled_2nd_Round}>
+			<label>{$label candidates_by_sex DAAP_enrolled_2nd_Round }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DAAP_enrolled_2nd_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DAAP_enrolled_2nd_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DAAP_enrolled_2nd_Round}</span>
+						</div>
+		{END searchCtrlBlock_DAAP_enrolled_2nd_Round}
+																{BEGIN searchCtrlBlock_Exit_Exam_Status}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Exit_Exam_Status}" {$filterRow_attrs_Exit_Exam_Status}>
+			<label>{$label candidates_by_sex Exit_Exam_Status }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Exit_Exam_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Exit_Exam_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Exit_Exam_Status}</span>
+						</div>
+		{END searchCtrlBlock_Exit_Exam_Status}
+																{BEGIN searchCtrlBlock_Exit_Exam_Score}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Exit_Exam_Score}" {$filterRow_attrs_Exit_Exam_Score}>
+			<label>{$label candidates_by_sex Exit_Exam_Score }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Exit_Exam_Score}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Exit_Exam_Score}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Exit_Exam_Score}</span>
+						</div>
+		{END searchCtrlBlock_Exit_Exam_Score}
+																{BEGIN searchCtrlBlock_Job_Fair}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Job_Fair}" {$filterRow_attrs_Job_Fair}>
+			<label>{$label candidates_by_sex Job_Fair }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Job_Fair}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Job_Fair}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Fair}</span>
+						</div>
+		{END searchCtrlBlock_Job_Fair}
+																{BEGIN searchCtrlBlock_Job_Fair_Clinic}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Job_Fair_Clinic}" {$filterRow_attrs_Job_Fair_Clinic}>
+			<label>{$label candidates_by_sex Job_Fair_Clinic }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Job_Fair_Clinic}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Job_Fair_Clinic}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Fair_Clinic}</span>
+						</div>
+		{END searchCtrlBlock_Job_Fair_Clinic}
+																{BEGIN searchCtrlBlock_DAAP_Completed_Courses}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DAAP_Completed_Courses}" {$filterRow_attrs_DAAP_Completed_Courses}>
+			<label>{$label candidates_by_sex DAAP_Completed_Courses }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DAAP_Completed_Courses}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DAAP_Completed_Courses}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DAAP_Completed_Courses}</span>
+						</div>
+		{END searchCtrlBlock_DAAP_Completed_Courses}
+																{BEGIN searchCtrlBlock_DAAP_Completed}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DAAP_Completed}" {$filterRow_attrs_DAAP_Completed}>
+			<label>{$label candidates_by_sex DAAP_Completed }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DAAP_Completed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DAAP_Completed}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DAAP_Completed}</span>
+						</div>
+		{END searchCtrlBlock_DAAP_Completed}
+																{BEGIN searchCtrlBlock_DAAP_enrolled_1st_Round}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DAAP_enrolled_1st_Round}" {$filterRow_attrs_DAAP_enrolled_1st_Round}>
+			<label>{$label candidates_by_sex DAAP_enrolled_1st_Round }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DAAP_enrolled_1st_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DAAP_enrolled_1st_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DAAP_enrolled_1st_Round}</span>
+						</div>
+		{END searchCtrlBlock_DAAP_enrolled_1st_Round}
+																{BEGIN searchCtrlBlock_Attend_Employability_Skill}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Attend_Employability_Skill}" {$filterRow_attrs_Attend_Employability_Skill}>
+			<label>{$label candidates_by_sex Attend_Employability_Skill }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Attend_Employability_Skill}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Attend_Employability_Skill}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Attend_Employability_Skill}</span>
+						</div>
+		{END searchCtrlBlock_Attend_Employability_Skill}
+																{BEGIN searchCtrlBlock_Campaign}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Campaign}" {$filterRow_attrs_Campaign}>
+			<label>{$label candidates_by_sex Campaign }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Campaign}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Campaign}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Campaign}</span>
+						</div>
+		{END searchCtrlBlock_Campaign}
+																{BEGIN searchCtrlBlock_Intervention}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Intervention}" {$filterRow_attrs_Intervention}>
+			<label>{$label candidates_by_sex Intervention }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Intervention}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Intervention}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Intervention}</span>
+						</div>
+		{END searchCtrlBlock_Intervention}
+																{BEGIN searchCtrlBlock_GPA}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_GPA}" {$filterRow_attrs_GPA}>
+			<label>{$label candidates_by_sex GPA }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_GPA}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_GPA}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_GPA}</span>
+						</div>
+		{END searchCtrlBlock_GPA}
+																{BEGIN searchCtrlBlock_Field_Of_Study}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Field_Of_Study}" {$filterRow_attrs_Field_Of_Study}>
+			<label>{$label candidates_by_sex Field_Of_Study }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Field_Of_Study}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Field_Of_Study}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Field_Of_Study}</span>
+						</div>
+		{END searchCtrlBlock_Field_Of_Study}
+																{BEGIN searchCtrlBlock_Year_of_graduation}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Year_of_graduation}" {$filterRow_attrs_Year_of_graduation}>
+			<label>{$label candidates_by_sex Year_of_graduation }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Year_of_graduation}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Year_of_graduation}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Year_of_graduation}</span>
+						</div>
+		{END searchCtrlBlock_Year_of_graduation}
+																{BEGIN searchCtrlBlock_Certifications}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Certifications}" {$filterRow_attrs_Certifications}>
+			<label>{$label candidates_by_sex Certifications }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Certifications}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Certifications}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Certifications}</span>
+						</div>
+		{END searchCtrlBlock_Certifications}
+																{BEGIN searchCtrlBlock_IT_Related_Skills}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_IT_Related_Skills}" {$filterRow_attrs_IT_Related_Skills}>
+			<label>{$label candidates_by_sex IT_Related_Skills }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_IT_Related_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_IT_Related_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_IT_Related_Skills}</span>
+						</div>
+		{END searchCtrlBlock_IT_Related_Skills}
+																{BEGIN searchCtrlBlock_Industry_Specific_Skills}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Industry_Specific_Skills}" {$filterRow_attrs_Industry_Specific_Skills}>
+			<label>{$label candidates_by_sex Industry_Specific_Skills }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Industry_Specific_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Industry_Specific_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Industry_Specific_Skills}</span>
+						</div>
+		{END searchCtrlBlock_Industry_Specific_Skills}
+																{BEGIN searchCtrlBlock_English_Proficiency_Level}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_English_Proficiency_Level}" {$filterRow_attrs_English_Proficiency_Level}>
+			<label>{$label candidates_by_sex English_Proficiency_Level }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_English_Proficiency_Level}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_English_Proficiency_Level}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_English_Proficiency_Level}</span>
+						</div>
+		{END searchCtrlBlock_English_Proficiency_Level}
+																{BEGIN searchCtrlBlock_Languages}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Languages}" {$filterRow_attrs_Languages}>
+			<label>{$label candidates_by_sex Languages }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Languages}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Languages}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Languages}</span>
+						</div>
+		{END searchCtrlBlock_Languages}
+																{BEGIN searchCtrlBlock_Skills}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Skills}" {$filterRow_attrs_Skills}>
+			<label>{$label candidates_by_sex Skills }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Skills}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Skills}</span>
+						</div>
+		{END searchCtrlBlock_Skills}
+																{BEGIN searchCtrlBlock_Enrollement_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Enrollement_Type}" {$filterRow_attrs_Enrollement_Type}>
+			<label>{$label candidates_by_sex Enrollement_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Enrollement_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Enrollement_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Enrollement_Type}</span>
+						</div>
+		{END searchCtrlBlock_Enrollement_Type}
+																{BEGIN searchCtrlBlock_Major}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Major}" {$filterRow_attrs_Major}>
+			<label>{$label candidates_by_sex Major }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Major}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Major}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Major}</span>
+						</div>
+		{END searchCtrlBlock_Major}
+																{BEGIN searchCtrlBlock_Minor}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Minor}" {$filterRow_attrs_Minor}>
+			<label>{$label candidates_by_sex Minor }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Minor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Minor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Minor}</span>
+						</div>
+		{END searchCtrlBlock_Minor}
+																{BEGIN searchCtrlBlock_Department}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Department}" {$filterRow_attrs_Department}>
+			<label>{$label candidates_by_sex Department }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Department}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Department}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Department}</span>
+						</div>
+		{END searchCtrlBlock_Department}
+																{BEGIN searchCtrlBlock_Education_Level}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Education_Level}" {$filterRow_attrs_Education_Level}>
+			<label>{$label candidates_by_sex Education_Level }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Education_Level}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Education_Level}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Education_Level}</span>
+						</div>
+		{END searchCtrlBlock_Education_Level}
+																{BEGIN searchCtrlBlock_Institution_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Institution_Name}" {$filterRow_attrs_Institution_Name}>
+			<label>{$label candidates_by_sex Institution_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Institution_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Institution_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Institution_Name}</span>
+						</div>
+		{END searchCtrlBlock_Institution_Name}
+																{BEGIN searchCtrlBlock_Institution_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Institution_Type}" {$filterRow_attrs_Institution_Type}>
+			<label>{$label candidates_by_sex Institution_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Institution_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Institution_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Institution_Type}</span>
+						</div>
+		{END searchCtrlBlock_Institution_Type}
+																{BEGIN searchCtrlBlock_Disability_Type_Other}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Disability_Type_Other}" {$filterRow_attrs_Disability_Type_Other}>
+			<label>{$label candidates_by_sex Disability_Type_Other }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Disability_Type_Other}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Type_Other}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Type_Other}</span>
+						</div>
+		{END searchCtrlBlock_Disability_Type_Other}
+																{BEGIN searchCtrlBlock_Disability_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Disability_Type}" {$filterRow_attrs_Disability_Type}>
+			<label>{$label candidates_by_sex Disability_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Disability_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Type}</span>
+						</div>
+		{END searchCtrlBlock_Disability_Type}
+																{BEGIN searchCtrlBlock_Disability_Status}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Disability_Status}" {$filterRow_attrs_Disability_Status}>
+			<label>{$label candidates_by_sex Disability_Status }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Disability_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Status}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Status}</span>
+						</div>
+		{END searchCtrlBlock_Disability_Status}
+																{BEGIN searchCtrlBlock_Email_Address}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Email_Address}" {$filterRow_attrs_Email_Address}>
+			<label>{$label candidates_by_sex Email_Address }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Email_Address}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Email_Address}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Email_Address}</span>
+						</div>
+		{END searchCtrlBlock_Email_Address}
+																{BEGIN searchCtrlBlock_Phone_Number_Alternate}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Phone_Number_Alternate}" {$filterRow_attrs_Phone_Number_Alternate}>
+			<label>{$label candidates_by_sex Phone_Number_Alternate }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Phone_Number_Alternate}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Phone_Number_Alternate}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Phone_Number_Alternate}</span>
+						</div>
+		{END searchCtrlBlock_Phone_Number_Alternate}
+																{BEGIN searchCtrlBlock_Phone_Number}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Phone_Number}" {$filterRow_attrs_Phone_Number}>
+			<label>{$label candidates_by_sex Phone_Number }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Phone_Number}</span>
+						</div>
+		{END searchCtrlBlock_Phone_Number}
+																{BEGIN searchCtrlBlock_House_No}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_House_No}" {$filterRow_attrs_House_No}>
+			<label>{$label candidates_by_sex House_No }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_House_No}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_House_No}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_House_No}</span>
+						</div>
+		{END searchCtrlBlock_House_No}
+																{BEGIN searchCtrlBlock_Zone}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Zone}" {$filterRow_attrs_Zone}>
+			<label>{$label candidates_by_sex Zone }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Zone}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Zone}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Zone}</span>
+						</div>
+		{END searchCtrlBlock_Zone}
+																{BEGIN searchCtrlBlock_Sub_City}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Sub_City}" {$filterRow_attrs_Sub_City}>
+			<label>{$label candidates_by_sex Sub_City }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Sub_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Sub_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Sub_City}</span>
+						</div>
+		{END searchCtrlBlock_Sub_City}
+																{BEGIN searchCtrlBlock_City}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_City}" {$filterRow_attrs_City}>
+			<label>{$label candidates_by_sex City }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_City}</span>
+						</div>
+		{END searchCtrlBlock_City}
+																{BEGIN searchCtrlBlock_Region}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Region}" {$filterRow_attrs_Region}>
+			<label>{$label candidates_by_sex Region }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Region}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Region}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Region}</span>
+						</div>
+		{END searchCtrlBlock_Region}
+																{BEGIN searchCtrlBlock_DOB}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DOB}" {$filterRow_attrs_DOB}>
+			<label>{$label candidates_by_sex DOB }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DOB}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DOB}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DOB}</span>
+						</div>
+		{END searchCtrlBlock_DOB}
+																{BEGIN searchCtrlBlock_Last_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Last_Name}" {$filterRow_attrs_Last_Name}>
+			<label>{$label candidates_by_sex Last_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Last_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Last_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Last_Name}</span>
+						</div>
+		{END searchCtrlBlock_Last_Name}
+																{BEGIN searchCtrlBlock_Middle_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Middle_Name}" {$filterRow_attrs_Middle_Name}>
+			<label>{$label candidates_by_sex Middle_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Middle_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Middle_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Middle_Name}</span>
+						</div>
+		{END searchCtrlBlock_Middle_Name}
+																{BEGIN searchCtrlBlock_First_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_First_Name}" {$filterRow_attrs_First_Name}>
+			<label>{$label candidates_by_sex First_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_First_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_First_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_First_Name}</span>
+						</div>
+		{END searchCtrlBlock_First_Name}
+																{BEGIN searchCtrlBlock_StudentID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_StudentID}" {$filterRow_attrs_StudentID}>
+			<label>{$label candidates_by_sex StudentID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_StudentID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_StudentID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_StudentID}</span>
+						</div>
+		{END searchCtrlBlock_StudentID}
+																{BEGIN searchCtrlBlock_CandidateID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
+			<label>{$label candidates_by_sex CandidateID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
+						</div>
+		{END searchCtrlBlock_CandidateID}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			</div>
+		
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="breadcrumb" {$item_breadcrumb} data-topcell-item-type="breadcrumb" >
+				{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
+
+<div  class="input-group">
+{BEGIN searchform_text}
+	<input type="search" class="form-control" {$searchfor_attrs} size="25">
+{END searchform_text}
+	<span class="input-group-btn">
+	{BEGIN searchform_showall}
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	{END searchform_showall}
+
+	{BEGIN searchform_search}
+	<button {$searchbutton_attrs} class="btn btn-primary" >
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	{END searchform_search}
+	</span>
+</div>
+		
+</span>			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+				<a   href="candidates_by_sex_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
+				
+		Advanced search		
+		</a>
+	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
+				<div class="dropdown" data-itemtype="notifications" data-itemid="notifications" {$item_notifications} data-pageid="{$pageid}" id="notifications{$id}">
+	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+		<i class="fa fa-bell"></i>
+		<span class="badge badge-warning" ></span>
+	</button>
+	<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+		<div class="r-noti-header">
+			<span class="r-noti-h-text">
+				Notifications			</span>
+			<!--
+			<a class="r-noti-all">
+				see all
+			</a>
+			-->
+			<a class="r-noti-close" href="#">
+				<i class="fa fa-times"></i>
+			</a>
+		</div>
+		<div class="r-noti-messages">
+		</div>
+	</div>
+	
+<script type="text/x-tmpl" id="noti-message">
+	<a draggable="false" class="r-noti-message" 
+		{% if (o.url ) { %} 
+			href="{%=o.url%}" 
+		{% } %}
+		>
+		<span class="r-noti-img">
+			{% if (o.iconType == 'fa') { %}
+			<span class="fa {%=o.icon%}"></span>
+			{% } else if (o.iconType == 'bs') { %}
+			<span class="glyphicon {%=o.icon%}"></span>
+			{% } else if (o.icon) { %}
+			<img src="{%=o.icon%}">
+			{% } %}
+		</span>
+		<span class="r-noti-text">
+			<span class="r-noti-title">
+				{% if (o.title) { %}
+					<span class="r-noti-title-text">
+						{%=o.title%}
+					</span>
+				{% } %}
+				<span class="r-noti-when">
+					{%=o.time%}
+				</span>
+			</span>
+			<span class="r-noti-body">
+				{%=o.message%}
+			</span>
+		</span>
+		{% if (o.new) { %}
+		<span class="r-noti-new">
+			<span class="fa fa-circle"></span>
+		</span>
+		{% } %}
+	</a>
+</script>	
+
+</div>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+									{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
+	</div>		
+{END top_block}
+						</div>
+											<div class="r-grid"
+	>
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+	<div class="panel panel-default"
+	>
+		<div class="panel-heading">
+							{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class="			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" 
+	data-orders="candidate_employment_tracker,event_participants,training_participants"
+			data-details-candidate_employment_tracker			data-details-event_participants			data-details-training_participants	>
+		<span data-details-inside data-short-table="candidate_employment_tracker">
+			</span>
+		<span data-details-inside data-short-table="event_participants">
+			</span>
+		<span data-details-inside data-short-table="training_participants">
+			</span>
+		<div data-details-preview>
+	</div>
+</div>
+	 
+			 
+					{END firstAboveGridCell}	
+	</div>					</div>
+			</div>		
+{END above-grid_block}
+			</div>
+
+					{BEGIN grid_block}
+	{BEGIN message_block}
+<div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
+{END message_block}<table class="r-fluid r-form" data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" >
+						<tbody>
+			
+								<tr {$row_grid_0} >
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="grid_c1" data-pageid="{$pageid}">
+ 
+<div data-itemtype="chart" data-itemid="chart" {$item_chart} data-pageid="{$pageid}" data-page="candidates_by_sex_chart" >
+{$chart candidates_by_sex 530px}
+</div>
+  </td>
+							</tr>
+					
+					</tbody>
+				</table>
+{END grid_block}
+	
+			{BEGIN below-grid_outerblock}
+		<div class="panel-footer">
+			{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+{END below-grid_block}
+		</div>
+	{END below-grid_outerblock}
+		</div>
+
+</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	{END body}
+	</body>
+</html>

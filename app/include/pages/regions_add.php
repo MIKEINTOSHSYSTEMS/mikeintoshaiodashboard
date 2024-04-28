@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'cities' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
+'master' => array( 'candidates' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'RegionName',
 'Lat',

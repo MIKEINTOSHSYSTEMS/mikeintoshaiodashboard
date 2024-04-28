@@ -2,6 +2,7 @@
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'details' => array( 'cities' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
+'master' => array( 'candidates' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'RegionID',
 'RegionName',
 'Lat',

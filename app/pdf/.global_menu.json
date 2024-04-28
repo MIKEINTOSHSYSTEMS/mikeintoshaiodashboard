@@ -207,11 +207,11 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group1}"},
+			{"text":"","background":"transparent","hidden":"{$item_hide_welcome_group1}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'left',
      
       
       },
@@ -257,7 +257,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -318,7 +318,7 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+      fillColor: "" ,        "alignment": 'left',
      
       
       },
@@ -393,7 +393,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'left',
      
       
       },
@@ -633,7 +633,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'left',
      
       
       },
@@ -720,8 +720,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"","background":"#E07878","hidden":"{$item_hide_welcome_item58}"},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      

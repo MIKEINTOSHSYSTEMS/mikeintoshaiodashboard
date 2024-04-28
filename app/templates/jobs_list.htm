@@ -661,6 +661,13 @@
 					Job Types				</label>
 			</div>
 			{END print_details_job_types}
+														{BEGIN print_details_candidate_employment_tracker_view}
+			<div>
+				<label for="printDetailscandidate_employment_tracker_view{$id}">
+					<input type="checkbox" value="candidate_employment_tracker_view" id="printDetailscandidate_employment_tracker_view{$id}" checked>
+					Candidate Employment Tracker View				</label>
+			</div>
+			{END print_details_candidate_employment_tracker_view}
 						</div>
 </div>
 {END print_details}
@@ -1151,6 +1158,25 @@
 	{END job_types_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN candidate_employment_tracker_view_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link3" {$item_grid_details_link3} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidate_employment_tracker_view_link_attrs} data-short-details="candidate_employment_tracker_view"
+		class="{$candidate_employment_tracker_view_dlink_class}" 
+		title="{$caption Candidate_Employment_Tracker_view }"			>
+								
+									{BEGIN candidate_employment_tracker_view_childcount}
+				<span class="details-badge badge candidate_employment_tracker_view_badge" {$candidate_employment_tracker_view_childnumber_attr}>
+					{$candidate_employment_tracker_view_childnumber}				
+				</span>
+				{END candidate_employment_tracker_view_childcount}
+						</a>
+	</span>
+	{END candidate_employment_tracker_view_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -1318,19 +1344,22 @@
 	>
 
 	 
-					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="candidate_employment_tracker,job_categories,job_types"
-			data-details-candidate_employment_tracker			data-details-job_categories			data-details-job_types	>
+						<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="candidate_employment_tracker,job_categories,job_types,candidate_employment_tracker_view"
+			data-details-candidate_employment_tracker			data-details-job_categories			data-details-job_types			data-details-candidate_employment_tracker_view	>
 		<span data-details-inside data-short-table="candidate_employment_tracker">
 			</span>
 		<span data-details-inside data-short-table="job_categories">
 			</span>
 		<span data-details-inside data-short-table="job_types">
 			</span>
+		<span data-details-inside data-short-table="candidate_employment_tracker_view">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			 
 			
 	</td>

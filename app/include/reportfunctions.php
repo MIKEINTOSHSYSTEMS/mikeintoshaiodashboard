@@ -677,6 +677,14 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="AIO_Reporting_Dashboard")
+		{
+			return 1;
+		}
+		if($table=="candidates_by_sex")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1177,6 +1185,14 @@ function getCaptionTable($table)
 	if($table=="training_participants_view")
 	{
 		return "Training Participants View";
+	}
+	if($table=="AIO_Reporting_Dashboard")
+	{
+		return "AIO Reporting Dashboard";
+	}
+	if($table=="candidates_by_sex")
+	{
+		return "Candidates By Sex";
 	}
 	return $table;
 }

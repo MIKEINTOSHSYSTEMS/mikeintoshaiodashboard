@@ -3630,6 +3630,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "event_participants_view" ] = "event_participants_view";
 	$projectEntities[ "training_participants_view" ] = array( "url" => "training_participants_view", "type" => 2 );
 	$projectEntitiesReverse[ "training_participants_view" ] = "training_participants_view";
+	$projectEntities[ "AIO_Reporting_Dashboard" ] = array( "url" => "aio_reporting_dashboard", "type" => 4 );
+	$projectEntitiesReverse[ "aio_reporting_dashboard" ] = "AIO_Reporting_Dashboard";
+	$projectEntities[ "candidates_by_sex" ] = array( "url" => "candidates_by_sex", "type" => 3 );
+	$projectEntitiesReverse[ "candidates_by_sex" ] = "candidates_by_sex";
 }
 
 function findTable( $table ) {

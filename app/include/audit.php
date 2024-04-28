@@ -648,6 +648,14 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="AIO_Reporting_Dashboard")
+		{
+			return false;
+		}
+		if($table=="candidates_by_sex")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1247,6 +1255,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="training_participants_view")
+		{
+			return false;
+		}
+		if($table=="AIO_Reporting_Dashboard")
+		{
+			return false;
+		}
+		if($table=="candidates_by_sex")
 		{
 			return false;
 		}

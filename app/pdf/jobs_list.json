@@ -658,6 +658,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link3}"},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
@@ -907,6 +910,11 @@ pdfDocument = {
 			 {BEGIN details_job_types}
 			{$displayDetailTable_job_types }
 		{END details_job_types},
+				
+				
+			 {BEGIN details_candidate_employment_tracker_view}
+			{$displayDetailTable_candidate_employment_tracker_view }
+		{END details_candidate_employment_tracker_view},
 				
 		  ],
   "border": [ true, true, true, true ],

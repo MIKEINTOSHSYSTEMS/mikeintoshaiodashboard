@@ -1407,6 +1407,36 @@ $detailsTablesData["Jobs"] = array();
 				$detailsTablesData["Jobs"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="TypeName";
+//	Candidate_Employment_Tracker_view
+	
+	
+
+		$dIndex = 3;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="Candidate_Employment_Tracker_view";
+		$detailsParam["dOriginalTable"] = "Candidate_Employment_Tracker";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "candidate_employment_tracker_view";
+	$detailsParam["dCaptionTable"] = GetTableCaption("Candidate_Employment_Tracker_view");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Jobs"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Jobs"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Jobs"][$dIndex]["masterKeys"][]="JobID";
+
+				$detailsTablesData["Jobs"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="JobID";
 //endif
 
 // tables which are master tables for current table (detail)

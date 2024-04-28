@@ -21,6 +21,9 @@
   background-color: transparent;
   page-break-before: always;
 }
+[data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"] {
+  background-color: transparent;
+}
 [data-cellid="grid_c22"][data-page=".global_menu"][data-cellid="grid_c22"][data-page=".global_menu"][data-cellid="grid_c22"][data-page=".global_menu"] {
   background-color: transparent;
   page-break-before: always;
@@ -35,6 +38,9 @@
 [data-page=".global_menu"][data-itemid="image"] {
   width: 47px;
   height: 47px;
+}
+[data-page=".global_menu"][data-itemid="welcome_group1"] {
+  background-color: transparent;
 }
 [data-page=".global_menu"][data-itemid="welcome_item"] > .bs-welcome-header {
   background-color: #D2AF80;
@@ -221,6 +227,12 @@
 }
 [data-page=".global_menu"][data-itemid="welcome_item56"] > .bs-welcome-header {
   background-color: #EDCA00;
+}
+[data-page=".global_menu"][data-itemid="welcome_item57"] > .bs-welcome-header {
+  background-color: #DB7093;
+}
+[data-page=".global_menu"][data-itemid="welcome_item58"] > .bs-welcome-header {
+  background-color: #E07878;
 }
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;

@@ -130,9 +130,6 @@ pdfDocument = {
 			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
 				
-			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field57}"},
-				
-				
 			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
 				
 				

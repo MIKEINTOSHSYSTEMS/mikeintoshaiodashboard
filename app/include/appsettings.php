@@ -739,9 +739,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "203_1714145510";
+$projectBuildKey = "214_1714145510";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "203";
+$projectBuildNumber = "214";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -828,6 +828,8 @@ $tableCaptions["English"]["dashboards"] = "Dashboards";
 $tableCaptions["English"]["candidates_view"] = "Candidates View";
 $tableCaptions["English"]["event_participants_view"] = "Event Participants View";
 $tableCaptions["English"]["training_participants_view"] = "Training Participants View";
+$tableCaptions["English"]["AIO_Reporting_Dashboard"] = "AIO Reporting Dashboard";
+$tableCaptions["English"]["candidates_by_sex"] = "Candidates By Sex";
 
 
 $globalEvents = new class_GlobalEvents;

@@ -197,7 +197,7 @@ $tdatakbcomments[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "order by created_date desc";
+$tstrOrderBy = "ORDER BY created_date DESC";
 $tdatakbcomments[".strOrderBy"] = $tstrOrderBy;
 
 $tdatakbcomments[".orderindexes"] = array();
@@ -205,9 +205,9 @@ $tdatakbcomments[".orderindexes"] = array();
 
 
 
-$tdatakbcomments[".sqlHead"] = "SELECT name, 	moderated, 	created_date, 	ArticleID, 	`comment`, 	CommentID, 	email";
+$tdatakbcomments[".sqlHead"] = "SELECT name,  moderated,  created_date,  ArticleID,  `comment`,  CommentID,  email";
 $tdatakbcomments[".sqlFrom"] = "FROM kbcomments";
-$tdatakbcomments[".sqlWhereExpr"] = "moderated = 1";
+$tdatakbcomments[".sqlWhereExpr"] = "(moderated = 1)";
 $tdatakbcomments[".sqlTail"] = "";
 
 //fill array of tabs for list page
@@ -1314,10 +1314,10 @@ function createSqlQuery_kbcomments()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "name, 	moderated, 	created_date, 	ArticleID, 	`comment`, 	CommentID, 	email";
+$proto0["m_strFieldList"] = "name,  moderated,  created_date,  ArticleID,  `comment`,  CommentID,  email";
 $proto0["m_strFrom"] = "FROM kbcomments";
-$proto0["m_strWhere"] = "moderated = 1";
-$proto0["m_strOrderBy"] = "order by created_date desc";
+$proto0["m_strWhere"] = "(moderated = 1)";
+$proto0["m_strOrderBy"] = "ORDER BY created_date DESC";
 	
 																								;
 			$proto0["cipherer"] = null;

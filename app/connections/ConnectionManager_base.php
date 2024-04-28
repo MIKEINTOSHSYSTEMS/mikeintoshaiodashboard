@@ -303,6 +303,7 @@ class ConnectionManager_Base
 		$connectionsIds["candidates_view"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["event_participants_view"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["training_participants_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidates_by_sex"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

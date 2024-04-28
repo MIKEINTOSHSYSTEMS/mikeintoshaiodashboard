@@ -137,6 +137,11 @@ class XTempl_Base
 
 		if( !$hideAddedCharts ) //#9607 1. Temporary fix
 		{
+			$this->assign_function("candidates_by_sex_chart","xt_showchart",
+			array(
+				"chartName"=>"candidates_by_sex",
+				"table"=>"candidates_by_sex",
+				"ctype"=>"2DColumn"));
 		}
 
 

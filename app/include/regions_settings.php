@@ -134,7 +134,7 @@ $tdataregions[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataregions[".ajaxCodeSnippetAdded"] = false;
 
@@ -146,7 +146,7 @@ $tdataregions[".addPageEvents"] = false;
 $tdataregions[".isUseTimeForSearch"] = false;
 
 
-$tdataregions[".badgeColor"] = "5F9EA0";
+$tdataregions[".badgeColor"] = "5f9ea0";
 
 
 $tdataregions[".allSearchFields"] = array();
@@ -853,6 +853,24 @@ $masterTablesData["regions"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["regions"][0] = $masterParams;
+				$masterTablesData["regions"][0]["masterKeys"] = array();
+	$masterTablesData["regions"][0]["masterKeys"][]="Region";
+				$masterTablesData["regions"][0]["detailKeys"] = array();
+	$masterTablesData["regions"][0]["detailKeys"][]="RegionName";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

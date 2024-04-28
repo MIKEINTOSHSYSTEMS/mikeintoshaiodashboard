@@ -323,6 +323,10 @@ function checkTableName($shortTName )
 		return true;
 	if ("training_participants_view" == $shortTName )
 		return true;
+	if ("aio_reporting_dashboard" == $shortTName )
+		return true;
+	if ("candidates_by_sex" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -913,6 +917,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="training_participants_view";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("AIO_Reporting_Dashboard");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="AIO_Reporting_Dashboard";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_by_sex");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_by_sex";
+	}
 	return $arr;
 }
 
@@ -982,6 +1004,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="candidates_view";
 	$arr[]="event_participants_view";
 	$arr[]="training_participants_view";
+	$arr[]="AIO_Reporting_Dashboard";
+	$arr[]="candidates_by_sex";
 	return $arr;
 }
 
@@ -1025,6 +1049,8 @@ function GetFullFieldName($field, $table = "", $addAs = true, $connection = null
  */
 function GetChartType($shorttable)
 {
+	if($shorttable=="candidates_by_sex")
+		return "2DColumn";
 	return "";
 }
 
@@ -1908,6 +1934,16 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "SP".$extraPerm;
+	}
+	if( $table=="AIO_Reporting_Dashboard" )
+	{
+//	default permissions
+		return "S".$extraPerm;
+	}
+	if( $table=="candidates_by_sex" )
+	{
+//	default permissions
+		return "S".$extraPerm;
 	}
 	// grant nothing by default
 	return "";
