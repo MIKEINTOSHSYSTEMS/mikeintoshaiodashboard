@@ -317,6 +317,12 @@ function checkTableName($shortTName )
 		return true;
 	if ("dashboards" == $shortTName )
 		return true;
+	if ("candidates_view" == $shortTName )
+		return true;
+	if ("event_participants_view" == $shortTName )
+		return true;
+	if ("training_participants_view" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -880,6 +886,33 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="dashboards";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_view";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("event_participants_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="event_participants_view";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("training_participants_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="training_participants_view";
+	}
 	return $arr;
 }
 
@@ -946,6 +979,9 @@ function GetTablesListWithoutSecurity()
 	$arr[]="derejame_audit";
 	$arr[]="dashboard_pages";
 	$arr[]="dashboards";
+	$arr[]="candidates_view";
+	$arr[]="event_participants_view";
+	$arr[]="training_participants_view";
 	return $arr;
 }
 
@@ -1857,6 +1893,21 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidates_view" )
+	{
+//	default permissions
+		return "SP".$extraPerm;
+	}
+	if( $table=="event_participants_view" )
+	{
+//	default permissions
+		return "SP".$extraPerm;
+	}
+	if( $table=="training_participants_view" )
+	{
+//	default permissions
+		return "SP".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

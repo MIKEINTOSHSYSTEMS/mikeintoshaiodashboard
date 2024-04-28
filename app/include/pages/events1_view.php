@@ -3,6 +3,8 @@
 'details' => array( 'event_participants' => array( 'displayPreview' => 2,
 'previewPageId' => '' ),
 'dereja_event_services' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'event_participants_view' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'fields' => array( 'gridFields' => array( 'EventID',
 'EventName' ),

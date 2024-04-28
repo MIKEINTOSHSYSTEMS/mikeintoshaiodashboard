@@ -1,0 +1,297 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel event_participants_view search}","hidden":"{$item_hide_search_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"text":{$EventID_value},"hidden":"{$item_hide_integrated_search_field}"},
+				
+				
+			{"text":{$CandidateID_value},"hidden":"{$item_hide_integrated_search_field1}"},
+				
+				
+			{"text":{$StudentID_value},"hidden":"{$item_hide_integrated_search_field2}"},
+				
+				
+			{"text":{$Event_Start_Date_value},"hidden":"{$item_hide_integrated_search_field3}"},
+				
+				
+			{"text":{$Event_End_Date_value},"hidden":"{$item_hide_integrated_search_field4}"},
+				
+				
+			{"text":{$First_Name_value},"hidden":"{$item_hide_integrated_search_field5}"},
+				
+				
+			{"text":{$Middle_Name_value},"hidden":"{$item_hide_integrated_search_field6}"},
+				
+				
+			{"text":{$Last_Name_value},"hidden":"{$item_hide_integrated_search_field7}"},
+				
+				
+			{"text":{$Sex_value},"hidden":"{$item_hide_integrated_search_field8}"},
+				
+				
+			{"text":{$Phone_value},"hidden":"{$item_hide_integrated_search_field9}"},
+				
+				
+			{"text":{$Email_value},"hidden":"{$item_hide_integrated_search_field10}"},
+				
+				
+			{"text":{$Disability_Status_value},"hidden":"{$item_hide_integrated_search_field11}"},
+				
+				
+			{"text":{$Disability_Type_value},"hidden":"{$item_hide_integrated_search_field12}"},
+				
+				
+			{"text":{$Disability_Type_Other_value},"hidden":"{$item_hide_integrated_search_field13}"},
+				
+				
+			{"text":{$Participant_Type_value},"hidden":"{$item_hide_integrated_search_field14}"},
+				
+				
+			{"text":{$Participant_Field_of_Study_value},"hidden":"{$item_hide_integrated_search_field15}"},
+				
+				
+			{"text":{$Participant_Organization_Type_value},"hidden":"{$item_hide_integrated_search_field16}"},
+				
+				
+			{"text":{$Participant_Organization_Name_value},"hidden":"{$item_hide_integrated_search_field17}"},
+				
+				
+			{"text":{$Participant_Home_Address_value},"hidden":"{$item_hide_integrated_search_field18}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+											],
+				{END row_grid_0}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":""},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_cancel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+}
+  

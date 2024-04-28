@@ -300,6 +300,9 @@ class ConnectionManager_Base
 		$connectionsIds["derejame_audit"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["dashboard_pages"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["dashboards"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidates_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["event_participants_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["training_participants_view"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

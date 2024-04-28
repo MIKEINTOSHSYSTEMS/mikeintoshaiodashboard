@@ -1,7 +1,8 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'master' => array( 'candidates' => array( 'preview' => false ),
-'events' => array( 'preview' => false ) ),
+'events' => array( 'preview' => false ),
+'candidates_view' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'EventID',
 'CandidateID',
 'Event_Start_Date',

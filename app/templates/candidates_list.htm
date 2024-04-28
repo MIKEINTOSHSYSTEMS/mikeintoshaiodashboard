@@ -24,7 +24,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -1006,6 +1006,20 @@
 		</a>
 	</li>
 {END searchPanelTopButtons}
+							<li role="separator" class="divider"></li>							{BEGIN saveSeachButton}
+	<li data-itemtype="save_search" data-itemid="save_search" {$item_save_search} data-pageid="{$pageid}" data-small >
+				<a  href="#" id="saveSearch{$id}"  title="" >
+				
+		Save search		
+		</a>
+	</li>
+{END saveSeachButton}
+							<li role="separator" class="divider"></li>							{BEGIN savedSeachesButton}
+<li data-itemtype="saved_searches" data-itemid="saved_searches" {$item_saved_searches} data-pageid="{$pageid}">
+	<a {$saveSearchButtonAttrs} id="savedSearches{$id}">Saved searches:</a>
+	<ul class="rnr-saved-searches rnr-list" id ="savedSearchedList{$id}"></ul>
+</li>
+{END savedSeachesButton}
 							<li role="separator" class="divider"></li>							{BEGIN export_link}
 	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$exportlink_attrs}  title="" >
@@ -1336,6 +1350,20 @@
 					Website Data				</label>
 			</div>
 			{END print_details_website_data}
+														{BEGIN print_details_event_participants_view}
+			<div>
+				<label for="printDetailsevent_participants_view{$id}">
+					<input type="checkbox" value="event_participants_view" id="printDetailsevent_participants_view{$id}" checked>
+					Event Participants View				</label>
+			</div>
+			{END print_details_event_participants_view}
+														{BEGIN print_details_training_participants_view}
+			<div>
+				<label for="printDetailstraining_participants_view{$id}">
+					<input type="checkbox" value="training_participants_view" id="printDetailstraining_participants_view{$id}" checked>
+					Training Participants View				</label>
+			</div>
+			{END print_details_training_participants_view}
 						</div>
 </div>
 {END print_details}
@@ -3254,6 +3282,44 @@
 	{END website_data_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN event_participants_view_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link3" {$item_grid_details_link3} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$event_participants_view_link_attrs} data-short-details="event_participants_view"
+		class="{$event_participants_view_dlink_class}" 
+		title="{$caption event_participants_view }"			>
+								
+									{BEGIN event_participants_view_childcount}
+				<span class="details-badge badge event_participants_view_badge" {$event_participants_view_childnumber_attr}>
+					{$event_participants_view_childnumber}				
+				</span>
+				{END event_participants_view_childcount}
+						</a>
+	</span>
+	{END event_participants_view_dtable_link}
+
+
+	 
+		
+		
+	{BEGIN training_participants_view_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link4" {$item_grid_details_link4} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$training_participants_view_link_attrs} data-short-details="training_participants_view"
+		class="{$training_participants_view_dlink_class}" 
+		title="{$caption training_participants_view }"			>
+								
+									{BEGIN training_participants_view_childcount}
+				<span class="details-badge badge training_participants_view_badge" {$training_participants_view_childnumber_attr}>
+					{$training_participants_view_childnumber}				
+				</span>
+				{END training_participants_view_childcount}
+						</a>
+	</span>
+	{END training_participants_view_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -4492,9 +4558,9 @@
 	>
 
 	 
-							<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data"
-			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data	>
+									<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
@@ -4505,10 +4571,16 @@
 			</span>
 		<span data-details-inside data-short-table="website_data">
 			</span>
+		<span data-details-inside data-short-table="event_participants_view">
+			</span>
+		<span data-details-inside data-short-table="training_participants_view">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
+			 
 			 
 			 
 			 

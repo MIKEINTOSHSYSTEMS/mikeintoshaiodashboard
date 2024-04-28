@@ -182,7 +182,7 @@ $tdataevent_participants[".isUseAjaxSuggest"] = true;
 
 
 
-									
+												
 
 $tdataevent_participants[".ajaxCodeSnippetAdded"] = false;
 
@@ -3212,6 +3212,25 @@ $masterTablesData["event_participants"] = array();
 	$masterTablesData["event_participants"][1]["masterKeys"][]="EventID";
 				$masterTablesData["event_participants"][1]["detailKeys"] = array();
 	$masterTablesData["event_participants"][1]["detailKeys"][]="EventID";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_view";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_view";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterParams["type"] = PAGE_REPORT;
+	$masterTablesData["event_participants"][2] = $masterParams;
+				$masterTablesData["event_participants"][2]["masterKeys"] = array();
+	$masterTablesData["event_participants"][2]["masterKeys"][]="CandidateID";
+				$masterTablesData["event_participants"][2]["detailKeys"] = array();
+	$masterTablesData["event_participants"][2]["detailKeys"][]="CandidateID";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

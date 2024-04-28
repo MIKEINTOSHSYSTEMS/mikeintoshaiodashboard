@@ -4,7 +4,7 @@ class paramsLogger
 	/**
 	 * @type String
 	 */
-	protected $paramsTableName = "";
+	protected $paramsTableName = "derejame_settings";
 
 	/**
 	 * 1 - saved searches

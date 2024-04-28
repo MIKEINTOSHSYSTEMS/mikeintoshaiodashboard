@@ -586,6 +586,36 @@ $detailsTablesData["events"] = array();
 				$detailsTablesData["events"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["events"][$dIndex]["detailKeys"][]="EventID";
+//	event_participants_view
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="event_participants_view";
+		$detailsParam["dOriginalTable"] = "event_participants";
+
+
+
+		$detailsParam["dType"]=PAGE_REPORT;
+	
+		$detailsParam["dShortTable"] = "event_participants_view";
+	$detailsParam["dCaptionTable"] = GetTableCaption("event_participants_view");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["events"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["events"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["events"][$dIndex]["masterKeys"][]="EventID";
+
+				$detailsTablesData["events"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["events"][$dIndex]["detailKeys"][]="EventID";
 //endif
 
 // tables which are master tables for current table (detail)

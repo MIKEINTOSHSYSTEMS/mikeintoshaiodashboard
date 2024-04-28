@@ -2,6 +2,8 @@
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'details' => array( 'training_participants' => array( 'displayPreview' => 1 ),
 'dereja_training_services' => array( 'displayPreview' => 2,
+'previewPageId' => '' ),
+'training_participants_view' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
 'master' => array( 'Trainer' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'TrainingID',

@@ -1008,6 +1008,11 @@ pdfDocument = {
 			{$displayDetailTable_dereja_training_services }
 		{END details_dereja_training_services},
 				
+				
+			 {BEGIN details_training_participants_view}
+			{$displayDetailTable_training_participants_view }
+		{END details_training_participants_view},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

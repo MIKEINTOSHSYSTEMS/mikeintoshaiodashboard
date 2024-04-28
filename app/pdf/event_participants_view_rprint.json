@@ -1,0 +1,517 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+						pagesummary: {
+		fillColor: '#ffffbb',
+	},
+	globalsummary: {
+		fillColor: '#ffe0b0',
+	},
+			group_1: {
+			fillColor: '#90ee90'
+		},
+		nbgroup_1: {
+			fillColor: '#90ee90'
+		},
+		header_1: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_EventID: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		group_EventID: {
+			fillColor: '#90ee90'
+		},
+
+			group_2: {
+			fillColor: '#add8e6'
+		},
+		nbgroup_2: {
+			fillColor: '#add8e6'
+		},
+		header_2: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Sex: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		group_Sex: {
+			fillColor: '#add8e6'
+		},
+
+			group_3: {
+			fillColor: '#ffb6c1'
+		},
+		nbgroup_3: {
+			fillColor: '#ffb6c1'
+		},
+		header_3: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Disability_Status: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		group_Disability_Status: {
+			fillColor: '#ffb6c1'
+		},
+
+			group_4: {
+			fillColor: '#fffacd'
+		},
+		nbgroup_4: {
+			fillColor: '#fffacd'
+		},
+		header_4: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Participant_Type: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		group_Participant_Type: {
+			fillColor: '#fffacd'
+		},
+
+			group_5: {
+			fillColor: '#7fffd4'
+		},
+		nbgroup_5: {
+			fillColor: '#7fffd4'
+		},
+		header_5: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Participant_Type: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		group_Participant_Type: {
+			fillColor: '#7fffd4'
+		},
+
+		
+	blackshade: {
+		fontSize: 15,
+	},
+	summarycell: {
+		border:[false, true, false, true ]
+	},
+/*
+		.fieldnamesrow > * 
+	{
+		border:solid #808080 1px; 
+		border-left: none; 
+		border-right: none;
+	}
+	*/	
+			},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+		{BEGIN body}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption event_participants_view}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel event_participants_view rprint}',
+			},
+		{END embedded_page_title}		
+		{ 
+			{BEGIN standalone_page}
+			pageBreak: 'before',
+			standAlonePage: true,
+			{END standalone_page}
+			{BEGIN embedded_grid}
+			embeddedPage: true,
+			{END embedded_grid}
+			layout: {
+				hLineWidth: function(i, node) { return 0.1; },
+				vLineWidth: function(i, node) { 
+					return 0.1; 
+				},
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
+			},
+			table: {
+				{BEGIN embedded_grid}
+				embeddedPage: true,
+				{END embedded_grid}
+				
+				tableForm: true,
+				headerRows: 1 
+								{BEGIN embedded_grid} -1 {END embedded_grid} ,
+
+				widths: [
+														"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+															],
+							
+				body: [
+				{BEGIN standalone_page}
+					[
+						{
+							colSpan: 24,
+							border:[false, false,false,false],
+							stack: [
+
+																										
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_print_pdf}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"{$jspagetitlelabel event_participants_view rprint}","hidden":"{$item_hide_print_header}","fontSize":30},
+				
+				
+			{"text":"{$printtabheader_text}","hidden":"{$item_hide_print_subheader}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+								
+																										
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"Page %current% of %total%","hidden":"{$item_hide_print_pages}","isHtml":true,"page_indicator":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+															]
+						},
+					],
+				{END standalone_page}
+
+																[
+	{
+		colSpan: 24,
+		border: [ false, false, false, false ],
+		stack: [
+			{
+				table: {
+					body: [
+						[
+							
+							{
+								text: [ {$report_cross_type}, { text: {$report_cross_field}, style: 'data-field'}],
+								style: 'data-label',
+							},
+							{
+								colSpan: {$group_x_count},
+								text: {$group_x_label},
+								style: 'field-label',
+							},
+							{BEGIN cross_totals}
+							{
+								text: ' ',
+							},
+							{END cross_totals}
+							{BEGIN fake_header_cells}
+							{},
+							{END fake_header_cells}							
+						],
+						[
+							{
+								text: {$group_y_label},
+								style: 'field-label',
+							},
+							{BEGIN group_header}
+							{
+								text: {$gr_value},
+								style: 'x-label',
+							},			
+							{END group_header}
+							{BEGIN cross_totals}
+							{
+								text: {$totals},
+								style: 'x-summary-label',
+							},			
+							{END cross_totals}
+						],
+					{BEGIN grid_row}
+						[
+							{
+								text: {$group_y},
+								style: 'y-label',
+							},
+							{BEGIN row_record}
+							{	
+								text: {$row_value},
+								style: 'data',
+							},
+							{END row_record}
+							{BEGIN cross_totals}
+							{
+								text: {$row_summary},
+								style: 'summary',
+							},
+							{END cross_totals}			
+						],
+					{END grid_row}
+					{BEGIN cross_totals}
+						[
+							{
+								text: {$totals},
+								style: 'y-summary-label',
+							},
+							{BEGIN col_summary}
+							{
+								text: {$col_summary},
+								style: 'summary',
+							},		
+							{END col_summary}
+							{
+								text: {$total_summary},
+								style: 'summary',
+							},	
+						],		
+					{END cross_totals}
+					]
+				}
+			}
+		]
+	}
+],
+
+
+									]
+			
+			}
+		},
+		{END body}
+	],
+	footer: [
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+			],
+	}

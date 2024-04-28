@@ -72,6 +72,9 @@ $nonAdminTablesArr[] = "admin_comments";
 $nonAdminTablesArr[] = "derejame_audit";
 $nonAdminTablesArr[] = "dashboard_pages";
 $nonAdminTablesArr[] = "dashboards";
+$nonAdminTablesArr[] = "candidates_view";
+$nonAdminTablesArr[] = "event_participants_view";
+$nonAdminTablesArr[] = "training_participants_view";
 
 $ug_connection = $cman->getForUserGroups();
 

@@ -7576,9 +7576,9 @@ td::before {
   background-color: #ffffff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding-bottom: 15px;
-  width: 300px;
+  width: 350px;
   min-height: calc(100vh - 20px);
-  flex: 0 0 300px;
+  flex: 0 0 350px;
 }
 .r-vbar-page .r-left .panel {
   margin-bottom: 0;
@@ -7674,7 +7674,7 @@ td::before {
 }
 @media print, (min-width: 768px) {
   .r-vbar-page .r-left[data-fixed] + .r-content-col {
-    margin-left: 300px;
+    margin-left: 350px;
   }
   .r-vbar-page .r-left[data-fixed].r-left-collapsed + .r-content-col {
     margin-left: 60px;
@@ -7699,14 +7699,14 @@ td::before {
 }
 @media print, (min-width: 768px) {
   .r-vbar-page .r-content-col {
-    max-width: calc(100vw - 300px);
+    max-width: calc(100vw - 350px);
   }
   .r-vbar-page .r-content-col .r-body {
     padding-left: 22.5px;
     padding-right: 15px;
   }
   .r-vbar-page .r-content-col .r-body > * {
-    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px);
+    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px);
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="full"] > * > .r-grid-vertical[data-vcolumns="1"] {
     display: flex;
@@ -7718,7 +7718,7 @@ td::before {
     display: table;
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="compact"] > * {
-    max-width: calc(100vw - 300px - 15px);
+    max-width: calc(100vw - 350px - 15px);
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="compact"] .r-grid > table {
     width: auto;
@@ -7753,7 +7753,7 @@ td::before {
     left: 0;
     right: 0;
     z-index: 100;
-    margin-left: 300px;
+    margin-left: 350px;
   }
   .r-vbar-page .r-topheader[data-fixed] + .r-body {
     margin-top: 50px;
@@ -7887,9 +7887,9 @@ td::before {
     background-color: #ffffff;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     padding-bottom: 15px;
-    width: 300px;
+    width: 350px;
     min-height: calc(100vh - 20px);
-    flex: 0 0 300px;
+    flex: 0 0 350px;
   }
   .r-leftbar-top-page > .r-under .r-left .panel {
     margin-bottom: 0;
@@ -7992,7 +7992,7 @@ td::before {
 }
 @media print, (min-width: 768px) and print, (min-width: 768px) {
   .r-leftbar-top-page > .r-under .r-left[data-fixed] + .r-content-col {
-    margin-left: 300px;
+    margin-left: 350px;
   }
   .r-leftbar-top-page > .r-under .r-left[data-fixed].r-left-collapsed + .r-content-col {
     margin-left: 60px;
@@ -8011,14 +8011,14 @@ td::before {
 }
 @media print, (min-width: 768px) and print, (min-width: 768px) {
   .r-leftbar-top-page > .r-under .r-content-col {
-    max-width: calc(100vw - 300px);
+    max-width: calc(100vw - 350px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body {
     padding-left: 22.5px;
     padding-right: 15px;
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body > * {
-    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px);
+    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="full"] > * > .r-grid-vertical[data-vcolumns="1"] {
     display: flex;
@@ -8030,7 +8030,7 @@ td::before {
     display: table;
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="compact"] > * {
-    max-width: calc(100vw - 300px - 15px);
+    max-width: calc(100vw - 350px - 15px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="compact"] .r-grid > table {
     width: auto;
@@ -9583,15 +9583,15 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
     /* removed as for #14263 */
   }
   .r-topbar-page .r-body .r-content .r-left {
-    flex: 0 0 300px;
-    width: 300px;
+    flex: 0 0 350px;
+    width: 350px;
     padding-right: 15px;
   }
   .r-topbar-page .r-body .r-content .r-left > .r-form {
     width: 100%;
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block {
-    max-width: calc(100vw - 300px - 15px - 15px);
+    max-width: calc(100vw - 350px - 15px - 15px);
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
     width: 100%;
@@ -9651,17 +9651,17 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
 }
 @media print, (min-width: 768px) and (min-width: 1200px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 800px;
+    min-width: 750px;
   }
 }
 @media print, (min-width: 768px) and (min-width: 1400px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 870px;
+    min-width: 820px;
   }
 }
 @media print, (min-width: 768px) and (min-width: 1800px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 970px;
+    min-width: 920px;
   }
 }
 @media print, (min-width: 768px) and (max-width: 1199px) {
@@ -11899,13 +11899,13 @@ However there might have been the case where dropdown showed up where it shouldn
 /* above and below forms width with wide grid */
 @media print, (min-width: 768px) {
   .r-vbar-page .r-content-col .r-body > .r-grid > .panel > * > .r-form {
-    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px - (10px * 2));
+    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-left-collapsed + .r-content-col .r-body > .r-grid > .panel > * > .r-form {
     max-width: calc(100vw - 60px - 20px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block > .r-grid > .panel > * > .r-form {
-    max-width: calc(100vw - 300px - 15px - (30px * 0.75) - 10px - (10px * 2));
+    max-width: calc(100vw - 350px - 15px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-data-block > .r-grid > .panel > * > .r-form {
     max-width: calc(100vw - 15px - (30px * 0.75) - 10px - (10px * 2));

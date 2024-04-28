@@ -106,27 +106,10 @@ pdfDocument = {
 		widths: [
 								"%", 
 											"%", 
+											"%", 
 					 ],	
 		
 			heights: [
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
-								
-			"%",
-			 
 								
 			"%",
 			 
@@ -181,7 +164,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -200,6 +183,12 @@ pdfDocument = {
 				cellId: 'c24',
 				row:  0,
 				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c24',
+				row:  0,
+				col:  2,
 				text: ''
 			},
 							],
@@ -222,7 +211,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
@@ -241,11 +230,34 @@ pdfDocument = {
 			"text": [
 		
 				
+			{"text":"","hidden":"{$item_hide_welcome_group2}","bold":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c27',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
 			{"text":"","hidden":"{$item_hide_welcome_group9}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'right',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
@@ -259,7 +271,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -281,16 +293,22 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c3',
+				row:  0,
+				col:  2,
+				text: ''
+			},
 							],
 						[
 																{
-	cellId: 'c4',
+	cellId: 'c16',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -306,9 +324,15 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c4',
+				cellId: 'c16',
 				row:  0,
 				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c16',
+				row:  0,
+				col:  2,
 				text: ''
 			},
 							],
@@ -320,7 +344,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -342,10 +366,40 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c8',
+				row:  0,
+				col:  2,
+				text: ''
+			},
 							],
 						[
 																{
 	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+					rowSpan: 3,
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group3}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c4',
 	col:0,
 	row:0,
 			
@@ -359,17 +413,93 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group3}"},
+			{"text":"","hidden":"{$item_hide_welcome_group7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'left',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
 
 																		{ 
+				cellId: 'c4',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
 				cellId: 'c1',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c22',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group6}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c22',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c1',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c25',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group4}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c25',
 				row:  0,
 				col:  1,
 				text: ''
@@ -383,7 +513,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -404,6 +534,12 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c7',
+				row:  0,
+				col:  2,
+				text: ''
+			},
 							],
 						[
 																{
@@ -413,7 +549,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -434,127 +570,10 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
-							],
-						[
-																{
-	cellId: 'c12',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-         "pageBreak": 'after',
-   
-      },
-
-																		{ 
-				cellId: 'c12',
+														{ 
+				cellId: 'c13',
 				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c19',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group4}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c19',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c15',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c15',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c18',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c18',
-				row:  0,
-				col:  1,
+				col:  2,
 				text: ''
 			},
 							],
@@ -566,7 +585,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -588,6 +607,12 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c17',
+				row:  0,
+				col:  2,
+				text: ''
+			},
 							],
 						[
 																{
@@ -604,42 +629,17 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group7}"},
+			{"text":"","hidden":"{$item_hide_welcome_group}"},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
 
 																							{
 	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group6}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-											],
-						[
-																{
-	cellId: 'c9',
 	col:0,
 	row:0,
 			
@@ -652,16 +652,18 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"","hidden":"{$item_hide_welcome_group8}"},
+				
+		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
 
 																		{ 
-				cellId: 'c9',
+				cellId: 'c',
 				row:  0,
 				col:  1,
 				text: ''
@@ -675,7 +677,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -696,113 +698,10 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
-							],
-						[
-																{
-	cellId: 'c14',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-         "pageBreak": 'after',
-   
-      },
-
-																		{ 
-				cellId: 'c14',
+														{ 
+				cellId: 'c21',
 				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c6',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group8}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-      fillColor: '#f3f3f3',        "alignment": 'left',
-     
-      
-      },
-
-																							{
-	cellId: 'c20',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-      fillColor: '#f3f3f3',        "alignment": 'left',
-     
-      
-      },
-
-											],
-						[
-																{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c5',
-				row:  0,
-				col:  1,
+				col:  2,
 				text: ''
 			},
 							],
@@ -814,7 +713,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+					colSpan: 3,
 		
 			
 	
@@ -833,6 +732,12 @@ pdfDocument = {
 				cellId: 'c2',
 				row:  0,
 				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c2',
+				row:  0,
+				col:  2,
 				text: ''
 			},
 							],

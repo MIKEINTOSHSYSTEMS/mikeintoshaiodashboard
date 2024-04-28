@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'master' => array( 'candidates' => array( 'preview' => false ),
-'Jobs' => array( 'preview' => false ) ),
+'Jobs' => array( 'preview' => false ),
+'candidates_view' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'CandidateID',
 'JobID',

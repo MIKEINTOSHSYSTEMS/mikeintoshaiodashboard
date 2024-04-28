@@ -1,7 +1,8 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'master' => array( 'candidates' => array( 'preview' => false ),
-'trainings' => array( 'preview' => false ) ),
+'trainings' => array( 'preview' => false ),
+'candidates_view' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'TrainingID',
 'CandidateID',
 'Training_Organizer',

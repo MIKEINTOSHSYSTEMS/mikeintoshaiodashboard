@@ -2246,6 +2246,12 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link3}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link4}"},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
@@ -3984,6 +3990,16 @@ pdfDocument = {
 			 {BEGIN details_website_data}
 			{$displayDetailTable_website_data }
 		{END details_website_data},
+				
+				
+			 {BEGIN details_event_participants_view}
+			{$displayDetailTable_event_participants_view }
+		{END details_event_participants_view},
+				
+				
+			 {BEGIN details_training_participants_view}
+			{$displayDetailTable_training_participants_view }
+		{END details_training_participants_view},
 				
 		  ],
   "border": [ true, true, true, true ],

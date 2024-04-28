@@ -3624,6 +3624,12 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "dashboard_pages" ] = "dashboard_pages";
 	$projectEntities[ "dashboards" ] = array( "url" => "dashboards", "type" => 0 );
 	$projectEntitiesReverse[ "dashboards" ] = "dashboards";
+	$projectEntities[ "candidates_view" ] = array( "url" => "candidates_view", "type" => 2 );
+	$projectEntitiesReverse[ "candidates_view" ] = "candidates_view";
+	$projectEntities[ "event_participants_view" ] = array( "url" => "event_participants_view", "type" => 2 );
+	$projectEntitiesReverse[ "event_participants_view" ] = "event_participants_view";
+	$projectEntities[ "training_participants_view" ] = array( "url" => "training_participants_view", "type" => 2 );
+	$projectEntitiesReverse[ "training_participants_view" ] = "training_participants_view";
 }
 
 function findTable( $table ) {

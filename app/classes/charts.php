@@ -492,6 +492,12 @@ class Chart
 			return true;
 		if("dashboards" == $this->chrt_array['tables'][0])
 			return true;
+		if("candidates" == $this->chrt_array['tables'][0])
+			return true;
+		if("event_participants" == $this->chrt_array['tables'][0])
+			return true;
+		if("training_participants" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

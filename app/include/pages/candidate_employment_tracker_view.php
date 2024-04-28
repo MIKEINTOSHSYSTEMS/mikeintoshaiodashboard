@@ -1,7 +1,8 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'master' => array( 'candidates' => array( 'preview' => false ),
-'Jobs' => array( 'preview' => false ) ),
+'Jobs' => array( 'preview' => false ),
+'candidates_view' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'CandidateID',
 'JobID',
 'Referral_from_Dereja_service',

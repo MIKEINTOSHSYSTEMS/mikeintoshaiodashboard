@@ -3791,6 +3791,16 @@ pdfDocument = {
 			{$displayDetailTable_website_data }
 		{END details_website_data},
 				
+				
+			 {BEGIN details_event_participants_view}
+			{$displayDetailTable_event_participants_view }
+		{END details_event_participants_view},
+				
+				
+			 {BEGIN details_training_participants_view}
+			{$displayDetailTable_training_participants_view }
+		{END details_training_participants_view},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

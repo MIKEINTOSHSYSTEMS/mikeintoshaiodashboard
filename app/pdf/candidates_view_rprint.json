@@ -1,0 +1,833 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+						pagesummary: {
+		fillColor: '#ffffbb',
+	},
+	globalsummary: {
+		fillColor: '#ffe0b0',
+	},
+			group_1: {
+			fillColor: '#90ee90'
+		},
+		nbgroup_1: {
+			fillColor: '#90ee90'
+		},
+		header_1: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Sex: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		group_Sex: {
+			fillColor: '#90ee90'
+		},
+
+			group_2: {
+			fillColor: '#add8e6'
+		},
+		nbgroup_2: {
+			fillColor: '#add8e6'
+		},
+		header_2: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_DOB: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		group_DOB: {
+			fillColor: '#add8e6'
+		},
+
+			group_3: {
+			fillColor: '#ffb6c1'
+		},
+		nbgroup_3: {
+			fillColor: '#ffb6c1'
+		},
+		header_3: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Region: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		group_Region: {
+			fillColor: '#ffb6c1'
+		},
+
+			group_4: {
+			fillColor: '#fffacd'
+		},
+		nbgroup_4: {
+			fillColor: '#fffacd'
+		},
+		header_4: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_City: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		group_City: {
+			fillColor: '#fffacd'
+		},
+
+			group_5: {
+			fillColor: '#7fffd4'
+		},
+		nbgroup_5: {
+			fillColor: '#7fffd4'
+		},
+		header_5: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Languages: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		group_Languages: {
+			fillColor: '#7fffd4'
+		},
+
+			group_6: {
+			fillColor: '#b0e0e6'
+		},
+		nbgroup_6: {
+			fillColor: '#b0e0e6'
+		},
+		header_6: {
+			fillColor: '#b0e0e6',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_DAAP_Completed: {
+			fillColor: '#b0e0e6',
+			fontSize: 15,
+			bold: true
+		},
+		group_DAAP_Completed: {
+			fillColor: '#b0e0e6'
+		},
+
+			group_7: {
+			fillColor: '#fa8072'
+		},
+		nbgroup_7: {
+			fillColor: '#fa8072'
+		},
+		header_7: {
+			fillColor: '#fa8072',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_DAAP_Completed_Courses: {
+			fillColor: '#fa8072',
+			fontSize: 15,
+			bold: true
+		},
+		group_DAAP_Completed_Courses: {
+			fillColor: '#fa8072'
+		},
+
+			group_8: {
+			fillColor: '#fff8dc'
+		},
+		nbgroup_8: {
+			fillColor: '#fff8dc'
+		},
+		header_8: {
+			fillColor: '#fff8dc',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_DAAP_enrolled_1st_Round: {
+			fillColor: '#fff8dc',
+			fontSize: 15,
+			bold: true
+		},
+		group_DAAP_enrolled_1st_Round: {
+			fillColor: '#fff8dc'
+		},
+
+			group_9: {
+			fillColor: '#adff2f'
+		},
+		nbgroup_9: {
+			fillColor: '#adff2f'
+		},
+		header_9: {
+			fillColor: '#adff2f',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_DAAP_enrolled_2nd_Round: {
+			fillColor: '#adff2f',
+			fontSize: 15,
+			bold: true
+		},
+		group_DAAP_enrolled_2nd_Round: {
+			fillColor: '#adff2f'
+		},
+
+			group_10: {
+			fillColor: '#e0ffff'
+		},
+		nbgroup_10: {
+			fillColor: '#e0ffff'
+		},
+		header_10: {
+			fillColor: '#e0ffff',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Department: {
+			fillColor: '#e0ffff',
+			fontSize: 15,
+			bold: true
+		},
+		group_Department: {
+			fillColor: '#e0ffff'
+		},
+
+			group_11: {
+			fillColor: '#ffa07a'
+		},
+		nbgroup_11: {
+			fillColor: '#ffa07a'
+		},
+		header_11: {
+			fillColor: '#ffa07a',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Field_Of_Study: {
+			fillColor: '#ffa07a',
+			fontSize: 15,
+			bold: true
+		},
+		group_Field_Of_Study: {
+			fillColor: '#ffa07a'
+		},
+
+			group_12: {
+			fillColor: '#ffdead'
+		},
+		nbgroup_12: {
+			fillColor: '#ffdead'
+		},
+		header_12: {
+			fillColor: '#ffdead',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Enrollement_Type: {
+			fillColor: '#ffdead',
+			fontSize: 15,
+			bold: true
+		},
+		group_Enrollement_Type: {
+			fillColor: '#ffdead'
+		},
+
+			group_13: {
+			fillColor: '#90ee90'
+		},
+		nbgroup_13: {
+			fillColor: '#90ee90'
+		},
+		header_13: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Exit_Exam_Score: {
+			fillColor: '#90ee90',
+			fontSize: 15,
+			bold: true
+		},
+		group_Exit_Exam_Score: {
+			fillColor: '#90ee90'
+		},
+
+			group_14: {
+			fillColor: '#add8e6'
+		},
+		nbgroup_14: {
+			fillColor: '#add8e6'
+		},
+		header_14: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Exit_Exam_Status: {
+			fillColor: '#add8e6',
+			fontSize: 15,
+			bold: true
+		},
+		group_Exit_Exam_Status: {
+			fillColor: '#add8e6'
+		},
+
+			group_15: {
+			fillColor: '#ffb6c1'
+		},
+		nbgroup_15: {
+			fillColor: '#ffb6c1'
+		},
+		header_15: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_GPA: {
+			fillColor: '#ffb6c1',
+			fontSize: 15,
+			bold: true
+		},
+		group_GPA: {
+			fillColor: '#ffb6c1'
+		},
+
+			group_16: {
+			fillColor: '#fffacd'
+		},
+		nbgroup_16: {
+			fillColor: '#fffacd'
+		},
+		header_16: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Intervention: {
+			fillColor: '#fffacd',
+			fontSize: 15,
+			bold: true
+		},
+		group_Intervention: {
+			fillColor: '#fffacd'
+		},
+
+			group_17: {
+			fillColor: '#7fffd4'
+		},
+		nbgroup_17: {
+			fillColor: '#7fffd4'
+		},
+		header_17: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Job_Fair: {
+			fillColor: '#7fffd4',
+			fontSize: 15,
+			bold: true
+		},
+		group_Job_Fair: {
+			fillColor: '#7fffd4'
+		},
+
+			group_18: {
+			fillColor: '#b0e0e6'
+		},
+		nbgroup_18: {
+			fillColor: '#b0e0e6'
+		},
+		header_18: {
+			fillColor: '#b0e0e6',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Job_Fair_Clinic: {
+			fillColor: '#b0e0e6',
+			fontSize: 15,
+			bold: true
+		},
+		group_Job_Fair_Clinic: {
+			fillColor: '#b0e0e6'
+		},
+
+			group_19: {
+			fillColor: '#fa8072'
+		},
+		nbgroup_19: {
+			fillColor: '#fa8072'
+		},
+		header_19: {
+			fillColor: '#fa8072',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Year_of_graduation: {
+			fillColor: '#fa8072',
+			fontSize: 15,
+			bold: true
+		},
+		group_Year_of_graduation: {
+			fillColor: '#fa8072'
+		},
+
+		
+	blackshade: {
+		fontSize: 15,
+	},
+	summarycell: {
+		border:[false, true, false, true ]
+	},
+/*
+		.grouptotalsrow + :not(.grouptotalsrow) > * {
+		border-top:solid #808080 1px; 
+	}
+	*/	
+			},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+		{BEGIN body}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption candidates_view}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel candidates_view rprint}',
+			},
+		{END embedded_page_title}		
+		{ 
+			{BEGIN standalone_page}
+			pageBreak: 'before',
+			standAlonePage: true,
+			{END standalone_page}
+			{BEGIN embedded_grid}
+			embeddedPage: true,
+			{END embedded_grid}
+			layout: {
+				hLineWidth: function(i, node) { return 0.1; },
+				vLineWidth: function(i, node) { 
+					return 0.1; 
+				},
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
+			},
+			table: {
+				{BEGIN embedded_grid}
+				embeddedPage: true,
+				{END embedded_grid}
+				
+				tableForm: true,
+				headerRows: 1 
+								{BEGIN embedded_grid} -1 {END embedded_grid} ,
+
+				widths: [
+														"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+															],
+							
+				body: [
+				{BEGIN standalone_page}
+					[
+						{
+							colSpan: 76,
+							border:[false, false,false,false],
+							stack: [
+
+																										
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_print_pdf}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"{$jspagetitlelabel candidates_view rprint}","hidden":"{$item_hide_print_header}","fontSize":30},
+				
+				
+			{"text":"{$printtabheader_text}","hidden":"{$item_hide_print_subheader}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+								
+																										
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"Page %current% of %total%","hidden":"{$item_hide_print_pages}","isHtml":true,"page_indicator":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+															]
+						},
+					],
+				{END standalone_page}
+
+																[
+	{
+		colSpan: 76,
+		border: [ false, false, false, false ],
+		stack: [
+			{
+				table: {
+					body: [
+						[
+							
+							{
+								text: [ {$report_cross_type}, { text: {$report_cross_field}, style: 'data-field'}],
+								style: 'data-label',
+							},
+							{
+								colSpan: {$group_x_count},
+								text: {$group_x_label},
+								style: 'field-label',
+							},
+							{BEGIN cross_totals}
+							{
+								text: ' ',
+							},
+							{END cross_totals}
+							{BEGIN fake_header_cells}
+							{},
+							{END fake_header_cells}							
+						],
+						[
+							{
+								text: {$group_y_label},
+								style: 'field-label',
+							},
+							{BEGIN group_header}
+							{
+								text: {$gr_value},
+								style: 'x-label',
+							},			
+							{END group_header}
+							{BEGIN cross_totals}
+							{
+								text: {$totals},
+								style: 'x-summary-label',
+							},			
+							{END cross_totals}
+						],
+					{BEGIN grid_row}
+						[
+							{
+								text: {$group_y},
+								style: 'y-label',
+							},
+							{BEGIN row_record}
+							{	
+								text: {$row_value},
+								style: 'data',
+							},
+							{END row_record}
+							{BEGIN cross_totals}
+							{
+								text: {$row_summary},
+								style: 'summary',
+							},
+							{END cross_totals}			
+						],
+					{END grid_row}
+					{BEGIN cross_totals}
+						[
+							{
+								text: {$totals},
+								style: 'y-summary-label',
+							},
+							{BEGIN col_summary}
+							{
+								text: {$col_summary},
+								style: 'summary',
+							},		
+							{END col_summary}
+							{
+								text: {$total_summary},
+								style: 'summary',
+							},	
+						],		
+					{END cross_totals}
+					]
+				}
+			}
+		]
+	}
+],
+
+
+									]
+			
+			}
+		},
+		{END body}
+	],
+	footer: [
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+			],
+	}

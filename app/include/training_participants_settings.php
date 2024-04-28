@@ -206,7 +206,7 @@ $tdatatraining_participants[".isUseAjaxSuggest"] = true;
 
 
 
-									
+												
 
 $tdatatraining_participants[".ajaxCodeSnippetAdded"] = false;
 
@@ -4534,6 +4534,25 @@ $masterTablesData["training_participants"] = array();
 	$masterTablesData["training_participants"][1]["detailKeys"][]="TrainingID";
 				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_Start_Date";
 				$masterTablesData["training_participants"][1]["detailKeys"][]="Training_End_Date";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_view";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_view";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterParams["type"] = PAGE_REPORT;
+	$masterTablesData["training_participants"][2] = $masterParams;
+				$masterTablesData["training_participants"][2]["masterKeys"] = array();
+	$masterTablesData["training_participants"][2]["masterKeys"][]="CandidateID";
+				$masterTablesData["training_participants"][2]["detailKeys"] = array();
+	$masterTablesData["training_participants"][2]["detailKeys"][]="CandidateID";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

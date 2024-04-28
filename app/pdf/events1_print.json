@@ -365,6 +365,11 @@ pdfDocument = {
 			{$displayDetailTable_dereja_event_services }
 		{END details_dereja_event_services},
 				
+				
+			 {BEGIN details_event_participants_view}
+			{$displayDetailTable_event_participants_view }
+		{END details_event_participants_view},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

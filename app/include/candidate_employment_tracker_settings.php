@@ -167,7 +167,7 @@ $tdatacandidate_employment_tracker[".isUseAjaxSuggest"] = true;
 
 
 
-									
+												
 
 $tdatacandidate_employment_tracker[".ajaxCodeSnippetAdded"] = false;
 
@@ -2625,6 +2625,25 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="JobID";
 				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Job_Position";
 				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Job_Type";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates_view";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates_view";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterParams["type"] = PAGE_REPORT;
+	$masterTablesData["Candidate_Employment_Tracker"][2] = $masterParams;
+				$masterTablesData["Candidate_Employment_Tracker"][2]["masterKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][2]["masterKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][2]["detailKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][2]["detailKeys"][]="CandidateID";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

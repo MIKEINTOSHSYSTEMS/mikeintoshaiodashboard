@@ -1366,8 +1366,8 @@ $tdatacandidates[".hideMobileList"] = array();
 	
 	
 		$edata["LookupValues"] = array();
-	$edata["LookupValues"][] = "FEMALE";
-	$edata["LookupValues"][] = "MALE";
+	$edata["LookupValues"][] = "Female";
+	$edata["LookupValues"][] = "Male";
 
 	
 		$edata["SelectSize"] = 1;
@@ -9283,6 +9283,66 @@ $detailsTablesData["candidates"] = array();
 				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="Email";
+//	event_participants_view
+	
+	
+
+		$dIndex = 5;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="event_participants_view";
+		$detailsParam["dOriginalTable"] = "event_participants";
+
+
+
+		$detailsParam["dType"]=PAGE_REPORT;
+	
+		$detailsParam["dShortTable"] = "event_participants_view";
+	$detailsParam["dCaptionTable"] = GetTableCaption("event_participants_view");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+//	training_participants_view
+	
+	
+
+		$dIndex = 6;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="training_participants_view";
+		$detailsParam["dOriginalTable"] = "training_participants";
+
+
+
+		$detailsParam["dType"]=PAGE_REPORT;
+	
+		$detailsParam["dShortTable"] = "training_participants_view";
+	$detailsParam["dCaptionTable"] = GetTableCaption("training_participants_view");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
 //endif
 
 // tables which are master tables for current table (detail)

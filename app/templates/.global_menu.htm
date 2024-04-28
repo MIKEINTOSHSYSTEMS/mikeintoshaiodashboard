@@ -23,7 +23,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -273,7 +273,7 @@
 								<tr {$row_grid_0} >
 									<td 
 	
-	colspan="2"		 
+	colspan="3"		 
 	data-cellId="grid_c24" data-pageid="{$pageid}">
 <div class="r-welcome-align">
 </div>
@@ -283,13 +283,12 @@
 									<td 
 	
 			 
-	data-cellId="grid_c10" data-pageid="{$pageid}">
-<div class="r-welcome-align-left">
+	data-cellId="grid_c10" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group1" {$item_welcome_group1} data-pageid="{$pageid}">
 	<h2>
-					Candidates Data Managment		
-			</h2>
+					<span class="fa fa-users"></span>Candidates Data Managment			</h2>
 	 
 	</div>
 
@@ -354,12 +353,62 @@
 	
 			 
 	data-cellId="grid_c23" data-pageid="{$pageid}">
-<div class="r-welcome-align-right">
+<div class="r-welcome-align-center">
+ 
+<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group2" {$item_welcome_group2} data-pageid="{$pageid}" data-page=".global_menu">
+	<h2>
+					<span class="fa fa-table"></span>Tabular Reports			</h2>
+	 
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item53" {$item_welcome_item53} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="candidates_view_report.php"  > 
+							Candidates Report					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item54" {$item_welcome_item54} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="candidates_view_masterreport.php"  > 
+							Candidates Master Report					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item55" {$item_welcome_item55} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="event_participants_view_report.php"  > 
+							Event Participants Report					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item56" {$item_welcome_item56} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="training_participants_view_report.php"  > 
+							Training Participants Report					</a>
+	</div>
+
+	</div>
+
+<div class="clearfix"></div>
+</div>
+</td>
+									<td 
+	
+			 
+	data-cellId="grid_c27" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group9" {$item_welcome_group9} data-pageid="{$pageid}">
 	<h2>
-					Data Visualization and Reports Management		
-			</h2>
+					<span class="fa fa-bar-chart"></span>Data Visualization and Reports Management			</h2>
 	 
 	</div>
 
@@ -433,7 +482,7 @@
 											<tr {$row_grid_2} >
 									<td 
 	
-	colspan="2"		 
+	colspan="3"		 
 	data-cellId="grid_c3" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
@@ -442,8 +491,8 @@
 											<tr {$row_grid_3} >
 									<td 
 	
-	colspan="2"		 
-	data-cellId="grid_c4" data-pageid="{$pageid}">
+	colspan="3"		 
+	data-cellId="grid_c16" data-pageid="{$pageid}">
 <div class="r-welcome-align">
 </div>
 </td>
@@ -451,7 +500,7 @@
 											<tr {$row_grid_4} >
 									<td 
 	
-	colspan="2"		 
+	colspan="3"		 
 	data-cellId="grid_c8" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
@@ -460,14 +509,13 @@
 											<tr {$row_grid_5} >
 									<td 
 	
-	colspan="2"		 
+		rowspan="3"	 
 	data-cellId="grid_c1" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-left">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group3" {$item_welcome_group3} data-pageid="{$pageid}">
 	<h2>
-					Training and Events Data Management		
-			</h2>
+					<span class="glyphicon glyphicon-calendar"></span>Training and Events Data Management			</h2>
 	 
 	</div>
 
@@ -561,144 +609,15 @@
 <div class="clearfix"></div>
 </div>
 </td>
-							</tr>
-											<tr {$row_grid_6} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c7" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_7} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c13" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_8} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c12" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_9} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c19" data-pageid="{$pageid}">
-<div class="r-welcome-align-left">
- 
-<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group4" {$item_welcome_group4} data-pageid="{$pageid}">
-	<h2>
-					Jobs and Companies Data Management		
-			</h2>
-	 
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item10" {$item_welcome_item10} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="jobs_list.php"  > 
-							<span class="fa fa-briefcase"></span>Jobs					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item11" {$item_welcome_item11} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="job_categories_list.php"  > 
-							<span class="glyphicon glyphicon-tags"></span>Job Categories					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item12" {$item_welcome_item12} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="job_types_list.php"  > 
-							<span class="glyphicon glyphicon-tag"></span>Job Types					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item4" {$item_welcome_item4} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="job_fair_list.php"  > 
-							<span class="fa fa-connectdevelop"></span>Job Fair					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item8" {$item_welcome_item8} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="companies_list.php"  > 
-							<span class="fa fa-suitcase"></span>Companies					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item9" {$item_welcome_item9} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="companysectors_list.php"  > 
-							<span class="glyphicon glyphicon-level-up"></span>Company Sectors					</a>
-	</div>
-
-	</div>
-
-<div class="clearfix"></div>
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_10} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c15" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_11} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c18" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_12} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c17" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_13} >
-									<td 
-	
-			 
-	data-cellId="grid_c11" data-pageid="{$pageid}">
-<div class="r-welcome-align-left">
+	data-cellId="grid_c4" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group7" {$item_welcome_group7} data-pageid="{$pageid}">
 	<h2>
-					Education and Skills Data Management		
-			</h2>
+					<span class="fa fa-pencil"></span>Education and Skills Data Management			</h2>
 	 
 	</div>
 
@@ -786,16 +705,17 @@
 <div class="clearfix"></div>
 </div>
 </td>
+							</tr>
+											<tr {$row_grid_6} >
 									<td 
 	
-			 
-	data-cellId="grid_c" data-pageid="{$pageid}">
-<div class="r-welcome-align-left">
+	colspan="2"		 
+	data-cellId="grid_c22" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group6" {$item_welcome_group6} data-pageid="{$pageid}">
 	<h2>
-					Localization and Regional Data Management		
-			</h2>
+					<span class="glyphicon glyphicon-globe"></span>Localization and Regional Data Management			</h2>
 	 
 	</div>
 
@@ -848,97 +768,69 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_14} >
+											<tr {$row_grid_7} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c9" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_15} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c21" data-pageid="{$pageid}">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_16} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c14" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_17} >
-									<td 
-	
-			 
-	data-cellId="grid_c6" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-left">
+	data-cellId="grid_c25" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
  
-<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group8" {$item_welcome_group8} data-pageid="{$pageid}">
+<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group4" {$item_welcome_group4} data-pageid="{$pageid}">
 	<h2>
-					Miscellaneous		
-			</h2>
+					<span class="glyphicon glyphicon-briefcase"></span>Jobs and Companies Data Management			</h2>
 	 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item26" {$item_welcome_item26} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item10" {$item_welcome_item10} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="dereja_information_sources_list.php"  > 
-							<span class="fa fa-info"></span>Information Sources					</a>
+		<a id="itemlink" href="jobs_list.php"  > 
+							<span class="fa fa-briefcase"></span>Jobs					</a>
 	</div>
 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item36" {$item_welcome_item36} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item11" {$item_welcome_item11} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="disability_types_list.php"  > 
-							<span class="fa fa-wheelchair"></span>Disability Types					</a>
+		<a id="itemlink" href="job_categories_list.php"  > 
+							<span class="glyphicon glyphicon-tags"></span>Job Categories					</a>
 	</div>
 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item18" {$item_welcome_item18} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item12" {$item_welcome_item12} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="dereja_services_list.php"  > 
-							<span class="fa fa-gear"></span>Dereja Services					</a>
+		<a id="itemlink" href="job_types_list.php"  > 
+							<span class="glyphicon glyphicon-tag"></span>Job Types					</a>
 	</div>
 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item35" {$item_welcome_item35} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item4" {$item_welcome_item4} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="program_areas_list.php"  > 
-							<span class="fa fa-tasks"></span>Program Areas					</a>
+		<a id="itemlink" href="job_fair_list.php"  > 
+							<span class="fa fa-connectdevelop"></span>Job Fair					</a>
 	</div>
 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item50" {$item_welcome_item50} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item8" {$item_welcome_item8} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="derejame_audit_list.php"  > 
-							<span class="fa fa-user-plus"></span>System Users Audit					</a>
+		<a id="itemlink" href="companies_list.php"  > 
+							<span class="fa fa-suitcase"></span>Companies					</a>
 	</div>
 
 	</div>
 
 	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item51" {$item_welcome_item51} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item9" {$item_welcome_item9} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
-		<a id="itemlink" href="dashboard_pages_list.php"  > 
-							Dashboard Pages					</a>
+		<a id="itemlink" href="companysectors_list.php"  > 
+							<span class="glyphicon glyphicon-level-up"></span>Company Sectors					</a>
 	</div>
 
 	</div>
@@ -946,11 +838,40 @@
 <div class="clearfix"></div>
 </div>
 </td>
+							</tr>
+											<tr {$row_grid_8} >
+									<td 
+	
+	colspan="3"		 
+	data-cellId="grid_c7" data-pageid="{$pageid}">
+<div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_9} >
+									<td 
+	
+	colspan="3"		 
+	data-cellId="grid_c13" data-pageid="{$pageid}">
+<div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_10} >
+									<td 
+	
+	colspan="3"		 
+	data-cellId="grid_c17" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_11} >
 									<td 
 	
 			 
-	data-cellId="grid_c20" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-left">
+	data-cellId="grid_c11" data-pageid="{$pageid}">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group" {$item_welcome_group} data-pageid="{$pageid}">
 	<h2>
@@ -1031,20 +952,90 @@
 <div class="clearfix"></div>
 </div>
 </td>
-							</tr>
-											<tr {$row_grid_18} >
 									<td 
 	
 	colspan="2"		 
-	data-cellId="grid_c5" data-pageid="{$pageid}">
+	data-cellId="grid_c" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
+ 
+<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group8" {$item_welcome_group8} data-pageid="{$pageid}">
+	<h2>
+					Miscellaneous		
+			</h2>
+	 
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item26" {$item_welcome_item26} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_information_sources_list.php"  > 
+							<span class="fa fa-info"></span>Information Sources					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item36" {$item_welcome_item36} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="disability_types_list.php"  > 
+							<span class="fa fa-wheelchair"></span>Disability Types					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item18" {$item_welcome_item18} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dereja_services_list.php"  > 
+							<span class="fa fa-gear"></span>Dereja Services					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item35" {$item_welcome_item35} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="program_areas_list.php"  > 
+							<span class="fa fa-tasks"></span>Program Areas					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item50" {$item_welcome_item50} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="derejame_audit_list.php"  > 
+							<span class="fa fa-user-plus"></span>System Users Audit					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item51" {$item_welcome_item51} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="dashboard_pages_list.php"  > 
+							Dashboard Pages					</a>
+	</div>
+
+	</div>
+
+<div class="clearfix"></div>
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_12} >
+									<td 
+	
+	colspan="3"		 
+	data-cellId="grid_c21" data-pageid="{$pageid}">
 <div class="r-welcome-align">
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_19} >
+											<tr {$row_grid_13} >
 									<td 
 	
-	colspan="2"		 
+	colspan="3"		 
 	data-cellId="grid_c2" data-pageid="{$pageid}">
 <div class="r-welcome-align">
 </div>

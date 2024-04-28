@@ -24,7 +24,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -551,6 +551,13 @@
 					Dereja Event Services				</label>
 			</div>
 			{END print_details_dereja_event_services}
+														{BEGIN print_details_event_participants_view}
+			<div>
+				<label for="printDetailsevent_participants_view{$id}">
+					<input type="checkbox" value="event_participants_view" id="printDetailsevent_participants_view{$id}" checked>
+					Event Participants View				</label>
+			</div>
+			{END print_details_event_participants_view}
 						</div>
 </div>
 {END print_details}
@@ -882,6 +889,25 @@
 	{END event_participants_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN event_participants_view_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$event_participants_view_link_attrs} data-short-details="event_participants_view"
+		class="{$event_participants_view_dlink_class}" 
+		title="{$caption event_participants_view }"			>
+								
+									{BEGIN event_participants_view_childcount}
+				<span class="details-badge badge event_participants_view_badge" {$event_participants_view_childnumber_attr}>
+					{$event_participants_view_childnumber}				
+				</span>
+				{END event_participants_view_childcount}
+						</a>
+	</span>
+	{END event_participants_view_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -944,19 +970,22 @@
 	>
 
 	 
-					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders=",event_participants,dereja_event_services"
-			data-details-			data-details-event_participants			data-details-dereja_event_services	>
+						<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders=",event_participants,dereja_event_services,event_participants_view"
+			data-details-			data-details-event_participants			data-details-dereja_event_services			data-details-event_participants_view	>
 		<span data-details-inside data-short-table="">
 			</span>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="dereja_event_services">
 			</span>
+		<span data-details-inside data-short-table="event_participants_view">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			 
 			
 	</td>

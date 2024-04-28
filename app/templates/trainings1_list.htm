@@ -24,7 +24,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -695,6 +695,13 @@
 					Dereja Training Services				</label>
 			</div>
 			{END print_details_dereja_training_services}
+														{BEGIN print_details_training_participants_view}
+			<div>
+				<label for="printDetailstraining_participants_view{$id}">
+					<input type="checkbox" value="training_participants_view" id="printDetailstraining_participants_view{$id}" checked>
+					Training Participants View				</label>
+			</div>
+			{END print_details_training_participants_view}
 						</div>
 </div>
 {END print_details}
@@ -1306,6 +1313,25 @@
 	{END training_participants_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN training_participants_view_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$training_participants_view_link_attrs} data-short-details="training_participants_view"
+		class="{$training_participants_view_dlink_class}" 
+		title="{$caption training_participants_view }"			>
+								
+									{BEGIN training_participants_view_childcount}
+				<span class="details-badge badge training_participants_view_badge" {$training_participants_view_childnumber_attr}>
+					{$training_participants_view_childnumber}				
+				</span>
+				{END training_participants_view_childcount}
+						</a>
+	</span>
+	{END training_participants_view_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -1578,19 +1604,22 @@
 	>
 
 	 
-					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders=",training_participants,dereja_training_services"
-			data-details-			data-details-training_participants			data-details-dereja_training_services	>
+						<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders=",training_participants,dereja_training_services,training_participants_view"
+			data-details-			data-details-training_participants			data-details-dereja_training_services			data-details-training_participants_view	>
 		<span data-details-inside data-short-table="">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
 			</span>
 		<span data-details-inside data-short-table="dereja_training_services">
 			</span>
+		<span data-details-inside data-short-table="training_participants_view">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			 
 			
 	</td>

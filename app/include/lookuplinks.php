@@ -495,6 +495,237 @@ function InitLookupLinks()
 			$lookupTableLinks["kbarticles"]["admin_comments.ArticleID"] = array();
 		}
 		$lookupTableLinks["kbarticles"]["admin_comments.ArticleID"]["edit"] = array("table" => "admin_comments", "field" => "ArticleID", "page" => "edit");
+		if( !isset( $lookupTableLinks["regions"] ) ) {
+			$lookupTableLinks["regions"] = array();
+		}
+		if( !isset( $lookupTableLinks["regions"]["candidates_view.Region"] )) {
+			$lookupTableLinks["regions"]["candidates_view.Region"] = array();
+		}
+		$lookupTableLinks["regions"]["candidates_view.Region"]["search"] = array("table" => "candidates_view", "field" => "Region", "page" => "search");
+		if( !isset( $lookupTableLinks["cities"] ) ) {
+			$lookupTableLinks["cities"] = array();
+		}
+		if( !isset( $lookupTableLinks["cities"]["candidates_view.City"] )) {
+			$lookupTableLinks["cities"]["candidates_view.City"] = array();
+		}
+		$lookupTableLinks["cities"]["candidates_view.City"]["search"] = array("table" => "candidates_view", "field" => "City", "page" => "search");
+		if( !isset( $lookupTableLinks["sub_cities"] ) ) {
+			$lookupTableLinks["sub_cities"] = array();
+		}
+		if( !isset( $lookupTableLinks["sub_cities"]["candidates_view.Sub_City"] )) {
+			$lookupTableLinks["sub_cities"]["candidates_view.Sub_City"] = array();
+		}
+		$lookupTableLinks["sub_cities"]["candidates_view.Sub_City"]["search"] = array("table" => "candidates_view", "field" => "Sub_City", "page" => "search");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["candidates_view.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["candidates_view.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["candidates_view.Disability_Type"]["search"] = array("table" => "candidates_view", "field" => "Disability_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["institution_types"] ) ) {
+			$lookupTableLinks["institution_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["institution_types"]["candidates_view.Institution_Type"] )) {
+			$lookupTableLinks["institution_types"]["candidates_view.Institution_Type"] = array();
+		}
+		$lookupTableLinks["institution_types"]["candidates_view.Institution_Type"]["search"] = array("table" => "candidates_view", "field" => "Institution_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["education_levels"] ) ) {
+			$lookupTableLinks["education_levels"] = array();
+		}
+		if( !isset( $lookupTableLinks["education_levels"]["candidates_view.Education_Level"] )) {
+			$lookupTableLinks["education_levels"]["candidates_view.Education_Level"] = array();
+		}
+		$lookupTableLinks["education_levels"]["candidates_view.Education_Level"]["search"] = array("table" => "candidates_view", "field" => "Education_Level", "page" => "search");
+		if( !isset( $lookupTableLinks["departments"] ) ) {
+			$lookupTableLinks["departments"] = array();
+		}
+		if( !isset( $lookupTableLinks["departments"]["candidates_view.Department"] )) {
+			$lookupTableLinks["departments"]["candidates_view.Department"] = array();
+		}
+		$lookupTableLinks["departments"]["candidates_view.Department"]["search"] = array("table" => "candidates_view", "field" => "Department", "page" => "search");
+		if( !isset( $lookupTableLinks["minor_major"] ) ) {
+			$lookupTableLinks["minor_major"] = array();
+		}
+		if( !isset( $lookupTableLinks["minor_major"]["candidates_view.Minor"] )) {
+			$lookupTableLinks["minor_major"]["candidates_view.Minor"] = array();
+		}
+		$lookupTableLinks["minor_major"]["candidates_view.Minor"]["search"] = array("table" => "candidates_view", "field" => "Minor", "page" => "search");
+		if( !isset( $lookupTableLinks["minor_major"] ) ) {
+			$lookupTableLinks["minor_major"] = array();
+		}
+		if( !isset( $lookupTableLinks["minor_major"]["candidates_view.Major"] )) {
+			$lookupTableLinks["minor_major"]["candidates_view.Major"] = array();
+		}
+		$lookupTableLinks["minor_major"]["candidates_view.Major"]["search"] = array("table" => "candidates_view", "field" => "Major", "page" => "search");
+		if( !isset( $lookupTableLinks["skills"] ) ) {
+			$lookupTableLinks["skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["skills"]["candidates_view.Skills"] )) {
+			$lookupTableLinks["skills"]["candidates_view.Skills"] = array();
+		}
+		$lookupTableLinks["skills"]["candidates_view.Skills"]["search"] = array("table" => "candidates_view", "field" => "Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["Languages"] ) ) {
+			$lookupTableLinks["Languages"] = array();
+		}
+		if( !isset( $lookupTableLinks["Languages"]["candidates_view.Languages"] )) {
+			$lookupTableLinks["Languages"]["candidates_view.Languages"] = array();
+		}
+		$lookupTableLinks["Languages"]["candidates_view.Languages"]["search"] = array("table" => "candidates_view", "field" => "Languages", "page" => "search");
+		if( !isset( $lookupTableLinks["industry_specific_skills"] ) ) {
+			$lookupTableLinks["industry_specific_skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["industry_specific_skills"]["candidates_view.Industry_Specific_Skills"] )) {
+			$lookupTableLinks["industry_specific_skills"]["candidates_view.Industry_Specific_Skills"] = array();
+		}
+		$lookupTableLinks["industry_specific_skills"]["candidates_view.Industry_Specific_Skills"]["search"] = array("table" => "candidates_view", "field" => "Industry_Specific_Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["it_related_skills"] ) ) {
+			$lookupTableLinks["it_related_skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["it_related_skills"]["candidates_view.IT_Related_Skills"] )) {
+			$lookupTableLinks["it_related_skills"]["candidates_view.IT_Related_Skills"] = array();
+		}
+		$lookupTableLinks["it_related_skills"]["candidates_view.IT_Related_Skills"]["search"] = array("table" => "candidates_view", "field" => "IT_Related_Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["candidates_view.DAAP_Completed_Courses"] )) {
+			$lookupTableLinks["trainings"]["candidates_view.DAAP_Completed_Courses"] = array();
+		}
+		$lookupTableLinks["trainings"]["candidates_view.DAAP_Completed_Courses"]["search"] = array("table" => "candidates_view", "field" => "DAAP_Completed_Courses", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_services"] ) ) {
+			$lookupTableLinks["dereja_services"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_services"]["candidates_view.Dereja_Services"] )) {
+			$lookupTableLinks["dereja_services"]["candidates_view.Dereja_Services"] = array();
+		}
+		$lookupTableLinks["dereja_services"]["candidates_view.Dereja_Services"]["search"] = array("table" => "candidates_view", "field" => "Dereja_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["candidates_view.Dereja_Training_Services"] )) {
+			$lookupTableLinks["trainings"]["candidates_view.Dereja_Training_Services"] = array();
+		}
+		$lookupTableLinks["trainings"]["candidates_view.Dereja_Training_Services"]["search"] = array("table" => "candidates_view", "field" => "Dereja_Training_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["events"] ) ) {
+			$lookupTableLinks["events"] = array();
+		}
+		if( !isset( $lookupTableLinks["events"]["candidates_view.Dereja_Event_Services"] )) {
+			$lookupTableLinks["events"]["candidates_view.Dereja_Event_Services"] = array();
+		}
+		$lookupTableLinks["events"]["candidates_view.Dereja_Event_Services"]["search"] = array("table" => "candidates_view", "field" => "Dereja_Event_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_information_sources"] ) ) {
+			$lookupTableLinks["dereja_information_sources"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_information_sources"]["candidates_view.Dereja_Information_Source"] )) {
+			$lookupTableLinks["dereja_information_sources"]["candidates_view.Dereja_Information_Source"] = array();
+		}
+		$lookupTableLinks["dereja_information_sources"]["candidates_view.Dereja_Information_Source"]["search"] = array("table" => "candidates_view", "field" => "Dereja_Information_Source", "page" => "search");
+		if( !isset( $lookupTableLinks["Companies"] ) ) {
+			$lookupTableLinks["Companies"] = array();
+		}
+		if( !isset( $lookupTableLinks["Companies"]["candidates_view.Employment_Company"] )) {
+			$lookupTableLinks["Companies"]["candidates_view.Employment_Company"] = array();
+		}
+		$lookupTableLinks["Companies"]["candidates_view.Employment_Company"]["search"] = array("table" => "candidates_view", "field" => "Employment_Company", "page" => "search");
+		if( !isset( $lookupTableLinks["Jobs"] ) ) {
+			$lookupTableLinks["Jobs"] = array();
+		}
+		if( !isset( $lookupTableLinks["Jobs"]["candidates_view.Employment_Position"] )) {
+			$lookupTableLinks["Jobs"]["candidates_view.Employment_Position"] = array();
+		}
+		$lookupTableLinks["Jobs"]["candidates_view.Employment_Position"]["search"] = array("table" => "candidates_view", "field" => "Employment_Position", "page" => "search");
+		if( !isset( $lookupTableLinks["events"] ) ) {
+			$lookupTableLinks["events"] = array();
+		}
+		if( !isset( $lookupTableLinks["events"]["event_participants_view.EventID"] )) {
+			$lookupTableLinks["events"]["event_participants_view.EventID"] = array();
+		}
+		$lookupTableLinks["events"]["event_participants_view.EventID"]["search"] = array("table" => "event_participants_view", "field" => "EventID", "page" => "search");
+		if( !isset( $lookupTableLinks["candidates"] ) ) {
+			$lookupTableLinks["candidates"] = array();
+		}
+		if( !isset( $lookupTableLinks["candidates"]["event_participants_view.CandidateID"] )) {
+			$lookupTableLinks["candidates"]["event_participants_view.CandidateID"] = array();
+		}
+		$lookupTableLinks["candidates"]["event_participants_view.CandidateID"]["search"] = array("table" => "event_participants_view", "field" => "CandidateID", "page" => "search");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["event_participants_view.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["event_participants_view.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["event_participants_view.Disability_Type"]["search"] = array("table" => "event_participants_view", "field" => "Disability_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["training_participants_view.TrainingID"] )) {
+			$lookupTableLinks["trainings"]["training_participants_view.TrainingID"] = array();
+		}
+		$lookupTableLinks["trainings"]["training_participants_view.TrainingID"]["search"] = array("table" => "training_participants_view", "field" => "TrainingID", "page" => "search");
+		if( !isset( $lookupTableLinks["candidates"] ) ) {
+			$lookupTableLinks["candidates"] = array();
+		}
+		if( !isset( $lookupTableLinks["candidates"]["training_participants_view.CandidateID"] )) {
+			$lookupTableLinks["candidates"]["training_participants_view.CandidateID"] = array();
+		}
+		$lookupTableLinks["candidates"]["training_participants_view.CandidateID"]["search"] = array("table" => "training_participants_view", "field" => "CandidateID", "page" => "search");
+		if( !isset( $lookupTableLinks["training_organizers"] ) ) {
+			$lookupTableLinks["training_organizers"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_organizers"]["training_participants_view.Training_Organizer"] )) {
+			$lookupTableLinks["training_organizers"]["training_participants_view.Training_Organizer"] = array();
+		}
+		$lookupTableLinks["training_organizers"]["training_participants_view.Training_Organizer"]["search"] = array("table" => "training_participants_view", "field" => "Training_Organizer", "page" => "search");
+		if( !isset( $lookupTableLinks["training_types"] ) ) {
+			$lookupTableLinks["training_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_types"]["training_participants_view.Training_Type"] )) {
+			$lookupTableLinks["training_types"]["training_participants_view.Training_Type"] = array();
+		}
+		$lookupTableLinks["training_types"]["training_participants_view.Training_Type"]["search"] = array("table" => "training_participants_view", "field" => "Training_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["program_areas"] ) ) {
+			$lookupTableLinks["program_areas"] = array();
+		}
+		if( !isset( $lookupTableLinks["program_areas"]["training_participants_view.Program_Area"] )) {
+			$lookupTableLinks["program_areas"]["training_participants_view.Program_Area"] = array();
+		}
+		$lookupTableLinks["program_areas"]["training_participants_view.Program_Area"]["search"] = array("table" => "training_participants_view", "field" => "Program_Area", "page" => "search");
+		if( !isset( $lookupTableLinks["training_city_towns"] ) ) {
+			$lookupTableLinks["training_city_towns"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_city_towns"]["training_participants_view.Training_City_Town"] )) {
+			$lookupTableLinks["training_city_towns"]["training_participants_view.Training_City_Town"] = array();
+		}
+		$lookupTableLinks["training_city_towns"]["training_participants_view.Training_City_Town"]["search"] = array("table" => "training_participants_view", "field" => "Training_City_Town", "page" => "search");
+		if( !isset( $lookupTableLinks["training_venues"] ) ) {
+			$lookupTableLinks["training_venues"] = array();
+		}
+		if( !isset( $lookupTableLinks["training_venues"]["training_participants_view.Training_Venue"] )) {
+			$lookupTableLinks["training_venues"]["training_participants_view.Training_Venue"] = array();
+		}
+		$lookupTableLinks["training_venues"]["training_participants_view.Training_Venue"]["search"] = array("table" => "training_participants_view", "field" => "Training_Venue", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["training_participants_view.Training_Start_Date"] )) {
+			$lookupTableLinks["trainings"]["training_participants_view.Training_Start_Date"] = array();
+		}
+		$lookupTableLinks["trainings"]["training_participants_view.Training_Start_Date"]["search"] = array("table" => "training_participants_view", "field" => "Training_Start_Date", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["training_participants_view.Training_End_Date"] )) {
+			$lookupTableLinks["trainings"]["training_participants_view.Training_End_Date"] = array();
+		}
+		$lookupTableLinks["trainings"]["training_participants_view.Training_End_Date"]["search"] = array("table" => "training_participants_view", "field" => "Training_End_Date", "page" => "search");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["training_participants_view.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["training_participants_view.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["training_participants_view.Disability_Type"]["search"] = array("table" => "training_participants_view", "field" => "Disability_Type", "page" => "search");
 }
 
 ?>

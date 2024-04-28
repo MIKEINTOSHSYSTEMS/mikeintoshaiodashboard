@@ -665,6 +665,18 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="candidates_view")
+		{
+			return 1;
+		}
+		if($table=="event_participants_view")
+		{
+			return 1;
+		}
+		if($table=="training_participants_view")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1153,6 +1165,18 @@ function getCaptionTable($table)
 	if($table=="dashboards")
 	{
 		return "Dashboards";
+	}
+	if($table=="candidates_view")
+	{
+		return "Candidates View";
+	}
+	if($table=="event_participants_view")
+	{
+		return "Event Participants View";
+	}
+	if($table=="training_participants_view")
+	{
+		return "Training Participants View";
 	}
 	return $table;
 }
