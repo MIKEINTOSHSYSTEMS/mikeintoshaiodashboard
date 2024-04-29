@@ -7610,7 +7610,7 @@ td::before {
   font-size: 22px;
 }
 .r-vbar-page .r-left [data-logo-cell][data-logo-cell] {
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   color: rgba(0, 0, 0, 0.5);
   height: 43px;
   border: none;
@@ -7921,7 +7921,7 @@ td::before {
     font-size: 22px;
   }
   .r-leftbar-top-page > .r-under .r-left [data-logo-cell][data-logo-cell] {
-    background-color: #ffffff;
+    background-color: #f8f9fa;
     color: rgba(0, 0, 0, 0.5);
     height: 43px;
     border: none;

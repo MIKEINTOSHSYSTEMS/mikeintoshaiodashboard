@@ -676,7 +676,7 @@ $styleOverrides = array();
 $styleOverrides["candidates_by_sex_chart"] = array(
 	"theme" => "simplex",
 	"size" => "normal",
-	"path" => "",
+	"path" => "styles\\bootstrap\\custom\\candidates_by_sex_chart",
 );
 
 $globalSettings["mapProvider"]=1;
@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "231_1714404759";
+$projectBuildKey = "234_1714404759";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "231";
+$projectBuildNumber = "234";
 
 $mlang_messages = array();
 $mlang_charsets = array();

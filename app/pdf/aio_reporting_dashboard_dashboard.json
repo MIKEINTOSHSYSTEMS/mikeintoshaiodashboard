@@ -40,8 +40,8 @@ pdfDocument = {
 		widths: [
 								"%", 
 											"%", 
-											175, 
-											175, 
+											"%", 
+											"%", 
 					 ],	
 		
 			heights: [
