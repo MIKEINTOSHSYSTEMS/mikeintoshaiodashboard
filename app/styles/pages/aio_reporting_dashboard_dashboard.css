@@ -18,10 +18,14 @@
   border: none;
 }
 [data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item6"] {
-  height: 700px;
+  height: 500px;
 }
 [data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item4"] {
   height: 500px;
+}
+[data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item4"] > .panel,
+[data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item4"] > * > .tab-content > .tab-pane > .panel {
+  border: none;
 }
 [data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item5"] {
   height: 500px;

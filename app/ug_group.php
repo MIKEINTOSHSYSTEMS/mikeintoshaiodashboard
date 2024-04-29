@@ -76,11 +76,11 @@ $nonAdminTablesArr[] = "candidates_view";
 $nonAdminTablesArr[] = "event_participants_view";
 $nonAdminTablesArr[] = "training_participants_view";
 $nonAdminTablesArr[] = "AIO_Reporting_Dashboard";
-$nonAdminTablesArr[] = "candidates_by_sex";
 $nonAdminTablesArr[] = "candidates_by_region";
 $nonAdminTablesArr[] = "event_participants_by_events";
 $nonAdminTablesArr[] = "training_participants_by_trainings";
 $nonAdminTablesArr[] = "candidates_reports";
+$nonAdminTablesArr[] = "candidates_by_gender";
 
 $ug_connection = $cman->getForUserGroups();
 

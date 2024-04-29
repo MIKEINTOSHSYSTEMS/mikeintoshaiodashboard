@@ -652,10 +652,6 @@ class AuditTrailTable
 		{
 			return false;
 		}
-		if($table=="candidates_by_sex")
-		{
-			return false;
-		}
 		if($table=="candidates_by_region")
 		{
 			return false;
@@ -669,6 +665,10 @@ class AuditTrailTable
 			return false;
 		}
 		if($table=="candidates_reports")
+		{
+			return false;
+		}
+		if($table=="candidates_by_gender")
 		{
 			return false;
 		}
@@ -1278,10 +1278,6 @@ class AuditTrailFile
 		{
 			return false;
 		}
-		if($table=="candidates_by_sex")
-		{
-			return false;
-		}
 		if($table=="candidates_by_region")
 		{
 			return false;
@@ -1295,6 +1291,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="candidates_reports")
+		{
+			return false;
+		}
+		if($table=="candidates_by_gender")
 		{
 			return false;
 		}

@@ -198,9 +198,6 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field26}","stack":[{"text":"{$jslabel training_participants Sex }","bold":true},{"text":{$Sex_pdfvalue}}],"margin":[0,0,0,15]},
 				
-				
-			{"hidden":"{$item_hide_integrated_edit_field27}","stack":[{"text":"{$jslabel training_participants Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

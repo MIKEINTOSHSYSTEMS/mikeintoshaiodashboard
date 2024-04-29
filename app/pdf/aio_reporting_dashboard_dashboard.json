@@ -40,12 +40,14 @@ pdfDocument = {
 		widths: [
 								"%", 
 											"%", 
-											"%", 
-											"%", 
-											350, 
+											175, 
+											175, 
 					 ],	
 		
 			heights: [
+								
+			"%",
+			 
 								
 			"%",
 			 
@@ -61,7 +63,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c2',
+	cellId: 'c6',
 	col:0,
 	row:0,
 			
@@ -84,58 +86,13 @@ pdfDocument = {
       },
 
 																							{
-	cellId: 'c3',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
-	cellId: 'c6',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item8}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
 	cellId: 'c5',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
@@ -152,8 +109,14 @@ pdfDocument = {
       
       },
 
-																							{
-	cellId: 'c4',
+																		{ 
+				cellId: 'c5',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+																			{
+	cellId: 'c10',
 	col:0,
 	row:0,
 			
@@ -178,7 +141,30 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c',
+	cellId: 'c18',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item6}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c19',
 	col:0,
 	row:0,
 			
@@ -202,59 +188,13 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c',
+				cellId: 'c19',
 				row:  0,
 				col:  1,
 				text: ''
 			},
 																			{
-	cellId: 'c7',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item1}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
-	cellId: 'c8',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item2}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																							{
-	cellId: 'c9',
+	cellId: 'c3',
 	col:0,
 	row:0,
 			
@@ -279,13 +219,13 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c12',
+	cellId: 'c2',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
-					colSpan: 5,
+					colSpan: 2,
 		
 			
 	
@@ -293,7 +233,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":"","hidden":"{$item_hide_dashboard-item6}"},
+			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -303,27 +243,101 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c12',
+				cellId: 'c2',
 				row:  0,
 				col:  1,
 				text: ''
 			},
-														{ 
-				cellId: 'c12',
+																			{
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item8}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c15',
 				row:  0,
-				col:  2,
+				col:  1,
 				text: ''
 			},
-														{ 
-				cellId: 'c12',
+							],
+						[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item1}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
 				row:  0,
-				col:  3,
+				col:  1,
 				text: ''
 			},
-														{ 
-				cellId: 'c12',
+																			{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item2}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c9',
 				row:  0,
-				col:  4,
+				col:  1,
 				text: ''
 			},
 							],

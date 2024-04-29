@@ -198,9 +198,6 @@ pdfDocument = {
 				
 			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_integrated_search_field26}"},
 				
-				
-			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field27}"},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

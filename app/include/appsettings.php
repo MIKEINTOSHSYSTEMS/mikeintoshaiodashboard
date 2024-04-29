@@ -673,6 +673,11 @@ $globalSettings["override"] = array();
 
 $styleOverrides = array();
 
+$styleOverrides["candidates_by_sex_chart"] = array(
+	"theme" => "simplex",
+	"size" => "normal",
+	"path" => "",
+);
 
 $globalSettings["mapProvider"]=1;
 
@@ -739,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "225_1714145510";
+$projectBuildKey = "231_1714404759";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "225";
+$projectBuildNumber = "231";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -829,11 +834,11 @@ $tableCaptions["English"]["candidates_view"] = "Candidates View";
 $tableCaptions["English"]["event_participants_view"] = "Event Participants View";
 $tableCaptions["English"]["training_participants_view"] = "Training Participants View";
 $tableCaptions["English"]["AIO_Reporting_Dashboard"] = "AIO Reporting Dashboard";
-$tableCaptions["English"]["candidates_by_sex"] = "Candidates By Sex";
 $tableCaptions["English"]["candidates_by_region"] = "Candidates By Region";
 $tableCaptions["English"]["event_participants_by_events"] = "Event Participants By Events";
 $tableCaptions["English"]["training_participants_by_trainings"] = "Training Participants By Trainings";
 $tableCaptions["English"]["candidates_reports"] = "Candidates Reports";
+$tableCaptions["English"]["candidates_by_gender"] = "Candidates By Gender";
 
 
 $globalEvents = new class_GlobalEvents;

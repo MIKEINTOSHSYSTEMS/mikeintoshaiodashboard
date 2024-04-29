@@ -1110,11 +1110,133 @@
 				<div class="row">
 			 
 				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
+	<div class="filterPanelContainer {$filterPanelStateClass}" 
+					data-horizontal
+			>
+	<!-- Begin Filter panel content -->
+
+
+
+
+
+
+{BEGIN filter_control_Region}
+
+	<div class="dropdown filter-field filter-Region-container" {BEGIN filter_selected_Region} data-selected {END filter_selected_Region}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Region}
+			<a href="#" class="filter-clear filter-clear-Region" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Region}
+			<span class="r-filter-field">{$label candidates_by_sex Region }				{BEGIN filter_selected_Region}:{END filter_selected_Region}
+			</span>
+			{BEGIN filter_selected_Region}
+			<span class="r-filter-value">{$filtervalue_Region}</span>
+			{END filter_selected_Region}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Region}
+		<li class=" filter-values filter-values-Region  {$visibilityClass_Region}">
+			{$Region_filter}
+						
+					
+					</li>
+		{END filterCtrlBlock_Region}
+
+			{BEGIN filter_button_showmore_Region}
+		<li class=" filter-show-more {$collapsedClass_Region} {$showMoreBtnClass_Region}">
+			<a class="filter-show-more-link filterShowMore_Region" href="#">{$show_n_more_Region}</a>
+		</li>
+		{END filter_button_showmore_Region}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Region}
+
+
+
+
+
+
+{BEGIN filter_control_Sex}
+
+	<div class="dropdown filter-field filter-Sex-container" {BEGIN filter_selected_Sex} data-selected {END filter_selected_Sex}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Sex}
+			<a href="#" class="filter-clear filter-clear-Sex" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Sex}
+			<span class="r-filter-field">{$label candidates_by_sex Sex }				{BEGIN filter_selected_Sex}:{END filter_selected_Sex}
+			</span>
+			{BEGIN filter_selected_Sex}
+			<span class="r-filter-value">{$filtervalue_Sex}</span>
+			{END filter_selected_Sex}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Sex}
+		<li class=" filter-values filter-values-Sex  {$visibilityClass_Sex}">
+			{$Sex_filter}
+						
+					
+					</li>
+		{END filterCtrlBlock_Sex}
+
+			{BEGIN filter_button_showmore_Sex}
+		<li class=" filter-show-more {$collapsedClass_Sex} {$showMoreBtnClass_Sex}">
+			<a class="filter-show-more-link filterShowMore_Sex" href="#">{$show_n_more_Sex}</a>
+		</li>
+		{END filter_button_showmore_Sex}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Sex}
+
+
+
+	<!-- End Filter panel content -->
+	</div>
+</div>			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
 	class="			col-md-12
 	
 ">
-		{BEGIN firstAboveGridCell}
 		 
 					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" 
 	data-orders="candidate_employment_tracker,event_participants,training_participants"
@@ -1130,8 +1252,7 @@
 </div>
 	 
 			 
-					{END firstAboveGridCell}	
-	</div>					</div>
+				</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>

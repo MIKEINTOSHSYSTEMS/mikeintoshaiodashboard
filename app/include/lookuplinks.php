@@ -729,146 +729,6 @@ function InitLookupLinks()
 		if( !isset( $lookupTableLinks["regions"] ) ) {
 			$lookupTableLinks["regions"] = array();
 		}
-		if( !isset( $lookupTableLinks["regions"]["candidates_by_sex.Region"] )) {
-			$lookupTableLinks["regions"]["candidates_by_sex.Region"] = array();
-		}
-		$lookupTableLinks["regions"]["candidates_by_sex.Region"]["search"] = array("table" => "candidates_by_sex", "field" => "Region", "page" => "search");
-		if( !isset( $lookupTableLinks["cities"] ) ) {
-			$lookupTableLinks["cities"] = array();
-		}
-		if( !isset( $lookupTableLinks["cities"]["candidates_by_sex.City"] )) {
-			$lookupTableLinks["cities"]["candidates_by_sex.City"] = array();
-		}
-		$lookupTableLinks["cities"]["candidates_by_sex.City"]["search"] = array("table" => "candidates_by_sex", "field" => "City", "page" => "search");
-		if( !isset( $lookupTableLinks["sub_cities"] ) ) {
-			$lookupTableLinks["sub_cities"] = array();
-		}
-		if( !isset( $lookupTableLinks["sub_cities"]["candidates_by_sex.Sub_City"] )) {
-			$lookupTableLinks["sub_cities"]["candidates_by_sex.Sub_City"] = array();
-		}
-		$lookupTableLinks["sub_cities"]["candidates_by_sex.Sub_City"]["search"] = array("table" => "candidates_by_sex", "field" => "Sub_City", "page" => "search");
-		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
-			$lookupTableLinks["Disability_Types"] = array();
-		}
-		if( !isset( $lookupTableLinks["Disability_Types"]["candidates_by_sex.Disability_Type"] )) {
-			$lookupTableLinks["Disability_Types"]["candidates_by_sex.Disability_Type"] = array();
-		}
-		$lookupTableLinks["Disability_Types"]["candidates_by_sex.Disability_Type"]["search"] = array("table" => "candidates_by_sex", "field" => "Disability_Type", "page" => "search");
-		if( !isset( $lookupTableLinks["institution_types"] ) ) {
-			$lookupTableLinks["institution_types"] = array();
-		}
-		if( !isset( $lookupTableLinks["institution_types"]["candidates_by_sex.Institution_Type"] )) {
-			$lookupTableLinks["institution_types"]["candidates_by_sex.Institution_Type"] = array();
-		}
-		$lookupTableLinks["institution_types"]["candidates_by_sex.Institution_Type"]["search"] = array("table" => "candidates_by_sex", "field" => "Institution_Type", "page" => "search");
-		if( !isset( $lookupTableLinks["education_levels"] ) ) {
-			$lookupTableLinks["education_levels"] = array();
-		}
-		if( !isset( $lookupTableLinks["education_levels"]["candidates_by_sex.Education_Level"] )) {
-			$lookupTableLinks["education_levels"]["candidates_by_sex.Education_Level"] = array();
-		}
-		$lookupTableLinks["education_levels"]["candidates_by_sex.Education_Level"]["search"] = array("table" => "candidates_by_sex", "field" => "Education_Level", "page" => "search");
-		if( !isset( $lookupTableLinks["departments"] ) ) {
-			$lookupTableLinks["departments"] = array();
-		}
-		if( !isset( $lookupTableLinks["departments"]["candidates_by_sex.Department"] )) {
-			$lookupTableLinks["departments"]["candidates_by_sex.Department"] = array();
-		}
-		$lookupTableLinks["departments"]["candidates_by_sex.Department"]["search"] = array("table" => "candidates_by_sex", "field" => "Department", "page" => "search");
-		if( !isset( $lookupTableLinks["minor_major"] ) ) {
-			$lookupTableLinks["minor_major"] = array();
-		}
-		if( !isset( $lookupTableLinks["minor_major"]["candidates_by_sex.Minor"] )) {
-			$lookupTableLinks["minor_major"]["candidates_by_sex.Minor"] = array();
-		}
-		$lookupTableLinks["minor_major"]["candidates_by_sex.Minor"]["search"] = array("table" => "candidates_by_sex", "field" => "Minor", "page" => "search");
-		if( !isset( $lookupTableLinks["minor_major"] ) ) {
-			$lookupTableLinks["minor_major"] = array();
-		}
-		if( !isset( $lookupTableLinks["minor_major"]["candidates_by_sex.Major"] )) {
-			$lookupTableLinks["minor_major"]["candidates_by_sex.Major"] = array();
-		}
-		$lookupTableLinks["minor_major"]["candidates_by_sex.Major"]["search"] = array("table" => "candidates_by_sex", "field" => "Major", "page" => "search");
-		if( !isset( $lookupTableLinks["skills"] ) ) {
-			$lookupTableLinks["skills"] = array();
-		}
-		if( !isset( $lookupTableLinks["skills"]["candidates_by_sex.Skills"] )) {
-			$lookupTableLinks["skills"]["candidates_by_sex.Skills"] = array();
-		}
-		$lookupTableLinks["skills"]["candidates_by_sex.Skills"]["search"] = array("table" => "candidates_by_sex", "field" => "Skills", "page" => "search");
-		if( !isset( $lookupTableLinks["Languages"] ) ) {
-			$lookupTableLinks["Languages"] = array();
-		}
-		if( !isset( $lookupTableLinks["Languages"]["candidates_by_sex.Languages"] )) {
-			$lookupTableLinks["Languages"]["candidates_by_sex.Languages"] = array();
-		}
-		$lookupTableLinks["Languages"]["candidates_by_sex.Languages"]["search"] = array("table" => "candidates_by_sex", "field" => "Languages", "page" => "search");
-		if( !isset( $lookupTableLinks["industry_specific_skills"] ) ) {
-			$lookupTableLinks["industry_specific_skills"] = array();
-		}
-		if( !isset( $lookupTableLinks["industry_specific_skills"]["candidates_by_sex.Industry_Specific_Skills"] )) {
-			$lookupTableLinks["industry_specific_skills"]["candidates_by_sex.Industry_Specific_Skills"] = array();
-		}
-		$lookupTableLinks["industry_specific_skills"]["candidates_by_sex.Industry_Specific_Skills"]["search"] = array("table" => "candidates_by_sex", "field" => "Industry_Specific_Skills", "page" => "search");
-		if( !isset( $lookupTableLinks["it_related_skills"] ) ) {
-			$lookupTableLinks["it_related_skills"] = array();
-		}
-		if( !isset( $lookupTableLinks["it_related_skills"]["candidates_by_sex.IT_Related_Skills"] )) {
-			$lookupTableLinks["it_related_skills"]["candidates_by_sex.IT_Related_Skills"] = array();
-		}
-		$lookupTableLinks["it_related_skills"]["candidates_by_sex.IT_Related_Skills"]["search"] = array("table" => "candidates_by_sex", "field" => "IT_Related_Skills", "page" => "search");
-		if( !isset( $lookupTableLinks["trainings"] ) ) {
-			$lookupTableLinks["trainings"] = array();
-		}
-		if( !isset( $lookupTableLinks["trainings"]["candidates_by_sex.DAAP_Completed_Courses"] )) {
-			$lookupTableLinks["trainings"]["candidates_by_sex.DAAP_Completed_Courses"] = array();
-		}
-		$lookupTableLinks["trainings"]["candidates_by_sex.DAAP_Completed_Courses"]["search"] = array("table" => "candidates_by_sex", "field" => "DAAP_Completed_Courses", "page" => "search");
-		if( !isset( $lookupTableLinks["dereja_services"] ) ) {
-			$lookupTableLinks["dereja_services"] = array();
-		}
-		if( !isset( $lookupTableLinks["dereja_services"]["candidates_by_sex.Dereja_Services"] )) {
-			$lookupTableLinks["dereja_services"]["candidates_by_sex.Dereja_Services"] = array();
-		}
-		$lookupTableLinks["dereja_services"]["candidates_by_sex.Dereja_Services"]["search"] = array("table" => "candidates_by_sex", "field" => "Dereja_Services", "page" => "search");
-		if( !isset( $lookupTableLinks["trainings"] ) ) {
-			$lookupTableLinks["trainings"] = array();
-		}
-		if( !isset( $lookupTableLinks["trainings"]["candidates_by_sex.Dereja_Training_Services"] )) {
-			$lookupTableLinks["trainings"]["candidates_by_sex.Dereja_Training_Services"] = array();
-		}
-		$lookupTableLinks["trainings"]["candidates_by_sex.Dereja_Training_Services"]["search"] = array("table" => "candidates_by_sex", "field" => "Dereja_Training_Services", "page" => "search");
-		if( !isset( $lookupTableLinks["events"] ) ) {
-			$lookupTableLinks["events"] = array();
-		}
-		if( !isset( $lookupTableLinks["events"]["candidates_by_sex.Dereja_Event_Services"] )) {
-			$lookupTableLinks["events"]["candidates_by_sex.Dereja_Event_Services"] = array();
-		}
-		$lookupTableLinks["events"]["candidates_by_sex.Dereja_Event_Services"]["search"] = array("table" => "candidates_by_sex", "field" => "Dereja_Event_Services", "page" => "search");
-		if( !isset( $lookupTableLinks["dereja_information_sources"] ) ) {
-			$lookupTableLinks["dereja_information_sources"] = array();
-		}
-		if( !isset( $lookupTableLinks["dereja_information_sources"]["candidates_by_sex.Dereja_Information_Source"] )) {
-			$lookupTableLinks["dereja_information_sources"]["candidates_by_sex.Dereja_Information_Source"] = array();
-		}
-		$lookupTableLinks["dereja_information_sources"]["candidates_by_sex.Dereja_Information_Source"]["search"] = array("table" => "candidates_by_sex", "field" => "Dereja_Information_Source", "page" => "search");
-		if( !isset( $lookupTableLinks["Companies"] ) ) {
-			$lookupTableLinks["Companies"] = array();
-		}
-		if( !isset( $lookupTableLinks["Companies"]["candidates_by_sex.Employment_Company"] )) {
-			$lookupTableLinks["Companies"]["candidates_by_sex.Employment_Company"] = array();
-		}
-		$lookupTableLinks["Companies"]["candidates_by_sex.Employment_Company"]["search"] = array("table" => "candidates_by_sex", "field" => "Employment_Company", "page" => "search");
-		if( !isset( $lookupTableLinks["Jobs"] ) ) {
-			$lookupTableLinks["Jobs"] = array();
-		}
-		if( !isset( $lookupTableLinks["Jobs"]["candidates_by_sex.Employment_Position"] )) {
-			$lookupTableLinks["Jobs"]["candidates_by_sex.Employment_Position"] = array();
-		}
-		$lookupTableLinks["Jobs"]["candidates_by_sex.Employment_Position"]["search"] = array("table" => "candidates_by_sex", "field" => "Employment_Position", "page" => "search");
-		if( !isset( $lookupTableLinks["regions"] ) ) {
-			$lookupTableLinks["regions"] = array();
-		}
 		if( !isset( $lookupTableLinks["regions"]["candidates_by_region.Region"] )) {
 			$lookupTableLinks["regions"]["candidates_by_region.Region"] = array();
 		}
@@ -1237,6 +1097,146 @@ function InitLookupLinks()
 			$lookupTableLinks["Jobs"]["candidates_reports.Employment_Position"] = array();
 		}
 		$lookupTableLinks["Jobs"]["candidates_reports.Employment_Position"]["search"] = array("table" => "candidates_reports", "field" => "Employment_Position", "page" => "search");
+		if( !isset( $lookupTableLinks["regions"] ) ) {
+			$lookupTableLinks["regions"] = array();
+		}
+		if( !isset( $lookupTableLinks["regions"]["candidates_by_gender.Region"] )) {
+			$lookupTableLinks["regions"]["candidates_by_gender.Region"] = array();
+		}
+		$lookupTableLinks["regions"]["candidates_by_gender.Region"]["search"] = array("table" => "candidates_by_gender", "field" => "Region", "page" => "search");
+		if( !isset( $lookupTableLinks["cities"] ) ) {
+			$lookupTableLinks["cities"] = array();
+		}
+		if( !isset( $lookupTableLinks["cities"]["candidates_by_gender.City"] )) {
+			$lookupTableLinks["cities"]["candidates_by_gender.City"] = array();
+		}
+		$lookupTableLinks["cities"]["candidates_by_gender.City"]["search"] = array("table" => "candidates_by_gender", "field" => "City", "page" => "search");
+		if( !isset( $lookupTableLinks["sub_cities"] ) ) {
+			$lookupTableLinks["sub_cities"] = array();
+		}
+		if( !isset( $lookupTableLinks["sub_cities"]["candidates_by_gender.Sub_City"] )) {
+			$lookupTableLinks["sub_cities"]["candidates_by_gender.Sub_City"] = array();
+		}
+		$lookupTableLinks["sub_cities"]["candidates_by_gender.Sub_City"]["search"] = array("table" => "candidates_by_gender", "field" => "Sub_City", "page" => "search");
+		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
+			$lookupTableLinks["Disability_Types"] = array();
+		}
+		if( !isset( $lookupTableLinks["Disability_Types"]["candidates_by_gender.Disability_Type"] )) {
+			$lookupTableLinks["Disability_Types"]["candidates_by_gender.Disability_Type"] = array();
+		}
+		$lookupTableLinks["Disability_Types"]["candidates_by_gender.Disability_Type"]["search"] = array("table" => "candidates_by_gender", "field" => "Disability_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["institution_types"] ) ) {
+			$lookupTableLinks["institution_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["institution_types"]["candidates_by_gender.Institution_Type"] )) {
+			$lookupTableLinks["institution_types"]["candidates_by_gender.Institution_Type"] = array();
+		}
+		$lookupTableLinks["institution_types"]["candidates_by_gender.Institution_Type"]["search"] = array("table" => "candidates_by_gender", "field" => "Institution_Type", "page" => "search");
+		if( !isset( $lookupTableLinks["education_levels"] ) ) {
+			$lookupTableLinks["education_levels"] = array();
+		}
+		if( !isset( $lookupTableLinks["education_levels"]["candidates_by_gender.Education_Level"] )) {
+			$lookupTableLinks["education_levels"]["candidates_by_gender.Education_Level"] = array();
+		}
+		$lookupTableLinks["education_levels"]["candidates_by_gender.Education_Level"]["search"] = array("table" => "candidates_by_gender", "field" => "Education_Level", "page" => "search");
+		if( !isset( $lookupTableLinks["departments"] ) ) {
+			$lookupTableLinks["departments"] = array();
+		}
+		if( !isset( $lookupTableLinks["departments"]["candidates_by_gender.Department"] )) {
+			$lookupTableLinks["departments"]["candidates_by_gender.Department"] = array();
+		}
+		$lookupTableLinks["departments"]["candidates_by_gender.Department"]["search"] = array("table" => "candidates_by_gender", "field" => "Department", "page" => "search");
+		if( !isset( $lookupTableLinks["minor_major"] ) ) {
+			$lookupTableLinks["minor_major"] = array();
+		}
+		if( !isset( $lookupTableLinks["minor_major"]["candidates_by_gender.Minor"] )) {
+			$lookupTableLinks["minor_major"]["candidates_by_gender.Minor"] = array();
+		}
+		$lookupTableLinks["minor_major"]["candidates_by_gender.Minor"]["search"] = array("table" => "candidates_by_gender", "field" => "Minor", "page" => "search");
+		if( !isset( $lookupTableLinks["minor_major"] ) ) {
+			$lookupTableLinks["minor_major"] = array();
+		}
+		if( !isset( $lookupTableLinks["minor_major"]["candidates_by_gender.Major"] )) {
+			$lookupTableLinks["minor_major"]["candidates_by_gender.Major"] = array();
+		}
+		$lookupTableLinks["minor_major"]["candidates_by_gender.Major"]["search"] = array("table" => "candidates_by_gender", "field" => "Major", "page" => "search");
+		if( !isset( $lookupTableLinks["skills"] ) ) {
+			$lookupTableLinks["skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["skills"]["candidates_by_gender.Skills"] )) {
+			$lookupTableLinks["skills"]["candidates_by_gender.Skills"] = array();
+		}
+		$lookupTableLinks["skills"]["candidates_by_gender.Skills"]["search"] = array("table" => "candidates_by_gender", "field" => "Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["Languages"] ) ) {
+			$lookupTableLinks["Languages"] = array();
+		}
+		if( !isset( $lookupTableLinks["Languages"]["candidates_by_gender.Languages"] )) {
+			$lookupTableLinks["Languages"]["candidates_by_gender.Languages"] = array();
+		}
+		$lookupTableLinks["Languages"]["candidates_by_gender.Languages"]["search"] = array("table" => "candidates_by_gender", "field" => "Languages", "page" => "search");
+		if( !isset( $lookupTableLinks["industry_specific_skills"] ) ) {
+			$lookupTableLinks["industry_specific_skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["industry_specific_skills"]["candidates_by_gender.Industry_Specific_Skills"] )) {
+			$lookupTableLinks["industry_specific_skills"]["candidates_by_gender.Industry_Specific_Skills"] = array();
+		}
+		$lookupTableLinks["industry_specific_skills"]["candidates_by_gender.Industry_Specific_Skills"]["search"] = array("table" => "candidates_by_gender", "field" => "Industry_Specific_Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["it_related_skills"] ) ) {
+			$lookupTableLinks["it_related_skills"] = array();
+		}
+		if( !isset( $lookupTableLinks["it_related_skills"]["candidates_by_gender.IT_Related_Skills"] )) {
+			$lookupTableLinks["it_related_skills"]["candidates_by_gender.IT_Related_Skills"] = array();
+		}
+		$lookupTableLinks["it_related_skills"]["candidates_by_gender.IT_Related_Skills"]["search"] = array("table" => "candidates_by_gender", "field" => "IT_Related_Skills", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["candidates_by_gender.DAAP_Completed_Courses"] )) {
+			$lookupTableLinks["trainings"]["candidates_by_gender.DAAP_Completed_Courses"] = array();
+		}
+		$lookupTableLinks["trainings"]["candidates_by_gender.DAAP_Completed_Courses"]["search"] = array("table" => "candidates_by_gender", "field" => "DAAP_Completed_Courses", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_services"] ) ) {
+			$lookupTableLinks["dereja_services"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_services"]["candidates_by_gender.Dereja_Services"] )) {
+			$lookupTableLinks["dereja_services"]["candidates_by_gender.Dereja_Services"] = array();
+		}
+		$lookupTableLinks["dereja_services"]["candidates_by_gender.Dereja_Services"]["search"] = array("table" => "candidates_by_gender", "field" => "Dereja_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["trainings"] ) ) {
+			$lookupTableLinks["trainings"] = array();
+		}
+		if( !isset( $lookupTableLinks["trainings"]["candidates_by_gender.Dereja_Training_Services"] )) {
+			$lookupTableLinks["trainings"]["candidates_by_gender.Dereja_Training_Services"] = array();
+		}
+		$lookupTableLinks["trainings"]["candidates_by_gender.Dereja_Training_Services"]["search"] = array("table" => "candidates_by_gender", "field" => "Dereja_Training_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["events"] ) ) {
+			$lookupTableLinks["events"] = array();
+		}
+		if( !isset( $lookupTableLinks["events"]["candidates_by_gender.Dereja_Event_Services"] )) {
+			$lookupTableLinks["events"]["candidates_by_gender.Dereja_Event_Services"] = array();
+		}
+		$lookupTableLinks["events"]["candidates_by_gender.Dereja_Event_Services"]["search"] = array("table" => "candidates_by_gender", "field" => "Dereja_Event_Services", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_information_sources"] ) ) {
+			$lookupTableLinks["dereja_information_sources"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_information_sources"]["candidates_by_gender.Dereja_Information_Source"] )) {
+			$lookupTableLinks["dereja_information_sources"]["candidates_by_gender.Dereja_Information_Source"] = array();
+		}
+		$lookupTableLinks["dereja_information_sources"]["candidates_by_gender.Dereja_Information_Source"]["search"] = array("table" => "candidates_by_gender", "field" => "Dereja_Information_Source", "page" => "search");
+		if( !isset( $lookupTableLinks["Companies"] ) ) {
+			$lookupTableLinks["Companies"] = array();
+		}
+		if( !isset( $lookupTableLinks["Companies"]["candidates_by_gender.Employment_Company"] )) {
+			$lookupTableLinks["Companies"]["candidates_by_gender.Employment_Company"] = array();
+		}
+		$lookupTableLinks["Companies"]["candidates_by_gender.Employment_Company"]["search"] = array("table" => "candidates_by_gender", "field" => "Employment_Company", "page" => "search");
+		if( !isset( $lookupTableLinks["Jobs"] ) ) {
+			$lookupTableLinks["Jobs"] = array();
+		}
+		if( !isset( $lookupTableLinks["Jobs"]["candidates_by_gender.Employment_Position"] )) {
+			$lookupTableLinks["Jobs"]["candidates_by_gender.Employment_Position"] = array();
+		}
+		$lookupTableLinks["Jobs"]["candidates_by_gender.Employment_Position"]["search"] = array("table" => "candidates_by_gender", "field" => "Employment_Position", "page" => "search");
 }
 
 ?>

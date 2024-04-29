@@ -325,8 +325,6 @@ function checkTableName($shortTName )
 		return true;
 	if ("aio_reporting_dashboard" == $shortTName )
 		return true;
-	if ("candidates_by_sex" == $shortTName )
-		return true;
 	if ("candidates_by_region" == $shortTName )
 		return true;
 	if ("event_participants_by_events" == $shortTName )
@@ -334,6 +332,8 @@ function checkTableName($shortTName )
 	if ("training_participants_by_trainings" == $shortTName )
 		return true;
 	if ("candidates_reports" == $shortTName )
+		return true;
+	if ("candidates_by_gender" == $shortTName )
 		return true;
 	return false;
 }
@@ -936,15 +936,6 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("candidates_by_sex");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="candidates_by_sex";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
 		$strPerm = GetUserPermissions("candidates_by_region");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
@@ -978,6 +969,15 @@ function GetTablesList($pdfMode = false)
 	}
 	if( $tableAvailable ) {
 		$arr[]="candidates_reports";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_by_gender");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_by_gender";
 	}
 	return $arr;
 }
@@ -1049,11 +1049,11 @@ function GetTablesListWithoutSecurity()
 	$arr[]="event_participants_view";
 	$arr[]="training_participants_view";
 	$arr[]="AIO_Reporting_Dashboard";
-	$arr[]="candidates_by_sex";
 	$arr[]="candidates_by_region";
 	$arr[]="event_participants_by_events";
 	$arr[]="training_participants_by_trainings";
 	$arr[]="candidates_reports";
+	$arr[]="candidates_by_gender";
 	return $arr;
 }
 
@@ -1097,8 +1097,6 @@ function GetFullFieldName($field, $table = "", $addAs = true, $connection = null
  */
 function GetChartType($shorttable)
 {
-	if($shorttable=="candidates_by_sex")
-		return "2DColumn";
 	if($shorttable=="candidates_by_region")
 		return "2DColumn";
 	if($shorttable=="event_participants_by_events")
@@ -1107,6 +1105,8 @@ function GetChartType($shorttable)
 		return "2DBar";
 	if($shorttable=="candidates_reports")
 		return "Line";
+	if($shorttable=="candidates_by_gender")
+		return "2DDoughnut";
 	return "";
 }
 
@@ -1996,11 +1996,6 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "S".$extraPerm;
 	}
-	if( $table=="candidates_by_sex" )
-	{
-//	default permissions
-		return "S".$extraPerm;
-	}
 	if( $table=="candidates_by_region" )
 	{
 //	default permissions
@@ -2017,6 +2012,11 @@ function GetUserPermissionsStatic( $table )
 		return "S".$extraPerm;
 	}
 	if( $table=="candidates_reports" )
+	{
+//	default permissions
+		return "S".$extraPerm;
+	}
+	if( $table=="candidates_by_gender" )
 	{
 //	default permissions
 		return "S".$extraPerm;

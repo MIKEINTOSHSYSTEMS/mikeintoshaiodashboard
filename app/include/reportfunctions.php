@@ -681,10 +681,6 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
-		if($table=="candidates_by_sex")
-		{
-			return 1;
-		}
 		if($table=="candidates_by_region")
 		{
 			return 1;
@@ -698,6 +694,10 @@ function testAdvSearch($table)
 			return 1;
 		}
 		if($table=="candidates_reports")
+		{
+			return 1;
+		}
+		if($table=="candidates_by_gender")
 		{
 			return 1;
 		}
@@ -1206,10 +1206,6 @@ function getCaptionTable($table)
 	{
 		return "AIO Reporting Dashboard";
 	}
-	if($table=="candidates_by_sex")
-	{
-		return "Candidates By Sex";
-	}
 	if($table=="candidates_by_region")
 	{
 		return "Candidates By Region";
@@ -1225,6 +1221,10 @@ function getCaptionTable($table)
 	if($table=="candidates_reports")
 	{
 		return "Candidates Reports";
+	}
+	if($table=="candidates_by_gender")
+	{
+		return "Candidates By Gender";
 	}
 	return $table;
 }

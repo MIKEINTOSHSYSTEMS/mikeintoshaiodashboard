@@ -958,13 +958,6 @@ if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($t
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("aio_reporting_dashboard", " " . "AIO Reporting Dashboard");
-$table = "candidates_by_sex";
-$mask="";
-if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
-	$mask .= "S";
-
-$pageMask[$table] = $mask;
-$tables[$table] = array("candidates_by_sex", " " . "Candidates By Sex");
 $table = "candidates_by_region";
 $mask="";
 if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
@@ -993,6 +986,13 @@ if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($t
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("candidates_reports", " " . "Candidates Reports");
+$table = "candidates_by_gender";
+$mask="";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("candidates_by_gender", " " . "Candidates By Gender");
 
 if ( pageEnabled(GLOBAL_PAGES, 'menu') )
 	$pageMask[GLOBAL_PAGES] = "S";

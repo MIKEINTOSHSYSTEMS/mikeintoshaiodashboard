@@ -86,7 +86,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_First_Name"] = "First Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Middle_Name"] = "Middle Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Last_Name"] = "Last Name";
-	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Full_Name"] = "Full Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Sex"] = "Sex";
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Phone"] = "Phone";
 	$fieldLabelsaio_reporting_dashboard["English"]["event_participants_Email"] = "Email";
@@ -111,7 +110,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_First_Name"] = "First Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Middle_Name"] = "Middle Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Last_Name"] = "Last Name";
-	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Full_Name"] = "Full Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Sex"] = "Sex";
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Email"] = "Email";
 	$fieldLabelsaio_reporting_dashboard["English"]["training_participants_Phone"] = "Phone";
@@ -130,7 +128,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsaio_reporting_dashboard["English"]["regions_RegionName"] = "Region Name";
 	$fieldLabelsaio_reporting_dashboard["English"]["regions_Lat"] = "Lat";
 	$fieldLabelsaio_reporting_dashboard["English"]["regions_Lng"] = "Lng";
-	$fieldLabelsaio_reporting_dashboard["English"]["candidates_by_sex_Sex"] = "Sex";
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_by_region_CandidateID"] = "Candidates";
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_by_region_StudentID"] = "Student ID";
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_by_region_First_Name"] = "First Name";
@@ -492,9 +489,6 @@ $dashField = array();
 $dashField[] = array( "table"=>"event_participants", "field"=>"Last_Name" );
 $tdataaio_reporting_dashboard[".searchFields"]["event_participants_Last_Name"] = $dashField;
 $dashField = array();
-$dashField[] = array( "table"=>"event_participants", "field"=>"Full_Name" );
-$tdataaio_reporting_dashboard[".searchFields"]["event_participants_Full_Name"] = $dashField;
-$dashField = array();
 $dashField[] = array( "table"=>"event_participants", "field"=>"Sex" );
 $tdataaio_reporting_dashboard[".searchFields"]["event_participants_Sex"] = $dashField;
 $dashField = array();
@@ -567,9 +561,6 @@ $dashField = array();
 $dashField[] = array( "table"=>"training_participants", "field"=>"Last_Name" );
 $tdataaio_reporting_dashboard[".searchFields"]["training_participants_Last_Name"] = $dashField;
 $dashField = array();
-$dashField[] = array( "table"=>"training_participants", "field"=>"Full_Name" );
-$tdataaio_reporting_dashboard[".searchFields"]["training_participants_Full_Name"] = $dashField;
-$dashField = array();
 $dashField[] = array( "table"=>"training_participants", "field"=>"Sex" );
 $tdataaio_reporting_dashboard[".searchFields"]["training_participants_Sex"] = $dashField;
 $dashField = array();
@@ -623,9 +614,6 @@ $tdataaio_reporting_dashboard[".searchFields"]["regions_Lat"] = $dashField;
 $dashField = array();
 $dashField[] = array( "table"=>"regions", "field"=>"Lng" );
 $tdataaio_reporting_dashboard[".searchFields"]["regions_Lng"] = $dashField;
-$dashField = array();
-$dashField[] = array( "table"=>"candidates_by_sex", "field"=>"Sex" );
-$tdataaio_reporting_dashboard[".searchFields"]["candidates_by_sex_Sex"] = $dashField;
 $dashField = array();
 $dashField[] = array( "table"=>"candidates_by_region", "field"=>"CandidateID" );
 $tdataaio_reporting_dashboard[".searchFields"]["candidates_by_region_CandidateID"] = $dashField;
@@ -1174,7 +1162,6 @@ $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Event_
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_First_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Middle_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Last_Name";
-$tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Full_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Sex";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Phone";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "event_participants_Email";
@@ -1199,7 +1186,6 @@ $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Tra
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_First_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Middle_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Last_Name";
-$tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Full_Name";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Sex";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Email";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "training_participants_Phone";
@@ -1218,7 +1204,6 @@ $tdataaio_reporting_dashboard[".allSearchFields"][] = "regions_RegionID";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "regions_RegionName";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "regions_Lat";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "regions_Lng";
-$tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_by_sex_Sex";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_by_region_CandidateID";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_by_region_StudentID";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_by_region_First_Name";
@@ -1447,7 +1432,6 @@ $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Event
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_First_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Middle_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Last_Name";
-$tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Full_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Sex";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Phone";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "event_participants_Email";
@@ -1472,7 +1456,6 @@ $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Tr
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_First_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Middle_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Last_Name";
-$tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Full_Name";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Sex";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Email";
 $tdataaio_reporting_dashboard[".googleLikeFields"][] = "training_participants_Phone";
@@ -1560,7 +1543,7 @@ $tdataaio_reporting_dashboard[".dashElements"] = array();
 
 
 	$tdataaio_reporting_dashboard[".dashElements"][] = $dbelement;
-	$dbelement = array( "elementName" => "candidates_by_sex_chart", "table" => "candidates_by_sex",
+	$dbelement = array( "elementName" => "candidates_by_gender_chart", "table" => "candidates_by_gender",
 		 "pageName" => "","type" => 1);
 	$dbelement["cellName"] = "";
 

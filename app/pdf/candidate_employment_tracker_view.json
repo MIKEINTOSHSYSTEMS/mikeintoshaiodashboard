@@ -159,9 +159,6 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker CurrentEmploymentStatus }","bold":true},{"text":{$CurrentEmploymentStatus_pdfvalue}}],"margin":[0,0,0,15]},
 				
-				
-			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
