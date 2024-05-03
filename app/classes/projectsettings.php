@@ -2972,7 +2972,7 @@ class ProjectSettings
 	public static function getForLogin()
 	{
 		return !!Security::dbProvider()
-			? new ProjectSettings("derejame_users", PAGE_LIST)
+			? new ProjectSettings("users", PAGE_LIST)
 			: null;
 	}
 
@@ -3580,14 +3580,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "disability_types" ] = "Disability_Types";
 	$projectEntities[ "Trainer" ] = array( "url" => "trainer", "type" => 0 );
 	$projectEntitiesReverse[ "trainer" ] = "Trainer";
-	$projectEntities[ "derejame_users" ] = array( "url" => "derejame_users", "type" => 0 );
-	$projectEntitiesReverse[ "derejame_users" ] = "derejame_users";
 	$projectEntities[ "admin_rights" ] = array( "url" => "admin_rights", "type" => 1 );
 	$projectEntitiesReverse[ "admin_rights" ] = "admin_rights";
 	$projectEntities[ "admin_members" ] = array( "url" => "admin_members", "type" => 1 );
 	$projectEntitiesReverse[ "admin_members" ] = "admin_members";
-	$projectEntities[ "admin_users" ] = array( "url" => "admin_users", "type" => 1 );
-	$projectEntitiesReverse[ "admin_users" ] = "admin_users";
 	$projectEntities[ "webreports" ] = array( "url" => "webreports", "type" => 0 );
 	$projectEntitiesReverse[ "webreports" ] = "webreports";
 	$projectEntities[ "webreport_style" ] = array( "url" => "webreport_style", "type" => 0 );
@@ -3642,6 +3638,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "candidates_reports" ] = "candidates_reports";
 	$projectEntities[ "candidates_by_gender" ] = array( "url" => "candidates_by_gender", "type" => 3 );
 	$projectEntitiesReverse[ "candidates_by_gender" ] = "candidates_by_gender";
+	$projectEntities[ "users" ] = array( "url" => "users", "type" => 0 );
+	$projectEntitiesReverse[ "users" ] = "users";
+	$projectEntities[ "admin_users" ] = array( "url" => "admin_users", "type" => 1 );
+	$projectEntitiesReverse[ "admin_users" ] = "admin_users";
 }
 
 function findTable( $table ) {

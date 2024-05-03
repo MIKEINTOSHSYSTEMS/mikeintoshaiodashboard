@@ -400,32 +400,6 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "derejame_users";
-	$menuNode["style"] = "";
-	$menuNode["params"] = "";
-	$menuNode["parent"] = "0";
-	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("Search");//
-	$menuNode["pageId"] = "";
-	$menuNode["openType"] = "None";
-
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
-	$menuNode["iconShow"] = "1";
-
-		$menuNode["color"] = "";
-
-	$menuNode["title"] = "Derejame Users";
-
-
-
-	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
-	$menuNode = array();
-	$menuNode["id"] = "17";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "education_levels";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
@@ -448,7 +422,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "18";
+	$menuNode["id"] = "17";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -474,7 +448,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "19";
+	$menuNode["id"] = "18";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -500,7 +474,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "20";
+	$menuNode["id"] = "19";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -526,7 +500,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "21";
+	$menuNode["id"] = "20";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -552,7 +526,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "22";
+	$menuNode["id"] = "21";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -578,7 +552,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "23";
+	$menuNode["id"] = "22";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -604,7 +578,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "24";
+	$menuNode["id"] = "23";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -630,7 +604,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "25";
+	$menuNode["id"] = "24";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -656,7 +630,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "26";
+	$menuNode["id"] = "25";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -682,7 +656,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "27";
+	$menuNode["id"] = "26";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -708,7 +682,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "28";
+	$menuNode["id"] = "27";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -734,7 +708,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "29";
+	$menuNode["id"] = "28";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -760,7 +734,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "30";
+	$menuNode["id"] = "29";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -786,7 +760,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "31";
+	$menuNode["id"] = "30";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -812,7 +786,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "32";
+	$menuNode["id"] = "31";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -838,7 +812,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "33";
+	$menuNode["id"] = "32";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -864,7 +838,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "34";
+	$menuNode["id"] = "33";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -890,7 +864,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "35";
+	$menuNode["id"] = "34";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
@@ -916,7 +890,7 @@ function getMenuNodes_mikeintosh($menuNodesObject)
 
 	$menuNodesObject->menuNodes["mikeintosh"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "36";
+	$menuNode["id"] = "35";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";

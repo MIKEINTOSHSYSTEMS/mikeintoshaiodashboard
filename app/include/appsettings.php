@@ -705,7 +705,7 @@ $WRAdminPagePassword = "webreports";
  * Legacy variables for pre-10.6 business templates only.
  * DEPRECATED
  */
-$cLoginTable = "derejame_users";
+$cLoginTable = "users";
 $cDisplayNameField = "fullname";
 $cUserNameField	= "username";
 $cPasswordField	= "password";
@@ -723,7 +723,7 @@ $cKeyFields = $loginKeyFields;
  */
 
 
-$globalSettings["usersDatasourceTable"] = "derejame_users";
+$globalSettings["usersDatasourceTable"] = "users";
 
 
 $globalSettings["jwtSecret"] = "pTBgdmk7SrEchwPYJZQF";
@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "234_1714404759";
+$projectBuildKey = "236_1714757591";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "234";
+$projectBuildNumber = "236";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -807,10 +807,8 @@ $tableCaptions["English"]["Job_Types"] = "Job Types";
 $tableCaptions["English"]["CompanySectors"] = "Company Sectors";
 $tableCaptions["English"]["Disability_Types"] = "Disability Types";
 $tableCaptions["English"]["Trainer"] = "Trainer";
-$tableCaptions["English"]["derejame_users"] = "Derejame Users";
 $tableCaptions["English"]["admin_rights"] = "Admin Rights";
 $tableCaptions["English"]["admin_members"] = "Admin Members";
-$tableCaptions["English"]["admin_users"] = "Admin Users";
 $tableCaptions["English"]["webreports"] = "Webreports";
 $tableCaptions["English"]["webreport_style"] = "Webreport Style";
 $tableCaptions["English"]["webreport_sql"] = "Webreport Sql";
@@ -839,6 +837,8 @@ $tableCaptions["English"]["event_participants_by_events"] = "Event Participants 
 $tableCaptions["English"]["training_participants_by_trainings"] = "Training Participants By Trainings";
 $tableCaptions["English"]["candidates_reports"] = "Candidates Reports";
 $tableCaptions["English"]["candidates_by_gender"] = "Candidates By Gender";
+$tableCaptions["English"]["users"] = "Users";
+$tableCaptions["English"]["admin_users"] = "Admin Users";
 
 
 $globalEvents = new class_GlobalEvents;

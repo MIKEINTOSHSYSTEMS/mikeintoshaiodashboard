@@ -1451,13 +1451,9 @@ class CrossTableWebReport
 			$isDB = true;
 		if("Trainer" == $this->xml_array['tables'][0])
 			$isDB = true;
-		if("derejame_users" == $this->xml_array['tables'][0])
-			$isDB = true;
 		if("derejame_ugrights" == $this->xml_array['tables'][0])
 			$isDB = true;
 		if("derejame_ugmembers" == $this->xml_array['tables'][0])
-			$isDB = true;
-		if("derejame_users" == $this->xml_array['tables'][0])
 			$isDB = true;
 		if("webreports" == $this->xml_array['tables'][0])
 			$isDB = true;
@@ -1512,6 +1508,10 @@ class CrossTableWebReport
 		if("candidates" == $this->xml_array['tables'][0])
 			$isDB = true;
 		if("candidates" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("users" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("users" == $this->xml_array['tables'][0])
 			$isDB = true;
 		return $isDB;
 	}

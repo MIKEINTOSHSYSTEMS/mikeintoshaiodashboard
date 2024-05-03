@@ -273,13 +273,9 @@ function checkTableName($shortTName )
 		return true;
 	if ("trainer" == $shortTName )
 		return true;
-	if ("derejame_users" == $shortTName )
-		return true;
 	if ("admin_rights" == $shortTName )
 		return true;
 	if ("admin_members" == $shortTName )
-		return true;
-	if ("admin_users" == $shortTName )
 		return true;
 	if ("webreports" == $shortTName )
 		return true;
@@ -334,6 +330,10 @@ function checkTableName($shortTName )
 	if ("candidates_reports" == $shortTName )
 		return true;
 	if ("candidates_by_gender" == $shortTName )
+		return true;
+	if ("users" == $shortTName )
+		return true;
+	if ("admin_users" == $shortTName )
 		return true;
 	return false;
 }
@@ -702,15 +702,6 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("derejame_users");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="derejame_users";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
 		$strPerm = GetUserPermissions("admin_rights");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
@@ -726,15 +717,6 @@ function GetTablesList($pdfMode = false)
 	}
 	if( $tableAvailable ) {
 		$arr[]="admin_members";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("admin_users");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="admin_users";
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
@@ -979,6 +961,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="candidates_by_gender";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="users";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("admin_users");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="admin_users";
+	}
 	return $arr;
 }
 
@@ -1023,10 +1023,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="CompanySectors";
 	$arr[]="Disability_Types";
 	$arr[]="Trainer";
-	$arr[]="derejame_users";
 	$arr[]="admin_rights";
 	$arr[]="admin_members";
-	$arr[]="admin_users";
 	$arr[]="webreports";
 	$arr[]="webreport_style";
 	$arr[]="webreport_sql";
@@ -1054,6 +1052,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="training_participants_by_trainings";
 	$arr[]="candidates_reports";
 	$arr[]="candidates_by_gender";
+	$arr[]="users";
+	$arr[]="admin_users";
 	return $arr;
 }
 
@@ -1866,22 +1866,12 @@ function GetUserPermissionsStatic( $table )
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="derejame_users" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
 	if( $table=="admin_rights" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="admin_members" )
-	{
-//	default permissions
-		return "ADESPI".$extraPerm;
-	}
-	if( $table=="admin_users" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -2020,6 +2010,16 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "S".$extraPerm;
+	}
+	if( $table=="users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="admin_users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

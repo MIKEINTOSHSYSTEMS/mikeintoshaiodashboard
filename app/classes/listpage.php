@@ -488,17 +488,6 @@ class ListPage extends RunnerPage
 		// add button events if exist
 		$this->addButtonHandlers();
 
-		$addPSet = new ProjectSettings($this->tName, PAGE_ADD);
-		$editPSet = new ProjectSettings($this->tName, PAGE_EDIT);
-		for($i=0;$i<count($this->listFields);$i++)
-		{
-			if($this->pSet->appearOnInlineAdd($this->listFields[$i]['fName']) && $addPSet->isUseRTE($this->listFields[$i]['fName'])
-				|| $this->pSet->appearOnInlineEdit($this->listFields[$i]['fName']) && $editPSet->isUseRTE($this->listFields[$i]['fName']))
-			{
-				$this->AddJSFile("plugins/ckeditor/ckeditor.js");
-				break;
-			}
-		}
 		if( $this->allDetailsTablesArr )
 		{
 			$this->AddCSSFile("include/jquery-ui/smoothness/jquery-ui.min.css");
@@ -2687,8 +2676,8 @@ class ListPage extends RunnerPage
 
 	protected static function readMainTableSettingsFromRequest( $table )
 	{
-		if( postvalue("pageType") == "register" && postvalue("table") == "derejame_users" )
-			return new ProjectSettings( "derejame_users", PAGE_REGISTER, "", GLOBAL_PAGES);
+		if( postvalue("pageType") == "register" && postvalue("table") == "users" )
+			return new ProjectSettings( "users", PAGE_REGISTER, "", GLOBAL_PAGES);
 		$mainTableShortName = GetTableURL( postvalue("table") );
 		return getLookupMainTableSettings($table, $mainTableShortName, postvalue("field"));
 	}
@@ -2706,7 +2695,7 @@ class ListPage extends RunnerPage
 			return true;
 
 		//	otherwise check if the page is called from the register page
-		if( $mainTable == "derejame_users" )
+		if( $mainTable == "users" )
 		{
 			if( $lookupMainSettings->appearOnPage( postvalue("field") ) !== FALSE )
 				return true;

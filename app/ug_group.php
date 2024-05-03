@@ -53,7 +53,6 @@ $nonAdminTablesArr[] = "Job_Types";
 $nonAdminTablesArr[] = "CompanySectors";
 $nonAdminTablesArr[] = "Disability_Types";
 $nonAdminTablesArr[] = "Trainer";
-$nonAdminTablesArr[] = "derejame_users";
 $nonAdminTablesArr[] = "webreports";
 $nonAdminTablesArr[] = "webreport_style";
 $nonAdminTablesArr[] = "webreport_sql";
@@ -81,6 +80,7 @@ $nonAdminTablesArr[] = "event_participants_by_events";
 $nonAdminTablesArr[] = "training_participants_by_trainings";
 $nonAdminTablesArr[] = "candidates_reports";
 $nonAdminTablesArr[] = "candidates_by_gender";
+$nonAdminTablesArr[] = "users";
 
 $ug_connection = $cman->getForUserGroups();
 

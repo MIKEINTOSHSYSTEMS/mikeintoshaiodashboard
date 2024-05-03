@@ -97,6 +97,7 @@ class tDAL
 	var $tblderedevatderejadevmerqconsulta__training_types;
 	var $tblderedevatderejadevmerqconsulta__training_venues;
 	var $tblderedevatderejadevmerqconsulta__trainings;
+	var $tblderedevatderejadevmerqconsulta__users;
 	var $tblderedevatderejadevmerqconsulta__webreport_admin;
 	var $tblderedevatderejadevmerqconsulta__webreport_sql;
 	var $tblderedevatderejadevmerqconsulta__webreport_style;
@@ -160,6 +161,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "training_types", "varname" => "deredevatderejadevmerqconsulta__training_types", "altvarname" => "training_types", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "training_venues", "varname" => "deredevatderejadevmerqconsulta__training_venues", "altvarname" => "training_venues", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "trainings", "varname" => "deredevatderejadevmerqconsulta__trainings", "altvarname" => "trainings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
+		$this->lstTables[] = array("name" => "users", "varname" => "deredevatderejadevmerqconsulta__users", "altvarname" => "users", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "webreport_admin", "varname" => "deredevatderejadevmerqconsulta__webreport_admin", "altvarname" => "webreport_admin", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "webreport_sql", "varname" => "deredevatderejadevmerqconsulta__webreport_sql", "altvarname" => "webreport_sql", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "webreport_style", "varname" => "deredevatderejadevmerqconsulta__webreport_style", "altvarname" => "webreport_style", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

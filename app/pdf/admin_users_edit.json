@@ -183,6 +183,12 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel admin_users userpic }","bold":true},{"text":{$userpic_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel admin_users reset_token }","bold":true},{"text":{$reset_token_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel admin_users reset_date }","bold":true},{"text":{$reset_date_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
@@ -231,9 +237,6 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_edit_save}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_update_records}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_edit_back_list}"},

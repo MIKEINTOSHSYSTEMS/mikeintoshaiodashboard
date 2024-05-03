@@ -548,19 +548,11 @@ class AuditTrailTable
 		{
 			return true;
 		}
-		if($table=="derejame_users")
-		{
-			return true;
-		}
 		if($table=="admin_rights")
 		{
 			return false;
 		}
 		if($table=="admin_members")
-		{
-			return false;
-		}
-		if($table=="admin_users")
 		{
 			return false;
 		}
@@ -669,6 +661,14 @@ class AuditTrailTable
 			return false;
 		}
 		if($table=="candidates_by_gender")
+		{
+			return false;
+		}
+		if($table=="users")
+		{
+			return false;
+		}
+		if($table=="admin_users")
 		{
 			return false;
 		}
@@ -1174,19 +1174,11 @@ class AuditTrailFile
 		{
 			return true;
 		}
-		if($table=="derejame_users")
-		{
-			return true;
-		}
 		if($table=="admin_rights")
 		{
 			return false;
 		}
 		if($table=="admin_members")
-		{
-			return false;
-		}
-		if($table=="admin_users")
 		{
 			return false;
 		}
@@ -1295,6 +1287,14 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="candidates_by_gender")
+		{
+			return false;
+		}
+		if($table=="users")
+		{
+			return false;
+		}
+		if($table=="admin_users")
 		{
 			return false;
 		}

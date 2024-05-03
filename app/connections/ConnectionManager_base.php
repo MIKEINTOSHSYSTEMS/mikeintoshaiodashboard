@@ -278,10 +278,8 @@ class ConnectionManager_Base
 		$connectionsIds["CompanySectors"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Disability_Types"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Trainer"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["derejame_users"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_rights"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_members"] = "deredevatderejadevmerqconsulta";
-		$connectionsIds["admin_users"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreports"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreport_style"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["webreport_sql"] = "deredevatderejadevmerqconsulta";
@@ -308,6 +306,8 @@ class ConnectionManager_Base
 		$connectionsIds["training_participants_by_trainings"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_reports"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_by_gender"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["users"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["admin_users"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

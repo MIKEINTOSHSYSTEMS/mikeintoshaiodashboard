@@ -3,7 +3,7 @@
 @ini_set("display_startup_errors","1");
 
 require_once("include/dbcommon.php");
-require_once("include/derejame_users_variables.php");
+require_once("include/users_variables.php");
 require_once(getabspath("classes/cipherer.php"));
 require_once("classes/registerpage.php");
 require_once('include/xtempl.php');

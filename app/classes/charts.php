@@ -448,13 +448,9 @@ class Chart
 			return true;
 		if("Trainer" == $this->chrt_array['tables'][0])
 			return true;
-		if("derejame_users" == $this->chrt_array['tables'][0])
-			return true;
 		if("derejame_ugrights" == $this->chrt_array['tables'][0])
 			return true;
 		if("derejame_ugmembers" == $this->chrt_array['tables'][0])
-			return true;
-		if("derejame_users" == $this->chrt_array['tables'][0])
 			return true;
 		if("webreports" == $this->chrt_array['tables'][0])
 			return true;
@@ -509,6 +505,10 @@ class Chart
 		if("candidates" == $this->chrt_array['tables'][0])
 			return true;
 		if("candidates" == $this->chrt_array['tables'][0])
+			return true;
+		if("users" == $this->chrt_array['tables'][0])
+			return true;
+		if("users" == $this->chrt_array['tables'][0])
 			return true;
 		return false;
 	}
