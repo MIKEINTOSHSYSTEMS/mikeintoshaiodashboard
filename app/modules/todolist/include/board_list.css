@@ -1,0 +1,41 @@
+.panel-heading, [data-location="above-grid"]{
+    display:none;
+}
+.panel-body{
+    height:100px !important;
+}
+[data-page="todoboards_list"]{
+    vertical-align:top;
+}
+.panel-default{
+    cursor:pointer;
+    background-color: rgb(0, 121, 191);
+    border-color:  rgb(0, 121, 191);
+    color:white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+}
+.panel-default:hover{
+    background-color:rgb(0, 105, 167);
+}
+.add_new_board{
+    height: 122px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+    border-radius: 4px;
+    width: 17.5%;
+    padding: 13px;
+    color:#555;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+}
+.add_new_board:hover{
+    background-color:rgb(230, 230, 230);
+}
+
+[data-grid-message]{
+	display:none;
+}

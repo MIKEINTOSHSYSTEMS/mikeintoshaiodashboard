@@ -1,0 +1,10 @@
+[data-page="chat_groups_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="chat_groups_edit"][data-itemid="edit_save"] {
+  display:none!important;
+}
+

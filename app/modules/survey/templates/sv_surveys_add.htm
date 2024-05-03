@@ -1,0 +1,489 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-add" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c" data-pageid="{$pageid}"	{$cell_top_c}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="add_header" data-itemid="add_header" {$item_add_header} data-pageid="{$pageid}" >{$pagetitlelabel sv_surveys add}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		{BEGIN message_block}
+<div data-itemtype="add_message" data-itemid="add_message" {$item_add_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+		
+	<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
+	{END message_back_button}
+{BEGIN view_page_button}
+	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>View</button>
+{END view_page_button}
+{BEGIN edit_page_button}
+	<button class="btn btn-sm btn-default" {$edit_page_button_attrs}>Edit</button>
+{END edit_page_button}
+</div>
+</div>
+{END message_block}	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN title_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_title}  r-vertical-field" 
+	data-signal-error-for="title{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="title" data-fieldname="title" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_title}">
+		{BEGIN title_label}{$label sv_surveys title }{END title_label}
+	</label>
+	<div class="r-edit-field">
+		{$title_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="title" {$tooltipAttr sv_surveys title } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys title }		</div>
+	</div>
+</div>
+
+
+{END title_fieldblock}
+											
+{BEGIN description_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_description}  r-vertical-field" 
+	data-signal-error-for="description{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="description" data-fieldname="description" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_description}">
+		{BEGIN description_label}{$label sv_surveys description }{END description_label}
+	</label>
+	<div class="r-edit-field">
+		{$description_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="description" {$tooltipAttr sv_surveys description } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys description }		</div>
+	</div>
+</div>
+
+
+{END description_fieldblock}
+											
+{BEGIN welcome_message_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_welcome_message}  r-vertical-field" 
+	data-signal-error-for="welcome_message{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="welcome_message" data-fieldname="welcome_message" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_welcome_message}">
+		{BEGIN welcome_message_label}{$label sv_surveys welcome_message }{END welcome_message_label}
+	</label>
+	<div class="r-edit-field">
+		{$welcome_message_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="welcome_message" {$tooltipAttr sv_surveys welcome_message } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys welcome_message }		</div>
+	</div>
+</div>
+
+
+{END welcome_message_fieldblock}
+											
+{BEGIN end_message_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_end_message}  r-vertical-field" 
+	data-signal-error-for="end_message{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="end_message" data-fieldname="end_message" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_end_message}">
+		{BEGIN end_message_label}{$label sv_surveys end_message }{END end_message_label}
+	</label>
+	<div class="r-edit-field">
+		{$end_message_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="end_message" {$tooltipAttr sv_surveys end_message } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys end_message }		</div>
+	</div>
+</div>
+
+
+{END end_message_fieldblock}
+										</td>
+			{END cellblock_grid_c}
+										</tr>
+										</tbody></table>
+				<div class="panel with-tabs panel-default form-tabs" data-itemtype="tabs" data-itemid="tabs" {$item_tabs} data-pageid="{$pageid}" data-page="sv_surveys_add">
+	<div class="panel-heading">
+		<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section{$pageid}">
+					Presentation				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section1{$pageid}">
+					Options				</a>
+			</li>
+									</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="tab_section{$pageid}"> 
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section" id="form_section_{$pageid}" data-makeup="small" {$form_section} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section_0} >
+										
+
+{BEGIN cellblock_section_c}
+<td
+	{$cell_section_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="section_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN format_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_format}  r-vertical-field" 
+	data-signal-error-for="format{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="format" data-fieldname="format" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_format}">
+		{BEGIN format_label}{$label sv_surveys format }{END format_label}
+	</label>
+	<div class="r-edit-field">
+		{$format_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="format" {$tooltipAttr sv_surveys format } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys format }		</div>
+	</div>
+</div>
+
+
+{END format_fieldblock}
+											
+{BEGIN allowprev_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_allowprev}  r-vertical-field" 
+	data-signal-error-for="allowprev{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="allowprev" data-fieldname="allowprev" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_allowprev}">
+		{BEGIN allowprev_label}{$label sv_surveys allowprev }{END allowprev_label}
+	</label>
+	<div class="r-edit-field">
+		{$allowprev_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="allowprev" {$tooltipAttr sv_surveys allowprev } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys allowprev }		</div>
+	</div>
+</div>
+
+
+{END allowprev_fieldblock}
+											
+{BEGIN progressbar_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_progressbar}  r-vertical-field" 
+	data-signal-error-for="progressbar{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="progressbar" data-fieldname="progressbar" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_progressbar}">
+		{BEGIN progressbar_label}{$label sv_surveys progressbar }{END progressbar_label}
+	</label>
+	<div class="r-edit-field">
+		{$progressbar_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="progressbar" {$tooltipAttr sv_surveys progressbar } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys progressbar }		</div>
+	</div>
+</div>
+
+
+{END progressbar_fieldblock}
+	
+								</td>
+			{END cellblock_section_c}
+								</tr>
+			</tbody></table>
+{END section_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section1{$pageid}"> 
+			{BEGIN section1_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section1" id="form_section1_{$pageid}" data-makeup="small" {$form_section1} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section1_0} >
+										
+
+{BEGIN cellblock_section1_c}
+<td
+	{$cell_section1_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="section1_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN startdate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_startdate}  r-vertical-field" 
+	data-signal-error-for="startdate{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="startdate" data-fieldname="startdate" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_startdate}">
+		{BEGIN startdate_label}{$label sv_surveys startdate }{END startdate_label}
+	</label>
+	<div class="r-edit-field">
+		{$startdate_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="startdate" {$tooltipAttr sv_surveys startdate } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys startdate }		</div>
+	</div>
+</div>
+
+
+{END startdate_fieldblock}
+											
+{BEGIN expires_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_expires}  r-vertical-field" 
+	data-signal-error-for="expires{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="expires" data-fieldname="expires" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_expires}">
+		{BEGIN expires_label}{$label sv_surveys expires }{END expires_label}
+	</label>
+	<div class="r-edit-field">
+		{$expires_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="expires" {$tooltipAttr sv_surveys expires } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys expires }		</div>
+	</div>
+</div>
+
+
+{END expires_fieldblock}
+											
+{BEGIN ipaddr_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ipaddr}  r-vertical-field" 
+	data-signal-error-for="ipaddr{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="ipaddr" data-fieldname="ipaddr" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_ipaddr}">
+		{BEGIN ipaddr_label}{$label sv_surveys ipaddr }{END ipaddr_label}
+	</label>
+	<div class="r-edit-field">
+		{$ipaddr_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="ipaddr" {$tooltipAttr sv_surveys ipaddr } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys ipaddr }		</div>
+	</div>
+</div>
+
+
+{END ipaddr_fieldblock}
+											
+{BEGIN date_format_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_date_format}  r-vertical-field" 
+	data-signal-error-for="date_format{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="date_format" data-fieldname="date_format" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_date_format}">
+		{BEGIN date_format_label}{$label sv_surveys date_format }{END date_format_label}
+	</label>
+	<div class="r-edit-field">
+		{$date_format_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="date_format" {$tooltipAttr sv_surveys date_format } >
+		<div class="text-muted" >
+		{$tooltip sv_surveys date_format }		</div>
+	</div>
+</div>
+
+
+{END date_format_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c}
+								</tr>
+			</tbody></table>
+{END section1_block}
+						</div>
+				</div>
+	</div>
+</div>  	
+				{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c" data-pageid="{$pageid}"	{$cell_below-grid_c}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="add_save" data-itemid="add_save" {$item_add_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="add_back_list" data-itemid="add_back_list" {$item_add_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="backButton{$id}" >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="add_cancel" data-itemid="add_cancel" {$item_add_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

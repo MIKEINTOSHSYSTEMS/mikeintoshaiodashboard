@@ -1,0 +1,472 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel mtmeetings search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label mtmeetings id }	</label>
+	<div class="r-search-option">
+		{$searchtype_id}
+	</div>
+	<div class="r-search-field">
+		{$id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_fieldblock}
+											
+{BEGIN name_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_name}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="name{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="name" data-fieldname="name" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_name}">
+		{$label mtmeetings name }	</label>
+	<div class="r-search-option">
+		{$searchtype_name}
+	</div>
+	<div class="r-search-field">
+		{$name_editcontrol}	</div>
+	<div class="r-search-field">
+		{$name_editcontrol1}
+	</div>
+	
+</div>
+
+{END name_fieldblock}
+											
+{BEGIN desc_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_desc}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="desc{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="desc" data-fieldname="desc" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_desc}">
+		{$label mtmeetings desc }	</label>
+	<div class="r-search-option">
+		{$searchtype_desc}
+	</div>
+	<div class="r-search-field">
+		{$desc_editcontrol}	</div>
+	<div class="r-search-field">
+		{$desc_editcontrol1}
+	</div>
+	
+</div>
+
+{END desc_fieldblock}
+											
+{BEGIN users_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_users}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="users{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="users" data-fieldname="users" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_users}">
+		{$label mtmeetings users }	</label>
+	<div class="r-search-option">
+		{$searchtype_users}
+	</div>
+	<div class="r-search-field">
+		{$users_editcontrol}	</div>
+	<div class="r-search-field">
+		{$users_editcontrol1}
+	</div>
+	
+</div>
+
+{END users_fieldblock}
+											
+{BEGIN schedule_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_schedule}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="schedule{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="schedule" data-fieldname="schedule" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_schedule}">
+		{$label mtmeetings schedule }	</label>
+	<div class="r-search-option">
+		{$searchtype_schedule}
+	</div>
+	<div class="r-search-field">
+		{$schedule_editcontrol}	</div>
+	<div class="r-search-field">
+		{$schedule_editcontrol1}
+	</div>
+	
+</div>
+
+{END schedule_fieldblock}
+											
+{BEGIN email_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_email}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="email{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="email" data-fieldname="email" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_email}">
+		{$label mtmeetings email }	</label>
+	<div class="r-search-option">
+		{$searchtype_email}
+	</div>
+	<div class="r-search-field">
+		{$email_editcontrol}	</div>
+	<div class="r-search-field">
+		{$email_editcontrol1}
+	</div>
+	
+</div>
+
+{END email_fieldblock}
+											
+{BEGIN sms_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_sms}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="sms{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="sms" data-fieldname="sms" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_sms}">
+		{$label mtmeetings sms }	</label>
+	<div class="r-search-option">
+		{$searchtype_sms}
+	</div>
+	<div class="r-search-field">
+		{$sms_editcontrol}	</div>
+	<div class="r-search-field">
+		{$sms_editcontrol1}
+	</div>
+	
+</div>
+
+{END sms_fieldblock}
+											
+{BEGIN subj_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_subj}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="subj{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="subj" data-fieldname="subj" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_subj}">
+		{$label mtmeetings subj }	</label>
+	<div class="r-search-option">
+		{$searchtype_subj}
+	</div>
+	<div class="r-search-field">
+		{$subj_editcontrol}	</div>
+	<div class="r-search-field">
+		{$subj_editcontrol1}
+	</div>
+	
+</div>
+
+{END subj_fieldblock}
+											
+{BEGIN ownerid_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ownerid}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="ownerid{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="ownerid" data-fieldname="ownerid" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_ownerid}">
+		{$label mtmeetings ownerid }	</label>
+	<div class="r-search-option">
+		{$searchtype_ownerid}
+	</div>
+	<div class="r-search-field">
+		{$ownerid_editcontrol}	</div>
+	<div class="r-search-field">
+		{$ownerid_editcontrol1}
+	</div>
+	
+</div>
+
+{END ownerid_fieldblock}
+											
+{BEGIN clink_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_clink}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="clink{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="clink" data-fieldname="clink" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_clink}">
+		{$label mtmeetings clink }	</label>
+	<div class="r-search-option">
+		{$searchtype_clink}
+	</div>
+	<div class="r-search-field">
+		{$clink_editcontrol}	</div>
+	<div class="r-search-field">
+		{$clink_editcontrol1}
+	</div>
+	
+</div>
+
+{END clink_fieldblock}
+											
+{BEGIN jlink_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_jlink}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="jlink{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="jlink" data-fieldname="jlink" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_jlink}">
+		{$label mtmeetings jlink }	</label>
+	<div class="r-search-option">
+		{$searchtype_jlink}
+	</div>
+	<div class="r-search-field">
+		{$jlink_editcontrol}	</div>
+	<div class="r-search-field">
+		{$jlink_editcontrol1}
+	</div>
+	
+</div>
+
+{END jlink_fieldblock}
+											
+{BEGIN owner_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_owner}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="owner{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="owner" data-fieldname="owner" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_owner}">
+		{$label mtmeetings owner }	</label>
+	<div class="r-search-option">
+		{$searchtype_owner}
+	</div>
+	<div class="r-search-field">
+		{$owner_editcontrol}	</div>
+	<div class="r-search-field">
+		{$owner_editcontrol1}
+	</div>
+	
+</div>
+
+{END owner_fieldblock}
+											
+{BEGIN password_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_password}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="password{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="password" data-fieldname="password" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_password}">
+		{$label mtmeetings password }	</label>
+	<div class="r-search-option">
+		{$searchtype_password}
+	</div>
+	<div class="r-search-field">
+		{$password_editcontrol}	</div>
+	<div class="r-search-field">
+		{$password_editcontrol1}
+	</div>
+	
+</div>
+
+{END password_fieldblock}
+											
+{BEGIN notiday_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_notiday}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="notiday{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="notiday" data-fieldname="notiday" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_notiday}">
+		{$label mtmeetings notiday }	</label>
+	<div class="r-search-option">
+		{$searchtype_notiday}
+	</div>
+	<div class="r-search-field">
+		{$notiday_editcontrol}	</div>
+	<div class="r-search-field">
+		{$notiday_editcontrol1}
+	</div>
+	
+</div>
+
+{END notiday_fieldblock}
+											
+{BEGIN notitime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_notitime}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="notitime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="notitime" data-fieldname="notitime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_notitime}">
+		{$label mtmeetings notitime }	</label>
+	<div class="r-search-option">
+		{$searchtype_notitime}
+	</div>
+	<div class="r-search-field">
+		{$notitime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$notitime_editcontrol1}
+	</div>
+	
+</div>
+
+{END notitime_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

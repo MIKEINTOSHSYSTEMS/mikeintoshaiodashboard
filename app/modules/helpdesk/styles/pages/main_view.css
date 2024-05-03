@@ -1,0 +1,21 @@
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > * > input,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > * > textarea,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > * > select,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > * > * > select,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > .form-control-static,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > [id^=view],
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] label,
+[data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"][data-page="main_view"][data-itemid="integrated_edit_field6"] > * > .r-readonly-control {
+  font-weight: bold;
+  font-size: 18px;
+}
+[data-page="main_view"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c1"][data-page="main_view"][data-cellid="above-grid_c1"][data-page="main_view"][data-cellid="above-grid_c1"][data-page="main_view"] {
+  margin-bottom:50px;
+}
+

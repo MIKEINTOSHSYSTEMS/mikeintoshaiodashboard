@@ -1,0 +1,26 @@
+[data-page="mtmeetings_add"][data-itemid="text2"] {
+  padding-top: 8px;
+}
+[data-page="mtmeetings_add"][data-itemid="noti1"] {
+  padding-left: 305px;
+  padding-top: 8px;
+}
+[data-page="mtmeetings_add"][data-itemid="label_settings"] {
+  font-weight: bold;
+}
+[data-page="mtmeetings_add"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="mtmeetings_add"][data-itemid="integrated_edit_field5"] {
+  width:100px !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="mtmeetings_add"][data-itemid="integrated_edit_field6"] {
+  width:160px !important;
+}
+

@@ -1,0 +1,84 @@
+.group{
+	border:2px solid #ddd;
+	padding:5px;
+	width:100%;qinput
+	border-radius:3px;
+}
+.even{
+	border:1px dashed #ddd;
+	padding:5px;
+	width:100%;
+	border-radius:3px;
+}
+.even_view{
+	border:1px dashed #ddd;
+	padding:5px;
+	width:100%;
+	border-radius:3px;
+	margin-bottom:10px;
+}
+div.number, div.dropdown{
+	width:300px;
+}
+div.date{
+	width:200px;
+}
+.qhead, .odd, .list_head{
+	padding:10px;
+}
+.list_td{
+	text-align: center;
+}
+.qinput{
+	width:500px;
+}
+.comment{
+	padding-left:10px;
+}
+.radio label{
+	padding-left:0px !important;
+}
+.other, .text{
+	width:300px;
+}
+.demo ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+.demo li { margin: 5px; padding: 5px; width: 150px; }
+
+[data-page^="response_"]{
+	margin-left:0px !important;
+}
+
+[data-page="sv_question_details_list"]{
+
+text-align:center;
+}
+
+[data-field="sortorder"]{
+width:100px;
+text-align: center;
+}
+
+[data-field="sortorder"] [data-itemtype="grid_field"]{
+display:inline-block !important;
+}
+
+[data-field="sortorder"] .form-control{
+min-width: 0px !important;
+width:80px !important;
+text-align:center !important;
+}
+
+/* Таблица с ответами на странице добавления вопроса . в ней нужно спрятать order_id */
+.function-add [data-itemid="details_preview"] [data-field="sortorder"]{
+display:none;
+
+}
+
+.function-add [data-itemid="details_preview1"] [data-field="sortorder"]{
+display:none;
+
+}
+
+ul{
+	white-space:nowrap!important;
+}

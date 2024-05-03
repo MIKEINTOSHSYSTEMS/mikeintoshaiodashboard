@@ -1,0 +1,606 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-add" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c" data-pageid="{$pageid}"	{$cell_top_c}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="add_header" data-itemid="add_header" {$item_add_header} data-pageid="{$pageid}" >{$pagetitlelabel sv_questions add}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		{BEGIN message_block}
+<div data-itemtype="add_message" data-itemid="add_message" {$item_add_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+		
+	<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
+	{END message_back_button}
+{BEGIN view_page_button}
+	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>View</button>
+{END view_page_button}
+{BEGIN edit_page_button}
+	<button class="btn btn-sm btn-default" {$edit_page_button_attrs}>Edit</button>
+{END edit_page_button}
+</div>
+</div>
+{END message_block}	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_type}  r-vertical-field" 
+	data-signal-error-for="type{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="type" data-fieldname="type" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_type}">
+		{BEGIN type_label}{$label sv_questions type }{END type_label}
+	</label>
+	<div class="r-edit-field">
+		{$type_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="type" {$tooltipAttr sv_questions type } >
+		<div class="text-muted" >
+		{$tooltip sv_questions type }		</div>
+	</div>
+</div>
+
+
+{END type_fieldblock}
+											
+{BEGIN group_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_group_id}  r-vertical-field" 
+	data-signal-error-for="group_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="group_id" data-fieldname="group_id" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_group_id}">
+		{BEGIN group_id_label}{$label sv_questions group_id }{END group_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$group_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="group_id" {$tooltipAttr sv_questions group_id } >
+		<div class="text-muted" >
+		{$tooltip sv_questions group_id }		</div>
+	</div>
+</div>
+
+
+{END group_id_fieldblock}
+											
+{BEGIN question_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_question}  r-vertical-field" 
+	data-signal-error-for="question{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="question" data-fieldname="question" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_question}">
+		{BEGIN question_label}{$label sv_questions question }{END question_label}
+	</label>
+	<div class="r-edit-field">
+		{$question_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="question" {$tooltipAttr sv_questions question } >
+		<div class="text-muted" >
+		{$tooltip sv_questions question }		</div>
+	</div>
+</div>
+
+
+{END question_fieldblock}
+											
+{BEGIN help_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_help}  r-vertical-field" 
+	data-signal-error-for="help{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="help" data-fieldname="help" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_help}">
+		{BEGIN help_label}{$label sv_questions help }{END help_label}
+	</label>
+	<div class="r-edit-field">
+		{$help_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="help" {$tooltipAttr sv_questions help } >
+		<div class="text-muted" >
+		{$tooltip sv_questions help }		</div>
+	</div>
+</div>
+
+
+{END help_fieldblock}
+											
+{BEGIN help_orientation_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_help_orientation}  r-vertical-field" 
+	data-signal-error-for="help_orientation{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="help_orientation" data-fieldname="help_orientation" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_help_orientation}">
+		{BEGIN help_orientation_label}{$label sv_questions help_orientation }{END help_orientation_label}
+	</label>
+	<div class="r-edit-field">
+		{$help_orientation_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="help_orientation" {$tooltipAttr sv_questions help_orientation } >
+		<div class="text-muted" >
+		{$tooltip sv_questions help_orientation }		</div>
+	</div>
+</div>
+
+
+{END help_orientation_fieldblock}
+											
+{BEGIN sortorder_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_sortorder}  r-vertical-field" 
+	data-signal-error-for="sortorder{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-page="sv_questions_add" data-field="sortorder" data-fieldname="sortorder" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_sortorder}">
+		{BEGIN sortorder_label}{$label sv_questions sortorder }{END sortorder_label}
+	</label>
+	<div class="r-edit-field">
+		{$sortorder_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="sortorder" {$tooltipAttr sv_questions sortorder } >
+		<div class="text-muted" >
+		{$tooltip sv_questions sortorder }		</div>
+	</div>
+</div>
+
+
+{END sortorder_fieldblock}
+										</td>
+			{END cellblock_grid_c}
+										</tr>
+										</tbody></table>
+				<div class="panel with-tabs panel-default form-tabs" data-itemtype="tabs" data-itemid="tabs" {$item_tabs} data-pageid="{$pageid}" data-page="sv_questions_add">
+	<div class="panel-heading">
+		<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section{$pageid}">
+					Validation				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section1{$pageid}">
+					Settings				</a>
+			</li>
+									</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="tab_section{$pageid}"> 
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section" id="form_section_{$pageid}" data-makeup="small" {$form_section} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section_0} >
+										
+
+{BEGIN cellblock_section_c}
+<td
+	{$cell_section_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="section_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN regex_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_regex}  r-vertical-field" 
+	data-signal-error-for="regex{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="regex" data-fieldname="regex" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_regex}">
+		{BEGIN regex_label}{$label sv_questions regex }{END regex_label}
+	</label>
+	<div class="r-edit-field">
+		{$regex_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="regex" {$tooltipAttr sv_questions regex } >
+		<div class="text-muted" >
+		{$tooltip sv_questions regex }		</div>
+	</div>
+</div>
+
+
+{END regex_fieldblock}
+											
+{BEGIN required_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_required}  r-vertical-field" 
+	data-signal-error-for="required{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="required" data-fieldname="required" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_required}">
+		{BEGIN required_label}{$label sv_questions required }{END required_label}
+	</label>
+	<div class="r-edit-field">
+		{$required_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="required" {$tooltipAttr sv_questions required } >
+		<div class="text-muted" >
+		{$tooltip sv_questions required }		</div>
+	</div>
+</div>
+
+
+{END required_fieldblock}
+											
+{BEGIN other_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_other}  r-vertical-field" 
+	data-signal-error-for="other{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="other" data-fieldname="other" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_other}">
+		{BEGIN other_label}{$label sv_questions other }{END other_label}
+	</label>
+	<div class="r-edit-field">
+		{$other_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="other" {$tooltipAttr sv_questions other } >
+		<div class="text-muted" >
+		{$tooltip sv_questions other }		</div>
+	</div>
+</div>
+
+
+{END other_fieldblock}
+	
+								</td>
+			{END cellblock_section_c}
+								</tr>
+			</tbody></table>
+{END section_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section1{$pageid}"> 
+			{BEGIN section1_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section1" id="form_section1_{$pageid}" data-makeup="small" {$form_section1} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section1_0} >
+										
+
+{BEGIN cellblock_section1_c}
+<td
+	{$cell_section1_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="section1_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN int_only_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_int_only}  r-vertical-field" 
+	data-signal-error-for="int_only{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="int_only" data-fieldname="int_only" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_int_only}">
+		{BEGIN int_only_label}{$label sv_questions int_only }{END int_only_label}
+	</label>
+	<div class="r-edit-field">
+		{$int_only_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="int_only" {$tooltipAttr sv_questions int_only } >
+		<div class="text-muted" >
+		{$tooltip sv_questions int_only }		</div>
+	</div>
+</div>
+
+
+{END int_only_fieldblock}
+											
+{BEGIN max_length_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_max_length}  r-vertical-field" 
+	data-signal-error-for="max_length{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="max_length" data-fieldname="max_length" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_max_length}">
+		{BEGIN max_length_label}{$label sv_questions max_length }{END max_length_label}
+	</label>
+	<div class="r-edit-field">
+		{$max_length_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="max_length" {$tooltipAttr sv_questions max_length } >
+		<div class="text-muted" >
+		{$tooltip sv_questions max_length }		</div>
+	</div>
+</div>
+
+
+{END max_length_fieldblock}
+											
+{BEGIN file_extensions_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_file_extensions}  r-vertical-field" 
+	data-signal-error-for="file_extensions{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="file_extensions" data-fieldname="file_extensions" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_file_extensions}">
+		{BEGIN file_extensions_label}{$label sv_questions file_extensions }{END file_extensions_label}
+	</label>
+	<div class="r-edit-field">
+		{$file_extensions_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="file_extensions" {$tooltipAttr sv_questions file_extensions } >
+		<div class="text-muted" >
+		{$tooltip sv_questions file_extensions }		</div>
+	</div>
+</div>
+
+
+{END file_extensions_fieldblock}
+											
+{BEGIN max_num_of_files_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_max_num_of_files}  r-vertical-field" 
+	data-signal-error-for="max_num_of_files{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="max_num_of_files" data-fieldname="max_num_of_files" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_max_num_of_files}">
+		{BEGIN max_num_of_files_label}{$label sv_questions max_num_of_files }{END max_num_of_files_label}
+	</label>
+	<div class="r-edit-field">
+		{$max_num_of_files_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="max_num_of_files" {$tooltipAttr sv_questions max_num_of_files } >
+		<div class="text-muted" >
+		{$tooltip sv_questions max_num_of_files }		</div>
+	</div>
+</div>
+
+
+{END max_num_of_files_fieldblock}
+											
+{BEGIN max_file_size_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_max_file_size}  r-vertical-field" 
+	data-signal-error-for="max_file_size{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="max_file_size" data-fieldname="max_file_size" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_max_file_size}">
+		{BEGIN max_file_size_label}{$label sv_questions max_file_size }{END max_file_size_label}
+	</label>
+	<div class="r-edit-field">
+		{$max_file_size_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="max_file_size" {$tooltipAttr sv_questions max_file_size } >
+		<div class="text-muted" >
+		{$tooltip sv_questions max_file_size }		</div>
+	</div>
+</div>
+
+
+{END max_file_size_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c}
+								</tr>
+			</tbody></table>
+{END section1_block}
+						</div>
+				</div>
+	</div>
+</div>  											
+{BEGIN details_sv_question_details}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_sv_question_details}			
+							<span>
+					{$detailslButtons_sv_question_details}
+																																										</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_sv_question_details}
+		</div>
+	</div>
+</div>
+{END details_sv_question_details}
+											
+{BEGIN details_sv_answer_options}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_sv_answer_options}			
+							<span>
+					{$detailslButtons_sv_answer_options}
+																																										</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_sv_answer_options}
+		</div>
+	</div>
+</div>
+{END details_sv_answer_options}
+											
+{BEGIN details_sv_scenarios}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_sv_scenarios}			
+							<span>
+					{$detailslButtons_sv_scenarios}
+																																										</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_sv_scenarios}
+		</div>
+	</div>
+</div>
+{END details_sv_scenarios}
+	
+				{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c" data-pageid="{$pageid}"	{$cell_below-grid_c}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="add_save" data-itemid="add_save" {$item_add_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="add_back_list" data-itemid="add_back_list" {$item_add_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="backButton{$id}" >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="add_cancel" data-itemid="add_cancel" {$item_add_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

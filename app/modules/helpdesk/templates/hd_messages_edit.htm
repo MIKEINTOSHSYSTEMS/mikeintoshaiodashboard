@@ -1,0 +1,524 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-edit" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel hd_messages edit}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="hd_messages_view.php?{$editlink}" {$view_page_button_attrs}>View</a>
+{END message_view_page_button}
+</div>
+</div>
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN created_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_created}  r-vertical-field" 
+	data-signal-error-for="created{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="created" data-fieldname="created" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_created}">
+		{BEGIN created_label}{$label hd_messages created }{END created_label}
+	</label>
+	<div class="r-edit-field">
+		{$created_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="created" {$tooltipAttr hd_messages created } >
+		<div class="text-muted" >
+		{$tooltip hd_messages created }		</div>
+	</div>
+</div>
+
+
+{END created_fieldblock}
+											
+{BEGIN body_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_body}  r-vertical-field" 
+	data-signal-error-for="body{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="body" data-fieldname="body" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_body}">
+		{BEGIN body_label}{$label hd_messages body }{END body_label}
+	</label>
+	<div class="r-edit-field">
+		{$body_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="body" {$tooltipAttr hd_messages body } >
+		<div class="text-muted" >
+		{$tooltip hd_messages body }		</div>
+	</div>
+</div>
+
+
+{END body_fieldblock}
+											
+{BEGIN to_email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_to_email}  r-vertical-field" 
+	data-signal-error-for="to_email{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="to_email" data-fieldname="to_email" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_to_email}">
+		{BEGIN to_email_label}{$label hd_messages to_email }{END to_email_label}
+	</label>
+	<div class="r-edit-field">
+		{$to_email_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="to_email" {$tooltipAttr hd_messages to_email } >
+		<div class="text-muted" >
+		{$tooltip hd_messages to_email }		</div>
+	</div>
+</div>
+
+
+{END to_email_fieldblock}
+											
+{BEGIN subject_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_subject}  r-vertical-field" 
+	data-signal-error-for="subject{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="subject" data-fieldname="subject" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_subject}">
+		{BEGIN subject_label}{$label hd_messages subject }{END subject_label}
+	</label>
+	<div class="r-edit-field">
+		{$subject_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="subject" {$tooltipAttr hd_messages subject } >
+		<div class="text-muted" >
+		{$tooltip hd_messages subject }		</div>
+	</div>
+</div>
+
+
+{END subject_fieldblock}
+											
+{BEGIN message_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_message_id}  r-vertical-field" 
+	data-signal-error-for="message_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="message_id" data-fieldname="message_id" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_message_id}">
+		{BEGIN message_id_label}{$label hd_messages message_id }{END message_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$message_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="message_id" {$tooltipAttr hd_messages message_id } >
+		<div class="text-muted" >
+		{$tooltip hd_messages message_id }		</div>
+	</div>
+</div>
+
+
+{END message_id_fieldblock}
+											
+{BEGIN maildate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_maildate}  r-vertical-field" 
+	data-signal-error-for="maildate{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="maildate" data-fieldname="maildate" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_maildate}">
+		{BEGIN maildate_label}{$label hd_messages maildate }{END maildate_label}
+	</label>
+	<div class="r-edit-field">
+		{$maildate_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="maildate" {$tooltipAttr hd_messages maildate } >
+		<div class="text-muted" >
+		{$tooltip hd_messages maildate }		</div>
+	</div>
+</div>
+
+
+{END maildate_fieldblock}
+											
+{BEGIN from_email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_from_email}  r-vertical-field" 
+	data-signal-error-for="from_email{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="from_email" data-fieldname="from_email" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_from_email}">
+		{BEGIN from_email_label}{$label hd_messages from_email }{END from_email_label}
+	</label>
+	<div class="r-edit-field">
+		{$from_email_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="from_email" {$tooltipAttr hd_messages from_email } >
+		<div class="text-muted" >
+		{$tooltip hd_messages from_email }		</div>
+	</div>
+</div>
+
+
+{END from_email_fieldblock}
+											
+{BEGIN to_name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_to_name}  r-vertical-field" 
+	data-signal-error-for="to_name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="to_name" data-fieldname="to_name" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_to_name}">
+		{BEGIN to_name_label}{$label hd_messages to_name }{END to_name_label}
+	</label>
+	<div class="r-edit-field">
+		{$to_name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="to_name" {$tooltipAttr hd_messages to_name } >
+		<div class="text-muted" >
+		{$tooltip hd_messages to_name }		</div>
+	</div>
+</div>
+
+
+{END to_name_fieldblock}
+											
+{BEGIN from_name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_from_name}  r-vertical-field" 
+	data-signal-error-for="from_name{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="from_name" data-fieldname="from_name" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_from_name}">
+		{BEGIN from_name_label}{$label hd_messages from_name }{END from_name_label}
+	</label>
+	<div class="r-edit-field">
+		{$from_name_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="from_name" {$tooltipAttr hd_messages from_name } >
+		<div class="text-muted" >
+		{$tooltip hd_messages from_name }		</div>
+	</div>
+</div>
+
+
+{END from_name_fieldblock}
+											
+{BEGIN attachment_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_attachment}  r-vertical-field" 
+	data-signal-error-for="attachment{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="attachment" data-fieldname="attachment" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_attachment}">
+		{BEGIN attachment_label}{$label hd_messages attachment }{END attachment_label}
+	</label>
+	<div class="r-edit-field">
+		{$attachment_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="attachment" {$tooltipAttr hd_messages attachment } >
+		<div class="text-muted" >
+		{$tooltip hd_messages attachment }		</div>
+	</div>
+</div>
+
+
+{END attachment_fieldblock}
+											
+{BEGIN cc_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_cc}  r-vertical-field" 
+	data-signal-error-for="cc{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="cc" data-fieldname="cc" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_cc}">
+		{BEGIN cc_label}{$label hd_messages cc }{END cc_label}
+	</label>
+	<div class="r-edit-field">
+		{$cc_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="cc" {$tooltipAttr hd_messages cc } >
+		<div class="text-muted" >
+		{$tooltip hd_messages cc }		</div>
+	</div>
+</div>
+
+
+{END cc_fieldblock}
+											
+{BEGIN bcc_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_bcc}  r-vertical-field" 
+	data-signal-error-for="bcc{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="bcc" data-fieldname="bcc" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_bcc}">
+		{BEGIN bcc_label}{$label hd_messages bcc }{END bcc_label}
+	</label>
+	<div class="r-edit-field">
+		{$bcc_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="bcc" {$tooltipAttr hd_messages bcc } >
+		<div class="text-muted" >
+		{$tooltip hd_messages bcc }		</div>
+	</div>
+</div>
+
+
+{END bcc_fieldblock}
+											
+{BEGIN server_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_server_id}  r-vertical-field" 
+	data-signal-error-for="server_id{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="server_id" data-fieldname="server_id" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_server_id}">
+		{BEGIN server_id_label}{$label hd_messages server_id }{END server_id_label}
+	</label>
+	<div class="r-edit-field">
+		{$server_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="server_id" {$tooltipAttr hd_messages server_id } >
+		<div class="text-muted" >
+		{$tooltip hd_messages server_id }		</div>
+	</div>
+</div>
+
+
+{END server_id_fieldblock}
+											
+{BEGIN ticketid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ticketid}  r-vertical-field" 
+	data-signal-error-for="ticketid{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="ticketid" data-fieldname="ticketid" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_ticketid}">
+		{BEGIN ticketid_label}{$label hd_messages ticketid }{END ticketid_label}
+	</label>
+	<div class="r-edit-field">
+		{$ticketid_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="ticketid" {$tooltipAttr hd_messages ticketid } >
+		<div class="text-muted" >
+		{$tooltip hd_messages ticketid }		</div>
+	</div>
+</div>
+
+
+{END ticketid_fieldblock}
+											
+{BEGIN directionid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_directionid}  r-vertical-field" 
+	data-signal-error-for="directionid{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="directionid" data-fieldname="directionid" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_directionid}">
+		{BEGIN directionid_label}{$label hd_messages directionid }{END directionid_label}
+	</label>
+	<div class="r-edit-field">
+		{$directionid_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="directionid" {$tooltipAttr hd_messages directionid } >
+		<div class="text-muted" >
+		{$tooltip hd_messages directionid }		</div>
+	</div>
+</div>
+
+
+{END directionid_fieldblock}
+											
+{BEGIN categoryid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_categoryid}  r-vertical-field" 
+	data-signal-error-for="categoryid{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_categoryid}">
+		{BEGIN categoryid_label}{$label hd_messages categoryid }{END categoryid_label}
+	</label>
+	<div class="r-edit-field">
+		{$categoryid_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="categoryid" {$tooltipAttr hd_messages categoryid } >
+		<div class="text-muted" >
+		{$tooltip hd_messages categoryid }		</div>
+	</div>
+</div>
+
+
+{END categoryid_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	">
+	 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+{END save_edit}
+	 
+		{BEGIN back_button}
+<span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$closebutton_attrs} >
+							Cancel			</a>
+</span>
+{END close_button}
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="edit_reset" data-itemid="edit_reset" {$item_edit_reset} data-pageid="{$pageid}" data-small >
+				<a  {$resetbutton_attrs}  title="" >
+				
+		Reset		
+		</a>
+	</li>
+							{BEGIN view_page_button}
+	<li data-itemtype="edit_view" data-itemid="edit_view" {$item_edit_view} data-pageid="{$pageid}" data-small >
+				<a  href="hd_messages_view.php?{$editlink}" {$view_page_button_attrs}  title="" >
+				
+		View		
+		</a>
+	</li>
+{END view_page_button}
+					</ul>
+	</span>
+</span>
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

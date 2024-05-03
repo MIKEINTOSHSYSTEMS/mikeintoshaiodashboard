@@ -1,0 +1,10 @@
+[data-page="sv_groups_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="below-grid_c3"][data-page="sv_groups_edit"][data-cellid="below-grid_c3"][data-page="sv_groups_edit"][data-cellid="below-grid_c3"][data-page="sv_groups_edit"] {
+ display:none !important;
+}
+

@@ -1,0 +1,1276 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-list"   
+		>
+	{BEGIN body}
+		<style>
+		{$containerCss}
+		</style>
+		<div class="r-vbar-page">
+			<div data-width="250px" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo1" {$item_logo1}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo1" {$item_logo1} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main}			</div>
+		
+ 
+
+			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
+				<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_attachment}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_attachment}" {$filterRow_attrs_attachment}>
+			<label>{$label hd_messages attachment }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_attachment}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_attachment}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_attachment}</span>
+						</div>
+		{END searchCtrlBlock_attachment}
+																{BEGIN searchCtrlBlock_categoryid}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_categoryid}" {$filterRow_attrs_categoryid}>
+			<label>{$label hd_messages categoryid }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_categoryid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_categoryid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_categoryid}</span>
+						</div>
+		{END searchCtrlBlock_categoryid}
+																{BEGIN searchCtrlBlock_to_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_to_name}" {$filterRow_attrs_to_name}>
+			<label>{$label hd_messages to_name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_to_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_to_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_to_name}</span>
+						</div>
+		{END searchCtrlBlock_to_name}
+																{BEGIN searchCtrlBlock_to_email}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_to_email}" {$filterRow_attrs_to_email}>
+			<label>{$label hd_messages to_email }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_to_email}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_to_email}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_to_email}</span>
+						</div>
+		{END searchCtrlBlock_to_email}
+																{BEGIN searchCtrlBlock_ticketid}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_ticketid}" {$filterRow_attrs_ticketid}>
+			<label>{$label hd_messages ticketid }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_ticketid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_ticketid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_ticketid}</span>
+						</div>
+		{END searchCtrlBlock_ticketid}
+																{BEGIN searchCtrlBlock_subject}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_subject}" {$filterRow_attrs_subject}>
+			<label>{$label hd_messages subject }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_subject}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_subject}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_subject}</span>
+						</div>
+		{END searchCtrlBlock_subject}
+																{BEGIN searchCtrlBlock_server_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_server_id}" {$filterRow_attrs_server_id}>
+			<label>{$label hd_messages server_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_server_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_server_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_server_id}</span>
+						</div>
+		{END searchCtrlBlock_server_id}
+																{BEGIN searchCtrlBlock_message_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_message_id}" {$filterRow_attrs_message_id}>
+			<label>{$label hd_messages message_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_message_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_message_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_message_id}</span>
+						</div>
+		{END searchCtrlBlock_message_id}
+																{BEGIN searchCtrlBlock_maildate}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_maildate}" {$filterRow_attrs_maildate}>
+			<label>{$label hd_messages maildate }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_maildate}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_maildate}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_maildate}</span>
+						</div>
+		{END searchCtrlBlock_maildate}
+																{BEGIN searchCtrlBlock_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_id}" {$filterRow_attrs_id}>
+			<label>{$label hd_messages id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_id}</span>
+						</div>
+		{END searchCtrlBlock_id}
+																{BEGIN searchCtrlBlock_from_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_from_name}" {$filterRow_attrs_from_name}>
+			<label>{$label hd_messages from_name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_from_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_from_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_from_name}</span>
+						</div>
+		{END searchCtrlBlock_from_name}
+																{BEGIN searchCtrlBlock_from_email}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_from_email}" {$filterRow_attrs_from_email}>
+			<label>{$label hd_messages from_email }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_from_email}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_from_email}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_from_email}</span>
+						</div>
+		{END searchCtrlBlock_from_email}
+																{BEGIN searchCtrlBlock_directionid}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_directionid}" {$filterRow_attrs_directionid}>
+			<label>{$label hd_messages directionid }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_directionid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_directionid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_directionid}</span>
+						</div>
+		{END searchCtrlBlock_directionid}
+																{BEGIN searchCtrlBlock_created}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_created}" {$filterRow_attrs_created}>
+			<label>{$label hd_messages created }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_created}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_created}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_created}</span>
+						</div>
+		{END searchCtrlBlock_created}
+																{BEGIN searchCtrlBlock_cc}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_cc}" {$filterRow_attrs_cc}>
+			<label>{$label hd_messages cc }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_cc}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_cc}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_cc}</span>
+						</div>
+		{END searchCtrlBlock_cc}
+																{BEGIN searchCtrlBlock_body}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_body}" {$filterRow_attrs_body}>
+			<label>{$label hd_messages body }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_body}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_body}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_body}</span>
+						</div>
+		{END searchCtrlBlock_body}
+																{BEGIN searchCtrlBlock_bcc}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_bcc}" {$filterRow_attrs_bcc}>
+			<label>{$label hd_messages bcc }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_bcc}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_bcc}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_bcc}</span>
+						</div>
+		{END searchCtrlBlock_bcc}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			</div>
+		
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="breadcrumb" {$item_breadcrumb} data-topcell-item-type="breadcrumb" >
+				{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
+
+<div  class="input-group">
+{BEGIN searchform_text}
+	<input type="search" class="form-control" {$searchfor_attrs} size="25">
+{END searchform_text}
+	<span class="input-group-btn">
+	{BEGIN searchform_showall}
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	{END searchform_showall}
+
+	{BEGIN searchform_search}
+	<button {$searchbutton_attrs} class="btn btn-primary" >
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	{END searchform_search}
+	</span>
+</div>
+		
+</span>			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN deleteselected_link}
+	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
+				
+		Delete selected		
+		</a>
+	</li>
+{END deleteselected_link}
+							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+				<a   href="hd_messages_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
+				
+		Advanced search		
+		</a>
+	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+									{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c2" data-pageid="{$pageid}" data-page="hd_messages_list"	{$cell_top_c2}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}		</div>					</div>
+			</div>		
+{END top_block}
+						</div>
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}" data-page="hd_messages_list"	{$cell_above-grid_c1}
+	class="			col-md-6
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
+{$event popup_menu_record}
+</span>	 
+		<span data-itemtype="custom_button" data-itemid="custom_button1" {$item_custom_button1} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary  btn-sm 
+	" id="ReplyButt" href="javascript:void(0)" typeid="ib" >
+							Reply			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Ticket_List" href="javascript:void(0)" typeid="ib" >
+							Back to tickets			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="More_button" {$item_More_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="More_button" href="javascript:void(0)" typeid="ib" >
+					<span class="glyphicon glyphicon-cog"></span>
+							More			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="change_status" {$item_change_status} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Change_Status" href="javascript:void(0)" typeid="ib" >
+							Change Status			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="close_tickets" {$item_close_tickets} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Close_selected_tickets" href="javascript:void(0)" typeid="ib" >
+							Close ticket			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="change_priority" {$item_change_priority} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Change_Priority" href="javascript:void(0)" typeid="ib" >
+							Change Priority			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="change_assigned" {$item_change_assigned} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Assign" href="javascript:void(0)" typeid="ib" >
+							Assign			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="move_to_folder" {$item_move_to_folder} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Move_to_Folder1" href="javascript:void(0)" typeid="ib" >
+							Move to Folder			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="add_note" {$item_add_note} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Add_Note" href="javascript:void(0)" typeid="ib" >
+							Add Note			</a>
+</span>
+	 
+		{BEGIN inlineadd_link}
+<span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-page="hd_messages_list" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$inlineaddlink_attrs} >
+							Inline Add			</a>
+</span>
+{END inlineadd_link}
+	 
+		{BEGIN saveall_link}
+<span data-itemtype="inline_save_all" data-itemid="inline_save_all" {$item_inline_save_all} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savealllink_attrs} {$savealllink_span} >
+							Save all			</a>
+</span>
+{END saveall_link}
+	 
+		{BEGIN cancelall_link}
+<span data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" {$item_inline_cancel_all} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" {$cancelalllink_attrs} {$cancelalllink_span} >
+							Cancel			</a>
+</span>
+{END cancelall_link}
+	 
+		{BEGIN deleteselected_link}
+<span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" {$deleteselectedlink_attrs} {$deleteselectedlink_span} disabled >
+							Delete			</a>
+</span>
+{END deleteselected_link}
+			{END firstAboveGridCell}	
+	</div>			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}" data-page="hd_messages_list"	{$cell_above-grid_c2}
+	class="r-align-right			col-md-6
+	
+">
+		 
+		<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-small > 
+	<div class="todoList page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <h4 class="card-title"><i class='fa status'></i>Ticket Checklist<i class="fa caretfa fa-caret-down"></i></h4>
+                        <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column-reverse todo-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></span>
+	 
+		<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-small > 
+	<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tasks" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-tasks fa-w-16 fa-2x"><path fill="#EC2424" d="M139.61 35.5a12 12 0 0 0-17 0L58.93 98.81l-22.7-22.12a12 12 0 0 0-17 0L3.53 92.41a12 12 0 0 0 0 17l47.59 47.4a12.78 12.78 0 0 0 17.61 0l15.59-15.62L156.52 69a12.09 12.09 0 0 0 .09-17zm0 159.19a12 12 0 0 0-17 0l-63.68 63.72-22.7-22.1a12 12 0 0 0-17 0L3.53 252a12 12 0 0 0 0 17L51 316.5a12.77 12.77 0 0 0 17.6 0l15.7-15.69 72.2-72.22a12 12 0 0 0 .09-16.9zM64 368c-26.49 0-48.59 21.5-48.59 48S37.53 464 64 464a48 48 0 0 0 0-96zm432 16H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" class=""></path></svg></span>
+		</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<span data-itemtype="snippet" data-itemid="snippet2" {$item_snippet2} data-pageid="{$pageid}" >
+{$event ticket_h2}
+</span>		</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c3" data-pageid="{$pageid}"	{$cell_above-grid_c3}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<span data-itemtype="snippet" data-itemid="snippet3" {$item_snippet3} data-pageid="{$pageid}" >
+{$event users_view_ticket}
+</span>		</div>					</div>
+			</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+{BEGIN message_block}
+<div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
+{END message_block}<div  data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" >
+{BEGIN grid_row}
+	<div class="r-grid-columns {$rowclass}" {$rowattrs} {$rowstyle}>
+	{BEGIN grid_record}
+		{BEGIN grid_vrecord}
+		<div class="panel panel-default" {$recordattrs}>
+									
+			{BEGIN grid_recordheader}
+			<div class="panel-heading">
+						
+				<table data-location="grid" class="header-table">
+					<tbody>
+				 
+												
+						<tr >
+						 
+							{BEGIN cellblock_grid_cell_top}
+	<th
+	
+	{$cell_grid_cell_top}
+	{$recordattrs}
+	class="
+				 {$directionid_class}	"
+
+			data-field="directionid"
+	
+	data-cellId="grid_cell_top" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		<span data-itemtype="snippet" data-itemid="quicktemplates" {$item_quicktemplates} data-pageid="{$pageid}" data-record-id="{$recId}" >
+{$event hd_messages_quicktemplates}
+</span>	 
+		{BEGIN inline_save}
+<span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Send" class="btn btn-primary  btn-sm 
+	" {$inlinesavelink_attrs} title="Save" >
+					<span class="glyphicon glyphicon-"></span>
+							Send			</a>
+</span>
+{END inline_save}
+	 
+		{BEGIN inline_cancel}
+<span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Cancel" class="btn btn-default  btn-sm 
+	" {$inlinerevertlink_attrs} title="Cancel" >
+					<span class="glyphicon glyphicon-"></span>
+							Cancel			</a>
+</span>
+{END inline_cancel}
+	 
+		{BEGIN directionid_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field" {$item_grid_field} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="directionid" data-fieldname="directionid" data-default-width >
+{$directionid_value}
+</span>
+{END directionid_fieldcolumn}	
+	</th>
+	{END cellblock_grid_cell_top}
+												</tr>
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+											
+					</tbody>
+				</table>
+
+					</div>
+		{END grid_recordheader}
+												
+			<div class="panel-body">					
+						
+				<table data-location="grid" class="bs-fieldsgrid table">
+					<tbody>
+				 
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		r-align-left		 {$id_class}	"
+
+			data-field="id"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN checkbox_column}
+<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
+	<input type="checkbox" {$checkbox_attrs}
+		>
+</span>	
+{END checkbox_column}
+	 
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-small > 
+	#</span>
+	 
+		{BEGIN id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field2" {$item_grid_field2} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="id" data-fieldname="id" data-default-width >
+{$id_value}
+</span>
+{END id_fieldcolumn}	 
+		{BEGIN created_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="created_field" {$item_created_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="created" data-fieldname="created" data-default-width >
+{$created_value}
+</span>
+{END created_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+						 
+							{BEGIN cellblock_grid_cell_field}
+	<td
+	
+	{$cell_grid_cell_field}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_cell_field}
+						 
+							{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert			"
+
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_cell_field11}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_label3}
+	<td
+	
+	{$cell_grid_cell_label3}
+	{$recordattrs}
+	class="
+		r-align-right r-ori-vert		 {$from_email_class}	"
+
+			data-field="from_email"
+	
+	data-cellId="grid_cell_label3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN from_email_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="from_label" {$item_from_label} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="from_email" data-fieldname="from_email">
+	{$label hd_messages from_email }	</span>
+{END from_email_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_label3}
+						 
+							{BEGIN cellblock_grid_cell_field3}
+	<td
+	
+	{$cell_grid_cell_field3}
+	{$recordattrs}
+	class="
+				 {$from_name_class}	"
+
+			data-field="from_name"
+	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN from_name_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="from_name" {$item_from_name} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="from_name" data-fieldname="from_name" data-default-width >
+{$from_name_value}
+</span>
+{END from_name_fieldcolumn}	 
+		{BEGIN from_email_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="from_email" {$item_from_email} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="from_email" data-fieldname="from_email" >
+{$from_email_value}
+</span>
+{END from_email_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field3}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_label5}
+	<td
+	
+	{$cell_grid_cell_label5}
+	{$recordattrs}
+	class="
+		r-align-right r-ori-vert		 {$to_email_class}	"
+
+			data-field="to_email"
+	
+	data-cellId="grid_cell_label5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN to_email_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="to_label" {$item_to_label} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="to_email" data-fieldname="to_email">
+	{$label hd_messages to_email }	</span>
+{END to_email_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_label5}
+						 
+							{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+				 {$to_name_class}	"
+
+			data-field="to_name"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN to_name_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="to_name" {$item_to_name} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="to_name" data-fieldname="to_name" data-default-width >
+{$to_name_value}
+</span>
+{END to_name_fieldcolumn}	 
+		{BEGIN to_email_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="to_email" {$item_to_email} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="to_email" data-fieldname="to_email" data-default-width >
+{$to_email_value}
+</span>
+{END to_email_fieldcolumn}	 
+		<span data-itemtype="snippet" data-itemid="show_cc_bcc" {$item_show_cc_bcc} data-pageid="{$pageid}" data-record-id="{$recId}" >
+{$event hd_messages_snippet}
+</span>	
+	</td>
+	{END cellblock_grid_cell_field5}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_field12}
+	<td
+	
+	{$cell_grid_cell_field12}
+	{$recordattrs}
+	class="
+		r-align-right r-ori-vert		 {$cc_class}	"
+
+			data-field="cc"
+	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN cc_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="cc_label" {$item_cc_label} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="cc" data-fieldname="cc">
+	{$label hd_messages cc }	</span>
+{END cc_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_field12}
+						 
+							{BEGIN cellblock_grid_cell_field13}
+	<td
+	
+	{$cell_grid_cell_field13}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$cc_class}	"
+
+			data-field="cc"
+	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN cc_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="cc_field" {$item_cc_field} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="cc" data-fieldname="cc" >
+{$cc_value}
+</span>
+{END cc_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field13}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		r-align-right r-ori-vert		 {$bcc_class}	"
+
+			data-field="bcc"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN bcc_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="bcc_label" {$item_bcc_label} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="bcc" data-fieldname="bcc">
+	{$label hd_messages bcc }	</span>
+{END bcc_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_field6}
+						 
+							{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$bcc_class}	"
+
+			data-field="bcc"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN bcc_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="bcc_field" {$item_bcc_field} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="bcc" data-fieldname="bcc" >
+{$bcc_value}
+</span>
+{END bcc_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_label7}
+	<td
+	
+	{$cell_grid_cell_label7}
+	{$recordattrs}
+	class="
+		r-align-right r-ori-vert		 {$subject_class}	"
+
+			data-field="subject"
+	
+	data-cellId="grid_cell_label7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN subject_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="subject_label" {$item_subject_label} data-pageid="{$pageid}" data-page="hd_messages_list" data-record-id="{$recId}" data-field="subject" data-fieldname="subject">
+	{$label hd_messages subject }	</span>
+{END subject_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_label7}
+						 
+							{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$subject_class}	"
+
+			data-field="subject"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN subject_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="subject_field" {$item_subject_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="subject" data-fieldname="subject" data-default-width >
+{$subject_value}
+</span>
+{END subject_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+								<td
+	
+	{$cell_grid_cell_label8}
+	{$recordattrs}
+	class="
+		r-align-left		 {$reply_class}	"
+
+			data-field="reply"
+	
+	data-cellId="grid_cell_label8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN reply_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field1" {$item_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reply" data-fieldname="reply" data-default-width >
+{$reply_value}
+</span>
+{END reply_fieldcolumn}	 
+		{BEGIN deleterec_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="delete_message" {$item_delete_message} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="deleterec" data-fieldname="deleterec" data-default-width >
+{$deleterec_value}
+</span>
+{END deleterec_fieldcolumn}	 
+		<span data-itemtype="custom_button" data-itemid="Add_to_KnowledgeBase" {$item_Add_to_KnowledgeBase} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default  btn-sm 
+	" id="Add_to_KnowledgeBase" href="javascript:void(0)" typeid="ib" >
+							Add To KnowledgeBase			</a>
+</span>
+	
+	</td>
+													</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$body_class}	"
+
+			data-field="body"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN body_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="body" data-fieldname="body" data-default-width >
+{$body_value}
+</span>
+{END body_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+												</tr>
+									 
+												
+						<tr class="{$rowclass}">
+						 
+							{BEGIN cellblock_grid_cell_label1}
+	<td
+	
+	{$cell_grid_cell_label1}
+	{$recordattrs}
+	class="
+		r-align-left r-ori-vert		 {$attachment_class}	"
+
+			data-field="attachment"
+	
+	data-cellId="grid_cell_label1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN attachment_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="grid_field_label1" {$item_grid_field_label1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="attachment" data-fieldname="attachment">
+	{$label hd_messages attachment }	</span>
+{END attachment_fieldheadercolumn}
+
+	
+	</td>
+	{END cellblock_grid_cell_label1}
+						 
+							{BEGIN cellblock_grid_cell_field1}
+	<td
+	
+	{$cell_grid_cell_field1}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$attachment_class}	"
+
+			data-field="attachment"
+	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="hd_messages_list"	
+	>
+
+	 
+		{BEGIN attachment_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="ctrl_attachments" {$item_ctrl_attachments} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="attachment" data-fieldname="attachment" data-default-width >
+{$attachment_value}
+</span>
+{END attachment_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field1}
+												</tr>
+									 
+											
+					</tbody>
+				</table>
+
+				
+			</div>				
+									
+		</div>
+		{END grid_vrecord}
+	{END grid_record}
+	</div>
+
+<div style="clear: both;"></div>
+ 
+	{BEGIN grid_record}
+			{END grid_record}
+
+
+{END grid_row}
+</div>			
+{END grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="r-align-center r-ori-vert			col-md-12
+	
+">
+		 
+		<span data-itemtype="snippet" data-itemid="snippet1" {$item_snippet1} data-pageid="{$pageid}" >
+{$event suggested_solutions}
+</span>		</div>					</div>
+			</div>		
+{END below-grid_block}
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	{END body}
+	</body>
+</html>

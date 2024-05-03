@@ -1,0 +1,39 @@
+[data-page="forumreplies_list"][data-itemid="simple_grid_field2"] {
+  width: 100%;
+}
+[data-page="forumreplies_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+.panel-heading {
+  display:none !important;
+}
+.panel-default, .panel-primary {
+    border:0px !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label"][data-page="forumreplies_list"][data-cellid="grid_cell_label"][data-page="forumreplies_list"][data-cellid="grid_cell_label"][data-page="forumreplies_list"] {
+  vertical-align: top;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label1"][data-page="forumreplies_list"][data-cellid="grid_cell_label1"][data-page="forumreplies_list"][data-cellid="grid_cell_label1"][data-page="forumreplies_list"] {
+  vertical-align: top;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label2"][data-page="forumreplies_list"][data-cellid="grid_cell_label2"][data-page="forumreplies_list"][data-cellid="grid_cell_label2"][data-page="forumreplies_list"] {
+  vertical-align: top;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label4"][data-page="forumreplies_list"][data-cellid="grid_cell_label4"][data-page="forumreplies_list"][data-cellid="grid_cell_label4"][data-page="forumreplies_list"] {
+  vertical-align: top;
+}
+

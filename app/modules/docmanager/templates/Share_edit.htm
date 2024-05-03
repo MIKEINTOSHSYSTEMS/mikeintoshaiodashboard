@@ -1,0 +1,324 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-edit" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to menu</button>
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="" {$view_page_button_attrs}>View</a>
+{END message_view_page_button}
+</div>
+</div>
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN share_type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_type}  r-vertical-field" 
+	data-signal-error-for="share_type{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="share_type" data-fieldname="share_type" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_type}">
+		{BEGIN share_type_label}{$label Share share_type }{END share_type_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_type_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_type" {$tooltipAttr Share share_type } >
+		<div class="text-muted" >
+		{$tooltip Share share_type }		</div>
+	</div>
+</div>
+
+
+{END share_type_fieldblock}
+											
+{BEGIN share_users_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_users}  r-vertical-field" 
+	data-signal-error-for="share_users{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="share_users" data-fieldname="share_users" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_users}">
+		{BEGIN share_users_label}{$label Share share_users }{END share_users_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_users_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_users" {$tooltipAttr Share share_users } >
+		<div class="text-muted" >
+		{$tooltip Share share_users }		</div>
+	</div>
+</div>
+
+
+{END share_users_fieldblock}
+											
+{BEGIN hash_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_hash}  r-vertical-field" 
+	data-signal-error-for="hash{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="hash" data-fieldname="hash" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_hash}">
+		{BEGIN hash_label}{$label Share hash }{END hash_label}
+	</label>
+	<div class="r-edit-field">
+		{$hash_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="hash" {$tooltipAttr Share hash } >
+		<div class="text-muted" >
+		{$tooltip Share hash }		</div>
+	</div>
+</div>
+
+
+{END hash_fieldblock}
+											
+{BEGIN share_sendto_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_sendto}  r-vertical-field" 
+	data-signal-error-for="share_sendto{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="share_sendto" data-fieldname="share_sendto" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_sendto}">
+		{BEGIN share_sendto_label}{$label Share share_sendto }{END share_sendto_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_sendto_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_sendto" {$tooltipAttr Share share_sendto } >
+		<div class="text-muted" >
+		{$tooltip Share share_sendto }		</div>
+	</div>
+</div>
+
+
+{END share_sendto_fieldblock}
+											
+{BEGIN share_message_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_message}  r-vertical-field" 
+	data-signal-error-for="share_message{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="share_message" data-fieldname="share_message" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_message}">
+		{BEGIN share_message_label}{$label Share share_message }{END share_message_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_message_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_message" {$tooltipAttr Share share_message } >
+		<div class="text-muted" >
+		{$tooltip Share share_message }		</div>
+	</div>
+</div>
+
+
+{END share_message_fieldblock}
+											
+{BEGIN share_ro_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_ro}  r-vertical-field" 
+	data-signal-error-for="share_ro{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="share_ro" data-fieldname="share_ro" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_ro}">
+		{BEGIN share_ro_label}{$label Share share_ro }{END share_ro_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_ro_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_ro" {$tooltipAttr Share share_ro } >
+		<div class="text-muted" >
+		{$tooltip Share share_ro }		</div>
+	</div>
+</div>
+
+
+{END share_ro_fieldblock}
+											
+{BEGIN share_needDate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_needDate}  r-vertical-field" 
+	data-signal-error-for="share_needDate{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="share_needDate" data-fieldname="share_needDate" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_needDate}">
+		{BEGIN share_needDate_label}{$label Share share_needDate }{END share_needDate_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_needDate_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_needDate" {$tooltipAttr Share share_needDate } >
+		<div class="text-muted" >
+		{$tooltip Share share_needDate }		</div>
+	</div>
+</div>
+
+
+{END share_needDate_fieldblock}
+											
+{BEGIN share_date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_share_date}  r-vertical-field" 
+	data-signal-error-for="share_date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="share_date" data-fieldname="share_date" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_share_date}">
+		{BEGIN share_date_label}{$label Share share_date }{END share_date_label}
+	</label>
+	<div class="r-edit-field">
+		{$share_date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="share_date" {$tooltipAttr Share share_date } >
+		<div class="text-muted" >
+		{$tooltip Share share_date }		</div>
+	</div>
+</div>
+
+
+{END share_date_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}" data-page="Share_edit"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+{END save_edit}
+	 
+		{BEGIN back_button}
+<span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$closebutton_attrs} >
+							Cancel			</a>
+</span>
+{END close_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

@@ -1,0 +1,665 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-view" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel mtmeetings view}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+	ocolspan="2"		data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_name}  r-vertical-field" data-fieldname="name" data-signal-error-for="name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="name" data-fieldname="name" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_name}">
+		
+		{BEGIN name_label}{$label mtmeetings name }{END name_label}
+	</label>
+	<div class="" >
+		{$name_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END name_fieldblock}
+											
+{BEGIN desc_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_desc}  r-vertical-field" data-fieldname="desc" data-signal-error-for="desc{$id}" data-itemtype="integrated_edit_field" data-itemid="mtdesk" {$item_mtdesk} data-pageid="{$pageid}" data-field="desc" data-fieldname="desc" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_desc}">
+		
+		{BEGIN desc_label}{$label mtmeetings desc }{END desc_label}
+	</label>
+	<div class="" >
+		{$desc_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END desc_fieldblock}
+											
+{BEGIN users_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_users}  r-vertical-field" data-fieldname="users" data-signal-error-for="users{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="users" data-fieldname="users" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_users}">
+		
+		{BEGIN users_label}{$label mtmeetings users }{END users_label}
+	</label>
+	<div class="" >
+		{$users_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END users_fieldblock}
+											
+{BEGIN schedule_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_schedule}  r-vertical-field" data-fieldname="schedule" data-signal-error-for="schedule{$id}" data-itemtype="integrated_edit_field" data-itemid="mtscheduled" {$item_mtscheduled} data-pageid="{$pageid}" data-field="schedule" data-fieldname="schedule" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_schedule}">
+		
+		{BEGIN schedule_label}{$label mtmeetings schedule }{END schedule_label}
+	</label>
+	<div class="" >
+		{$schedule_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END schedule_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=""
+	
+				data-fullwidth
+		
+	ocolspan="2"		data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="noti1" {$item_noti1} data-pageid="{$pageid}" data-page="mtmeetings_view" data-small > 
+	Notify</span>
+											{BEGIN notiday_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="mtnotiday" {$item_mtnotiday} data-pageid="{$pageid}" data-field="notiday" data-fieldname="notiday" data-before-same-field data-compact >
+		{$notiday_value}	</div>
+{END notiday_fieldblock}
+											<span data-itemtype="text" data-itemid="daysbefore" {$item_daysbefore} data-pageid="{$pageid}" data-small > 
+	days before at</span>
+											{BEGIN notitime_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="mtnotitime" {$item_mtnotitime} data-pageid="{$pageid}" data-field="notitime" data-fieldname="notitime" data-compact >
+		{$notitime_value}	</div>
+{END notitime_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c7}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+	ocolspan="2"		data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN password_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_password}  r-vertical-field" data-fieldname="password" data-signal-error-for="password{$id}" data-itemtype="integrated_edit_field" data-itemid="mtpassword" {$item_mtpassword} data-pageid="{$pageid}" data-field="password" data-fieldname="password" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_password}">
+		
+		{BEGIN password_label}{$label mtmeetings password }{END password_label}
+	</label>
+	<div class="" >
+		{$password_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END password_fieldblock}
+											
+{BEGIN owner_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_owner}  r-vertical-field" data-fieldname="owner" data-signal-error-for="owner{$id}" data-itemtype="integrated_edit_field" data-itemid="ownerid_control" {$item_ownerid_control} data-pageid="{$pageid}" data-field="owner" data-fieldname="owner" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_owner}">
+		
+		{BEGIN owner_label}{$label mtmeetings owner }{END owner_label}
+	</label>
+	<div class="" >
+		{$owner_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END owner_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c6}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN clink_fieldblock}
+	<label class="control-label r-view-label" data-itemtype="edit_field_label" data-itemid="create_link_label" {$item_create_link_label} data-pageid="{$pageid}" data-field="clink" data-fieldname="clink" data-before-same-field data-compact>{BEGIN clink_label}{$label mtmeetings clink }{END clink_label}</label>
+{END clink_fieldblock}
+											{BEGIN clink_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="create_link_control" {$item_create_link_control} data-pageid="{$pageid}" data-page="mtmeetings_view" data-field="clink" data-fieldname="clink" data-compact >
+		{$clink_value}	</div>
+{END clink_fieldblock}
+											{BEGIN hiddenclink_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="real_clink" {$item_real_clink} data-pageid="{$pageid}" data-field="hiddenclink" data-fieldname="hiddenclink" data-compact >
+		{$hiddenclink_value}	</div>
+{END hiddenclink_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c5}
+			 
+																
+
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="Copy_start_link" href="javascript:void(0)" typeid="ib" >
+							Copy link			</a>
+</span>
+	
+								</td>
+			{END cellblock_grid_c8}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN jlink_fieldblock}
+	<label class="control-label r-view-label" data-itemtype="edit_field_label" data-itemid="edit_field_label1" {$item_edit_field_label1} data-pageid="{$pageid}" data-field="jlink" data-fieldname="jlink" data-before-same-field data-compact>{BEGIN jlink_label}{$label mtmeetings jlink }{END jlink_label}</label>
+{END jlink_fieldblock}
+											{BEGIN jlink_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-page="mtmeetings_view" data-field="jlink" data-fieldname="jlink" data-compact >
+		{$jlink_value}	</div>
+{END jlink_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c}
+			 
+																
+
+{BEGIN cellblock_grid_c2}
+<td
+	{$cell_grid_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="custom_button" data-itemid="custom_button1" {$item_custom_button1} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="_opy_join_link" href="javascript:void(0)" typeid="ib" >
+							Copy link			</a>
+</span>
+	
+								</td>
+			{END cellblock_grid_c2}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+	ocolspan="2"		data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="label_settings" {$item_label_settings} data-pageid="{$pageid}" data-page="mtmeetings_view" data-small > 
+	Notifications</span>
+										</td>
+			{END cellblock_grid_c1}
+										</tr>
+										</tbody></table>
+				<div class="panel with-tabs panel-default form-tabs" data-itemtype="tabs" data-itemid="tabs_settings" {$item_tabs_settings} data-pageid="{$pageid}" data-page="mtmeetings_view">
+	<div class="panel-heading">
+		<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section{$pageid}">
+					Email				</a>
+			</li>
+										<li role="presentation" class="">
+				<a aria-controls="settings" role="tab" data-toggle="tab" href="#tab_section1{$pageid}">
+					SMS				</a>
+			</li>
+									</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="tab_section{$pageid}"> 
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section" id="form_section_{$pageid}" data-makeup="small" {$form_section} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section_0} >
+										
+
+{BEGIN cellblock_section_c1}
+<td
+	{$cell_section_c1}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="section_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN subj_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_subj}  r-vertical-field" data-fieldname="subj" data-signal-error-for="subj{$id}" data-itemtype="integrated_edit_field" data-itemid="mtsubj" {$item_mtsubj} data-pageid="{$pageid}" data-field="subj" data-fieldname="subj" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_subj}">
+		
+		{BEGIN subj_label}{$label mtmeetings subj }{END subj_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$subj_value}	</div>
+
+		
+</div>
+
+
+{END subj_fieldblock}
+											
+{BEGIN email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_email}  r-vertical-field" data-fieldname="email" data-signal-error-for="email{$id}" data-itemtype="integrated_edit_field" data-itemid="mtemail" {$item_mtemail} data-pageid="{$pageid}" data-field="email" data-fieldname="email" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_email}">
+		
+		{BEGIN email_label}{$label mtmeetings email }{END email_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$email_value}	</div>
+
+		
+</div>
+
+
+{END email_fieldblock}
+	
+								</td>
+			{END cellblock_section_c1}
+								</tr>
+			</tbody></table>
+{END section_block}
+						</div>
+					<div role="tabpanel" class="tab-pane " id="tab_section1{$pageid}"> 
+			{BEGIN section1_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="section1" id="form_section1_{$pageid}" data-makeup="small" {$form_section1} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section1_0} >
+										
+
+{BEGIN cellblock_section1_c1}
+<td
+	{$cell_section1_c1}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="section1_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN sms_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_sms}  r-vertical-field" data-fieldname="sms" data-signal-error-for="sms{$id}" data-itemtype="integrated_edit_field" data-itemid="mtsms" {$item_mtsms} data-pageid="{$pageid}" data-field="sms" data-fieldname="sms" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_sms}">
+		
+		{BEGIN sms_label}{$label mtmeetings sms }{END sms_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$sms_value}	</div>
+
+		
+</div>
+
+
+{END sms_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c1}
+								</tr>
+			</tbody></table>
+{END section1_block}
+						</div>
+				</div>
+	</div>
+</div>  	
+				 
+	 
+		
+					<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+						<tr>
+						
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+	ocolspan="2"		data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	">
+	 
+		{BEGIN createlink_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="createlink" data-fieldname="createlink" data-compact >
+		{$createlink_value}	</div>
+{END createlink_fieldblock}
+	 
+		{BEGIN joinlink_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="joinlink" data-fieldname="joinlink" data-compact >
+		{$joinlink_value}	</div>
+{END joinlink_fieldblock}
+	 
+		{BEGIN ownerid_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="ownerid" data-fieldname="ownerid" data-compact >
+		{$ownerid_value}	</div>
+{END ownerid_fieldblock}
+	 
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Close window			</a>
+</span>
+{END close_button}
+	 
+		<span data-itemtype="custom_button" data-itemid="edit" {$item_edit} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" id="Edit" href="javascript:void(0)" typeid="ib" >
+							Edit			</a>
+</span>
+	 
+		<span data-itemtype="custom_button" data-itemid="close" {$item_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="Close1" href="javascript:void(0)" typeid="ib" >
+							Close			</a>
+</span>
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

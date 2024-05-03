@@ -1,0 +1,635 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-edit" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
+{$event calcalendar_snippet2}
+</span>	 
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel calcalendar edit}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to list</button>
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="" {$view_page_button_attrs}>View</a>
+{END message_view_page_button}
+</div>
+</div>
+	</div>					</div>
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c31}
+<td
+	{$cell_grid_c31}
+	class="r-align-left r-ori-vert"
+	
+			
+			data-cellId="grid_c31" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Subject_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Subject}  r-vertical-field" 
+	data-signal-error-for="Subject{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Subject" data-fieldname="Subject" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Subject}">
+		{BEGIN Subject_label}{$label calcalendar Subject }{END Subject_label}
+	</label>
+	<div class="r-edit-field">
+		{$Subject_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Subject" {$tooltipAttr calcalendar Subject } >
+		<div class="text-muted" >
+		{$tooltip calcalendar Subject }		</div>
+	</div>
+</div>
+
+
+{END Subject_fieldblock}
+											
+{BEGIN Category_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Category}  r-vertical-field" 
+	data-signal-error-for="Category{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="Category" data-fieldname="Category" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Category}">
+		{BEGIN Category_label}{$label calcalendar Category }{END Category_label}
+	</label>
+	<div class="r-edit-field">
+		{$Category_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Category" {$tooltipAttr calcalendar Category } >
+		<div class="text-muted" >
+		{$tooltip calcalendar Category }		</div>
+	</div>
+</div>
+
+
+{END Category_fieldblock}
+											
+{BEGIN Description_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Description}  r-vertical-field" 
+	data-signal-error-for="Description{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Description" data-fieldname="Description" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Description}">
+		{BEGIN Description_label}{$label calcalendar Description }{END Description_label}
+	</label>
+	<div class="r-edit-field">
+		{$Description_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Description" {$tooltipAttr calcalendar Description } >
+		<div class="text-muted" >
+		{$tooltip calcalendar Description }		</div>
+	</div>
+</div>
+
+
+{END Description_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c31}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c3020}
+<td
+	{$cell_grid_c3020}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c3020" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN DateField_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DateField}  r-vertical-field" 
+	data-signal-error-for="DateField{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="DateField" data-fieldname="DateField" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_DateField}">
+		{BEGIN DateField_label}{$label calcalendar DateField }{END DateField_label}
+	</label>
+	<div class="r-edit-field">
+		{$DateField_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="DateField" {$tooltipAttr calcalendar DateField } >
+		<div class="text-muted" >
+		{$tooltip calcalendar DateField }		</div>
+	</div>
+</div>
+
+
+{END DateField_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3020}
+			 
+																
+
+{BEGIN cellblock_grid_c30211}
+<td
+	{$cell_grid_c30211}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c30211" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN TimeField_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_TimeField}  r-vertical-field" 
+	data-signal-error-for="TimeField{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="TimeField" data-fieldname="TimeField" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_TimeField}">
+		{BEGIN TimeField_label}{$label calcalendar TimeField }{END TimeField_label}
+	</label>
+	<div class="r-edit-field">
+		{$TimeField_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="TimeField" {$tooltipAttr calcalendar TimeField } >
+		<div class="text-muted" >
+		{$tooltip calcalendar TimeField }		</div>
+	</div>
+</div>
+
+
+{END TimeField_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c30211}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c302}
+<td
+	{$cell_grid_c302}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c302" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN EndDate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EndDate}  r-vertical-field" 
+	data-signal-error-for="EndDate{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="EndDate" data-fieldname="EndDate" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_EndDate}">
+		{BEGIN EndDate_label}{$label calcalendar EndDate }{END EndDate_label}
+	</label>
+	<div class="r-edit-field">
+		{$EndDate_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="EndDate" {$tooltipAttr calcalendar EndDate } >
+		<div class="text-muted" >
+		{$tooltip calcalendar EndDate }		</div>
+	</div>
+</div>
+
+
+{END EndDate_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c302}
+			 
+																
+
+{BEGIN cellblock_grid_c3021}
+<td
+	{$cell_grid_c3021}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c3021" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN EndTime_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EndTime}  r-vertical-field" 
+	data-signal-error-for="EndTime{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="EndTime" data-fieldname="EndTime" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_EndTime}">
+		{BEGIN EndTime_label}{$label calcalendar EndTime }{END EndTime_label}
+	</label>
+	<div class="r-edit-field">
+		{$EndTime_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="EndTime" {$tooltipAttr calcalendar EndTime } >
+		<div class="text-muted" >
+		{$tooltip calcalendar EndTime }		</div>
+	</div>
+</div>
+
+
+{END EndTime_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3021}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c301}
+<td
+	{$cell_grid_c301}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c301" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN DayEvent_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DayEvent}  r-vertical-field" 
+	data-signal-error-for="DayEvent{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="DayEvent" data-fieldname="DayEvent" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_DayEvent}">
+		{BEGIN DayEvent_label}{$label calcalendar DayEvent }{END DayEvent_label}
+	</label>
+	<div class="r-edit-field">
+		{$DayEvent_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="DayEvent" {$tooltipAttr calcalendar DayEvent } >
+		<div class="text-muted" >
+		{$tooltip calcalendar DayEvent }		</div>
+	</div>
+</div>
+
+
+{END DayEvent_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c301}
+			 
+																
+
+{BEGIN cellblock_grid_c3011}
+<td
+	{$cell_grid_c3011}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c3011" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Recurrence_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Recurrence}  r-vertical-field" 
+	data-signal-error-for="Recurrence{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Recurrence" data-fieldname="Recurrence" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Recurrence}">
+		{BEGIN Recurrence_label}{$label calcalendar Recurrence }{END Recurrence_label}
+	</label>
+	<div class="r-edit-field">
+		{$Recurrence_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Recurrence" {$tooltipAttr calcalendar Recurrence } >
+		<div class="text-muted" >
+		{$tooltip calcalendar Recurrence }		</div>
+	</div>
+</div>
+
+
+{END Recurrence_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3011}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c32}
+<td
+	{$cell_grid_c32}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c32" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Period_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Period}  r-vertical-field" 
+	data-signal-error-for="Period{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Period" data-fieldname="Period" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Period}">
+		{BEGIN Period_label}{$label calcalendar Period }{END Period_label}
+	</label>
+	<div class="r-edit-field">
+		{$Period_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Period" {$tooltipAttr calcalendar Period } >
+		<div class="text-muted" >
+		{$tooltip calcalendar Period }		</div>
+	</div>
+</div>
+
+
+{END Period_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c32}
+			 
+																
+
+{BEGIN cellblock_grid_c33}
+<td
+	{$cell_grid_c33}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c33" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN PeriodDays_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_PeriodDays}  r-vertical-field" 
+	data-signal-error-for="PeriodDays{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="PeriodDays" data-fieldname="PeriodDays" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_PeriodDays}">
+		{BEGIN PeriodDays_label}{$label calcalendar PeriodDays }{END PeriodDays_label}
+	</label>
+	<div class="r-edit-field">
+		{$PeriodDays_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="PeriodDays" {$tooltipAttr calcalendar PeriodDays } >
+		<div class="text-muted" >
+		{$tooltip calcalendar PeriodDays }		</div>
+	</div>
+</div>
+
+
+{END PeriodDays_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c33}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c300}
+<td
+	{$cell_grid_c300}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c300" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN RecurType_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RecurType}  r-horizontal-field form-horizontal" 
+	data-signal-error-for="RecurType{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="RecurType" data-fieldname="RecurType" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RecurType}">
+		{BEGIN RecurType_label}{$label calcalendar RecurType }{END RecurType_label}
+	</label>
+	<div class="r-edit-field">
+		{$RecurType_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RecurType" {$tooltipAttr calcalendar RecurType } >
+		<div class="text-muted" >
+		{$tooltip calcalendar RecurType }		</div>
+	</div>
+</div>
+
+
+{END RecurType_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c300}
+			 
+																
+
+{BEGIN cellblock_grid_c303}
+<td
+	{$cell_grid_c303}
+	class="r-align-left"
+	
+			
+			data-cellId="grid_c303" data-pageid="{$pageid}"
+		data-v-cell="3"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN RecurOnValue_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="RecurOnValue{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="RecurOnValue" data-fieldname="RecurOnValue" >
+		{$RecurOnValue_editcontrol}	</div>
+{END RecurOnValue_fieldblock}
+											{BEGIN RecurAfterValue_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="RecurAfterValue{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="RecurAfterValue" data-fieldname="RecurAfterValue" >
+		{$RecurAfterValue_editcontrol}	</div>
+{END RecurAfterValue_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c303}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="0"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class=" r-ori-vert			col-md-6
+	">
+	 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+{END save_edit}
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="Delete" href="javascript:void(0)" typeid="ib" >
+							Delete			</a>
+</span>
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

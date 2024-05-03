@@ -1,0 +1,406 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel hd_settings search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label hd_settings id }	</label>
+	<div class="r-search-option">
+		{$searchtype_id}
+	</div>
+	<div class="r-search-field">
+		{$id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_fieldblock}
+											
+{BEGIN attachment_folder_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_attachment_folder}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="attachment_folder{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="attachment_folder" data-fieldname="attachment_folder" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_attachment_folder}">
+		{$label hd_settings attachment_folder }	</label>
+	<div class="r-search-option">
+		{$searchtype_attachment_folder}
+	</div>
+	<div class="r-search-field">
+		{$attachment_folder_editcontrol}	</div>
+	<div class="r-search-field">
+		{$attachment_folder_editcontrol1}
+	</div>
+	
+</div>
+
+{END attachment_folder_fieldblock}
+											
+{BEGIN isReply_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_isReply}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="isReply{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="isReply" data-fieldname="isReply" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_isReply}">
+		{$label hd_settings isReply }	</label>
+	<div class="r-search-option">
+		{$searchtype_isReply}
+	</div>
+	<div class="r-search-field">
+		{$isReply_editcontrol}	</div>
+	<div class="r-search-field">
+		{$isReply_editcontrol1}
+	</div>
+	
+</div>
+
+{END isReply_fieldblock}
+											
+{BEGIN to_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_to}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="to{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="to" data-fieldname="to" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_to}">
+		{$label hd_settings to }	</label>
+	<div class="r-search-option">
+		{$searchtype_to}
+	</div>
+	<div class="r-search-field">
+		{$to_editcontrol}	</div>
+	<div class="r-search-field">
+		{$to_editcontrol1}
+	</div>
+	
+</div>
+
+{END to_fieldblock}
+											
+{BEGIN subject_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_subject}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="subject{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="subject" data-fieldname="subject" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_subject}">
+		{$label hd_settings subject }	</label>
+	<div class="r-search-option">
+		{$searchtype_subject}
+	</div>
+	<div class="r-search-field">
+		{$subject_editcontrol}	</div>
+	<div class="r-search-field">
+		{$subject_editcontrol1}
+	</div>
+	
+</div>
+
+{END subject_fieldblock}
+											
+{BEGIN body_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_body}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="body{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="body" data-fieldname="body" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_body}">
+		{$label hd_settings body }	</label>
+	<div class="r-search-option">
+		{$searchtype_body}
+	</div>
+	<div class="r-search-field">
+		{$body_editcontrol}	</div>
+	<div class="r-search-field">
+		{$body_editcontrol1}
+	</div>
+	
+</div>
+
+{END body_fieldblock}
+											
+{BEGIN fromName_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fromName}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fromName{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="fromName" data-fieldname="fromName" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fromName}">
+		{$label hd_settings fromName }	</label>
+	<div class="r-search-option">
+		{$searchtype_fromName}
+	</div>
+	<div class="r-search-field">
+		{$fromName_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fromName_editcontrol1}
+	</div>
+	
+</div>
+
+{END fromName_fieldblock}
+											
+{BEGIN fromEmail_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fromEmail}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fromEmail{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="fromEmail" data-fieldname="fromEmail" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fromEmail}">
+		{$label hd_settings fromEmail }	</label>
+	<div class="r-search-option">
+		{$searchtype_fromEmail}
+	</div>
+	<div class="r-search-field">
+		{$fromEmail_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fromEmail_editcontrol1}
+	</div>
+	
+</div>
+
+{END fromEmail_fieldblock}
+											
+{BEGIN knowledge_base_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_knowledge_base}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="knowledge_base{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="knowledge_base" data-fieldname="knowledge_base" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_knowledge_base}">
+		{$label hd_settings knowledge_base }	</label>
+	<div class="r-search-option">
+		{$searchtype_knowledge_base}
+	</div>
+	<div class="r-search-field">
+		{$knowledge_base_editcontrol}	</div>
+	<div class="r-search-field">
+		{$knowledge_base_editcontrol1}
+	</div>
+	
+</div>
+
+{END knowledge_base_fieldblock}
+											
+{BEGIN who_is_online_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_who_is_online}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="who_is_online{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="who_is_online" data-fieldname="who_is_online" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_who_is_online}">
+		{$label hd_settings who_is_online }	</label>
+	<div class="r-search-option">
+		{$searchtype_who_is_online}
+	</div>
+	<div class="r-search-field">
+		{$who_is_online_editcontrol}	</div>
+	<div class="r-search-field">
+		{$who_is_online_editcontrol1}
+	</div>
+	
+</div>
+
+{END who_is_online_fieldblock}
+											
+{BEGIN emaildays_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_emaildays}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="emaildays{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="emaildays" data-fieldname="emaildays" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_emaildays}">
+		{$label hd_settings emaildays }	</label>
+	<div class="r-search-option">
+		{$searchtype_emaildays}
+	</div>
+	<div class="r-search-field">
+		{$emaildays_editcontrol}	</div>
+	<div class="r-search-field">
+		{$emaildays_editcontrol1}
+	</div>
+	
+</div>
+
+{END emaildays_fieldblock}
+											
+{BEGIN folder_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_folder}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="folder{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="folder" data-fieldname="folder" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_folder}">
+		{$label hd_settings folder }	</label>
+	<div class="r-search-option">
+		{$searchtype_folder}
+	</div>
+	<div class="r-search-field">
+		{$folder_editcontrol}	</div>
+	<div class="r-search-field">
+		{$folder_editcontrol1}
+	</div>
+	
+</div>
+
+{END folder_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

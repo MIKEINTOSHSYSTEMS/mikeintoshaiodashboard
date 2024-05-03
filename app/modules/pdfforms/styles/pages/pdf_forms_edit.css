@@ -1,0 +1,25 @@
+[data-cellid="grid_c4"][data-page="pdf_forms_edit"][data-cellid="grid_c4"][data-page="pdf_forms_edit"][data-cellid="grid_c4"][data-page="pdf_forms_edit"] {
+  border-top: solid #d2d2d2 1px;
+}
+[data-cellid="grid_c7"][data-page="pdf_forms_edit"][data-cellid="grid_c7"][data-page="pdf_forms_edit"][data-cellid="grid_c7"][data-page="pdf_forms_edit"] {
+  border-bottom: solid #d2d2d2 1px;
+}
+[data-page="pdf_forms_edit"][data-itemid="integrated_edit_field1"][data-page="pdf_forms_edit"][data-itemid="integrated_edit_field1"][data-page="pdf_forms_edit"][data-itemid="integrated_edit_field1"][data-page="pdf_forms_edit"][data-itemid="integrated_edit_field1"] {
+  padding-top: 20px;
+}
+[data-page="pdf_forms_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="pdf_forms_edit"][data-itemid="custom_button"] {
+  padding-top:30px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="pdf_forms_edit"][data-itemid="details_preview1"] {
+  width:600px;
+}
+

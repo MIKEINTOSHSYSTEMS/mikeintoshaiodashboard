@@ -1,0 +1,17 @@
+[id^='Fill_PDF']:after{
+content: "The form was filled";
+color: blue;
+font-weight: bold;
+position: absolute;
+cursor: auto;
+margin-left: 20px;
+display: none;
+}
+[id^='Fill_PDF'].filled:after{
+display:inline-block;
+}
+[id^='Fill_PDF'].error:after{
+content: "error";
+color: red;
+display:inline-block;
+}

@@ -1,0 +1,36 @@
+[data-cellid="grid_c"][data-page="hd_settings_edit"][data-cellid="grid_c"][data-page="hd_settings_edit"][data-cellid="grid_c"][data-page="hd_settings_edit"] {
+  border-top: solid #e6e6e6 1px;
+}
+[data-cellid="grid_c4"][data-page="hd_settings_edit"][data-cellid="grid_c4"][data-page="hd_settings_edit"][data-cellid="grid_c4"][data-page="hd_settings_edit"] {
+  border-top: solid #e6e6e6 1px;
+}
+[data-page="hd_settings_edit"][data-itemid="snippet"] {
+  font-size: 16px;
+}
+[data-page="hd_settings_edit"][data-itemid="integrated_edit_field3"][data-page="hd_settings_edit"][data-itemid="integrated_edit_field3"][data-page="hd_settings_edit"][data-itemid="integrated_edit_field3"][data-page="hd_settings_edit"][data-itemid="integrated_edit_field3"] {
+  width: 120px;
+}
+[data-page="hd_settings_edit"][data-itemid="text"] {
+  padding-top: 9px;
+}
+[data-page="hd_settings_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="hd_settings_edit"][data-itemid="snippet"] {
+    margin-left:15px!important;
+    padding-top:15px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="hd_settings_edit"][data-itemid="edit_field_label"] {
+ width:25% !important;
+ 
+}
+[data-page="hd_settings_edit"][data-itemid="edit_field_label"] label{
+    text-align:left !important;
+}
+

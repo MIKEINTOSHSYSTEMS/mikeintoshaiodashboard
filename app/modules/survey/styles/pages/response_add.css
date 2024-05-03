@@ -1,0 +1,29 @@
+[data-cellid="grid_c"][data-page="response_add"][data-cellid="grid_c"][data-page="response_add"][data-cellid="grid_c"][data-page="response_add"] {
+  padding-top: 20px;
+}
+[data-page="response_add"][data-itemid="snippet1"] {
+  font-weight: bold;
+  font-size: 26px;
+}
+[data-page="response_add"][data-itemid="snippet2"] {
+  font-size: 12px;
+}
+[data-page="response_add"][data-itemid="snippet3"] {
+  font-size: 18px;
+}
+[data-page="response_add"][data-itemid="total_questions"] {
+  font-size: 14px;
+}
+[data-page="response_add"][data-itemid="end_message"] {
+  font-size: 20px;
+}
+[data-page="response_add"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="response_add"][data-itemid="questions_block"] {
+  padding-left:15px;
+  width:100% !important;
+}

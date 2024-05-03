@@ -1,0 +1,311 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel forumtopics search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=""
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN categoryid_fieldblock}
+<label class="control-label r-search-label" for="{$labelfor_categoryid}" data-itemtype="search_field_label" data-itemid="search_field_label" {$item_search_field_label} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" data-before-same-field>
+	{$label forumtopics categoryid }</label>
+{END categoryid_fieldblock}
+											{BEGIN categoryid_fieldblock}
+<div class="r-search-option" data-itemtype="search_field_options" data-itemid="search_field_options" {$item_search_field_options} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" data-before-same-field >
+	{$searchtype_categoryid}
+</div>
+{END categoryid_fieldblock}
+											{BEGIN categoryid_fieldblock}
+<div class="r-search-field" data-itemtype="search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" data-before-same-field >
+	{$categoryid_editcontrol}</div>
+{END categoryid_fieldblock}
+											{BEGIN categoryid_fieldblock}
+<div class="r-search-field" data-itemtype="search_field_between" data-itemid="search_field_between" {$item_search_field_between} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" >
+	{$categoryid_editcontrol1}
+</div>
+{END categoryid_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=""
+	
+				data-fullwidth
+		
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="snippet" data-itemid="keywords_label" {$item_keywords_label} data-pageid="{$pageid}" >
+{$event keywords_label}
+</span>											{BEGIN topic_fieldblock}
+<div class="r-search-option" data-itemtype="search_field_options" data-itemid="search_field_options1" {$item_search_field_options1} data-pageid="{$pageid}" data-field="topic" data-fieldname="topic" data-before-same-field >
+	{$searchtype_topic}
+</div>
+{END topic_fieldblock}
+											{BEGIN topic_fieldblock}
+<div class="r-search-field" data-itemtype="search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="topic" data-fieldname="topic" data-before-same-field >
+	{$topic_editcontrol}</div>
+{END topic_fieldblock}
+											{BEGIN topic_fieldblock}
+<div class="r-search-field" data-itemtype="search_field_between" data-itemid="search_field_between1" {$item_search_field_between1} data-pageid="{$pageid}" data-field="topic" data-fieldname="topic" >
+	{$topic_editcontrol1}
+</div>
+{END topic_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=""
+	
+				data-fullwidth
+		
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN startedby_fieldblock}
+<label class="control-label r-search-label" for="{$labelfor_startedby}" data-itemtype="search_field_label" data-itemid="search_field_label2" {$item_search_field_label2} data-pageid="{$pageid}" data-field="startedby" data-fieldname="startedby" data-before-same-field>
+	{$label forumtopics startedby }</label>
+{END startedby_fieldblock}
+											{BEGIN startedby_fieldblock}
+<div class="r-search-option" data-itemtype="search_field_options" data-itemid="search_field_options2" {$item_search_field_options2} data-pageid="{$pageid}" data-field="startedby" data-fieldname="startedby" data-before-same-field >
+	{$searchtype_startedby}
+</div>
+{END startedby_fieldblock}
+											{BEGIN startedby_fieldblock}
+<div class="r-search-field" data-itemtype="search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="startedby" data-fieldname="startedby" data-before-same-field >
+	{$startedby_editcontrol}</div>
+{END startedby_fieldblock}
+											{BEGIN startedby_fieldblock}
+<div class="r-search-field" data-itemtype="search_field_between" data-itemid="search_field_between2" {$item_search_field_between2} data-pageid="{$pageid}" data-field="startedby" data-fieldname="startedby" >
+	{$startedby_editcontrol1}
+</div>
+{END startedby_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=""
+	
+				data-fullwidth
+		
+			data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN created_fieldblock}
+<label class="control-label r-search-label" for="{$labelfor_created}" data-itemtype="search_field_label" data-itemid="search_field_label3" {$item_search_field_label3} data-pageid="{$pageid}" data-field="created" data-fieldname="created" data-before-same-field>
+	{$label forumtopics created }</label>
+{END created_fieldblock}
+											{BEGIN created_fieldblock}
+<div class="r-search-option" data-itemtype="search_field_options" data-itemid="search_field_options3" {$item_search_field_options3} data-pageid="{$pageid}" data-field="created" data-fieldname="created" data-before-same-field >
+	{$searchtype_created}
+</div>
+{END created_fieldblock}
+											{BEGIN created_fieldblock}
+<div class="r-search-field" data-itemtype="search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="created" data-fieldname="created" data-before-same-field >
+	{$created_editcontrol}</div>
+{END created_fieldblock}
+											{BEGIN created_fieldblock}
+<div class="r-search-field" data-itemtype="search_field_between" data-itemid="search_field_between3" {$item_search_field_between3} data-pageid="{$pageid}" data-field="created" data-fieldname="created" >
+	{$created_editcontrol1}
+</div>
+{END created_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN locked_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_locked}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="locked{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="locked" data-fieldname="locked" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_locked}">
+		{$label forumtopics locked }	</label>
+	<div class="r-search-option">
+		{$searchtype_locked}
+	</div>
+	<div class="r-search-field">
+		{$locked_editcontrol}	</div>
+	<div class="r-search-field">
+		{$locked_editcontrol1}
+	</div>
+	
+</div>
+
+{END locked_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

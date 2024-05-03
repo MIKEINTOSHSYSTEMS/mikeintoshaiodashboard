@@ -1,0 +1,239 @@
+smessage {
+	color: #f98989;
+	padding-left:15px;
+}
+.kanban-container {
+    position: relative;
+    box-sizing: border-box;
+    width: auto;
+}
+
+.kanban-container * {
+    box-sizing: border-box;
+}
+
+.kanban-container:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.kanban-board {
+	color: #555 !important;
+    position: relative;
+    float: left;
+    background: #ebecf0;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 4px !important;
+}
+
+[data-id=userslist]{
+	overflow: auto;
+}
+.edit_b{
+	float: right;
+    margin-right: 5px;
+}
+
+.kanban-board.disabled-board{
+    opacity: .3;
+}
+
+.kanban-board.is-moving.gu-mirror {
+    transform: rotate(3deg);
+}
+
+.kanban-board.is-moving.gu-mirror .kanban-drag {
+    overflow: hidden;
+    padding-right: 50px;
+}
+
+.kanban-board header {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.kanban-board header .kanban-title-board {
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.kanban-board header .kanban-title-button {
+    float: right;
+	margin-top: 1px;
+}
+
+.kanban-board .kanban-drag {
+    min-height: 60px;
+    padding: 10px;
+}
+
+.kanban-board:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.kanban-item {
+    background: #fff;
+    padding: 7px;
+    margin-bottom: 10px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 4px;
+    width:230px;
+}
+
+.kanban-item:hover {
+    cursor: move;
+}
+
+.kanban-item:last-child {
+    margin: 0;
+}
+
+.kanban-item.is-moving.gu-mirror {
+    transform: rotate(3deg);
+    height: auto !important;
+}
+
+/* Dragula CSS  */
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2 !important;
+    transform: rotate(0deg) !important;
+}
+.kanban_menu_div_assign{
+	display:none; 
+	left:-500px;
+	top:0px;
+}
+.kanban_menu_div, .kanban_menu_div_assign{
+    background-color:#f9f9f9;
+    position:absolute;
+    padding:0px 10px 5px 10px;
+    width:150px;
+    z-index:100;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius:3px;
+    border: 1px solid #cacaca;
+}
+.kanban_menu_header{
+    text-align:center;
+    border-bottom:1px solid #ebecf0;
+    height:28px;
+    padding-top:3px;
+}
+.kanban_menu_assign_header{
+    text-align:center;
+    height:28px;
+    padding-top:3px;
+}
+.kanban_menu_row:hover{
+    background-color:#ebecf0;
+    cursor:pointer;
+    padding-left: 5px;
+}
+.kanban_menu_row{
+    height:28px;
+    padding-top:3px;
+    padding-left: 5px;
+    cursor:pointer;
+}
+.kanban_menu_x{
+    position:absolute;
+    margin-left:120px;
+    margin-top:3px;
+    cursor:pointer;
+    font-weight: bold;
+}
+.menu_card{
+    margin-top:28px;
+    margin-left:100px;
+}
+.row_assign:hover, .list_assign:hover, .user_assign:hover{
+    background-color:#ebecf0 !important;
+    cursor:pointer;
+}
+.kanban-title-board{
+    cursor: pointer;
+}
+.editlistname{
+    width:200px;
+    float:left;
+    height:34px;
+}
+.kanban-board-header{
+    height:42px;
+}
+[data-id=add_new_list]{
+    height:53px;
+}
+.footerlist{
+    padding-left:15px;
+    cursor:pointer;
+}
+.addnewcard{
+    width:150px;
+    margin-left:9px;
+    display:none;
+}
+.buttnewcard{
+    margin-left:10px;
+    display:none;
+}
+.addnewboard{
+    color: #555 !important;
+    position: absolute;
+    float: left;
+    background: #ebecf0;
+    border-radius: 4px !important;
+    width: 250px; 
+    margin-left: 10px; 
+    margin-right: 10px;
+    padding:10px;
+    font-size:14px;
+ }
+.newboard{
+    color: #555 !important;
+    cursor:pointer;
+ }
+table[data-location="grid"]{
+	margin-left:0px !important;
+}
+.user_assign, .list_assign, .row_assign{
+	cursor:pointer;
+	background-color:white; 
+	padding:3px;
+	color:black;
+	margin:1px;
+}
+.title_row{
+	width:170px; display:
+	inline-block;
+}
+.bgcolor_row{
+	margin-left:30px;
+}
+@media (max-width: 767px) {
+    [data-id^=board_]:first-child{
+        margin-top:60px;
+    }
+}

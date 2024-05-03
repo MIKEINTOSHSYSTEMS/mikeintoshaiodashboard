@@ -1,0 +1,21 @@
+[data-cellid="grid_cell_label"][data-page="todoboards_list"][data-cellid="grid_cell_label"][data-page="todoboards_list"][data-cellid="grid_cell_label"][data-page="todoboards_list"] {
+  width: 80%;
+}
+[data-cellid="grid_cell_label1"][data-page="todoboards_list"][data-cellid="grid_cell_label1"][data-page="todoboards_list"][data-cellid="grid_cell_label1"][data-page="todoboards_list"] {
+  width: 20%;
+}
+[data-page="todoboards_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="todoboards_list"][data-itemid="delete"] {
+  display:none !important;
+}
+/* Put  your custom CSS code here */
+
+[data-page="todoboards_list"][data-itemid="grid_checkbox"] {
+  display:none;
+}
+

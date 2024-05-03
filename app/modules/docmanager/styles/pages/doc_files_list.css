@@ -1,0 +1,355 @@
+[data-page="doc_files_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+@media (min-width: 768px) {
+    [data-cellid="above-grid_c1"][data-page="doc_files_list"][data-cellid="above-grid_c1"][data-page="doc_files_list"][data-cellid="above-grid_c1"][data-page="doc_files_list"] {
+        width:75.9% !important;
+    }
+}
+@media (max-width: 767px) {
+    [data-cellid="above-grid_c1"][data-page="doc_files_list"][data-cellid="above-grid_c1"][data-page="doc_files_list"][data-cellid="above-grid_c1"][data-page="doc_files_list"] {
+        width:65% !important;
+    }
+}
+/* Put  your custom CSS code here */
+@media (min-width: 768px) {
+    [data-cellid="above-grid_c2"][data-page="doc_files_list"][data-cellid="above-grid_c2"][data-page="doc_files_list"][data-cellid="above-grid_c2"][data-page="doc_files_list"] {
+        width:24.1% !important;
+    }
+}
+@media (max-width: 767px) {
+    [data-cellid="above-grid_c2"][data-page="doc_files_list"][data-cellid="above-grid_c2"][data-page="doc_files_list"][data-cellid="above-grid_c2"][data-page="doc_files_list"] {
+        width:35% !important;
+    }
+}
+/* Put  your custom CSS code here */
+@media (max-width: 768px) {
+    [data-cellid="above-grid_c"][data-page="doc_files_list"][data-cellid="above-grid_c"][data-page="doc_files_list"][data-cellid="above-grid_c"][data-page="doc_files_list"] {
+        width:360px !important;
+    }
+}
+@media (min-width: 769px) {
+    [data-cellid="above-grid_c"][data-page="doc_files_list"][data-cellid="above-grid_c"][data-page="doc_files_list"][data-cellid="above-grid_c"][data-page="doc_files_list"] {
+        width:870px !important;
+    }
+}
+
+[data-cellid="above-grid_c3"][data-page="doc_files_list"][data-cellid="above-grid_c3"][data-page="doc_files_list"][data-cellid="above-grid_c3"][data-page="doc_files_list"] {
+  height: 30px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label"][data-page="doc_files_list"][data-cellid="grid_cell_label"][data-page="doc_files_list"][data-cellid="grid_cell_label"][data-page="doc_files_list"] {
+  width:30% !important;
+    white-space: nowrap;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field"][data-page="doc_files_list"][data-cellid="grid_cell_field"][data-page="doc_files_list"][data-cellid="grid_cell_field"][data-page="doc_files_list"] {
+  width:40% !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field4"][data-page="doc_files_list"][data-cellid="grid_cell_field4"][data-page="doc_files_list"][data-cellid="grid_cell_field4"][data-page="doc_files_list"] {
+ width:7% !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field5"][data-page="doc_files_list"][data-cellid="grid_cell_field5"][data-page="doc_files_list"][data-cellid="grid_cell_field5"][data-page="doc_files_list"] {
+width:23% !important;
+}
+/* Put  your custom CSS code here */
+
+[data-page="doc_files_list"][data-itemid="grid_inline_edit"] {
+  padding-left:15px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="doc_files_list"][data-itemid="grid_inline_save"] {
+    margin-left: -20px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="doc_files_list"][data-itemid="grid_inline_cancel"] {
+  padding-left:15px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="doc_files_list"][data-itemid="custom_button1"] {
+  padding-bottom:20px;
+margin-right:5px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="doc_files_list"][data-itemid="grid_field2"] {
+  display:none;
+}
+
+.filedhash{
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.r-grid-vertical > .r-record-body > .panel > .panel-body {
+    padding: 3px 0;
+}
+.panel{
+	margin-bottom:0px;
+}
+#backToMenuButton1{
+	display:none !important;
+}
+.docman-share{
+	position:relative;
+	top:-3px;
+}
+
+.docman-checkbox-css{
+	position: relative;
+    top:7px;
+}
+
+.docman-select-check{
+    position: relative;
+    top:5px;
+	font-weight: normal;	
+}
+
+.docman-record-icon {
+  width: 50px;
+  padding: 5px;
+  float: left;
+}
+
+.docman-record-container {
+	width: 605px;
+	float: left;
+	margin-top: 15px;
+}
+
+.docman-record-name {
+  font-weight: bold;
+  font-size: 110%;
+  padding: 3px 0 3px 0;
+  min-width:240px;
+}
+
+.docman-record-name a {
+  text-decoration: none;
+}
+.docman-record-name a:hover {
+  text-decoration: underline;
+}
+
+.docman-record-description {
+padding: 3px 0 5px 0;
+color: #808080;
+width:400px;
+}
+
+.docman-record-meta {
+padding-top: 0px;
+width: 130px;
+float: none;
+}
+  
+  .docman-breadcrumbs-small {
+	color: blue;
+	display:table-cell;
+	height: 20px;
+	vertical-align: bottom;
+  }
+  
+  .docman-breadcrumbs {
+	font-size: 110%;  
+	padding: 0 0 0 5px;
+	height: 30px;
+	vertical-align:middle;
+	color: blue;
+	display:table-cell;
+  }
+
+.docman-current-folder {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	color: #505050;
+	padding: 5px 0 10px 35px;
+	background-image: url(folder24x24.png);
+	background-repeat: no-repeat;
+	background-position: 4px 4px;
+}
+
+
+#docman-dropzone {
+width: 750px;
+height: 200px;
+display: none;
+border: 1px solid rgba(0,0,0,0.03);
+-webkit-border-radius: 3px;
+border-radius: 3px;
+background: rgba(0,0,0,0.03);
+padding: 20px;
+margin: 0 0 15px 0;
+}
+@media (max-width: 768px) {
+	#docman-dropzone {
+		width: 300px !important;
+		height: 120px !important;
+	}
+	#dz_mess {
+		padding-left: 72px !important;
+		padding-top: 43px !important;
+	}
+}
+
+
+[id^=Save_], [id^=Cancel_]{
+	display:none;
+}
+  
+.docman-share-link {
+text-decoration: none;
+color: #808080;
+} 
+
+.docman-share-link:hover {
+text-decoration: underline;
+color: blue;  
+}
+
+td.alt.rnr-edge {
+border-bottom: 1px solid #d0d0d0;
+}
+
+div.rnr-hfiller {
+text-align: right;
+padding-right: 32px;
+}
+
+.panel-default > .panel-heading{
+	display: none;
+}
+.r-record-body > .panel-default{
+	border-top:white !important;
+	border-left:white !important;
+	border-right:white !important;
+}
+.r-grid-vertical > .r-record-body > .panel {
+    height:auto !important;
+}
+.r-grid-vertical > .r-record-body {
+    margin-bottom:0px !important;
+}
+[data-field="parent_folder_id"]{
+    display: contents !important;
+}
+.modal-body {
+    overflow: inherit !important;
+}
+r-record-body > panel {
+    margin-bottom: 0px !important;
+}
+.td_send_file{
+	padding:3px!important;
+}
+.td_version{
+	padding:3px 7px;
+}
+.icon_version{
+	border-radius:50%;
+	background-color:#fcfcfc;
+	margin-top:6px;
+	margin-left:5px;
+	padding:3px;
+	cursor:pointer;
+}
+.icon_version:hover{
+	cursor:pointer;
+	border-radius:50%;
+	background-color:lightgray;
+	padding:3px;
+	margin-top:6px;
+	margin-left:5px;
+}
+.td_version_up{
+	border-top:1px solid lightgray;
+}
+.td_version_close{
+	padding:6px;
+}
+.versionslist{
+	position:absolute;
+	display:none;
+	padding:3px;
+	border:1px solig lightgray;
+	border-radius:3px; 
+	background-color:#fcfcfc;
+	box-shadow: 0 0 4px rgba(0,0,0,0.5);
+	z-index:10;
+}
+.renamefile{
+	width:400px;
+	position:absolute;
+	display:none;
+	padding:15px;
+	border:1px solig lightgray;
+	border-radius:3px; 
+	background-color:#fcfcfc;
+	box-shadow: 0 0 4px rgba(0,0,0,0.5);
+	z-index:10;
+}
+.versionsaction{
+	position:absolute;
+	display:none;
+	padding:5px 10px;
+	border:1px solig lightgray;
+	border-radius:3px; 
+	background-color:#fcfcfc;
+	box-shadow: 0 0 4px rgba(0,0,0,0.5);
+	z-index:20;
+}
+.div_popup_action{
+	cursor:pointer;
+	background-color:#fcfcfc;
+	padding: 5px 0px;
+	padding-left: 10px;
+}
+.div_popup_action:hover{
+	cursor:pointer;
+	background-color:#f1f1f1;
+	padding: 5px 0px;
+	padding-left: 10px;
+}
+.a_popup_style{
+	color:#555555!important;
+	text-decoration:none!important;
+}
+.span_popup_text{
+	position: absolute;
+  left: 60px;
+}
+.div_popup_close{
+	text-align: right;
+	padding: 5px 10px 0px 10px;
+	margin-bottom:-5px;
+}
+.div_popup_filename{
+	margin-bottom:15px;
+	margin-top:5px;
+	border-bottom:1px solid lightgray;
+	padding-bottom: 7px;
+}

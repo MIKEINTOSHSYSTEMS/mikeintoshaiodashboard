@@ -1,0 +1,398 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel calglobals search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN DefaultColor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DefaultColor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="DefaultColor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="DefaultColor" data-fieldname="DefaultColor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_DefaultColor}">
+		{$label calglobals DefaultColor }	</label>
+	<div class="r-search-option">
+		{$searchtype_DefaultColor}
+	</div>
+	<div class="r-search-field">
+		{$DefaultColor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$DefaultColor_editcontrol1}
+	</div>
+	
+</div>
+
+{END DefaultColor_fieldblock}
+											
+{BEGIN DescriptionLength_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DescriptionLength}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="DescriptionLength{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="DescriptionLength" data-fieldname="DescriptionLength" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_DescriptionLength}">
+		{$label calglobals DescriptionLength }	</label>
+	<div class="r-search-option">
+		{$searchtype_DescriptionLength}
+	</div>
+	<div class="r-search-field">
+		{$DescriptionLength_editcontrol}	</div>
+	<div class="r-search-field">
+		{$DescriptionLength_editcontrol1}
+	</div>
+	
+</div>
+
+{END DescriptionLength_fieldblock}
+											
+{BEGIN EditInPast_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EditInPast}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="EditInPast{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="EditInPast" data-fieldname="EditInPast" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_EditInPast}">
+		{$label calglobals EditInPast }	</label>
+	<div class="r-search-option">
+		{$searchtype_EditInPast}
+	</div>
+	<div class="r-search-field">
+		{$EditInPast_editcontrol}	</div>
+	<div class="r-search-field">
+		{$EditInPast_editcontrol1}
+	</div>
+	
+</div>
+
+{END EditInPast_fieldblock}
+											
+{BEGIN FirstDayOfWeek_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_FirstDayOfWeek}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="FirstDayOfWeek{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="FirstDayOfWeek" data-fieldname="FirstDayOfWeek" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_FirstDayOfWeek}">
+		{$label calglobals FirstDayOfWeek }	</label>
+	<div class="r-search-option">
+		{$searchtype_FirstDayOfWeek}
+	</div>
+	<div class="r-search-field">
+		{$FirstDayOfWeek_editcontrol}	</div>
+	<div class="r-search-field">
+		{$FirstDayOfWeek_editcontrol1}
+	</div>
+	
+</div>
+
+{END FirstDayOfWeek_fieldblock}
+											
+{BEGIN HolidayColor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_HolidayColor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="HolidayColor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="HolidayColor" data-fieldname="HolidayColor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_HolidayColor}">
+		{$label calglobals HolidayColor }	</label>
+	<div class="r-search-option">
+		{$searchtype_HolidayColor}
+	</div>
+	<div class="r-search-field">
+		{$HolidayColor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$HolidayColor_editcontrol1}
+	</div>
+	
+</div>
+
+{END HolidayColor_fieldblock}
+											
+{BEGIN RangedColor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RangedColor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RangedColor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="RangedColor" data-fieldname="RangedColor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RangedColor}">
+		{$label calglobals RangedColor }	</label>
+	<div class="r-search-option">
+		{$searchtype_RangedColor}
+	</div>
+	<div class="r-search-field">
+		{$RangedColor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RangedColor_editcontrol1}
+	</div>
+	
+</div>
+
+{END RangedColor_fieldblock}
+											
+{BEGIN SubjectLength_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_SubjectLength}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="SubjectLength{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="SubjectLength" data-fieldname="SubjectLength" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_SubjectLength}">
+		{$label calglobals SubjectLength }	</label>
+	<div class="r-search-option">
+		{$searchtype_SubjectLength}
+	</div>
+	<div class="r-search-field">
+		{$SubjectLength_editcontrol}	</div>
+	<div class="r-search-field">
+		{$SubjectLength_editcontrol1}
+	</div>
+	
+</div>
+
+{END SubjectLength_fieldblock}
+											
+{BEGIN TimePeriod_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_TimePeriod}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="TimePeriod{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="TimePeriod" data-fieldname="TimePeriod" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_TimePeriod}">
+		{$label calglobals TimePeriod }	</label>
+	<div class="r-search-option">
+		{$searchtype_TimePeriod}
+	</div>
+	<div class="r-search-field">
+		{$TimePeriod_editcontrol}	</div>
+	<div class="r-search-field">
+		{$TimePeriod_editcontrol1}
+	</div>
+	
+</div>
+
+{END TimePeriod_fieldblock}
+											
+{BEGIN WeekEndColor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_WeekEndColor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="WeekEndColor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="WeekEndColor" data-fieldname="WeekEndColor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_WeekEndColor}">
+		{$label calglobals WeekEndColor }	</label>
+	<div class="r-search-option">
+		{$searchtype_WeekEndColor}
+	</div>
+	<div class="r-search-field">
+		{$WeekEndColor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$WeekEndColor_editcontrol1}
+	</div>
+	
+</div>
+
+{END WeekEndColor_fieldblock}
+											
+{BEGIN id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label calglobals id }	</label>
+	<div class="r-search-option">
+		{$searchtype_id}
+	</div>
+	<div class="r-search-field">
+		{$id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_fieldblock}
+											
+{BEGIN EndTime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_EndTime}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="EndTime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="EndTime" data-fieldname="EndTime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_EndTime}">
+		{$label calglobals EndTime }	</label>
+	<div class="r-search-option">
+		{$searchtype_EndTime}
+	</div>
+	<div class="r-search-field">
+		{$EndTime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$EndTime_editcontrol1}
+	</div>
+	
+</div>
+
+{END EndTime_fieldblock}
+											
+{BEGIN StartTime_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_StartTime}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="StartTime{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="StartTime" data-fieldname="StartTime" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_StartTime}">
+		{$label calglobals StartTime }	</label>
+	<div class="r-search-option">
+		{$searchtype_StartTime}
+	</div>
+	<div class="r-search-field">
+		{$StartTime_editcontrol}	</div>
+	<div class="r-search-field">
+		{$StartTime_editcontrol1}
+	</div>
+	
+</div>
+
+{END StartTime_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

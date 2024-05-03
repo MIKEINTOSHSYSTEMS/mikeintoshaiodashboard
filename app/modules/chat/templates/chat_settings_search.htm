@@ -1,0 +1,700 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel chat_settings search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label chat_settings id }	</label>
+	<div class="r-search-option">
+		{$searchtype_id}
+	</div>
+	<div class="r-search-field">
+		{$id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_fieldblock}
+											
+{BEGIN timeperiod_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_timeperiod}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="timeperiod{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="timeperiod" data-fieldname="timeperiod" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_timeperiod}">
+		{$label chat_settings timeperiod }	</label>
+	<div class="r-search-option">
+		{$searchtype_timeperiod}
+	</div>
+	<div class="r-search-field">
+		{$timeperiod_editcontrol}	</div>
+	<div class="r-search-field">
+		{$timeperiod_editcontrol1}
+	</div>
+	
+</div>
+
+{END timeperiod_fieldblock}
+											
+{BEGIN findusers_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_findusers}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="findusers{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="findusers" data-fieldname="findusers" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_findusers}">
+		{$label chat_settings findusers }	</label>
+	<div class="r-search-option">
+		{$searchtype_findusers}
+	</div>
+	<div class="r-search-field">
+		{$findusers_editcontrol}	</div>
+	<div class="r-search-field">
+		{$findusers_editcontrol1}
+	</div>
+	
+</div>
+
+{END findusers_fieldblock}
+											
+{BEGIN soundpath_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_soundpath}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="soundpath{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="soundpath" data-fieldname="soundpath" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_soundpath}">
+		{$label chat_settings soundpath }	</label>
+	<div class="r-search-option">
+		{$searchtype_soundpath}
+	</div>
+	<div class="r-search-field">
+		{$soundpath_editcontrol}	</div>
+	<div class="r-search-field">
+		{$soundpath_editcontrol1}
+	</div>
+	
+</div>
+
+{END soundpath_fieldblock}
+											
+{BEGIN soundenable_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_soundenable}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="soundenable{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="soundenable" data-fieldname="soundenable" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_soundenable}">
+		{$label chat_settings soundenable }	</label>
+	<div class="r-search-option">
+		{$searchtype_soundenable}
+	</div>
+	<div class="r-search-field">
+		{$soundenable_editcontrol}	</div>
+	<div class="r-search-field">
+		{$soundenable_editcontrol1}
+	</div>
+	
+</div>
+
+{END soundenable_fieldblock}
+											
+{BEGIN videoenable_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_videoenable}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="videoenable{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="videoenable" data-fieldname="videoenable" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_videoenable}">
+		{$label chat_settings videoenable }	</label>
+	<div class="r-search-option">
+		{$searchtype_videoenable}
+	</div>
+	<div class="r-search-field">
+		{$videoenable_editcontrol}	</div>
+	<div class="r-search-field">
+		{$videoenable_editcontrol1}
+	</div>
+	
+</div>
+
+{END videoenable_fieldblock}
+											
+{BEGIN provider_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_provider}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="provider{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="provider" data-fieldname="provider" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_provider}">
+		{$label chat_settings provider }	</label>
+	<div class="r-search-option">
+		{$searchtype_provider}
+	</div>
+	<div class="r-search-field">
+		{$provider_editcontrol}	</div>
+	<div class="r-search-field">
+		{$provider_editcontrol1}
+	</div>
+	
+</div>
+
+{END provider_fieldblock}
+											
+{BEGIN RC_ClientID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_ClientID}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RC_ClientID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="RC_ClientID" data-fieldname="RC_ClientID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RC_ClientID}">
+		{$label chat_settings RC_ClientID }	</label>
+	<div class="r-search-option">
+		{$searchtype_RC_ClientID}
+	</div>
+	<div class="r-search-field">
+		{$RC_ClientID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RC_ClientID_editcontrol1}
+	</div>
+	
+</div>
+
+{END RC_ClientID_fieldblock}
+											
+{BEGIN RC_ClientSecret_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_ClientSecret}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RC_ClientSecret{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="RC_ClientSecret" data-fieldname="RC_ClientSecret" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RC_ClientSecret}">
+		{$label chat_settings RC_ClientSecret }	</label>
+	<div class="r-search-option">
+		{$searchtype_RC_ClientSecret}
+	</div>
+	<div class="r-search-field">
+		{$RC_ClientSecret_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RC_ClientSecret_editcontrol1}
+	</div>
+	
+</div>
+
+{END RC_ClientSecret_fieldblock}
+											
+{BEGIN RC_Account_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_Account}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RC_Account{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="RC_Account" data-fieldname="RC_Account" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RC_Account}">
+		{$label chat_settings RC_Account }	</label>
+	<div class="r-search-option">
+		{$searchtype_RC_Account}
+	</div>
+	<div class="r-search-field">
+		{$RC_Account_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RC_Account_editcontrol1}
+	</div>
+	
+</div>
+
+{END RC_Account_fieldblock}
+											
+{BEGIN RC_Password_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_Password}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RC_Password{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="RC_Password" data-fieldname="RC_Password" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RC_Password}">
+		{$label chat_settings RC_Password }	</label>
+	<div class="r-search-option">
+		{$searchtype_RC_Password}
+	</div>
+	<div class="r-search-field">
+		{$RC_Password_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RC_Password_editcontrol1}
+	</div>
+	
+</div>
+
+{END RC_Password_fieldblock}
+											
+{BEGIN Z_APIKey_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Z_APIKey}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="Z_APIKey{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="Z_APIKey" data-fieldname="Z_APIKey" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Z_APIKey}">
+		{$label chat_settings Z_APIKey }	</label>
+	<div class="r-search-option">
+		{$searchtype_Z_APIKey}
+	</div>
+	<div class="r-search-field">
+		{$Z_APIKey_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Z_APIKey_editcontrol1}
+	</div>
+	
+</div>
+
+{END Z_APIKey_fieldblock}
+											
+{BEGIN Z_APISecret_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Z_APISecret}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="Z_APISecret{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="Z_APISecret" data-fieldname="Z_APISecret" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Z_APISecret}">
+		{$label chat_settings Z_APISecret }	</label>
+	<div class="r-search-option">
+		{$searchtype_Z_APISecret}
+	</div>
+	<div class="r-search-field">
+		{$Z_APISecret_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Z_APISecret_editcontrol1}
+	</div>
+	
+</div>
+
+{END Z_APISecret_fieldblock}
+											
+{BEGIN saveInCloud_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_saveInCloud}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="saveInCloud{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field13" {$item_integrated_search_field13} data-pageid="{$pageid}" data-field="saveInCloud" data-fieldname="saveInCloud" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_saveInCloud}">
+		{$label chat_settings saveInCloud }	</label>
+	<div class="r-search-option">
+		{$searchtype_saveInCloud}
+	</div>
+	<div class="r-search-field">
+		{$saveInCloud_editcontrol}	</div>
+	<div class="r-search-field">
+		{$saveInCloud_editcontrol1}
+	</div>
+	
+</div>
+
+{END saveInCloud_fieldblock}
+											
+{BEGIN Z_Token_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Z_Token}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="Z_Token{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="Z_Token" data-fieldname="Z_Token" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Z_Token}">
+		{$label chat_settings Z_Token }	</label>
+	<div class="r-search-option">
+		{$searchtype_Z_Token}
+	</div>
+	<div class="r-search-field">
+		{$Z_Token_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Z_Token_editcontrol1}
+	</div>
+	
+</div>
+
+{END Z_Token_fieldblock}
+											
+{BEGIN timezone_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_timezone}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="timezone{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field15" {$item_integrated_search_field15} data-pageid="{$pageid}" data-field="timezone" data-fieldname="timezone" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_timezone}">
+		{$label chat_settings timezone }	</label>
+	<div class="r-search-option">
+		{$searchtype_timezone}
+	</div>
+	<div class="r-search-field">
+		{$timezone_editcontrol}	</div>
+	<div class="r-search-field">
+		{$timezone_editcontrol1}
+	</div>
+	
+</div>
+
+{END timezone_fieldblock}
+											
+{BEGIN RC_APIServerURL_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_APIServerURL}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="RC_APIServerURL{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field16" {$item_integrated_search_field16} data-pageid="{$pageid}" data-field="RC_APIServerURL" data-fieldname="RC_APIServerURL" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_RC_APIServerURL}">
+		{$label chat_settings RC_APIServerURL }	</label>
+	<div class="r-search-option">
+		{$searchtype_RC_APIServerURL}
+	</div>
+	<div class="r-search-field">
+		{$RC_APIServerURL_editcontrol}	</div>
+	<div class="r-search-field">
+		{$RC_APIServerURL_editcontrol1}
+	</div>
+	
+</div>
+
+{END RC_APIServerURL_fieldblock}
+											
+{BEGIN MS_ClientID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_ClientID}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="MS_ClientID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field17" {$item_integrated_search_field17} data-pageid="{$pageid}" data-field="MS_ClientID" data-fieldname="MS_ClientID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_MS_ClientID}">
+		{$label chat_settings MS_ClientID }	</label>
+	<div class="r-search-option">
+		{$searchtype_MS_ClientID}
+	</div>
+	<div class="r-search-field">
+		{$MS_ClientID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$MS_ClientID_editcontrol1}
+	</div>
+	
+</div>
+
+{END MS_ClientID_fieldblock}
+											
+{BEGIN MS_ClientSecret_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_ClientSecret}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="MS_ClientSecret{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field18" {$item_integrated_search_field18} data-pageid="{$pageid}" data-field="MS_ClientSecret" data-fieldname="MS_ClientSecret" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_MS_ClientSecret}">
+		{$label chat_settings MS_ClientSecret }	</label>
+	<div class="r-search-option">
+		{$searchtype_MS_ClientSecret}
+	</div>
+	<div class="r-search-field">
+		{$MS_ClientSecret_editcontrol}	</div>
+	<div class="r-search-field">
+		{$MS_ClientSecret_editcontrol1}
+	</div>
+	
+</div>
+
+{END MS_ClientSecret_fieldblock}
+											
+{BEGIN MS_TenantID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_TenantID}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="MS_TenantID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field19" {$item_integrated_search_field19} data-pageid="{$pageid}" data-field="MS_TenantID" data-fieldname="MS_TenantID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_MS_TenantID}">
+		{$label chat_settings MS_TenantID }	</label>
+	<div class="r-search-option">
+		{$searchtype_MS_TenantID}
+	</div>
+	<div class="r-search-field">
+		{$MS_TenantID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$MS_TenantID_editcontrol1}
+	</div>
+	
+</div>
+
+{END MS_TenantID_fieldblock}
+											
+{BEGIN G_ClientID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_ClientID}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="G_ClientID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field20" {$item_integrated_search_field20} data-pageid="{$pageid}" data-field="G_ClientID" data-fieldname="G_ClientID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_G_ClientID}">
+		{$label chat_settings G_ClientID }	</label>
+	<div class="r-search-option">
+		{$searchtype_G_ClientID}
+	</div>
+	<div class="r-search-field">
+		{$G_ClientID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$G_ClientID_editcontrol1}
+	</div>
+	
+</div>
+
+{END G_ClientID_fieldblock}
+											
+{BEGIN G_ClientSecret_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_ClientSecret}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="G_ClientSecret{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field21" {$item_integrated_search_field21} data-pageid="{$pageid}" data-field="G_ClientSecret" data-fieldname="G_ClientSecret" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_G_ClientSecret}">
+		{$label chat_settings G_ClientSecret }	</label>
+	<div class="r-search-option">
+		{$searchtype_G_ClientSecret}
+	</div>
+	<div class="r-search-field">
+		{$G_ClientSecret_editcontrol}	</div>
+	<div class="r-search-field">
+		{$G_ClientSecret_editcontrol1}
+	</div>
+	
+</div>
+
+{END G_ClientSecret_fieldblock}
+											
+{BEGIN G_APIKey_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_APIKey}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="G_APIKey{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field22" {$item_integrated_search_field22} data-pageid="{$pageid}" data-field="G_APIKey" data-fieldname="G_APIKey" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_G_APIKey}">
+		{$label chat_settings G_APIKey }	</label>
+	<div class="r-search-option">
+		{$searchtype_G_APIKey}
+	</div>
+	<div class="r-search-field">
+		{$G_APIKey_editcontrol}	</div>
+	<div class="r-search-field">
+		{$G_APIKey_editcontrol1}
+	</div>
+	
+</div>
+
+{END G_APIKey_fieldblock}
+											
+{BEGIN WB_ClientID_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_WB_ClientID}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="WB_ClientID{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field23" {$item_integrated_search_field23} data-pageid="{$pageid}" data-field="WB_ClientID" data-fieldname="WB_ClientID" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_WB_ClientID}">
+		{$label chat_settings WB_ClientID }	</label>
+	<div class="r-search-option">
+		{$searchtype_WB_ClientID}
+	</div>
+	<div class="r-search-field">
+		{$WB_ClientID_editcontrol}	</div>
+	<div class="r-search-field">
+		{$WB_ClientID_editcontrol1}
+	</div>
+	
+</div>
+
+{END WB_ClientID_fieldblock}
+											
+{BEGIN WB_ClientSecret_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_WB_ClientSecret}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="WB_ClientSecret{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field24" {$item_integrated_search_field24} data-pageid="{$pageid}" data-field="WB_ClientSecret" data-fieldname="WB_ClientSecret" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_WB_ClientSecret}">
+		{$label chat_settings WB_ClientSecret }	</label>
+	<div class="r-search-option">
+		{$searchtype_WB_ClientSecret}
+	</div>
+	<div class="r-search-field">
+		{$WB_ClientSecret_editcontrol}	</div>
+	<div class="r-search-field">
+		{$WB_ClientSecret_editcontrol1}
+	</div>
+	
+</div>
+
+{END WB_ClientSecret_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} >
+							Search			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reset			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancel			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

@@ -1,0 +1,1082 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-edit"   
+		>
+	{BEGIN body}
+		<style>
+		{$containerCss}
+		</style>
+		<div class="r-vbar-page">
+			<div data-width="250px" data-fixed class="r-left clearfix {$leftbar_class}" >
+								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
+{BEGIN left_block}
+ 
+     
+         
+
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo1" {$item_logo1}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo1" {$item_logo1} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</div>
+		
+ 
+
+			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Expand" class="btn btn-link   
+	" href="#" >
+					<span class="glyphicon glyphicon-triangle-right"></span>
+										</a>
+</span>
+			</div>
+		
+     
+     
+         
+
+			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{$menu main}			</div>
+		
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div  class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+									{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel mtsettings edit}</h2>
+		</div>					</div>
+			</div>		
+{END top_block}
+						</div>
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Back to menu</button>
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="" {$view_page_button_attrs}>View</a>
+{END message_view_page_button}
+</div>
+</div>
+			{END firstAboveGridCell}	
+	</div>					</div>
+			</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	Select your provider</span>
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c8" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN provider_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="provider{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="provider" data-fieldname="provider" >
+		{$provider_editcontrol}	</div>
+{END provider_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c8}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c5" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	RingCentral</span>
+											<span data-itemtype="text" data-itemid="text4" {$item_text4} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	<p>1. When you create an application in RingCentral choose Application Type "Windows Desktop"</p><p><a href="https://developers.ringcentral.com/console/applications/create" target="_blank" rel="noopener noreferrer"><u>https://developers.ringcentral.com/console/applications/create</u></a></p><p>2. Who will be authorized to access your app? choose "Only members of my organization/company"</p><p>3. Now proceed to your application dashboard and find logon settings there</p></span>
+											<img src="{$file_url images/ringcentral.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page="mtsettings_edit" />
+	
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c4" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN RC_APIServerURL_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_APIServerURL}  r-vertical-field" 
+	data-signal-error-for="RC_APIServerURL{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="RC_APIServerURL" data-fieldname="RC_APIServerURL" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RC_APIServerURL}">
+		{BEGIN RC_APIServerURL_label}{$label mtsettings RC_APIServerURL }{END RC_APIServerURL_label}
+	</label>
+	<div class="r-edit-field">
+		{$RC_APIServerURL_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RC_APIServerURL" {$tooltipAttr mtsettings RC_APIServerURL } >
+		<div class="text-muted" >
+		{$tooltip mtsettings RC_APIServerURL }		</div>
+	</div>
+</div>
+
+
+{END RC_APIServerURL_fieldblock}
+											
+{BEGIN RC_ClientID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_ClientID}  r-vertical-field" 
+	data-signal-error-for="RC_ClientID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="RC_ClientID" data-fieldname="RC_ClientID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RC_ClientID}">
+		{BEGIN RC_ClientID_label}{$label mtsettings RC_ClientID }{END RC_ClientID_label}
+	</label>
+	<div class="r-edit-field">
+		{$RC_ClientID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RC_ClientID" {$tooltipAttr mtsettings RC_ClientID } >
+		<div class="text-muted" >
+		{$tooltip mtsettings RC_ClientID }		</div>
+	</div>
+</div>
+
+
+{END RC_ClientID_fieldblock}
+											
+{BEGIN RC_ClientSecret_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_ClientSecret}  r-vertical-field" 
+	data-signal-error-for="RC_ClientSecret{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="RC_ClientSecret" data-fieldname="RC_ClientSecret" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RC_ClientSecret}">
+		{BEGIN RC_ClientSecret_label}{$label mtsettings RC_ClientSecret }{END RC_ClientSecret_label}
+	</label>
+	<div class="r-edit-field">
+		{$RC_ClientSecret_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RC_ClientSecret" {$tooltipAttr mtsettings RC_ClientSecret } >
+		<div class="text-muted" >
+		{$tooltip mtsettings RC_ClientSecret }		</div>
+	</div>
+</div>
+
+
+{END RC_ClientSecret_fieldblock}
+											
+{BEGIN RC_Account_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_Account}  r-vertical-field" 
+	data-signal-error-for="RC_Account{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="RC_Account" data-fieldname="RC_Account" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RC_Account}">
+		{BEGIN RC_Account_label}{$label mtsettings RC_Account }{END RC_Account_label}
+	</label>
+	<div class="r-edit-field">
+		{$RC_Account_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RC_Account" {$tooltipAttr mtsettings RC_Account } >
+		<div class="text-muted" >
+		{$tooltip mtsettings RC_Account }		</div>
+	</div>
+</div>
+
+
+{END RC_Account_fieldblock}
+											
+{BEGIN RC_Password_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_RC_Password}  r-vertical-field" 
+	data-signal-error-for="RC_Password{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="RC_Password" data-fieldname="RC_Password" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_RC_Password}">
+		{BEGIN RC_Password_label}{$label mtsettings RC_Password }{END RC_Password_label}
+	</label>
+	<div class="r-edit-field">
+		{$RC_Password_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="RC_Password" {$tooltipAttr mtsettings RC_Password } >
+		<div class="text-muted" >
+		{$tooltip mtsettings RC_Password }		</div>
+	</div>
+</div>
+
+
+{END RC_Password_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	Zoom</span>
+											<span data-itemtype="text" data-itemid="text5" {$item_text5} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	<p>1. Sign in to&nbsp;<a href="https://marketplace.zoom.us/user/build" target="_blank" rel="noopener noreferrer">https://marketplace.zoom.us/user/build</a></p><p>2. Proceed to create a JWT app at&nbsp;<a  href="https://marketplace.zoom.us/develop/create" target="_blank" rel="noopener noreferrer">https://marketplace.zoom.us/develop/create</a></p><p>3. Copy the API&nbsp;token you see there and paste it to API&nbsp;token field below.</p></span>
+	
+								</td>
+			{END cellblock_grid_c}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c1" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Z_Token_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Z_Token}  r-vertical-field" 
+	data-signal-error-for="Z_Token{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Z_Token" data-fieldname="Z_Token" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Z_Token}">
+		{BEGIN Z_Token_label}{$label mtsettings Z_Token }{END Z_Token_label}
+	</label>
+	<div class="r-edit-field">
+		{$Z_Token_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Z_Token" {$tooltipAttr mtsettings Z_Token } >
+		<div class="text-muted" >
+		{$tooltip mtsettings Z_Token }		</div>
+	</div>
+</div>
+
+
+{END Z_Token_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_6} >
+										
+
+{BEGIN cellblock_grid_c9}
+<td
+	{$cell_grid_c9}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c9" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text6" {$item_text6} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	Microsoft Graph</span>
+											<span data-itemtype="text" data-itemid="text9" {$item_text9} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	<p>To register an application with Azure AD follow these instructions:</p><p><a href='https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0' target=_blank>https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0</a></p><p><strong>Redirect URL</strong> should be a full URL of mtmeetings_add.php page i.e.</p><p>https://yourwebsite.com/meetings/mtmeetings_add.php</p></span>
+	
+								</td>
+			{END cellblock_grid_c9}
+								</tr>
+	 
+	 
+														<tr {$row_grid_7} >
+										
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN MS_ClientID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_ClientID}  r-vertical-field" 
+	data-signal-error-for="MS_ClientID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="MS_ClientID" data-fieldname="MS_ClientID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_MS_ClientID}">
+		{BEGIN MS_ClientID_label}{$label mtsettings MS_ClientID }{END MS_ClientID_label}
+	</label>
+	<div class="r-edit-field">
+		{$MS_ClientID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="MS_ClientID" {$tooltipAttr mtsettings MS_ClientID } >
+		<div class="text-muted" >
+		{$tooltip mtsettings MS_ClientID }		</div>
+	</div>
+</div>
+
+
+{END MS_ClientID_fieldblock}
+											
+{BEGIN MS_ClientSecret_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_ClientSecret}  r-vertical-field" 
+	data-signal-error-for="MS_ClientSecret{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="MS_ClientSecret" data-fieldname="MS_ClientSecret" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_MS_ClientSecret}">
+		{BEGIN MS_ClientSecret_label}{$label mtsettings MS_ClientSecret }{END MS_ClientSecret_label}
+	</label>
+	<div class="r-edit-field">
+		{$MS_ClientSecret_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="MS_ClientSecret" {$tooltipAttr mtsettings MS_ClientSecret } >
+		<div class="text-muted" >
+		{$tooltip mtsettings MS_ClientSecret }		</div>
+	</div>
+</div>
+
+
+{END MS_ClientSecret_fieldblock}
+											
+{BEGIN MS_TenantID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_MS_TenantID}  r-vertical-field" 
+	data-signal-error-for="MS_TenantID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="MS_TenantID" data-fieldname="MS_TenantID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_MS_TenantID}">
+		{BEGIN MS_TenantID_label}{$label mtsettings MS_TenantID }{END MS_TenantID_label}
+	</label>
+	<div class="r-edit-field">
+		{$MS_TenantID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="MS_TenantID" {$tooltipAttr mtsettings MS_TenantID } >
+		<div class="text-muted" >
+		{$tooltip mtsettings MS_TenantID }		</div>
+	</div>
+</div>
+
+
+{END MS_TenantID_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c6}
+								</tr>
+	 
+	 
+														<tr {$row_grid_8} >
+										
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c12" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text7" {$item_text7} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	Google Meet</span>
+											<span data-itemtype="text" data-itemid="text8" {$item_text8} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	You need a Google Application so that you can get API keys through which you can make API calls. If you have an existing Google Application you can use that, just make sure that you enable Calendar API. If you don't have an existing Google Application follow the below steps to get one :<br>
+- Go to <a target=_blank href='https://console.developers.google.com/'>Google API Console</a><br>
+- Create a project by clicking "Select a project" (at the top), and then clicking on the "+" button in the dialogbox. In the next screen enter your project name, and agree with the Terms and Conditions.<br>
+- After the project is created, select the created project from the top dropdown.<br>
+- Click the Library tab on the left. Search for "Calendar API" and enable it.<br>
+By enabling "Calendar API", your Google application can get access to the user's Calendar.<br>
+- Now click on Credentials tab on the left. In the next screen click on "OAuth consent screen". Fill out the mandatory fields. Save it.<br>
+- Now click on the "Credentials" tab (just beside "OAuth consent screen"). In the screen, click on "Create credentials". Choose "OAuth Client ID" as the type.<br>
+- In the next screen fill out the name. The Application type should be "Web application"<br>
+- Add a redirect url in the section Authorised redirect URIs. This url should point to your redirect url script. A redirect url is the url where Google redirects the user after he authorizes your Google Application.<br>
+This should be a full URL of mtmeetings_add.php page i.e. https://yourwebsite.com/meetings/mtmeetings_add.php<br>
+- You can leave out Authorised JavaScript origins as blank. Click on the Create button.<br>
+-On success you will get the App Client ID and App Secret. Save those as they will be required later.</span>
+	
+								</td>
+			{END cellblock_grid_c12}
+								</tr>
+	 
+	 
+														<tr {$row_grid_9} >
+										
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN G_ClientID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_ClientID}  r-vertical-field" 
+	data-signal-error-for="G_ClientID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="G_ClientID" data-fieldname="G_ClientID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_G_ClientID}">
+		{BEGIN G_ClientID_label}{$label mtsettings G_ClientID }{END G_ClientID_label}
+	</label>
+	<div class="r-edit-field">
+		{$G_ClientID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="G_ClientID" {$tooltipAttr mtsettings G_ClientID } >
+		<div class="text-muted" >
+		{$tooltip mtsettings G_ClientID }		</div>
+	</div>
+</div>
+
+
+{END G_ClientID_fieldblock}
+											
+{BEGIN G_ClientSecret_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_ClientSecret}  r-vertical-field" 
+	data-signal-error-for="G_ClientSecret{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="G_ClientSecret" data-fieldname="G_ClientSecret" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_G_ClientSecret}">
+		{BEGIN G_ClientSecret_label}{$label mtsettings G_ClientSecret }{END G_ClientSecret_label}
+	</label>
+	<div class="r-edit-field">
+		{$G_ClientSecret_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="G_ClientSecret" {$tooltipAttr mtsettings G_ClientSecret } >
+		<div class="text-muted" >
+		{$tooltip mtsettings G_ClientSecret }		</div>
+	</div>
+</div>
+
+
+{END G_ClientSecret_fieldblock}
+											
+{BEGIN G_APIKey_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_G_APIKey}  r-vertical-field" 
+	data-signal-error-for="G_APIKey{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="G_APIKey" data-fieldname="G_APIKey" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_G_APIKey}">
+		{BEGIN G_APIKey_label}{$label mtsettings G_APIKey }{END G_APIKey_label}
+	</label>
+	<div class="r-edit-field">
+		{$G_APIKey_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="G_APIKey" {$tooltipAttr mtsettings G_APIKey } >
+		<div class="text-muted" >
+		{$tooltip mtsettings G_APIKey }		</div>
+	</div>
+</div>
+
+
+{END G_APIKey_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c11}
+								</tr>
+	 
+	 
+														<tr {$row_grid_10} >
+										
+
+{BEGIN cellblock_grid_c14}
+<td
+	{$cell_grid_c14}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c14" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text10" {$item_text10} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	WEBEX</span>
+											<span data-itemtype="text" data-itemid="text11" {$item_text11} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	<ol><li>To obtain Webex API keys proceed to this URL https://developer.webex.com/docs/integrations and create an integration clicking the "Create an Integration" button</li><li><span style="color: rgb(29, 28, 29);">Fill the form</span></li></ol><p><strong style="color: rgb(29, 28, 29);">Redirect URI(s)</strong><span style="color: rgb(29, 28, 29);"> - a full path to mtmeetings_add.php page like&nbsp;</span><a style="background-color: rgb(248, 248, 248);" href="https://yourwebsite.com/meetings/mtmeetings_add.php" target="_blank" rel="noopener noreferrer">https://yourwebsite.com/meetings/mtmeetings_add.php</a></p><p><strong>Scopes</strong> - select the following scopes:</p><p>meeting:schedules_read, meeting:schedules_write, meeting:recordings_read, meeting:recordings_write,</p><p>meeting:preferences_read, meeting:preferences_write, meeting:controls_read, meeting:controls_write,</p><p>meeting:participants_read, meeting:participants_write, <span style="color: rgb(41, 41, 41); background-color: rgb(255, 255, 255);">meeting:admin_transcripts_read</span></p></span>
+	
+								</td>
+			{END cellblock_grid_c14}
+								</tr>
+	 
+	 
+														<tr {$row_grid_11} >
+										
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c13" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN WB_ClientID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_WB_ClientID}  r-vertical-field" 
+	data-signal-error-for="WB_ClientID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="WB_ClientID" data-fieldname="WB_ClientID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_WB_ClientID}">
+		{BEGIN WB_ClientID_label}{$label mtsettings WB_ClientID }{END WB_ClientID_label}
+	</label>
+	<div class="r-edit-field">
+		{$WB_ClientID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="WB_ClientID" {$tooltipAttr mtsettings WB_ClientID } >
+		<div class="text-muted" >
+		{$tooltip mtsettings WB_ClientID }		</div>
+	</div>
+</div>
+
+
+{END WB_ClientID_fieldblock}
+											
+{BEGIN WB_ClientSecret_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_WB_ClientSecret}  r-vertical-field" 
+	data-signal-error-for="WB_ClientSecret{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="WB_ClientSecret" data-fieldname="WB_ClientSecret" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_WB_ClientSecret}">
+		{BEGIN WB_ClientSecret_label}{$label mtsettings WB_ClientSecret }{END WB_ClientSecret_label}
+	</label>
+	<div class="r-edit-field">
+		{$WB_ClientSecret_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="WB_ClientSecret" {$tooltipAttr mtsettings WB_ClientSecret } >
+		<div class="text-muted" >
+		{$tooltip mtsettings WB_ClientSecret }		</div>
+	</div>
+</div>
+
+
+{END WB_ClientSecret_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c13}
+								</tr>
+	 
+	 
+														<tr {$row_grid_12} >
+										
+
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c10" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN saveInCloud_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_saveInCloud}  r-vertical-field" 
+	data-signal-error-for="saveInCloud{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="saveInCloud" data-fieldname="saveInCloud" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_saveInCloud}">
+		{BEGIN saveInCloud_label}{$label mtsettings saveInCloud }{END saveInCloud_label}
+	</label>
+	<div class="r-edit-field">
+		{$saveInCloud_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="saveInCloud" {$tooltipAttr mtsettings saveInCloud } >
+		<div class="text-muted" >
+		{$tooltip mtsettings saveInCloud }		</div>
+	</div>
+</div>
+
+
+{END saveInCloud_fieldblock}
+											
+{BEGIN timezone_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_timezone}  r-vertical-field" 
+	data-signal-error-for="timezone{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-page="mtsettings_edit" data-field="timezone" data-fieldname="timezone" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_timezone}">
+		{BEGIN timezone_label}{$label mtsettings timezone }{END timezone_label}
+	</label>
+	<div class="r-edit-field">
+		{$timezone_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="timezone" {$tooltipAttr mtsettings timezone } >
+		<div class="text-muted" >
+		{$tooltip mtsettings timezone }		</div>
+	</div>
+</div>
+
+
+{END timezone_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c10}
+								</tr>
+	 
+	 
+														<tr {$row_grid_13} >
+										
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c7" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text3" {$item_text3} data-pageid="{$pageid}" data-page="mtsettings_edit" data-small > 
+	Users table settings</span>
+	
+								</td>
+			{END cellblock_grid_c7}
+								</tr>
+	 
+	 
+														<tr {$row_grid_14} >
+										
+
+{BEGIN cellblock_grid_c2}
+<td
+	{$cell_grid_c2}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c2" data-pageid="{$pageid}" data-page="mtsettings_edit"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN userstable_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_userstable}  r-vertical-field" 
+	data-signal-error-for="userstable{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="userstable" data-fieldname="userstable" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_userstable}">
+		{BEGIN userstable_label}{$label mtsettings userstable }{END userstable_label}
+	</label>
+	<div class="r-edit-field">
+		{$userstable_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="userstable" {$tooltipAttr mtsettings userstable } >
+		<div class="text-muted" >
+		{$tooltip mtsettings userstable }		</div>
+	</div>
+</div>
+
+
+{END userstable_fieldblock}
+											
+{BEGIN idfield_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_idfield}  r-vertical-field" 
+	data-signal-error-for="idfield{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="idfield" data-fieldname="idfield" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_idfield}">
+		{BEGIN idfield_label}{$label mtsettings idfield }{END idfield_label}
+	</label>
+	<div class="r-edit-field">
+		{$idfield_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="idfield" {$tooltipAttr mtsettings idfield } >
+		<div class="text-muted" >
+		{$tooltip mtsettings idfield }		</div>
+	</div>
+</div>
+
+
+{END idfield_fieldblock}
+											
+{BEGIN namefield_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_namefield}  r-vertical-field" 
+	data-signal-error-for="namefield{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="namefield" data-fieldname="namefield" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_namefield}">
+		{BEGIN namefield_label}{$label mtsettings namefield }{END namefield_label}
+	</label>
+	<div class="r-edit-field">
+		{$namefield_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="namefield" {$tooltipAttr mtsettings namefield } >
+		<div class="text-muted" >
+		{$tooltip mtsettings namefield }		</div>
+	</div>
+</div>
+
+
+{END namefield_fieldblock}
+											
+{BEGIN emailfield_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_emailfield}  r-vertical-field" 
+	data-signal-error-for="emailfield{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="emailfield" data-fieldname="emailfield" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_emailfield}">
+		{BEGIN emailfield_label}{$label mtsettings emailfield }{END emailfield_label}
+	</label>
+	<div class="r-edit-field">
+		{$emailfield_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="emailfield" {$tooltipAttr mtsettings emailfield } >
+		<div class="text-muted" >
+		{$tooltip mtsettings emailfield }		</div>
+	</div>
+</div>
+
+
+{END emailfield_fieldblock}
+											
+{BEGIN phonefield_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_phonefield}  r-vertical-field" 
+	data-signal-error-for="phonefield{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="phonefield" data-fieldname="phonefield" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_phonefield}">
+		{BEGIN phonefield_label}{$label mtsettings phonefield }{END phonefield_label}
+	</label>
+	<div class="r-edit-field">
+		{$phonefield_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="phonefield" {$tooltipAttr mtsettings phonefield } >
+		<div class="text-muted" >
+		{$tooltip mtsettings phonefield }		</div>
+	</div>
+</div>
+
+
+{END phonefield_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c2}
+								</tr>
+			</tbody></table>
+{END grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="leftbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	
+">
+		 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Save			</a>
+</span>
+{END save_edit}
+	 
+		{BEGIN close_button}
+<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$closebutton_attrs} >
+							Cancel			</a>
+</span>
+{END close_button}
+		</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="edit_reset" data-itemid="edit_reset" {$item_edit_reset} data-pageid="{$pageid}" data-small >
+				<a  {$resetbutton_attrs}  title="" >
+				
+		Reset		
+		</a>
+	</li>
+					</ul>
+	</span>
+</span>
+		</div>					</div>
+			</div>		
+{END below-grid_block}
+	</div>
+
+
+
+
+										{$footer}
+				</div>
+			</div>
+			<div class="r-body-shadow">
+			</div>
+		</div>
+	{END body}
+	</body>
+</html>

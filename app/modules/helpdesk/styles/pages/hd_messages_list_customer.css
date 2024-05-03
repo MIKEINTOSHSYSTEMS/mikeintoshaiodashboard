@@ -1,0 +1,50 @@
+[data-cellid="top_c2"][data-page="hd_messages_list_customer"][data-cellid="top_c2"][data-page="hd_messages_list_customer"][data-cellid="top_c2"][data-page="hd_messages_list_customer"] {
+  width: 100%;
+}
+[data-page="hd_messages_list_customer"][data-itemid="enter_reply"] {
+  color: #5c5959;
+  font-weight: bold;
+}
+[data-page="hd_messages_list_customer"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c1"][data-page="hd_messages_list_customer"][data-cellid="above-grid_c1"][data-page="hd_messages_list_customer"][data-cellid="above-grid_c1"][data-page="hd_messages_list_customer"] {
+  width:80%;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c2"][data-page="hd_messages_list_customer"][data-cellid="above-grid_c2"][data-page="hd_messages_list_customer"][data-cellid="above-grid_c2"][data-page="hd_messages_list_customer"] {
+  width:20%
+}
+
+[data-cellid="grid_cell_label8"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_label8"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_label8"][data-page="hd_messages_list_customer"] {
+  background-color:#BDCFE9!important;
+}
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field9"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_field9"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_field9"][data-page="hd_messages_list_customer"] {
+  background-color:#F6F6F6!important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label1"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_label1"][data-page="hd_messages_list_customer"][data-cellid="grid_cell_label1"][data-page="hd_messages_list_customer"] {
+    background-color:#F6F6F6!important;
+    border-top:1px dotted #E6E6E6;
+}
+/* Put  your custom CSS code here */
+
+[data-page="hd_messages_list_customer"][data-itemid="inline_add"] {
+  display:none !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="hd_messages_list_customer"][data-itemid="grid_inline_cancel"] {
+  display:none !important;
+}
+

@@ -1,0 +1,22 @@
+[data-page="forumtopics_edit"][data-itemid="edit_header"] {
+  font-size: 24px;
+}
+[data-page="forumtopics_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="top_c"][data-page="forumtopics_edit"][data-cellid="top_c"][data-page="forumtopics_edit"][data-cellid="top_c"][data-page="forumtopics_edit"] {
+  height:1px;
+}
+/* Put  your custom CSS code here */
+
+[data-page="forumtopics_edit"][data-itemid="breadcrumb"] {
+  position:relative;
+}
+
+
+[data-page="forumtopics_edit"][data-itemid="snippet1"] {
+padding-top:7px !important;
+}

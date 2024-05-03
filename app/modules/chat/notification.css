@@ -1,0 +1,15 @@
+<style>
+.chart_alert{
+	padding:5px 10px;
+	background-color:orange; 
+	border-radius:3px;
+}
+.notification{
+	display: none;
+}
+.noticnt{
+ position: relative;
+ top: -3px;
+ padding-left: 4px;
+}
+</style>

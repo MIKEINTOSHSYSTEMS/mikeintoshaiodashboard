@@ -1,0 +1,496 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-view" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel hd_messages view}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-vertical-field" data-fieldname="id" data-signal-error-for="id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_id}">
+		
+		{BEGIN id_label}{$label hd_messages id }{END id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$id_value}	</div>
+
+		
+</div>
+
+
+{END id_fieldblock}
+											
+{BEGIN created_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_created}  r-vertical-field" data-fieldname="created" data-signal-error-for="created{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="created" data-fieldname="created" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_created}">
+		
+		{BEGIN created_label}{$label hd_messages created }{END created_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$created_value}	</div>
+
+		
+</div>
+
+
+{END created_fieldblock}
+											
+{BEGIN body_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_body}  r-vertical-field" data-fieldname="body" data-signal-error-for="body{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="body" data-fieldname="body" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_body}">
+		
+		{BEGIN body_label}{$label hd_messages body }{END body_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$body_value}	</div>
+
+		
+</div>
+
+
+{END body_fieldblock}
+											
+{BEGIN to_email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_to_email}  r-vertical-field" data-fieldname="to_email" data-signal-error-for="to_email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="to_email" data-fieldname="to_email" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_to_email}">
+		
+		{BEGIN to_email_label}{$label hd_messages to_email }{END to_email_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$to_email_value}	</div>
+
+		
+</div>
+
+
+{END to_email_fieldblock}
+											
+{BEGIN subject_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_subject}  r-vertical-field" data-fieldname="subject" data-signal-error-for="subject{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="subject" data-fieldname="subject" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_subject}">
+		
+		{BEGIN subject_label}{$label hd_messages subject }{END subject_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$subject_value}	</div>
+
+		
+</div>
+
+
+{END subject_fieldblock}
+											
+{BEGIN message_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_message_id}  r-vertical-field" data-fieldname="message_id" data-signal-error-for="message_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="message_id" data-fieldname="message_id" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_message_id}">
+		
+		{BEGIN message_id_label}{$label hd_messages message_id }{END message_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$message_id_value}	</div>
+
+		
+</div>
+
+
+{END message_id_fieldblock}
+											
+{BEGIN maildate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_maildate}  r-vertical-field" data-fieldname="maildate" data-signal-error-for="maildate{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="maildate" data-fieldname="maildate" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_maildate}">
+		
+		{BEGIN maildate_label}{$label hd_messages maildate }{END maildate_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$maildate_value}	</div>
+
+		
+</div>
+
+
+{END maildate_fieldblock}
+											
+{BEGIN from_email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_from_email}  r-vertical-field" data-fieldname="from_email" data-signal-error-for="from_email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="from_email" data-fieldname="from_email" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_from_email}">
+		
+		{BEGIN from_email_label}{$label hd_messages from_email }{END from_email_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$from_email_value}	</div>
+
+		
+</div>
+
+
+{END from_email_fieldblock}
+											
+{BEGIN to_name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_to_name}  r-vertical-field" data-fieldname="to_name" data-signal-error-for="to_name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="to_name" data-fieldname="to_name" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_to_name}">
+		
+		{BEGIN to_name_label}{$label hd_messages to_name }{END to_name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$to_name_value}	</div>
+
+		
+</div>
+
+
+{END to_name_fieldblock}
+											
+{BEGIN from_name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_from_name}  r-vertical-field" data-fieldname="from_name" data-signal-error-for="from_name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="from_name" data-fieldname="from_name" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_from_name}">
+		
+		{BEGIN from_name_label}{$label hd_messages from_name }{END from_name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$from_name_value}	</div>
+
+		
+</div>
+
+
+{END from_name_fieldblock}
+											
+{BEGIN attachment_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_attachment}  r-vertical-field" data-fieldname="attachment" data-signal-error-for="attachment{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="attachment" data-fieldname="attachment" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_attachment}">
+		
+		{BEGIN attachment_label}{$label hd_messages attachment }{END attachment_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$attachment_value}	</div>
+
+		
+</div>
+
+
+{END attachment_fieldblock}
+											
+{BEGIN cc_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_cc}  r-vertical-field" data-fieldname="cc" data-signal-error-for="cc{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="cc" data-fieldname="cc" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_cc}">
+		
+		{BEGIN cc_label}{$label hd_messages cc }{END cc_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$cc_value}	</div>
+
+		
+</div>
+
+
+{END cc_fieldblock}
+											
+{BEGIN bcc_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_bcc}  r-vertical-field" data-fieldname="bcc" data-signal-error-for="bcc{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="bcc" data-fieldname="bcc" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_bcc}">
+		
+		{BEGIN bcc_label}{$label hd_messages bcc }{END bcc_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$bcc_value}	</div>
+
+		
+</div>
+
+
+{END bcc_fieldblock}
+											
+{BEGIN server_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_server_id}  r-vertical-field" data-fieldname="server_id" data-signal-error-for="server_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="server_id" data-fieldname="server_id" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_server_id}">
+		
+		{BEGIN server_id_label}{$label hd_messages server_id }{END server_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$server_id_value}	</div>
+
+		
+</div>
+
+
+{END server_id_fieldblock}
+											
+{BEGIN ticketid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_ticketid}  r-vertical-field" data-fieldname="ticketid" data-signal-error-for="ticketid{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="ticketid" data-fieldname="ticketid" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_ticketid}">
+		
+		{BEGIN ticketid_label}{$label hd_messages ticketid }{END ticketid_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$ticketid_value}	</div>
+
+		
+</div>
+
+
+{END ticketid_fieldblock}
+											
+{BEGIN directionid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_directionid}  r-vertical-field" data-fieldname="directionid" data-signal-error-for="directionid{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="directionid" data-fieldname="directionid" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_directionid}">
+		
+		{BEGIN directionid_label}{$label hd_messages directionid }{END directionid_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$directionid_value}	</div>
+
+		
+</div>
+
+
+{END directionid_fieldblock}
+											
+{BEGIN categoryid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_categoryid}  r-vertical-field" data-fieldname="categoryid" data-signal-error-for="categoryid{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="categoryid" data-fieldname="categoryid" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_categoryid}">
+		
+		{BEGIN categoryid_label}{$label hd_messages categoryid }{END categoryid_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$categoryid_value}	</div>
+
+		
+</div>
+
+
+{END categoryid_fieldblock}
+											
+{BEGIN deleterec_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_deleterec}  r-vertical-field" data-fieldname="deleterec" data-signal-error-for="deleterec{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="deleterec" data-fieldname="deleterec" data-compact >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_deleterec}">
+		
+		{BEGIN deleterec_label}{$label hd_messages deleterec }{END deleterec_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$deleterec_value}	</div>
+
+		
+</div>
+
+
+{END deleterec_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	">
+	 
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Close window			</a>
+</span>
+{END close_button}
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-menu-hamburger"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN edit_page_button}
+	<li data-itemtype="view_edit" data-itemid="view_edit" {$item_view_edit} data-pageid="{$pageid}" data-small >
+				<a  href="hd_messages_edit.php?{$editlink}" {$edit_page_button_attrs}  title="" >
+				
+		Edit		
+		</a>
+	</li>
+{END edit_page_button}
+					</ul>
+	</span>
+</span>
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

@@ -1,0 +1,829 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel mtsettings edit}","hidden":"{$item_hide_edit_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_edit_message}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
+								{BEGIN row_grid_5}
+						
+			"%",
+						{END row_grid_5}
+			 
+								{BEGIN row_grid_6}
+						
+			"%",
+						{END row_grid_6}
+			 
+								{BEGIN row_grid_7}
+						
+			"%",
+						{END row_grid_7}
+			 
+								{BEGIN row_grid_8}
+						
+			"%",
+						{END row_grid_8}
+			 
+								{BEGIN row_grid_9}
+						
+			"%",
+						{END row_grid_9}
+			 
+								{BEGIN row_grid_10}
+						
+			"%",
+						{END row_grid_10}
+			 
+								{BEGIN row_grid_11}
+						
+			"%",
+						{END row_grid_11}
+			 
+								{BEGIN row_grid_12}
+						
+			"%",
+						{END row_grid_12}
+			 
+								{BEGIN row_grid_13}
+						
+			"%",
+						{END row_grid_13}
+			 
+								{BEGIN row_grid_14}
+						
+			"%",
+						{END row_grid_14}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"Select your provider","hidden":"{$item_hide_text}","fontSize":20,"isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+											],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 15, 0, 0 ],
+		
+	
+			"stack": [
+		
+				
+			{"text":{$provider_pdfvalue},"hidden":"{$item_hide_integrated_edit_field}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"RingCentral","hidden":"{$item_hide_text1}","fontSize":20,"isHtml":true},
+				
+				
+			{"text":"<p>1. When you create an application in RingCentral choose Application Type \"Windows Desktop\"</p><p><a href=\"https://developers.ringcentral.com/console/applications/create\" target=\"_blank\" rel=\"noopener noreferrer\"><u>https://developers.ringcentral.com/console/applications/create</u></a></p><p>2. Who will be authorized to access your app? choose \"Only members of my organization/company\"</p><p>3. Now proceed to your application dashboard and find logon settings there</p>","hidden":"{$item_hide_text4}","isHtml":true},
+				
+				
+			{"text":{$pdf_image images/ringcentral.png undefined 0},"hidden":"{$item_hide_image}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c5}
+											],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 5, 0, 0 ],
+		
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel mtsettings RC_APIServerURL }","bold":true},{"text":{$RC_APIServerURL_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel mtsettings RC_ClientID }","bold":true},{"text":{$RC_ClientID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel mtsettings RC_ClientSecret }","bold":true},{"text":{$RC_ClientSecret_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel mtsettings RC_Account }","bold":true},{"text":{$RC_Account_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel mtsettings RC_Password }","bold":true},{"text":{$RC_Password_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c4}
+											],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"Zoom","hidden":"{$item_hide_text2}","fontSize":20,"isHtml":true},
+				
+				
+			{"text":"<p>1. Sign in to&nbsp;<a href=\"https://marketplace.zoom.us/user/build\" target=\"_blank\" rel=\"noopener noreferrer\">https://marketplace.zoom.us/user/build</a></p><p>2. Proceed to create a JWT app at&nbsp;<a  href=\"https://marketplace.zoom.us/develop/create\" target=\"_blank\" rel=\"noopener noreferrer\">https://marketplace.zoom.us/develop/create</a></p><p>3. Copy the API&nbsp;token you see there and paste it to API&nbsp;token field below.</p>","hidden":"{$item_hide_text5}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c}
+											],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+																{BEGIN cellblock_grid_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 5, 0, 0 ],
+		
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel mtsettings Z_Token }","bold":true},{"text":{$Z_Token_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c1}
+											],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_c9}
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"Microsoft Graph","hidden":"{$item_hide_text6}","fontSize":20,"isHtml":true},
+				
+				
+			{"text":"<p>To register an application with Azure AD follow these instructions:</p><p><a href='https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0' target=_blank>https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0</a></p><p><strong>Redirect URL</strong> should be a full URL of mtmeetings_add.php page i.e.</p><p>https://yourwebsite.com/meetings/mtmeetings_add.php</p>","hidden":"{$item_hide_text9}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c9}
+											],
+				{END row_grid_6}
+						{BEGIN row_grid_7}
+				[
+																{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel mtsettings MS_ClientID }","bold":true},{"text":{$MS_ClientID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel mtsettings MS_ClientSecret }","bold":true},{"text":{$MS_ClientSecret_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel mtsettings MS_TenantID }","bold":true},{"text":{$MS_TenantID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c6}
+											],
+				{END row_grid_7}
+						{BEGIN row_grid_8}
+				[
+																{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"Google Meet","hidden":"{$item_hide_text7}","fontSize":20,"isHtml":true},
+				
+				
+			{"text":"You need a Google Application so that you can get API keys through which you can make API calls. If you have an existing Google Application you can use that, just make sure that you enable Calendar API. If you don't have an existing Google Application follow the below steps to get one :<br>\n- Go to <a target=_blank href='https://console.developers.google.com/'>Google API Console</a><br>\n- Create a project by clicking \"Select a project\" (at the top), and then clicking on the \"+\" button in the dialogbox. In the next screen enter your project name, and agree with the Terms and Conditions.<br>\n- After the project is created, select the created project from the top dropdown.<br>\n- Click the Library tab on the left. Search for \"Calendar API\" and enable it.<br>\nBy enabling \"Calendar API\", your Google application can get access to the user's Calendar.<br>\n- Now click on Credentials tab on the left. In the next screen click on \"OAuth consent screen\". Fill out the mandatory fields. Save it.<br>\n- Now click on the \"Credentials\" tab (just beside \"OAuth consent screen\"). In the screen, click on \"Create credentials\". Choose \"OAuth Client ID\" as the type.<br>\n- In the next screen fill out the name. The Application type should be \"Web application\"<br>\n- Add a redirect url in the section Authorised redirect URIs. This url should point to your redirect url script. A redirect url is the url where Google redirects the user after he authorizes your Google Application.<br>\nThis should be a full URL of mtmeetings_add.php page i.e. https://yourwebsite.com/meetings/mtmeetings_add.php<br>\n- You can leave out Authorised JavaScript origins as blank. Click on the Create button.<br>\n-On success you will get the App Client ID and App Secret. Save those as they will be required later.","hidden":"{$item_hide_text8}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+											],
+				{END row_grid_8}
+						{BEGIN row_grid_9}
+				[
+																{BEGIN cellblock_grid_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel mtsettings G_ClientID }","bold":true},{"text":{$G_ClientID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel mtsettings G_ClientSecret }","bold":true},{"text":{$G_ClientSecret_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field19}","stack":[{"text":"{$jslabel mtsettings G_APIKey }","bold":true},{"text":{$G_APIKey_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c11}
+											],
+				{END row_grid_9}
+						{BEGIN row_grid_10}
+				[
+																{BEGIN cellblock_grid_c14}
+{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"WEBEX","hidden":"{$item_hide_text10}","fontSize":20,"isHtml":true},
+				
+				
+			{"text":"<ol><li>To obtain Webex API keys proceed to this URL https://developer.webex.com/docs/integrations and create an integration clicking the \"Create an Integration\" button</li><li><span style=\"color: rgb(29, 28, 29);\">Fill the form</span></li></ol><p><strong style=\"color: rgb(29, 28, 29);\">Redirect URI(s)</strong><span style=\"color: rgb(29, 28, 29);\"> - a full path to mtmeetings_add.php page like&nbsp;</span><a style=\"background-color: rgb(248, 248, 248);\" href=\"https://yourwebsite.com/meetings/mtmeetings_add.php\" target=\"_blank\" rel=\"noopener noreferrer\">https://yourwebsite.com/meetings/mtmeetings_add.php</a></p><p><strong>Scopes</strong> - select the following scopes:</p><p>meeting:schedules_read, meeting:schedules_write, meeting:recordings_read, meeting:recordings_write,</p><p>meeting:preferences_read, meeting:preferences_write, meeting:controls_read, meeting:controls_write,</p><p>meeting:participants_read, meeting:participants_write, <span style=\"color: rgb(41, 41, 41); background-color: rgb(255, 255, 255);\">meeting:admin_transcripts_read</span></p>","hidden":"{$item_hide_text11}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c14}
+											],
+				{END row_grid_10}
+						{BEGIN row_grid_11}
+				[
+																{BEGIN cellblock_grid_c13}
+{
+	cellId: 'c13',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field20}","stack":[{"text":"{$jslabel mtsettings WB_ClientID }","bold":true},{"text":{$WB_ClientID_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel mtsettings WB_ClientSecret }","bold":true},{"text":{$WB_ClientSecret_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c13}
+											],
+				{END row_grid_11}
+						{BEGIN row_grid_12}
+				[
+																{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel mtsettings saveInCloud }","bold":true},{"text":{$saveInCloud_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel mtsettings timezone }","bold":true},{"text":{$timezone_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+											],
+				{END row_grid_12}
+						{BEGIN row_grid_13}
+				[
+																{BEGIN cellblock_grid_c7}
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":"Users table settings","hidden":"{$item_hide_text3}","fontSize":20,"isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: '#f4f4f4',        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c7}
+											],
+				{END row_grid_13}
+						{BEGIN row_grid_14}
+				[
+																{BEGIN cellblock_grid_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 5, 0, 0 ],
+		
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel mtsettings userstable }","bold":true},{"text":{$userstable_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel mtsettings idfield }","bold":true},{"text":{$idfield_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel mtsettings namefield }","bold":true},{"text":{$namefield_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel mtsettings emailfield }","bold":true},{"text":{$emailfield_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel mtsettings phonefield }","bold":true},{"text":{$phonefield_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c2}
+											],
+				{END row_grid_14}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_edit_save}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_edit_close}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+};
+
+pdfFonts = {$pdfFonts};
+  

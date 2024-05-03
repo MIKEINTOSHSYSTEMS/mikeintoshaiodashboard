@@ -1,0 +1,11 @@
+[data-page=".global_menu_Project2"][data-itemid="welcome_item1"] > .bs-welcome-header {
+  background-color: #2F4F4F;
+}
+[data-page=".global_menu_Project2"][data-itemid="welcome_item"] > .bs-welcome-header {
+  background-color: #6B8E23;
+}
+[data-page=".global_menu_Project2"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+

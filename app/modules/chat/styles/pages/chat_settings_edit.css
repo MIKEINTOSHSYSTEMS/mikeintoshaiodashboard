@@ -1,0 +1,54 @@
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] {
+  width: 80px;
+}
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > * > input,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > * > textarea,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > * > select,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > * > * > select,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > .form-control-static,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > [id^=view],
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] label,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field"] > * > .r-readonly-control {
+  white-space: nowrap;
+}
+[data-page="chat_settings_edit"][data-itemid="edit_field_label"][data-page="chat_settings_edit"][data-itemid="edit_field_label"][data-page="chat_settings_edit"][data-itemid="edit_field_label"][data-page="chat_settings_edit"][data-itemid="edit_field_label"] {
+  white-space: nowrap;
+}
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > * > input,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > * > textarea,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > * > select,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > * > * > select,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > .form-control-static,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > [id^=view],
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] label,
+[data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"][data-page="chat_settings_edit"][data-itemid="integrated_edit_field1"] > * > .r-readonly-control {
+  white-space: nowrap;
+}
+[data-page="chat_settings_edit"][data-itemid="edit_field_label1"][data-page="chat_settings_edit"][data-itemid="edit_field_label1"][data-page="chat_settings_edit"][data-itemid="edit_field_label1"][data-page="chat_settings_edit"][data-itemid="edit_field_label1"] {
+  white-space: nowrap;
+  padding-top: 17px;
+}
+[data-page="chat_settings_edit"][data-itemid="sound_field"][data-page="chat_settings_edit"][data-itemid="sound_field"][data-page="chat_settings_edit"][data-itemid="sound_field"][data-page="chat_settings_edit"][data-itemid="sound_field"] {
+  width: 350px;
+}
+[data-page="chat_settings_edit"][data-itemid="setvideo_field3"][data-page="chat_settings_edit"][data-itemid="setvideo_field3"][data-page="chat_settings_edit"][data-itemid="setvideo_field3"][data-page="chat_settings_edit"][data-itemid="setvideo_field3"] {
+  width: 300px;
+}
+[data-page="chat_settings_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+[data-itemid="sound_field"] a{
+    display:none;
+}/* Put  your custom CSS code here */
+
+[data-page="chat_settings_edit"][data-itemid="edit_message"] {
+  color: red;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="chat_settings_edit"][data-itemid="sound_field"] {
+  margin-top:-27px!important;
+}
+

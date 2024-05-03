@@ -1,0 +1,11 @@
+
+[data-itemid="noti1"]{
+	padding-left:15px !important;
+}
+[data-itemid="label_settings"]{
+	margin-left:15px !important;
+}
+
+[data-itemid="create_link_control"]{
+	cursor:pointer;
+}

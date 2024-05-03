@@ -1,0 +1,141 @@
+[data-cellid="grid_cell_field10"][data-page="hd_messages_list"][data-cellid="grid_cell_field10"][data-page="hd_messages_list"][data-cellid="grid_cell_field10"][data-page="hd_messages_list"] {
+  white-space: nowrap;
+}
+[data-cellid="grid_cell_field"][data-page="hd_messages_list"][data-cellid="grid_cell_field"][data-page="hd_messages_list"][data-cellid="grid_cell_field"][data-page="hd_messages_list"] {
+  white-space: nowrap;
+}
+[data-cellid="top_c2"][data-page="hd_messages_list"][data-cellid="top_c2"][data-page="hd_messages_list"][data-cellid="top_c2"][data-page="hd_messages_list"] {
+  width: 100%;
+}
+[data-page="hd_messages_list"][data-itemid="from_label"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="from_email"] {
+  width: 300px;
+}
+[data-page="hd_messages_list"][data-itemid="to_label"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="cc_label"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="cc_field"] {
+  width: 300px;
+}
+[data-page="hd_messages_list"][data-itemid="bcc_label"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="bcc_field"] {
+  width: 300px;
+}
+[data-page="hd_messages_list"][data-itemid="subject_label"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="grid_field2"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="text"] {
+  font-weight: bold;
+}
+[data-page="hd_messages_list"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c1"][data-page="hd_messages_list"][data-cellid="above-grid_c1"][data-page="hd_messages_list"][data-cellid="above-grid_c1"][data-page="hd_messages_list"] {
+  width:80%;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c2"][data-page="hd_messages_list"][data-cellid="above-grid_c2"][data-page="hd_messages_list"][data-cellid="above-grid_c2"][data-page="hd_messages_list"] {
+  width:20%
+}
+
+
+[data-cellid="grid_cell_label5"][data-page="hd_messages_list"][data-cellid="grid_cell_label5"][data-page="hd_messages_list"][data-cellid="grid_cell_label5"][data-page="hd_messages_list"] {
+  width: 3%;
+}
+
+
+[data-cellid="grid_cell_label7"][data-page="hd_messages_list"][data-cellid="grid_cell_label7"][data-page="hd_messages_list"][data-cellid="grid_cell_label7"][data-page="hd_messages_list"] {
+  width: 3%;
+}
+
+[data-cellid="grid_cell_label8"][data-page="hd_messages_list"][data-cellid="grid_cell_label8"][data-page="hd_messages_list"][data-cellid="grid_cell_label8"][data-page="hd_messages_list"] {
+  background-color:#BDCFE9!important;
+}
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field9"][data-page="hd_messages_list"][data-cellid="grid_cell_field9"][data-page="hd_messages_list"][data-cellid="grid_cell_field9"][data-page="hd_messages_list"] {
+  background-color:#F6F6F6!important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field10"][data-page="hd_messages_list"][data-cellid="grid_cell_field10"][data-page="hd_messages_list"][data-cellid="grid_cell_field10"][data-page="hd_messages_list"] {
+  width:14%!important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field11"][data-page="hd_messages_list"][data-cellid="grid_cell_field11"][data-page="hd_messages_list"][data-cellid="grid_cell_field11"][data-page="hd_messages_list"] {
+  width:100%;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_label1"][data-page="hd_messages_list"][data-cellid="grid_cell_label1"][data-page="hd_messages_list"][data-cellid="grid_cell_label1"][data-page="hd_messages_list"] {
+    background-color:#F6F6F6!important;
+    border-top:1px dotted #E6E6E6;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field1"][data-page="hd_messages_list"][data-cellid="grid_cell_field1"][data-page="hd_messages_list"][data-cellid="grid_cell_field1"][data-page="hd_messages_list"] {
+    background-color:#F6F6F6!important;
+    border-top:1px dotted #E6E6E6;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field6"][data-page="hd_messages_list"][data-cellid="grid_cell_field6"][data-page="hd_messages_list"][data-cellid="grid_cell_field6"][data-page="hd_messages_list"] {
+  display:none;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field8"][data-page="hd_messages_list"][data-cellid="grid_cell_field8"][data-page="hd_messages_list"][data-cellid="grid_cell_field8"][data-page="hd_messages_list"] {
+  display:none;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field12"][data-page="hd_messages_list"][data-cellid="grid_cell_field12"][data-page="hd_messages_list"][data-cellid="grid_cell_field12"][data-page="hd_messages_list"] {
+  display:none;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field13"][data-page="hd_messages_list"][data-cellid="grid_cell_field13"][data-page="hd_messages_list"][data-cellid="grid_cell_field13"][data-page="hd_messages_list"] {
+  display:none;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_cell_field"][data-page="hd_messages_list"][data-cellid="grid_cell_field"][data-page="hd_messages_list"][data-cellid="grid_cell_field"][data-page="hd_messages_list"] {
+  width:14%!important;
+}
+/* Put  your custom CSS code here */
+
+[data-page="hd_messages_list"][data-itemid="inline_add"] {
+  display:none !important;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="hd_messages_list"][data-itemid="grid_field"] {
+  display:none !important;
+}
+

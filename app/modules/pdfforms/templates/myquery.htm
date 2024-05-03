@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+{$b_includes}
+<style type="text/css">
+	body 	{ font: 12px Verdana, Arial, helvetica, sans-serif; }
+	td, th 	{ font: 11px Verdana, Arial, helvetica, sans-serif; padding: 2px;}
+	th 		{ font-weight: bold; padding: 2px 4px; }
+	li 		{ list-style: none; }
+	.sql_area {
+		text-align: left;
+		border: 1px solid #999;
+		padding: 5px;
+		font-family: Tahoma, sans-serif;
+		font-weight: bold;
+		width: 90%;
+	}
+	.sql_result { border: 1px solid #ccc; }
+	.sql_result th { padding: 10px; background: #4e6d9c; color: #fff; }
+	.sql_result td { padding: 10px; background: #c5d4eb; }
+	#table-container { width: 770px; height: 470px; overflow: auto; }
+	#results-count {padding: 10px; }
+</style>
+
+<div class="demo">
+	<h2>SQL Query results</h2>
+
+		<div id="table-container">
+		{BEGIN sql_message_block}
+			<p>No records to display</p>
+		{END sql_message_block}
+		{BEGIN sql_result_block}
+		<div id="results-count">
+			<b>{$total_count}</b> records {BEGIN first_rec}(displaying first 100){END first_rec}
+		</div>
+		<table class="sql_result" cellpadding="1" cellspacing="1" border="0">
+			<tr>
+				<thead>
+					<tr>
+						{$res_head}
+					</tr>
+				</thead>
+				<tbody>
+					{$res_body}
+				</tbody>
+			</tr>
+		</table>
+		{END sql_result_block}
+		{BEGIN sql_error_block}
+			{$sql_error}
+		{END sql_error_block}
+		</div>
+	</div>
+
+</div><!-- End demo -->
+<div id="alert">
+</div>
+</body>
+</html>

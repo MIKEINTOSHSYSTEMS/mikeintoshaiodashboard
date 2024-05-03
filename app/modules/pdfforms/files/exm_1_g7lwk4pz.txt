@@ -1,0 +1,173 @@
+---
+FieldType: Text
+FieldName: Given Name Text Box
+FieldNameAlt: First name
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 40
+---
+FieldType: Text
+FieldName: Family Name Text Box
+FieldNameAlt: Last name
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 40
+---
+FieldType: Text
+FieldName: House nr Text Box
+FieldNameAlt: House and floor
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 20
+---
+FieldType: Text
+FieldName: Address 2 Text Box
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 40
+---
+FieldType: Text
+FieldName: Postcode Text Box
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 20
+---
+FieldType: Choice
+FieldName: Country Combo Box
+FieldNameAlt: Use selection or write country name
+FieldFlags: 393216
+FieldValue: 
+FieldJustification: Left
+FieldStateOption: Austria
+FieldStateOption: Belgium
+FieldStateOption: Britain
+FieldStateOption: Bulgaria
+FieldStateOption: Croatia
+FieldStateOption: Cyprus
+FieldStateOption: Czech-Republic
+FieldStateOption: Denmark
+FieldStateOption: Estonia
+FieldStateOption: Finland
+FieldStateOption: France
+FieldStateOption: Germany
+FieldStateOption: Greece
+FieldStateOption: Hungary
+FieldStateOption: Ireland
+FieldStateOption: Italy
+FieldStateOption: Latvia
+FieldStateOption: Lithuania
+FieldStateOption: Luxembourg
+FieldStateOption: Malta
+FieldStateOption: Netherlands
+FieldStateOption: Poland
+FieldStateOption: Portugal
+FieldStateOption: Romania
+FieldStateOption: Slovakia
+FieldStateOption: Slovenia
+FieldStateOption: Spain
+FieldStateOption: Sweden
+---
+FieldType: Text
+FieldName: Height Formatted Field
+FieldNameAlt: Value from 40 to 250 cm
+FieldFlags: 0
+FieldValue: 150
+FieldValueDefault: 150
+FieldJustification: Left
+FieldMaxLength: 20
+---
+FieldType: Text
+FieldName: City Text Box
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 40
+---
+FieldType: Button
+FieldName: Driving License Check Box
+FieldNameAlt: Car driving license
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Choice
+FieldName: Favourite Colour List Box
+FieldNameAlt: Select from colour spectrum
+FieldFlags: 131072
+FieldValue: Red
+FieldValueDefault: Red
+FieldJustification: Left
+FieldStateOption: Black
+FieldStateOption: Blue
+FieldStateOption: Brown
+FieldStateOption: Green
+FieldStateOption: Grey
+FieldStateOption: Orange
+FieldStateOption: Red
+FieldStateOption: Violet
+FieldStateOption: White
+FieldStateOption: Yellow
+---
+FieldType: Button
+FieldName: Language 1 Check Box
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Button
+FieldName: Language 2 Check Box
+FieldFlags: 0
+FieldValue: Yes
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Button
+FieldName: Language 3 Check Box
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Button
+FieldName: Language 4 Check Box
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Button
+FieldName: Language 5 Check Box
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: Choice
+FieldName: Gender List Box
+FieldNameAlt: Select from list
+FieldFlags: 131072
+FieldValue: Man
+FieldValueDefault: Man
+FieldJustification: Left
+FieldStateOption: Man
+FieldStateOption: Woman
+---
+FieldType: Text
+FieldName: Address 1 Text Box
+FieldFlags: 0
+FieldValue: 
+FieldJustification: Left
+FieldMaxLength: 40

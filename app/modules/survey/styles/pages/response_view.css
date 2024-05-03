@@ -1,0 +1,23 @@
+[data-page="response_view"][data-itemid="snippet"] {
+  font-weight: bold;
+  font-size: 26px;
+}
+[data-page="response_view"][data-itemid="snippet1"] {
+  font-size: 12px;
+}
+[data-page="response_view"][data-itemid="snippet2"] {
+  font-size: 18px;
+}
+[data-page="response_view"][data-itemid="snippet3"] {
+  font-size: 14px;
+}
+[data-page="response_view"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-page="response_view"][data-itemid="snippet4"] {
+  padding-left:15px;
+  width:100% !important;
+}

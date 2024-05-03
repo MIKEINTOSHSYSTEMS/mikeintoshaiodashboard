@@ -1,0 +1,10 @@
+[data-page="Add_folder_add"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="below-grid_c1"][data-page="Add_folder_add"][data-cellid="below-grid_c1"][data-page="Add_folder_add"][data-cellid="below-grid_c1"][data-page="Add_folder_add"] {
+  display:none;
+}
+

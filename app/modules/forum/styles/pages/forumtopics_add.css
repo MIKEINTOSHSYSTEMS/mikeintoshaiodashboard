@@ -1,0 +1,21 @@
+[data-page="forumtopics_add"][data-itemid="add_header"] {
+  color: #444444;
+  font-size: 24px;
+}
+[data-page="forumtopics_add"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="top_c"][data-page="forumtopics_add"][data-cellid="top_c"][data-page="forumtopics_add"][data-cellid="top_c"][data-page="forumtopics_add"] {
+  height:1px;
+}
+/* Put  your custom CSS code here */
+
+/* Put  your custom CSS code here */
+
+[data-page="forumtopics_add"][data-itemid="breadcrumb"] {
+  position:relative;
+}
+
