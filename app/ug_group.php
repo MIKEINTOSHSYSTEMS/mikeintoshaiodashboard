@@ -81,6 +81,7 @@ $nonAdminTablesArr[] = "training_participants_by_trainings";
 $nonAdminTablesArr[] = "candidates_reports";
 $nonAdminTablesArr[] = "candidates_by_gender";
 $nonAdminTablesArr[] = "users";
+$nonAdminTablesArr[] = "utilities";
 
 $ug_connection = $cman->getForUserGroups();
 

@@ -308,6 +308,7 @@ class ConnectionManager_Base
 		$connectionsIds["candidates_by_gender"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["users"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["admin_users"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["utilities"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

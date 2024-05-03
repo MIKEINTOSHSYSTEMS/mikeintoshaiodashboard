@@ -185,9 +185,6 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field}","bold":true,"stack":[{"text":"{$jslabel _global fullname }","bold":true},{"text":{$fullname_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel _global email }","bold":true},{"text":{$email_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				

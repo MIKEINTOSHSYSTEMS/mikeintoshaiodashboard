@@ -166,7 +166,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel admin_users ID }","bold":true},{"text":{$ID_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel admin_users id }","bold":true},{"text":{$id_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel admin_users username }","bold":true},{"text":{$username_pdfvalue}}],"margin":[0,0,0,15]},
@@ -176,6 +176,15 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel admin_users email }","bold":true},{"text":{$email_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel admin_users userpic }","bold":true},{"text":{$userpic_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel admin_users reset_token }","bold":true},{"text":{$reset_token_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel admin_users reset_date }","bold":true},{"text":{$reset_date_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel admin_users fullname }","bold":true},{"text":{$fullname_pdfvalue}}],"margin":[0,0,0,15]},
@@ -188,15 +197,6 @@ pdfDocument = {
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel admin_users ext_security_id }","bold":true},{"text":{$ext_security_id_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel admin_users userpic }","bold":true},{"text":{$userpic_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel admin_users reset_token }","bold":true},{"text":{$reset_token_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel admin_users reset_date }","bold":true},{"text":{$reset_date_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

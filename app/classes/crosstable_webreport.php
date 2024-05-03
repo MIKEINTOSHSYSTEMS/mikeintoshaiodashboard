@@ -1513,6 +1513,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("users" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("utilities" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

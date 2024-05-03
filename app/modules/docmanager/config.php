@@ -1,9 +1,9 @@
 <?php
 $config_hostname = "localhost";
-$config_hostuser = "root";
-$config_hostpass = "root";
+$config_hostuser = "dere_admin";
+$config_hostpass = "dere_admin";
 $config_hostport = 3306;
-$config_dbname = "docman3";
+$config_dbname = "dere_dev";
 
 $config_loginTable = "doc_users";
 $config_usernameField = "";

@@ -166,9 +166,6 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel _global username }","bold":true},{"text":{$username_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel _global fullname }","bold":true},{"text":{$fullname_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel _global email }","bold":true},{"text":{$email_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				

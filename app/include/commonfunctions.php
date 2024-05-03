@@ -335,6 +335,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("admin_users" == $shortTName )
 		return true;
+	if ("utilities" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -979,6 +981,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="admin_users";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("utilities");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="utilities";
+	}
 	return $arr;
 }
 
@@ -1054,6 +1065,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="candidates_by_gender";
 	$arr[]="users";
 	$arr[]="admin_users";
+	$arr[]="utilities";
 	return $arr;
 }
 
@@ -2017,6 +2029,11 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="admin_users" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="utilities" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

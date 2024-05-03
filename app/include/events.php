@@ -36,6 +36,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["_global__snippet"] = true;
 		$this->events["_global__snippet1"] = true;
 		$this->events["dashboard_pages_snippet"] = true;
+		$this->events["utilities_snippet"] = true;
 
 
 
@@ -149,6 +150,22 @@ you to the file.
 	function event_dashboard_pages_snippet(&$params)
 	{
 	echo '<IFRAME SRC="https://derejademo.merqconsultancy.org/public/dashboard/7fe22d0e-2524-49c9-bab8-4073fb257913" WIDTH=100% HEIGHT=100%>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">link</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_utilities_snippet(&$params)
+	{
+	echo '<IFRAME SRC="./modules/chat/chat_history_add.php" WIDTH=100% HEIGHT=700px>
 
 If you can see this, your browser does not
 

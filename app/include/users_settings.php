@@ -25,9 +25,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsusers["English"] = array();
 	$placeHoldersusers["English"] = array();
 	$pageTitlesusers["English"] = array();
-	$fieldLabelsusers["English"]["ID"] = "ID";
-	$fieldToolTipsusers["English"]["ID"] = "";
-	$placeHoldersusers["English"]["ID"] = "";
+	$fieldLabelsusers["English"]["id"] = "ID";
+	$fieldToolTipsusers["English"]["id"] = "";
+	$placeHoldersusers["English"]["id"] = "";
 	$fieldLabelsusers["English"]["username"] = "Username";
 	$fieldToolTipsusers["English"]["username"] = "";
 	$placeHoldersusers["English"]["username"] = "";
@@ -37,6 +37,15 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsusers["English"]["email"] = "Email";
 	$fieldToolTipsusers["English"]["email"] = "";
 	$placeHoldersusers["English"]["email"] = "";
+	$fieldLabelsusers["English"]["userpic"] = "Userpic";
+	$fieldToolTipsusers["English"]["userpic"] = "";
+	$placeHoldersusers["English"]["userpic"] = "";
+	$fieldLabelsusers["English"]["reset_token"] = "Reset Token";
+	$fieldToolTipsusers["English"]["reset_token"] = "";
+	$placeHoldersusers["English"]["reset_token"] = "";
+	$fieldLabelsusers["English"]["reset_date"] = "Reset Date";
+	$fieldToolTipsusers["English"]["reset_date"] = "";
+	$placeHoldersusers["English"]["reset_date"] = "";
 	$fieldLabelsusers["English"]["fullname"] = "Fullname";
 	$fieldToolTipsusers["English"]["fullname"] = "";
 	$placeHoldersusers["English"]["fullname"] = "";
@@ -49,15 +58,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsusers["English"]["ext_security_id"] = "Ext Security Id";
 	$fieldToolTipsusers["English"]["ext_security_id"] = "";
 	$placeHoldersusers["English"]["ext_security_id"] = "";
-	$fieldLabelsusers["English"]["userpic"] = "Userpic";
-	$fieldToolTipsusers["English"]["userpic"] = "";
-	$placeHoldersusers["English"]["userpic"] = "";
-	$fieldLabelsusers["English"]["reset_token"] = "Reset Token";
-	$fieldToolTipsusers["English"]["reset_token"] = "";
-	$placeHoldersusers["English"]["reset_token"] = "";
-	$fieldLabelsusers["English"]["reset_date"] = "Reset Date";
-	$fieldToolTipsusers["English"]["reset_date"] = "";
-	$placeHoldersusers["English"]["reset_date"] = "";
 	if (count($fieldToolTipsusers["English"]))
 		$tdatausers[".isUseToolTips"] = true;
 }
@@ -175,7 +175,7 @@ $tdatausers[".filterFields"] = array();
 $tdatausers[".requiredSearchFields"] = array();
 
 $tdatausers[".googleLikeFields"] = array();
-$tdatausers[".googleLikeFields"][] = "ID";
+$tdatausers[".googleLikeFields"][] = "id";
 $tdatausers[".googleLikeFields"][] = "username";
 $tdatausers[".googleLikeFields"][] = "password";
 $tdatausers[".googleLikeFields"][] = "email";
@@ -218,7 +218,7 @@ $tdatausers[".strOrderBy"] = $tstrOrderBy;
 $tdatausers[".orderindexes"] = array();
 
 
-$tdatausers[".sqlHead"] = "SELECT ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$tdatausers[".sqlHead"] = "SELECT id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $tdatausers[".sqlFrom"] = "FROM users";
 $tdatausers[".sqlWhereExpr"] = "";
 $tdatausers[".sqlTail"] = "";
@@ -257,7 +257,7 @@ $tdatausers[".arrGroupsPerPage"] = $arrGPP;
 $tdatausers[".highlightSearchResults"] = true;
 
 $tableKeysusers = array();
-$tableKeysusers[] = "ID";
+$tableKeysusers[] = "id";
 $tdatausers[".Keys"] = $tableKeysusers;
 
 
@@ -266,14 +266,14 @@ $tdatausers[".hideMobileList"] = array();
 
 
 
-//	ID
+//	id
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 1;
-	$fdata["strName"] = "ID";
-	$fdata["GoodName"] = "ID";
+	$fdata["strName"] = "id";
+	$fdata["GoodName"] = "id";
 	$fdata["ownerTable"] = "users";
-	$fdata["Label"] = GetFieldLabel("users","ID");
+	$fdata["Label"] = GetFieldLabel("users","id");
 	$fdata["FieldType"] = 3;
 
 
@@ -282,12 +282,12 @@ $tdatausers[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "ID";
+		$fdata["strField"] = "id";
 
 		$fdata["sourceSingle"] = "ID";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "ID";
+	$fdata["FullName"] = "id";
 
 	
 	
@@ -405,8 +405,8 @@ $tdatausers[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdatausers["ID"] = $fdata;
-		$tdatausers[".searchableFields"][] = "ID";
+	$tdatausers["id"] = $fdata;
+		$tdatausers[".searchableFields"][] = "id";
 //	username
 //	Custom field settings
 	$fdata = array();
@@ -691,7 +691,7 @@ $tdatausers[".hideMobileList"] = array();
 	$fdata["GoodName"] = "email";
 	$fdata["ownerTable"] = "users";
 	$fdata["Label"] = GetFieldLabel("users","email");
-	$fdata["FieldType"] = 200;
+	$fdata["FieldType"] = 201;
 
 
 	
@@ -1841,7 +1841,7 @@ function createSqlQuery_users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$proto0["m_strFieldList"] = "id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $proto0["m_strFrom"] = "FROM users";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -1883,12 +1883,12 @@ $proto0["m_having"] = $obj;
 $proto0["m_fieldlist"] = array();
 						$proto6=array();
 			$obj = new SQLField(array(
-	"m_strName" => "ID",
+	"m_strName" => "id",
 	"m_strTable" => "users",
 	"m_srcTableName" => "users"
 ));
 
-$proto6["m_sql"] = "ID";
+$proto6["m_sql"] = "id";
 $proto6["m_srcTableName"] = "users";
 $proto6["m_expr"]=$obj;
 $proto6["m_alias"] = "";
@@ -2042,7 +2042,7 @@ $proto28["m_link"] = "SQLL_MAIN";
 $proto29["m_strName"] = "users";
 $proto29["m_srcTableName"] = "users";
 $proto29["m_columns"] = array();
-$proto29["m_columns"][] = "ID";
+$proto29["m_columns"][] = "id";
 $proto29["m_columns"][] = "username";
 $proto29["m_columns"][] = "password";
 $proto29["m_columns"][] = "email";

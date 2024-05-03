@@ -233,27 +233,27 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN ID_fieldblock}
+{BEGIN id_fieldblock}
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_ID}  r-horizontal-field form-horizontal" 	
-	data-signal-error-for="ID{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="ID" data-fieldname="ID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
 
 
-	<label class="r-search-label control-label" for="{$labelfor_ID}">
-		{$label admin_users ID }	</label>
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label admin_users id }	</label>
 	<div class="r-search-option">
-		{$searchtype_ID}
+		{$searchtype_id}
 	</div>
 	<div class="r-search-field">
-		{$ID_editcontrol}	</div>
+		{$id_editcontrol}	</div>
 	<div class="r-search-field">
-		{$ID_editcontrol1}
+		{$id_editcontrol1}
 	</div>
 	
 </div>
 
-{END ID_fieldblock}
+{END id_fieldblock}
 											
 {BEGIN username_fieldblock}
 
@@ -320,6 +320,50 @@
 </div>
 
 {END email_fieldblock}
+											
+{BEGIN reset_token_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_token}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="reset_token{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="reset_token" data-fieldname="reset_token" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_reset_token}">
+		{$label admin_users reset_token }	</label>
+	<div class="r-search-option">
+		{$searchtype_reset_token}
+	</div>
+	<div class="r-search-field">
+		{$reset_token_editcontrol}	</div>
+	<div class="r-search-field">
+		{$reset_token_editcontrol1}
+	</div>
+	
+</div>
+
+{END reset_token_fieldblock}
+											
+{BEGIN reset_date_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_date}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="reset_date{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="reset_date" data-fieldname="reset_date" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_reset_date}">
+		{$label admin_users reset_date }	</label>
+	<div class="r-search-option">
+		{$searchtype_reset_date}
+	</div>
+	<div class="r-search-field">
+		{$reset_date_editcontrol}	</div>
+	<div class="r-search-field">
+		{$reset_date_editcontrol1}
+	</div>
+	
+</div>
+
+{END reset_date_fieldblock}
 											
 {BEGIN fullname_fieldblock}
 
@@ -408,50 +452,6 @@
 </div>
 
 {END ext_security_id_fieldblock}
-											
-{BEGIN reset_token_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_token}  r-horizontal-field form-horizontal" 	
-	data-signal-error-for="reset_token{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="reset_token" data-fieldname="reset_token" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_reset_token}">
-		{$label admin_users reset_token }	</label>
-	<div class="r-search-option">
-		{$searchtype_reset_token}
-	</div>
-	<div class="r-search-field">
-		{$reset_token_editcontrol}	</div>
-	<div class="r-search-field">
-		{$reset_token_editcontrol1}
-	</div>
-	
-</div>
-
-{END reset_token_fieldblock}
-											
-{BEGIN reset_date_fieldblock}
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_date}  r-horizontal-field form-horizontal" 	
-	data-signal-error-for="reset_date{$id}" 
-	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="reset_date" data-fieldname="reset_date" >
-
-
-	<label class="r-search-label control-label" for="{$labelfor_reset_date}">
-		{$label admin_users reset_date }	</label>
-	<div class="r-search-option">
-		{$searchtype_reset_date}
-	</div>
-	<div class="r-search-field">
-		{$reset_date_editcontrol}	</div>
-	<div class="r-search-field">
-		{$reset_date_editcontrol1}
-	</div>
-	
-</div>
-
-{END reset_date_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

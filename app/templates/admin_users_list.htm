@@ -103,19 +103,71 @@
 				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
 		</div>
 		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_ID}
+																		{BEGIN searchCtrlBlock_id}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_ID}" {$filterRow_attrs_ID}>
-			<label>{$label admin_users ID }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_id}" {$filterRow_attrs_id}>
+			<label>{$label admin_users id }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_ID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_ID}</span>
+								<span class="rnr-searchtype">{$searchtype_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_id}</span>
 						</div>
-		{END searchCtrlBlock_ID}
+		{END searchCtrlBlock_id}
+																{BEGIN searchCtrlBlock_ext_security_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_ext_security_id}" {$filterRow_attrs_ext_security_id}>
+			<label>{$label admin_users ext_security_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_ext_security_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_ext_security_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_ext_security_id}</span>
+						</div>
+		{END searchCtrlBlock_ext_security_id}
+																{BEGIN searchCtrlBlock_active}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_active}" {$filterRow_attrs_active}>
+			<label>{$label admin_users active }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_active}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_active}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_active}</span>
+						</div>
+		{END searchCtrlBlock_active}
+																{BEGIN searchCtrlBlock_groupid}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_groupid}" {$filterRow_attrs_groupid}>
+			<label>{$label admin_users groupid }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_groupid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_groupid}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_groupid}</span>
+						</div>
+		{END searchCtrlBlock_groupid}
+																{BEGIN searchCtrlBlock_fullname}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_fullname}" {$filterRow_attrs_fullname}>
+			<label>{$label admin_users fullname }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_fullname}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_fullname}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_fullname}</span>
+						</div>
+		{END searchCtrlBlock_fullname}
 																{BEGIN searchCtrlBlock_username}
 
 
@@ -168,45 +220,6 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_password}</span>
 						</div>
 		{END searchCtrlBlock_password}
-																{BEGIN searchCtrlBlock_groupid}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_groupid}" {$filterRow_attrs_groupid}>
-			<label>{$label admin_users groupid }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_groupid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_groupid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_groupid}</span>
-						</div>
-		{END searchCtrlBlock_groupid}
-																{BEGIN searchCtrlBlock_fullname}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_fullname}" {$filterRow_attrs_fullname}>
-			<label>{$label admin_users fullname }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_fullname}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_fullname}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_fullname}</span>
-						</div>
-		{END searchCtrlBlock_fullname}
-																{BEGIN searchCtrlBlock_ext_security_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_ext_security_id}" {$filterRow_attrs_ext_security_id}>
-			<label>{$label admin_users ext_security_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_ext_security_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_ext_security_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_ext_security_id}</span>
-						</div>
-		{END searchCtrlBlock_ext_security_id}
 																{BEGIN searchCtrlBlock_email}
 
 
@@ -220,19 +233,6 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_email}</span>
 						</div>
 		{END searchCtrlBlock_email}
-																{BEGIN searchCtrlBlock_active}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_active}" {$filterRow_attrs_active}>
-			<label>{$label admin_users active }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_active}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_active}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_active}</span>
-						</div>
-		{END searchCtrlBlock_active}
 		
 
 	</div>
@@ -642,8 +642,8 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
 @media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="ID"]:before {
-		content: "{$label admin_users ID}";
+		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id"]:before {
+		content: "{$label admin_users id}";
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="username"]:before {
 		content: "{$label admin_users username}";
@@ -733,21 +733,21 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$ID_class}	"
+		 r-ori-vert		 {$id_class}	"
 
-			data-field="ID"
+			data-field="id"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN ID_fieldheadercolumn}
-	{BEGIN ID_fieldheader}
-	<SPAN {$ID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ID" data-fieldname="ID">
-	{$label admin_users ID }	{$arrow_icon_ID}
+		{BEGIN id_fieldheadercolumn}
+	{BEGIN id_fieldheader}
+	<SPAN {$id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id" data-fieldname="id">
+	{$label admin_users id }	{$arrow_icon_id}
 	</SPAN>
-	{END ID_fieldheader}
-{END ID_fieldheadercolumn}
+	{END id_fieldheader}
+{END id_fieldheadercolumn}
 
 	
 	</th>
@@ -833,21 +833,19 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fullname_class}	"
+		 r-ori-vert		 {$userpic_class}	"
 
-			data-field="fullname"
+			data-field="userpic"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN fullname_fieldheadercolumn}
-	{BEGIN fullname_fieldheader}
-	<SPAN {$fullname_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname">
-	{$label admin_users fullname }	{$arrow_icon_fullname}
-	</SPAN>
-	{END fullname_fieldheader}
-{END fullname_fieldheadercolumn}
+		{BEGIN userpic_fieldheadercolumn}
+ 
+	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="userpic" data-fieldname="userpic">
+	{$label admin_users userpic }	</span>
+{END userpic_fieldheadercolumn}
 
 	
 	</th>
@@ -858,21 +856,21 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$groupid_class}	"
+		 r-ori-vert		 {$reset_token_class}	"
 
-			data-field="groupid"
+			data-field="reset_token"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN groupid_fieldheadercolumn}
-	{BEGIN groupid_fieldheader}
-	<SPAN {$groupid_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="groupid" data-fieldname="groupid">
-	{$label admin_users groupid }	{$arrow_icon_groupid}
+		{BEGIN reset_token_fieldheadercolumn}
+	{BEGIN reset_token_fieldheader}
+	<SPAN {$reset_token_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_token" data-fieldname="reset_token">
+	{$label admin_users reset_token }	{$arrow_icon_reset_token}
 	</SPAN>
-	{END groupid_fieldheader}
-{END groupid_fieldheadercolumn}
+	{END reset_token_fieldheader}
+{END reset_token_fieldheadercolumn}
 
 	
 	</th>
@@ -883,21 +881,21 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$active_class}	"
+		 r-ori-vert		 {$reset_date_class}	"
 
-			data-field="active"
+			data-field="reset_date"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN active_fieldheadercolumn}
-	{BEGIN active_fieldheader}
-	<SPAN {$active_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="active" data-fieldname="active">
-	{$label admin_users active }	{$arrow_icon_active}
+		{BEGIN reset_date_fieldheadercolumn}
+	{BEGIN reset_date_fieldheader}
+	<SPAN {$reset_date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_date" data-fieldname="reset_date">
+	{$label admin_users reset_date }	{$arrow_icon_reset_date}
 	</SPAN>
-	{END active_fieldheader}
-{END active_fieldheadercolumn}
+	{END reset_date_fieldheader}
+{END reset_date_fieldheadercolumn}
 
 	
 	</th>
@@ -908,21 +906,21 @@
 	{$cell_grid_headcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$ext_security_id_class}	"
+		 r-ori-vert		 {$fullname_class}	"
 
-			data-field="ext_security_id"
+			data-field="fullname"
 	
 	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN ext_security_id_fieldheadercolumn}
-	{BEGIN ext_security_id_fieldheader}
-	<SPAN {$ext_security_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ext_security_id" data-fieldname="ext_security_id">
-	{$label admin_users ext_security_id }	{$arrow_icon_ext_security_id}
+		{BEGIN fullname_fieldheadercolumn}
+	{BEGIN fullname_fieldheader}
+	<SPAN {$fullname_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname">
+	{$label admin_users fullname }	{$arrow_icon_fullname}
 	</SPAN>
-	{END ext_security_id_fieldheader}
-{END ext_security_id_fieldheadercolumn}
+	{END fullname_fieldheader}
+{END fullname_fieldheadercolumn}
 
 	
 	</th>
@@ -933,19 +931,21 @@
 	{$cell_grid_headcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$userpic_class}	"
+		 r-ori-vert		 {$groupid_class}	"
 
-			data-field="userpic"
+			data-field="groupid"
 	
 	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN userpic_fieldheadercolumn}
- 
-	<span data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="userpic" data-fieldname="userpic">
-	{$label admin_users userpic }	</span>
-{END userpic_fieldheadercolumn}
+		{BEGIN groupid_fieldheadercolumn}
+	{BEGIN groupid_fieldheader}
+	<SPAN {$groupid_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="groupid" data-fieldname="groupid">
+	{$label admin_users groupid }	{$arrow_icon_groupid}
+	</SPAN>
+	{END groupid_fieldheader}
+{END groupid_fieldheadercolumn}
 
 	
 	</th>
@@ -956,21 +956,21 @@
 	{$cell_grid_headcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$reset_token_class}	"
+		 r-ori-vert		 {$active_class}	"
 
-			data-field="reset_token"
+			data-field="active"
 	
 	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN reset_token_fieldheadercolumn}
-	{BEGIN reset_token_fieldheader}
-	<SPAN {$reset_token_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_token" data-fieldname="reset_token">
-	{$label admin_users reset_token }	{$arrow_icon_reset_token}
+		{BEGIN active_fieldheadercolumn}
+	{BEGIN active_fieldheader}
+	<SPAN {$active_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="active" data-fieldname="active">
+	{$label admin_users active }	{$arrow_icon_active}
 	</SPAN>
-	{END reset_token_fieldheader}
-{END reset_token_fieldheadercolumn}
+	{END active_fieldheader}
+{END active_fieldheadercolumn}
 
 	
 	</th>
@@ -981,21 +981,21 @@
 	{$cell_grid_headcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$reset_date_class}	"
+		 r-ori-vert		 {$ext_security_id_class}	"
 
-			data-field="reset_date"
+			data-field="ext_security_id"
 	
 	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN reset_date_fieldheadercolumn}
-	{BEGIN reset_date_fieldheader}
-	<SPAN {$reset_date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_date" data-fieldname="reset_date">
-	{$label admin_users reset_date }	{$arrow_icon_reset_date}
+		{BEGIN ext_security_id_fieldheadercolumn}
+	{BEGIN ext_security_id_fieldheader}
+	<SPAN {$ext_security_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ext_security_id" data-fieldname="ext_security_id">
+	{$label admin_users ext_security_id }	{$arrow_icon_ext_security_id}
 	</SPAN>
-	{END reset_date_fieldheader}
-{END reset_date_fieldheadercolumn}
+	{END ext_security_id_fieldheader}
+{END ext_security_id_fieldheadercolumn}
 
 	
 	</th>
@@ -1079,19 +1079,19 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$ID_class}	"
+		 r-ori-vert		 {$id_class}	"
 
-			data-field="ID"
+			data-field="id"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN ID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ID" data-fieldname="ID" data-default-width >
-{$ID_value}
+		{BEGIN id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id" data-fieldname="id" data-default-width >
+{$id_value}
 </span>
-{END ID_fieldcolumn}	
+{END id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 									{BEGIN cellblock_grid_cell_field1}
@@ -1163,95 +1163,11 @@
 	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fullname_class}	"
-
-			data-field="fullname"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN fullname_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname" data-default-width >
-{$fullname_value}
-</span>
-{END fullname_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-									{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$groupid_class}	"
-
-			data-field="groupid"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN groupid_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="groupid" data-fieldname="groupid" data-default-width >
-{$groupid_value}
-</span>
-{END groupid_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-									{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$active_class}	"
-
-			data-field="active"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN active_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="active" data-fieldname="active" data-default-width >
-{$active_value}
-</span>
-{END active_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-									{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$ext_security_id_class}	"
-
-			data-field="ext_security_id"
-	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN ext_security_id_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ext_security_id" data-fieldname="ext_security_id" data-default-width >
-{$ext_security_id_value}
-</span>
-{END ext_security_id_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field7}
-									{BEGIN cellblock_grid_cell_field8}
-	<td
-	
-	{$cell_grid_cell_field8}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$userpic_class}	"
 
 			data-field="userpic"
 	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1261,18 +1177,18 @@
 </span>
 {END userpic_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field8}
-									{BEGIN cellblock_grid_cell_field9}
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
 	<td
 	
-	{$cell_grid_cell_field9}
+	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$reset_token_class}	"
 
 			data-field="reset_token"
 	
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1282,18 +1198,18 @@
 </span>
 {END reset_token_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field9}
-									{BEGIN cellblock_grid_cell_field10}
+	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
 	<td
 	
-	{$cell_grid_cell_field10}
+	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$reset_date_class}	"
 
 			data-field="reset_date"
 	
-	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1302,6 +1218,90 @@
 {$reset_date_value}
 </span>
 {END reset_date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$fullname_class}	"
+
+			data-field="fullname"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN fullname_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname" data-default-width >
+{$fullname_value}
+</span>
+{END fullname_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
+									{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$groupid_class}	"
+
+			data-field="groupid"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN groupid_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="groupid" data-fieldname="groupid" data-default-width >
+{$groupid_value}
+</span>
+{END groupid_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+									{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$active_class}	"
+
+			data-field="active"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN active_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="active" data-fieldname="active" data-default-width >
+{$active_value}
+</span>
+{END active_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+									{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$ext_security_id_class}	"
+
+			data-field="ext_security_id"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN ext_security_id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ext_security_id" data-fieldname="ext_security_id" data-default-width >
+{$ext_security_id_value}
+</span>
+{END ext_security_id_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field10}
 							</tr>
@@ -1351,7 +1351,7 @@
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$ID_class}	"
+		 r-ori-vert		 {$id_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1411,7 +1411,7 @@
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fullname_class}	"
+		 r-ori-vert		 {$userpic_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1426,7 +1426,7 @@
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$groupid_class}	"
+		 r-ori-vert		 {$reset_token_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1441,7 +1441,7 @@
 	{$cell_grid_footcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$active_class}	"
+		 r-ori-vert		 {$reset_date_class}	"
 
 	
 	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1456,7 +1456,7 @@
 	{$cell_grid_footcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$ext_security_id_class}	"
+		 r-ori-vert		 {$fullname_class}	"
 
 	
 	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1471,7 +1471,7 @@
 	{$cell_grid_footcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$userpic_class}	"
+		 r-ori-vert		 {$groupid_class}	"
 
 	
 	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1486,7 +1486,7 @@
 	{$cell_grid_footcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$reset_token_class}	"
+		 r-ori-vert		 {$active_class}	"
 
 	
 	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	
@@ -1501,7 +1501,7 @@
 	{$cell_grid_footcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$reset_date_class}	"
+		 r-ori-vert		 {$ext_security_id_class}	"
 
 	
 	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="admin_users_list"	

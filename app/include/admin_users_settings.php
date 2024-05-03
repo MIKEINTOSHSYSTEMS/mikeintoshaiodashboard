@@ -25,9 +25,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsadmin_users["English"] = array();
 	$placeHoldersadmin_users["English"] = array();
 	$pageTitlesadmin_users["English"] = array();
-	$fieldLabelsadmin_users["English"]["ID"] = "ID";
-	$fieldToolTipsadmin_users["English"]["ID"] = "";
-	$placeHoldersadmin_users["English"]["ID"] = "";
+	$fieldLabelsadmin_users["English"]["id"] = "ID";
+	$fieldToolTipsadmin_users["English"]["id"] = "";
+	$placeHoldersadmin_users["English"]["id"] = "";
 	$fieldLabelsadmin_users["English"]["username"] = "Username";
 	$fieldToolTipsadmin_users["English"]["username"] = "";
 	$placeHoldersadmin_users["English"]["username"] = "";
@@ -37,6 +37,15 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsadmin_users["English"]["email"] = "Email";
 	$fieldToolTipsadmin_users["English"]["email"] = "";
 	$placeHoldersadmin_users["English"]["email"] = "";
+	$fieldLabelsadmin_users["English"]["userpic"] = "Userpic";
+	$fieldToolTipsadmin_users["English"]["userpic"] = "";
+	$placeHoldersadmin_users["English"]["userpic"] = "";
+	$fieldLabelsadmin_users["English"]["reset_token"] = "Reset Token";
+	$fieldToolTipsadmin_users["English"]["reset_token"] = "";
+	$placeHoldersadmin_users["English"]["reset_token"] = "";
+	$fieldLabelsadmin_users["English"]["reset_date"] = "Reset Date";
+	$fieldToolTipsadmin_users["English"]["reset_date"] = "";
+	$placeHoldersadmin_users["English"]["reset_date"] = "";
 	$fieldLabelsadmin_users["English"]["fullname"] = "Fullname";
 	$fieldToolTipsadmin_users["English"]["fullname"] = "";
 	$placeHoldersadmin_users["English"]["fullname"] = "";
@@ -49,15 +58,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsadmin_users["English"]["ext_security_id"] = "Ext Security Id";
 	$fieldToolTipsadmin_users["English"]["ext_security_id"] = "";
 	$placeHoldersadmin_users["English"]["ext_security_id"] = "";
-	$fieldLabelsadmin_users["English"]["userpic"] = "Userpic";
-	$fieldToolTipsadmin_users["English"]["userpic"] = "";
-	$placeHoldersadmin_users["English"]["userpic"] = "";
-	$fieldLabelsadmin_users["English"]["reset_token"] = "Reset Token";
-	$fieldToolTipsadmin_users["English"]["reset_token"] = "";
-	$placeHoldersadmin_users["English"]["reset_token"] = "";
-	$fieldLabelsadmin_users["English"]["reset_date"] = "Reset Date";
-	$fieldToolTipsadmin_users["English"]["reset_date"] = "";
-	$placeHoldersadmin_users["English"]["reset_date"] = "";
 	if (count($fieldToolTipsadmin_users["English"]))
 		$tdataadmin_users[".isUseToolTips"] = true;
 }
@@ -175,7 +175,7 @@ $tdataadmin_users[".filterFields"] = array();
 $tdataadmin_users[".requiredSearchFields"] = array();
 
 $tdataadmin_users[".googleLikeFields"] = array();
-$tdataadmin_users[".googleLikeFields"][] = "ID";
+$tdataadmin_users[".googleLikeFields"][] = "id";
 $tdataadmin_users[".googleLikeFields"][] = "username";
 $tdataadmin_users[".googleLikeFields"][] = "password";
 $tdataadmin_users[".googleLikeFields"][] = "email";
@@ -218,7 +218,7 @@ $tdataadmin_users[".strOrderBy"] = $tstrOrderBy;
 $tdataadmin_users[".orderindexes"] = array();
 
 
-$tdataadmin_users[".sqlHead"] = "SELECT ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$tdataadmin_users[".sqlHead"] = "SELECT id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $tdataadmin_users[".sqlFrom"] = "FROM users";
 $tdataadmin_users[".sqlWhereExpr"] = "";
 $tdataadmin_users[".sqlTail"] = "";
@@ -266,14 +266,14 @@ $tdataadmin_users[".hideMobileList"] = array();
 
 
 
-//	ID
+//	id
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 1;
-	$fdata["strName"] = "ID";
-	$fdata["GoodName"] = "ID";
+	$fdata["strName"] = "id";
+	$fdata["GoodName"] = "id";
 	$fdata["ownerTable"] = "users";
-	$fdata["Label"] = GetFieldLabel("admin_users","ID");
+	$fdata["Label"] = GetFieldLabel("admin_users","id");
 	$fdata["FieldType"] = 3;
 
 
@@ -282,12 +282,12 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "ID";
+		$fdata["strField"] = "id";
 
 		$fdata["sourceSingle"] = "ID";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "ID";
+	$fdata["FullName"] = "id";
 
 	
 	
@@ -405,8 +405,8 @@ $tdataadmin_users[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataadmin_users["ID"] = $fdata;
-		$tdataadmin_users[".searchableFields"][] = "ID";
+	$tdataadmin_users["id"] = $fdata;
+		$tdataadmin_users[".searchableFields"][] = "id";
 //	username
 //	Custom field settings
 	$fdata = array();
@@ -691,7 +691,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 	$fdata["GoodName"] = "email";
 	$fdata["ownerTable"] = "users";
 	$fdata["Label"] = GetFieldLabel("admin_users","email");
-	$fdata["FieldType"] = 200;
+	$fdata["FieldType"] = 201;
 
 
 	
@@ -1841,7 +1841,7 @@ function createSqlQuery_admin_users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "ID,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$proto0["m_strFieldList"] = "id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
 $proto0["m_strFrom"] = "FROM users";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -1883,12 +1883,12 @@ $proto0["m_having"] = $obj;
 $proto0["m_fieldlist"] = array();
 						$proto6=array();
 			$obj = new SQLField(array(
-	"m_strName" => "ID",
+	"m_strName" => "id",
 	"m_strTable" => "users",
 	"m_srcTableName" => "admin_users"
 ));
 
-$proto6["m_sql"] = "ID";
+$proto6["m_sql"] = "id";
 $proto6["m_srcTableName"] = "admin_users";
 $proto6["m_expr"]=$obj;
 $proto6["m_alias"] = "";
@@ -2042,7 +2042,7 @@ $proto28["m_link"] = "SQLL_MAIN";
 $proto29["m_strName"] = "users";
 $proto29["m_srcTableName"] = "admin_users";
 $proto29["m_columns"] = array();
-$proto29["m_columns"][] = "ID";
+$proto29["m_columns"][] = "id";
 $proto29["m_columns"][] = "username";
 $proto29["m_columns"][] = "password";
 $proto29["m_columns"][] = "email";

@@ -713,7 +713,7 @@ $cUserGroupField = "username";
 $cEmailField = "email";
 $cUserpicField = "userpic";
 $loginKeyFields= array();
-$loginKeyFields[] = "ID";
+$loginKeyFields[] = "id";
 
 //	legacy use only
 $cKeyFields = $loginKeyFields;
@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "236_1714757591";
+$projectBuildKey = "240_1714762114";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "236";
+$projectBuildNumber = "240";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -839,6 +839,7 @@ $tableCaptions["English"]["candidates_reports"] = "Candidates Reports";
 $tableCaptions["English"]["candidates_by_gender"] = "Candidates By Gender";
 $tableCaptions["English"]["users"] = "Users";
 $tableCaptions["English"]["admin_users"] = "Admin Users";
+$tableCaptions["English"]["utilities"] = "Utilities";
 
 
 $globalEvents = new class_GlobalEvents;
