@@ -30,9 +30,9 @@
      
          
 
-			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix " data-itemid="logo" {$item_logo}>
+			<div data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell class="clearfix r-align-center" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
-	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" data-page=".global_menu" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
 	</A>
 {END logo_block}
@@ -44,7 +44,7 @@
 		
  
 
-			<div class="clearfix " data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
+			<div class="clearfix r-align-center" data-cellId="left_c0" data-pageid="{$pageid}" data-logo-cell data-itemid="expand_button" {$item_expand_button} data-topcell-item-type="expand_button" >
 				<span data-itemtype="expand_button" data-itemid="expand_button" {$item_expand_button} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="Expand" class="btn btn-link   
 	" href="#" >
@@ -240,7 +240,8 @@
 ">
 		{BEGIN firstAboveGridCell}
 		 
-		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page=".global_menu" />
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-small > 
+	<p class="ql-align-center"><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><img width="143" height="54" alt="Dereja M&amp;E System" src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg"></strong></a></p><p class="ql-align-center"><a style="color: rgb(255, 102, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>M</u></strong></a><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>&amp;</u></strong></a><a style="color: rgb(255, 102, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>E</u></strong></a><a href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u> </u></strong></a><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>System</u></strong></a></p><p><br></p></span>
 			{END firstAboveGridCell}	
 	</div>					</div>
 			 
@@ -291,7 +292,7 @@
 											<tr {$row_grid_1} >
 									<td 
 	
-		rowspan="3"	 
+			 
 	data-cellId="grid_c10" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align-left">
  
@@ -501,6 +502,13 @@
 									<td 
 	
 			 
+	data-cellId="grid_c16" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-left">
+</div>
+</td>
+									<td 
+	
+			 
 	data-cellId="grid_c30" data-pageid="{$pageid}">
 <div class="r-welcome-align-center">
 </div>
@@ -509,8 +517,8 @@
 											<tr {$row_grid_3} >
 									<td 
 	
-			 
-	data-cellId="grid_c29" data-pageid="{$pageid}">
+	colspan="2"		 
+	data-cellId="grid_c19" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group5" {$item_welcome_group5} data-pageid="{$pageid}">
@@ -581,7 +589,7 @@
 									<td 
 	
 	colspan="3"		 
-	data-cellId="grid_c18" data-pageid="{$pageid}">
+	data-cellId="grid_c8" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
 </td>
@@ -590,21 +598,12 @@
 									<td 
 	
 	colspan="3"		 
-	data-cellId="grid_c8" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_7} >
-									<td 
-	
-	colspan="3"		 
 	data-cellId="grid_c20" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align">
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_8} >
+											<tr {$row_grid_7} >
 									<td 
 	
 		rowspan="5"	 
@@ -813,7 +812,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_9} >
+											<tr {$row_grid_8} >
 									<td 
 	
 	colspan="2"		 
@@ -822,12 +821,12 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_10} >
+											<tr {$row_grid_9} >
 									<td 
 	
 	colspan="2"		 
 	data-cellId="grid_c22" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-right">
+<div class="r-welcome-align-center">
  
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group6" {$item_welcome_group6} data-pageid="{$pageid}">
 	<h2>
@@ -875,7 +874,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_11} >
+											<tr {$row_grid_10} >
 									<td 
 	
 	colspan="2"		 
@@ -884,7 +883,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_12} >
+											<tr {$row_grid_11} >
 									<td 
 	
 	colspan="2"		 
@@ -955,7 +954,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_13} >
+											<tr {$row_grid_12} >
 									<td 
 	
 	colspan="3"		 
@@ -964,7 +963,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_14} >
+											<tr {$row_grid_13} >
 									<td 
 	
 	colspan="3"		 
@@ -973,7 +972,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_15} >
+											<tr {$row_grid_14} >
 									<td 
 	
 	colspan="3"		 
@@ -982,7 +981,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_16} >
+											<tr {$row_grid_15} >
 									<td 
 	
 		rowspan="4"	 
@@ -1129,7 +1128,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_17} >
+											<tr {$row_grid_16} >
 									<td 
 	
 	colspan="2"		 
@@ -1138,7 +1137,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_18} >
+											<tr {$row_grid_17} >
 									<td 
 	
 	colspan="2"		 
@@ -1210,7 +1209,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_19} >
+											<tr {$row_grid_18} >
 									<td 
 	
 	colspan="2"		 
@@ -1219,7 +1218,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_20} >
+											<tr {$row_grid_19} >
 									<td 
 	
 			 
@@ -1235,7 +1234,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_21} >
+											<tr {$row_grid_20} >
 									<td 
 	
 	colspan="3"		 
@@ -1244,7 +1243,7 @@
 </div>
 </td>
 							</tr>
-											<tr {$row_grid_22} >
+											<tr {$row_grid_21} >
 									<td 
 	
 	colspan="3"		 

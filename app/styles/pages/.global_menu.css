@@ -52,9 +52,11 @@
 [data-cellid="grid_c20"][data-page=".global_menu"][data-cellid="grid_c20"][data-page=".global_menu"][data-cellid="grid_c20"][data-page=".global_menu"] {
   page-break-after: always;
 }
-[data-page=".global_menu"][data-itemid="image"] {
-  width: 47px;
-  height: 47px;
+[data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"] {
+  background-color: transparent;
+}
+[data-cellid="grid_c19"][data-page=".global_menu"][data-cellid="grid_c19"][data-page=".global_menu"][data-cellid="grid_c19"][data-page=".global_menu"] {
+  background-color: transparent;
 }
 [data-page=".global_menu"][data-itemid="welcome_group1"] {
   background-color: transparent;
@@ -221,6 +223,9 @@
 [data-page=".global_menu"][data-itemid="menu"] > .nav > * > a {
   color: #700000;
   font-weight: bold;
+}
+[data-page=".global_menu"][data-itemid="logo"] {
+  background-color: transparent;
 }
 [data-page=".global_menu"][data-itemid="username_button"] > .btn {
   font-weight: bold;

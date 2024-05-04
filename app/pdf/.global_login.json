@@ -60,7 +60,7 @@ pdfDocument = {
 			{"text":"Welcome To ","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":22,"bold":true,"isHtml":true},
 				
 				
-			{"text":"<p style=\"text-align: center;\"><a href=\"./menu.php\"><strong><span style=\"color: #ff0000;\">Dereja</span> <span style=\"color: #ff6600;\">M&amp;E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>","hidden":"{$item_hide_login-logo}","fontSize":24,"isHtml":true},
+			{"text":"<p><a href=\"./menu.php\" title=\"Dereja M&amp;E System\"><img src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\">M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>","hidden":"{$item_hide_login-logo}","fontSize":24,"isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],

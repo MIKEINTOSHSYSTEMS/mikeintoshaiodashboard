@@ -57,7 +57,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$pdf_image images/dereja.png 47 47},"hidden":"{$item_hide_image}"},
+			{"text":"<p class=\"ql-align-center\"><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><img width=\"143\" height=\"54\" alt=\"Dereja M&amp;E System\" src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\"></strong></a></p><p class=\"ql-align-center\"><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>M</u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>&amp;</u></strong></a><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>E</u></strong></a><a href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u> </u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>System</u></strong></a></p><p><br></p>","hidden":"{$item_hide_text}","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -206,9 +206,6 @@ pdfDocument = {
 								
 			"%",
 			 
-								
-			"%",
-			 
 				],
 	
 		body: [
@@ -258,7 +255,6 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
-					rowSpan: 3,
 			
 	
 	
@@ -323,13 +319,28 @@ pdfDocument = {
 
 											],
 						[
-											{ 
-				cellId: 'c10',
-				row:  1,
-				col:  0,
-				text: ''
-			},
-																			{
+																{
+	cellId: 'c16',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+																							{
 	cellId: 'c30',
 	col:0,
 	row:0,
@@ -358,19 +369,14 @@ pdfDocument = {
 			},
 							],
 						[
-											{ 
-				cellId: 'c10',
-				row:  2,
-				col:  0,
-				text: ''
-			},
-																			{
-	cellId: 'c29',
+																{
+	cellId: 'c19',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
@@ -382,12 +388,18 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
 
 																		{ 
+				cellId: 'c19',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
 				cellId: 'c27',
 				row:  2,
 				col:  0,
@@ -426,42 +438,6 @@ pdfDocument = {
 			},
 														{ 
 				cellId: 'c3',
-				row:  0,
-				col:  2,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c18',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 3,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c18',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-														{ 
-				cellId: 'c18',
 				row:  0,
 				col:  2,
 				text: ''
@@ -659,7 +635,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'right',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
