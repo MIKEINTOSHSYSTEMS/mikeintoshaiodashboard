@@ -6,9 +6,9 @@ $tdatautilities[".OwnerID"] = "";
 $tdatautilities[".OriginalTable"] = "utilities";
 
 
-$tdatautilities[".pagesByType"] = my_json_decode( "{\"list\":[\"list\",\"Chat\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
+$tdatautilities[".pagesByType"] = my_json_decode( "{\"list\":[\"list\",\"Chat\",\"Project_Manager\",\"document_manager\",\"knowledge_base\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
 $tdatautilities[".originalPagesByType"] = $tdatautilities[".pagesByType"];
-$tdatautilities[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\",\"Chat\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
+$tdatautilities[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\",\"Chat\",\"Project_Manager\",\"document_manager\",\"knowledge_base\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
 $tdatautilities[".originalPages"] = $tdatautilities[".pages"];
 $tdatautilities[".defaultPages"] = my_json_decode( "{\"list\":\"list\",\"print\":\"print\",\"search\":\"search\"}" );
 $tdatautilities[".originalDefaultPages"] = $tdatautilities[".defaultPages"];

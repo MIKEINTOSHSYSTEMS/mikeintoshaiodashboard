@@ -49,13 +49,6 @@ class tDAL
 {
 	var $tblderedevatderejadevmerqconsulta__Candidate_Employment_Tracker;
 	var $tblderedevatderejadevmerqconsulta__candidates;
-	var $tblderedevatderejadevmerqconsulta__chat_files;
-	var $tblderedevatderejadevmerqconsulta__chat_groups;
-	var $tblderedevatderejadevmerqconsulta__chat_history;
-	var $tblderedevatderejadevmerqconsulta__chat_peopletype;
-	var $tblderedevatderejadevmerqconsulta__chat_settings;
-	var $tblderedevatderejadevmerqconsulta__chat_timezone;
-	var $tblderedevatderejadevmerqconsulta__chat_users;
 	var $tblderedevatderejadevmerqconsulta__cities;
 	var $tblderedevatderejadevmerqconsulta__Companies;
 	var $tblderedevatderejadevmerqconsulta__CompanySectors;
@@ -120,13 +113,6 @@ class tDAL
 			return;
 		$this->lstTables[] = array("name" => "Candidate_Employment_Tracker", "varname" => "deredevatderejadevmerqconsulta__Candidate_Employment_Tracker", "altvarname" => "Candidate_Employment_Tracker", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_files", "varname" => "deredevatderejadevmerqconsulta__chat_files", "altvarname" => "chat_files", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_groups", "varname" => "deredevatderejadevmerqconsulta__chat_groups", "altvarname" => "chat_groups", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_history", "varname" => "deredevatderejadevmerqconsulta__chat_history", "altvarname" => "chat_history", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_peopletype", "varname" => "deredevatderejadevmerqconsulta__chat_peopletype", "altvarname" => "chat_peopletype", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_settings", "varname" => "deredevatderejadevmerqconsulta__chat_settings", "altvarname" => "chat_settings", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_timezone", "varname" => "deredevatderejadevmerqconsulta__chat_timezone", "altvarname" => "chat_timezone", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
-		$this->lstTables[] = array("name" => "chat_users", "varname" => "deredevatderejadevmerqconsulta__chat_users", "altvarname" => "chat_users", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "cities", "varname" => "deredevatderejadevmerqconsulta__cities", "altvarname" => "cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Companies", "varname" => "deredevatderejadevmerqconsulta__Companies", "altvarname" => "Companies", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "CompanySectors", "varname" => "deredevatderejadevmerqconsulta__CompanySectors", "altvarname" => "CompanySectors", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

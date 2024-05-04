@@ -189,6 +189,48 @@
 
 
 {END username_fieldblock}
+											
+{BEGIN reset_token_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_token}  r-vertical-field" 
+	data-signal-error-for="reset_token{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="reset_token" data-fieldname="reset_token" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_reset_token}">
+		{BEGIN reset_token_label}{$label kbusers reset_token }{END reset_token_label}
+	</label>
+	<div class="r-edit-field">
+		{$reset_token_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="reset_token">
+		<div class="text-muted" >
+		{$tooltip kbusers reset_token }		</div>
+	</div>
+</div>
+
+
+{END reset_token_fieldblock}
+											
+{BEGIN reset_date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_reset_date}  r-vertical-field" 
+	data-signal-error-for="reset_date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="reset_date" data-fieldname="reset_date" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_reset_date}">
+		{BEGIN reset_date_label}{$label kbusers reset_date }{END reset_date_label}
+	</label>
+	<div class="r-edit-field">
+		{$reset_date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="reset_date">
+		<div class="text-muted" >
+		{$tooltip kbusers reset_date }		</div>
+	</div>
+</div>
+
+
+{END reset_date_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

@@ -1,12 +1,12 @@
 <?php
 
 $config_hostname = "localhost";
-$config_hostuser = "root";
-$config_hostpass = "root";
+$config_hostuser = "dere_admin";
+$config_hostpass = "dere_admin";
 $config_hostport = 3306;
-$config_dbname = "ikb";
+$config_dbname = "dere_dev";
 
-$config_loginTable = "kbusers";
+$config_loginTable = "users";
 $config_usernameField = "username";
 $config_emailField = "email";
 $config_usertypeField = "";

@@ -139,15 +139,7 @@
 												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-							{BEGIN deleteselected_link}
-	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
-				
-		Delete selected		
-		</a>
-	</li>
-{END deleteselected_link}
-							<li role="separator" class="divider"></li>							{BEGIN searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
 	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
 				<a  id="showOptPanel{$id}"  title="" >
 				
@@ -333,8 +325,8 @@
 	
 ">
 		 
-		<span data-itemtype="snippet" data-itemid="snippet1" {$item_snippet1} data-pageid="{$pageid}" >
-{$event utilities_snippet}
+		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
+{$event utilities_snippet1}
 </span>		</div>					</div>
 			 
 				<div class="row">
@@ -374,28 +366,21 @@
 					
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_headcell_checkbox}
+									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
-	{$cell_grid_headcell_checkbox}
+	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="utilities_Chat"	
-		data-checkbox-cell
+	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkboxheader_attrs}>
-</span>
-{END checkbox_column}
 	
 	</th>
-	{END cellblock_grid_headcell_checkbox}
+	{END cellblock_grid_headcell_field}
 							</tr>
 															
 					{END grid_header}
@@ -407,29 +392,21 @@
 				
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_cell_checkbox}
+									{BEGIN cellblock_grid_cell_field}
 	<td
 	
-	{$cell_grid_cell_checkbox}
+	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-		data-checkbox-cell
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}
-		>
-</span>	
-{END checkbox_column}
 	
 	</td>
-	{END cellblock_grid_cell_checkbox}
+	{END cellblock_grid_cell_field}
 							</tr>
 										
 											{END grid_row}
@@ -441,21 +418,21 @@
 					
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_footcell_checkbox}
+									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
-	{$cell_grid_footcell_checkbox}
+	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="utilities_Project_Manager"	
 	>
 
 	
 	</td>
-	{END cellblock_grid_footcell_checkbox}
+	{END cellblock_grid_footcell_field}
 							</tr>
 					
 					</tfoot>

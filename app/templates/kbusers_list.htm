@@ -280,6 +280,45 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_email}</span>
 						</div>
 		{END searchCtrlBlock_email}
+																{BEGIN searchCtrlBlock_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_id}" {$filterRow_attrs_id}>
+			<label>{$label kbusers id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_id}</span>
+						</div>
+		{END searchCtrlBlock_id}
+																{BEGIN searchCtrlBlock_reset_date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_reset_date}" {$filterRow_attrs_reset_date}>
+			<label>{$label kbusers reset_date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_reset_date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_reset_date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_reset_date}</span>
+						</div>
+		{END searchCtrlBlock_reset_date}
+																{BEGIN searchCtrlBlock_reset_token}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_reset_token}" {$filterRow_attrs_reset_token}>
+			<label>{$label kbusers reset_token }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_reset_token}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_reset_token}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_reset_token}</span>
+						</div>
+		{END searchCtrlBlock_reset_token}
 																{BEGIN searchCtrlBlock_username}
 
 
@@ -488,6 +527,15 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="username"]:before {
 		content: "{$label kbusers username}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="reset_token"]:before {
+		content: "{$label kbusers reset_token}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="reset_date"]:before {
+		content: "{$label kbusers reset_date}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id"]:before {
+		content: "{$label kbusers id}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -556,7 +604,7 @@
 	 
 		{BEGIN email_fieldheadercolumn}
 	{BEGIN email_fieldheader}
-	<SPAN {$email_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="email" data-fieldname="email">
+	<SPAN {$email_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="email" data-fieldname="email">
 	{$label kbusers email }	{$arrow_icon_email}
 	</SPAN>
 	{END email_fieldheader}
@@ -581,7 +629,7 @@
 	 
 		{BEGIN fullname_fieldheadercolumn}
 	{BEGIN fullname_fieldheader}
-	<SPAN {$fullname_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname">
+	<SPAN {$fullname_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fullname" data-fieldname="fullname">
 	{$label kbusers fullname }	{$arrow_icon_fullname}
 	</SPAN>
 	{END fullname_fieldheader}
@@ -606,7 +654,7 @@
 	 
 		{BEGIN password_fieldheadercolumn}
 	{BEGIN password_fieldheader}
-	<SPAN {$password_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="password" data-fieldname="password">
+	<SPAN {$password_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="password" data-fieldname="password">
 	{$label kbusers password }	{$arrow_icon_password}
 	</SPAN>
 	{END password_fieldheader}
@@ -631,7 +679,7 @@
 	 
 		{BEGIN username_fieldheadercolumn}
 	{BEGIN username_fieldheader}
-	<SPAN {$username_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="username" data-fieldname="username">
+	<SPAN {$username_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="username" data-fieldname="username">
 	{$label kbusers username }	{$arrow_icon_username}
 	</SPAN>
 	{END username_fieldheader}
@@ -640,6 +688,81 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_token_class}	"
+
+			data-field="reset_token"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN reset_token_fieldheadercolumn}
+	{BEGIN reset_token_fieldheader}
+	<SPAN {$reset_token_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_token" data-fieldname="reset_token">
+	{$label kbusers reset_token }	{$arrow_icon_reset_token}
+	</SPAN>
+	{END reset_token_fieldheader}
+{END reset_token_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_date_class}	"
+
+			data-field="reset_date"
+	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN reset_date_fieldheadercolumn}
+	{BEGIN reset_date_fieldheader}
+	<SPAN {$reset_date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_date" data-fieldname="reset_date">
+	{$label kbusers reset_date }	{$arrow_icon_reset_date}
+	</SPAN>
+	{END reset_date_fieldheader}
+{END reset_date_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_class}	"
+
+			data-field="id"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_fieldheadercolumn}
+	{BEGIN id_fieldheader}
+	<SPAN {$id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id" data-fieldname="id">
+	{$label kbusers id }	{$arrow_icon_id}
+	</SPAN>
+	{END id_fieldheader}
+{END id_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
 							</tr>
 															
 					{END grid_header}
@@ -797,6 +920,69 @@
 {END username_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_token_class}	"
+
+			data-field="reset_token"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN reset_token_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_token" data-fieldname="reset_token" data-default-width >
+{$reset_token_value}
+</span>
+{END reset_token_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_date_class}	"
+
+			data-field="reset_date"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN reset_date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reset_date" data-fieldname="reset_date" data-default-width >
+{$reset_date_value}
+</span>
+{END reset_date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_class}	"
+
+			data-field="id"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id" data-fieldname="id" data-default-width >
+{$id_value}
+</span>
+{END id_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
 							</tr>
 										
 											{END grid_row}
@@ -898,6 +1084,51 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field4}
+	<td
+	
+	{$cell_grid_footcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_token_class}	"
+
+	
+	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="kbusers_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field4}
+									{BEGIN cellblock_grid_footcell_field5}
+	<td
+	
+	{$cell_grid_footcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$reset_date_class}	"
+
+	
+	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="kbusers_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_class}	"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="kbusers_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					</tfoot>

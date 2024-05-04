@@ -37,6 +37,15 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelskbusers["English"]["username"] = "Username";
 	$fieldToolTipskbusers["English"]["username"] = "";
 	$placeHolderskbusers["English"]["username"] = "";
+	$fieldLabelskbusers["English"]["reset_token"] = "Reset Token";
+	$fieldToolTipskbusers["English"]["reset_token"] = "";
+	$placeHolderskbusers["English"]["reset_token"] = "";
+	$fieldLabelskbusers["English"]["reset_date"] = "Reset Date";
+	$fieldToolTipskbusers["English"]["reset_date"] = "";
+	$placeHolderskbusers["English"]["reset_date"] = "";
+	$fieldLabelskbusers["English"]["id"] = "Id";
+	$fieldToolTipskbusers["English"]["id"] = "";
+	$placeHolderskbusers["English"]["id"] = "";
 	if (count($fieldToolTipskbusers["English"]))
 		$tdatakbusers[".isUseToolTips"] = true;
 }
@@ -158,6 +167,9 @@ $tdatakbusers[".googleLikeFields"][] = "email";
 $tdatakbusers[".googleLikeFields"][] = "fullname";
 $tdatakbusers[".googleLikeFields"][] = "password";
 $tdatakbusers[".googleLikeFields"][] = "username";
+$tdatakbusers[".googleLikeFields"][] = "reset_token";
+$tdatakbusers[".googleLikeFields"][] = "reset_date";
+$tdatakbusers[".googleLikeFields"][] = "id";
 
 
 
@@ -191,7 +203,7 @@ $tdatakbusers[".strOrderBy"] = $tstrOrderBy;
 $tdatakbusers[".orderindexes"] = array();
 
 
-$tdatakbusers[".sqlHead"] = "SELECT email,  	fullname,  	password,  	username";
+$tdatakbusers[".sqlHead"] = "SELECT email,  	fullname,  	password,  	username,  	reset_token,  	reset_date,  	id";
 $tdatakbusers[".sqlFrom"] = "FROM kbusers";
 $tdatakbusers[".sqlWhereExpr"] = "";
 $tdatakbusers[".sqlTail"] = "";
@@ -787,6 +799,425 @@ $tdatakbusers[".hideMobileList"] = array();
 
 	$tdatakbusers["username"] = $fdata;
 		$tdatakbusers[".searchableFields"][] = "username";
+//	reset_token
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 5;
+	$fdata["strName"] = "reset_token";
+	$fdata["GoodName"] = "reset_token";
+	$fdata["ownerTable"] = "kbusers";
+	$fdata["Label"] = GetFieldLabel("kbusers","reset_token");
+	$fdata["FieldType"] = 201;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "reset_token";
+
+		$fdata["sourceSingle"] = "reset_token";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "reset_token";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text area");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 0;
+
+	
+	
+	
+				$edata["nRows"] = 100;
+			$edata["nCols"] = 200;
+
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+		$edata["CreateThumbnail"] = true;
+	$edata["StrThumbnail"] = "th";
+			$edata["ThumbnailSize"] = 600;
+
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatakbusers["reset_token"] = $fdata;
+		$tdatakbusers[".searchableFields"][] = "reset_token";
+//	reset_date
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 6;
+	$fdata["strName"] = "reset_date";
+	$fdata["GoodName"] = "reset_date";
+	$fdata["ownerTable"] = "kbusers";
+	$fdata["Label"] = GetFieldLabel("kbusers","reset_date");
+	$fdata["FieldType"] = 135;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "reset_date";
+
+		$fdata["sourceSingle"] = "reset_date";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "reset_date";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatakbusers["reset_date"] = $fdata;
+		$tdatakbusers[".searchableFields"][] = "reset_date";
+//	id
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 7;
+	$fdata["strName"] = "id";
+	$fdata["GoodName"] = "id";
+	$fdata["ownerTable"] = "kbusers";
+	$fdata["Label"] = GetFieldLabel("kbusers","id");
+	$fdata["FieldType"] = 3;
+
+
+		$fdata["AutoInc"] = true;
+
+	
+			
+
+		$fdata["strField"] = "id";
+
+		$fdata["sourceSingle"] = "id";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "id";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatakbusers["id"] = $fdata;
+		$tdatakbusers[".searchableFields"][] = "id";
 
 
 $tables_data["kbusers"]=&$tdatakbusers;
@@ -831,7 +1262,7 @@ function createSqlQuery_kbusers()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "email,  	fullname,  	password,  	username";
+$proto0["m_strFieldList"] = "email,  	fullname,  	password,  	username,  	reset_token,  	reset_date,  	id";
 $proto0["m_strFrom"] = "FROM kbusers";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -927,40 +1358,85 @@ $proto12["m_alias"] = "";
 $obj = new SQLFieldListItem($proto12);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto14=array();
-$proto14["m_link"] = "SQLL_MAIN";
-			$proto15=array();
-$proto15["m_strName"] = "kbusers";
-$proto15["m_srcTableName"] = "kbusers";
-$proto15["m_columns"] = array();
-$proto15["m_columns"][] = "email";
-$proto15["m_columns"][] = "fullname";
-$proto15["m_columns"][] = "password";
-$proto15["m_columns"][] = "username";
-$obj = new SQLTable($proto15);
+						$proto14=array();
+			$obj = new SQLField(array(
+	"m_strName" => "reset_token",
+	"m_strTable" => "kbusers",
+	"m_srcTableName" => "kbusers"
+));
 
-$proto14["m_table"] = $obj;
-$proto14["m_sql"] = "kbusers";
-$proto14["m_alias"] = "";
+$proto14["m_sql"] = "reset_token";
 $proto14["m_srcTableName"] = "kbusers";
-$proto16=array();
-$proto16["m_sql"] = "";
-$proto16["m_uniontype"] = "SQLL_UNKNOWN";
+$proto14["m_expr"]=$obj;
+$proto14["m_alias"] = "";
+$obj = new SQLFieldListItem($proto14);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto16=array();
+			$obj = new SQLField(array(
+	"m_strName" => "reset_date",
+	"m_strTable" => "kbusers",
+	"m_srcTableName" => "kbusers"
+));
+
+$proto16["m_sql"] = "reset_date";
+$proto16["m_srcTableName"] = "kbusers";
+$proto16["m_expr"]=$obj;
+$proto16["m_alias"] = "";
+$obj = new SQLFieldListItem($proto16);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto18=array();
+			$obj = new SQLField(array(
+	"m_strName" => "id",
+	"m_strTable" => "kbusers",
+	"m_srcTableName" => "kbusers"
+));
+
+$proto18["m_sql"] = "id";
+$proto18["m_srcTableName"] = "kbusers";
+$proto18["m_expr"]=$obj;
+$proto18["m_alias"] = "";
+$obj = new SQLFieldListItem($proto18);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto20=array();
+$proto20["m_link"] = "SQLL_MAIN";
+			$proto21=array();
+$proto21["m_strName"] = "kbusers";
+$proto21["m_srcTableName"] = "kbusers";
+$proto21["m_columns"] = array();
+$proto21["m_columns"][] = "email";
+$proto21["m_columns"][] = "fullname";
+$proto21["m_columns"][] = "password";
+$proto21["m_columns"][] = "username";
+$proto21["m_columns"][] = "reset_token";
+$proto21["m_columns"][] = "reset_date";
+$proto21["m_columns"][] = "id";
+$obj = new SQLTable($proto21);
+
+$proto20["m_table"] = $obj;
+$proto20["m_sql"] = "kbusers";
+$proto20["m_alias"] = "";
+$proto20["m_srcTableName"] = "kbusers";
+$proto22=array();
+$proto22["m_sql"] = "";
+$proto22["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto16["m_column"]=$obj;
-$proto16["m_contained"] = array();
-$proto16["m_strCase"] = "";
-$proto16["m_havingmode"] = false;
-$proto16["m_inBrackets"] = false;
-$proto16["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto16);
+$proto22["m_column"]=$obj;
+$proto22["m_contained"] = array();
+$proto22["m_strCase"] = "";
+$proto22["m_havingmode"] = false;
+$proto22["m_inBrackets"] = false;
+$proto22["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto22);
 
-$proto14["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto14);
+$proto20["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto20);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -976,7 +1452,7 @@ $queryData_kbusers = createSqlQuery_kbusers();
 	
 																								;
 
-				
+							
 
 $tdatakbusers[".sqlquery"] = $queryData_kbusers;
 

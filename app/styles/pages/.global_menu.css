@@ -21,9 +21,6 @@
   background-color: transparent;
   page-break-before: always;
 }
-[data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"] {
-  background-color: transparent;
-}
 [data-cellid="grid_c22"][data-page=".global_menu"][data-cellid="grid_c22"][data-page=".global_menu"][data-cellid="grid_c22"][data-page=".global_menu"] {
   background-color: transparent;
   page-break-before: always;
@@ -34,6 +31,26 @@
 [data-cellid="grid_c25"][data-page=".global_menu"][data-cellid="grid_c25"][data-page=".global_menu"][data-cellid="grid_c25"][data-page=".global_menu"] {
   background-color: transparent;
   page-break-before: always;
+}
+[data-cellid="grid_c5"][data-page=".global_menu"][data-cellid="grid_c5"][data-page=".global_menu"][data-cellid="grid_c5"][data-page=".global_menu"] {
+  background-color: transparent;
+}
+[data-cellid="grid_c6"][data-page=".global_menu"][data-cellid="grid_c6"][data-page=".global_menu"][data-cellid="grid_c6"][data-page=".global_menu"] {
+  background-color: transparent;
+}
+[data-cellid="grid_c14"][data-page=".global_menu"][data-cellid="grid_c14"][data-page=".global_menu"][data-cellid="grid_c14"][data-page=".global_menu"] {
+  background-color: transparent;
+}
+[data-cellid="grid_c26"][data-page=".global_menu"][data-cellid="grid_c26"][data-page=".global_menu"][data-cellid="grid_c26"][data-page=".global_menu"] {
+  background-color: transparent;
+  page-break-before: always;
+}
+[data-cellid="grid_c15"][data-page=".global_menu"][data-cellid="grid_c15"][data-page=".global_menu"][data-cellid="grid_c15"][data-page=".global_menu"] {
+  background-color: transparent;
+  page-break-before: always;
+}
+[data-cellid="grid_c20"][data-page=".global_menu"][data-cellid="grid_c20"][data-page=".global_menu"][data-cellid="grid_c20"][data-page=".global_menu"] {
+  page-break-after: always;
 }
 [data-page=".global_menu"][data-itemid="image"] {
   width: 47px;
@@ -247,7 +264,7 @@
   background-color: #CD5C5C;
 }
 [data-page=".global_menu"][data-itemid="welcome_item58"] > .bs-welcome-header {
-  background-color: #CD5C5C;
+  background-color: #ffac00;
 }
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;

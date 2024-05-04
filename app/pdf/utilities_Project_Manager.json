@@ -32,7 +32,7 @@ pdfDocument = {
 		{END embedded_grid_caption}
 		{BEGIN embedded_page_title}
 			{
-				text: '{$jspagetitlelabel utilities list}',
+				text: '{$jspagetitlelabel utilities Project_Manager}',
 			},
 		{END embedded_page_title}		
 		{ 
@@ -113,66 +113,43 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c1',
+	cellId: 'c',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
 	
 			"text": [
 		
-				
-			{"text":"All In One Utilities","hidden":"{$item_hide_text}","isHtml":true},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																							{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"Displaying %first% - %last% of %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
-				
-				
-			{"text":"","hidden":"{$item_hide_page_size}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_print_panel}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'right',
      
       
       },
 
-											],
+																		{ 
+				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
 						[
 																{
-	cellId: 'c9',
+	cellId: 'c3',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
@@ -180,7 +157,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$event utilities_snippet}","hidden":"{$item_hide_snippet}","isHtml":true},
+			{"text":"{$event utilities_snippet1}","hidden":"{$item_hide_snippet}","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -189,30 +166,13 @@ pdfDocument = {
       
       },
 
-																							{
-	cellId: 'c10',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"{$event utilities_snippet1}","hidden":"{$item_hide_snippet1}","isHtml":true},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-											],
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c4',
@@ -227,12 +187,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"{$event utilities_snippet3}","hidden":"{$item_hide_snippet3}","isHtml":true},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'left',
      
       
       },
@@ -250,77 +208,15 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"{$event utilities_snippet2}","hidden":"{$item_hide_snippet2}","isHtml":true},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'center',
+              "alignment": 'right',
      
       
       },
 
 											],
-						[
-																{
-	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c7',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c7',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
 		
 		]
 	}
@@ -336,9 +232,9 @@ pdfDocument = {
 				
 				{BEGIN row_grid_0}
 				[
-																{BEGIN cellblock_grid_headcell_checkbox}
+																{BEGIN cellblock_grid_headcell_field}
 {
-	cellId: 'headcell_checkbox',
+	cellId: 'headcell_field',
 	col:0,
 	row:0,
 				style: 'headcell',
@@ -353,17 +249,15 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox_head}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
      
       
       },
 
-{END cellblock_grid_headcell_checkbox}
+{END cellblock_grid_headcell_field}
 											],
 				{END row_grid_0}
 		
@@ -373,9 +267,9 @@ pdfDocument = {
 				
 				{BEGIN row_grid_1}
 				[
-																{BEGIN cellblock_grid_cell_checkbox}
+																{BEGIN cellblock_grid_cell_field}
 {
-	cellId: 'cell_checkbox',
+	cellId: 'cell_field',
 	col:0,
 	row:0,
 				style: 'bodycell',
@@ -390,17 +284,15 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
      
       
       },
 
-{END cellblock_grid_cell_checkbox}
+{END cellblock_grid_cell_field}
 											],
 				{END row_grid_1}
 		
@@ -410,9 +302,9 @@ pdfDocument = {
 					
 				{BEGIN row_grid_2}
 				[
-																{BEGIN cellblock_grid_footcell_checkbox}
+																{BEGIN cellblock_grid_footcell_field}
 {
-	cellId: 'footcell_checkbox',
+	cellId: 'footcell_field',
 	col:0,
 	row:0,
 				style: 'footcell',
@@ -435,7 +327,7 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_footcell_checkbox}
+{END cellblock_grid_footcell_field}
 											],
 				{END row_grid_2}
 		

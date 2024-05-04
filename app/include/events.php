@@ -37,6 +37,9 @@ class class_GlobalEvents extends eventsBase
 		$this->events["_global__snippet1"] = true;
 		$this->events["dashboard_pages_snippet"] = true;
 		$this->events["utilities_snippet"] = true;
+		$this->events["utilities_snippet1"] = true;
+		$this->events["utilities_snippet2"] = true;
+		$this->events["utilities_snippet3"] = true;
 
 
 
@@ -165,13 +168,61 @@ you to the file.
 }
 	function event_utilities_snippet(&$params)
 	{
-	echo '<IFRAME SRC="./modules/chat/chat_history_add.php" WIDTH=100% HEIGHT=700px>
+	echo '<IFRAME SRC="./modules/chat/chat_history_add.php" WIDTH=100% HEIGHT=900px>
 
 If you can see this, your browser does not
 
 understand IFRAME. However, we willl still
 
 <A HREF="../test.php">link</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_utilities_snippet1(&$params)
+	{
+	echo '<IFRAME SRC="./modules/todolist/todoboards_list.php" WIDTH=100% HEIGHT=900px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_utilities_snippet2(&$params)
+	{
+	echo '<IFRAME SRC="./modules/docmanager/doc_files_list.php" WIDTH=100% HEIGHT=900px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_utilities_snippet3(&$params)
+	{
+	echo '<IFRAME SRC="./modules/knowledgebase/main_list.php" WIDTH=100% HEIGHT=900px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
 
 you to the file.
 

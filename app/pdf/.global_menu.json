@@ -43,6 +43,38 @@ pdfDocument = {
 				
 				[
 																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":{$pdf_image images/dereja.png 47 47},"hidden":"{$item_hide_image}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
 	cellId: 'c',
 	col:0,
 	row:0,
@@ -55,10 +87,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":{$pdf_image images/dereja.png 47 47},"hidden":"{$item_hide_image}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'right',
      
@@ -152,6 +182,33 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -201,6 +258,7 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
+					rowSpan: 3,
 			
 	
 	
@@ -232,9 +290,6 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_welcome_group2}","bold":true},
 				
-				
-			{"text":"","hidden":"{$item_hide_welcome_group5}"},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
@@ -250,6 +305,7 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
+					rowSpan: 3,
 			
 	
 	
@@ -266,6 +322,78 @@ pdfDocument = {
       },
 
 											],
+						[
+											{ 
+				cellId: 'c10',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c30',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c27',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c10',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c29',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group5}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c27',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c3',
@@ -305,7 +433,7 @@ pdfDocument = {
 							],
 						[
 																{
-	cellId: 'c16',
+	cellId: 'c18',
 	col:0,
 	row:0,
 			
@@ -321,19 +449,19 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'left',
+              "alignment": 'left',
      
       
       },
 
 																		{ 
-				cellId: 'c16',
+				cellId: 'c18',
 				row:  0,
 				col:  1,
 				text: ''
 			},
 														{ 
-				cellId: 'c16',
+				cellId: 'c18',
 				row:  0,
 				col:  2,
 				text: ''
@@ -378,6 +506,43 @@ pdfDocument = {
 							],
 						[
 																{
+	cellId: 'c20',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 3,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+         "pageBreak": 'after',
+   
+      },
+
+																		{ 
+				cellId: 'c20',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c20',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+						[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
@@ -385,7 +550,7 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
-					rowSpan: 3,
+					rowSpan: 5,
 			
 	
 	
@@ -440,6 +605,42 @@ pdfDocument = {
 				text: ''
 			},
 																			{
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c15',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c1',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+																			{
 	cellId: 'c22',
 	col:0,
 	row:0,
@@ -458,7 +659,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -473,7 +674,43 @@ pdfDocument = {
 						[
 											{ 
 				cellId: 'c1',
-				row:  2,
+				row:  3,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c26',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'right',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c26',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c1',
+				row:  4,
 				col:  0,
 				text: ''
 			},
@@ -626,6 +863,7 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
+					rowSpan: 4,
 			
 	
 	
@@ -656,7 +894,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_welcome_group8}"},
+			{"text":"","hidden":"{$item_hide_welcome_group10}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -667,6 +905,167 @@ pdfDocument = {
 
 																		{ 
 				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c11',
+				row:  1,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c14',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c11',
+				row:  2,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_welcome_group8}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c5',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+											{ 
+				cellId: 'c11',
+				row:  3,
+				col:  0,
+				text: ''
+			},
+																			{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c6',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c12',
 				row:  0,
 				col:  1,
 				text: ''
@@ -723,10 +1122,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","background":"#CD5C5C","hidden":"{$item_hide_welcome_item58}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      

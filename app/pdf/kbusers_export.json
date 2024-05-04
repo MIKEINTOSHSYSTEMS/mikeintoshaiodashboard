@@ -117,6 +117,15 @@ pdfDocument = {
 				
 			{"text":{$username_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
+				
+			{"text":{$reset_token_pdfvalue},"hidden":"{$item_hide_export_field4}"},
+				
+				
+			{"text":{$reset_date_pdfvalue},"hidden":"{$item_hide_export_field5}"},
+				
+				
+			{"text":{$id_pdfvalue},"hidden":"{$item_hide_export_field6}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
