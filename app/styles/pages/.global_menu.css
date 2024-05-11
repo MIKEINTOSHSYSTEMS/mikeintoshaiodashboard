@@ -271,6 +271,12 @@
 [data-page=".global_menu"][data-itemid="welcome_item58"] > .bs-welcome-header {
   background-color: #ffac00;
 }
+[data-page=".global_menu"][data-itemid="welcome_item69"] > .bs-welcome-header {
+  background-color: #7B68EE;
+}
+[data-page=".global_menu"][data-itemid="welcome_item70"] > .bs-welcome-header {
+  background-color: #EDCA00;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

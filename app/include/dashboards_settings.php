@@ -6,9 +6,9 @@ $tdatadashboards[".OwnerID"] = "";
 $tdatadashboards[".OriginalTable"] = "dashboards";
 
 
-$tdatadashboards[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"AIO_Dashboard\",\"Candidates_Dashboard_Data\",\"Employment_Tracking_Dashboard\",\"Events_Participant_Dashboard\",\"Forms_Management\",\"Trainings_Participant_Dashboard\",\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatadashboards[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"AIO_Dashboard\",\"AIO_Indicators_Aggregated\",\"Candidates_Dashboard_Data\",\"Employment_Tracking_Dashboard\",\"Events_Participant_Dashboard\",\"Forms_Management\",\"Trainings_Participant_Dashboard\",\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatadashboards[".originalPagesByType"] = $tdatadashboards[".pagesByType"];
-$tdatadashboards[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"AIO_Dashboard\",\"Candidates_Dashboard_Data\",\"Employment_Tracking_Dashboard\",\"Events_Participant_Dashboard\",\"Forms_Management\",\"Trainings_Participant_Dashboard\",\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatadashboards[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"AIO_Dashboard\",\"AIO_Indicators_Aggregated\",\"Candidates_Dashboard_Data\",\"Employment_Tracking_Dashboard\",\"Events_Participant_Dashboard\",\"Forms_Management\",\"Trainings_Participant_Dashboard\",\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatadashboards[".originalPages"] = $tdatadashboards[".pages"];
 $tdatadashboards[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"AIO_Dashboard\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatadashboards[".originalDefaultPages"] = $tdatadashboards[".defaultPages"];

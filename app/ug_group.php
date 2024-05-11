@@ -82,6 +82,7 @@ $nonAdminTablesArr[] = "candidates_reports";
 $nonAdminTablesArr[] = "candidates_by_gender";
 $nonAdminTablesArr[] = "users";
 $nonAdminTablesArr[] = "utilities";
+$nonAdminTablesArr[] = "candidates_aggrigated";
 
 $ug_connection = $cman->getForUserGroups();
 

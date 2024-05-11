@@ -388,7 +388,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'left',
      
       
       },
@@ -561,7 +561,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -635,7 +635,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -709,7 +709,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -874,7 +874,7 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },
@@ -943,12 +943,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_welcome_group8}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'left',
      
       
       },
@@ -981,10 +979,12 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"","hidden":"{$item_hide_welcome_group8}"},
+				
+		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'center',
+      fillColor: "" ,        "alignment": 'right',
      
       
       },

@@ -1,0 +1,417 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel candidates_aggrigated search}","hidden":"{$item_hide_search_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						"*", 
+							{END col_grid_0}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
+				
+				
+			{"text":{$Disability_Status_pdfvalue},"hidden":"{$item_hide_integrated_search_field15}"},
+				
+				
+			{"text":{$Age_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
+				
+				
+			{"text":{$candidates_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
+				
+				
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
+				
+				
+			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
+				
+				
+			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
+				
+				
+			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
+				
+				
+			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
+				
+				
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
+				
+				
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
+				
+				
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_integrated_search_field10}"},
+				
+				
+			{"text":{$Sub_City_pdfvalue},"hidden":"{$item_hide_integrated_search_field11}"},
+				
+				
+			{"text":{$Zone_pdfvalue},"hidden":"{$item_hide_integrated_search_field12}"},
+				
+				
+			{"text":{$House_No_pdfvalue},"hidden":"{$item_hide_integrated_search_field13}"},
+				
+				
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_integrated_search_field14}"},
+				
+				
+			{"text":{$Phone_Number_Alternate_pdfvalue},"hidden":"{$item_hide_integrated_search_field16}"},
+				
+				
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_integrated_search_field17}"},
+				
+				
+			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field18}"},
+				
+				
+			{"text":{$Disability_Type_Other_pdfvalue},"hidden":"{$item_hide_integrated_search_field19}"},
+				
+				
+			{"text":{$Institution_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field20}"},
+				
+				
+			{"text":{$Institution_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field21}"},
+				
+				
+			{"text":{$Education_Level_pdfvalue},"hidden":"{$item_hide_integrated_search_field22}"},
+				
+				
+			{"text":{$Department_pdfvalue},"hidden":"{$item_hide_integrated_search_field23}"},
+				
+				
+			{"text":{$Minor_pdfvalue},"hidden":"{$item_hide_integrated_search_field24}"},
+				
+				
+			{"text":{$Major_pdfvalue},"hidden":"{$item_hide_integrated_search_field25}"},
+				
+				
+			{"text":{$Enrollement_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field26}"},
+				
+				
+			{"text":{$Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field27}"},
+				
+				
+			{"text":{$Languages_pdfvalue},"hidden":"{$item_hide_integrated_search_field28}"},
+				
+				
+			{"text":{$English_Proficiency_Level_pdfvalue},"hidden":"{$item_hide_integrated_search_field29}"},
+				
+				
+			{"text":{$Industry_Specific_Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field30}"},
+				
+				
+			{"text":{$IT_Related_Skills_pdfvalue},"hidden":"{$item_hide_integrated_search_field31}"},
+				
+				
+			{"text":{$Certifications_pdfvalue},"hidden":"{$item_hide_integrated_search_field32}"},
+				
+				
+			{"text":{$Year_of_graduation_pdfvalue},"hidden":"{$item_hide_integrated_search_field33}"},
+				
+				
+			{"text":{$Field_Of_Study_pdfvalue},"hidden":"{$item_hide_integrated_search_field34}"},
+				
+				
+			{"text":{$GPA_pdfvalue},"hidden":"{$item_hide_integrated_search_field35}"},
+				
+				
+			{"text":{$Intervention_pdfvalue},"hidden":"{$item_hide_integrated_search_field36}"},
+				
+				
+			{"text":{$Campaign_pdfvalue},"hidden":"{$item_hide_integrated_search_field37}"},
+				
+				
+			{"text":{$Attend_Employability_Skill_pdfvalue},"hidden":"{$item_hide_integrated_search_field38}"},
+				
+				
+			{"text":{$DAAP_enrolled_1st_Round_pdfvalue},"hidden":"{$item_hide_integrated_search_field39}"},
+				
+				
+			{"text":{$DAAP_Completed_pdfvalue},"hidden":"{$item_hide_integrated_search_field40}"},
+				
+				
+			{"text":{$DAAP_Completed_Courses_pdfvalue},"hidden":"{$item_hide_integrated_search_field41}"},
+				
+				
+			{"text":{$Job_Fair_Clinic_pdfvalue},"hidden":"{$item_hide_integrated_search_field42}"},
+				
+				
+			{"text":{$Job_Fair_pdfvalue},"hidden":"{$item_hide_integrated_search_field43}"},
+				
+				
+			{"text":{$Exit_Exam_Score_pdfvalue},"hidden":"{$item_hide_integrated_search_field44}"},
+				
+				
+			{"text":{$Exit_Exam_Status_pdfvalue},"hidden":"{$item_hide_integrated_search_field45}"},
+				
+				
+			{"text":{$DAAP_enrolled_2nd_Round_pdfvalue},"hidden":"{$item_hide_integrated_search_field46}"},
+				
+				
+			{"text":{$Upload_on_Tracker_pdfvalue},"hidden":"{$item_hide_integrated_search_field47}"},
+				
+				
+			{"text":{$Work_Experience_pdfvalue},"hidden":"{$item_hide_integrated_search_field48}"},
+				
+				
+			{"text":{$Joined_Dereja_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field49}"},
+				
+				
+			{"text":{$Dereja_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field50}"},
+				
+				
+			{"text":{$Dereja_Training_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field51}"},
+				
+				
+			{"text":{$Dereja_Event_Services_pdfvalue},"hidden":"{$item_hide_integrated_search_field52}"},
+				
+				
+			{"text":{$Dereja_web_profile_completion_pdfvalue},"hidden":"{$item_hide_integrated_search_field53}"},
+				
+				
+			{"text":{$Dereja_Information_Source_pdfvalue},"hidden":"{$item_hide_integrated_search_field54}"},
+				
+				
+			{"text":{$Employment_Status_pdfvalue},"hidden":"{$item_hide_integrated_search_field55}"},
+				
+				
+			{"text":{$Employment_Company_pdfvalue},"hidden":"{$item_hide_integrated_search_field56}"},
+				
+				
+			{"text":{$Employment_Position_pdfvalue},"hidden":"{$item_hide_integrated_search_field57}"},
+				
+				
+			{"text":{$Remark_pdfvalue},"hidden":"{$item_hide_integrated_search_field58}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+											],
+				{END row_grid_0}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":""},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_search_cancel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+}
+  

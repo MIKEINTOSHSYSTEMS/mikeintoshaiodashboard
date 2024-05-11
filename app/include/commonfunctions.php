@@ -337,6 +337,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("utilities" == $shortTName )
 		return true;
+	if ("candidates_aggrigated" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -990,6 +992,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="utilities";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_aggrigated");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_aggrigated";
+	}
 	return $arr;
 }
 
@@ -1066,6 +1077,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="users";
 	$arr[]="admin_users";
 	$arr[]="utilities";
+	$arr[]="candidates_aggrigated";
 	return $arr;
 }
 
@@ -2034,6 +2046,11 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="utilities" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidates_aggrigated" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

@@ -676,6 +676,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="candidates_aggrigated")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1303,6 +1307,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="utilities")
+		{
+			return false;
+		}
+		if($table=="candidates_aggrigated")
 		{
 			return false;
 		}

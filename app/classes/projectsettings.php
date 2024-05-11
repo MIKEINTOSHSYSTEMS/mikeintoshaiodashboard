@@ -3644,6 +3644,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "admin_users" ] = "admin_users";
 	$projectEntities[ "utilities" ] = array( "url" => "utilities", "type" => 0 );
 	$projectEntitiesReverse[ "utilities" ] = "utilities";
+	$projectEntities[ "candidates_aggrigated" ] = array( "url" => "candidates_aggrigated", "type" => 1 );
+	$projectEntitiesReverse[ "candidates_aggrigated" ] = "candidates_aggrigated";
 }
 
 function findTable( $table ) {
