@@ -691,7 +691,7 @@ $globalSettings["CaptchaSettings"]["captchaPassesCount"] = "5";
 
 
 
-$bsProjectTheme = "simplex";
+$bsProjectTheme = "lumen";
 $bsProjectSize = "normal";
 
 $wr_pagestylepath = "OfficeOffice";
@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "256_1714835670";
+$projectBuildKey = "258_1714835670";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "256";
+$projectBuildNumber = "258";
 
 $mlang_messages = array();
 $mlang_charsets = array();

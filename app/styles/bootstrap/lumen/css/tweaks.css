@@ -1,0 +1,5 @@
+/* icon underlines */
+
+.glyphicon.glyphicon:not(:hover) {
+	text-decoration: none;
+}
