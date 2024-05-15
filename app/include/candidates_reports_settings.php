@@ -294,7 +294,7 @@ $tdatacandidates_reports[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_reports[".ajaxCodeSnippetAdded"] = false;
 
@@ -306,7 +306,7 @@ $tdatacandidates_reports[".addPageEvents"] = false;
 $tdatacandidates_reports[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidates_reports[".badgeColor"] = "3CB371";
+$tdatacandidates_reports[".badgeColor"] = "3cb371";
 
 
 $tdatacandidates_reports[".allSearchFields"] = array();
@@ -9467,6 +9467,24 @@ $masterTablesData["candidates_reports"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["candidates_reports"][0] = $masterParams;
+				$masterTablesData["candidates_reports"][0]["masterKeys"] = array();
+	$masterTablesData["candidates_reports"][0]["masterKeys"][]="CandidateID";
+				$masterTablesData["candidates_reports"][0]["detailKeys"] = array();
+	$masterTablesData["candidates_reports"][0]["detailKeys"][]="CandidateID";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

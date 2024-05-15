@@ -9293,6 +9293,96 @@ $detailsTablesData["candidates"] = array();
 				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+//	candidates_by_gender
+	
+	
+
+		$dIndex = 10;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="candidates_by_gender";
+		$detailsParam["dOriginalTable"] = "candidates";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "candidates_by_gender";
+	$detailsParam["dCaptionTable"] = GetTableCaption("candidates_by_gender");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="Sex";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="Sex";
+//	candidates_reports
+	
+	
+
+		$dIndex = 11;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="candidates_reports";
+		$detailsParam["dOriginalTable"] = "candidates";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "candidates_reports";
+	$detailsParam["dCaptionTable"] = GetTableCaption("candidates_reports");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+//	candidates_by_region
+	
+	
+
+		$dIndex = 12;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="candidates_by_region";
+		$detailsParam["dOriginalTable"] = "candidates";
+
+
+
+			$detailsParam["dType"]=PAGE_CHART;
+
+		$detailsParam["dShortTable"] = "candidates_by_region";
+	$detailsParam["dCaptionTable"] = GetTableCaption("candidates_by_region");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
 //endif
 
 // tables which are master tables for current table (detail)

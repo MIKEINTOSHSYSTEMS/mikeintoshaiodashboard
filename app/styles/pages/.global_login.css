@@ -1,9 +1,6 @@
 [data-cellid="top_c3"][data-page=".global_login"][data-cellid="top_c3"][data-page=".global_login"][data-cellid="top_c3"][data-page=".global_login"] {
   font-weight: bold;
 }
-[data-page=".global_login"][data-itemid="login-logo"] {
-  font-size: 24px;
-}
 [data-page=".global_login"][data-itemid="login_welcome"] {
   font-weight: bold;
   font-size: 22px;
@@ -11,14 +8,15 @@
 [data-page=".global_login"][data-itemid="text"] {
   color: #ff0007;
   font-weight: bold;
-  font-size: 22px;
-}
-[data-page=".global_login"][data-itemid="image"] {
-  width: 100px;
-  height: 100px;
+  font-size: 27px;
 }
 [data-page=".global_login"][data-itemid="text1"] {
   color: #8e8d8d;
+}
+[data-page=".global_login"][data-itemid="text5"] {
+  color: #ff7e00;
+  font-weight: bold;
+  font-size: 27px;
 }
 
 

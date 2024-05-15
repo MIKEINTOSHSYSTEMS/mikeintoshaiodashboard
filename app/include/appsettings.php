@@ -619,7 +619,7 @@ $globalSettings["LandingURL"] = "login.php?page=login";
 $globalSettings["LandingPageId"] = "login";
 
 $globalSettings["ProjectLogo"] = array();
-$globalSettings["ProjectLogo"]["English"] = "<p><a href=\"./menu.php\" title=\"Dereja M&amp;E System\"><img src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\">M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>";
+$globalSettings["ProjectLogo"]["English"] = "<p><img src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\"> M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></p>";
 
 $globalSettings["CookieBanner"] = array();
 
@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "265_1715438160";
+$projectBuildKey = "276_1715438160";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "265";
+$projectBuildNumber = "276";
 
 $mlang_messages = array();
 $mlang_charsets = array();

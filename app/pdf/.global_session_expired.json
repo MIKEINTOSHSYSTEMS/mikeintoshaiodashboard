@@ -54,10 +54,56 @@ pdfDocument = {
 	
 			"stack": [
 		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
 				
-			{"text":{$pdf_image images/dereja.png undefined 0},"hidden":"{$item_hide_image}"},
+			{"text":"<p class=\"ql-align-center\"><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><img width=\"143\" height=\"54\" alt=\"Dereja M&amp;E System\" src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\"></strong></a></p><p class=\"ql-align-center\"><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>M</u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>&amp;</u></strong></a><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>E</u></strong></a><a href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u> </u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>System</u></strong></a></p><p><br></p>","hidden":"{$item_hide_text}","isHtml":true},
 				
 		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
      

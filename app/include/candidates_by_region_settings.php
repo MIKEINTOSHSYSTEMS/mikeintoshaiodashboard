@@ -294,7 +294,7 @@ $tdatacandidates_by_region[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_by_region[".ajaxCodeSnippetAdded"] = false;
 
@@ -306,7 +306,7 @@ $tdatacandidates_by_region[".addPageEvents"] = false;
 $tdatacandidates_by_region[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidates_by_region[".badgeColor"] = "008B8B";
+$tdatacandidates_by_region[".badgeColor"] = "008b8b";
 
 
 $tdatacandidates_by_region[".allSearchFields"] = array();
@@ -9463,6 +9463,24 @@ $masterTablesData["candidates_by_region"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["candidates_by_region"][0] = $masterParams;
+				$masterTablesData["candidates_by_region"][0]["masterKeys"] = array();
+	$masterTablesData["candidates_by_region"][0]["masterKeys"][]="CandidateID";
+				$masterTablesData["candidates_by_region"][0]["detailKeys"] = array();
+	$masterTablesData["candidates_by_region"][0]["detailKeys"][]="CandidateID";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

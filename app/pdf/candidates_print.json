@@ -3755,6 +3755,21 @@ pdfDocument = {
 			{$displayDetailTable_undefined }
 		{END details_undefined},
 				
+				
+			 {BEGIN details_candidates_by_gender}
+			{$displayDetailTable_candidates_by_gender }
+		{END details_candidates_by_gender},
+				
+				
+			 {BEGIN details_candidates_reports}
+			{$displayDetailTable_candidates_reports }
+		{END details_candidates_reports},
+				
+				
+			 {BEGIN details_candidates_by_region}
+			{$displayDetailTable_candidates_by_region }
+		{END details_candidates_by_region},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

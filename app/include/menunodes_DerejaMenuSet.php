@@ -33,32 +33,6 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "2";
-	$menuNode["name"] = "Indicators";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "dashboards";
-	$menuNode["style"] = "";
-	$menuNode["params"] = "";
-	$menuNode["parent"] = "0";
-	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("List");//
-	$menuNode["pageId"] = "AIO_Indicators_Aggregated";
-	$menuNode["openType"] = "None";
-
-	$menuNode["icon"] = "fa-info";
-	$menuNode["iconType"] = "3";
-	$menuNode["iconShow"] = "1";
-
-		$menuNode["color"] = "";
-
-	$menuNode["title"] = "Indicators";
-
-
-
-	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
-	$menuNode = array();
-	$menuNode["id"] = "3";
 	$menuNode["name"] = "Dashboards";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
@@ -84,14 +58,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "4";
-	$menuNode["name"] = "AIO Reporting Data Grid";
+	$menuNode["id"] = "3";
+	$menuNode["name"] = "Reporting Data Grid";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "AIO_Reporting_Dashboard";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "3";
+	$menuNode["parent"] = "2";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("Dashboard");//
@@ -104,7 +78,33 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "AIO Reporting Data Grid";
+	$menuNode["title"] = "Reporting Data Grid";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "4";
+	$menuNode["name"] = "Indicators";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "dashboards";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "2";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "AIO_Indicators_Aggregated";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-info";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Indicators";
 
 
 
@@ -117,7 +117,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "3";
+	$menuNode["parent"] = "2";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -247,7 +247,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "3";
+	$menuNode["parent"] = "2";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -351,7 +351,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "3";
+	$menuNode["parent"] = "2";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -455,7 +455,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "3";
+	$menuNode["parent"] = "2";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//

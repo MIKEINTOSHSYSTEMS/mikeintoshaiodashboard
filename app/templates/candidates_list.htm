@@ -1352,7 +1352,28 @@
 					Regions				</label>
 			</div>
 			{END print_details_regions}
-																						</div>
+																														{BEGIN print_details_candidates_by_gender}
+			<div>
+				<label for="printDetailscandidates_by_gender{$id}">
+					<input type="checkbox" value="candidates_by_gender" id="printDetailscandidates_by_gender{$id}" checked>
+					Candidates By Gender				</label>
+			</div>
+			{END print_details_candidates_by_gender}
+														{BEGIN print_details_candidates_reports}
+			<div>
+				<label for="printDetailscandidates_reports{$id}">
+					<input type="checkbox" value="candidates_reports" id="printDetailscandidates_reports{$id}" checked>
+					Candidates Reports				</label>
+			</div>
+			{END print_details_candidates_reports}
+														{BEGIN print_details_candidates_by_region}
+			<div>
+				<label for="printDetailscandidates_by_region{$id}">
+					<input type="checkbox" value="candidates_by_region" id="printDetailscandidates_by_region{$id}" checked>
+					Candidates By Region				</label>
+			</div>
+			{END print_details_candidates_by_region}
+						</div>
 </div>
 {END print_details}
 				 
@@ -3337,6 +3358,63 @@
 	{END _dtable_link}
 
 
+	 
+		
+		
+	{BEGIN candidates_by_gender_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link8" {$item_grid_details_link8} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidates_by_gender_link_attrs} data-short-details="candidates_by_gender"
+		class="{$candidates_by_gender_dlink_class}" 
+		title="{$caption candidates_by_gender }"			>
+								
+									{BEGIN candidates_by_gender_childcount}
+				<span class="details-badge badge candidates_by_gender_badge" {$candidates_by_gender_childnumber_attr}>
+					{$candidates_by_gender_childnumber}				
+				</span>
+				{END candidates_by_gender_childcount}
+						</a>
+	</span>
+	{END candidates_by_gender_dtable_link}
+
+
+	 
+		
+		
+	{BEGIN candidates_reports_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link9" {$item_grid_details_link9} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidates_reports_link_attrs} data-short-details="candidates_reports"
+		class="{$candidates_reports_dlink_class}" 
+		title="{$caption candidates_reports }"			>
+								
+									{BEGIN candidates_reports_childcount}
+				<span class="details-badge badge candidates_reports_badge" {$candidates_reports_childnumber_attr}>
+					{$candidates_reports_childnumber}				
+				</span>
+				{END candidates_reports_childcount}
+						</a>
+	</span>
+	{END candidates_reports_dtable_link}
+
+
+	 
+		
+		
+	{BEGIN candidates_by_region_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link10" {$item_grid_details_link10} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidates_by_region_link_attrs} data-short-details="candidates_by_region"
+		class="{$candidates_by_region_dlink_class}" 
+		title="{$caption candidates_by_region }"			>
+								
+									{BEGIN candidates_by_region_childcount}
+				<span class="details-badge badge candidates_by_region_badge" {$candidates_by_region_childnumber_attr}>
+					{$candidates_by_region_childnumber}				
+				</span>
+				{END candidates_by_region_childcount}
+						</a>
+	</span>
+	{END candidates_by_region_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -4554,9 +4632,9 @@
 	>
 
 	 
-												<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view,regions,,"
-			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view			data-details-regions			data-details-			data-details-	>
+															<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view,regions,,,candidates_by_gender,candidates_reports,candidates_by_region"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view			data-details-regions			data-details-			data-details-			data-details-candidates_by_gender			data-details-candidates_reports			data-details-candidates_by_region	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
@@ -4577,10 +4655,19 @@
 			</span>
 		<span data-details-inside data-short-table="">
 			</span>
+		<span data-details-inside data-short-table="candidates_by_gender">
+			</span>
+		<span data-details-inside data-short-table="candidates_reports">
+			</span>
+		<span data-details-inside data-short-table="candidates_by_region">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
+			 
+			 
 			 
 			 
 			 

@@ -41,7 +41,6 @@ pdfDocument = {
 								"%", 
 											"%", 
 											"%", 
-											"%", 
 					 ],	
 		
 			heights: [
@@ -92,7 +91,6 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
 		
 			
 	
@@ -109,13 +107,7 @@ pdfDocument = {
       
       },
 
-																		{ 
-				cellId: 'c5',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-																			{
+																							{
 	cellId: 'c10',
 	col:0,
 	row:0,
@@ -141,13 +133,14 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c18',
+	cellId: 'c19',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
 		
+					rowSpan: 2,
 			
 	
 	
@@ -164,7 +157,7 @@ pdfDocument = {
       },
 
 																							{
-	cellId: 'c19',
+	cellId: 'c4',
 	col:0,
 	row:0,
 			
@@ -188,13 +181,69 @@ pdfDocument = {
       },
 
 																		{ 
-				cellId: 'c19',
+				cellId: 'c4',
 				row:  0,
 				col:  1,
 				text: ''
 			},
+							],
+						[
+											{ 
+				cellId: 'c19',
+				row:  1,
+				col:  0,
+				text: ''
+			},
 																			{
-	cellId: 'c3',
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c16',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item8}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c2',
 	col:0,
 	row:0,
 			
@@ -216,78 +265,13 @@ pdfDocument = {
       
       },
 
-											],
-						[
-																{
-	cellId: 'c2',
+																							{
+	cellId: 'c9',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c2',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-																			{
-	cellId: 'c15',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item8}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c15',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 2,
 		
 			
 	
@@ -304,20 +288,13 @@ pdfDocument = {
       
       },
 
-																		{ 
-				cellId: 'c1',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-																			{
-	cellId: 'c9',
+																							{
+	cellId: 'c11',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
 		
 			
 	
@@ -334,13 +311,7 @@ pdfDocument = {
       
       },
 
-																		{ 
-				cellId: 'c9',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
+											],
 		
 		]
 	}

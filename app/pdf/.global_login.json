@@ -54,13 +54,10 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$pdf_image images/dereja.png 100 100},"hidden":"{$item_hide_image}"},
+			{"text":"Welcome","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":27,"bold":true,"isHtml":true},
 				
 				
-			{"text":"Welcome To ","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":22,"bold":true,"isHtml":true},
-				
-				
-			{"text":"<p><a href=\"./menu.php\" title=\"Dereja M&amp;E System\"><img src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\">M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></a></p>","hidden":"{$item_hide_login-logo}","fontSize":24,"isHtml":true},
+			{"text":"To","color":"#ff7e00","hidden":"{$item_hide_text5}","fontSize":27,"bold":true,"isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -84,8 +81,10 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"<p class=\"ql-align-center\"><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><img width=\"143\" height=\"54\" alt=\"Dereja M&amp;E System\" src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\"></strong></a></p><h3 class=\"ql-align-center\"><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>M</u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>&amp;</u></strong></a><a style=\"color: rgb(255, 102, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>E</u></strong></a><a href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u> </u></strong></a><a style=\"color: rgb(255, 0, 0);\" href=\"./menu.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><u>System</u></strong></a></h3>","hidden":"{$item_hide_text4}","isHtml":true},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
      

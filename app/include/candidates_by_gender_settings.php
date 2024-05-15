@@ -294,7 +294,7 @@ $tdatacandidates_by_gender[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_by_gender[".ajaxCodeSnippetAdded"] = false;
 
@@ -306,7 +306,7 @@ $tdatacandidates_by_gender[".addPageEvents"] = false;
 $tdatacandidates_by_gender[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidates_by_gender[".badgeColor"] = "E67349";
+$tdatacandidates_by_gender[".badgeColor"] = "e67349";
 
 
 $tdatacandidates_by_gender[".allSearchFields"] = array();
@@ -9453,6 +9453,24 @@ $masterTablesData["candidates_by_gender"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="candidates";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="candidates";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "candidates";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["candidates_by_gender"][0] = $masterParams;
+				$masterTablesData["candidates_by_gender"][0]["masterKeys"] = array();
+	$masterTablesData["candidates_by_gender"][0]["masterKeys"][]="Sex";
+				$masterTablesData["candidates_by_gender"][0]["detailKeys"] = array();
+	$masterTablesData["candidates_by_gender"][0]["detailKeys"][]="Sex";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
