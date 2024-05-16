@@ -105,22 +105,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":{$dashboard_commentid_pdfvalue},"hidden":"{$item_hide_export_field}"},
-				
-				
-			{"text":{$dashboard_comment_pdfvalue},"hidden":"{$item_hide_export_field1}"},
-				
-				
-			{"text":{$dashboard_commentdate_pdfvalue},"hidden":"{$item_hide_export_field2}"},
-				
-				
-			{"text":{$dashboard_userdetails_pdfvalue},"hidden":"{$item_hide_export_field3}"},
-				
-				
-			{"text":{$dashboard_commentfiles_pdfvalue},"hidden":"{$item_hide_export_field4}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      

@@ -11,6 +11,7 @@ $dalTableusers["ext_security_id"] = array("type"=>200,"varname"=>"ext_security_i
 $dalTableusers["userpic"] = array("type"=>128,"varname"=>"userpic", "name" => "userpic", "autoInc" => "0");
 $dalTableusers["reset_token"] = array("type"=>201,"varname"=>"reset_token", "name" => "reset_token", "autoInc" => "0");
 $dalTableusers["reset_date"] = array("type"=>135,"varname"=>"reset_date", "name" => "reset_date", "autoInc" => "0");
+$dalTableusers["designation"] = array("type"=>200,"varname"=>"designation", "name" => "designation", "autoInc" => "0");
 $dalTableusers["id"]["key"]=true;
 
 $dal_info["deredevatderejadevmerqconsulta__users"] = &$dalTableusers;

@@ -22,7 +22,7 @@
 		<style>
 			{$containerCss}
 				.r-pretty-login-page > .r-controls {
-					background: white;
+					background: #f7f7f7;
 				}
 				.r-pretty-login-page > .r-sideimage {
 					background: #ffffff;
@@ -88,6 +88,50 @@
 	class=" r-ori-vert			"
 			 
 	data-cellId="grid_c3" data-pageid="{$pageid}">
+ 
+
+{BEGIN fullname_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fullname}  r-vertical-field" 
+	data-signal-error-for="fullname{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="fullname" data-fieldname="fullname" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_fullname}">
+		{BEGIN fullname_label}{$label users fullname }{END fullname_label}
+	</label>
+	<div class="r-edit-field">
+		{$fullname_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="fullname">
+		<div class="text-muted" >
+		{$tooltip users fullname }		</div>
+	</div>
+</div>
+
+
+{END fullname_fieldblock}
+ 
+
+{BEGIN designation_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" 
+	data-signal-error-for="designation{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="designation" data-fieldname="designation" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_designation}">
+		{BEGIN designation_label}{$label users designation }{END designation_label}
+	</label>
+	<div class="r-edit-field">
+		{$designation_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="designation">
+		<div class="text-muted" >
+		{$tooltip users designation }		</div>
+	</div>
+</div>
+
+
+{END designation_fieldblock}
  
 
 {BEGIN email_fieldblock}

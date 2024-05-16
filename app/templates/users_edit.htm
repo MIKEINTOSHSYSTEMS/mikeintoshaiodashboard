@@ -529,6 +529,27 @@
 
 
 {END ext_security_id_fieldblock}
+											
+{BEGIN designation_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-vertical-field" 
+	data-signal-error-for="designation{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="designation" data-fieldname="designation" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_designation}">
+		{BEGIN designation_label}{$label users designation }{END designation_label}
+	</label>
+	<div class="r-edit-field">
+		{$designation_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="designation">
+		<div class="text-muted" >
+		{$tooltip users designation }		</div>
+	</div>
+</div>
+
+
+{END designation_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -584,10 +605,24 @@
 		</div>			 
 				<div 
 	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
-	class="r-align-right r-ori-vert			col-md-6
+	class="r-align-right			col-md-6
 	
 ">
 		 
+		<span data-itemtype="prev" data-itemid="prev" {$item_prev} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$prevbutton_class}" {$prevbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-left"></span>
+										</a>
+</span>
+	 
+		<span data-itemtype="next" data-itemid="next" {$item_next} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	{$nextbutton_class}" {$nextbutton_attrs} >
+					<span class="glyphicon glyphicon-menu-right"></span>
+										</a>
+</span>
+	 
 		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
 	<span class="dropdown dropup">
 		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		

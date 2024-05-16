@@ -470,6 +470,28 @@
 </div>
 
 {END ext_security_id_fieldblock}
+											
+{BEGIN designation_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_designation}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="designation{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="designation" data-fieldname="designation" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_designation}">
+		{$label users designation }	</label>
+	<div class="r-search-option">
+		{$searchtype_designation}
+	</div>
+	<div class="r-search-field">
+		{$designation_editcontrol}	</div>
+	<div class="r-search-field">
+		{$designation_editcontrol1}
+	</div>
+	
+</div>
+
+{END designation_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

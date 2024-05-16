@@ -46,7 +46,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsusers["English"]["reset_date"] = "Reset Date";
 	$fieldToolTipsusers["English"]["reset_date"] = "";
 	$placeHoldersusers["English"]["reset_date"] = "";
-	$fieldLabelsusers["English"]["fullname"] = "Fullname";
+	$fieldLabelsusers["English"]["fullname"] = "Full Name";
 	$fieldToolTipsusers["English"]["fullname"] = "";
 	$placeHoldersusers["English"]["fullname"] = "";
 	$fieldLabelsusers["English"]["groupid"] = "Groupid";
@@ -58,6 +58,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsusers["English"]["ext_security_id"] = "Ext Security Id";
 	$fieldToolTipsusers["English"]["ext_security_id"] = "";
 	$placeHoldersusers["English"]["ext_security_id"] = "";
+	$fieldLabelsusers["English"]["designation"] = "Please Select Your Designation";
+	$fieldToolTipsusers["English"]["designation"] = "";
+	$placeHoldersusers["English"]["designation"] = "";
 	if (count($fieldToolTipsusers["English"]))
 		$tdatausers[".isUseToolTips"] = true;
 }
@@ -185,6 +188,7 @@ $tdatausers[".googleLikeFields"][] = "active";
 $tdatausers[".googleLikeFields"][] = "ext_security_id";
 $tdatausers[".googleLikeFields"][] = "reset_token";
 $tdatausers[".googleLikeFields"][] = "reset_date";
+$tdatausers[".googleLikeFields"][] = "designation";
 
 
 
@@ -200,6 +204,7 @@ $tdatausers[".geocodingEnabled"] = false;
 
 
 
+$tdatausers[".isDisplayLoading"] = true;
 
 
 
@@ -218,7 +223,7 @@ $tdatausers[".strOrderBy"] = $tstrOrderBy;
 $tdatausers[".orderindexes"] = array();
 
 
-$tdatausers[".sqlHead"] = "SELECT id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$tdatausers[".sqlHead"] = "SELECT id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date,  	designation";
 $tdatausers[".sqlFrom"] = "FROM users";
 $tdatausers[".sqlWhereExpr"] = "";
 $tdatausers[".sqlTail"] = "";
@@ -890,7 +895,8 @@ $tdatausers[".hideMobileList"] = array();
 
 
 
-	
+		$edata["IsRequired"] = true;
+
 	
 	
 	
@@ -913,7 +919,8 @@ $tdatausers[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-	
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
 	
 //	End validation
 
@@ -1797,6 +1804,160 @@ $tdatausers[".hideMobileList"] = array();
 
 	$tdatausers["reset_date"] = $fdata;
 		$tdatausers[".searchableFields"][] = "reset_date";
+//	designation
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 12;
+	$fdata["strName"] = "designation";
+	$fdata["GoodName"] = "designation";
+	$fdata["ownerTable"] = "users";
+	$fdata["Label"] = GetFieldLabel("users","designation");
+	$fdata["FieldType"] = 200;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "designation";
+
+		$fdata["sourceSingle"] = "designation";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "designation";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+		$edata["LookupType"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+	
+		$edata["LookupValues"] = array();
+	$edata["LookupValues"][] = "Data Entry";
+	$edata["LookupValues"][] = "Data Management";
+	$edata["LookupValues"][] = "Monitoring and Evaluation";
+
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+		$edata["IsRequired"] = true;
+
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatausers["designation"] = $fdata;
+		$tdatausers[".searchableFields"][] = "designation";
 
 
 $tables_data["users"]=&$tdatausers;
@@ -1841,7 +2002,7 @@ function createSqlQuery_users()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date";
+$proto0["m_strFieldList"] = "id,  	username,  	password,  	email,  	fullname,  	groupid,  	active,  	ext_security_id,  	userpic,  	reset_token,  	reset_date,  	designation";
 $proto0["m_strFrom"] = "FROM users";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -2035,47 +2196,62 @@ $proto26["m_alias"] = "";
 $obj = new SQLFieldListItem($proto26);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto28=array();
-$proto28["m_link"] = "SQLL_MAIN";
-			$proto29=array();
-$proto29["m_strName"] = "users";
-$proto29["m_srcTableName"] = "users";
-$proto29["m_columns"] = array();
-$proto29["m_columns"][] = "id";
-$proto29["m_columns"][] = "username";
-$proto29["m_columns"][] = "password";
-$proto29["m_columns"][] = "email";
-$proto29["m_columns"][] = "fullname";
-$proto29["m_columns"][] = "groupid";
-$proto29["m_columns"][] = "active";
-$proto29["m_columns"][] = "ext_security_id";
-$proto29["m_columns"][] = "userpic";
-$proto29["m_columns"][] = "reset_token";
-$proto29["m_columns"][] = "reset_date";
-$obj = new SQLTable($proto29);
+						$proto28=array();
+			$obj = new SQLField(array(
+	"m_strName" => "designation",
+	"m_strTable" => "users",
+	"m_srcTableName" => "users"
+));
 
-$proto28["m_table"] = $obj;
-$proto28["m_sql"] = "users";
-$proto28["m_alias"] = "";
+$proto28["m_sql"] = "designation";
 $proto28["m_srcTableName"] = "users";
-$proto30=array();
-$proto30["m_sql"] = "";
-$proto30["m_uniontype"] = "SQLL_UNKNOWN";
+$proto28["m_expr"]=$obj;
+$proto28["m_alias"] = "";
+$obj = new SQLFieldListItem($proto28);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto30=array();
+$proto30["m_link"] = "SQLL_MAIN";
+			$proto31=array();
+$proto31["m_strName"] = "users";
+$proto31["m_srcTableName"] = "users";
+$proto31["m_columns"] = array();
+$proto31["m_columns"][] = "id";
+$proto31["m_columns"][] = "username";
+$proto31["m_columns"][] = "password";
+$proto31["m_columns"][] = "email";
+$proto31["m_columns"][] = "fullname";
+$proto31["m_columns"][] = "groupid";
+$proto31["m_columns"][] = "active";
+$proto31["m_columns"][] = "ext_security_id";
+$proto31["m_columns"][] = "userpic";
+$proto31["m_columns"][] = "reset_token";
+$proto31["m_columns"][] = "reset_date";
+$proto31["m_columns"][] = "designation";
+$obj = new SQLTable($proto31);
+
+$proto30["m_table"] = $obj;
+$proto30["m_sql"] = "users";
+$proto30["m_alias"] = "";
+$proto30["m_srcTableName"] = "users";
+$proto32=array();
+$proto32["m_sql"] = "";
+$proto32["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto30["m_column"]=$obj;
-$proto30["m_contained"] = array();
-$proto30["m_strCase"] = "";
-$proto30["m_havingmode"] = false;
-$proto30["m_inBrackets"] = false;
-$proto30["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto30);
+$proto32["m_column"]=$obj;
+$proto32["m_contained"] = array();
+$proto32["m_strCase"] = "";
+$proto32["m_havingmode"] = false;
+$proto32["m_inBrackets"] = false;
+$proto32["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto32);
 
-$proto28["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto28);
+$proto30["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto30);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -2091,7 +2267,7 @@ $queryData_users = createSqlQuery_users();
 	
 																								;
 
-											
+												
 
 $tdatausers[".sqlquery"] = $queryData_users;
 
