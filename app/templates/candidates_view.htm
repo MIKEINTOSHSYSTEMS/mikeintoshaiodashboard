@@ -1398,8 +1398,75 @@
 	</div>
 </div>
 {END details_website_data}
+											<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
 	
-				{END grid_block}
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Age_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Age}  r-vertical-field" data-fieldname="Age" data-signal-error-for="Age{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field57" {$item_integrated_edit_field57} data-pageid="{$pageid}" data-field="Age" data-fieldname="Age" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Age}">
+		
+		{BEGIN Age_label}{$label candidates Age }{END Age_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Age_value}	</div>
+
+		
+</div>
+
+
+{END Age_fieldblock}
+											
+{BEGIN Full_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Full_Name}  r-vertical-field" data-fieldname="Full_Name" data-signal-error-for="Full_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field58" {$item_integrated_edit_field58} data-pageid="{$pageid}" data-field="Full_Name" data-fieldname="Full_Name" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Full_Name}">
+		
+		{BEGIN Full_Name_label}{$label candidates Full_Name }{END Full_Name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Full_Name_value}	</div>
+
+		
+</div>
+
+
+{END Full_Name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
 	</div>
 <div class="r-below">
 					{BEGIN below-grid_block}

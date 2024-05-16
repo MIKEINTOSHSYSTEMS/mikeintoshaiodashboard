@@ -162,6 +162,11 @@ class XTempl_Base
 				"chartName"=>"candidates_by_gender",
 				"table"=>"candidates_by_gender",
 				"ctype"=>"2DDoughnut"));
+			$this->assign_function("candidates_by_sex_age_disability_chart","xt_showchart",
+			array(
+				"chartName"=>"candidates_by_sex_age_disability",
+				"table"=>"candidates_by_sex_age_disability",
+				"ctype"=>"Combined"));
 		}
 
 

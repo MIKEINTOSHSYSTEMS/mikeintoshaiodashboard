@@ -339,6 +339,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("candidates_aggrigated" == $shortTName )
 		return true;
+	if ("candidates_by_sex_age_disability" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1001,6 +1003,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="candidates_aggrigated";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_by_sex_age_disability");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_by_sex_age_disability";
+	}
 	return $arr;
 }
 
@@ -1078,6 +1089,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="admin_users";
 	$arr[]="utilities";
 	$arr[]="candidates_aggrigated";
+	$arr[]="candidates_by_sex_age_disability";
 	return $arr;
 }
 
@@ -1131,6 +1143,8 @@ function GetChartType($shorttable)
 		return "Line";
 	if($shorttable=="candidates_by_gender")
 		return "2DDoughnut";
+	if($shorttable=="candidates_by_sex_age_disability")
+		return "Combined";
 	return "";
 }
 
@@ -2054,6 +2068,11 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidates_by_sex_age_disability" )
+	{
+//	default permissions
+		return "S".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

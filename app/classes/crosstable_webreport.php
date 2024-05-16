@@ -1517,6 +1517,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("candidates" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("candidates" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

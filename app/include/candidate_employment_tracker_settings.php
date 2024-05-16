@@ -6,11 +6,11 @@ $tdatacandidate_employment_tracker[".OwnerID"] = "";
 $tdatacandidate_employment_tracker[".OriginalTable"] = "Candidate_Employment_Tracker";
 
 
-$tdatacandidate_employment_tracker[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatacandidate_employment_tracker[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"]}" );
 $tdatacandidate_employment_tracker[".originalPagesByType"] = $tdatacandidate_employment_tracker[".pagesByType"];
-$tdatacandidate_employment_tracker[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatacandidate_employment_tracker[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"]}" ) );
 $tdatacandidate_employment_tracker[".originalPages"] = $tdatacandidate_employment_tracker[".pages"];
-$tdatacandidate_employment_tracker[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
+$tdatacandidate_employment_tracker[".defaultPages"] = my_json_decode( "{\"list\":\"list\"}" );
 $tdatacandidate_employment_tracker[".originalDefaultPages"] = $tdatacandidate_employment_tracker[".defaultPages"];
 
 //	field labels

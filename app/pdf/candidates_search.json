@@ -288,6 +288,12 @@ pdfDocument = {
 				
 			{"text":{$Upload_on_Tracker_pdfvalue},"hidden":"{$item_hide_integrated_search_field56}"},
 				
+				
+			{"text":{$Age_pdfvalue},"hidden":"{$item_hide_integrated_search_field57}"},
+				
+				
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field58}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

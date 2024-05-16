@@ -1027,6 +1027,13 @@ if( pageEnabled($table, 'print') || pageEnabled($table, 'rprint') || pageEnabled
 
 $pageMask[$table] = $mask;
 $tables[$table] = array("candidates_aggrigated", " " . "Candidates Aggrigated");
+$table = "candidates_by_sex_age_disability";
+$mask="";
+if( pageEnabled($table, 'view') || pageEnabled($table, 'list') || pageEnabled($table, 'chart') || pageEnabled($table, 'report') || pageEnabled($table, 'dashboard') )
+	$mask .= "S";
+
+$pageMask[$table] = $mask;
+$tables[$table] = array("candidates_by_sex_age_disability", " " . "Candidates By Sex Age Disability");
 
 if ( pageEnabled(GLOBAL_PAGES, 'menu') )
 	$pageMask[GLOBAL_PAGES] = "S";

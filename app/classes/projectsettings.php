@@ -3646,6 +3646,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "utilities" ] = "utilities";
 	$projectEntities[ "candidates_aggrigated" ] = array( "url" => "candidates_aggrigated", "type" => 1 );
 	$projectEntitiesReverse[ "candidates_aggrigated" ] = "candidates_aggrigated";
+	$projectEntities[ "candidates_by_sex_age_disability" ] = array( "url" => "candidates_by_sex_age_disability", "type" => 3 );
+	$projectEntitiesReverse[ "candidates_by_sex_age_disability" ] = "candidates_by_sex_age_disability";
 }
 
 function findTable( $table ) {

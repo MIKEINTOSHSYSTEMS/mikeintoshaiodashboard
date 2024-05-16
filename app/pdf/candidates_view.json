@@ -298,6 +298,12 @@ pdfDocument = {
 			{$displayDetailTable_website_data }
 		{END details_website_data},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field57}","stack":[{"text":"{$jslabel candidates Age }","bold":true},{"text":{$Age_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field58}","stack":[{"text":"{$jslabel candidates Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

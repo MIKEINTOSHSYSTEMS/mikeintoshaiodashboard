@@ -6,11 +6,11 @@ $tdatatraining_participants[".OwnerID"] = "";
 $tdatatraining_participants[".OriginalTable"] = "training_participants";
 
 
-$tdatatraining_participants[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatatraining_participants[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"]}" );
 $tdatatraining_participants[".originalPagesByType"] = $tdatatraining_participants[".pagesByType"];
-$tdatatraining_participants[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatatraining_participants[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"]}" ) );
 $tdatatraining_participants[".originalPages"] = $tdatatraining_participants[".pages"];
-$tdatatraining_participants[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
+$tdatatraining_participants[".defaultPages"] = my_json_decode( "{\"list\":\"list\"}" );
 $tdatatraining_participants[".originalDefaultPages"] = $tdatatraining_participants[".defaultPages"];
 
 //	field labels

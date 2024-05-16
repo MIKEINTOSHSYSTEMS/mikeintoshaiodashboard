@@ -709,6 +709,10 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="candidates_by_sex_age_disability")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1241,6 +1245,10 @@ function getCaptionTable($table)
 	if($table=="candidates_aggrigated")
 	{
 		return "Candidates Aggrigated";
+	}
+	if($table=="candidates_by_sex_age_disability")
+	{
+		return "Candidates By Sex Age Disability";
 	}
 	return $table;
 }
