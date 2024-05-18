@@ -341,6 +341,10 @@ function checkTableName($shortTName )
 		return true;
 	if ("candidates_by_sex_age_disability" == $shortTName )
 		return true;
+	if ("indicator_targets" == $shortTName )
+		return true;
+	if ("candidates_grouped_report" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1012,6 +1016,24 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="candidates_by_sex_age_disability";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("indicator_targets");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="indicator_targets";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidates_grouped_report");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidates_grouped_report";
+	}
 	return $arr;
 }
 
@@ -1090,6 +1112,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="utilities";
 	$arr[]="candidates_aggrigated";
 	$arr[]="candidates_by_sex_age_disability";
+	$arr[]="indicator_targets";
+	$arr[]="candidates_grouped_report";
 	return $arr;
 }
 
@@ -2073,6 +2097,16 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "S".$extraPerm;
+	}
+	if( $table=="indicator_targets" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidates_grouped_report" )
+	{
+//	default permissions
+		return "SP".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

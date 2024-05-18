@@ -3648,6 +3648,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "candidates_aggrigated" ] = "candidates_aggrigated";
 	$projectEntities[ "candidates_by_sex_age_disability" ] = array( "url" => "candidates_by_sex_age_disability", "type" => 3 );
 	$projectEntitiesReverse[ "candidates_by_sex_age_disability" ] = "candidates_by_sex_age_disability";
+	$projectEntities[ "indicator_targets" ] = array( "url" => "indicator_targets", "type" => 0 );
+	$projectEntitiesReverse[ "indicator_targets" ] = "indicator_targets";
+	$projectEntities[ "candidates_grouped_report" ] = array( "url" => "candidates_grouped_report", "type" => 2 );
+	$projectEntitiesReverse[ "candidates_grouped_report" ] = "candidates_grouped_report";
 }
 
 function findTable( $table ) {

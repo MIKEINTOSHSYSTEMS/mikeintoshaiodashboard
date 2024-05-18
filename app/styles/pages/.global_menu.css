@@ -280,6 +280,12 @@
 [data-page=".global_menu"][data-itemid="welcome_item71"] > .bs-welcome-header {
   background-color: #B22222;
 }
+[data-page=".global_menu"][data-itemid="welcome_item73"] > .bs-welcome-header {
+  background-color: #6493EA;
+}
+[data-page=".global_menu"][data-itemid="welcome_item74"] > .bs-welcome-header {
+  background-color: #1E90FF;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

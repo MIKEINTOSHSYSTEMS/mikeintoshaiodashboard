@@ -1,0 +1,1047 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+			},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+		{BEGIN body}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption candidates_grouped_report}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel candidates_grouped_report report}',
+			},
+		{END embedded_page_title}		
+		{ 
+			{BEGIN standalone_page}
+			pageBreak: 'before',
+			standAlonePage: true,
+			{END standalone_page}
+			{BEGIN embedded_grid}
+			embeddedPage: true,
+			{END embedded_grid}
+			layout: {
+				hLineWidth: function(i, node) { return 0.1; },
+				vLineWidth: function(i, node) { 
+					return 0.1; 
+				},
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
+			},
+			table: {
+				{BEGIN embedded_grid}
+				embeddedPage: true,
+				{END embedded_grid}
+				
+				tableForm: true,
+				headerRows: 1 
+								{BEGIN embedded_grid} -1 {END embedded_grid} ,
+
+				widths: [
+														"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+										"%",
+															],
+							
+				body: [
+				{BEGIN standalone_page}
+					[
+						{
+							colSpan: 56,
+							border:[false, false,false,false],
+							stack: [
+
+																										
+''
+,
+								
+																										
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_filter_panel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c4',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_candidate_employment_tracker}
+			{$displayDetailTable_candidate_employment_tracker }
+		{END details_candidate_employment_tracker},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_alldetails_link}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link}"},
+				
+				
+			 {BEGIN details_event_participants}
+			{$displayDetailTable_event_participants }
+		{END details_event_participants},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link1}"},
+				
+				
+			 {BEGIN details_training_participants}
+			{$displayDetailTable_training_participants }
+		{END details_training_participants},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"Displaying %first% - %last% of %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
+				
+				
+			{"text":"","hidden":"{$item_hide_page_size}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_print_panel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+															]
+						},
+					],
+				{END standalone_page}
+
+																
+
+
+{BEGIN grid_row}
+	{BEGIN Sex_newgroup}
+		[
+								{
+				text: '{$jslabel candidates_grouped_report Sex }',
+				style: "blackshade",
+				alignment: '{$Sex_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Age }',
+				style: "blackshade",
+				alignment: '{$Age_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Disability_Status }',
+				style: "blackshade",
+				alignment: '{$Disability_Status_align}',
+			},
+																																																																																																																																																																																																																																																																														
+																							{
+				text: '{$jslabel candidates_grouped_report First_Name }',
+				style: "blackshade",
+				alignment: '{$First_Name_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Middle_Name }',
+				style: "blackshade",
+				alignment: '{$Middle_Name_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Last_Name }',
+				style: "blackshade",
+				alignment: '{$Last_Name_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report DOB }',
+				style: "blackshade",
+				alignment: '{$DOB_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Region }',
+				style: "blackshade",
+				alignment: '{$Region_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report City }',
+				style: "blackshade",
+				alignment: '{$City_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Zone }',
+				style: "blackshade",
+				alignment: '{$Zone_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report House_No }',
+				style: "blackshade",
+				alignment: '{$House_No_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Phone_Number }',
+				style: "blackshade",
+				alignment: '{$Phone_Number_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Phone_Number_Alternate }',
+				style: "blackshade",
+				alignment: '{$Phone_Number_Alternate_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Email_Address }',
+				style: "blackshade",
+				alignment: '{$Email_Address_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Disability_Type }',
+				style: "blackshade",
+				alignment: '{$Disability_Type_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Disability_Type_Other }',
+				style: "blackshade",
+				alignment: '{$Disability_Type_Other_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Institution_Type }',
+				style: "blackshade",
+				alignment: '{$Institution_Type_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Institution_Name }',
+				style: "blackshade",
+				alignment: '{$Institution_Name_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Education_Level }',
+				style: "blackshade",
+				alignment: '{$Education_Level_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Department }',
+				style: "blackshade",
+				alignment: '{$Department_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Minor }',
+				style: "blackshade",
+				alignment: '{$Minor_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Major }',
+				style: "blackshade",
+				alignment: '{$Major_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Enrollement_Type }',
+				style: "blackshade",
+				alignment: '{$Enrollement_Type_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Skills }',
+				style: "blackshade",
+				alignment: '{$Skills_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Languages }',
+				style: "blackshade",
+				alignment: '{$Languages_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report English_Proficiency_Level }',
+				style: "blackshade",
+				alignment: '{$English_Proficiency_Level_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Industry_Specific_Skills }',
+				style: "blackshade",
+				alignment: '{$Industry_Specific_Skills_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report IT_Related_Skills }',
+				style: "blackshade",
+				alignment: '{$IT_Related_Skills_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Certifications }',
+				style: "blackshade",
+				alignment: '{$Certifications_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Year_of_graduation }',
+				style: "blackshade",
+				alignment: '{$Year_of_graduation_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Field_Of_Study }',
+				style: "blackshade",
+				alignment: '{$Field_Of_Study_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report GPA }',
+				style: "blackshade",
+				alignment: '{$GPA_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Intervention }',
+				style: "blackshade",
+				alignment: '{$Intervention_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Campaign }',
+				style: "blackshade",
+				alignment: '{$Campaign_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Attend_Employability_Skill }',
+				style: "blackshade",
+				alignment: '{$Attend_Employability_Skill_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report DAAP_enrolled_1st_Round }',
+				style: "blackshade",
+				alignment: '{$DAAP_enrolled_1st_Round_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report DAAP_Completed }',
+				style: "blackshade",
+				alignment: '{$DAAP_Completed_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report DAAP_Completed_Courses }',
+				style: "blackshade",
+				alignment: '{$DAAP_Completed_Courses_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Job_Fair_Clinic }',
+				style: "blackshade",
+				alignment: '{$Job_Fair_Clinic_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Job_Fair }',
+				style: "blackshade",
+				alignment: '{$Job_Fair_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Exit_Exam_Score }',
+				style: "blackshade",
+				alignment: '{$Exit_Exam_Score_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Exit_Exam_Status }',
+				style: "blackshade",
+				alignment: '{$Exit_Exam_Status_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report DAAP_enrolled_2nd_Round }',
+				style: "blackshade",
+				alignment: '{$DAAP_enrolled_2nd_Round_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Upload_on_Tracker }',
+				style: "blackshade",
+				alignment: '{$Upload_on_Tracker_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Work_Experience }',
+				style: "blackshade",
+				alignment: '{$Work_Experience_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Joined_Dereja_Services }',
+				style: "blackshade",
+				alignment: '{$Joined_Dereja_Services_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Dereja_Services }',
+				style: "blackshade",
+				alignment: '{$Dereja_Services_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Dereja_Training_Services }',
+				style: "blackshade",
+				alignment: '{$Dereja_Training_Services_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Dereja_Event_Services }',
+				style: "blackshade",
+				alignment: '{$Dereja_Event_Services_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Dereja_web_profile_completion }',
+				style: "blackshade",
+				alignment: '{$Dereja_web_profile_completion_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Dereja_Information_Source }',
+				style: "blackshade",
+				alignment: '{$Dereja_Information_Source_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Employment_Status }',
+				style: "blackshade",
+				alignment: '{$Employment_Status_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Employment_Company }',
+				style: "blackshade",
+				alignment: '{$Employment_Company_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Employment_Position }',
+				style: "blackshade",
+				alignment: '{$Employment_Position_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report Remark }',
+				style: "blackshade",
+				alignment: '{$Remark_align}',
+			},
+											{
+				text: '{$jslabel candidates_grouped_report COUNT_CandidateID_ }',
+				style: "blackshade",
+				alignment: '{$COUNT_CandidateID__align}',
+			},
+						],
+	
+	[
+													{
+					colSpan: 56,
+					text: {$Sex_grval},
+					style: "header_1"
+				},
+																				],
+	{END Sex_newgroup}
+	{BEGIN Age_newgroup}
+	
+	[
+									{
+					text: '',
+					style: "group_1"
+				},
+																{
+					colSpan: 55,
+					text: {$Age_grval},
+					style: "header_2"
+				},
+															],
+	{END Age_newgroup}
+	{BEGIN Disability_Status_newgroup}
+	
+	[
+									{
+					text: '',
+					style: "group_1"
+				},
+												{
+					text: '',
+					style: "group_2"
+				},
+																{
+					colSpan: 54,
+					text: {$Disability_Status_grval},
+					style:"header_3"
+				},
+										],
+	{END Disability_Status_newgroup}
+
+	{BEGIN row_data}
+	[
+			{
+			text: [
+									''
+							],
+			style: "group_1"
+		},
+			{
+			text: [
+									''
+							],
+			style: "group_2"
+		},
+			{
+			text: [
+									''
+							],
+			style: "group_3"
+		},
+															{
+			text: {$First_Name_value},
+			alignment: '{$First_Name_align}',
+		},
+							{
+			text: {$Middle_Name_value},
+			alignment: '{$Middle_Name_align}',
+		},
+							{
+			text: {$Last_Name_value},
+			alignment: '{$Last_Name_align}',
+		},
+							{
+			text: {$DOB_value},
+			alignment: '{$DOB_align}',
+		},
+							{
+			text: {$Region_value},
+			alignment: '{$Region_align}',
+		},
+							{
+			text: {$City_value},
+			alignment: '{$City_align}',
+		},
+							{
+			text: {$Zone_value},
+			alignment: '{$Zone_align}',
+		},
+							{
+			text: {$House_No_value},
+			alignment: '{$House_No_align}',
+		},
+							{
+			text: {$Phone_Number_value},
+			alignment: '{$Phone_Number_align}',
+		},
+							{
+			text: {$Phone_Number_Alternate_value},
+			alignment: '{$Phone_Number_Alternate_align}',
+		},
+							{
+			text: {$Email_Address_value},
+			alignment: '{$Email_Address_align}',
+		},
+							{
+			text: {$Disability_Type_value},
+			alignment: '{$Disability_Type_align}',
+		},
+							{
+			text: {$Disability_Type_Other_value},
+			alignment: '{$Disability_Type_Other_align}',
+		},
+							{
+			text: {$Institution_Type_value},
+			alignment: '{$Institution_Type_align}',
+		},
+							{
+			text: {$Institution_Name_value},
+			alignment: '{$Institution_Name_align}',
+		},
+							{
+			text: {$Education_Level_value},
+			alignment: '{$Education_Level_align}',
+		},
+							{
+			text: {$Department_value},
+			alignment: '{$Department_align}',
+		},
+							{
+			text: {$Minor_value},
+			alignment: '{$Minor_align}',
+		},
+							{
+			text: {$Major_value},
+			alignment: '{$Major_align}',
+		},
+							{
+			text: {$Enrollement_Type_value},
+			alignment: '{$Enrollement_Type_align}',
+		},
+							{
+			text: {$Skills_value},
+			alignment: '{$Skills_align}',
+		},
+							{
+			text: {$Languages_value},
+			alignment: '{$Languages_align}',
+		},
+							{
+			text: {$English_Proficiency_Level_value},
+			alignment: '{$English_Proficiency_Level_align}',
+		},
+							{
+			text: {$Industry_Specific_Skills_value},
+			alignment: '{$Industry_Specific_Skills_align}',
+		},
+							{
+			text: {$IT_Related_Skills_value},
+			alignment: '{$IT_Related_Skills_align}',
+		},
+							{
+			text: {$Certifications_value},
+			alignment: '{$Certifications_align}',
+		},
+							{
+			text: {$Year_of_graduation_value},
+			alignment: '{$Year_of_graduation_align}',
+		},
+							{
+			text: {$Field_Of_Study_value},
+			alignment: '{$Field_Of_Study_align}',
+		},
+							{
+			text: {$GPA_value},
+			alignment: '{$GPA_align}',
+		},
+							{
+			text: {$Intervention_value},
+			alignment: '{$Intervention_align}',
+		},
+							{
+			text: {$Campaign_value},
+			alignment: '{$Campaign_align}',
+		},
+							{
+			text: {$Attend_Employability_Skill_value},
+			alignment: '{$Attend_Employability_Skill_align}',
+		},
+							{
+			text: {$DAAP_enrolled_1st_Round_value},
+			alignment: '{$DAAP_enrolled_1st_Round_align}',
+		},
+							{
+			text: {$DAAP_Completed_value},
+			alignment: '{$DAAP_Completed_align}',
+		},
+							{
+			text: {$DAAP_Completed_Courses_value},
+			alignment: '{$DAAP_Completed_Courses_align}',
+		},
+							{
+			text: {$Job_Fair_Clinic_value},
+			alignment: '{$Job_Fair_Clinic_align}',
+		},
+							{
+			text: {$Job_Fair_value},
+			alignment: '{$Job_Fair_align}',
+		},
+							{
+			text: {$Exit_Exam_Score_value},
+			alignment: '{$Exit_Exam_Score_align}',
+		},
+							{
+			text: {$Exit_Exam_Status_value},
+			alignment: '{$Exit_Exam_Status_align}',
+		},
+							{
+			text: {$DAAP_enrolled_2nd_Round_value},
+			alignment: '{$DAAP_enrolled_2nd_Round_align}',
+		},
+							{
+			text: {$Upload_on_Tracker_value},
+			alignment: '{$Upload_on_Tracker_align}',
+		},
+							{
+			text: {$Work_Experience_value},
+			alignment: '{$Work_Experience_align}',
+		},
+							{
+			text: {$Joined_Dereja_Services_value},
+			alignment: '{$Joined_Dereja_Services_align}',
+		},
+							{
+			text: {$Dereja_Services_value},
+			alignment: '{$Dereja_Services_align}',
+		},
+							{
+			text: {$Dereja_Training_Services_value},
+			alignment: '{$Dereja_Training_Services_align}',
+		},
+							{
+			text: {$Dereja_Event_Services_value},
+			alignment: '{$Dereja_Event_Services_align}',
+		},
+							{
+			text: {$Dereja_web_profile_completion_value},
+			alignment: '{$Dereja_web_profile_completion_align}',
+		},
+							{
+			text: {$Dereja_Information_Source_value},
+			alignment: '{$Dereja_Information_Source_align}',
+		},
+							{
+			text: {$Employment_Status_value},
+			alignment: '{$Employment_Status_align}',
+		},
+							{
+			text: {$Employment_Company_value},
+			alignment: '{$Employment_Company_align}',
+		},
+							{
+			text: {$Employment_Position_value},
+			alignment: '{$Employment_Position_align}',
+		},
+							{
+			text: {$Remark_value},
+			alignment: '{$Remark_align}',
+		},
+							{
+			text: {$COUNT_CandidateID__value},
+			alignment: '{$COUNT_CandidateID__align}',
+		},
+				],
+	{END row_data}
+
+
+		{BEGIN Disability_Status_endgroup}
+
+		[
+								{
+				text: "",
+				style: "group_1"
+			},
+						{
+				text: "",
+				style: "group_2"
+			},
+					
+																		{
+				colSpan: 54,
+				text: [
+					'Summary for {$jslabel candidates_grouped_report Disability_Status } ', 
+					{$Disability_Status_grval},
+					' - ', 
+					{$groupDisability_Status_total_cnt}, 
+					' records total'
+				],
+				style: 'group_3',
+			},
+																																																																																																																																																																																																																																																																															],
+	
+	
+	
+	
+	
+	{END Disability_Status_endgroup}
+			{BEGIN Age_endgroup}
+
+		[
+								{
+				text: "",
+				style: "group_1"
+			},
+					
+													{
+				colSpan: 55,
+				text: [
+					'Summary for {$jslabel candidates_grouped_report Age } ', 
+					{$Age_grval},
+					' - ', 
+					{$groupAge_total_cnt}, 
+					' records total'
+				],
+				style: 'group_2',
+			},
+																																																																																																																																																																																																																																																																																				],
+	
+	
+	
+	
+	
+	{END Age_endgroup}
+			{BEGIN Sex_endgroup}
+
+		[
+		
+								{
+				colSpan: 56,
+				text: [
+					'Summary for {$jslabel candidates_grouped_report Sex } ', 
+					{$Sex_grval},
+					' - ', 
+					{$groupSex_total_cnt}, 
+					' records total'
+				],
+				style: 'group_1',
+			},
+																																																																																																																																																																																																																																																																																									],
+	
+	
+	
+	
+	
+	{END Sex_endgroup}
+	
+{END grid_row}
+
+
+
+
+
+
+
+	[
+		{	
+			text: 'Page summary {$page_total_cnt} - records total',
+			colSpan: 56,
+			style: 'pagesummary',
+		}
+	],
+
+	
+	
+	
+	
+
+
+{BEGIN global_summary}
+	[
+		{
+			text: 'Global summary {$global_total_cnt} - records total',
+			colSpan: 56,
+			style: 'globalsummary',
+		}
+	],
+
+	
+	
+	
+	
+{END global_summary}
+									]
+			
+			}
+		},
+		{END body}
+	],
+	footer: [
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_pagination}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+			],
+	}

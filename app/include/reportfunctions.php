@@ -713,6 +713,14 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="indicator_targets")
+		{
+			return 1;
+		}
+		if($table=="candidates_grouped_report")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1249,6 +1257,14 @@ function getCaptionTable($table)
 	if($table=="candidates_by_sex_age_disability")
 	{
 		return "Candidates By Sex Age Disability";
+	}
+	if($table=="indicator_targets")
+	{
+		return "Indicator Targets";
+	}
+	if($table=="candidates_grouped_report")
+	{
+		return "Candidates Grouped Report";
 	}
 	return $table;
 }
@@ -2806,6 +2822,18 @@ function GetTablesListReport()
 		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
 		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
 			$arr[]="candidates_aggrigated";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("indicator_targets");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="indicator_targets";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="indicator_targets";
 	}
 	return $arr;
 }

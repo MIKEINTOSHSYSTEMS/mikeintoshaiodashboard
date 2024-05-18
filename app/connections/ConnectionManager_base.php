@@ -311,6 +311,8 @@ class ConnectionManager_Base
 		$connectionsIds["utilities"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_aggrigated"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_by_sex_age_disability"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["indicator_targets"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidates_grouped_report"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
