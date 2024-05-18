@@ -1147,6 +1147,7 @@ $tdataindicator_targets[".sqlquery"] = $queryData_indicator_targets;
 
 
 
-$tdataindicator_targets[".hasEvents"] = false;
+include_once(getabspath("include/indicator_targets_events.php"));
+$tdataindicator_targets[".hasEvents"] = true;
 
 ?>
