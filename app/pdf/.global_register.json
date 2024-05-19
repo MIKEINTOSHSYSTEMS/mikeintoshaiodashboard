@@ -54,7 +54,32 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"Welcome To Dereja Monitoring and Evaluation System","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":30,"bold":true,"isHtml":true},
+			{"text":"Welcome To","color":"#ff0007","hidden":"{$item_hide_text}","fontSize":30,"bold":true,"isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"<p class=\"ql-align-center\"><strong style=\"color: rgb(255, 0, 0);\"><img width=\"143\" height=\"54\" alt=\"Dereja M&amp;E System\" src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\"></strong></p><h3 class=\"ql-align-center\"><strong style=\"color: rgb(255, 102, 0);\">M</strong><strong style=\"color: rgb(255, 0, 0);\">&amp;</strong><strong style=\"color: rgb(255, 102, 0);\">E</strong><strong> </strong><strong style=\"color: rgb(255, 0, 0);\">System</strong></h3><p><br></p>","hidden":"{$item_hide_text2}","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
