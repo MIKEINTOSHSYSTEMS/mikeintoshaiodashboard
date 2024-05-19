@@ -692,6 +692,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="indicator_targets_view")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1335,6 +1339,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="candidates_grouped_report")
+		{
+			return false;
+		}
+		if($table=="indicator_targets_view")
 		{
 			return false;
 		}

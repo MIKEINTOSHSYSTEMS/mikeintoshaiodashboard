@@ -40,5 +40,8 @@
 [data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item9"] > * > .tab-content > .tab-pane > .panel {
   border: none;
 }
+[data-page="aio_reporting_dashboard_dashboard"][data-itemid="dashboard-item10"] {
+  height: 500px;
+}
 
 

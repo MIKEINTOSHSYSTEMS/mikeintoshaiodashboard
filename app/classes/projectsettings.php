@@ -3652,6 +3652,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "indicator_targets" ] = "indicator_targets";
 	$projectEntities[ "candidates_grouped_report" ] = array( "url" => "candidates_grouped_report", "type" => 2 );
 	$projectEntitiesReverse[ "candidates_grouped_report" ] = "candidates_grouped_report";
+	$projectEntities[ "indicator_targets_view" ] = array( "url" => "indicator_targets_view", "type" => 3 );
+	$projectEntitiesReverse[ "indicator_targets_view" ] = "indicator_targets_view";
 }
 
 function findTable( $table ) {

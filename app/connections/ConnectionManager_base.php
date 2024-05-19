@@ -313,6 +313,7 @@ class ConnectionManager_Base
 		$connectionsIds["candidates_by_sex_age_disability"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["indicator_targets"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_grouped_report"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["indicator_targets_view"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

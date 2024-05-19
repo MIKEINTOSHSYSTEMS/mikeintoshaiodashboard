@@ -288,6 +288,11 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_reports_Employment_Company"] = "Employment Company";
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_reports_Employment_Position"] = "Employment Position";
 	$fieldLabelsaio_reporting_dashboard["English"]["candidates_reports_Remark"] = "Remark";
+	$fieldLabelsaio_reporting_dashboard["English"]["indicator_targets_view_IndicatorID"] = "Indicator ID";
+	$fieldLabelsaio_reporting_dashboard["English"]["indicator_targets_view_IndicatorName"] = "Indicator Name";
+	$fieldLabelsaio_reporting_dashboard["English"]["indicator_targets_view_IndicatorDescription"] = "Indicators";
+	$fieldLabelsaio_reporting_dashboard["English"]["indicator_targets_view_IndicatorValue"] = "Indicator Value";
+	$fieldLabelsaio_reporting_dashboard["English"]["indicator_targets_view_IndicatorTarget"] = "Indicator Target";
 }
 
 /*
@@ -1094,6 +1099,21 @@ $tdataaio_reporting_dashboard[".searchFields"]["candidates_reports_Employment_Po
 $dashField = array();
 $dashField[] = array( "table"=>"candidates_reports", "field"=>"Remark" );
 $tdataaio_reporting_dashboard[".searchFields"]["candidates_reports_Remark"] = $dashField;
+$dashField = array();
+$dashField[] = array( "table"=>"indicator_targets_view", "field"=>"IndicatorID" );
+$tdataaio_reporting_dashboard[".searchFields"]["indicator_targets_view_IndicatorID"] = $dashField;
+$dashField = array();
+$dashField[] = array( "table"=>"indicator_targets_view", "field"=>"IndicatorName" );
+$tdataaio_reporting_dashboard[".searchFields"]["indicator_targets_view_IndicatorName"] = $dashField;
+$dashField = array();
+$dashField[] = array( "table"=>"indicator_targets_view", "field"=>"IndicatorDescription" );
+$tdataaio_reporting_dashboard[".searchFields"]["indicator_targets_view_IndicatorDescription"] = $dashField;
+$dashField = array();
+$dashField[] = array( "table"=>"indicator_targets_view", "field"=>"IndicatorValue" );
+$tdataaio_reporting_dashboard[".searchFields"]["indicator_targets_view_IndicatorValue"] = $dashField;
+$dashField = array();
+$dashField[] = array( "table"=>"indicator_targets_view", "field"=>"IndicatorTarget" );
+$tdataaio_reporting_dashboard[".searchFields"]["indicator_targets_view_IndicatorTarget"] = $dashField;
 
 // all search fields
 $tdataaio_reporting_dashboard[".allSearchFields"] = array();
@@ -1364,6 +1384,11 @@ $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_reports_Employ
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_reports_Employment_Company";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_reports_Employment_Position";
 $tdataaio_reporting_dashboard[".allSearchFields"][] = "candidates_reports_Remark";
+$tdataaio_reporting_dashboard[".allSearchFields"][] = "indicator_targets_view_IndicatorID";
+$tdataaio_reporting_dashboard[".allSearchFields"][] = "indicator_targets_view_IndicatorName";
+$tdataaio_reporting_dashboard[".allSearchFields"][] = "indicator_targets_view_IndicatorDescription";
+$tdataaio_reporting_dashboard[".allSearchFields"][] = "indicator_targets_view_IndicatorValue";
+$tdataaio_reporting_dashboard[".allSearchFields"][] = "indicator_targets_view_IndicatorTarget";
 
 // good like search fields
 $tdataaio_reporting_dashboard[".googleLikeFields"] = array();
@@ -1744,6 +1769,16 @@ $tdataaio_reporting_dashboard[".dashElements"] = array();
 
 	$tdataaio_reporting_dashboard[".dashElements"][] = $dbelement;
 	$dbelement = array( "elementName" => "candidates_reports_chart", "table" => "candidates_reports",
+		 "pageName" => "","type" => 1);
+	$dbelement["cellName"] = "";
+
+		$dbelement["reload"] = 60;
+		$dbelement["width"] = 800;
+		$dbelement["height"] = 600;
+
+
+	$tdataaio_reporting_dashboard[".dashElements"][] = $dbelement;
+	$dbelement = array( "elementName" => "indicator_targets_view_chart", "table" => "indicator_targets_view",
 		 "pageName" => "","type" => 1);
 	$dbelement["cellName"] = "";
 

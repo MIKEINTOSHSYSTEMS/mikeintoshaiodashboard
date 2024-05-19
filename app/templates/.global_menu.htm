@@ -6,7 +6,7 @@
 	<title>{$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<base href="{$projectPath}">
-    <LINK rel="shortcut icon" type="image/png" href="./dereja_favicon.png"/>		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -23,7 +23,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -241,7 +241,7 @@
 		{BEGIN firstAboveGridCell}
 		 
 		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-small > 
-	<p class="ql-align-center"><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><img width="143" height="54" alt="Dereja M&amp;E System" src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg"></strong></a></p><p class="ql-align-center"><a style="color: rgb(255, 102, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>M</u></strong></a><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>&amp;</u></strong></a><a style="color: rgb(255, 102, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>E</u></strong></a><a href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u> </u></strong></a><a style="color: rgb(255, 0, 0);" href="./menu.php" target="_blank" rel="noopener noreferrer"><strong><u>System</u></strong></a></p><p><br></p></span>
+	<p class="ql-align-center"><strong style="color: rgb(255, 0, 0);"><img width="143" height="54" alt="Dereja M&amp;E System" src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg"></strong></p><p class="ql-align-center"><strong style="color: rgb(255, 102, 0);">M</strong><strong style="color: rgb(255, 0, 0);">&amp;</strong><strong style="color: rgb(255, 102, 0);">E</strong><strong> </strong><strong style="color: rgb(255, 0, 0);">System</strong></p></span>
 			{END firstAboveGridCell}	
 	</div>					</div>
 			 
@@ -573,6 +573,15 @@
 	</div>
 
 	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item75" {$item_welcome_item75} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="indicator_targets_view_chart.php"  > 
+							<span class="fa fa-line-chart"></span>Indicators Chart					</a>
+	</div>
+
+	</div>
+
+	
 <div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item62" {$item_welcome_item62} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="candidates_reports_chart.php"  > 
@@ -769,6 +778,68 @@
 	data-cellId="grid_c4" data-pageid="{$pageid}" data-page=".global_menu">
 <div class="r-welcome-align-right">
  
+<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group6" {$item_welcome_group6} data-pageid="{$pageid}">
+	<h2>
+					<span class="glyphicon glyphicon-globe"></span>Localization and Regional Data Management			</h2>
+	 
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item13" {$item_welcome_item13} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="regions_list.php"  > 
+							<span class="fa fa-map-pin"></span>Regions					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item14" {$item_welcome_item14} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="cities_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Cities					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item15" {$item_welcome_item15} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="sub_cities_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Sub Cities					</a>
+	</div>
+
+	</div>
+
+	
+<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item16" {$item_welcome_item16} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
+	<div class="bs-welcome-header">
+		<a id="itemlink" href="zones_list.php"  > 
+							<span class="fa fa-location-arrow"></span>Zones					</a>
+	</div>
+
+	</div>
+
+<div class="clearfix"></div>
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_8} >
+									<td 
+	
+	colspan="2"		 
+	data-cellId="grid_c15" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-center">
+</div>
+</td>
+							</tr>
+											<tr {$row_grid_9} >
+									<td 
+	
+	colspan="2"		 
+	data-cellId="grid_c22" data-pageid="{$pageid}" data-page=".global_menu">
+<div class="r-welcome-align-right">
+ 
 <div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group7" {$item_welcome_group7} data-pageid="{$pageid}">
 	<h2>
 					<span class="fa fa-pencil"></span>Education and Skills Data Management			</h2>
@@ -861,68 +932,6 @@
 	<div class="bs-welcome-header">
 		<a id="itemlink" href="languages_list.php"  > 
 							<span class="fa fa-language"></span>Languages					</a>
-	</div>
-
-	</div>
-
-<div class="clearfix"></div>
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_8} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c15" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-center">
-</div>
-</td>
-							</tr>
-											<tr {$row_grid_9} >
-									<td 
-	
-	colspan="2"		 
-	data-cellId="grid_c22" data-pageid="{$pageid}" data-page=".global_menu">
-<div class="r-welcome-align-right">
- 
-<div class="clearfix col-lg-12 col-md-12 col-sm-12 welcome-group" data-itemtype="welcome_group" data-itemid="welcome_group6" {$item_welcome_group6} data-pageid="{$pageid}">
-	<h2>
-					<span class="glyphicon glyphicon-globe"></span>Localization and Regional Data Management			</h2>
-	 
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item13" {$item_welcome_item13} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="regions_list.php"  > 
-							<span class="fa fa-map-pin"></span>Regions					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item14" {$item_welcome_item14} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="cities_list.php"  > 
-							<span class="fa fa-location-arrow"></span>Cities					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item15" {$item_welcome_item15} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="sub_cities_list.php"  > 
-							<span class="fa fa-location-arrow"></span>Sub Cities					</a>
-	</div>
-
-	</div>
-
-	
-<div class="bs-welcome-item" data-itemtype="welcome_item" data-itemid="welcome_item16" {$item_welcome_item16} data-pageid="{$pageid}" data-page=".global_menu" data-comment-len="0">
-	<div class="bs-welcome-header">
-		<a id="itemlink" href="zones_list.php"  > 
-							<span class="fa fa-location-arrow"></span>Zones					</a>
 	</div>
 
 	</div>

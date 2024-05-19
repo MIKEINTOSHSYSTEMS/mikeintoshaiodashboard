@@ -56,6 +56,9 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -131,6 +134,44 @@ pdfDocument = {
       },
 
 											],
+						[
+																{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 3,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item10}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c7',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c7',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c19',

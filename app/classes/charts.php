@@ -520,6 +520,8 @@ class Chart
 			return true;
 		if("candidates" == $this->chrt_array['tables'][0])
 			return true;
+		if("indicator_targets" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

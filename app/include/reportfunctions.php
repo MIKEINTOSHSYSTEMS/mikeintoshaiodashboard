@@ -721,6 +721,10 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="indicator_targets_view")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1265,6 +1269,10 @@ function getCaptionTable($table)
 	if($table=="candidates_grouped_report")
 	{
 		return "Candidates Grouped Report";
+	}
+	if($table=="indicator_targets_view")
+	{
+		return "Indicator Targets View";
 	}
 	return $table;
 }

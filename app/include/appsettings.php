@@ -744,9 +744,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "308_1716050320";
+$projectBuildKey = "321_1716136920";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "308";
+$projectBuildNumber = "321";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -844,6 +844,7 @@ $tableCaptions["English"]["candidates_aggrigated"] = "Candidates Aggrigated";
 $tableCaptions["English"]["candidates_by_sex_age_disability"] = "Candidates By Sex Age Disability";
 $tableCaptions["English"]["indicator_targets"] = "Indicator Targets";
 $tableCaptions["English"]["candidates_grouped_report"] = "Candidates Grouped Report";
+$tableCaptions["English"]["indicator_targets_view"] = "Indicator Targets View";
 
 
 $globalEvents = new class_GlobalEvents;

@@ -6,7 +6,7 @@
 	<title>{$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<base href="{$projectPath}">
-    <LINK rel="shortcut icon" type="image/png" href="./dereja_favicon.png"/>		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -23,7 +23,7 @@
 		{$containerCss}
 		</style>
 		<div class="r-vbar-page">
-			<div data-width="350px" data-fixed class="r-left clearfix {$leftbar_class}" >
+			<div data-width="300px" data-fixed class="r-left clearfix {$leftbar_class}" >
 								<div data-location="left" id="form_left_{$pageid}" data-makeup="leftbar" {$form_left} data-pageid="{$pageid}">
 {BEGIN left_block}
  
@@ -320,6 +320,28 @@
 											
 			<tr 
 			{$row_grid_1} 
+						data-row-width="1"
+						>
+									<td 
+	class="r-align-center r-ori-vert			"
+	colspan="3"		 
+	data-cellId="grid_c7" data-pageid="{$pageid}">
+ 
+<div 
+	data-dashtype="1" 
+	id="dashelement_indicator_targets_view_chart{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item10" {$item_dashboard-item10} data-pageid="{$pageid}" data-page="aio_reporting_dashboard_dashboard" 
+>
+	{$db_indicator_targets_view_chart}
+</div></td>
+							</tr>
+											
+			<tr 
+			{$row_grid_2} 
 						data-row-width="2"
 						>
 									<td 
@@ -357,7 +379,7 @@
 							</tr>
 											
 			<tr 
-			{$row_grid_2} 
+			{$row_grid_3} 
 						data-row-width="2"
 						>
 									<td 
@@ -395,7 +417,7 @@
 							</tr>
 											
 			<tr 
-			{$row_grid_3} 
+			{$row_grid_4} 
 						data-row-width="3"
 						>
 									<td 

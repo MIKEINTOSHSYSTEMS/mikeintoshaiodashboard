@@ -4564,33 +4564,33 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f9fa;
+  background-color: #f8f8f8;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #000;
+  color: #333333;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #000;
+  color: #333333;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
   color: #555555;
 }
 .navbar-default .navbar-nav > li > a {
-  color: rgba(0, 0, 0, 0.5);
+  color: #999999;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #000;
-  background-color: #dae0e5;
+  color: #333333;
+  background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #000;
-  background-color: #dae0e5;
+  color: #333333;
+  background-color: transparent;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -4615,23 +4615,23 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #dae0e5;
-  color: #000;
+  background-color: transparent;
+  color: #333333;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: rgba(0, 0, 0, 0.5);
+    color: #999999;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #000;
-    background-color: #dae0e5;
+    color: #333333;
+    background-color: transparent;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #000;
-    background-color: #dae0e5;
+    color: #333333;
+    background-color: transparent;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -4641,17 +4641,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default .navbar-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: #999999;
 }
 .navbar-default .navbar-link:hover {
-  color: #000;
+  color: #333333;
 }
 .navbar-default .btn-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: #999999;
 }
 .navbar-default .btn-link:hover,
 .navbar-default .btn-link:focus {
-  color: #000;
+  color: #333333;
 }
 .navbar-default .btn-link[disabled]:hover,
 fieldset[disabled] .navbar-default .btn-link:hover,
@@ -7851,9 +7851,9 @@ td::before {
   background-color: #ffffff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding-bottom: 15px;
-  width: 350px;
+  width: 300px;
   min-height: calc(100vh - 20px);
-  flex: 0 0 350px;
+  flex: 0 0 300px;
 }
 .r-vbar-page .r-left .panel {
   margin-bottom: 0;
@@ -7949,7 +7949,7 @@ td::before {
 }
 @media print, (min-width: 768px) {
   .r-vbar-page .r-left[data-fixed] + .r-content-col {
-    margin-left: 350px;
+    margin-left: 300px;
   }
   .r-vbar-page .r-left[data-fixed].r-left-collapsed + .r-content-col {
     margin-left: 60px;
@@ -7974,14 +7974,14 @@ td::before {
 }
 @media print, (min-width: 768px) {
   .r-vbar-page .r-content-col {
-    max-width: calc(100vw - 350px);
+    max-width: calc(100vw - 300px);
   }
   .r-vbar-page .r-content-col .r-body {
     padding-left: 22.5px;
     padding-right: 15px;
   }
   .r-vbar-page .r-content-col .r-body > * {
-    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px);
+    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px);
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="full"] > * > .r-grid-vertical[data-vcolumns="1"] {
     display: flex;
@@ -7993,7 +7993,7 @@ td::before {
     display: table;
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="compact"] > * {
-    max-width: calc(100vw - 350px - 15px);
+    max-width: calc(100vw - 300px - 15px);
   }
   .r-vbar-page .r-content-col .r-body[data-body-width="compact"] .r-grid > table {
     width: auto;
@@ -8028,7 +8028,7 @@ td::before {
     left: 0;
     right: 0;
     z-index: 100;
-    margin-left: 350px;
+    margin-left: 300px;
   }
   .r-vbar-page .r-topheader[data-fixed] + .r-body {
     margin-top: 50px;
@@ -8162,9 +8162,9 @@ td::before {
     background-color: #ffffff;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     padding-bottom: 15px;
-    width: 350px;
+    width: 300px;
     min-height: calc(100vh - 20px);
-    flex: 0 0 350px;
+    flex: 0 0 300px;
   }
   .r-leftbar-top-page > .r-under .r-left .panel {
     margin-bottom: 0;
@@ -8267,7 +8267,7 @@ td::before {
 }
 @media print, (min-width: 768px) and print, (min-width: 768px) {
   .r-leftbar-top-page > .r-under .r-left[data-fixed] + .r-content-col {
-    margin-left: 350px;
+    margin-left: 300px;
   }
   .r-leftbar-top-page > .r-under .r-left[data-fixed].r-left-collapsed + .r-content-col {
     margin-left: 60px;
@@ -8286,14 +8286,14 @@ td::before {
 }
 @media print, (min-width: 768px) and print, (min-width: 768px) {
   .r-leftbar-top-page > .r-under .r-content-col {
-    max-width: calc(100vw - 350px);
+    max-width: calc(100vw - 300px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body {
     padding-left: 22.5px;
     padding-right: 15px;
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body > * {
-    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px);
+    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="full"] > * > .r-grid-vertical[data-vcolumns="1"] {
     display: flex;
@@ -8305,7 +8305,7 @@ td::before {
     display: table;
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="compact"] > * {
-    max-width: calc(100vw - 350px - 15px);
+    max-width: calc(100vw - 300px - 15px);
   }
   .r-leftbar-top-page > .r-under .r-content-col .r-body[data-body-width="compact"] .r-grid > table {
     width: auto;
@@ -8334,7 +8334,7 @@ td::before {
 }
 @media screen and (max-width: 767px) {
   .r-leftbar-top-page [data-logo-cell] {
-    background: #f8f9fa;
+    background: #f8f8f8;
   }
   .r-leftbar-top-page [data-logo-cell] > .navbar-header {
     display: block;
@@ -9781,14 +9781,14 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
 }
 .navbar {
   min-height: 54px;
-  color: rgba(0, 0, 0, 0.5);
+  color: #999999;
 }
 .navbar.navbar-default {
-  background-image: -webkit-linear-gradient(#ffffff, #f8f9fa 60%, #eceff1);
-  background-image: -o-linear-gradient(#ffffff, #f8f9fa 60%, #eceff1);
-  background-image: linear-gradient(#ffffff, #f8f9fa 60%, #eceff1);
+  background-image: -webkit-linear-gradient(#ffffff, #f8f8f8 60%, #eeeeee);
+  background-image: -o-linear-gradient(#ffffff, #f8f8f8 60%, #eeeeee);
+  background-image: linear-gradient(#ffffff, #f8f8f8 60%, #eeeeee);
   background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeceff1', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
 }
 .navbar .open > a:hover {
   color: #333333;
@@ -9804,7 +9804,7 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
   color: inherit;
 }
 .navbar a:hover {
-  color: #000;
+  color: #333333;
 }
 @media print, (min-width: 768px) {
   .r-topbar-page h2 {
@@ -9858,15 +9858,15 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
     /* removed as for #14263 */
   }
   .r-topbar-page .r-body .r-content .r-left {
-    flex: 0 0 350px;
-    width: 350px;
+    flex: 0 0 300px;
+    width: 300px;
     padding-right: 15px;
   }
   .r-topbar-page .r-body .r-content .r-left > .r-form {
     width: 100%;
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block {
-    max-width: calc(100vw - 350px - 15px - 15px);
+    max-width: calc(100vw - 300px - 15px - 15px);
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
     width: 100%;
@@ -9926,17 +9926,17 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
 }
 @media print, (min-width: 768px) and (min-width: 1200px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 750px;
+    min-width: 800px;
   }
 }
 @media print, (min-width: 768px) and (min-width: 1400px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 820px;
+    min-width: 870px;
   }
 }
 @media print, (min-width: 768px) and (min-width: 1800px) {
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block[data-body-width="standard"] > .r-grid {
-    min-width: 920px;
+    min-width: 970px;
   }
 }
 @media print, (min-width: 768px) and (max-width: 1199px) {
@@ -11804,7 +11804,7 @@ However there might have been the case where dropdown showed up where it shouldn
   }
   [data-location="supertop"] .open > [data-menu-link][data-menu-link][data-menu-link]:not(:hover) {
     background: transparent;
-    color: rgba(0, 0, 0, 0.5);
+    color: #999999;
   }
   [data-location="supertop"] .open > [data-menu-link] > .r-menu-link > .r-menu-mobile-expand-icon {
     transform: rotate(-0.25turn);
@@ -12174,13 +12174,13 @@ However there might have been the case where dropdown showed up where it shouldn
 /* above and below forms width with wide grid */
 @media print, (min-width: 768px) {
   .r-vbar-page .r-content-col .r-body > .r-grid > .panel > * > .r-form {
-    max-width: calc(100vw - 350px - 20px - (30px * 0.75) - 10px - (10px * 2));
+    max-width: calc(100vw - 300px - 20px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-left-collapsed + .r-content-col .r-body > .r-grid > .panel > * > .r-form {
     max-width: calc(100vw - 60px - 20px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-topbar-page .r-body .r-content .r-left:not( [data-hidden] ) + .r-data-block > .r-grid > .panel > * > .r-form {
-    max-width: calc(100vw - 350px - 15px - (30px * 0.75) - 10px - (10px * 2));
+    max-width: calc(100vw - 300px - 15px - (30px * 0.75) - 10px - (10px * 2));
   }
   .r-data-block > .r-grid > .panel > * > .r-form {
     max-width: calc(100vw - 15px - (30px * 0.75) - 10px - (10px * 2));

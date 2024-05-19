@@ -667,7 +667,7 @@ $tdataindicator_targets[".hideMobileList"] = array();
 	$fdata["GoodName"] = "IndicatorValue";
 	$fdata["ownerTable"] = "indicator_targets";
 	$fdata["Label"] = GetFieldLabel("indicator_targets","IndicatorValue");
-	$fdata["FieldType"] = 200;
+	$fdata["FieldType"] = 3;
 
 
 	
@@ -806,7 +806,7 @@ $tdataindicator_targets[".hideMobileList"] = array();
 	$fdata["GoodName"] = "IndicatorTarget";
 	$fdata["ownerTable"] = "indicator_targets";
 	$fdata["Label"] = GetFieldLabel("indicator_targets","IndicatorTarget");
-	$fdata["FieldType"] = 200;
+	$fdata["FieldType"] = 3;
 
 
 	
