@@ -33,9 +33,6 @@ jobs:
       - name: Push Docker Image
         run: |
           docker push mikeintosh/mikeintosh-phpdashboard-app:latest
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   deploy:
     name: Deploy Docker Container
@@ -46,16 +43,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Log into Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
       - name: Push Docker Image
         run: docker-compose push
 
-      # UnComment out the following step to deploy automatically to your server
+      # Uncomment out the following step to deploy automatically to your server
       #- name: SSH into Server and Pull Docker Image
       #  uses: appleboy/ssh-action@master
       #  with:

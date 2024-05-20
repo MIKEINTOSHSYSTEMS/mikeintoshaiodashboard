@@ -2,13 +2,6 @@
 # Base image
 ################################################################################
 
-#FROM php:latest
-
-################################################################################
-# Build instructions
-################################################################################
-
-
 # Use an official PHP runtime as a parent image
 FROM php:7.4-apache
 
@@ -16,16 +9,11 @@ FROM php:7.4-apache
 WORKDIR /var/www/html
 
 # Copy your PHP application code into the container
-#COPY . .
-
-
-# Copy application source code to the container
 COPY analytics/ /var/www/html/analytics/
 COPY app/ /var/www/html/app/
 COPY assets/ /var/www/html/assets/
 COPY backend/ /var/www/html/backend/
 COPY dist/ /var/www/html/dist/
-#COPY docker/ /var/www/html/docker/
 COPY help/ /var/www/html/help/
 COPY map_files/ /var/www/html/map_files/
 COPY src/ /var/www/html/src/
@@ -45,7 +33,6 @@ COPY style.css /var/www/html/
 COPY test.html /var/www/html/
 COPY test.php /var/www/html/
 
-
 # Install PHP extensions and other dependencies
 RUN apt-get update && \
     apt-get install -y libpng-dev && \
@@ -56,9 +43,3 @@ EXPOSE 80
 
 # Start Apache when the container runs
 CMD ["apache2-foreground"]
-
-
-
-
-
-
