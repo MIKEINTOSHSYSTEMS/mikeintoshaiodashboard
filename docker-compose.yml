@@ -1,6 +1,42 @@
 version: '3.9'
 
 services:
+  php:
+    image: mikeintosh-phpdashboard-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: derejame_system
+    volumes:
+      - ./analytics:/var/www/html/analytics
+      - ./app:/var/www/html/app
+      - ./assets:/var/www/html/assets
+      - ./backend:/var/www/html/backend
+      - ./dist:/var/www/html/dist
+      - ./docker:/var/www/html/docker
+      - ./help:/var/www/html/help
+      - ./map_files:/var/www/html/map_files
+      - ./src:/var/www/html/src
+      - ./styles:/var/www/html/styles
+      - ./test:/var/www/html/test
+      - ./_config.yml:/var/www/html/_config.yml
+      - ./compareData.html:/var/www/html/compareData.html
+      - ./demo.php:/var/www/html/demo.php
+      - ./guide.html:/var/www/html/guide.html
+      - ./index.php:/var/www/html/index.php
+      - ./main.php:/var/www/html/main.php
+      - ./postgre.php:/var/www/html/postgre.php
+      - ./script.js:/var/www/html/script.js
+      - ./style.css:/var/www/html/style.css
+      - ./test.html:/var/www/html/test.html
+      - ./test.php:/var/www/html/test.php
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - merqderejadevnet
+
   metabase:
     image: metabase/metabase:latest
     container_name: merq_derja_viz
@@ -31,6 +67,8 @@ services:
       POSTGRES_DB: merqderejadb
       POSTGRES_USER: merqderejadb
       POSTGRES_PASSWORD: merqderejadb
+    volumes:
+      - ./src/merqderejadb:/docker-entrypoint-initdb.d/merqderejadb
     networks:
       - merqderejadevnet
 
@@ -44,6 +82,8 @@ services:
       MYSQL_ROOT_PASSWORD: merqderejadmin
       MYSQL_USER: merqderejadev
       MYSQL_PASSWORD: merqderejadev
+    volumes:
+      - ./src/dere_dev.sql:/docker-entrypoint-initdb.d/dere_dev.sql
     networks:
       - merqderejadevnet
 
@@ -98,8 +138,8 @@ services:
       #ME_CONFIG_SSL_CRT_PATH: /etc/ssl/certs/server.crt
       #ME_CONFIG_SSL_KEY_PATH: /etc/ssl/certs/server.key
     volumes: 
-    #- ./certs:/etc/ssl/certs
-    - ./mongodata/db:/data/db
+      #- ./certs:/etc/ssl/certs
+      - ./mongodata/db:/data/db
     networks: 
       - merqderejadevnet
 
