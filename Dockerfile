@@ -1,8 +1,7 @@
-# Use the official PHP image with Apache for PHP 7.4
-#FROM php:7.4.33-apache
+# Start from the PHP base image
 FROM php:latest
 
-# Install required PHP extensions
+# Update and install required dependencies
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     libfreetype6-dev \
@@ -18,24 +17,21 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     libonig-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install zip gd xml curl mysqli mbstring exif intl ldap openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath
+    zlib1g-dev \
+    libicu-dev \
+    g++ \
+    libbz2-dev \
+    libxpm-dev \
+    libmcrypt-dev \
+    libxslt1-dev \
+    libkrb5-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install OCI8 extensions (requires Oracle Instant Client)
-RUN apt-get update && apt-get install -y libaio1 wget \
-    && mkdir -p /opt/oracle \
-    && cd /opt/oracle \
-    && wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basic-linux.x64-21.1.0.0.0.zip \
-    && unzip instantclient-basic-linux.x64-21.1.0.0.0.zip \
-    && rm -f instantclient-basic-linux.x64-21.1.0.0.0.zip \
-    && docker-php-ext-configure oci8 --with-oci8=instantclient,/opt/oracle/instantclient_21_1 \
-    && docker-php-ext-install oci8
+# Install required PHP extensions
+RUN docker-php-ext-install zip gd xml curl mysqli mbstring exif intl ldap openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath gmp
 
-# Install COM and IMAP extensions
-RUN apt-get install -y libgmp-dev libc-client-dev libkrb5-dev \
-    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
-    && docker-php-ext-install imap \
-    && docker-php-ext-install gmp
+# Set the working directory
+WORKDIR /var/www/html
 
 # Copy application source code to the container
 COPY analytics/ /var/www/html/analytics/
