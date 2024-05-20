@@ -5,6 +5,11 @@
 # Use an official PHP runtime as a parent image
 FROM php:7.4-apache
 
+# Set the image name and tag as labels
+LABEL maintainer="MIKEINTOSH SYSTEMS <mikeintoshsys@gmail.com>"
+LABEL image.name="mikeintosh-phpdashboard-app"
+LABEL image.tag="latest"
+
 # Set the working directory in the container
 WORKDIR /var/www/html
 
