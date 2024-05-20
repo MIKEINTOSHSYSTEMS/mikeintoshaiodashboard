@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   php:
-    image: mikeintosh-phpdashboard-app
+    image: mikeintosh-phpdashboard-app:latest
     build:
       context: .
       dockerfile: Dockerfile
