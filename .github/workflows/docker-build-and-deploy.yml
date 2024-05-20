@@ -24,6 +24,13 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Push Docker Image
+        run: |
+          docker push mikeintosh/mikeintosh-phpdashboard-app:latest
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
   deploy:
     name: Deploy Docker Container
     runs-on: ubuntu-latest
