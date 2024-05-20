@@ -2,51 +2,22 @@
 # Base image
 ################################################################################
 
-FROM php:latest
+#FROM php:latest
 
 ################################################################################
 # Build instructions
 ################################################################################
 
-# Update and install required dependencies
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    libfreetype6-dev \
-    libjpeg62-turbo-dev \
-    libpng-dev \
-    libxml2-dev \
-    libcurl4-openssl-dev \
-    libldb-dev \
-    libldap2-dev \
-    libsqlite3-dev \
-    libssl-dev \
-    libgmp-dev \
-    libpq-dev \
-    unzip \
-    libonig-dev \
-    zlib1g-dev \
-    libicu-dev \
-    g++ \
-    libbz2-dev \
-    libxpm-dev \
-    libmcrypt-dev \
-    libxslt1-dev \
-    libkrb5-dev \
-    && rm -rf /var/lib/apt/lists/*
 
-# Install required PHP extensions
-RUN docker-php-source extract \
-    && cd /usr/src/php/ext/ldap \
-    && phpize \
-    && ./configure \
-    && make \
-    && make install \
-    && docker-php-ext-enable ldap \
-    && docker-php-source delete \
-    && docker-php-ext-install zip gd xml curl mysqli mbstring exif intl openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath gmp
+# Use an official PHP runtime as a parent image
+FROM php:7.4-apache
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /var/www/html
+
+# Copy your PHP application code into the container
+#COPY . .
+
 
 # Copy application source code to the container
 COPY analytics/ /var/www/html/analytics/
@@ -74,24 +45,20 @@ COPY style.css /var/www/html/
 COPY test.html /var/www/html/
 COPY test.php /var/www/html/
 
-# Set permissions (optional, depending on your app's needs)
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
 
-################################################################################
-# Volumes
-################################################################################
+# Install PHP extensions and other dependencies
+RUN apt-get update && \
+    apt-get install -y libpng-dev && \
+    docker-php-ext-install pdo pdo_mysql gd
 
-VOLUME ["/var/www/html"]
-
-################################################################################
-# Ports
-################################################################################
-
+# Expose the port Apache listens on
 EXPOSE 80
 
-################################################################################
-# Entrypoint
-################################################################################
-
+# Start Apache when the container runs
 CMD ["apache2-foreground"]
+
+
+
+
+
+
