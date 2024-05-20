@@ -1,5 +1,6 @@
 # Use the official PHP image with Apache for PHP 7.4
-FROM php:7.4.33-apache
+#FROM php:7.4.33-apache
+FROM php:latest
 
 # Install required PHP extensions
 RUN apt-get update && apt-get install -y \
