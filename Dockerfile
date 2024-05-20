@@ -39,7 +39,7 @@ COPY app/ /var/www/html/app/
 COPY assets/ /var/www/html/assets/
 COPY backend/ /var/www/html/backend/
 COPY dist/ /var/www/html/dist/
-COPY docker/ /var/www/html/docker/
+#COPY docker/ /var/www/html/docker/
 COPY help/ /var/www/html/help/
 COPY map_files/ /var/www/html/map_files/
 COPY src/ /var/www/html/src/
