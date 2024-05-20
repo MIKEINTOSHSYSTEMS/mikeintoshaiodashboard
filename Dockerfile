@@ -28,7 +28,15 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install required PHP extensions
-RUN docker-php-ext-install zip gd xml curl mysqli mbstring exif intl ldap openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath gmp
+RUN docker-php-source extract \
+    && cd /usr/src/php/ext/ldap \
+    && phpize \
+    && ./configure \
+    && make \
+    && make install \
+    && docker-php-ext-enable ldap \
+    && docker-php-source delete \
+    && docker-php-ext-install zip gd xml curl mysqli mbstring exif intl openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath gmp
 
 # Set the working directory
 WORKDIR /var/www/html
