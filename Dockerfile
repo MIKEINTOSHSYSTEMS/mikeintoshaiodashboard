@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     libgmp-dev \
     libpq-dev \
     unzip \
+    libonig-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install zip gd xml curl mysqli mbstring exif intl ldap openssl pdo_mysql pdo_pgsql pdo_sqlite bcmath
 
