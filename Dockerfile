@@ -13,12 +13,13 @@ LABEL image.tag="latest"
 # Set the working directory in the container
 WORKDIR /var/www/html
 
-# Copy your PHP application code into the container
+# Copy application source code to the container
 COPY analytics/ /var/www/html/analytics/
 COPY app/ /var/www/html/app/
 COPY assets/ /var/www/html/assets/
 COPY backend/ /var/www/html/backend/
 COPY dist/ /var/www/html/dist/
+#COPY docker/ /var/www/html/docker/
 COPY help/ /var/www/html/help/
 COPY map_files/ /var/www/html/map_files/
 COPY src/ /var/www/html/src/
@@ -37,6 +38,9 @@ COPY script.js /var/www/html/
 COPY style.css /var/www/html/
 COPY test.html /var/www/html/
 COPY test.php /var/www/html/
+
+# Copy custom php.ini configuration
+COPY config/php.ini /usr/local/etc/php/php.ini
 
 # Install PHP extensions and other dependencies
 RUN apt-get update && \

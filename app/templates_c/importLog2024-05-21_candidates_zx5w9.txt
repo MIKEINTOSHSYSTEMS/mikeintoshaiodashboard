@@ -1,0 +1,79 @@
+Import into candidates
+5/21/2024 7:12:21 AM
+
+0 out of 24 records processed successfully.
+0 records added.
+0 records updated.
+24 records processed with errors:
+
+Unknown column 'Age' in 'field list'
+"Michael","Kifle","Teferra","Male","1990-7-9 0:0:0","Addis Ababa","Addis Ababa","1","609","+251913391985","michaelktd7@gmail.com","University","5th Year","Economics","Mathematics ","Software Engineering","Problem Solving","99","MS Word,Quick Books","","<p>MSCL Microsoft Cerfied</p> ","2019-3-11 0:0:0","<p>At MERQ as Senior Software Engineer,</p> ","Yes","Events,Training","DAAP","Online event","","Telegram link","","","","","","3.99","","Amharic,English","Self  Employed","MIKEINTOSH","System Administrator","","","","","","","","","","","","","","","","33","Michael Kifle Teferra"
+
+Unknown column 'Age' in 'field list'
+"Abebech","Bekele","Haile","Female","1996-5-13 0:0:0","Amhara","Bahir Dar","5","New","+251913356548","Abebech@gmail.com","","","","","","","","","","","","","Yes","","","","","From a friend","","Yes","Hearing disabilities (partial hearing loss to deafness)","","","2.5","","","","","","","","","","Yes","","","","","","","","","","","28","Abebech Bekele Haile"
+
+Unknown column 'Age' in 'field list'
+"Birukti","Asmelash","Meselu","Female","1995-3-15 0:0:0","Addis Ababa","Addis Ababa","9","995","+251910123456","bruktiam@gmail.com","Others","Graduate","Medicine","","","","","","","","2019-7-10 0:0:0","","Yes","CDC","Technical","Online event","99","From Dereja website","","","","","","","","","","","","","","","","","","","","","","","","","","","29","Birukti Asmelash Meselu"
+
+Unknown column 'Age' in 'field list'
+"Abush ","Kebede","Ketema","Male","2024-3-22 0:0:0","Addis Ababa","Addis Ababa","","","","","University","5th Year","","","","MEL,Data Management ","","","""Ms word, excel, access. ""","","2024-3-22 0:0:0","","Yes","Training","DAAP,Language proficiency","Job fair,Online event","","At Dereja campaign","","","","","","","","","","","","","","","","Yes","","","","","","","","","","","0","Abush  Kebede Ketema"
+
+Unknown column 'Age' in 'field list'
+"Abatihun","Tilahun","Mekonnen","Male","2001-7-12 0:0:0","Addis Ababa","Addis Ababa","","","910782692","abatihun3592@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Social Work","3.15","Addis Ababa University","Amharic,English","Employed","oromia International Bank","Custmer Service Officer","","906605216","Regular","Website","Yes","Yes","Yes","","","","","70","Pass","","Yes","22","Abatihun Tilahun Mekonnen"
+
+Unknown column 'Age' in 'field list'
+"Abay","Bogale","Darge","Male","","Oromia","Sendafa","","","926609397","abaybogale2112@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Management Information System","","Addis Ababa University","","Employed","Dashen bank","Custmer Service Officer","","","Regular","DAAP","","","Yes","Yes","Human Resource Management","","","89","Pass","Yes","Yes","","Abay Bogale Darge"
+
+Unknown column 'Age' in 'field list'
+"Abdi","Dawit","Terfa","Male","","Addis Ababa","Addis Ababa","","","961756771","Abdudawit100@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","International Trade and Investment Management","3.94","Arsi University","","Employed","Oromia Bank","Custmer Service Officer","","","Regular","Website","","Yes","","","","","","74","Pass","","Yes","","Abdi Dawit Terfa"
+
+Unknown column 'Age' in 'field list'
+"Abdi","Mengistu","Tsegaye","Male","1999-7-1 0:0:0","Dire Dawa","Dire Dawa","","","935536053","abdimengistu3553@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Economics","3.83","Haramaya University","Amharic,Oromifa,English","Employed","Oromia Bank","Custmer Service Officer","","","Regular","DAAP","Yes","Yes","Yes","Yes","Business Development Service","","","68","Pass","Yes","NO","24","Abdi Mengistu Tsegaye"
+
+Unknown column 'Age' in 'field list'
+"Abdisa","Wake","Tufa","Male","1992-1-18 0:0:0","Oromia","Adama","","","961543704","abdisawake5@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Computer Science","3.3","Adama Science And Technology University","Oromifa,Amharic","Employed","ethiopian AI instute","trail reserch development","","","Regular","Website","","Yes","","","","Yes","Yes","","","","Yes","32","Abdisa Wake Tufa"
+
+Unknown column 'Age' in 'field list'
+"Abdisa","Tafa","bedada","Male","2000-3-22 0:0:0","Oromia","Adama","","","963362550","tafaabdisa0@gmail.com","","","","","","","","","","","","","","","","","","","","","","","Special Needs and Inclusive Education","3.71","Hawassa University","","Employed","gemta constraction plc","laboratory technical","","","Regular","DAAP","","Yes","","Yes","Computer Science and Information Technology","","","","","Yes","Yes","24","Abdisa Tafa bedada"
+
+Unknown column 'Age' in 'field list'
+"Abdiwak","Asfaw","Imana","Male","","Oromia","Wollega","","","930579134","abdiwak41@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Electrical and Computer engineering (computer stream)","","Jimma University","Amharic,Oromifa,English","Employed","siinqee bank","bank trainee","","","Regular","DAAP","Yes","","Yes","Yes","Marketing and Sales","","","","Pass","Yes","NO","","Abdiwak Asfaw Imana"
+
+Unknown column 'Age' in 'field list'
+"Abdulmajid","Aliyi","Mustefa","Male","2000-12-30 0:0:0","Addis Ababa","Addis Ababa","","","955979507","abdulmajidaliyi2563@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Management Information System","3.06","Addis Ababa University","Amharic, Oromifa, English","Employed","OROMIA BANK","Custmer Service Officer","","","Regular","Website","","Yes","Yes","","","Yes","Yes","78","Pass","","Yes","23","Abdulmajid Aliyi Mustefa"
+
+Unknown column 'Age' in 'field list'
+"Abdulselam","Tamene","Mola","Male","1999-8-14 0:0:0","Addis Ababa","Addis Ababa","","","935664245","abdulselam4245@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Computer Science","3.62","Adama Science And Technology University","Amharic,English","Employed","addis pay financial","software development","","","Regular","Website","","Yes","","","","Yes","Yes","","","","Yes","24","Abdulselam Tamene Mola"
+
+Unknown column 'Age' in 'field list'
+"Abdurazak","Aman","Gelato","Male","1998-10-14 0:0:0","Oromia","Adama","","","926563194","amanabdurzak204@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Economics","3.73","Haramaya University","Amhric Oromic English","Employed","dashn bank","Custmer Service Officer","","","Regular","DAAP","","","Yes","Yes","Accounting and Finance","","","68","Pass","Yes","Yes","25","Abdurazak Aman Gelato"
+
+Unknown column 'Age' in 'field list'
+"Abduselam","Muhammed","Hasan","Male","","Oromia","Adama","","","925962096","abduselamm555@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Computer Science","3.03","Adama Science And Technology University","","Employed","Age communication","web designers","","","Regular","DAAP","","","Yes","Yes","Computer Science and Information Technology","Yes","Yes","","","Yes","Yes","","Abduselam Muhammed Hasan"
+
+Unknown column 'Age' in 'field list'
+"Abduselam","Gena","bune","Male","1999-1-2 0:0:0","Oromia","Adama","","","945215171","abdusalamgena@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Electrical and Computer Engineering(Power stream)","3.71","Adama Science And Technology University","Amharic,English,Oromifa","Employed","coca cola","Graduate trainee","","","Regular","DAAP","","Yes","Yes","Yes","Computer Science and Information Technology","Yes","Yes","","","Yes","Yes","25","Abduselam Gena bune"
+
+Unknown column 'Age' in 'field list'
+"Abduselam","Hussien","Mohammed","Male","2000-1-25 0:0:0","Addis Ababa","Addis Ababa","","","943268705","mohamir696@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Sport Science","3.2","Addis Ababa University","Amharic,English,Sign Language","Employed","realstate","sales","","","Regular","Job fair","","Yes","","","","Yes","Yes","47","Fail","","Yes","24","Abduselam Hussien Mohammed"
+
+Unknown column 'Age' in 'field list'
+"Abeba","Demilie","birhane","Female","1997-2-27 0:0:0","Amhara","Bahir Dar","","","945529197","Abebademilie2020@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Electro-Mechanical Engineering","3.02","Addis Ababa Science and Technology University","Amharic,English","Employed","safari","sales","","","Regular","DAAP","","","Yes","","","","","","","Yes","Yes","27","Abeba Demilie birhane"
+
+Unknown column 'Age' in 'field list'
+"Abebaw","Debie","Mossie","Male","1998-5-1 0:0:0","Addis Ababa","Addis Ababa","","","953602784","debieabebaw@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Accounting and Finance","3.24","Addis Ababa University","Amharic,English","Employed","alicat plc","accountant","","","Regular","Website","","Yes","Yes","Yes","","Yes","Yes","56","Pass","","Yes","26","Abebaw Debie Mossie"
+
+Unknown column 'Age' in 'field list'
+"Abebaye","Tilahun","Gashaye","Male","1999-11-13 0:0:0","Addis Ababa","Addis Ababa","","","966312321","abebayetilahun00@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Economics","3.79","Addis Ababa University","Amharic,English","Employed","Amhara Bank","Custmer Service Officer","","","Regular","DAAP","","","Yes","Yes","Project Management","","","74","Pass","Yes","Yes","24","Abebaye Tilahun Gashaye"
+
+Unknown column 'Age' in 'field list'
+"Abebe","Fetene","Jemberie","Male","2002-10-21 0:0:0","Addis Ababa","Addis Ababa","","","926492790","abebefetene16@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Accounting and Finance","3.72","Addis Ababa University","Amharic,English","Employed","dashen bank","Custmer Service Officer","","","Regular","Website","","","","","","","","62","Pass","","Yes","21","Abebe Fetene Jemberie"
+
+Unknown column 'Age' in 'field list'
+"Abebe","Wakuma","Kumela","Male","","Oromia","Woleta","","","945915894","abebewakuma57@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Management Information System","3.34","Addis Ababa University","Amharic,Gurage,Oromifa,English","Employed","Oromia Bank","Custmer Service Officer","","","Regular","DAAP","","","Yes","Yes","Customer service","","","","","Yes","NO","","Abebe Wakuma Kumela"
+
+Unknown column 'Age' in 'field list'
+"Abebe","Abera","","Male","","Amhara","","","","949140006","abeyekidanlijabera22@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Textile Engineering","","Bahir Dar University","","Self  Employed","","","Busy","965107544","Regular","Website","","Yes","","","","Yes","","","","","NO","","Abebe Abera "
+
+Unknown column 'Age' in 'field list'
+"Abebe","Kasahun","Takele","Male","2000-1-24 0:0:0","Amhara","Debre Tabor","","","995779782","ababekasahun98@gmail.com","","","","","","","","","","","","","","","","","","","","Normal","","","Management Information System","3.91","Samara University","Amharic","Employed","tsedey bank","Custmer Service Officer","","","Regular","Website","Yes","Yes","","","","","","","","","Yes","24","Abebe Kasahun Takele"
