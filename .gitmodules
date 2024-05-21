@@ -1,0 +1,3 @@
+[submodule "pm4core-docker"]
+    path = pm4core-docker
+    url = https://github.com/ProcessMaker/pm4core-docker.git

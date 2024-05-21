@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          submodules: true  # Ensure submodules are checked out
+          submodules_recursive: true  # Ensure nested submodules are also checked out
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -26,6 +29,9 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build --file Dockerfile --tag mikeintosh/mikeintosh-phpdashboard-app:latest .
+
+      - name: Push Docker Image
+        run: |
           docker push mikeintosh/mikeintosh-phpdashboard-app:latest
 
   deploy:
@@ -36,6 +42,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          submodules: true  # Ensure submodules are checked out
+          submodules_recursive: true  # Ensure nested submodules are also checked out
 
       - name: Log into Docker Hub
         uses: docker/login-action@v2
