@@ -3,7 +3,10 @@
 ################################################################################
 
 # Use an official PHP runtime as a parent image
-FROM php:7.4-apache
+#FROM php:7.4-apache
+
+# Use an official PHP-FPM runtime as a parent image
+FROM php:7.4-fpm
 
 # Set the image name and tag as labels
 LABEL maintainer="MIKEINTOSH SYSTEMS <mikeintoshsys@gmail.com>"
@@ -48,7 +51,11 @@ RUN apt-get update && \
     docker-php-ext-install pdo pdo_mysql gd
 
 # Expose the port Apache listens on
-EXPOSE 80
+#EXPOSE 80
+
+# Expose the port PHP-FPM listens on
+EXPOSE 9000
 
 # Start Apache when the container runs
-CMD ["apache2-foreground"]
+#CMD ["apache2-foreground"]
+CMD ["php-fpm"]
