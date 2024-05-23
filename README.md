@@ -1,4 +1,4 @@
-# mikeintoshaiodashboard
+# MIKEINTOSH PHP DASHBOARD APP
 MIKEINTOSH AIO Data Visualization Dashboard
 
 
@@ -131,5 +131,106 @@ List any acknowledgements or credits for third-party libraries, resources, or in
 
 Provide contact information for project maintainers or contributors, such as email addresses or links to social media profiles.
 
-- Project Maintainer: [Michael Kifle Teferra](mailto:michaelktd7@gmail.com) | [MIKEINTOSH SYSTEMS](mailto:mikeintoshsys@gmail.com) | [Telegram](@mikeintosh)
-```
+- Project Maintainer: [Michael Kifle Teferra](mailto:michaelktd7@gmail.com) | [MIKEINTOSH SYSTEMS](mailto:mikeintoshsys@gmail.com) | [Telegram](https://t.me/mikeintosh)
+
+## Repository Overview
+
+This repository hosts the source code and configuration files for the PHP Dashboard Application. It is designed to be easily deployable using Docker, ensuring a consistent environment for running the application. The application leverages various services such as MySQL, PostgreSQL, MongoDB, and Metabase for data visualization.
+
+### Key Components
+
+1. **PHP Dashboard Application**:
+   - Built using PHP 7.4 and Apache.
+   - The main application files are located in the `/app`, `/backend`, `/src`, and other relevant directories.
+
+2. **Docker Configuration**:
+   - `Dockerfile`: Defines the base image, installs dependencies, and copies the application code into the container.
+   - `docker-compose.yml`: Orchestrates multiple services including the PHP application, MySQL, PostgreSQL, MongoDB, Metabase, and administration tools like phpMyAdmin and pgAdmin.
+
+3. **Submodules**:
+   - Includes the `pm4core-docker` submodule from the external repository `https://github.com/ProcessMaker/pm4core-docker.git`.
+
+4. **Configuration Files**:
+   - Various configuration files for the application and services, such as `_config.yml`, `postgre.php`, and `php.ini` (located in the `config` folder).
+
+### Directory Structure
+
+- `/analytics`: Contains analytics-related data and scripts.
+- `/app`: Core PHP application files.
+- `/assets`: Static assets including images, stylesheets, and JavaScript files.
+- `/backend`: Backend PHP scripts for handling server-side logic.
+- `/dist`: Compiled distribution files for the frontend.
+- `/help`: Documentation and help files for users.
+- `/map_files`: Files related to mapping functionalities.
+- `/src`: Source code for the application.
+- `/styles`: CSS stylesheets.
+- `/test`: Test scripts and files.
+- `/config`: Configuration files for PHP and other services.
+
+### Docker Services
+
+- **PHP Application**:
+  - Uses the image `mikeintosh/mikeintosh-phpdashboard-app:latest`.
+  - Exposes port 8080 for web access.
+
+- **MySQL**:
+  - Database service for the application.
+  - Exposes the default MySQL port 3306.
+
+- **PostgreSQL**:
+  - Used by Metabase for data storage and management.
+  - Exposes the default PostgreSQL port 5432.
+
+- **MongoDB**:
+  - NoSQL database service.
+  - Exposes the default MongoDB port 27017.
+
+- **Metabase**:
+  - Visualization tool for creating dashboards and reports.
+  - Exposes port 4000 for web access.
+
+- **phpMyAdmin**:
+  - Web-based MySQL administration tool.
+  - Exposes port 3307.
+
+- **pgAdmin**:
+  - Web-based PostgreSQL administration tool.
+  - Exposes port 5434.
+
+- **Mongo Express**:
+  - Web-based MongoDB administration tool.
+  - Exposes port 8081.
+
+### Workflow Automation
+
+- **GitHub Actions**:
+  - Automates the build and deployment process using the `docker-build-and-deploy.yml` workflow file.
+  - On push to the `main` branch, the workflow builds and pushes the Docker image to Docker Hub, then deploys the updated container.
+
+### Usage
+
+1. Clone the repository:
+   ```
+   git clone --recurse-submodules https://github.com/MIKEINTOSHSYSTEMS/mikeintoshaiodashboard.git
+   ```
+
+2. Build and run the Docker containers:
+   ```
+   docker-compose up -d
+   ```
+
+3. Access the application at `http://localhost:8080`.
+
+4. Access phpMyAdmin at `http://localhost:3307`.
+
+5. Access pgAdmin at `http://localhost:5434`.
+
+6. Access Mongo Express at `http://localhost:8081`.
+
+### Contributing
+
+Contributions are welcome! If you'd like to contribute, please follow the guidelines in the main README section.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

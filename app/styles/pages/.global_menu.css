@@ -55,7 +55,10 @@
 [data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"][data-cellid="grid_c16"][data-page=".global_menu"] {
   background-color: transparent;
 }
-[data-cellid="grid_c19"][data-page=".global_menu"][data-cellid="grid_c19"][data-page=".global_menu"][data-cellid="grid_c19"][data-page=".global_menu"] {
+[data-cellid="grid_c28"][data-page=".global_menu"][data-cellid="grid_c28"][data-page=".global_menu"][data-cellid="grid_c28"][data-page=".global_menu"] {
+  background-color: transparent;
+}
+[data-cellid="grid_c29"][data-page=".global_menu"][data-cellid="grid_c29"][data-page=".global_menu"][data-cellid="grid_c29"][data-page=".global_menu"] {
   background-color: transparent;
 }
 [data-page=".global_menu"][data-itemid="welcome_group1"] {
@@ -287,6 +290,9 @@
   background-color: #1E90FF;
 }
 [data-page=".global_menu"][data-itemid="welcome_item75"] > .bs-welcome-header {
+  background-color: #1E90FF;
+}
+[data-page=".global_menu"][data-itemid="welcome_item76"] > .bs-welcome-header {
   background-color: #1E90FF;
 }
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {

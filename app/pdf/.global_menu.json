@@ -301,7 +301,6 @@ pdfDocument = {
 		
 	//	static colspan/rowspan
 		
-					rowSpan: 3,
 			
 	
 	
@@ -361,22 +360,37 @@ pdfDocument = {
       
       },
 
-																		{ 
-				cellId: 'c27',
-				row:  1,
-				col:  0,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c19',
+																							{
+	cellId: 'c28',
 	col:0,
 	row:0,
 			
 		
 	//	static colspan/rowspan
-					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+      fillColor: "" ,        "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c29',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 3,
 		
 			
 	
@@ -388,21 +402,21 @@ pdfDocument = {
 				
 		  ],
   "border": [ false, false, false, false ],
-      fillColor: "" ,        "alignment": 'left',
+      fillColor: "" ,        "alignment": 'center',
      
       
       },
 
 																		{ 
-				cellId: 'c19',
+				cellId: 'c29',
 				row:  0,
 				col:  1,
 				text: ''
 			},
 														{ 
-				cellId: 'c27',
-				row:  2,
-				col:  0,
+				cellId: 'c29',
+				row:  0,
+				col:  2,
 				text: ''
 			},
 							],

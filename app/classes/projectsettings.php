@@ -3654,6 +3654,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "candidates_grouped_report" ] = "candidates_grouped_report";
 	$projectEntities[ "indicator_targets_view" ] = array( "url" => "indicator_targets_view", "type" => 3 );
 	$projectEntitiesReverse[ "indicator_targets_view" ] = "indicator_targets_view";
+	$projectEntities[ "dereja_academy_lms" ] = array( "url" => "dereja_academy_lms", "type" => 0 );
+	$projectEntitiesReverse[ "dereja_academy_lms" ] = "dereja_academy_lms";
 }
 
 function findTable( $table ) {

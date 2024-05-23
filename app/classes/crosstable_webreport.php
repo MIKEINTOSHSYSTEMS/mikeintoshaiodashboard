@@ -1525,6 +1525,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("indicator_targets" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("dereja_academy_lms" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

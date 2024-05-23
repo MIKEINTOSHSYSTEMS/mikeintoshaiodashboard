@@ -347,6 +347,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("indicator_targets_view" == $shortTName )
 		return true;
+	if ("dereja_academy_lms" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1045,6 +1047,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="indicator_targets_view";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dereja_academy_lms");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dereja_academy_lms";
+	}
 	return $arr;
 }
 
@@ -1126,6 +1137,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="indicator_targets";
 	$arr[]="candidates_grouped_report";
 	$arr[]="indicator_targets_view";
+	$arr[]="dereja_academy_lms";
 	return $arr;
 }
 
@@ -2126,6 +2138,11 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "S".$extraPerm;
+	}
+	if( $table=="dereja_academy_lms" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

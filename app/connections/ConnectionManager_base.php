@@ -314,6 +314,7 @@ class ConnectionManager_Base
 		$connectionsIds["indicator_targets"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidates_grouped_report"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["indicator_targets_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_academy_lms"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
