@@ -587,9 +587,6 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
 @media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="IndicatorID"]:before {
-		content: "{$label indicator_targets IndicatorID}";
-	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="IndicatorName"]:before {
 		content: "{$label indicator_targets IndicatorName}";
 	}
@@ -660,21 +657,21 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorID_class}	"
+		 r-ori-vert		 {$IndicatorName_class}	"
 
-			data-field="IndicatorID"
+			data-field="IndicatorName"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IndicatorID_fieldheadercolumn}
-	{BEGIN IndicatorID_fieldheader}
-	<SPAN {$IndicatorID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorID" data-fieldname="IndicatorID">
-	{$label indicator_targets IndicatorID }	{$arrow_icon_IndicatorID}
+		{BEGIN IndicatorName_fieldheadercolumn}
+	{BEGIN IndicatorName_fieldheader}
+	<SPAN {$IndicatorName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorName" data-fieldname="IndicatorName">
+	{$label indicator_targets IndicatorName }	{$arrow_icon_IndicatorName}
 	</SPAN>
-	{END IndicatorID_fieldheader}
-{END IndicatorID_fieldheadercolumn}
+	{END IndicatorName_fieldheader}
+{END IndicatorName_fieldheadercolumn}
 
 	
 	</th>
@@ -685,21 +682,21 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorName_class}	"
+		 r-ori-vert		 {$IndicatorDescription_class}	"
 
-			data-field="IndicatorName"
+			data-field="IndicatorDescription"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IndicatorName_fieldheadercolumn}
-	{BEGIN IndicatorName_fieldheader}
-	<SPAN {$IndicatorName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorName" data-fieldname="IndicatorName">
-	{$label indicator_targets IndicatorName }	{$arrow_icon_IndicatorName}
+		{BEGIN IndicatorDescription_fieldheadercolumn}
+	{BEGIN IndicatorDescription_fieldheader}
+	<SPAN {$IndicatorDescription_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorDescription" data-fieldname="IndicatorDescription">
+	{$label indicator_targets IndicatorDescription }	{$arrow_icon_IndicatorDescription}
 	</SPAN>
-	{END IndicatorName_fieldheader}
-{END IndicatorName_fieldheadercolumn}
+	{END IndicatorDescription_fieldheader}
+{END IndicatorDescription_fieldheadercolumn}
 
 	
 	</th>
@@ -710,21 +707,21 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorDescription_class}	"
+		 r-ori-vert		 {$IndicatorTarget_class}	"
 
-			data-field="IndicatorDescription"
+			data-field="IndicatorTarget"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IndicatorDescription_fieldheadercolumn}
-	{BEGIN IndicatorDescription_fieldheader}
-	<SPAN {$IndicatorDescription_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorDescription" data-fieldname="IndicatorDescription">
-	{$label indicator_targets IndicatorDescription }	{$arrow_icon_IndicatorDescription}
+		{BEGIN IndicatorTarget_fieldheadercolumn}
+	{BEGIN IndicatorTarget_fieldheader}
+	<SPAN {$IndicatorTarget_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorTarget" data-fieldname="IndicatorTarget">
+	{$label indicator_targets IndicatorTarget }	{$arrow_icon_IndicatorTarget}
 	</SPAN>
-	{END IndicatorDescription_fieldheader}
-{END IndicatorDescription_fieldheadercolumn}
+	{END IndicatorTarget_fieldheader}
+{END IndicatorTarget_fieldheadercolumn}
 
 	
 	</th>
@@ -735,42 +732,17 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorTarget_class}	"
+		 r-ori-vert		 {$IndicatorValue_class}	"
 
-			data-field="IndicatorTarget"
+			data-field="IndicatorValue"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IndicatorTarget_fieldheadercolumn}
-	{BEGIN IndicatorTarget_fieldheader}
-	<SPAN {$IndicatorTarget_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorTarget" data-fieldname="IndicatorTarget">
-	{$label indicator_targets IndicatorTarget }	{$arrow_icon_IndicatorTarget}
-	</SPAN>
-	{END IndicatorTarget_fieldheader}
-{END IndicatorTarget_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field3}
-									{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$IndicatorValue_class}	"
-
-			data-field="IndicatorValue"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
 		{BEGIN IndicatorValue_fieldheadercolumn}
 	{BEGIN IndicatorValue_fieldheader}
-	<SPAN {$IndicatorValue_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorValue" data-fieldname="IndicatorValue">
+	<SPAN {$IndicatorValue_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorValue" data-fieldname="IndicatorValue">
 	{$label indicator_targets IndicatorValue }	{$arrow_icon_IndicatorValue}
 	</SPAN>
 	{END IndicatorValue_fieldheader}
@@ -778,7 +750,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field4}
+	{END cellblock_grid_headcell_field3}
 							</tr>
 															
 					{END grid_header}
@@ -858,32 +830,11 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorID_class}	"
-
-			data-field="IndicatorID"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN IndicatorID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IndicatorID" data-fieldname="IndicatorID" data-default-width >
-{$IndicatorID_value}
-</span>
-{END IndicatorID_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-									{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$IndicatorName_class}	"
 
 			data-field="IndicatorName"
 	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -893,18 +844,18 @@
 </span>
 {END IndicatorName_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field1}
-									{BEGIN cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field1}
 	<td
 	
-	{$cell_grid_cell_field2}
+	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$IndicatorDescription_class}	"
 
 			data-field="IndicatorDescription"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -914,18 +865,18 @@
 </span>
 {END IndicatorDescription_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
+	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field3}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$IndicatorTarget_class}	"
 
 			data-field="IndicatorTarget"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -935,18 +886,18 @@
 </span>
 {END IndicatorTarget_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$IndicatorValue_class}	"
 
 			data-field="IndicatorValue"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -956,7 +907,7 @@
 </span>
 {END IndicatorValue_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field3}
 							</tr>
 										
 											{END grid_row}
@@ -1004,7 +955,7 @@
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorID_class}	"
+		 r-ori-vert		 {$IndicatorName_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="indicator_targets_list"	
@@ -1019,7 +970,7 @@
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorName_class}	"
+		 r-ori-vert		 {$IndicatorDescription_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="indicator_targets_list"	
@@ -1034,7 +985,7 @@
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorDescription_class}	"
+		 r-ori-vert		 {$IndicatorTarget_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="indicator_targets_list"	
@@ -1049,7 +1000,7 @@
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IndicatorTarget_class}	"
+		 r-ori-vert		 {$IndicatorValue_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="indicator_targets_list"	
@@ -1058,21 +1009,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
-									{BEGIN cellblock_grid_footcell_field4}
-	<td
-	
-	{$cell_grid_footcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$IndicatorValue_class}	"
-
-	
-	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="indicator_targets_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field4}
 							</tr>
 					
 					</tfoot>

@@ -218,7 +218,6 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-					colSpan: 3,
 		
 			
 	
@@ -228,24 +227,56 @@ pdfDocument = {
 				'',
 	  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
 
-																		{ 
-				cellId: 'c24',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-														{ 
-				cellId: 'c24',
-				row:  0,
-				col:  2,
-				text: ''
-			},
-							],
+																							{
+	cellId: 'c31',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","background":"#fb7409","hidden":"{$item_hide_welcome_item77}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+																							{
+	cellId: 'c32',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
 						[
 																{
 	cellId: 'c10',

@@ -729,6 +729,10 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="Home")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1281,6 +1285,10 @@ function getCaptionTable($table)
 	if($table=="dereja_academy_lms")
 	{
 		return "Dereja Academy Lms";
+	}
+	if($table=="Home")
+	{
+		return "Home";
 	}
 	return $table;
 }

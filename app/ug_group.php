@@ -88,6 +88,7 @@ $nonAdminTablesArr[] = "indicator_targets";
 $nonAdminTablesArr[] = "candidates_grouped_report";
 $nonAdminTablesArr[] = "indicator_targets_view";
 $nonAdminTablesArr[] = "dereja_academy_lms";
+$nonAdminTablesArr[] = "Home";
 
 $ug_connection = $cman->getForUserGroups();
 

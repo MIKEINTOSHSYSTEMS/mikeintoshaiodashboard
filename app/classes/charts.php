@@ -524,6 +524,8 @@ class Chart
 			return true;
 		if("dereja_academy_lms" == $this->chrt_array['tables'][0])
 			return true;
+		if("" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 
