@@ -2683,5 +2683,31 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "104";
+	$menuNode["name"] = "";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "settings";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "82";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-gears";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Settings";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 }
 ?>

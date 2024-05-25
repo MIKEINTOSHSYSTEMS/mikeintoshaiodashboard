@@ -6,11 +6,11 @@ $tdatacandidates_by_region[".OwnerID"] = "";
 $tdatacandidates_by_region[".OriginalTable"] = "candidates";
 
 
-$tdatacandidates_by_region[".pagesByType"] = my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"search\":[\"search\"]}" );
+$tdatacandidates_by_region[".pagesByType"] = my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
 $tdatacandidates_by_region[".originalPagesByType"] = $tdatacandidates_by_region[".pagesByType"];
-$tdatacandidates_by_region[".pages"] = types2pages( my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"search\":[\"search\"]}" ) );
+$tdatacandidates_by_region[".pages"] = types2pages( my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
 $tdatacandidates_by_region[".originalPages"] = $tdatacandidates_by_region[".pages"];
-$tdatacandidates_by_region[".defaultPages"] = my_json_decode( "{\"chart\":\"chart\",\"masterchart\":\"masterchart\",\"search\":\"search\"}" );
+$tdatacandidates_by_region[".defaultPages"] = my_json_decode( "{\"chart\":\"chart\",\"masterchart\":\"masterchart\",\"print\":\"print\",\"search\":\"search\"}" );
 $tdatacandidates_by_region[".originalDefaultPages"] = $tdatacandidates_by_region[".defaultPages"];
 
 //	field labels

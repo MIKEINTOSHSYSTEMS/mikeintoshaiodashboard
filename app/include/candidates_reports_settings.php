@@ -6,11 +6,11 @@ $tdatacandidates_reports[".OwnerID"] = "";
 $tdatacandidates_reports[".OriginalTable"] = "candidates";
 
 
-$tdatacandidates_reports[".pagesByType"] = my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"search\":[\"search\"]}" );
+$tdatacandidates_reports[".pagesByType"] = my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
 $tdatacandidates_reports[".originalPagesByType"] = $tdatacandidates_reports[".pagesByType"];
-$tdatacandidates_reports[".pages"] = types2pages( my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"search\":[\"search\"]}" ) );
+$tdatacandidates_reports[".pages"] = types2pages( my_json_decode( "{\"chart\":[\"chart\"],\"masterchart\":[\"masterchart\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
 $tdatacandidates_reports[".originalPages"] = $tdatacandidates_reports[".pages"];
-$tdatacandidates_reports[".defaultPages"] = my_json_decode( "{\"chart\":\"chart\",\"masterchart\":\"masterchart\",\"search\":\"search\"}" );
+$tdatacandidates_reports[".defaultPages"] = my_json_decode( "{\"chart\":\"chart\",\"masterchart\":\"masterchart\",\"print\":\"print\",\"search\":\"search\"}" );
 $tdatacandidates_reports[".originalDefaultPages"] = $tdatacandidates_reports[".defaultPages"];
 
 //	field labels

@@ -1107,10 +1107,12 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item78}"},
+				
+		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },

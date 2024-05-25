@@ -704,6 +704,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="settings")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1359,6 +1363,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Home")
+		{
+			return false;
+		}
+		if($table=="settings")
 		{
 			return false;
 		}

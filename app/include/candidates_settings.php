@@ -10707,6 +10707,25 @@ $tdatacandidates[".sqlquery"] = $queryData_candidates;
 
 
 
-$tdatacandidates[".hasEvents"] = false;
+include_once(getabspath("include/candidates_events.php"));
+$tdatacandidates[".hasEvents"] = true;
 
+$query = &$queryData_candidates;
+$table = "candidates";
+// here goes EVENT_INIT_TABLE event
+
+
+// Place event code here.
+global $field_labels, $tables_data;
+$sql="select * from settings where tablename='".$table."'";
+$rs = CustomQuery($sql);
+while ($data = db_fetch_array($rs)) {
+		$field_labels[$table][mlang_getcurrentlang()][GoodFieldName($data["field"])]=$data["label"];
+		if ($data["readonly"]==1)
+			$tables_data[$table][$data["field"]]["EditFormats"]["edit"]["EditFormat"]="Readonly";
+		if ($data["required"]==1)
+			$tables_data[$table][$data["field"]]["EditFormats"]["edit"]["validateAs"]["basicValidate"][0]="IsRequired";
+}
+;
+unset($query);
 ?>

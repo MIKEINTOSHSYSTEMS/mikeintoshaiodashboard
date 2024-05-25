@@ -258,6 +258,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_page_size}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_print_panel}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'right',

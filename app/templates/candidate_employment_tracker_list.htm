@@ -665,7 +665,84 @@
 {$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
-</span>		</div>					</div>
+</span>	 
+		{BEGIN print_friendly}
+<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
+	<button title="Print-friendly page" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-print"></span>
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu pull-right">
+										 
+				 
+					<li class="container-fluid 
+										">
+									<div id="print_friendly_scope{$id}">
+	<div class="row">
+		<div class="col-md-4">
+			Scope:		</div>
+
+			 
+		{BEGIN print_friendly_all}
+		<div class="col-md-8">
+			<label for="printAll{$id}">
+				<input type="radio" id="printAll{$id}" data-href="candidate_employment_tracker_print.php?all=1&amp;{$crosstable_attrs}" name="printScope" >
+									Print all pages							</label>
+		</div>
+		{END print_friendly_all}
+		</div>
+		<div class="row">
+		<div class="col-md-4">&nbsp;</div>
+		<div class="col-md-8">
+			<label for="printPage{$id}">
+				<input name="printScope" id="printPage{$id}" type="radio" checked data-href="candidate_employment_tracker_print.php?{$crosstable_attrs}">
+				Print this page			</label>
+		</div>
+	</div>
+		
+		 
+	<div class="row">
+		<div class="col-md-4">
+			&nbsp;
+		</div>
+		<div class="col-md-8">
+			<label style="color: gray;" for="printSelection{$id}">
+			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
+			Print selected			</label>
+		</div>
+	</div>
+	</div>
+				 
+					</li>
+											<li class="divider" role="separator"></li>
+																				 
+				 
+					<li class="container-fluid 
+										">
+									<div>
+	<label for="printPerPage{$id}">
+					Records Per Page							
+	</label>
+	<input type="number" id="printPerPage{$id}" value="{$print_recspp}" class="rnr-printrecspp">		
+</div>
+				 
+					</li>
+											<li class="divider" role="separator"></li>
+																				 
+				 
+					<li class="container-fluid 
+					 text-center 					">
+									<span data-itemtype="print_button" data-itemid="print_button" {$item_print_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" id="print_friendly_button{$id}" >
+							Print			</a>
+</span>
+				 
+					</li>
+															</ul>
+</span>
+{END print_friendly}
+		</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>

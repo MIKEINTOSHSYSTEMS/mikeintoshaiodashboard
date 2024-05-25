@@ -3658,6 +3658,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "dereja_academy_lms" ] = "dereja_academy_lms";
 	$projectEntities[ "Home" ] = array( "url" => "home", "type" => 4 );
 	$projectEntitiesReverse[ "home" ] = "Home";
+	$projectEntities[ "settings" ] = array( "url" => "settings", "type" => 0 );
+	$projectEntitiesReverse[ "settings" ] = "settings";
 }
 
 function findTable( $table ) {
