@@ -72,7 +72,7 @@
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Help</a>
+                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Help</a>
                     </li>
                 </ul>
                 <button id="navAction" onclick="location.href='./app/login.php'" type="button"
@@ -151,7 +151,7 @@
 
                         Please read more on:
 
-                        <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Knowledge Base</a>
+                        <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -463,7 +463,7 @@
                             <br />
                             Read more here:
 
-                            <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Knowledge Base </a>
+                            <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base </a>
                         </p>
                     </div>
                 </div>
@@ -684,7 +684,7 @@
         <h3 class="my-4 text-3xl leading-tight">
             Need Help On Accessing The System!
         </h3>
-        <button id="navAction" onclick="location.href='./app/utilities_list.php?page=knowledge_base&menuItemId=80'" type="button"
+        <button id="navAction" onclick="location.href='./app/utilities_list.php?page=knowledge_base&menuItemId=81'" type="button"
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Access Knowledge Base
         </button>
@@ -716,7 +716,7 @@
                             <a href="./app/menu.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Menu </a> |
                         
                       
-                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=80" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help </a> |
+                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=81" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help </a> |
                        
                       
                             <a href="./app/login.php"
