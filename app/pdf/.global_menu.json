@@ -246,7 +246,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","background":"#fb7409","hidden":"{$item_hide_welcome_item77}"},
+			{"text":"","hidden":"{$item_hide_welcome_item79}"},
 				
 		  ],
   "border": [ false, false, false, false ],
