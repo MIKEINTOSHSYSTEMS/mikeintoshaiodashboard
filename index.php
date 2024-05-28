@@ -15,6 +15,91 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <LINK rel="shortcut icon" type="image/png" href="./app/dereja_favicon.png" />
+            <style>
+/*        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: 'Courier New', Courier, monospace;
+        }*/
+
+        .loader-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            font-size: 24px;
+            white-space: pre;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        .red { color: red; }
+        .green { color: green; }
+        .orange { color: orange; }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        .typewriter-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40, end), blink-caret .75s step-end infinite;
+        }
+    </style>
+        
+        <style>
+        /* Page Loader Styles */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: linear-gradient(90deg, rgba(167,44,129,1) 0%, rgba(253,29,29,1) 49%, rgba(252,176,69,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #loader .spinner {
+            width: 120px;
+            height: 120px;
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            border-top-color: pink;
+            border-right-color: yellow;
+            border-bottom-color: orange;
+            border-left-color: red;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide content while loading */
+       /* .hidden {
+            display: none;
+        }*/
+    </style>
     <style>
         .gradient {
             background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
@@ -35,7 +120,7 @@
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
             <div class="pl-4 flex items-center">
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                    href="#">
+                    href="./index.php">
                     <!--Icon from: http://www.potlabicons.com/ -->
                     <!--
 
@@ -46,9 +131,10 @@
                         <path class="plane-take-off"
                             d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z " />
                     </svg>
-
+  <img src="./assets/dereja_logo.svg"> M&E System
                     -->
-                    <img src="./assets/dereja_logo.svg"> M&E System
+                  
+                    <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
                 </a>
             </div>
             <div class="block lg:hidden pr-4">
@@ -64,7 +150,7 @@
                 id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">Home</a>
+                        <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="./index.php">Home</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
@@ -704,27 +790,26 @@
                             <path class="plane-take-off"
                                 d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z " />
                         </svg>
-                     -->
-                        <img src="./assets/dereja_logo.svg">
+                                            <img src="./assets/dereja_logo.svg">
                         M&E System
+                    -->
+                <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
                     </a>
                 </div>
                 <div class="flex-1">
                     
                     <ul class="list-reset mb-6">
                     <p class="uppercase text-gray-500 md:mb-6">Links: 
-                            <a href="./app/menu.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Menu </a> |
+                            <a href="./app/menu.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Menu</b> </a> |
                         
                       
-                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=81" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help </a> |
+                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=81" class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Help</b> </a> |
                        
                       
                             <a href="./app/login.php"
-                                class="no-underline hover:underline text-gray-800 hover:text-pink-500">Login</a>
+                                class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Login<b/></a>
                     </p>
-                                        <p>
-                                            <font color="black">Designed and Developed By <a href="https://merqconsultancy.org"><u>MERQ Consultancy PLC</u></a></font>
-                                        </p>
+                    <p><font color="black"> <u>Dereja Monitoring & Evaluation System</u> <b><i>Version 3.0</i></b> | DEREJA.COM © <script>document.write(new Date().getFullYear())</script> All Rights Reserved. | Designed and Developed By <a href="https://merqconsultancy.org"><u><b>MERQ Consultancy Pvt.Ltd.Co</b></u></a></font> </p>
                     </ul>
 
                 </div>
@@ -867,6 +952,38 @@
             return false;
         }
     </script>
+
+
+    <!-- Page Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loader-container">
+        <div class="text">
+            <span class="typewriter-effect">
+               <b> <span class="white">Dereja</span> <span class="orange">M</span><span class="white">&</span><span class="orange">E</span> <span>System</span></b>
+            </span>
+        </div>
+    </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="content" class="hidden">
+
+    </div>
+
+    <script>
+        // JavaScript to hide the loader and show the content
+        document.addEventListener("DOMContentLoaded", function() {
+            var loader = document.getElementById('loader');
+            var content = document.getElementById('content');
+            
+            // Simulate a delay for demonstration purposes
+            setTimeout(function() {
+                loader.style.display = 'none';
+                content.classList.remove('hidden');
+            }, 3500); // Adjust the delay time as needed
+        });
+    </script>
 </body>
 
 </html>
@@ -909,6 +1026,6 @@
 
 
 
--->
+
 
 

@@ -622,7 +622,7 @@ $globalSettings["LandingURL"] = "main_list.php?page=mainpage";
 $globalSettings["LandingPageId"] = "mainpage";
 
 $globalSettings["ProjectLogo"] = array();
-$globalSettings["ProjectLogo"]["English"] = "<!-- img src=\"images/icons48.png\"--><span><b>Dereja M&E Knowledge Base</b></span>";
+$globalSettings["ProjectLogo"]["English"] = "<span> <b>Dereja M&E Knowledge Base</b> </span>";//<!-- img src=\"images/icons48.png\" <span><b>Dereja M&E Knowledge Base</b></span>-->
 
 $globalSettings["CookieBanner"] = array();
 
