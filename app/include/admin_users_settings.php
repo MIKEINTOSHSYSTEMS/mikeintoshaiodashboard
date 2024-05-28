@@ -204,6 +204,7 @@ $tdataadmin_users[".geocodingEnabled"] = false;
 
 
 
+$tdataadmin_users[".isDisplayLoading"] = true;
 
 
 
@@ -261,7 +262,7 @@ $tdataadmin_users[".arrGroupsPerPage"] = $arrGPP;
 $tdataadmin_users[".highlightSearchResults"] = true;
 
 $tableKeysadmin_users = array();
-$tableKeysadmin_users[] = "ID";
+$tableKeysadmin_users[] = "id";
 $tdataadmin_users[".Keys"] = $tableKeysadmin_users;
 
 
@@ -1212,7 +1213,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1858,7 +1859,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1868,6 +1869,23 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+		$edata["LookupType"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+	
+		$edata["LookupValues"] = array();
+	$edata["LookupValues"][] = "Data Entry";
+	$edata["LookupValues"][] = "Data Management";
+	$edata["LookupValues"][] = "Monitoring and Evaluation";
+
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -1882,11 +1900,8 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=50";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -1912,7 +1927,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
