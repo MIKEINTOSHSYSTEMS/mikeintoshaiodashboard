@@ -138,6 +138,9 @@ pdfDocument = {
 				
 			{"text":{$designation_pdfvalue},"hidden":"{$item_hide_import_field10}"},
 				
+				
+			{"text":{$usertype_pdfvalue},"hidden":"{$item_hide_import_field11}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

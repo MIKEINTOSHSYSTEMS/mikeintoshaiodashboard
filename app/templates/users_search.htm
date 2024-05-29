@@ -492,6 +492,28 @@
 </div>
 
 {END designation_fieldblock}
+											
+{BEGIN usertype_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_usertype}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="usertype{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="usertype" data-fieldname="usertype" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_usertype}">
+		{$label users usertype }	</label>
+	<div class="r-search-option">
+		{$searchtype_usertype}
+	</div>
+	<div class="r-search-field">
+		{$usertype_editcontrol}	</div>
+	<div class="r-search-field">
+		{$usertype_editcontrol1}
+	</div>
+	
+</div>
+
+{END usertype_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

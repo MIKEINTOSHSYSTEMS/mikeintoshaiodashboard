@@ -555,6 +555,27 @@
 
 
 {END designation_fieldblock}
+											
+{BEGIN usertype_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_usertype}  r-vertical-field" 
+	data-signal-error-for="usertype{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="usertype" data-fieldname="usertype" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_usertype}">
+		{BEGIN usertype_label}{$label users usertype }{END usertype_label}
+	</label>
+	<div class="r-edit-field">
+		{$usertype_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="usertype">
+		<div class="text-muted" >
+		{$tooltip users usertype }		</div>
+	</div>
+</div>
+
+
+{END usertype_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
