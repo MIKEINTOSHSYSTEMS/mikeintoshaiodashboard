@@ -282,6 +282,27 @@ pdfDocument = {
 				
 			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_export_field58}"},
 				
+				
+			{"text":{$Woreda_pdfvalue},"hidden":"{$item_hide_export_field59}"},
+				
+				
+			{"text":{$Kebele_pdfvalue},"hidden":"{$item_hide_export_field60}"},
+				
+				
+			{"text":{$Employer_Sector_pdfvalue},"hidden":"{$item_hide_export_field61}"},
+				
+				
+			{"text":{$Salary_pdfvalue},"hidden":"{$item_hide_export_field62}"},
+				
+				
+			{"text":{$Career_Level_Of_Payment_pdfvalue},"hidden":"{$item_hide_export_field63}"},
+				
+				
+			{"text":{$Placement_Type_pdfvalue},"hidden":"{$item_hide_export_field64}"},
+				
+				
+			{"text":{$Placement_Duration_pdfvalue},"hidden":"{$item_hide_export_field65}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

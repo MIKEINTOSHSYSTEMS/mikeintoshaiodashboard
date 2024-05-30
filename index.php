@@ -158,7 +158,11 @@
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Help</a>
+                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                            href="./app/modules/helpdesk/menu.php">Help Desk</a>
                     </li>
                 </ul>
                 <button id="navAction" onclick="location.href='./app/login.php'" type="button"

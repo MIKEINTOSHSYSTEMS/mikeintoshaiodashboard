@@ -255,7 +255,7 @@
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="1"
+		data-form-width="2"
 		
 		data-v-width="4"
 	>
@@ -268,502 +268,1822 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-				data-fullwidth
-		
+			data-single
+			
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section" {$item_section} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section1_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section1{$pageid}" aria-expanded="true" aria-controls="section1"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Profile			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section1_xtrclass}" role="tabpanel"  {$section_section1_attrs}
+
+				id="section1{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section" id="form_section_{$pageid}" data-makeup="leftbar" {$form_section} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr {$row_section_0} >
+										
+
+{BEGIN cellblock_section_c1}
+<td
+	{$cell_section_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN CandidateID_fieldblock}
+{BEGIN StudentID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" data-fieldname="StudentID" data-signal-error-for="StudentID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
+	<label class="" for="{$labelfor_StudentID}">
 		
-		{BEGIN CandidateID_label}{$label candidates CandidateID }{END CandidateID_label}
+		{BEGIN StudentID_label}{$label candidates StudentID }{END StudentID_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$CandidateID_value}	</div>
+	<div class="" >
+		{$StudentID_value}	</div>
 
+		</div>
 		
 </div>
 
 
-{END CandidateID_fieldblock}
-											
+{END StudentID_fieldblock}
+	
+								</td>
+			{END cellblock_section_c1}
+			 
+																
+
+{BEGIN cellblock_section_c}
+<td
+	{$cell_section_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN First_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
+	<label class="" for="{$labelfor_First_Name}">
 		
 		{BEGIN First_Name_label}{$label candidates First_Name }{END First_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$First_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END First_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section_c}
+			 
+																
+
+{BEGIN cellblock_section_c7}
+<td
+	{$cell_section_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Middle_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
+	<label class="" for="{$labelfor_Middle_Name}">
 		
 		{BEGIN Middle_Name_label}{$label candidates Middle_Name }{END Middle_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Middle_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Middle_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section_c7}
+			 
+																
+
+{BEGIN cellblock_section_c2}
+<td
+	{$cell_section_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Last_Name_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
+	<label class="" for="{$labelfor_Last_Name}">
 		
 		{BEGIN Last_Name_label}{$label candidates Last_Name }{END Last_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Last_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Last_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section_c2}
+								</tr>
+	 
+	 
+														<tr {$row_section_1} >
+										
+
+{BEGIN cellblock_section_c4}
+<td
+	{$cell_section_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section_c4" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Sex_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" data-fieldname="Sex" data-signal-error-for="Sex{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" data-fieldname="Sex" data-signal-error-for="Sex{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sex}">
+	<label class="" for="{$labelfor_Sex}">
 		
 		{BEGIN Sex_label}{$label candidates Sex }{END Sex_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Sex_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Sex_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section_c4}
+			 
+																
+
+{BEGIN cellblock_section_c10}
+<td
+	{$cell_section_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section_c10" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN DOB_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DOB}  r-vertical-field" data-fieldname="DOB" data-signal-error-for="DOB{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="DOB" data-fieldname="DOB" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DOB}  r-vertical-field" data-fieldname="DOB" data-signal-error-for="DOB{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="DOB" data-fieldname="DOB" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DOB}">
+	<label class="" for="{$labelfor_DOB}">
 		
 		{BEGIN DOB_label}{$label candidates DOB }{END DOB_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$DOB_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END DOB_fieldblock}
-											
-{BEGIN Region_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Region}  r-vertical-field" data-fieldname="Region" data-signal-error-for="Region{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Region" data-fieldname="Region" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Region}">
-		
-		{BEGIN Region_label}{$label candidates Region }{END Region_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Region_value}	</div>
+								</td>
+			{END cellblock_section_c10}
+								</tr>
+	 
+	 
+														<tr {$row_section_2} >
+										
 
-		
-</div>
-
-
-{END Region_fieldblock}
-											
-{BEGIN City_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_City}  r-vertical-field" data-fieldname="City" data-signal-error-for="City{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="City" data-fieldname="City" >
-
+{BEGIN cellblock_section_c12}
+<td
+	{$cell_section_c12}
+	class=" r-ori-vert"
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_City}">
+			data-single
+			
+			data-cellId="section_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN City_label}{$label candidates City }{END City_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$City_value}	</div>
-
-		
-</div>
-
-
-{END City_fieldblock}
-											
-{BEGIN Sub_City_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sub_City}  r-vertical-field" data-fieldname="Sub_City" data-signal-error-for="Sub_City{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Sub_City" data-fieldname="Sub_City" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sub_City}">
-		
-		{BEGIN Sub_City_label}{$label candidates Sub_City }{END Sub_City_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Sub_City_value}	</div>
-
-		
-</div>
-
-
-{END Sub_City_fieldblock}
-											
-{BEGIN Zone_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Zone}  r-vertical-field" data-fieldname="Zone" data-signal-error-for="Zone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Zone" data-fieldname="Zone" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Zone}">
-		
-		{BEGIN Zone_label}{$label candidates Zone }{END Zone_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Zone_value}	</div>
-
-		
-</div>
-
-
-{END Zone_fieldblock}
-											
-{BEGIN House_No_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_House_No}  r-vertical-field" data-fieldname="House_No" data-signal-error-for="House_No{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="House_No" data-fieldname="House_No" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_House_No}">
-		
-		{BEGIN House_No_label}{$label candidates House_No }{END House_No_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$House_No_value}	</div>
-
-		
-</div>
-
-
-{END House_No_fieldblock}
-											
-{BEGIN Phone_Number_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number}  r-vertical-field" data-fieldname="Phone_Number" data-signal-error-for="Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Phone_Number" data-fieldname="Phone_Number" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Phone_Number}">
-		
-		{BEGIN Phone_Number_label}{$label candidates Phone_Number }{END Phone_Number_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Phone_Number_value}	</div>
-
-		
-</div>
-
-
-{END Phone_Number_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Email_Address_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Email_Address}  r-vertical-field" data-fieldname="Email_Address" data-signal-error-for="Email_Address{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Email_Address" data-fieldname="Email_Address" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email_Address}  r-vertical-field" data-fieldname="Email_Address" data-signal-error-for="Email_Address{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Email_Address" data-fieldname="Email_Address" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Email_Address}">
+	<label class="" for="{$labelfor_Email_Address}">
 		
 		{BEGIN Email_Address_label}{$label candidates Email_Address }{END Email_Address_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Email_Address_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Email_Address_fieldblock}
-											
-{BEGIN Institution_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Type}  r-vertical-field" data-fieldname="Institution_Type" data-signal-error-for="Institution_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="Institution_Type" data-fieldname="Institution_Type" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Institution_Type}">
-		
-		{BEGIN Institution_Type_label}{$label candidates Institution_Type }{END Institution_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Institution_Type_value}	</div>
+								</td>
+			{END cellblock_section_c12}
+			 
+																
 
+{BEGIN cellblock_section_c13}
+<td
+	{$cell_section_c13}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Phone_Number_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number}  r-vertical-field" data-fieldname="Phone_Number" data-signal-error-for="Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Phone_Number" data-fieldname="Phone_Number" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Phone_Number}">
+		
+		{BEGIN Phone_Number_label}{$label candidates Phone_Number }{END Phone_Number_label}
+	</label>
+	<div class="" >
+		{$Phone_Number_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Institution_Type_fieldblock}
-											
+{END Phone_Number_fieldblock}
+	
+								</td>
+			{END cellblock_section_c13}
+			 
+																
+
+{BEGIN cellblock_section_c14}
+<td
+	{$cell_section_c14}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section_c14" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Phone_Number_Alternate_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number_Alternate}  r-vertical-field" data-fieldname="Phone_Number_Alternate" data-signal-error-for="Phone_Number_Alternate{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Phone_Number_Alternate" data-fieldname="Phone_Number_Alternate" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Phone_Number_Alternate}">
+		
+		{BEGIN Phone_Number_Alternate_label}{$label candidates Phone_Number_Alternate }{END Phone_Number_Alternate_label}
+	</label>
+	<div class="" >
+		{$Phone_Number_Alternate_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Phone_Number_Alternate_fieldblock}
+	
+								</td>
+			{END cellblock_section_c14}
+								</tr>
+	 
+	 
+														<tr {$row_section_3} >
+										
+
+{BEGIN cellblock_section_c8}
+<td
+	{$cell_section_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Status_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" {$item_integrated_edit_field32} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Status}">
+		
+		{BEGIN Disability_Status_label}{$label candidates Disability_Status }{END Disability_Status_label}
+	</label>
+	<div class="" >
+		{$Disability_Status_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Status_fieldblock}
+	
+								</td>
+			{END cellblock_section_c8}
+			 
+																
+
+{BEGIN cellblock_section_c9}
+<td
+	{$cell_section_c9}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" {$item_integrated_edit_field33} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Type}">
+		
+		{BEGIN Disability_Type_label}{$label candidates Disability_Type }{END Disability_Type_label}
+	</label>
+	<div class="" >
+		{$Disability_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Type_fieldblock}
+	
+								</td>
+			{END cellblock_section_c9}
+			 
+																
+
+{BEGIN cellblock_section_c6}
+<td
+	{$cell_section_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section_c6" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Type_Other_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" {$item_integrated_edit_field34} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Type_Other}">
+		
+		{BEGIN Disability_Type_Other_label}{$label candidates Disability_Type_Other }{END Disability_Type_Other_label}
+	</label>
+	<div class="" >
+		{$Disability_Type_Other_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Type_Other_fieldblock}
+	
+								</td>
+			{END cellblock_section_c6}
+								</tr>
+			</tbody></table>
+{END section_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c3}
+			 
+																
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section1" {$item_section1} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section2_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section2{$pageid}" aria-expanded="true" aria-controls="section2"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Demography			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section2_xtrclass}" role="tabpanel"  {$section_section2_attrs}
+
+				id="section2{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section1_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section1" id="form_section1_{$pageid}" data-makeup="leftbar" {$form_section1} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr {$row_section1_0} >
+										
+
+{BEGIN cellblock_section1_c1}
+<td
+	{$cell_section1_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Region_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Region}  r-vertical-field" data-fieldname="Region" data-signal-error-for="Region{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Region" data-fieldname="Region" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Region}">
+		
+		{BEGIN Region_label}{$label candidates Region }{END Region_label}
+	</label>
+	<div class="" >
+		{$Region_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Region_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c1}
+			 
+																
+
+{BEGIN cellblock_section1_c2}
+<td
+	{$cell_section1_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN City_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_City}  r-vertical-field" data-fieldname="City" data-signal-error-for="City{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="City" data-fieldname="City" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_City}">
+		
+		{BEGIN City_label}{$label candidates City }{END City_label}
+	</label>
+	<div class="" >
+		{$City_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END City_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c2}
+			 
+																
+
+{BEGIN cellblock_section1_c}
+<td
+	{$cell_section1_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Sub_City_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sub_City}  r-vertical-field" data-fieldname="Sub_City" data-signal-error-for="Sub_City{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Sub_City" data-fieldname="Sub_City" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Sub_City}">
+		
+		{BEGIN Sub_City_label}{$label candidates Sub_City }{END Sub_City_label}
+	</label>
+	<div class="" >
+		{$Sub_City_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Sub_City_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c}
+			 
+																
+
+{BEGIN cellblock_section1_c3}
+<td
+	{$cell_section1_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Zone_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Zone}  r-vertical-field" data-fieldname="Zone" data-signal-error-for="Zone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Zone" data-fieldname="Zone" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Zone}">
+		
+		{BEGIN Zone_label}{$label candidates Zone }{END Zone_label}
+	</label>
+	<div class="" >
+		{$Zone_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Zone_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c3}
+								</tr>
+	 
+	 
+														<tr {$row_section1_1} >
+										
+
+{BEGIN cellblock_section1_c8}
+<td
+	{$cell_section1_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Woreda_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Woreda}  r-vertical-field" data-fieldname="Woreda" data-signal-error-for="Woreda{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field56" {$item_integrated_edit_field56} data-pageid="{$pageid}" data-field="Woreda" data-fieldname="Woreda" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Woreda}">
+		
+		{BEGIN Woreda_label}{$label candidates Woreda }{END Woreda_label}
+	</label>
+	<div class="" >
+		{$Woreda_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Woreda_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c8}
+			 
+																
+
+{BEGIN cellblock_section1_c9}
+<td
+	{$cell_section1_c9}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Kebele_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Kebele}  r-vertical-field" data-fieldname="Kebele" data-signal-error-for="Kebele{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field57" {$item_integrated_edit_field57} data-pageid="{$pageid}" data-field="Kebele" data-fieldname="Kebele" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Kebele}">
+		
+		{BEGIN Kebele_label}{$label candidates Kebele }{END Kebele_label}
+	</label>
+	<div class="" >
+		{$Kebele_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Kebele_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c9}
+			 
+																
+
+{BEGIN cellblock_section1_c10}
+<td
+	{$cell_section1_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN House_No_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_House_No}  r-vertical-field" data-fieldname="House_No" data-signal-error-for="House_No{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="House_No" data-fieldname="House_No" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_House_No}">
+		
+		{BEGIN House_No_label}{$label candidates House_No }{END House_No_label}
+	</label>
+	<div class="" >
+		{$House_No_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END House_No_fieldblock}
+	
+								</td>
+			{END cellblock_section1_c10}
+			 
+		
+							
+
+{BEGIN cellblock_section1_c11}
+<td
+	{$cell_section1_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section1_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section1_c11}
+								</tr>
+			</tbody></table>
+{END section1_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c6}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c2}
+<td
+	{$cell_grid_c2}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section2" {$item_section2} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section3_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section3{$pageid}" aria-expanded="true" aria-controls="section3"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Education			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section3_xtrclass}" role="tabpanel"  {$section_section3_attrs}
+
+				id="section3{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section2_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section2" id="form_section2_{$pageid}" data-makeup="leftbar" {$form_section2} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="4"
+		
+		data-v-width="8"
+	>
+	<tbody>
+										<tr {$row_section2_0} >
+										
+
+{BEGIN cellblock_section2_c3}
+<td
+	{$cell_section2_c3}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Education_Level_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Education_Level}  r-vertical-field" data-fieldname="Education_Level" data-signal-error-for="Education_Level{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Education_Level" data-fieldname="Education_Level" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Education_Level}  r-vertical-field" data-fieldname="Education_Level" data-signal-error-for="Education_Level{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="Education_Level" data-fieldname="Education_Level" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Education_Level}">
+	<label class="" for="{$labelfor_Education_Level}">
 		
 		{BEGIN Education_Level_label}{$label candidates Education_Level }{END Education_Level_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Education_Level_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Education_Level_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section2_c3}
+			 
+																
+
+{BEGIN cellblock_section2_c12}
+<td
+	{$cell_section2_c12}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Institution_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Name}  r-vertical-field" data-fieldname="Institution_Name" data-signal-error-for="Institution_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field37" {$item_integrated_edit_field37} data-pageid="{$pageid}" data-field="Institution_Name" data-fieldname="Institution_Name" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Institution_Name}">
+		
+		{BEGIN Institution_Name_label}{$label candidates Institution_Name }{END Institution_Name_label}
+	</label>
+	<div class="" >
+		{$Institution_Name_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Institution_Name_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c12}
+			 
+																
+
+{BEGIN cellblock_section2_c10}
+<td
+	{$cell_section2_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Department_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Department}  r-vertical-field" data-fieldname="Department" data-signal-error-for="Department{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Department" data-fieldname="Department" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Department}  r-vertical-field" data-fieldname="Department" data-signal-error-for="Department{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Department" data-fieldname="Department" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Department}">
+	<label class="" for="{$labelfor_Department}">
 		
 		{BEGIN Department_label}{$label candidates Department }{END Department_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Department_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Department_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section2_c10}
+			 
+																
+
+{BEGIN cellblock_section2_c8}
+<td
+	{$cell_section2_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Enrollement_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Enrollement_Type}  r-vertical-field" data-fieldname="Enrollement_Type" data-signal-error-for="Enrollement_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field43" {$item_integrated_edit_field43} data-pageid="{$pageid}" data-field="Enrollement_Type" data-fieldname="Enrollement_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Enrollement_Type}">
+		
+		{BEGIN Enrollement_Type_label}{$label candidates Enrollement_Type }{END Enrollement_Type_label}
+	</label>
+	<div class="" >
+		{$Enrollement_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Enrollement_Type_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c8}
+								</tr>
+	 
+	 
+														<tr {$row_section2_1} >
+										
+
+{BEGIN cellblock_section2_c17}
+<td
+	{$cell_section2_c17}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c17" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Institution_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Type}  r-vertical-field" data-fieldname="Institution_Type" data-signal-error-for="Institution_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Institution_Type" data-fieldname="Institution_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Institution_Type}">
+		
+		{BEGIN Institution_Type_label}{$label candidates Institution_Type }{END Institution_Type_label}
+	</label>
+	<div class="" >
+		{$Institution_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Institution_Type_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c17}
+			 
+																
+
+{BEGIN cellblock_section2_c19}
+<td
+	{$cell_section2_c19}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section2_c19" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Field_Of_Study_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Field_Of_Study}  r-vertical-field" data-fieldname="Field_Of_Study" data-signal-error-for="Field_Of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" {$item_integrated_edit_field35} data-pageid="{$pageid}" data-field="Field_Of_Study" data-fieldname="Field_Of_Study" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Field_Of_Study}">
+		
+		{BEGIN Field_Of_Study_label}{$label candidates Field_Of_Study }{END Field_Of_Study_label}
+	</label>
+	<div class="" >
+		{$Field_Of_Study_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Field_Of_Study_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c19}
+			 
+																
+
+{BEGIN cellblock_section2_c20}
+<td
+	{$cell_section2_c20}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c20" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN GPA_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_GPA}  r-vertical-field" data-fieldname="GPA" data-signal-error-for="GPA{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" {$item_integrated_edit_field36} data-pageid="{$pageid}" data-field="GPA" data-fieldname="GPA" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_GPA}">
+		
+		{BEGIN GPA_label}{$label candidates GPA }{END GPA_label}
+	</label>
+	<div class="" >
+		{$GPA_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END GPA_fieldblock}
+	
+								</td>
+			{END cellblock_section2_c20}
+								</tr>
+	 
+	 
+		
+						<tr>
+						
+
+{BEGIN cellblock_section2_c7}
+<td
+	{$cell_section2_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section2_c7}
+			 
+																
+
+{BEGIN cellblock_section2_c13}
+<td
+	{$cell_section2_c13}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Minor_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Minor}  r-vertical-field" data-fieldname="Minor" data-signal-error-for="Minor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Minor" data-fieldname="Minor" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Minor}  r-vertical-field" data-fieldname="Minor" data-signal-error-for="Minor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Minor" data-fieldname="Minor" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Minor}">
+	<label class="" for="{$labelfor_Minor}">
 		
 		{BEGIN Minor_label}{$label candidates Minor }{END Minor_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Minor_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Minor_fieldblock}
-											
+	
+								</td>
+			{END cellblock_section2_c13}
+			 
+																
+
+{BEGIN cellblock_section2_c11}
+<td
+	{$cell_section2_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section2_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Major_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Major}  r-vertical-field" data-fieldname="Major" data-signal-error-for="Major{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Major" data-fieldname="Major" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Major}  r-vertical-field" data-fieldname="Major" data-signal-error-for="Major{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Major" data-fieldname="Major" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Major}">
+	<label class="" for="{$labelfor_Major}">
 		
 		{BEGIN Major_label}{$label candidates Major }{END Major_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Major_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Major_fieldblock}
-											
-{BEGIN Skills_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Skills}  r-vertical-field" data-fieldname="Skills" data-signal-error-for="Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="Skills" data-fieldname="Skills" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Skills}">
-		
-		{BEGIN Skills_label}{$label candidates Skills }{END Skills_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Skills_value}	</div>
+								</td>
+			{END cellblock_section2_c11}
+			 
+																
 
-		
-</div>
-
-
-{END Skills_fieldblock}
-											
-{BEGIN English_Proficiency_Level_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_English_Proficiency_Level}  r-vertical-field" data-fieldname="English_Proficiency_Level" data-signal-error-for="English_Proficiency_Level{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="English_Proficiency_Level" data-fieldname="English_Proficiency_Level" >
-
+{BEGIN cellblock_section2_c9}
+<td
+	{$cell_section2_c9}
+	class=" r-ori-vert"
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_English_Proficiency_Level}">
+			data-single
+			
+			data-cellId="section2_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN English_Proficiency_Level_label}{$label candidates English_Proficiency_Level }{END English_Proficiency_Level_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$English_Proficiency_Level_value}	</div>
-
-		
-</div>
-
-
-{END English_Proficiency_Level_fieldblock}
-											
-{BEGIN Industry_Specific_Skills_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Industry_Specific_Skills}  r-vertical-field" data-fieldname="Industry_Specific_Skills" data-signal-error-for="Industry_Specific_Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="Industry_Specific_Skills" data-fieldname="Industry_Specific_Skills" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Industry_Specific_Skills}">
-		
-		{BEGIN Industry_Specific_Skills_label}{$label candidates Industry_Specific_Skills }{END Industry_Specific_Skills_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Industry_Specific_Skills_value}	</div>
-
-		
-</div>
-
-
-{END Industry_Specific_Skills_fieldblock}
-											
-{BEGIN IT_Related_Skills_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_IT_Related_Skills}  r-vertical-field" data-fieldname="IT_Related_Skills" data-signal-error-for="IT_Related_Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="IT_Related_Skills" data-fieldname="IT_Related_Skills" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_IT_Related_Skills}">
-		
-		{BEGIN IT_Related_Skills_label}{$label candidates IT_Related_Skills }{END IT_Related_Skills_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$IT_Related_Skills_value}	</div>
-
-		
-</div>
-
-
-{END IT_Related_Skills_fieldblock}
-											
-{BEGIN Certifications_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Certifications}  r-vertical-field" data-fieldname="Certifications" data-signal-error-for="Certifications{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="Certifications" data-fieldname="Certifications" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Certifications}">
-		
-		{BEGIN Certifications_label}{$label candidates Certifications }{END Certifications_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Certifications_value}	</div>
-
-		
-</div>
-
-
-{END Certifications_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Year_of_graduation_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Year_of_graduation}  r-vertical-field" data-fieldname="Year_of_graduation" data-signal-error-for="Year_of_graduation{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="Year_of_graduation" data-fieldname="Year_of_graduation" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Year_of_graduation}  r-vertical-field" data-fieldname="Year_of_graduation" data-signal-error-for="Year_of_graduation{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="Year_of_graduation" data-fieldname="Year_of_graduation" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Year_of_graduation}">
+	<label class="" for="{$labelfor_Year_of_graduation}">
 		
 		{BEGIN Year_of_graduation_label}{$label candidates Year_of_graduation }{END Year_of_graduation_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Year_of_graduation_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Year_of_graduation_fieldblock}
-											
-{BEGIN Work_Experience_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Work_Experience}  r-vertical-field" data-fieldname="Work_Experience" data-signal-error-for="Work_Experience{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="Work_Experience" data-fieldname="Work_Experience" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Work_Experience}">
-		
-		{BEGIN Work_Experience_label}{$label candidates Work_Experience }{END Work_Experience_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Work_Experience_value}	</div>
+								</td>
+			{END cellblock_section2_c9}
+								</tr>
+			</tbody></table>
+{END section2_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c2}
+			 
+																
 
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section3" {$item_section3} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section4_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section4{$pageid}" aria-expanded="true" aria-controls="section4"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Skills			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section4_xtrclass}" role="tabpanel"  {$section_section4_attrs}
+
+				id="section4{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section3_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section3" id="form_section3_{$pageid}" data-makeup="leftbar" {$form_section3} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_section3_0} >
+										
+
+{BEGIN cellblock_section3_c1}
+<td
+	{$cell_section3_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Languages_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Languages}  r-vertical-field" data-fieldname="Languages" data-signal-error-for="Languages{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field38" {$item_integrated_edit_field38} data-pageid="{$pageid}" data-field="Languages" data-fieldname="Languages" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Languages}">
+		
+		{BEGIN Languages_label}{$label candidates Languages }{END Languages_label}
+	</label>
+	<div class="" >
+		{$Languages_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Work_Experience_fieldblock}
+{END Languages_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c1}
+			 
+																
+
+{BEGIN cellblock_section3_c4}
+<td
+	{$cell_section3_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Skills_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Skills}  r-vertical-field" data-fieldname="Skills" data-signal-error-for="Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Skills" data-fieldname="Skills" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Skills}">
+		
+		{BEGIN Skills_label}{$label candidates Skills }{END Skills_label}
+	</label>
+	<div class="" >
+		{$Skills_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Skills_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c4}
+			 
+																
+
+{BEGIN cellblock_section3_c}
+<td
+	{$cell_section3_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Certifications_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Certifications}  r-vertical-field" data-fieldname="Certifications" data-signal-error-for="Certifications{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="Certifications" data-fieldname="Certifications" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Certifications}">
+		
+		{BEGIN Certifications_label}{$label candidates Certifications }{END Certifications_label}
+	</label>
+	<div class="" >
+		{$Certifications_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Certifications_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c}
+								</tr>
+	 
+	 
+														<tr {$row_section3_1} >
+										
+
+{BEGIN cellblock_section3_c6}
+<td
+	{$cell_section3_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN IT_Related_Skills_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_IT_Related_Skills}  r-vertical-field" data-fieldname="IT_Related_Skills" data-signal-error-for="IT_Related_Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="IT_Related_Skills" data-fieldname="IT_Related_Skills" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_IT_Related_Skills}">
+		
+		{BEGIN IT_Related_Skills_label}{$label candidates IT_Related_Skills }{END IT_Related_Skills_label}
+	</label>
+	<div class="" >
+		{$IT_Related_Skills_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END IT_Related_Skills_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c6}
+			 
+																
+
+{BEGIN cellblock_section3_c7}
+<td
+	{$cell_section3_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Industry_Specific_Skills_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Industry_Specific_Skills}  r-vertical-field" data-fieldname="Industry_Specific_Skills" data-signal-error-for="Industry_Specific_Skills{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="Industry_Specific_Skills" data-fieldname="Industry_Specific_Skills" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Industry_Specific_Skills}">
+		
+		{BEGIN Industry_Specific_Skills_label}{$label candidates Industry_Specific_Skills }{END Industry_Specific_Skills_label}
+	</label>
+	<div class="" >
+		{$Industry_Specific_Skills_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Industry_Specific_Skills_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c7}
+			 
+																
+
+{BEGIN cellblock_section3_c8}
+<td
+	{$cell_section3_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section3_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN English_Proficiency_Level_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_English_Proficiency_Level}  r-vertical-field" data-fieldname="English_Proficiency_Level" data-signal-error-for="English_Proficiency_Level{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="English_Proficiency_Level" data-fieldname="English_Proficiency_Level" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_English_Proficiency_Level}">
+		
+		{BEGIN English_Proficiency_Level_label}{$label candidates English_Proficiency_Level }{END English_Proficiency_Level_label}
+	</label>
+	<div class="" >
+		{$English_Proficiency_Level_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END English_Proficiency_Level_fieldblock}
+	
+								</td>
+			{END cellblock_section3_c8}
+								</tr>
+			</tbody></table>
+{END section3_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section4" {$item_section4} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section5_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section5{$pageid}" aria-expanded="true" aria-controls="section5"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Dereja Intervention and Services			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section5_xtrclass}" role="tabpanel"  {$section_section5_attrs}
+
+				id="section5{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section4_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section4" id="form_section4_{$pageid}" data-makeup="leftbar" {$form_section4} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section4_0} >
+										
+
+{BEGIN cellblock_section4_c1}
+<td
+	{$cell_section4_c1}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="section4_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Intervention_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Intervention}  r-vertical-field" data-fieldname="Intervention" data-signal-error-for="Intervention{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field44" {$item_integrated_edit_field44} data-pageid="{$pageid}" data-field="Intervention" data-fieldname="Intervention" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Intervention}">
+		
+		{BEGIN Intervention_label}{$label candidates Intervention }{END Intervention_label}
+	</label>
+	<div class="" >
+		{$Intervention_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Intervention_fieldblock}
 											
+{BEGIN Dereja_Information_Source_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Information_Source}  r-vertical-field" data-fieldname="Dereja_Information_Source" data-signal-error-for="Dereja_Information_Source{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" {$item_integrated_edit_field30} data-pageid="{$pageid}" data-field="Dereja_Information_Source" data-fieldname="Dereja_Information_Source" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Dereja_Information_Source}">
+		
+		{BEGIN Dereja_Information_Source_label}{$label candidates Dereja_Information_Source }{END Dereja_Information_Source_label}
+	</label>
+	<div class="" >
+		{$Dereja_Information_Source_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Dereja_Information_Source_fieldblock}
+											
+{BEGIN Attend_Employability_Skill_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Attend_Employability_Skill}  r-vertical-field" data-fieldname="Attend_Employability_Skill" data-signal-error-for="Attend_Employability_Skill{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field46" {$item_integrated_edit_field46} data-pageid="{$pageid}" data-field="Attend_Employability_Skill" data-fieldname="Attend_Employability_Skill" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Attend_Employability_Skill}">
+		
+		{BEGIN Attend_Employability_Skill_label}{$label candidates Attend_Employability_Skill }{END Attend_Employability_Skill_label}
+	</label>
+	<div class="" >
+		{$Attend_Employability_Skill_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Attend_Employability_Skill_fieldblock}
+	
+								</td>
+			{END cellblock_section4_c1}
+			 
+																
+
+{BEGIN cellblock_section4_c}
+<td
+	{$cell_section4_c}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="section4_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Joined_Dereja_Services_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Joined_Dereja_Services}  r-vertical-field" data-fieldname="Joined_Dereja_Services" data-signal-error-for="Joined_Dereja_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="Joined_Dereja_Services" data-fieldname="Joined_Dereja_Services" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Joined_Dereja_Services}  r-vertical-field" data-fieldname="Joined_Dereja_Services" data-signal-error-for="Joined_Dereja_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="Joined_Dereja_Services" data-fieldname="Joined_Dereja_Services" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Joined_Dereja_Services}">
+	<label class="" for="{$labelfor_Joined_Dereja_Services}">
 		
 		{BEGIN Joined_Dereja_Services_label}{$label candidates Joined_Dereja_Services }{END Joined_Dereja_Services_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Joined_Dereja_Services_value}	</div>
 
+		</div>
 		
 </div>
 
@@ -773,263 +2093,663 @@
 {BEGIN Dereja_Services_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Services}  r-vertical-field" data-fieldname="Dereja_Services" data-signal-error-for="Dereja_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" {$item_integrated_edit_field27} data-pageid="{$pageid}" data-field="Dereja_Services" data-fieldname="Dereja_Services" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Services}  r-vertical-field" data-fieldname="Dereja_Services" data-signal-error-for="Dereja_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="Dereja_Services" data-fieldname="Dereja_Services" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Dereja_Services}">
+	<label class="" for="{$labelfor_Dereja_Services}">
 		
 		{BEGIN Dereja_Services_label}{$label candidates Dereja_Services }{END Dereja_Services_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Dereja_Services_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Dereja_Services_fieldblock}
 											
-{BEGIN Dereja_Training_Services_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Training_Services}  r-vertical-field" data-fieldname="Dereja_Training_Services" data-signal-error-for="Dereja_Training_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" {$item_integrated_edit_field28} data-pageid="{$pageid}" data-field="Dereja_Training_Services" data-fieldname="Dereja_Training_Services" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Dereja_Training_Services}">
-		
-		{BEGIN Dereja_Training_Services_label}{$label candidates Dereja_Training_Services }{END Dereja_Training_Services_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Dereja_Training_Services_value}	</div>
-
-		
-</div>
-
-
-{END Dereja_Training_Services_fieldblock}
-											
 {BEGIN Dereja_Event_Services_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Event_Services}  r-vertical-field" data-fieldname="Dereja_Event_Services" data-signal-error-for="Dereja_Event_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="Dereja_Event_Services" data-fieldname="Dereja_Event_Services" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Event_Services}  r-vertical-field" data-fieldname="Dereja_Event_Services" data-signal-error-for="Dereja_Event_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field28" {$item_integrated_edit_field28} data-pageid="{$pageid}" data-field="Dereja_Event_Services" data-fieldname="Dereja_Event_Services" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Dereja_Event_Services}">
+	<label class="" for="{$labelfor_Dereja_Event_Services}">
 		
 		{BEGIN Dereja_Event_Services_label}{$label candidates Dereja_Event_Services }{END Dereja_Event_Services_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Dereja_Event_Services_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Dereja_Event_Services_fieldblock}
 											
+{BEGIN Dereja_Training_Services_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Training_Services}  r-vertical-field" data-fieldname="Dereja_Training_Services" data-signal-error-for="Dereja_Training_Services{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field27" {$item_integrated_edit_field27} data-pageid="{$pageid}" data-field="Dereja_Training_Services" data-fieldname="Dereja_Training_Services" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Dereja_Training_Services}">
+		
+		{BEGIN Dereja_Training_Services_label}{$label candidates Dereja_Training_Services }{END Dereja_Training_Services_label}
+	</label>
+	<div class="" >
+		{$Dereja_Training_Services_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Dereja_Training_Services_fieldblock}
+	
+								</td>
+			{END cellblock_section4_c}
+								</tr>
+			</tbody></table>
+{END section4_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c1}
+			 
+																
+
+{BEGIN cellblock_grid_c15}
+<td
+	{$cell_grid_c15}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c15" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section5" {$item_section5} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section6_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section6{$pageid}" aria-expanded="true" aria-controls="section6"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Participations			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section6_xtrclass}" role="tabpanel"  {$section_section6_attrs}
+
+				id="section6{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section5_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section5" id="form_section5_{$pageid}" data-makeup="leftbar" {$form_section5} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section5_0} >
+										
+
+{BEGIN cellblock_section5_c1}
+<td
+	{$cell_section5_c1}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="section5_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN DAAP_Completed_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_Completed}  r-vertical-field" data-fieldname="DAAP_Completed" data-signal-error-for="DAAP_Completed{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field48" {$item_integrated_edit_field48} data-pageid="{$pageid}" data-field="DAAP_Completed" data-fieldname="DAAP_Completed" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_DAAP_Completed}">
+		
+		{BEGIN DAAP_Completed_label}{$label candidates DAAP_Completed }{END DAAP_Completed_label}
+	</label>
+	<div class="" >
+		{$DAAP_Completed_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END DAAP_Completed_fieldblock}
+											
+{BEGIN DAAP_enrolled_1st_Round_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_enrolled_1st_Round}  r-vertical-field" data-fieldname="DAAP_enrolled_1st Round" data-signal-error-for="DAAP_enrolled_1st_Round{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field47" {$item_integrated_edit_field47} data-pageid="{$pageid}" data-field="DAAP_enrolled_1st_Round" data-fieldname="DAAP_enrolled_1st Round" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_DAAP_enrolled_1st_Round}">
+		
+		{BEGIN DAAP_enrolled_1st_Round_label}{$label candidates DAAP_enrolled_1st_Round }{END DAAP_enrolled_1st_Round_label}
+	</label>
+	<div class="" >
+		{$DAAP_enrolled_1st_Round_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END DAAP_enrolled_1st_Round_fieldblock}
+											
+{BEGIN DAAP_enrolled_2nd_Round_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_enrolled_2nd_Round}  r-vertical-field" data-fieldname="DAAP_enrolled_2nd_Round" data-signal-error-for="DAAP_enrolled_2nd_Round{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field54" {$item_integrated_edit_field54} data-pageid="{$pageid}" data-field="DAAP_enrolled_2nd_Round" data-fieldname="DAAP_enrolled_2nd_Round" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_DAAP_enrolled_2nd_Round}">
+		
+		{BEGIN DAAP_enrolled_2nd_Round_label}{$label candidates DAAP_enrolled_2nd_Round }{END DAAP_enrolled_2nd_Round_label}
+	</label>
+	<div class="" >
+		{$DAAP_enrolled_2nd_Round_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END DAAP_enrolled_2nd_Round_fieldblock}
+											
+{BEGIN DAAP_Completed_Courses_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_Completed_Courses}  r-vertical-field" data-fieldname="DAAP_Completed_Courses" data-signal-error-for="DAAP_Completed_Courses{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field49" {$item_integrated_edit_field49} data-pageid="{$pageid}" data-field="DAAP_Completed_Courses" data-fieldname="DAAP_Completed_Courses" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_DAAP_Completed_Courses}">
+		
+		{BEGIN DAAP_Completed_Courses_label}{$label candidates DAAP_Completed_Courses }{END DAAP_Completed_Courses_label}
+	</label>
+	<div class="" >
+		{$DAAP_Completed_Courses_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END DAAP_Completed_Courses_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c1}
+			 
+																
+
+{BEGIN cellblock_section5_c}
+<td
+	{$cell_section5_c}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="section5_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Campaign_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Campaign}  r-vertical-field" data-fieldname="Campaign" data-signal-error-for="Campaign{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field45" {$item_integrated_edit_field45} data-pageid="{$pageid}" data-field="Campaign" data-fieldname="Campaign" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Campaign}">
+		
+		{BEGIN Campaign_label}{$label candidates Campaign }{END Campaign_label}
+	</label>
+	<div class="" >
+		{$Campaign_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Campaign_fieldblock}
+											
+{BEGIN Job_Fair_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Fair}  r-vertical-field" data-fieldname="Job_Fair" data-signal-error-for="Job_Fair{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field51" {$item_integrated_edit_field51} data-pageid="{$pageid}" data-field="Job_Fair" data-fieldname="Job_Fair" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Fair}">
+		
+		{BEGIN Job_Fair_label}{$label candidates Job_Fair }{END Job_Fair_label}
+	</label>
+	<div class="" >
+		{$Job_Fair_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Fair_fieldblock}
+											
+{BEGIN Job_Fair_Clinic_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Fair_Clinic}  r-vertical-field" data-fieldname="Job_Fair_Clinic" data-signal-error-for="Job_Fair_Clinic{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field50" {$item_integrated_edit_field50} data-pageid="{$pageid}" data-field="Job_Fair_Clinic" data-fieldname="Job_Fair_Clinic" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Fair_Clinic}">
+		
+		{BEGIN Job_Fair_Clinic_label}{$label candidates Job_Fair_Clinic }{END Job_Fair_Clinic_label}
+	</label>
+	<div class="" >
+		{$Job_Fair_Clinic_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Fair_Clinic_fieldblock}
+	
+								</td>
+			{END cellblock_section5_c}
+								</tr>
+			</tbody></table>
+{END section5_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c15}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section6" {$item_section6} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section7_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section7{$pageid}" aria-expanded="true" aria-controls="section7"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Profile Tracking 			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section7_xtrclass}" role="tabpanel"  {$section_section7_attrs}
+
+				id="section7{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section6_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section6" id="form_section6_{$pageid}" data-makeup="leftbar" {$form_section6} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section6_0} >
+										
+
+{BEGIN cellblock_section6_c1}
+<td
+	{$cell_section6_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section6_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Dereja_web_profile_completion_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_web_profile_completion}  r-vertical-field" data-fieldname="Dereja_web_profile_completion" data-signal-error-for="Dereja_web_profile_completion{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field30" {$item_integrated_edit_field30} data-pageid="{$pageid}" data-field="Dereja_web_profile_completion" data-fieldname="Dereja_web_profile_completion" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_web_profile_completion}  r-vertical-field" data-fieldname="Dereja_web_profile_completion" data-signal-error-for="Dereja_web_profile_completion{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field29" {$item_integrated_edit_field29} data-pageid="{$pageid}" data-field="Dereja_web_profile_completion" data-fieldname="Dereja_web_profile_completion" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Dereja_web_profile_completion}">
+	<label class="" for="{$labelfor_Dereja_web_profile_completion}">
 		
 		{BEGIN Dereja_web_profile_completion_label}{$label candidates Dereja_web_profile_completion }{END Dereja_web_profile_completion_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Dereja_web_profile_completion_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Dereja_web_profile_completion_fieldblock}
-											
-{BEGIN Dereja_Information_Source_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Dereja_Information_Source}  r-vertical-field" data-fieldname="Dereja_Information_Source" data-signal-error-for="Dereja_Information_Source{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="Dereja_Information_Source" data-fieldname="Dereja_Information_Source" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Dereja_Information_Source}">
-		
-		{BEGIN Dereja_Information_Source_label}{$label candidates Dereja_Information_Source }{END Dereja_Information_Source_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Dereja_Information_Source_value}	</div>
+								</td>
+			{END cellblock_section6_c1}
+			 
+																
 
+{BEGIN cellblock_section6_c}
+<td
+	{$cell_section6_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section6_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Upload_on_Tracker_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Upload_on_Tracker}  r-vertical-field" data-fieldname="Upload_on_Tracker" data-signal-error-for="Upload_on_Tracker{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field55" {$item_integrated_edit_field55} data-pageid="{$pageid}" data-field="Upload_on_Tracker" data-fieldname="Upload_on_Tracker" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Upload_on_Tracker}">
+		
+		{BEGIN Upload_on_Tracker_label}{$label candidates Upload_on_Tracker }{END Upload_on_Tracker_label}
+	</label>
+	<div class="" >
+		{$Upload_on_Tracker_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Dereja_Information_Source_fieldblock}
-											
-{BEGIN StudentID_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" data-fieldname="StudentID" data-signal-error-for="StudentID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field32" {$item_integrated_edit_field32} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
-
+{END Upload_on_Tracker_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_StudentID}">
-		
-		{BEGIN StudentID_label}{$label candidates StudentID }{END StudentID_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$StudentID_value}	</div>
+								</td>
+			{END cellblock_section6_c}
+								</tr>
+			</tbody></table>
+{END section6_block}
+		  </div>
+		</div>
+	</div>
+	
+								</td>
+			{END cellblock_grid_c4}
+			 
+																
 
+{BEGIN cellblock_grid_c16}
+<td
+	{$cell_grid_c16}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c16" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section8" {$item_section8} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section8_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section8{$pageid}" aria-expanded="true" aria-controls="section8"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Examinations			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section8_xtrclass}" role="tabpanel"  {$section_section8_attrs}
+
+				id="section8{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section8_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section8" id="form_section8_{$pageid}" data-makeup="leftbar" {$form_section8} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section8_0} >
+										
+
+{BEGIN cellblock_section8_c1}
+<td
+	{$cell_section8_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Exit_Exam_Score_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Exit_Exam_Score}  r-vertical-field" data-fieldname="Exit_Exam_Score" data-signal-error-for="Exit_Exam_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field52" {$item_integrated_edit_field52} data-pageid="{$pageid}" data-field="Exit_Exam_Score" data-fieldname="Exit_Exam_Score" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Exit_Exam_Score}">
+		
+		{BEGIN Exit_Exam_Score_label}{$label candidates Exit_Exam_Score }{END Exit_Exam_Score_label}
+	</label>
+	<div class="" >
+		{$Exit_Exam_Score_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END StudentID_fieldblock}
-											
-{BEGIN Disability_Status_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field33" {$item_integrated_edit_field33} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
-
+{END Exit_Exam_Score_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Status}">
-		
-		{BEGIN Disability_Status_label}{$label candidates Disability_Status }{END Disability_Status_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Status_value}	</div>
+								</td>
+			{END cellblock_section8_c1}
+			 
+																
 
+{BEGIN cellblock_section8_c}
+<td
+	{$cell_section8_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section8_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Exit_Exam_Status_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Exit_Exam_Status}  r-vertical-field" data-fieldname="Exit_Exam_Status" data-signal-error-for="Exit_Exam_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field53" {$item_integrated_edit_field53} data-pageid="{$pageid}" data-field="Exit_Exam_Status" data-fieldname="Exit_Exam_Status" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Exit_Exam_Status}">
+		
+		{BEGIN Exit_Exam_Status_label}{$label candidates Exit_Exam_Status }{END Exit_Exam_Status_label}
+	</label>
+	<div class="" >
+		{$Exit_Exam_Status_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Disability_Status_fieldblock}
-											
-{BEGIN Disability_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field34" {$item_integrated_edit_field34} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
-
+{END Exit_Exam_Status_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type}">
-		
-		{BEGIN Disability_Type_label}{$label candidates Disability_Type }{END Disability_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Type_value}	</div>
-
-		
-</div>
-
-
-{END Disability_Type_fieldblock}
-											
-{BEGIN Disability_Type_Other_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field35" {$item_integrated_edit_field35} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
-
+								</td>
+			{END cellblock_section8_c}
+								</tr>
+			</tbody></table>
+{END section8_block}
+		  </div>
+		</div>
+	</div>
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type_Other}">
+								</td>
+			{END cellblock_grid_c16}
+								</tr>
+	 
+	 
+																</tbody></table>
+				 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section7" {$item_section7} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section9_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section9{$pageid}" aria-expanded="true" aria-controls="section9"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Employment			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section9_xtrclass}" role="tabpanel"  {$section_section9_attrs}
+
+				id="section9{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section7_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section7" id="form_section7_{$pageid}" data-makeup="leftbar" {$form_section7} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
 		
-		{BEGIN Disability_Type_Other_label}{$label candidates Disability_Type_Other }{END Disability_Type_Other_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Type_Other_value}	</div>
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_section7_0} >
+										
 
-		
-</div>
-
-
-{END Disability_Type_Other_fieldblock}
-											
-{BEGIN Field_Of_Study_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Field_Of_Study}  r-vertical-field" data-fieldname="Field_Of_Study" data-signal-error-for="Field_Of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field36" {$item_integrated_edit_field36} data-pageid="{$pageid}" data-field="Field_Of_Study" data-fieldname="Field_Of_Study" >
-
+{BEGIN cellblock_section7_c1}
+<td
+	{$cell_section7_c1}
+	class=" r-ori-vert"
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Field_Of_Study}">
+			
+			data-cellId="section7_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN Field_Of_Study_label}{$label candidates Field_Of_Study }{END Field_Of_Study_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Field_Of_Study_value}	</div>
-
-		
-</div>
-
-
-{END Field_Of_Study_fieldblock}
-											
-{BEGIN GPA_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_GPA}  r-vertical-field" data-fieldname="GPA" data-signal-error-for="GPA{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field37" {$item_integrated_edit_field37} data-pageid="{$pageid}" data-field="GPA" data-fieldname="GPA" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_GPA}">
-		
-		{BEGIN GPA_label}{$label candidates GPA }{END GPA_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$GPA_value}	</div>
-
-		
-</div>
-
-
-{END GPA_fieldblock}
-											
-{BEGIN Institution_Name_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Institution_Name}  r-vertical-field" data-fieldname="Institution_Name" data-signal-error-for="Institution_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field38" {$item_integrated_edit_field38} data-pageid="{$pageid}" data-field="Institution_Name" data-fieldname="Institution_Name" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Institution_Name}">
-		
-		{BEGIN Institution_Name_label}{$label candidates Institution_Name }{END Institution_Name_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Institution_Name_value}	</div>
-
-		
-</div>
-
-
-{END Institution_Name_fieldblock}
-											
-{BEGIN Languages_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Languages}  r-vertical-field" data-fieldname="Languages" data-signal-error-for="Languages{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field39" {$item_integrated_edit_field39} data-pageid="{$pageid}" data-field="Languages" data-fieldname="Languages" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Languages}">
-		
-		{BEGIN Languages_label}{$label candidates Languages }{END Languages_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Languages_value}	</div>
-
-		
-</div>
-
-
-{END Languages_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Employment_Status_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Status}  r-vertical-field" data-fieldname="Employment_Status" data-signal-error-for="Employment_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field40" {$item_integrated_edit_field40} data-pageid="{$pageid}" data-field="Employment_Status" data-fieldname="Employment_Status" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Status}  r-vertical-field" data-fieldname="Employment_Status" data-signal-error-for="Employment_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field39" {$item_integrated_edit_field39} data-pageid="{$pageid}" data-field="Employment_Status" data-fieldname="Employment_Status" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Employment_Status}">
+	<label class="" for="{$labelfor_Employment_Status}">
 		
 		{BEGIN Employment_Status_label}{$label candidates Employment_Status }{END Employment_Status_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Employment_Status_value}	</div>
 
+		</div>
 		
 </div>
 
@@ -1039,45 +2759,446 @@
 {BEGIN Employment_Company_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Company}  r-vertical-field" data-fieldname="Employment_Company" data-signal-error-for="Employment_Company{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field41" {$item_integrated_edit_field41} data-pageid="{$pageid}" data-field="Employment_Company" data-fieldname="Employment_Company" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Company}  r-vertical-field" data-fieldname="Employment_Company" data-signal-error-for="Employment_Company{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field40" {$item_integrated_edit_field40} data-pageid="{$pageid}" data-field="Employment_Company" data-fieldname="Employment_Company" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Employment_Company}">
+	<label class="" for="{$labelfor_Employment_Company}">
 		
 		{BEGIN Employment_Company_label}{$label candidates Employment_Company }{END Employment_Company_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Employment_Company_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Employment_Company_fieldblock}
 											
+{BEGIN Employer_Sector_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employer_Sector}  r-vertical-field" data-fieldname="Employer_Sector" data-signal-error-for="Employer_Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field58" {$item_integrated_edit_field58} data-pageid="{$pageid}" data-field="Employer_Sector" data-fieldname="Employer_Sector" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Employer_Sector}">
+		
+		{BEGIN Employer_Sector_label}{$label candidates Employer_Sector }{END Employer_Sector_label}
+	</label>
+	<div class="" >
+		{$Employer_Sector_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Employer_Sector_fieldblock}
+											
 {BEGIN Employment_Position_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Position}  r-vertical-field" data-fieldname="Employment_Position" data-signal-error-for="Employment_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field42" {$item_integrated_edit_field42} data-pageid="{$pageid}" data-field="Employment_Position" data-fieldname="Employment_Position" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_Position}  r-vertical-field" data-fieldname="Employment_Position" data-signal-error-for="Employment_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field41" {$item_integrated_edit_field41} data-pageid="{$pageid}" data-field="Employment_Position" data-fieldname="Employment_Position" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Employment_Position}">
+	<label class="" for="{$labelfor_Employment_Position}">
 		
 		{BEGIN Employment_Position_label}{$label candidates Employment_Position }{END Employment_Position_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Employment_Position_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Employment_Position_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c1}
+			 
+																
+
+{BEGIN cellblock_section7_c}
+<td
+	{$cell_section7_c}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="section7_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Placement_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Placement_Type}  r-vertical-field" data-fieldname="Placement_Type" data-signal-error-for="Placement_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field61" {$item_integrated_edit_field61} data-pageid="{$pageid}" data-field="Placement_Type" data-fieldname="Placement_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Placement_Type}">
+		
+		{BEGIN Placement_Type_label}{$label candidates Placement_Type }{END Placement_Type_label}
+	</label>
+	<div class="" >
+		{$Placement_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Placement_Type_fieldblock}
 											
+{BEGIN Placement_Duration_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Placement_Duration}  r-vertical-field" data-fieldname="Placement_Duration" data-signal-error-for="Placement_Duration{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field62" {$item_integrated_edit_field62} data-pageid="{$pageid}" data-field="Placement_Duration" data-fieldname="Placement_Duration" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Placement_Duration}">
+		
+		{BEGIN Placement_Duration_label}{$label candidates Placement_Duration }{END Placement_Duration_label}
+	</label>
+	<div class="" >
+		{$Placement_Duration_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Placement_Duration_fieldblock}
+											
+{BEGIN Career_Level_Of_Payment_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Career_Level_Of_Payment}  r-vertical-field" data-fieldname="Career_Level_Of_Payment" data-signal-error-for="Career_Level_Of_Payment{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field60" {$item_integrated_edit_field60} data-pageid="{$pageid}" data-field="Career_Level_Of_Payment" data-fieldname="Career_Level_Of_Payment" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Career_Level_Of_Payment}">
+		
+		{BEGIN Career_Level_Of_Payment_label}{$label candidates Career_Level_Of_Payment }{END Career_Level_Of_Payment_label}
+	</label>
+	<div class="" >
+		{$Career_Level_Of_Payment_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Career_Level_Of_Payment_fieldblock}
+											
+{BEGIN Salary_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Salary}  r-vertical-field" data-fieldname="Salary" data-signal-error-for="Salary{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field59" {$item_integrated_edit_field59} data-pageid="{$pageid}" data-field="Salary" data-fieldname="Salary" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Salary}">
+		
+		{BEGIN Salary_label}{$label candidates Salary }{END Salary_label}
+	</label>
+	<div class="" >
+		{$Salary_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Salary_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c}
+			 
+																
+
+{BEGIN cellblock_section7_c4}
+<td
+	{$cell_section7_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Work_Experience_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Work_Experience}  r-vertical-field" data-fieldname="Work_Experience" data-signal-error-for="Work_Experience{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="Work_Experience" data-fieldname="Work_Experience" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Work_Experience}">
+		
+		{BEGIN Work_Experience_label}{$label candidates Work_Experience }{END Work_Experience_label}
+	</label>
+	<div class="" >
+		{$Work_Experience_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Work_Experience_fieldblock}
+	
+								</td>
+			{END cellblock_section7_c4}
+								</tr>
+	 
+	 
+		
+						<tr>
+						
+
+{BEGIN cellblock_section7_c2}
+<td
+	{$cell_section7_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section7_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section7_c2}
+			 
+		
+							
+
+{BEGIN cellblock_section7_c5}
+<td
+	{$cell_section7_c5}
+	class=" r-ori-vert"
+	
+			data-single
+			
+	ocolspan="2"		data-cellId="section7_c5" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section7_c5}
+								</tr>
+			</tbody></table>
+{END section7_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section9" {$item_section9} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section10_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section10{$pageid}" aria-expanded="true" aria-controls="section10"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Candidate Details Website Data			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section10_xtrclass}" role="tabpanel"  {$section_section10_attrs}
+
+				id="section10{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section9_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section9" id="form_section9_{$pageid}" data-makeup="leftbar" {$form_section9} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="5"
+	>
+	<tbody>
+										<tr {$row_section9_0} >
+										
+
+{BEGIN cellblock_section9_c1}
+<td
+	{$cell_section9_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section9_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN details_job_fair}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_job_fair}			
+							<span>
+					{$detailslButtons_job_fair}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_job_fair}
+		</div>
+	</div>
+</div>
+{END details_job_fair}
+	
+								</td>
+			{END cellblock_section9_c1}
+			 
+		
+							
+
+{BEGIN cellblock_section9_c}
+<td
+	{$cell_section9_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section9_c" data-pageid="{$pageid}"
+		data-v-cell="1"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_section9_c}
+			 
+																
+
+{BEGIN cellblock_section9_c2}
+<td
+	{$cell_section9_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="section9_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN details_website_data}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_website_data}			
+							<span>
+					{$detailslButtons_website_data}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_website_data}
+		</div>
+	</div>
+</div>
+{END details_website_data}
+	
+								</td>
+			{END cellblock_section9_c2}
+								</tr>
+			</tbody></table>
+{END section9_block}
+		  </div>
+		</div>
+	</div>
+	
+				 
+	 
+												 
+	<div class="panel panel-default form-section" data-itemtype="section" data-itemid="section10" {$item_section10} data-pageid="{$pageid}" data-page="candidates_view">
+		<div class="panel-heading" role="tab" {$section_section11_headattrs} 
+			data-toggle="collapse"  
+
+				href="#section11{$pageid}" aria-expanded="true" aria-controls="section11"
+
+		>
+		  <h4 class="panel-title">
+		  				<a role="button" >
+				Remarks			</a>
+					  </h4>
+		</div>
+		<div  class="panel-collapse collapse in {$section_section11_xtrclass}" role="tabpanel"  {$section_section11_attrs}
+
+				id="section11{$pageid}" 
+		>
+		  <div class="panel-body">
+			{BEGIN section10_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="section10" id="form_section10_{$pageid}" data-makeup="leftbar" {$form_section10} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_section10_0} >
+										
+
+{BEGIN cellblock_section10_c1}
+<td
+	{$cell_section10_c1}
+	class=" r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="section10_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Remark_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Remark}  r-vertical-field" data-fieldname="Remark" data-signal-error-for="Remark{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field43" {$item_integrated_edit_field43} data-pageid="{$pageid}" data-field="Remark" data-fieldname="Remark" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Remark}  r-vertical-field" data-fieldname="Remark" data-signal-error-for="Remark{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field42" {$item_integrated_edit_field42} data-pageid="{$pageid}" data-field="Remark" data-fieldname="Remark" >
 
 	
 	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Remark}">
@@ -1092,378 +3213,47 @@
 
 
 {END Remark_fieldblock}
-											
-{BEGIN Phone_Number_Alternate_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone_Number_Alternate}  r-vertical-field" data-fieldname="Phone_Number_Alternate" data-signal-error-for="Phone_Number_Alternate{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Phone_Number_Alternate" data-fieldname="Phone_Number_Alternate" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Phone_Number_Alternate}">
-		
-		{BEGIN Phone_Number_Alternate_label}{$label candidates Phone_Number_Alternate }{END Phone_Number_Alternate_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Phone_Number_Alternate_value}	</div>
-
-		
-</div>
-
-
-{END Phone_Number_Alternate_fieldblock}
-											
-{BEGIN Enrollement_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Enrollement_Type}  r-vertical-field" data-fieldname="Enrollement_Type" data-signal-error-for="Enrollement_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field44" {$item_integrated_edit_field44} data-pageid="{$pageid}" data-field="Enrollement_Type" data-fieldname="Enrollement_Type" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Enrollement_Type}">
-		
-		{BEGIN Enrollement_Type_label}{$label candidates Enrollement_Type }{END Enrollement_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Enrollement_Type_value}	</div>
-
-		
-</div>
-
-
-{END Enrollement_Type_fieldblock}
-											
-{BEGIN Intervention_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Intervention}  r-vertical-field" data-fieldname="Intervention" data-signal-error-for="Intervention{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field45" {$item_integrated_edit_field45} data-pageid="{$pageid}" data-field="Intervention" data-fieldname="Intervention" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Intervention}">
-		
-		{BEGIN Intervention_label}{$label candidates Intervention }{END Intervention_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Intervention_value}	</div>
-
-		
-</div>
-
-
-{END Intervention_fieldblock}
-											
-{BEGIN Campaign_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Campaign}  r-vertical-field" data-fieldname="Campaign" data-signal-error-for="Campaign{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field46" {$item_integrated_edit_field46} data-pageid="{$pageid}" data-field="Campaign" data-fieldname="Campaign" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Campaign}">
-		
-		{BEGIN Campaign_label}{$label candidates Campaign }{END Campaign_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Campaign_value}	</div>
-
-		
-</div>
-
-
-{END Campaign_fieldblock}
-											
-{BEGIN Attend_Employability_Skill_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Attend_Employability_Skill}  r-vertical-field" data-fieldname="Attend_Employability_Skill" data-signal-error-for="Attend_Employability_Skill{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field47" {$item_integrated_edit_field47} data-pageid="{$pageid}" data-field="Attend_Employability_Skill" data-fieldname="Attend_Employability_Skill" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Attend_Employability_Skill}">
-		
-		{BEGIN Attend_Employability_Skill_label}{$label candidates Attend_Employability_Skill }{END Attend_Employability_Skill_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Attend_Employability_Skill_value}	</div>
-
-		
-</div>
-
-
-{END Attend_Employability_Skill_fieldblock}
-											
-{BEGIN DAAP_enrolled_1st_Round_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_enrolled_1st_Round}  r-vertical-field" data-fieldname="DAAP_enrolled_1st Round" data-signal-error-for="DAAP_enrolled_1st_Round{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field48" {$item_integrated_edit_field48} data-pageid="{$pageid}" data-field="DAAP_enrolled_1st_Round" data-fieldname="DAAP_enrolled_1st Round" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DAAP_enrolled_1st_Round}">
-		
-		{BEGIN DAAP_enrolled_1st_Round_label}{$label candidates DAAP_enrolled_1st_Round }{END DAAP_enrolled_1st_Round_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$DAAP_enrolled_1st_Round_value}	</div>
-
-		
-</div>
-
-
-{END DAAP_enrolled_1st_Round_fieldblock}
-											
-{BEGIN DAAP_Completed_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_Completed}  r-vertical-field" data-fieldname="DAAP_Completed" data-signal-error-for="DAAP_Completed{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field49" {$item_integrated_edit_field49} data-pageid="{$pageid}" data-field="DAAP_Completed" data-fieldname="DAAP_Completed" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DAAP_Completed}">
-		
-		{BEGIN DAAP_Completed_label}{$label candidates DAAP_Completed }{END DAAP_Completed_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$DAAP_Completed_value}	</div>
-
-		
-</div>
-
-
-{END DAAP_Completed_fieldblock}
-											
-{BEGIN DAAP_Completed_Courses_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_Completed_Courses}  r-vertical-field" data-fieldname="DAAP_Completed_Courses" data-signal-error-for="DAAP_Completed_Courses{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field50" {$item_integrated_edit_field50} data-pageid="{$pageid}" data-field="DAAP_Completed_Courses" data-fieldname="DAAP_Completed_Courses" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DAAP_Completed_Courses}">
-		
-		{BEGIN DAAP_Completed_Courses_label}{$label candidates DAAP_Completed_Courses }{END DAAP_Completed_Courses_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$DAAP_Completed_Courses_value}	</div>
-
-		
-</div>
-
-
-{END DAAP_Completed_Courses_fieldblock}
-											
-{BEGIN Job_Fair_Clinic_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Fair_Clinic}  r-vertical-field" data-fieldname="Job_Fair_Clinic" data-signal-error-for="Job_Fair_Clinic{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field51" {$item_integrated_edit_field51} data-pageid="{$pageid}" data-field="Job_Fair_Clinic" data-fieldname="Job_Fair_Clinic" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Fair_Clinic}">
-		
-		{BEGIN Job_Fair_Clinic_label}{$label candidates Job_Fair_Clinic }{END Job_Fair_Clinic_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Job_Fair_Clinic_value}	</div>
-
-		
-</div>
-
-
-{END Job_Fair_Clinic_fieldblock}
-											
-{BEGIN Job_Fair_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Fair}  r-vertical-field" data-fieldname="Job_Fair" data-signal-error-for="Job_Fair{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field52" {$item_integrated_edit_field52} data-pageid="{$pageid}" data-field="Job_Fair" data-fieldname="Job_Fair" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Fair}">
-		
-		{BEGIN Job_Fair_label}{$label candidates Job_Fair }{END Job_Fair_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Job_Fair_value}	</div>
-
-		
-</div>
-
-
-{END Job_Fair_fieldblock}
-											
-{BEGIN Exit_Exam_Score_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Exit_Exam_Score}  r-vertical-field" data-fieldname="Exit_Exam_Score" data-signal-error-for="Exit_Exam_Score{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field53" {$item_integrated_edit_field53} data-pageid="{$pageid}" data-field="Exit_Exam_Score" data-fieldname="Exit_Exam_Score" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Exit_Exam_Score}">
-		
-		{BEGIN Exit_Exam_Score_label}{$label candidates Exit_Exam_Score }{END Exit_Exam_Score_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Exit_Exam_Score_value}	</div>
-
-		
-</div>
-
-
-{END Exit_Exam_Score_fieldblock}
-											
-{BEGIN Exit_Exam_Status_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Exit_Exam_Status}  r-vertical-field" data-fieldname="Exit_Exam_Status" data-signal-error-for="Exit_Exam_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field54" {$item_integrated_edit_field54} data-pageid="{$pageid}" data-field="Exit_Exam_Status" data-fieldname="Exit_Exam_Status" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Exit_Exam_Status}">
-		
-		{BEGIN Exit_Exam_Status_label}{$label candidates Exit_Exam_Status }{END Exit_Exam_Status_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Exit_Exam_Status_value}	</div>
-
-		
-</div>
-
-
-{END Exit_Exam_Status_fieldblock}
-											
-{BEGIN DAAP_enrolled_2nd_Round_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_DAAP_enrolled_2nd_Round}  r-vertical-field" data-fieldname="DAAP_enrolled_2nd_Round" data-signal-error-for="DAAP_enrolled_2nd_Round{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field55" {$item_integrated_edit_field55} data-pageid="{$pageid}" data-field="DAAP_enrolled_2nd_Round" data-fieldname="DAAP_enrolled_2nd_Round" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DAAP_enrolled_2nd_Round}">
-		
-		{BEGIN DAAP_enrolled_2nd_Round_label}{$label candidates DAAP_enrolled_2nd_Round }{END DAAP_enrolled_2nd_Round_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$DAAP_enrolled_2nd_Round_value}	</div>
-
-		
-</div>
-
-
-{END DAAP_enrolled_2nd_Round_fieldblock}
-											
-{BEGIN Upload_on_Tracker_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Upload_on_Tracker}  r-vertical-field" data-fieldname="Upload_on_Tracker" data-signal-error-for="Upload_on_Tracker{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field56" {$item_integrated_edit_field56} data-pageid="{$pageid}" data-field="Upload_on_Tracker" data-fieldname="Upload_on_Tracker" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Upload_on_Tracker}">
-		
-		{BEGIN Upload_on_Tracker_label}{$label candidates Upload_on_Tracker }{END Upload_on_Tracker_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Upload_on_Tracker_value}	</div>
-
-		
-</div>
-
-
-{END Upload_on_Tracker_fieldblock}
-										</td>
-			{END cellblock_grid_c3}
-										</tr>
-										</tbody></table>
-				
-{BEGIN details_job_fair}
-<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_job_fair}			
-							<span>
-					{$detailslButtons_job_fair}
-																															</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_job_fair}
+								</td>
+			{END cellblock_section10_c1}
+								</tr>
+			</tbody></table>
+{END section10_block}
+		  </div>
 		</div>
 	</div>
-</div>
-{END details_job_fair}
-											
-{BEGIN details_website_data}
-<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_website_data}			
-							<span>
-					{$detailslButtons_website_data}
-																															</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_website_data}
-		</div>
-	</div>
-</div>
-{END details_website_data}
-											<table 
+	
+				 
+	 
+		
+					<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="1"
+		data-form-width="2"
 		
 		data-v-width="4"
 	>
 	<tbody>
-										<tr {$row_grid_0} >
-										
+						<tr>
+						
 
-{BEGIN cellblock_grid_c3}
+{BEGIN cellblock_grid_c13}
 <td
-	{$cell_grid_c3}
+	{$cell_grid_c13}
 	class=" r-ori-vert"
 	
+			data-single
 				data-fullwidth
 		
-			data-cellId="grid_c3" data-pageid="{$pageid}"
+	ocolspan="2"		data-cellId="grid_c13" data-pageid="{$pageid}"
 		data-v-cell="4"
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN Age_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Age}  r-vertical-field" data-fieldname="Age" data-signal-error-for="Age{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field57" {$item_integrated_edit_field57} data-pageid="{$pageid}" data-field="Age" data-fieldname="Age" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Age}">
-		
-		{BEGIN Age_label}{$label candidates Age }{END Age_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Age_value}	</div>
-
-		
-</div>
-
-
-{END Age_fieldblock}
-											
-{BEGIN Full_Name_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Full_Name}  r-vertical-field" data-fieldname="Full_Name" data-signal-error-for="Full_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field58" {$item_integrated_edit_field58} data-pageid="{$pageid}" data-field="Full_Name" data-fieldname="Full_Name" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Full_Name}">
-		
-		{BEGIN Full_Name_label}{$label candidates Full_Name }{END Full_Name_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Full_Name_value}	</div>
-
-		
-</div>
-
-
-{END Full_Name_fieldblock}
-	
-								</td>
-			{END cellblock_grid_c3}
+									</td>
+			{END cellblock_grid_c13}
 								</tr>
 			</tbody></table>
 {END grid_block}
@@ -1531,6 +3321,21 @@
 		</a>
 	</li>
 {END edit_page_button}
+								<li data-itemtype="view_pdf" data-itemid="view_pdf" {$item_view_pdf} data-pageid="{$pageid}" data-small >
+				<a class="pdflink" data-pdfpage="view" 
+data-scope="0" 
+data-split="0" 
+data-records="10" 
+data-orientation="portrait" 
+data-scale="100" 
+data-filename="Candidates.pdf" 
+data-pagesize="LETTER" 
+data-pagetype="view" 
+{$pdflink_attrs}  title="" >
+				
+		PDF View		
+		</a>
+	</li>
 					</ul>
 	</span>
 </span>

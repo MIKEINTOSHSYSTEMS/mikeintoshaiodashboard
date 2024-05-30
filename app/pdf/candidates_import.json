@@ -277,10 +277,28 @@ pdfDocument = {
 			{"text":{$Upload_on_Tracker_pdfvalue},"hidden":"{$item_hide_import_field56}"},
 				
 				
-			{"text":{$Age_pdfvalue},"hidden":"{$item_hide_import_field57}"},
-				
-				
 			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_import_field58}"},
+				
+				
+			{"text":{$Woreda_pdfvalue},"hidden":"{$item_hide_import_field57}"},
+				
+				
+			{"text":{$Kebele_pdfvalue},"hidden":"{$item_hide_import_field59}"},
+				
+				
+			{"text":{$Employer_Sector_pdfvalue},"hidden":"{$item_hide_import_field60}"},
+				
+				
+			{"text":{$Salary_pdfvalue},"hidden":"{$item_hide_import_field61}"},
+				
+				
+			{"text":{$Career_Level_Of_Payment_pdfvalue},"hidden":"{$item_hide_import_field62}"},
+				
+				
+			{"text":{$Placement_Type_pdfvalue},"hidden":"{$item_hide_import_field63}"},
+				
+				
+			{"text":{$Placement_Duration_pdfvalue},"hidden":"{$item_hide_import_field64}"},
 				
 		  ],
   "border": [ false, false, false, false ],

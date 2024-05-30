@@ -284,8 +284,7 @@ $tdatamain[".hideMobileList"] = array();
 	$fdata["FieldType"] = 3;
 
 
-		$fdata["AutoInc"] = true;
-
+	
 	
 			
 
@@ -423,8 +422,7 @@ $tdatamain[".hideMobileList"] = array();
 	$fdata["FieldType"] = 3;
 
 
-		$fdata["AutoInc"] = true;
-
+	
 	
 			
 
@@ -562,8 +560,7 @@ $tdatamain[".hideMobileList"] = array();
 	$fdata["FieldType"] = 3;
 
 
-		$fdata["AutoInc"] = true;
-
+	
 	
 			
 
@@ -2036,8 +2033,7 @@ $tdatamain[".hideMobileList"] = array();
 	$fdata["FieldType"] = 3;
 
 
-		$fdata["AutoInc"] = true;
-
+	
 	
 			
 
@@ -2729,6 +2725,7 @@ $proto30["m_link"] = "SQLL_MAIN";
 $proto31["m_strName"] = "kbarticles";
 $proto31["m_srcTableName"] = "main";
 $proto31["m_columns"] = array();
+$proto31["m_columns"][] = "approved";
 $proto31["m_columns"][] = "ArticleID";
 $proto31["m_columns"][] = "Category";
 $proto31["m_columns"][] = "DateCreated";
@@ -2736,6 +2733,7 @@ $proto31["m_columns"][] = "Problem";
 $proto31["m_columns"][] = "Solution";
 $proto31["m_columns"][] = "Title";
 $proto31["m_columns"][] = "Views";
+$proto31["m_columns"][] = "Keyworlds";
 $proto31["m_columns"][] = "likecount";
 $proto31["m_columns"][] = "dislikecount";
 $obj = new SQLTable($proto31);

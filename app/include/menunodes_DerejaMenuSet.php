@@ -2735,5 +2735,57 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "106";
+	$menuNode["name"] = "Knowledge Base";
+	$menuNode["href"] = "./modules/knowledgebase/main_list.php";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower("");//
+	$menuNode["pageId"] = "list";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-book";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Knowledge Base";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "107";
+	$menuNode["name"] = "Help Desk";
+	$menuNode["href"] = "./modules/helpdesk/menu.php";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "External";
+	$menuNode["pageType"] = strtolower("");//
+	$menuNode["pageId"] = "list";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-question-circle";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Help Desk";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 }
 ?>

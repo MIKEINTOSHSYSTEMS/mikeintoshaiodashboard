@@ -11,6 +11,8 @@ $dalTablecandidates["Region"] = array("type"=>200,"varname"=>"Region", "name" =>
 $dalTablecandidates["City"] = array("type"=>200,"varname"=>"City", "name" => "City", "autoInc" => "0");
 $dalTablecandidates["Sub_City"] = array("type"=>200,"varname"=>"Sub_City", "name" => "Sub_City", "autoInc" => "0");
 $dalTablecandidates["Zone"] = array("type"=>200,"varname"=>"Zone", "name" => "Zone", "autoInc" => "0");
+$dalTablecandidates["Woreda"] = array("type"=>200,"varname"=>"Woreda", "name" => "Woreda", "autoInc" => "0");
+$dalTablecandidates["Kebele"] = array("type"=>200,"varname"=>"Kebele", "name" => "Kebele", "autoInc" => "0");
 $dalTablecandidates["House_No"] = array("type"=>200,"varname"=>"House_No", "name" => "House_No", "autoInc" => "0");
 $dalTablecandidates["Phone_Number"] = array("type"=>200,"varname"=>"Phone_Number", "name" => "Phone_Number", "autoInc" => "0");
 $dalTablecandidates["Phone_Number_Alternate"] = array("type"=>200,"varname"=>"Phone_Number_Alternate", "name" => "Phone_Number_Alternate", "autoInc" => "0");
@@ -55,7 +57,12 @@ $dalTablecandidates["Dereja_web_profile_completion"] = array("type"=>3,"varname"
 $dalTablecandidates["Dereja_Information_Source"] = array("type"=>200,"varname"=>"Dereja_Information_Source", "name" => "Dereja_Information_Source", "autoInc" => "0");
 $dalTablecandidates["Employment_Status"] = array("type"=>200,"varname"=>"Employment_Status", "name" => "Employment_Status", "autoInc" => "0");
 $dalTablecandidates["Employment_Company"] = array("type"=>200,"varname"=>"Employment_Company", "name" => "Employment_Company", "autoInc" => "0");
+$dalTablecandidates["Employer_Sector"] = array("type"=>200,"varname"=>"Employer_Sector", "name" => "Employer_Sector", "autoInc" => "0");
 $dalTablecandidates["Employment_Position"] = array("type"=>200,"varname"=>"Employment_Position", "name" => "Employment_Position", "autoInc" => "0");
+$dalTablecandidates["Salary"] = array("type"=>200,"varname"=>"Salary", "name" => "Salary", "autoInc" => "0");
+$dalTablecandidates["Career_Level_Of_Payment"] = array("type"=>200,"varname"=>"Career_Level_Of_Payment", "name" => "Career_Level_Of_Payment", "autoInc" => "0");
+$dalTablecandidates["Placement_Type"] = array("type"=>200,"varname"=>"Placement_Type", "name" => "Placement_Type", "autoInc" => "0");
+$dalTablecandidates["Placement_Duration"] = array("type"=>200,"varname"=>"Placement_Duration", "name" => "Placement_Duration", "autoInc" => "0");
 $dalTablecandidates["Remark"] = array("type"=>200,"varname"=>"Remark", "name" => "Remark", "autoInc" => "0");
 $dalTablecandidates["CandidateID"]["key"]=true;
 

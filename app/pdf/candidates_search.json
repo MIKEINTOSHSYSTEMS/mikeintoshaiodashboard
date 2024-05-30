@@ -294,6 +294,27 @@ pdfDocument = {
 				
 			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field58}"},
 				
+				
+			{"text":{$Woreda_pdfvalue},"hidden":"{$item_hide_integrated_search_field59}"},
+				
+				
+			{"text":{$Kebele_pdfvalue},"hidden":"{$item_hide_integrated_search_field60}"},
+				
+				
+			{"text":{$Employer_Sector_pdfvalue},"hidden":"{$item_hide_integrated_search_field61}"},
+				
+				
+			{"text":{$Salary_pdfvalue},"hidden":"{$item_hide_integrated_search_field62}"},
+				
+				
+			{"text":{$Career_Level_Of_Payment_pdfvalue},"hidden":"{$item_hide_integrated_search_field63}"},
+				
+				
+			{"text":{$Placement_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field64}"},
+				
+				
+			{"text":{$Placement_Duration_pdfvalue},"hidden":"{$item_hide_integrated_search_field65}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

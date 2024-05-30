@@ -336,6 +336,27 @@ pdfDocument = {
 				
 			{"text":{$Remark_value},"hidden":"{$item_hide_integrated_search_field56}"},
 				
+				
+			{"text":{$Woreda_value},"hidden":"{$item_hide_integrated_search_field57}"},
+				
+				
+			{"text":{$Kebele_value},"hidden":"{$item_hide_integrated_search_field58}"},
+				
+				
+			{"text":{$Employer_Sector_value},"hidden":"{$item_hide_integrated_search_field59}"},
+				
+				
+			{"text":{$Salary_value},"hidden":"{$item_hide_integrated_search_field60}"},
+				
+				
+			{"text":{$Career_Level_Of_Payment_value},"hidden":"{$item_hide_integrated_search_field61}"},
+				
+				
+			{"text":{$Placement_Type_value},"hidden":"{$item_hide_integrated_search_field62}"},
+				
+				
+			{"text":{$Placement_Duration_value},"hidden":"{$item_hide_integrated_search_field63}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
