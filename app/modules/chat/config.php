@@ -13,10 +13,10 @@ $config_usertypeField = "";
 $config_files = array("files");
 $config_templateName = "Chat";
 
-$config_strSMTPUser = "";
-$config_strSMTPServer = "";
+$config_strSMTPUser = "dereja@cloud.merqconsultancy.org";
+$config_strSMTPServer = "cloud.merqconsultancy.org";
 $config_strSMTPPort = "465";
-$config_strSMTPPassword = "";
-$config_strFromEmail = "";
+$config_strSMTPPassword = "Merq@Dereja7";
+$config_strFromEmail = "dereja@cloud.merqconsultancy.org";
 
 ?>

@@ -54,9 +54,6 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$pdf_image images/dereja.png undefined 0},"hidden":"{$item_hide_image}"},
-				
-				
 			{"text":"{$jspagetitlelabel  changepwd}","hidden":"{$item_hide_changepwd_header}","fontSize":30},
 				
 		  ],

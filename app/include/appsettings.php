@@ -581,14 +581,15 @@ $globalSettings["nEncryptPasswordMethod"] = "0";
 //mail settings
 $globalSettings["useBuiltInMailer"] = false;
 
-$globalSettings["useCustomSMTPSettings"] = false;
+$globalSettings["useCustomSMTPSettings"] = true;
 
-$globalSettings["strSMTPUser"] = "";
-$globalSettings["strSMTPServer"] = "localhost";
-$globalSettings["strSMTPPort"] = "25";
-$globalSettings["strSMTPPassword"] = "";
-$globalSettings["strFromEmail"] = "";
+$globalSettings["strSMTPUser"] = "dereja@cloud.merqconsultancy.org";
+$globalSettings["strSMTPServer"] = "cloud.merqconsultancy.org";
+$globalSettings["strSMTPPort"] = "465";
+$globalSettings["strSMTPPassword"] = "Merq@Dereja7";
+$globalSettings["strFromEmail"] = "dereja@cloud.merqconsultancy.org";
 
+$globalSettings["SMTPSecure"] = "ssl";
 //
 
 /*
@@ -619,7 +620,7 @@ $globalSettings["LandingURL"] = "login.php?page=login";
 $globalSettings["LandingPageId"] = "login";
 
 $globalSettings["ProjectLogo"] = array();
-$globalSettings["ProjectLogo"]["English"] = "<p><img src=\"https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\"> M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></p>";
+$globalSettings["ProjectLogo"]["English"] = "<p><img src=\"./images/derejalogo.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\"> M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></p>";
 
 $globalSettings["CookieBanner"] = array();
 
@@ -744,9 +745,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "362_1717069812";
+$projectBuildKey = "367_1717069812";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "362";
+$projectBuildNumber = "367";
 
 $mlang_messages = array();
 $mlang_charsets = array();
