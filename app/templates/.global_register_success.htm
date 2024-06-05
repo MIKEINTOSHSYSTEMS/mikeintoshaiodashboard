@@ -69,6 +69,13 @@
 		{BEGIN firstAboveGridCell}
 		 
 		<img src="{$file_url images/dereja.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" />
+	 
+		<div class="alert {$activate_message_class}" data-itemtype="register_activate_message" data-itemid="register_activate_message" {$item_register_activate_message} data-pageid="{$pageid}" data-small > 
+	{$label_register_activate_message}
+</div>
+	 
+		<span data-itemtype="register_activated_message" data-itemid="register_activated_message" {$item_register_activated_message} data-pageid="{$pageid}" data-small >
+Thank you. Your account has been activated.</span>
 			{END firstAboveGridCell}	
 	</div>					</div>
 			</div>		

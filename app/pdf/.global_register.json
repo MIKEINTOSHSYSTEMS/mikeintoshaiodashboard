@@ -227,6 +227,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_confirm_password}","stack":[{"text":"{$jslabel _global confirm_aoel3cx }","bold":true},{"text":{$confirm_aoel3cx_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"text":"","hidden":"{$item_hide_captcha}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

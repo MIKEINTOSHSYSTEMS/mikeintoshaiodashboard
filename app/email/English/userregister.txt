@@ -1,0 +1,17 @@
+Notification on registering
+
+You have registered as a user at %url%
+
+Click this link to confirm your account and finish the registration:
+%activateurl%
+If you are unable to click on the link, copy and paste it into your browser window.
+
+ID: %id_value%
+Username: %username_value%
+Email: %email_value%
+Full Name: %fullname_value%
+Groupid: %groupid_value%
+Ext Security Id: %ext_security_id_value%
+Userpic: %userpic_value%
+Usertype: %usertype_value%
+Please Select Your Designation: %designation_value%

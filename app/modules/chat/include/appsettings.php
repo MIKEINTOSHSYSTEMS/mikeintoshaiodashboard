@@ -760,8 +760,8 @@ $cKeyFields = $loginKeyFields;
 $globalSettings["usersDatasourceTable"] = "users";
 
 
-$globalSettings["jwtSecret"] = "cFIydWRfSpojgr9LUVYT";
-
+//$globalSettings["jwtSecret"] = "cFIydWRfSpojgr9LUVYT";
+$globalSettings["jwtSecret"] = "pTBgdmk7SrEchwPYJZQF";
 
 $arrCustomPages = array();
 

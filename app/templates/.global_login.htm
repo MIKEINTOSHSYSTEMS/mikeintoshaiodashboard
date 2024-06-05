@@ -101,7 +101,11 @@ Login into your account</span>
 		{BEGIN message_block}
 <div data-itemtype="login_message" data-itemid="login_message" {$item_login_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
 {$message}
-	</div>
+		{BEGIN resend_activation_button}
+	<br>
+	<button class="btn btn-sm btn-default" {$resend_activation_button_attrs} id="resendActivation{$id}">Resend email</button>
+	{END resend_activation_button}
+</div>
 {END message_block}		</div>					</div>
 			</div>		
 {END above-grid_block}

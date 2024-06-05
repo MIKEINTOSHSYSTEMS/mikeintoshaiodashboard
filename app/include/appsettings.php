@@ -726,6 +726,8 @@ $cKeyFields = $loginKeyFields;
 
 $globalSettings["usersDatasourceTable"] = "users";
 
+$globalSettings["userRequireActivation"] = true;
+$globalSettings["userActivationField"] = "active";
 
 $globalSettings["jwtSecret"] = "pTBgdmk7SrEchwPYJZQF";
 
@@ -745,9 +747,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "367_1717069812";
+$projectBuildKey = "368_1717069812";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "367";
+$projectBuildNumber = "368";
 
 $mlang_messages = array();
 $mlang_charsets = array();

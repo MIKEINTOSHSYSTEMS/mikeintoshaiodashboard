@@ -232,7 +232,17 @@
 
 
 {END confirm_block}
-</td>
+ 
+
+<div class="r-captcha-container form-group clearfix" data-fieldname="{$captcha_field_name}" data-signal-error-for="{$captcha_field_name}{$id}" >
+	<div class="col-md-offset-3 col-md-6" >
+		{$captcha}
+	</div>
+	<div class="col-md-3 help-block" data-helpfor="{$captcha_field_name}">
+		<div class="text-muted" >
+		</div>
+	</div>	
+</div></td>
 							</tr>
 					
 					</tbody>

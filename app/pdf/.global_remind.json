@@ -133,6 +133,9 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -176,6 +179,52 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_username_email}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_captcha}"},
 				
 		  ],
   "border": [ false, false, false, false ],
