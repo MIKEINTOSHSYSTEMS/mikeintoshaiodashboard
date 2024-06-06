@@ -1,17 +1,21 @@
 Notification on registering
 
-You have registered as a user at %url%
-
-Click this link to confirm your account and finish the registration:
-%activateurl%
+<p>
+You have registered as a user at&nbsp;<a href="%url%">%url%</a>
+</p>
+<p>
+Click this link to confirm your account and finish the registration:<br/>
+<a href="%activateurl%">%activateurl%</a><br/>
 If you are unable to click on the link, copy and paste it into your browser window.
-
-ID: %id_value%
-Username: %username_value%
-Email: %email_value%
-Full Name: %fullname_value%
-Groupid: %groupid_value%
-Ext Security Id: %ext_security_id_value%
-Userpic: %userpic_value%
-Usertype: %usertype_value%
-Please Select Your Designation: %designation_value%
+</p>
+<p>
+ID:&nbsp;<b>%id_value%</b><br/>
+Username:&nbsp;<b>%username_value%</b><br/>
+Email:&nbsp;<b>%email_value%</b><br/>
+Full Name:&nbsp;<b>%fullname_value%</b><br/>
+Groupid:&nbsp;<b>%groupid_value%</b><br/>
+Ext Security Id:&nbsp;<b>%ext_security_id_value%</b><br/>
+Userpic:&nbsp;<b>%userpic_value%</b><br/>
+Usertype:&nbsp;<b>%usertype_value%</b><br/>
+Please Select Your Designation:&nbsp;<b>%designation_value%</b><br/>
+</p>

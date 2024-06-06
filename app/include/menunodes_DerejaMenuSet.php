@@ -2464,8 +2464,8 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
 
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "fa-pie-chart";
+	$menuNode["iconType"] = "3";
 	$menuNode["iconShow"] = "1";
 
 		$menuNode["color"] = "";
@@ -2503,10 +2503,10 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "97";
-	$menuNode["name"] = "";
+	$menuNode["name"] = "System Users";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "kbusers";
+	$menuNode["table"] = "users";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "96";
@@ -2516,20 +2516,20 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
 
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "fa-users";
+	$menuNode["iconType"] = "3";
 	$menuNode["iconShow"] = "1";
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "Users";
+	$menuNode["title"] = "System Users";
 
 
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "98";
-	$menuNode["name"] = "";
+	$menuNode["name"] = "System Users Audit Log";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "derejame_audit";
@@ -2542,13 +2542,13 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
 
-	$menuNode["icon"] = "";
-	$menuNode["iconType"] = "0";
+	$menuNode["icon"] = "fa-list-alt";
+	$menuNode["iconType"] = "3";
 	$menuNode["iconShow"] = "1";
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "Derejame Audit";
+	$menuNode["title"] = "System Users Audit Log";
 
 
 
@@ -2711,39 +2711,65 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "105";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "settings";
+	$menuNode["name"] = "System Settings";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
 	$menuNode["parent"] = "83";
 	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower("");//
 	$menuNode["pageId"] = "";
 	$menuNode["openType"] = "None";
 
-	$menuNode["icon"] = "fa-gears";
+	$menuNode["icon"] = "fa-gear";
 	$menuNode["iconType"] = "3";
 	$menuNode["iconShow"] = "1";
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "Settings";
+	$menuNode["title"] = "System Settings";
 
 
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "106";
+	$menuNode["name"] = "Fields Settings";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "settings";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "105";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-text-width";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Fields Settings";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "107";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "database_backup";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "83";
+	$menuNode["parent"] = "105";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2762,7 +2788,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "107";
+	$menuNode["id"] = "108";
 	$menuNode["name"] = "Knowledge Base";
 	$menuNode["href"] = "./modules/knowledgebase/main_list.php";
 	$menuNode["type"] = "Leaf";
@@ -2788,7 +2814,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "108";
+	$menuNode["id"] = "109";
 	$menuNode["name"] = "Help Desk";
 	$menuNode["href"] = "./modules/helpdesk/menu.php";
 	$menuNode["type"] = "Leaf";

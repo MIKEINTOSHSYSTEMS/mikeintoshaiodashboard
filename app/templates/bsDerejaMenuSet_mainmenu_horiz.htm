@@ -2322,7 +2322,7 @@ navbar-nav
 				
 		
 					{BEGIN item105_menulink}
-			<li class=" {$item105_current}">
+			<li class=" dropdown  {$item105_current}">
 				
 <a {$item105_menulink_attrs} title="{$item105_tooltip}" 
 				data-menu-h
@@ -2334,16 +2334,23 @@ navbar-nav
 		<span class="r-menu-title">
 		{$item105_icon} {$item105_title}
 		</span>
-			</span>
+				{BEGIN item105_expand_icon}
+		<span class="r-menu-expand-icon 
+							glyphicon glyphicon-triangle-right
+		"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item105_expand_icon}
+	</span>
 	</a>
 
-			</li>
-			{END item105_menulink}
 				
-		
+								<ul class="
+									dropdown-menu
+					{$submenu105_class}" 
+					id="submenu105" data-menulevel=3>
 					{BEGIN item106_menulink}
-			<li class=" {$item106_current}">
-				
+						<li class=" {$item106_current}">
+						
 <a {$item106_menulink_attrs} title="{$item106_tooltip}" 
 				data-menu-h
 		data-menu-link
@@ -2357,19 +2364,14 @@ navbar-nav
 			</span>
 	</a>
 
-			</li>
-			{END item106_menulink}
-				</ul>
-	</li>
-	{END item83_menulink}
-	
-	
-	{BEGIN item107_menulink}
-	<li class=" {$item107_current}">
-		
+					</li>
+					{END item106_menulink}
+								
+									{BEGIN item107_menulink}
+						<li class=" {$item107_current}">
+						
 <a {$item107_menulink_attrs} title="{$item107_tooltip}" 
-			data-menu-top
-			data-menu-h
+				data-menu-h
 		data-menu-link
 >
 	<span class="
@@ -2381,8 +2383,14 @@ navbar-nav
 			</span>
 	</a>
 
+					</li>
+					{END item107_menulink}
+								</ul>
+			</li>
+			{END item105_menulink}
+				</ul>
 	</li>
-	{END item107_menulink}
+	{END item83_menulink}
 	
 	
 	{BEGIN item108_menulink}
@@ -2404,4 +2412,25 @@ navbar-nav
 
 	</li>
 	{END item108_menulink}
+	
+	
+	{BEGIN item109_menulink}
+	<li class=" {$item109_current}">
+		
+<a {$item109_menulink_attrs} title="{$item109_tooltip}" 
+			data-menu-top
+			data-menu-h
+		data-menu-link
+>
+	<span class="
+	r-menu-link
+		"> 
+		<span class="r-menu-title">
+		{$item109_icon} {$item109_title}
+		</span>
+			</span>
+	</a>
+
+	</li>
+	{END item109_menulink}
 </ul>

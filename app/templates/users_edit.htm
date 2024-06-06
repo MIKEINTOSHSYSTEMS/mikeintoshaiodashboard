@@ -6,7 +6,7 @@
 	<title>{$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<base href="{$projectPath}">
-		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+    <LINK rel="shortcut icon" type="image/png" href="./images/dereja.png" />		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -424,27 +424,6 @@
 
 
 {END reset_date_fieldblock}
-											
-{BEGIN id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-vertical-field" 
-	data-signal-error-for="id{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_id}">
-		{BEGIN id_label}{$label users id }{END id_label}
-	</label>
-	<div class="r-edit-field">
-		{$id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="id">
-		<div class="text-muted" >
-		{$tooltip users id }		</div>
-	</div>
-</div>
-
-
-{END id_fieldblock}
 											
 {BEGIN fullname_fieldblock}
 

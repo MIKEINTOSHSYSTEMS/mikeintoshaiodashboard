@@ -6,11 +6,11 @@ $tdatausers[".OwnerID"] = "";
 $tdatausers[".OriginalTable"] = "users";
 
 
-$tdatausers[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatausers[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatausers[".originalPagesByType"] = $tdatausers[".pagesByType"];
-$tdatausers[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatausers[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatausers[".originalPages"] = $tdatausers[".pages"];
-$tdatausers[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$tdatausers[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatausers[".originalDefaultPages"] = $tdatausers[".defaultPages"];
 
 //	field labels
@@ -106,16 +106,16 @@ $pages = $tdatausers[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatausers[".edit"] = true;
-	$tdatausers[".afterEditAction"] = 1;
+	$tdatausers[".afterEditAction"] = 0;
 	$tdatausers[".closePopupAfterEdit"] = 1;
-	$tdatausers[".afterEditActionDetTable"] = "";
+	$tdatausers[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdatausers[".add"] = true;
-$tdatausers[".afterAddAction"] = 1;
+$tdatausers[".afterAddAction"] = 0;
 $tdatausers[".closePopupAfterAdd"] = 1;
-$tdatausers[".afterAddActionDetTable"] = "";
+$tdatausers[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -611,7 +611,7 @@ $tdatausers[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Password");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -623,7 +623,8 @@ $tdatausers[".hideMobileList"] = array();
 
 
 
-	
+		$edata["IsRequired"] = true;
+
 	
 	
 	
@@ -635,8 +636,7 @@ $tdatausers[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
+	
 		$edata["EditParams"] = "";
 			$edata["EditParams"].= " maxlength=255";
 
@@ -646,7 +646,9 @@ $tdatausers[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-	
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Password");
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
 	
 //	End validation
 
@@ -1137,7 +1139,7 @@ $tdatausers[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "");
+	$vdata = array("ViewFormat" => "Checkbox");
 
 	
 	
@@ -1153,8 +1155,7 @@ $tdatausers[".hideMobileList"] = array();
 	
 	
 	
-		$vdata["NeedEncode"] = true;
-
+	
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
@@ -1165,7 +1166,7 @@ $tdatausers[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1189,17 +1190,14 @@ $tdatausers[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 //	End validation
@@ -1219,7 +1217,7 @@ $tdatausers[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);

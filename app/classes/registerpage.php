@@ -288,6 +288,9 @@ class RegisterPage extends RunnerPage
 				$this->sendActivationLinkFailedMessage = $sentMailResults["message"];
 		}
 
+		$sentMailResults1 = $this->sendAdminRegisterMessage();
+		if( !@$sentMailResults1["mailed"] )
+			$this->message.= " ".$sentMailResults1["message"];
 	}
 
 	/**
@@ -315,6 +318,25 @@ class RegisterPage extends RunnerPage
 		return RunnerPage::sendEmailByTemplate($strEmail, "userregister", $data, $html);
 	}
 
+	/**
+	 * Send an email to admin-user
+	 * @return Array
+	 */
+	protected function sendAdminRegisterMessage()
+	{
+		$data = array();
+		if( GetGlobalData("userRequireActivation")	)
+			$data["activateurl"] = $this->getUserActivationUrl( $this->regValues[Security::usernameField()], $this->prepActivationCode );
+
+		foreach( $this->pSet->getPageFields() as $uf ) {
+			$data[ GoodFieldName( $uf . "_value" ) ] = $this->regValues[ $uf ];
+		}
+
+		$strEmail = "administrator@merqconsultancy.org";
+
+		$html = isEmailTemplateUseHTML("adminregister");
+		return RunnerPage::sendEmailByTemplate($strEmail, "adminregister", $data, $html);
+	}
 
 	/**
 	 *

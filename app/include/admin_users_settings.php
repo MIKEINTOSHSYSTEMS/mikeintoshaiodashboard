@@ -106,16 +106,16 @@ $pages = $tdataadmin_users[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataadmin_users[".edit"] = true;
-	$tdataadmin_users[".afterEditAction"] = 1;
+	$tdataadmin_users[".afterEditAction"] = 0;
 	$tdataadmin_users[".closePopupAfterEdit"] = 1;
-	$tdataadmin_users[".afterEditActionDetTable"] = "";
+	$tdataadmin_users[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdataadmin_users[".add"] = true;
-$tdataadmin_users[".afterAddAction"] = 1;
+$tdataadmin_users[".afterAddAction"] = 0;
 $tdataadmin_users[".closePopupAfterAdd"] = 1;
-$tdataadmin_users[".afterAddActionDetTable"] = "";
+$tdataadmin_users[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -611,7 +611,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Password");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -635,8 +635,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
+	
 		$edata["EditParams"] = "";
 			$edata["EditParams"].= " maxlength=255";
 
@@ -646,7 +645,8 @@ $tdataadmin_users[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-	
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Password");
+							
 	
 //	End validation
 
@@ -1135,7 +1135,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "");
+	$vdata = array("ViewFormat" => "Checkbox");
 
 	
 	
@@ -1151,8 +1151,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-		$vdata["NeedEncode"] = true;
-
+	
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
@@ -1163,7 +1162,7 @@ $tdataadmin_users[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Checkbox");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1187,17 +1186,14 @@ $tdataadmin_users[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 //	End validation

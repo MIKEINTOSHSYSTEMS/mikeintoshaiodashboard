@@ -627,6 +627,10 @@ $globalSettings["CookieBanner"] = array();
 $globalSettings["useCookieBanner"] = 0 != 0;
 
 $globalSettings["htmlEmailTemplates"] = array();
+$globalSettings["htmlEmailTemplates"]["English"] = array();
+$globalSettings["htmlEmailTemplates"]["English"]["userregister"] = true;
+$globalSettings["htmlEmailTemplates"]["English"]["resetpassword"] = true;
+$globalSettings["htmlEmailTemplates"]["English"]["adminregister"] = true;
 
 $globalSettings["isAddWebRep"] = true;
 
@@ -747,9 +751,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "371_1717687572";
+$projectBuildKey = "375_1717687572";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "371";
+$projectBuildNumber = "375";
 
 $mlang_messages = array();
 $mlang_charsets = array();

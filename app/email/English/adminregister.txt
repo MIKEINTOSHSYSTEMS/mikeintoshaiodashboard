@@ -1,0 +1,16 @@
+Notification on registering
+
+<p>
+User registered at&nbsp;<a href="%url%">%url%</a>
+</p>
+<p>
+ID:&nbsp;<b>%id_value%</b><br/>
+Username:&nbsp;<b>%username_value%</b><br/>
+Email:&nbsp;<b>%email_value%</b><br/>
+Full Name:&nbsp;<b>%fullname_value%</b><br/>
+Groupid:&nbsp;<b>%groupid_value%</b><br/>
+Ext Security Id:&nbsp;<b>%ext_security_id_value%</b><br/>
+Userpic:&nbsp;<b>%userpic_value%</b><br/>
+Usertype:&nbsp;<b>%usertype_value%</b><br/>
+Please Select Your Designation:&nbsp;<b>%designation_value%</b><br/>
+</p>

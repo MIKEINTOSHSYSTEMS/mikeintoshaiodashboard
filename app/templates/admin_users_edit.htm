@@ -6,7 +6,7 @@
 	<title>{$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<base href="{$projectPath}">
-		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+    <LINK rel="shortcut icon" type="image/png" href="./images/dereja.png" />		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -558,6 +558,16 @@
 							Save			</a>
 </span>
 {END save_edit}
+	 
+		{BEGIN save_update}
+<span data-itemtype="update_records" data-itemid="update_records" {$item_update_records} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+				 
+			{$update_records_label}	
+			</a>
+</span>
+{END save_update}
 	 
 		{BEGIN back_button}
 <span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-small data-button-item>
