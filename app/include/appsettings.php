@@ -747,9 +747,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "368_1717069812";
+$projectBuildKey = "371_1717687572";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "368";
+$projectBuildNumber = "371";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -851,6 +851,7 @@ $tableCaptions["English"]["indicator_targets_view"] = "Indicator Targets View";
 $tableCaptions["English"]["dereja_academy_lms"] = "Dereja Academy Lms";
 $tableCaptions["English"]["Home"] = "Home";
 $tableCaptions["English"]["settings"] = "Settings";
+$tableCaptions["English"]["database_backup"] = "Database Backup";
 
 
 $globalEvents = new class_GlobalEvents;

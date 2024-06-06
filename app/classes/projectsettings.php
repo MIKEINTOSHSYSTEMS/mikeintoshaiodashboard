@@ -3660,6 +3660,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "home" ] = "Home";
 	$projectEntities[ "settings" ] = array( "url" => "settings", "type" => 0 );
 	$projectEntitiesReverse[ "settings" ] = "settings";
+	$projectEntities[ "database_backup" ] = array( "url" => "database_backup", "type" => 1 );
+	$projectEntitiesReverse[ "database_backup" ] = "database_backup";
 }
 
 function findTable( $table ) {

@@ -90,6 +90,7 @@ $nonAdminTablesArr[] = "indicator_targets_view";
 $nonAdminTablesArr[] = "dereja_academy_lms";
 $nonAdminTablesArr[] = "Home";
 $nonAdminTablesArr[] = "settings";
+$nonAdminTablesArr[] = "database_backup";
 
 $ug_connection = $cman->getForUserGroups();
 

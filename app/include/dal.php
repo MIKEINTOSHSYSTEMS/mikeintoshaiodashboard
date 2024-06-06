@@ -47,6 +47,7 @@ function DBLookup($sql)
   */
 class tDAL
 {
+	var $tblderedevatderejadevmerqconsulta__backup;
 	var $tblderedevatderejadevmerqconsulta__Candidate_Employment_Tracker;
 	var $tblderedevatderejadevmerqconsulta__candidates;
 	var $tblderedevatderejadevmerqconsulta__cities;
@@ -114,6 +115,7 @@ class tDAL
 	{
 		if($this->lstTables)
 			return;
+		$this->lstTables[] = array("name" => "backup", "varname" => "deredevatderejadevmerqconsulta__backup", "altvarname" => "backup", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "Candidate_Employment_Tracker", "varname" => "deredevatderejadevmerqconsulta__Candidate_Employment_Tracker", "altvarname" => "Candidate_Employment_Tracker", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 		$this->lstTables[] = array("name" => "cities", "varname" => "deredevatderejadevmerqconsulta__cities", "altvarname" => "cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

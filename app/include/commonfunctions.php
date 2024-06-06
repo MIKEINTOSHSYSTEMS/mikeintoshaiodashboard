@@ -353,6 +353,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("settings" == $shortTName )
 		return true;
+	if ("database_backup" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1078,6 +1080,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="settings";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("database_backup");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="database_backup";
+	}
 	return $arr;
 }
 
@@ -1162,6 +1173,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="dereja_academy_lms";
 	$arr[]="Home";
 	$arr[]="settings";
+	$arr[]="database_backup";
 	return $arr;
 }
 
@@ -2174,6 +2186,11 @@ function GetUserPermissionsStatic( $table )
 		return "S".$extraPerm;
 	}
 	if( $table=="settings" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="database_backup" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

@@ -528,6 +528,8 @@ class Chart
 			return true;
 		if("settings" == $this->chrt_array['tables'][0])
 			return true;
+		if("backup" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

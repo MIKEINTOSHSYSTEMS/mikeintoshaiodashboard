@@ -316,6 +316,7 @@ class ConnectionManager_Base
 		$connectionsIds["indicator_targets_view"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["dereja_academy_lms"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["settings"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["database_backup"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

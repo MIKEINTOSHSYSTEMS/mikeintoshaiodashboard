@@ -354,6 +354,7 @@ class DB
 		$dalTables[ $conn->connId ] = array();
 		if( "deredevatderejadevmerqconsulta" == $conn->connId )
 		{
+			$dalTables[$conn->connId][] = array("name" => "backup", "varname" => "deredevatderejadevmerqconsulta__backup", "altvarname" => "backup", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "Candidate_Employment_Tracker", "varname" => "deredevatderejadevmerqconsulta__Candidate_Employment_Tracker", "altvarname" => "Candidate_Employment_Tracker", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "candidates", "varname" => "deredevatderejadevmerqconsulta__candidates", "altvarname" => "candidates", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");
 			$dalTables[$conn->connId][] = array("name" => "cities", "varname" => "deredevatderejadevmerqconsulta__cities", "altvarname" => "cities", "connId" => "deredevatderejadevmerqconsulta", "schema" => "", "connName" => "dere_dev at derejadev.merqcons");

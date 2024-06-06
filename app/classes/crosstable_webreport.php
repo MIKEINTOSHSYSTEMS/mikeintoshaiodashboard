@@ -1531,6 +1531,8 @@ class CrossTableWebReport
 			$isDB = true;
 		if("settings" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("backup" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	
