@@ -16,7 +16,7 @@
 			
 	</head>
 
-	<body class="{$stylename} function-search"   
+	<body class="{$stylename} function-view"   
 		>
 	{BEGIN body}
 		<style>
@@ -226,7 +226,7 @@
 	
 ">
 		 
-		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel database_backup search}</h2>
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel database_backup view}</h2>
 		</div>					</div>
 			</div>		
 {END top_block}
@@ -238,30 +238,18 @@
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
-	class="r-align-right r-ori-vert			col-md-12
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
 	
 ">
 		{BEGIN firstAboveGridCell}
-		 
-		<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-small > 
-	<p><a href="./database_backup_view.php" target="_blank" rel="noopener noreferrer"><strong>Create Database&nbsp;Backup</strong></a></p></span>
-			{END firstAboveGridCell}	
+				{END firstAboveGridCell}	
 	</div>					</div>
 			 
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
-	class=" r-ori-vert			col-md-12
-	
-">
-			</div>					</div>
-			 
-				<div class="row">
-			 
-				<div 
-	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
 	class="r-align-center r-ori-vert			col-md-12
 	
 ">
@@ -285,34 +273,109 @@
 
  
 	 
-		
-					<table 
+												<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
 		data-form-width="1"
 		
-		data-v-width="1"
+		data-v-width="4"
 	>
 	<tbody>
-						<tr>
-						
+										<tr {$row_grid_0} >
+										
 
 {BEGIN cellblock_grid_c3}
 <td
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="1"
+		data-v-cell="4"
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
+				
+{BEGIN backup_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_backup_id}  r-vertical-field" data-fieldname="backup_id" data-signal-error-for="backup_id{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="backup_id" data-fieldname="backup_id" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_backup_id}">
+		
+		{BEGIN backup_id_label}{$label database_backup backup_id }{END backup_id_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$backup_id_value}	</div>
+
+		
+</div>
+
+
+{END backup_id_fieldblock}
+											
+{BEGIN backup_name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_backup_name}  r-vertical-field" data-fieldname="backup_name" data-signal-error-for="backup_name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="backup_name" data-fieldname="backup_name" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_backup_name}">
+		
+		{BEGIN backup_name_label}{$label database_backup backup_name }{END backup_name_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$backup_name_value}	</div>
+
+		
+</div>
+
+
+{END backup_name_fieldblock}
+											
+{BEGIN backup_date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_backup_date}  r-vertical-field" data-fieldname="backup_date" data-signal-error-for="backup_date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="backup_date" data-fieldname="backup_date" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_backup_date}">
+		
+		{BEGIN backup_date_label}{$label database_backup backup_date }{END backup_date_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$backup_date_value}	</div>
+
+		
+</div>
+
+
+{END backup_date_fieldblock}
+											
+{BEGIN backup_action_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_backup_action}  r-vertical-field" data-fieldname="backup_action" data-signal-error-for="backup_action{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="backup_action" data-fieldname="backup_action" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_backup_action}">
+		
+		{BEGIN backup_action_label}{$label database_backup backup_action }{END backup_action_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$backup_action_value}	</div>
+
+		
+</div>
+
+
+{END backup_action_fieldblock}
+	
+								</td>
 			{END cellblock_grid_c3}
 								</tr>
 			</tbody></table>
@@ -326,12 +389,34 @@
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
-	class=" r-ori-vert			col-md-12
+	class="			col-md-6
 	
 ">
 		 
-		<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-small > 
-	<p><a href="./database_backup_view.php" target="_blank" rel="noopener noreferrer"><strong>Create Database&nbsp;Backup</strong></a></p></span>
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Back to list			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Close window			</a>
+</span>
+{END close_button}
+		</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+</span>
 		</div>					</div>
 			</div>		
 {END below-grid_block}

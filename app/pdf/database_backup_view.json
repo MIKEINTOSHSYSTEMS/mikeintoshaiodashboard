@@ -54,7 +54,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jspagetitlelabel database_backup search}","hidden":"{$item_hide_search_header}","fontSize":30},
+			{"text":"{$jspagetitlelabel database_backup view}","hidden":"{$item_hide_view_header}","fontSize":30},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -87,32 +87,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-		
-			
-	
-	
-			"text": [
-		
-				
-			{"text":"<p><a href=\"./database_backup_view.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Create Database&nbsp;Backup</strong></a></p>","hidden":"{$item_hide_text2}","isHtml":true},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'right',
-     
-      
-      },
-
-											],
-						[
-																{
-	cellId: 'c2',
+	cellId: 'c1',
 	col:0,
 	row:0,
 			
@@ -135,7 +110,7 @@ pdfDocument = {
 											],
 						[
 																{
-	cellId: 'c1',
+	cellId: 'c',
 	col:0,
 	row:0,
 			
@@ -207,8 +182,19 @@ pdfDocument = {
 	
 			"stack": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel database_backup backup_id }","bold":true},{"text":{$backup_id_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel database_backup backup_name }","bold":true},{"text":{$backup_name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel database_backup backup_date }","bold":true},{"text":{$backup_date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel database_backup backup_action }","bold":true},{"text":{$backup_action_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -234,6 +220,7 @@ pdfDocument = {
 		
 		widths: [
 								"*", 
+											"*", 
 					 ],	
 		
 	
@@ -254,11 +241,37 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"<p><a href=\"./database_backup_view.php\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Create Database&nbsp;Backup</strong></a></p>","hidden":"{$item_hide_text1}","isHtml":true},
+			{"text":"","hidden":"{$item_hide_view_back_list}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_view_close}"},
 				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
      
       
       },

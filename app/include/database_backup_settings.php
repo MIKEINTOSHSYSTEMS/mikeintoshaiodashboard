@@ -37,6 +37,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsdatabase_backup["English"]["backup_action"] = "Backup Action";
 	$fieldToolTipsdatabase_backup["English"]["backup_action"] = "";
 	$placeHoldersdatabase_backup["English"]["backup_action"] = "";
+	$pageTitlesdatabase_backup["English"]["search"] = "Database Backups";
 	if (count($fieldToolTipsdatabase_backup["English"]))
 		$tdatadatabase_backup[".isUseToolTips"] = true;
 }

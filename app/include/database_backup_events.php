@@ -29,9 +29,9 @@ $html = <<<EOT
 <script>
 let text;
 if (confirm("The BACKUP file is: $file") == true) {
-  window.open("menu.php", "_self"); 
+  window.open("database_backup_search.php", "_self"); 
 } else {
-  window.open("menu.php", "_self");
+  window.open("database_backup_search.php", "_self");
 }
 
 </script>
