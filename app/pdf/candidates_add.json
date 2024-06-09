@@ -170,11 +170,6 @@ pdfDocument = {
 			"%",
 						{END row_grid_6}
 			 
-								{BEGIN row_grid_7}
-						
-			"%",
-						{END row_grid_7}
-			 
 				],
 	
 		body: [
@@ -2526,44 +2521,6 @@ pdfDocument = {
 			},
 							],
 				{END row_grid_6}
-						{BEGIN row_grid_7}
-				[
-																{BEGIN cellblock_grid_c13}
-{
-	cellId: 'c13',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-					{BEGIN colspan_grid_c13}
-			colSpan: {$colspan_grid_c13},
-			{END colspan_grid_c13}
-		
-						
-	
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c13}
-																		{ 
-				cellId: 'c13',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-				{END row_grid_7}
 		
 		]
 	}

@@ -186,6 +186,9 @@ pdfDocument = {
 				
 			{"text":{$Post_Test_Score_pdfvalue},"hidden":"{$item_hide_export_field26}"},
 				
+				
+			{"text":{$Training_Round_pdfvalue},"hidden":"{$item_hide_export_field27}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

@@ -255,9 +255,9 @@
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="1"
+		data-form-width="5"
 		
-		data-v-width="4"
+		data-v-width="10"
 	>
 	<tbody>
 										<tr {$row_grid_0} >
@@ -268,10 +268,10 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-				data-fullwidth
-		
+			data-single
+			
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -281,356 +281,739 @@
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_EventID}  r-vertical-field" data-fieldname="EventID" data-signal-error-for="EventID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="EventID" data-fieldname="EventID" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_EventID}">
+	<label class="" for="{$labelfor_EventID}">
 		
 		{BEGIN EventID_label}{$label event_participants EventID }{END EventID_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$EventID_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END EventID_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c3}
+			 
+																
+
+{BEGIN cellblock_grid_c26}
+<td
+	{$cell_grid_c26}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c26" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CandidateID_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
+	<label class="" for="{$labelfor_CandidateID}">
 		
 		{BEGIN CandidateID_label}{$label event_participants CandidateID }{END CandidateID_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CandidateID_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CandidateID_fieldblock}
-											
-{BEGIN Event_Start_Date_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Start_Date}  r-vertical-field" data-fieldname="Event_Start_Date" data-signal-error-for="Event_Start_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Event_Start_Date}">
-		
-		{BEGIN Event_Start_Date_label}{$label event_participants Event_Start_Date }{END Event_Start_Date_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Event_Start_Date_value}	</div>
+								</td>
+			{END cellblock_grid_c26}
+			 
+																
 
-		
-</div>
-
-
-{END Event_Start_Date_fieldblock}
-											
-{BEGIN Event_End_Date_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_End_Date}  r-vertical-field" data-fieldname="Event_End_Date" data-signal-error-for="Event_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Event_End_Date" data-fieldname="Event_End_Date" >
-
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Event_End_Date}">
+			data-single
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN Event_End_Date_label}{$label event_participants Event_End_Date }{END Event_End_Date_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Event_End_Date_value}	</div>
-
-		
-</div>
-
-
-{END Event_End_Date_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN First_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
+	<label class="" for="{$labelfor_First_Name}">
 		
 		{BEGIN First_Name_label}{$label event_participants First_Name }{END First_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$First_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END First_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c}
+			 
+																
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Middle_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
+	<label class="" for="{$labelfor_Middle_Name}">
 		
 		{BEGIN Middle_Name_label}{$label event_participants Middle_Name }{END Middle_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Middle_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Middle_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c4}
+			 
+																
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Last_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
+	<label class="" for="{$labelfor_Last_Name}">
 		
 		{BEGIN Last_Name_label}{$label event_participants Last_Name }{END Last_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Last_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Last_Name_fieldblock}
-											
-{BEGIN Phone_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" data-fieldname="Phone" data-signal-error-for="Phone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Phone" data-fieldname="Phone" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Phone}">
-		
-		{BEGIN Phone_label}{$label event_participants Phone }{END Phone_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Phone_value}	</div>
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
 
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_Round_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Round}  r-vertical-field" data-fieldname="Event_Round" data-signal-error-for="Event_Round{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="Event_Round" data-fieldname="Event_Round" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_Round}">
+		
+		{BEGIN Event_Round_label}{$label event_participants Event_Round }{END Event_Round_label}
+	</label>
+	<div class="" >
+		{$Event_Round_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Phone_fieldblock}
-											
-{BEGIN Email_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Email" data-fieldname="Email" >
-
+{END Event_Round_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Email}">
+								</td>
+			{END cellblock_grid_c10}
+			 
 		
-		{BEGIN Email_label}{$label event_participants Email }{END Email_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Email_value}	</div>
+							
 
+{BEGIN cellblock_grid_c27}
+<td
+	{$cell_grid_c27}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c27" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c27}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c11}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c12}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c13}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_Start_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Start_Date}  r-vertical-field" data-fieldname="Event_Start_Date" data-signal-error-for="Event_Start_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_Start_Date}">
+		
+		{BEGIN Event_Start_Date_label}{$label event_participants Event_Start_Date }{END Event_Start_Date_label}
+	</label>
+	<div class="" >
+		{$Event_Start_Date_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Email_fieldblock}
-											
+{END Event_Start_Date_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c6}
+			 
+																
+
+{BEGIN cellblock_grid_c28}
+<td
+	{$cell_grid_c28}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c28" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN StudentID_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_StudentID}  r-vertical-field" data-fieldname="StudentID" data-signal-error-for="StudentID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="StudentID" data-fieldname="StudentID" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_StudentID}">
+	<label class="" for="{$labelfor_StudentID}">
 		
 		{BEGIN StudentID_label}{$label event_participants StudentID }{END StudentID_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$StudentID_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END StudentID_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c28}
+			 
+																
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Sex_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Sex}  r-vertical-field" data-fieldname="Sex" data-signal-error-for="Sex{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="Sex" data-fieldname="Sex" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sex}">
+	<label class="" for="{$labelfor_Sex}">
 		
 		{BEGIN Sex_label}{$label event_participants Sex }{END Sex_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Sex_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Sex_fieldblock}
-											
-{BEGIN Disability_Status_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Status}">
-		
-		{BEGIN Disability_Status_label}{$label event_participants Disability_Status }{END Disability_Status_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Status_value}	</div>
+								</td>
+			{END cellblock_grid_c7}
+			 
+																
 
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Phone_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Phone}  r-vertical-field" data-fieldname="Phone" data-signal-error-for="Phone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Phone" data-fieldname="Phone" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Phone}">
+		
+		{BEGIN Phone_label}{$label event_participants Phone }{END Phone_label}
+	</label>
+	<div class="" >
+		{$Phone_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Disability_Status_fieldblock}
-											
-{BEGIN Disability_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
-
+{END Phone_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type}">
-		
-		{BEGIN Disability_Type_label}{$label event_participants Disability_Type }{END Disability_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Type_value}	</div>
+								</td>
+			{END cellblock_grid_c8}
+			 
+																
 
+{BEGIN cellblock_grid_c9}
+<td
+	{$cell_grid_c9}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Email" data-fieldname="Email" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Email}">
+		
+		{BEGIN Email_label}{$label event_participants Email }{END Email_label}
+	</label>
+	<div class="" >
+		{$Email_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Disability_Type_fieldblock}
-											
-{BEGIN Disability_Type_Other_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
-
+{END Email_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Disability_Type_Other}">
-		
-		{BEGIN Disability_Type_Other_label}{$label event_participants Disability_Type_Other }{END Disability_Type_Other_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Disability_Type_Other_value}	</div>
+								</td>
+			{END cellblock_grid_c9}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
 
+{BEGIN cellblock_grid_c22}
+<td
+	{$cell_grid_c22}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c22" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_End_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_End_Date}  r-vertical-field" data-fieldname="Event_End_Date" data-signal-error-for="Event_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Event_End_Date" data-fieldname="Event_End_Date" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_End_Date}">
+		
+		{BEGIN Event_End_Date_label}{$label event_participants Event_End_Date }{END Event_End_Date_label}
+	</label>
+	<div class="" >
+		{$Event_End_Date_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Disability_Type_Other_fieldblock}
-											
+{END Event_End_Date_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c22}
+			 
+																
+
+{BEGIN cellblock_grid_c29}
+<td
+	{$cell_grid_c29}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c29" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Participant_Type_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Type}  r-vertical-field" data-fieldname="Participant_Type" data-signal-error-for="Participant_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="Participant_Type" data-fieldname="Participant_Type" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Type}">
+	<label class="" for="{$labelfor_Participant_Type}">
 		
 		{BEGIN Participant_Type_label}{$label event_participants Participant_Type }{END Participant_Type_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Participant_Type_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Participant_Type_fieldblock}
-											
-{BEGIN Participant_Field_of_Study_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Field_of_Study}  r-vertical-field" data-fieldname="Participant_Field_of_Study" data-signal-error-for="Participant_Field_of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Field_of_Study}">
+								</td>
+			{END cellblock_grid_c29}
+			 
 		
-		{BEGIN Participant_Field_of_Study_label}{$label event_participants Participant_Field_of_Study }{END Participant_Field_of_Study_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Participant_Field_of_Study_value}	</div>
+							
 
+{BEGIN cellblock_grid_c23}
+<td
+	{$cell_grid_c23}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c23" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c23}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c24}
+<td
+	{$cell_grid_c24}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c24" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c24}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c25}
+<td
+	{$cell_grid_c25}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c25" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c25}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c18}
+<td
+	{$cell_grid_c18}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c18" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_Organizer_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Organizer}  r-vertical-field" data-fieldname="Event_Organizer" data-signal-error-for="Event_Organizer{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="Event_Organizer" data-fieldname="Event_Organizer" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_Organizer}">
+		
+		{BEGIN Event_Organizer_label}{$label event_participants Event_Organizer }{END Event_Organizer_label}
+	</label>
+	<div class="" >
+		{$Event_Organizer_value}	</div>
+
+		</div>
 		
 </div>
 
 
-{END Participant_Field_of_Study_fieldblock}
-											
-{BEGIN Participant_Organization_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Type}  r-vertical-field" data-fieldname="Participant_Organization_Type" data-signal-error-for="Participant_Organization_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type" >
-
+{END Event_Organizer_fieldblock}
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Organization_Type}">
+								</td>
+			{END cellblock_grid_c18}
+			 
+																
+
+{BEGIN cellblock_grid_c30}
+<td
+	{$cell_grid_c30}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c30" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN Participant_Organization_Type_label}{$label event_participants Participant_Organization_Type }{END Participant_Organization_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Participant_Organization_Type_value}	</div>
-
-		
-</div>
-
-
-{END Participant_Organization_Type_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Participant_Organization_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Name}  r-vertical-field" data-fieldname="Participant_Organization_Name" data-signal-error-for="Participant_Organization_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Organization_Name}">
+	<label class="" for="{$labelfor_Participant_Organization_Name}">
 		
 		{BEGIN Participant_Organization_Name_label}{$label event_participants Participant_Organization_Name }{END Participant_Organization_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Participant_Organization_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Participant_Organization_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c30}
+			 
+																
+
+{BEGIN cellblock_grid_c19}
+<td
+	{$cell_grid_c19}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c19" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Participant_Home_Address_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Home_Address}  r-vertical-field" data-fieldname="Participant_Home_Address" data-signal-error-for="Participant_Home_Address{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Participant_Home_Address}">
+	<label class="" for="{$labelfor_Participant_Home_Address}">
 		
 		{BEGIN Participant_Home_Address_label}{$label event_participants Participant_Home_Address }{END Participant_Home_Address_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Participant_Home_Address_value}	</div>
 
+		</div>
 		
 </div>
 
@@ -638,7 +1021,376 @@
 {END Participant_Home_Address_fieldblock}
 	
 								</td>
-			{END cellblock_grid_c3}
+			{END cellblock_grid_c19}
+			 
+																
+
+{BEGIN cellblock_grid_c20}
+<td
+	{$cell_grid_c20}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c20" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Status_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Status}  r-vertical-field" data-fieldname="Disability_Status" data-signal-error-for="Disability_Status{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Disability_Status" data-fieldname="Disability_Status" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Status}">
+		
+		{BEGIN Disability_Status_label}{$label event_participants Disability_Status }{END Disability_Status_label}
+	</label>
+	<div class="" >
+		{$Disability_Status_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Status_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c20}
+			 
+																
+
+{BEGIN cellblock_grid_c21}
+<td
+	{$cell_grid_c21}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c21" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type}  r-vertical-field" data-fieldname="Disability_Type" data-signal-error-for="Disability_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Disability_Type" data-fieldname="Disability_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Type}">
+		
+		{BEGIN Disability_Type_label}{$label event_participants Disability_Type }{END Disability_Type_label}
+	</label>
+	<div class="" >
+		{$Disability_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Type_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c21}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c14}
+<td
+	{$cell_grid_c14}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c14" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_Location_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Location}  r-vertical-field" data-fieldname="Event_Location" data-signal-error-for="Event_Location{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="Event_Location" data-fieldname="Event_Location" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_Location}">
+		
+		{BEGIN Event_Location_label}{$label event_participants Event_Location }{END Event_Location_label}
+	</label>
+	<div class="" >
+		{$Event_Location_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Event_Location_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c14}
+			 
+																
+
+{BEGIN cellblock_grid_c31}
+<td
+	{$cell_grid_c31}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c31" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Participant_Organization_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Organization_Type}  r-vertical-field" data-fieldname="Participant_Organization_Type" data-signal-error-for="Participant_Organization_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Participant_Organization_Type}">
+		
+		{BEGIN Participant_Organization_Type_label}{$label event_participants Participant_Organization_Type }{END Participant_Organization_Type_label}
+	</label>
+	<div class="" >
+		{$Participant_Organization_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Participant_Organization_Type_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c31}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c15}
+<td
+	{$cell_grid_c15}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c15" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c15}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c16}
+<td
+	{$cell_grid_c16}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c16" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c16}
+			 
+																
+
+{BEGIN cellblock_grid_c17}
+<td
+	{$cell_grid_c17}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c17" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Disability_Type_Other_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Disability_Type_Other}  r-vertical-field" data-fieldname="Disability_Type_Other" data-signal-error-for="Disability_Type_Other{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Disability_Type_Other}">
+		
+		{BEGIN Disability_Type_Other_label}{$label event_participants Disability_Type_Other }{END Disability_Type_Other_label}
+	</label>
+	<div class="" >
+		{$Disability_Type_Other_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Disability_Type_Other_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c17}
+								</tr>
+	 
+	 
+														<tr {$row_grid_6} >
+										
+
+{BEGIN cellblock_grid_c32}
+<td
+	{$cell_grid_c32}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c32" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Event_Note_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Note}  r-vertical-field" data-fieldname="Event_Note" data-signal-error-for="Event_Note{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="Event_Note" data-fieldname="Event_Note" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Event_Note}">
+		
+		{BEGIN Event_Note_label}{$label event_participants Event_Note }{END Event_Note_label}
+	</label>
+	<div class="" >
+		{$Event_Note_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Event_Note_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c32}
+			 
+																
+
+{BEGIN cellblock_grid_c33}
+<td
+	{$cell_grid_c33}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c33" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Participant_Field_of_Study_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Participant_Field_of_Study}  r-vertical-field" data-fieldname="Participant_Field_of_Study" data-signal-error-for="Participant_Field_of_Study{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Participant_Field_of_Study}">
+		
+		{BEGIN Participant_Field_of_Study_label}{$label event_participants Participant_Field_of_Study }{END Participant_Field_of_Study_label}
+	</label>
+	<div class="" >
+		{$Participant_Field_of_Study_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Participant_Field_of_Study_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c33}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c34}
+<td
+	{$cell_grid_c34}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c34" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c34}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c35}
+<td
+	{$cell_grid_c35}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c35" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c35}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c36}
+<td
+	{$cell_grid_c36}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c36" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c36}
 								</tr>
 			</tbody></table>
 {END grid_block}

@@ -116,6 +116,84 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_EventID}</span>
 						</div>
 		{END searchCtrlBlock_EventID}
+																{BEGIN searchCtrlBlock_Event_Note}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Note}" {$filterRow_attrs_Event_Note}>
+			<label>{$label events Event_Note }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Note}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Note}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Note}</span>
+						</div>
+		{END searchCtrlBlock_Event_Note}
+																{BEGIN searchCtrlBlock_Event_Location}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Location}" {$filterRow_attrs_Event_Location}>
+			<label>{$label events Event_Location }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Location}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Location}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Location}</span>
+						</div>
+		{END searchCtrlBlock_Event_Location}
+																{BEGIN searchCtrlBlock_Event_Organizer}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Organizer}" {$filterRow_attrs_Event_Organizer}>
+			<label>{$label events Event_Organizer }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Organizer}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Organizer}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Organizer}</span>
+						</div>
+		{END searchCtrlBlock_Event_Organizer}
+																{BEGIN searchCtrlBlock_Event_End_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_End_Date}" {$filterRow_attrs_Event_End_Date}>
+			<label>{$label events Event_End_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_End_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_End_Date}
+																{BEGIN searchCtrlBlock_Event_Start_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Start_Date}" {$filterRow_attrs_Event_Start_Date}>
+			<label>{$label events Event_Start_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Start_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_Start_Date}
+																{BEGIN searchCtrlBlock_Event_Round}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Round}" {$filterRow_attrs_Event_Round}>
+			<label>{$label events Event_Round }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Round}</span>
+						</div>
+		{END searchCtrlBlock_Event_Round}
 																{BEGIN searchCtrlBlock_EventName}
 
 
@@ -236,6 +314,14 @@
 		</a>
 	</li>
 {END exportselected_link}
+							{BEGIN deleteselected_link}
+	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
+				
+		Delete selected		
+		</a>
+	</li>
+{END deleteselected_link}
 							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
 				<a   href="events1_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
 				
@@ -465,6 +551,22 @@
 							Cancel			</a>
 </span>
 {END cancelall_link}
+	 
+		{BEGIN deleteselected_link}
+<span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$deleteselectedlink_attrs} {$deleteselectedlink_span} disabled >
+							Delete			</a>
+</span>
+{END deleteselected_link}
+	 
+		{BEGIN updateselected_link}
+<span data-itemtype="update_selected" data-itemid="update_selected" {$item_update_selected} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="events1_edit.php{$stateLink_full}" {$updateselectedlink_attrs} disabled >
+							Update selected			</a>
+</span>
+{END updateselected_link}
 			{END firstAboveGridCell}	
 	</div>			 
 				<div 
@@ -607,6 +709,24 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="EventName"]:before {
 		content: "{$label events EventName}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Round"]:before {
+		content: "{$label events Event_Round}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Start_Date"]:before {
+		content: "{$label events Event_Start_Date}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_End_Date"]:before {
+		content: "{$label events Event_End_Date}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Organizer"]:before {
+		content: "{$label events Event_Organizer}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Location"]:before {
+		content: "{$label events Event_Location}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Note"]:before {
+		content: "{$label events Event_Note}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -690,7 +810,7 @@
 	 
 		{BEGIN EventID_fieldheadercolumn}
 	{BEGIN EventID_fieldheader}
-	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID">
+	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID">
 	{$label events EventID }	{$arrow_icon_EventID}
 	</SPAN>
 	{END EventID_fieldheader}
@@ -715,7 +835,7 @@
 	 
 		{BEGIN EventName_fieldheadercolumn}
 	{BEGIN EventName_fieldheader}
-	<SPAN {$EventName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventName" data-fieldname="EventName">
+	<SPAN {$EventName_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventName" data-fieldname="EventName">
 	{$label events EventName }	{$arrow_icon_EventName}
 	</SPAN>
 	{END EventName_fieldheader}
@@ -724,6 +844,156 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field2}
+	<th
+	
+	{$cell_grid_headcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Round_class}	"
+
+			data-field="Event_Round"
+	
+	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Round_fieldheadercolumn}
+	{BEGIN Event_Round_fieldheader}
+	<SPAN {$Event_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round">
+	{$label events Event_Round }	{$arrow_icon_Event_Round}
+	</SPAN>
+	{END Event_Round_fieldheader}
+{END Event_Round_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field3}
+	<th
+	
+	{$cell_grid_headcell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Start_Date_class}	"
+
+			data-field="Event_Start_Date"
+	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Start_Date_fieldheadercolumn}
+	{BEGIN Event_Start_Date_fieldheader}
+	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
+	{$label events Event_Start_Date }	{$arrow_icon_Event_Start_Date}
+	</SPAN>
+	{END Event_Start_Date_fieldheader}
+{END Event_Start_Date_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_End_Date_class}	"
+
+			data-field="Event_End_Date"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_End_Date_fieldheadercolumn}
+	{BEGIN Event_End_Date_fieldheader}
+	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
+	{$label events Event_End_Date }	{$arrow_icon_Event_End_Date}
+	</SPAN>
+	{END Event_End_Date_fieldheader}
+{END Event_End_Date_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Organizer_class}	"
+
+			data-field="Event_Organizer"
+	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Organizer_fieldheadercolumn}
+	{BEGIN Event_Organizer_fieldheader}
+	<SPAN {$Event_Organizer_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer">
+	{$label events Event_Organizer }	{$arrow_icon_Event_Organizer}
+	</SPAN>
+	{END Event_Organizer_fieldheader}
+{END Event_Organizer_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Location_class}	"
+
+			data-field="Event_Location"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Location_fieldheadercolumn}
+	{BEGIN Event_Location_fieldheader}
+	<SPAN {$Event_Location_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location">
+	{$label events Event_Location }	{$arrow_icon_Event_Location}
+	</SPAN>
+	{END Event_Location_fieldheader}
+{END Event_Location_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
+									{BEGIN cellblock_grid_headcell_field7}
+	<th
+	
+	{$cell_grid_headcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Note_class}	"
+
+			data-field="Event_Note"
+	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Note_fieldheadercolumn}
+	{BEGIN Event_Note_fieldheader}
+	<SPAN {$Event_Note_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note">
+	{$label events Event_Note }	{$arrow_icon_Event_Note}
+	</SPAN>
+	{END Event_Note_fieldheader}
+{END Event_Note_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field7}
 							</tr>
 																				
 					{END grid_header}
@@ -972,6 +1242,132 @@
 {END EventName_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
+	<td
+	
+	{$cell_grid_cell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Round_class}	"
+
+			data-field="Event_Round"
+	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Round_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round" data-default-width >
+{$Event_Round_value}
+</span>
+{END Event_Round_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
+	<td
+	
+	{$cell_grid_cell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Start_Date_class}	"
+
+			data-field="Event_Start_Date"
+	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Start_Date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" data-default-width >
+{$Event_Start_Date_value}
+</span>
+{END Event_Start_Date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_End_Date_class}	"
+
+			data-field="Event_End_Date"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_End_Date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date" data-default-width >
+{$Event_End_Date_value}
+</span>
+{END Event_End_Date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Organizer_class}	"
+
+			data-field="Event_Organizer"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Organizer_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer" data-default-width >
+{$Event_Organizer_value}
+</span>
+{END Event_Organizer_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Location_class}	"
+
+			data-field="Event_Location"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Location_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location" data-default-width >
+{$Event_Location_value}
+</span>
+{END Event_Location_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Note_class}	"
+
+			data-field="Event_Note"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_Note_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note" data-default-width >
+{$Event_Note_value}
+</span>
+{END Event_Note_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
 							</tr>
 											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 				
@@ -1098,6 +1494,96 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field2}
+	<td
+	
+	{$cell_grid_footcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Round_class}	"
+
+	
+	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field2}
+									{BEGIN cellblock_grid_footcell_field3}
+	<td
+	
+	{$cell_grid_footcell_field3}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Start_Date_class}	"
+
+	
+	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field4}
+	<td
+	
+	{$cell_grid_footcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_End_Date_class}	"
+
+	
+	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field4}
+									{BEGIN cellblock_grid_footcell_field5}
+	<td
+	
+	{$cell_grid_footcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Organizer_class}	"
+
+	
+	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Location_class}	"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
+									{BEGIN cellblock_grid_footcell_field7}
+	<td
+	
+	{$cell_grid_footcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_Note_class}	"
+
+	
+	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="events1_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field7}
 							</tr>
 					
 					</tfoot>

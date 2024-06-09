@@ -361,18 +361,24 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "candidates";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+		$edata["listPageId"] = "list";
+		$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
+		$edata["autoCompleteFields"][] = array('masterF'=>"Company_Name", 'lookupF'=>"Employment_Company");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Sector", 'lookupF'=>"Employer_Sector");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Job_Position", 'lookupF'=>"Employment_Position");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Job_Type", 'lookupF'=>"Placement_Type");
+	$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Middle_Name", 'lookupF'=>"Middle_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Last_Name", 'lookupF'=>"Last_Name");
-	$edata["LCType"] = 0;
+	$edata["autoCompleteFields"][] = array('masterF'=>"CurrentEmploymentStatus", 'lookupF'=>"Employment_Status");
+	$edata["LCType"] = 2;
 
 	
 		
 	$edata["LinkField"] = "CandidateID";
 	$edata["LinkFieldType"] = 3;
-	$edata["DisplayField"] = "CandidateID";
+	$edata["DisplayField"] = "Full_Name";
 
 	
 
@@ -381,13 +387,14 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -432,7 +439,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);

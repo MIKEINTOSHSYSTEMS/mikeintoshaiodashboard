@@ -3225,8 +3225,7 @@
 	
 				 
 	 
-		
-					<table 
+												<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
@@ -3236,15 +3235,14 @@
 		data-v-width="4"
 	>
 	<tbody>
-						<tr>
-						
+										<tr {$row_grid_7} >
+										
 
 {BEGIN cellblock_grid_c13}
 <td
 	{$cell_grid_c13}
 	class=" r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
 	ocolspan="2"		data-cellId="grid_c13" data-pageid="{$pageid}"
@@ -3252,7 +3250,50 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
+				
+{BEGIN Full_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Full_Name}  r-vertical-field" data-fieldname="Full_Name" data-signal-error-for="Full_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field63" {$item_integrated_edit_field63} data-pageid="{$pageid}" data-field="Full_Name" data-fieldname="Full_Name" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Full_Name}">
+		
+		{BEGIN Full_Name_label}{$label candidates Full_Name }{END Full_Name_label}
+	</label>
+	<div class="" >
+		{$Full_Name_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Full_Name_fieldblock}
+											
+{BEGIN Age_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Age}  r-vertical-field" data-fieldname="Age" data-signal-error-for="Age{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field64" {$item_integrated_edit_field64} data-pageid="{$pageid}" data-field="Age" data-fieldname="Age" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Age}">
+		
+		{BEGIN Age_label}{$label candidates Age }{END Age_label}
+	</label>
+	<div class="" >
+		{$Age_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Age_fieldblock}
+	
+								</td>
 			{END cellblock_grid_c13}
 								</tr>
 			</tbody></table>

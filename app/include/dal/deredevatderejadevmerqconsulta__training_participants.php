@@ -10,6 +10,7 @@ $dalTabletraining_participants["Training_City_Town"] = array("type"=>200,"varnam
 $dalTabletraining_participants["Training_Venue"] = array("type"=>200,"varname"=>"Training_Venue", "name" => "Training_Venue", "autoInc" => "0");
 $dalTabletraining_participants["Training_Start_Date"] = array("type"=>7,"varname"=>"Training_Start_Date", "name" => "Training_Start_Date", "autoInc" => "0");
 $dalTabletraining_participants["Training_End_Date"] = array("type"=>7,"varname"=>"Training_End_Date", "name" => "Training_End_Date", "autoInc" => "0");
+$dalTabletraining_participants["Training_Round"] = array("type"=>3,"varname"=>"Training_Round", "name" => "Training_Round", "autoInc" => "0");
 $dalTabletraining_participants["First_Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First_Name", "autoInc" => "0");
 $dalTabletraining_participants["Middle_Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle_Name", "autoInc" => "0");
 $dalTabletraining_participants["Last_Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last_Name", "autoInc" => "0");

@@ -236,6 +236,13 @@ function InitLookupLinks()
 			$lookupTableLinks["candidates"]["event_participants.CandidateID"] = array();
 		}
 		$lookupTableLinks["candidates"]["event_participants.CandidateID"]["edit"] = array("table" => "event_participants", "field" => "CandidateID", "page" => "edit");
+		if( !isset( $lookupTableLinks["events"] ) ) {
+			$lookupTableLinks["events"] = array();
+		}
+		if( !isset( $lookupTableLinks["events"]["event_participants.Event_Round"] )) {
+			$lookupTableLinks["events"]["event_participants.Event_Round"] = array();
+		}
+		$lookupTableLinks["events"]["event_participants.Event_Round"]["edit"] = array("table" => "event_participants", "field" => "Event_Round", "page" => "edit");
 		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
 			$lookupTableLinks["Disability_Types"] = array();
 		}
@@ -295,17 +302,10 @@ function InitLookupLinks()
 		if( !isset( $lookupTableLinks["trainings"] ) ) {
 			$lookupTableLinks["trainings"] = array();
 		}
-		if( !isset( $lookupTableLinks["trainings"]["training_participants.Training_Start_Date"] )) {
-			$lookupTableLinks["trainings"]["training_participants.Training_Start_Date"] = array();
+		if( !isset( $lookupTableLinks["trainings"]["training_participants.Training_Round"] )) {
+			$lookupTableLinks["trainings"]["training_participants.Training_Round"] = array();
 		}
-		$lookupTableLinks["trainings"]["training_participants.Training_Start_Date"]["edit"] = array("table" => "training_participants", "field" => "Training_Start_Date", "page" => "edit");
-		if( !isset( $lookupTableLinks["trainings"] ) ) {
-			$lookupTableLinks["trainings"] = array();
-		}
-		if( !isset( $lookupTableLinks["trainings"]["training_participants.Training_End_Date"] )) {
-			$lookupTableLinks["trainings"]["training_participants.Training_End_Date"] = array();
-		}
-		$lookupTableLinks["trainings"]["training_participants.Training_End_Date"]["edit"] = array("table" => "training_participants", "field" => "Training_End_Date", "page" => "edit");
+		$lookupTableLinks["trainings"]["training_participants.Training_Round"]["edit"] = array("table" => "training_participants", "field" => "Training_Round", "page" => "edit");
 		if( !isset( $lookupTableLinks["Disability_Types"] ) ) {
 			$lookupTableLinks["Disability_Types"] = array();
 		}

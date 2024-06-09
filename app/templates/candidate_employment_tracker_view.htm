@@ -266,9 +266,9 @@
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="1"
+		data-form-width="4"
 		
-		data-v-width="4"
+		data-v-width="8"
 	>
 	<tbody>
 										<tr {$row_grid_0} >
@@ -279,10 +279,10 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-				data-fullwidth
-		
+			data-single
+			
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -292,261 +292,175 @@
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_CandidateID}  r-vertical-field" data-fieldname="CandidateID" data-signal-error-for="CandidateID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CandidateID" data-fieldname="CandidateID" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CandidateID}">
+	<label class="" for="{$labelfor_CandidateID}">
 		
 		{BEGIN CandidateID_label}{$label Candidate_Employment_Tracker CandidateID }{END CandidateID_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CandidateID_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CandidateID_fieldblock}
-											
-{BEGIN JobID_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
-
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_JobID}">
-		
-		{BEGIN JobID_label}{$label Candidate_Employment_Tracker JobID }{END JobID_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$JobID_value}	</div>
+								</td>
+			{END cellblock_grid_c3}
+			 
+																
 
-		
-</div>
-
-
-{END JobID_fieldblock}
-											
-{BEGIN Referral_from_Dereja_service_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service" >
-
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Referral_from_Dereja_service}">
+			data-single
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
-		{BEGIN Referral_from_Dereja_service_label}{$label Candidate_Employment_Tracker Referral_from_Dereja_service }{END Referral_from_Dereja_service_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Referral_from_Dereja_service_value}	</div>
-
-		
-</div>
-
-
-{END Referral_from_Dereja_service_fieldblock}
-											
-{BEGIN Company_Name_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-vertical-field" data-fieldname="Company_Name" data-signal-error-for="Company_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Company_Name" data-fieldname="Company_Name" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Company_Name}">
-		
-		{BEGIN Company_Name_label}{$label Candidate_Employment_Tracker Company_Name }{END Company_Name_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Company_Name_value}	</div>
-
-		
-</div>
-
-
-{END Company_Name_fieldblock}
-											
-{BEGIN Company_Phone_Number_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Company_Phone_Number}">
-		
-		{BEGIN Company_Phone_Number_label}{$label Candidate_Employment_Tracker Company_Phone_Number }{END Company_Phone_Number_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Company_Phone_Number_value}	</div>
-
-		
-</div>
-
-
-{END Company_Phone_Number_fieldblock}
-											
-{BEGIN Sector_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" data-fieldname="Sector" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Sector}">
-		
-		{BEGIN Sector_label}{$label Candidate_Employment_Tracker Sector }{END Sector_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Sector_value}	</div>
-
-		
-</div>
-
-
-{END Sector_fieldblock}
-											
-{BEGIN Job_Position_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-vertical-field" data-fieldname="Job_Position" data-signal-error-for="Job_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Job_Position" data-fieldname="Job_Position" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Position}">
-		
-		{BEGIN Job_Position_label}{$label Candidate_Employment_Tracker Job_Position }{END Job_Position_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Job_Position_value}	</div>
-
-		
-</div>
-
-
-{END Job_Position_fieldblock}
-											
-{BEGIN Job_Type_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" data-fieldname="Job_Type" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Type}">
-		
-		{BEGIN Job_Type_label}{$label Candidate_Employment_Tracker Job_Type }{END Job_Type_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Job_Type_value}	</div>
-
-		
-</div>
-
-
-{END Job_Type_fieldblock}
-											
-{BEGIN Job_Placement_Date_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-vertical-field" data-fieldname="Job_Placement_Date" data-signal-error-for="Job_Placement_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" data-fieldname="Job_Placement_Date" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Job_Placement_Date}">
-		
-		{BEGIN Job_Placement_Date_label}{$label Candidate_Employment_Tracker Job_Placement_Date }{END Job_Placement_Date_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Job_Placement_Date_value}	</div>
-
-		
-</div>
-
-
-{END Job_Placement_Date_fieldblock}
-											
-{BEGIN Employment_End_Date_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-vertical-field" data-fieldname="Employment_End_Date" data-signal-error-for="Employment_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" data-fieldname="Employment_End_Date" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Employment_End_Date}">
-		
-		{BEGIN Employment_End_Date_label}{$label Candidate_Employment_Tracker Employment_End_Date }{END Employment_End_Date_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$Employment_End_Date_value}	</div>
-
-		
-</div>
-
-
-{END Employment_End_Date_fieldblock}
-											
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN First_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_First_Name}  r-vertical-field" data-fieldname="First_Name" data-signal-error-for="First_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="First_Name" data-fieldname="First_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_First_Name}">
+	<label class="" for="{$labelfor_First_Name}">
 		
 		{BEGIN First_Name_label}{$label Candidate_Employment_Tracker First_Name }{END First_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$First_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END First_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c}
+			 
+																
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Middle_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Middle_Name}  r-vertical-field" data-fieldname="Middle_Name" data-signal-error-for="Middle_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="Middle_Name" data-fieldname="Middle_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Middle_Name}">
+	<label class="" for="{$labelfor_Middle_Name}">
 		
 		{BEGIN Middle_Name_label}{$label Candidate_Employment_Tracker Middle_Name }{END Middle_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Middle_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Middle_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c4}
+			 
+																
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN Last_Name_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_Last_Name}  r-vertical-field" data-fieldname="Last_Name" data-signal-error-for="Last_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="Last_Name" data-fieldname="Last_Name" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Last_Name}">
+	<label class="" for="{$labelfor_Last_Name}">
 		
 		{BEGIN Last_Name_label}{$label Candidate_Employment_Tracker Last_Name }{END Last_Name_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$Last_Name_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END Last_Name_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CurrentEmploymentStatus_fieldblock}
 
 
 <div class="r-integrated-field form-group clearfix {$fielddispclass_CurrentEmploymentStatus}  r-vertical-field" data-fieldname="CurrentEmploymentStatus" data-signal-error-for="CurrentEmploymentStatus{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="CurrentEmploymentStatus" data-fieldname="CurrentEmploymentStatus" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CurrentEmploymentStatus}">
+	<label class="" for="{$labelfor_CurrentEmploymentStatus}">
 		
 		{BEGIN CurrentEmploymentStatus_label}{$label Candidate_Employment_Tracker CurrentEmploymentStatus }{END CurrentEmploymentStatus_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CurrentEmploymentStatus_value}	</div>
 
+		</div>
 		
 </div>
 
@@ -554,7 +468,475 @@
 {END CurrentEmploymentStatus_fieldblock}
 	
 								</td>
-			{END cellblock_grid_c3}
+			{END cellblock_grid_c1}
+			 
+																
+
+{BEGIN cellblock_grid_c2}
+<td
+	{$cell_grid_c2}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c2" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Job_Position_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Position}  r-vertical-field" data-fieldname="Job_Position" data-signal-error-for="Job_Position{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Job_Position" data-fieldname="Job_Position" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Position}">
+		
+		{BEGIN Job_Position_label}{$label Candidate_Employment_Tracker Job_Position }{END Job_Position_label}
+	</label>
+	<div class="" >
+		{$Job_Position_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Position_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c2}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c6}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c7}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Job_Placement_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Placement_Date}  r-vertical-field" data-fieldname="Job_Placement_Date" data-signal-error-for="Job_Placement_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="Job_Placement_Date" data-fieldname="Job_Placement_Date" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Placement_Date}">
+		
+		{BEGIN Job_Placement_Date_label}{$label Candidate_Employment_Tracker Job_Placement_Date }{END Job_Placement_Date_label}
+	</label>
+	<div class="" >
+		{$Job_Placement_Date_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Placement_Date_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c12}
+			 
+																
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Company_Name_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Name}  r-vertical-field" data-fieldname="Company_Name" data-signal-error-for="Company_Name{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Company_Name" data-fieldname="Company_Name" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Company_Name}">
+		
+		{BEGIN Company_Name_label}{$label Candidate_Employment_Tracker Company_Name }{END Company_Name_label}
+	</label>
+	<div class="" >
+		{$Company_Name_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Company_Name_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c13}
+			 
+																
+
+{BEGIN cellblock_grid_c14}
+<td
+	{$cell_grid_c14}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c14" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Job_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" data-fieldname="Job_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Type}">
+		
+		{BEGIN Job_Type_label}{$label Candidate_Employment_Tracker Job_Type }{END Job_Type_label}
+	</label>
+	<div class="" >
+		{$Job_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Type_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c14}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c15}
+<td
+	{$cell_grid_c15}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c15" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c15}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Employment_End_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Employment_End_Date}  r-vertical-field" data-fieldname="Employment_End_Date" data-signal-error-for="Employment_End_Date{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="Employment_End_Date" data-fieldname="Employment_End_Date" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Employment_End_Date}">
+		
+		{BEGIN Employment_End_Date_label}{$label Candidate_Employment_Tracker Employment_End_Date }{END Employment_End_Date_label}
+	</label>
+	<div class="" >
+		{$Employment_End_Date_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Employment_End_Date_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c8}
+			 
+																
+
+{BEGIN cellblock_grid_c9}
+<td
+	{$cell_grid_c9}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Sector_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" data-fieldname="Sector" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Sector}">
+		
+		{BEGIN Sector_label}{$label Candidate_Employment_Tracker Sector }{END Sector_label}
+	</label>
+	<div class="" >
+		{$Sector_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Sector_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c9}
+			 
+																
+
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN JobID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_JobID}">
+		
+		{BEGIN JobID_label}{$label Candidate_Employment_Tracker JobID }{END JobID_label}
+	</label>
+	<div class="" >
+		{$JobID_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END JobID_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c10}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c11}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c16}
+<td
+	{$cell_grid_c16}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c16" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Company_Phone_Number_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Company_Phone_Number}">
+		
+		{BEGIN Company_Phone_Number_label}{$label Candidate_Employment_Tracker Company_Phone_Number }{END Company_Phone_Number_label}
+	</label>
+	<div class="" >
+		{$Company_Phone_Number_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Company_Phone_Number_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c16}
+			 
+																
+
+{BEGIN cellblock_grid_c17}
+<td
+	{$cell_grid_c17}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c17" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Referral_from_Dereja_service_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Referral_from_Dereja_service}">
+		
+		{BEGIN Referral_from_Dereja_service_label}{$label Candidate_Employment_Tracker Referral_from_Dereja_service }{END Referral_from_Dereja_service_label}
+	</label>
+	<div class="" >
+		{$Referral_from_Dereja_service_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Referral_from_Dereja_service_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c17}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c18}
+<td
+	{$cell_grid_c18}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c18" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c18}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c19}
+<td
+	{$cell_grid_c19}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c19" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c19}
 								</tr>
 			</tbody></table>
 {END grid_block}

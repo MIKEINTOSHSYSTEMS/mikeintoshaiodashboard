@@ -111,6 +111,24 @@ pdfDocument = {
 				
 			{"text":{$EventName_pdfvalue},"hidden":"{$item_hide_import_field1}"},
 				
+				
+			{"text":{$Event_Round_pdfvalue},"hidden":"{$item_hide_import_field2}"},
+				
+				
+			{"text":{$Event_Start_Date_pdfvalue},"hidden":"{$item_hide_import_field3}"},
+				
+				
+			{"text":{$Event_End_Date_pdfvalue},"hidden":"{$item_hide_import_field4}"},
+				
+				
+			{"text":{$Event_Organizer_pdfvalue},"hidden":"{$item_hide_import_field5}"},
+				
+				
+			{"text":{$Event_Location_pdfvalue},"hidden":"{$item_hide_import_field6}"},
+				
+				
+			{"text":{$Event_Note_pdfvalue},"hidden":"{$item_hide_import_field7}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

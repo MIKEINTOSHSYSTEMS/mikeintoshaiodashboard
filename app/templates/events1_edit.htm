@@ -358,6 +358,132 @@
 
 
 {END EventName_fieldblock}
+											
+{BEGIN Event_Round_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Round}  r-vertical-field" 
+	data-signal-error-for="Event_Round{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Event_Round" data-fieldname="Event_Round" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_Round}">
+		{BEGIN Event_Round_label}{$label events Event_Round }{END Event_Round_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_Round_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_Round">
+		<div class="text-muted" >
+		{$tooltip events Event_Round }		</div>
+	</div>
+</div>
+
+
+{END Event_Round_fieldblock}
+											
+{BEGIN Event_Start_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Start_Date}  r-vertical-field" 
+	data-signal-error-for="Event_Start_Date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_Start_Date}">
+		{BEGIN Event_Start_Date_label}{$label events Event_Start_Date }{END Event_Start_Date_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_Start_Date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_Start_Date">
+		<div class="text-muted" >
+		{$tooltip events Event_Start_Date }		</div>
+	</div>
+</div>
+
+
+{END Event_Start_Date_fieldblock}
+											
+{BEGIN Event_End_Date_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_End_Date}  r-vertical-field" 
+	data-signal-error-for="Event_End_Date{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Event_End_Date" data-fieldname="Event_End_Date" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_End_Date}">
+		{BEGIN Event_End_Date_label}{$label events Event_End_Date }{END Event_End_Date_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_End_Date_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_End_Date">
+		<div class="text-muted" >
+		{$tooltip events Event_End_Date }		</div>
+	</div>
+</div>
+
+
+{END Event_End_Date_fieldblock}
+											
+{BEGIN Event_Organizer_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Organizer}  r-vertical-field" 
+	data-signal-error-for="Event_Organizer{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Event_Organizer" data-fieldname="Event_Organizer" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_Organizer}">
+		{BEGIN Event_Organizer_label}{$label events Event_Organizer }{END Event_Organizer_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_Organizer_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_Organizer">
+		<div class="text-muted" >
+		{$tooltip events Event_Organizer }		</div>
+	</div>
+</div>
+
+
+{END Event_Organizer_fieldblock}
+											
+{BEGIN Event_Location_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Location}  r-vertical-field" 
+	data-signal-error-for="Event_Location{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="Event_Location" data-fieldname="Event_Location" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_Location}">
+		{BEGIN Event_Location_label}{$label events Event_Location }{END Event_Location_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_Location_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_Location">
+		<div class="text-muted" >
+		{$tooltip events Event_Location }		</div>
+	</div>
+</div>
+
+
+{END Event_Location_fieldblock}
+											
+{BEGIN Event_Note_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Event_Note}  r-vertical-field" 
+	data-signal-error-for="Event_Note{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Event_Note" data-fieldname="Event_Note" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_Event_Note}">
+		{BEGIN Event_Note_label}{$label events Event_Note }{END Event_Note_label}
+	</label>
+	<div class="r-edit-field">
+		{$Event_Note_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="Event_Note">
+		<div class="text-muted" >
+		{$tooltip events Event_Note }		</div>
+	</div>
+</div>
+
+
+{END Event_Note_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -384,6 +510,16 @@
 							Save			</a>
 </span>
 {END save_edit}
+	 
+		{BEGIN save_update}
+<span data-itemtype="update_records" data-itemid="update_records" {$item_update_records} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+				 
+			{$update_records_label}	
+			</a>
+</span>
+{END save_update}
 	 
 		{BEGIN back_button}
 <span data-itemtype="edit_back_list" data-itemid="edit_back_list" {$item_edit_back_list} data-pageid="{$pageid}" data-small data-button-item>

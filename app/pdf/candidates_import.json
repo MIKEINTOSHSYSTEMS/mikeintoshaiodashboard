@@ -277,9 +277,6 @@ pdfDocument = {
 			{"text":{$Upload_on_Tracker_pdfvalue},"hidden":"{$item_hide_import_field56}"},
 				
 				
-			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_import_field58}"},
-				
-				
 			{"text":{$Woreda_pdfvalue},"hidden":"{$item_hide_import_field57}"},
 				
 				

@@ -5,6 +5,10 @@ $dalTableevent_participants["CandidateID"] = array("type"=>3,"varname"=>"Candida
 $dalTableevent_participants["StudentID"] = array("type"=>200,"varname"=>"StudentID", "name" => "StudentID", "autoInc" => "0");
 $dalTableevent_participants["Event_Start_Date"] = array("type"=>7,"varname"=>"Event_Start_Date", "name" => "Event_Start_Date", "autoInc" => "0");
 $dalTableevent_participants["Event_End_Date"] = array("type"=>7,"varname"=>"Event_End_Date", "name" => "Event_End_Date", "autoInc" => "0");
+$dalTableevent_participants["Event_Round"] = array("type"=>3,"varname"=>"Event_Round", "name" => "Event_Round", "autoInc" => "0");
+$dalTableevent_participants["Event_Organizer"] = array("type"=>200,"varname"=>"Event_Organizer", "name" => "Event_Organizer", "autoInc" => "0");
+$dalTableevent_participants["Event_Location"] = array("type"=>200,"varname"=>"Event_Location", "name" => "Event_Location", "autoInc" => "0");
+$dalTableevent_participants["Event_Note"] = array("type"=>200,"varname"=>"Event_Note", "name" => "Event_Note", "autoInc" => "0");
 $dalTableevent_participants["First_Name"] = array("type"=>200,"varname"=>"First_Name", "name" => "First_Name", "autoInc" => "0");
 $dalTableevent_participants["Middle_Name"] = array("type"=>200,"varname"=>"Middle_Name", "name" => "Middle_Name", "autoInc" => "0");
 $dalTableevent_participants["Last_Name"] = array("type"=>200,"varname"=>"Last_Name", "name" => "Last_Name", "autoInc" => "0");

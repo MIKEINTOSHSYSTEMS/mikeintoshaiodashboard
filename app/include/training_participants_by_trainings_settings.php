@@ -5066,6 +5066,7 @@ $proto61["m_columns"][] = "Training_City_Town";
 $proto61["m_columns"][] = "Training_Venue";
 $proto61["m_columns"][] = "Training_Start_Date";
 $proto61["m_columns"][] = "Training_End_Date";
+$proto61["m_columns"][] = "Training_Round";
 $proto61["m_columns"][] = "First_Name";
 $proto61["m_columns"][] = "Middle_Name";
 $proto61["m_columns"][] = "Last_Name";

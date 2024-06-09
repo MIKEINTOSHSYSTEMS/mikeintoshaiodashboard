@@ -6,11 +6,11 @@ $tdatatraining_participants[".OwnerID"] = "";
 $tdatatraining_participants[".OriginalTable"] = "training_participants";
 
 
-$tdatatraining_participants[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"view\":[\"view\"]}" );
+$tdatatraining_participants[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatatraining_participants[".originalPagesByType"] = $tdatatraining_participants[".pagesByType"];
-$tdatatraining_participants[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"view\":[\"view\"]}" ) );
+$tdatatraining_participants[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatatraining_participants[".originalPages"] = $tdatatraining_participants[".pages"];
-$tdatatraining_participants[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"view\":\"view\"}" );
+$tdatatraining_participants[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatatraining_participants[".originalDefaultPages"] = $tdatatraining_participants[".defaultPages"];
 
 //	field labels
@@ -106,6 +106,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelstraining_participants["English"]["Sex"] = "Sex";
 	$fieldToolTipstraining_participants["English"]["Sex"] = "";
 	$placeHolderstraining_participants["English"]["Sex"] = "";
+	$fieldLabelstraining_participants["English"]["Training_Round"] = "Training Round";
+	$fieldToolTipstraining_participants["English"]["Training_Round"] = "";
+	$placeHolderstraining_participants["English"]["Training_Round"] = "";
 	if (count($fieldToolTipstraining_participants["English"]))
 		$tdatatraining_participants[".isUseToolTips"] = true;
 }
@@ -233,6 +236,7 @@ $tdatatraining_participants[".googleLikeFields"][] = "Training_City_Town";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_Venue";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_Start_Date";
 $tdatatraining_participants[".googleLikeFields"][] = "Training_End_Date";
+$tdatatraining_participants[".googleLikeFields"][] = "Training_Round";
 $tdatatraining_participants[".googleLikeFields"][] = "First_Name";
 $tdatatraining_participants[".googleLikeFields"][] = "Middle_Name";
 $tdatatraining_participants[".googleLikeFields"][] = "Last_Name";
@@ -284,7 +288,7 @@ $tdatatraining_participants[".strOrderBy"] = $tstrOrderBy;
 $tdatatraining_participants[".orderindexes"] = array();
 
 
-$tdatatraining_participants[".sqlHead"] = "SELECT TrainingID,  	CandidateID,  	StudentID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Email,  	Phone,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Profession,  	Participant_Field_of_Study,  	Participant_Facility_Organization_Type,  	Participant_Organization_Name,  	Participants_Home_Address,  	PreTest_Score,  	Skill_Test,  	Post_Test_Score";
+$tdatatraining_participants[".sqlHead"] = "SELECT TrainingID,  	CandidateID,  	StudentID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	Training_Round,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Email,  	Phone,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Profession,  	Participant_Field_of_Study,  	Participant_Facility_Organization_Type,  	Participant_Organization_Name,  	Participants_Home_Address,  	PreTest_Score,  	Skill_Test,  	Post_Test_Score";
 $tdatatraining_participants[".sqlFrom"] = "FROM training_participants";
 $tdatatraining_participants[".sqlWhereExpr"] = "";
 $tdatatraining_participants[".sqlTail"] = "";
@@ -411,6 +415,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Venue", 'lookupF'=>"VenueName");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Start_Date", 'lookupF'=>"Training_Start_Date");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Training_End_Date", 'lookupF'=>"Training_End_Date");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Round", 'lookupF'=>"TrainingRound");
 	$edata["LCType"] = 0;
 
 	
@@ -426,10 +431,11 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 	
-		$edata["AllowToAdd"] = true;
-			$edata["addPageId"] = "add";
-
 	
+	
+				//dependent dropdowns @deprecated data ?
+	$edata["DependentLookups"] = array();
+	$edata["DependentLookups"][] = "Training_Round";
 
 	
 	
@@ -575,14 +581,18 @@ $tdatatraining_participants[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "candidates";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
+		$edata["autoCompleteFields"][] = array('masterF'=>"StudentID", 'lookupF'=>"StudentID");
+	$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Middle_Name", 'lookupF'=>"Middle_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Last_Name", 'lookupF'=>"Last_Name");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Sex", 'lookupF'=>"Sex");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Email", 'lookupF'=>"Email_Address");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Phone", 'lookupF'=>"Phone_Number");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Disability_Status", 'lookupF'=>"Disability_Status");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Disability_Type", 'lookupF'=>"Disability_Type");
+	$edata["autoCompleteFields"][] = array('masterF'=>"Disability_Type_Other", 'lookupF'=>"Disability_Type_Other");
 	$edata["autoCompleteFields"][] = array('masterF'=>"Participant_Field_of_Study", 'lookupF'=>"Field_Of_Study");
 	$edata["LCType"] = 0;
 
@@ -590,7 +600,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 		
 	$edata["LinkField"] = "CandidateID";
 	$edata["LinkFieldType"] = 3;
-	$edata["DisplayField"] = "CandidateID";
+	$edata["DisplayField"] = "Full_Name";
 
 	
 
@@ -599,7 +609,9 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
@@ -1680,7 +1692,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Lookup wizard");
+	$edata = array("EditFormat" => "Date");
 
 	
 		$edata["weekdayMessage"] = array("message" => "Invalid week day", "messageType" => "Text");
@@ -1690,36 +1702,6 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 
-// Begin Lookup settings
-				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "trainings";
-			$edata["autoCompleteFieldsOnEdit"] = 1;
-	$edata["autoCompleteFields"] = array();
-		$edata["autoCompleteFields"][] = array('masterF'=>"TrainingID", 'lookupF'=>"TrainingID");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Training_End_Date", 'lookupF'=>"Training_End_Date");
-	$edata["LCType"] = 0;
-
-	
-		
-	$edata["LinkField"] = "TrainingID";
-	$edata["LinkFieldType"] = 0;
-	$edata["DisplayField"] = "Training_Start_Date";
-
-	
-
-	
-	$edata["LookupOrderBy"] = "";
-
-	
-	
-	
-	
-
-	
-	
-		$edata["SelectSize"] = 1;
-
-// End Lookup Settings
 
 
 	
@@ -1732,7 +1714,10 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["DateEditType"] = 5;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
 	
 	
 	
@@ -1844,7 +1829,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Lookup wizard");
+	$edata = array("EditFormat" => "Date");
 
 	
 		$edata["weekdayMessage"] = array("message" => "Invalid week day", "messageType" => "Text");
@@ -1854,36 +1839,6 @@ $tdatatraining_participants[".hideMobileList"] = array();
 	
 	
 
-// Begin Lookup settings
-				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "trainings";
-			$edata["autoCompleteFieldsOnEdit"] = 1;
-	$edata["autoCompleteFields"] = array();
-		$edata["autoCompleteFields"][] = array('masterF'=>"TrainingID", 'lookupF'=>"TrainingID");
-	$edata["autoCompleteFields"][] = array('masterF'=>"Training_Start_Date", 'lookupF'=>"Training_Start_Date");
-	$edata["LCType"] = 0;
-
-	
-		
-	$edata["LinkField"] = "TrainingID";
-	$edata["LinkFieldType"] = 0;
-	$edata["DisplayField"] = "Training_End_Date";
-
-	
-
-	
-	$edata["LookupOrderBy"] = "";
-
-	
-	
-	
-	
-
-	
-	
-		$edata["SelectSize"] = 1;
-
-// End Lookup Settings
 
 
 	
@@ -1896,7 +1851,10 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["DateEditType"] = 5;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
 	
 	
 	
@@ -1952,10 +1910,176 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	$tdatatraining_participants["Training_End_Date"] = $fdata;
 		$tdatatraining_participants[".searchableFields"][] = "Training_End_Date";
-//	First_Name
+//	Training_Round
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 11;
+	$fdata["strName"] = "Training_Round";
+	$fdata["GoodName"] = "Training_Round";
+	$fdata["ownerTable"] = "training_participants";
+	$fdata["Label"] = GetFieldLabel("training_participants","Training_Round");
+	$fdata["FieldType"] = 3;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Training_Round";
+
+		$fdata["sourceSingle"] = "Training_Round";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Training_Round";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "trainings";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "TrainingID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "TrainingRound";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+		$edata["UseCategory"] = true;
+	$edata["categoryFields"] = array();
+	$edata["categoryFields"][] = array( "main" => "TrainingID", "lookup" => "TrainingRound" );
+
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+							
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatatraining_participants["Training_Round"] = $fdata;
+		$tdatatraining_participants[".searchableFields"][] = "Training_Round";
+//	First_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 12;
 	$fdata["strName"] = "First_Name";
 	$fdata["GoodName"] = "First_Name";
 	$fdata["ownerTable"] = "training_participants";
@@ -2092,7 +2216,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Middle_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 12;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "Middle_Name";
 	$fdata["GoodName"] = "Middle_Name";
 	$fdata["ownerTable"] = "training_participants";
@@ -2229,7 +2353,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Last_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 13;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "Last_Name";
 	$fdata["GoodName"] = "Last_Name";
 	$fdata["ownerTable"] = "training_participants";
@@ -2366,7 +2490,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Sex
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 14;
+	$fdata["Index"] = 15;
 	$fdata["strName"] = "Sex";
 	$fdata["GoodName"] = "Sex";
 	$fdata["ownerTable"] = "training_participants";
@@ -2516,7 +2640,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Email
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 16;
 	$fdata["strName"] = "Email";
 	$fdata["GoodName"] = "Email";
 	$fdata["ownerTable"] = "training_participants";
@@ -2653,7 +2777,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Phone
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 16;
+	$fdata["Index"] = 17;
 	$fdata["strName"] = "Phone";
 	$fdata["GoodName"] = "Phone";
 	$fdata["ownerTable"] = "training_participants";
@@ -2790,7 +2914,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Disability_Status
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 17;
+	$fdata["Index"] = 18;
 	$fdata["strName"] = "Disability_Status";
 	$fdata["GoodName"] = "Disability_Status";
 	$fdata["ownerTable"] = "training_participants";
@@ -2940,7 +3064,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Disability_Type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 18;
+	$fdata["Index"] = 19;
 	$fdata["strName"] = "Disability_Type";
 	$fdata["GoodName"] = "Disability_Type";
 	$fdata["ownerTable"] = "training_participants";
@@ -3102,7 +3226,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Disability_Type_Other
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 19;
+	$fdata["Index"] = 20;
 	$fdata["strName"] = "Disability_Type_Other";
 	$fdata["GoodName"] = "Disability_Type_Other";
 	$fdata["ownerTable"] = "training_participants";
@@ -3239,7 +3363,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Participant_Profession
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 20;
+	$fdata["Index"] = 21;
 	$fdata["strName"] = "Participant_Profession";
 	$fdata["GoodName"] = "Participant_Profession";
 	$fdata["ownerTable"] = "training_participants";
@@ -3376,7 +3500,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Participant_Field_of_Study
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 21;
+	$fdata["Index"] = 22;
 	$fdata["strName"] = "Participant_Field_of_Study";
 	$fdata["GoodName"] = "Participant_Field_of_Study";
 	$fdata["ownerTable"] = "training_participants";
@@ -3513,7 +3637,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Participant_Facility_Organization_Type
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 22;
+	$fdata["Index"] = 23;
 	$fdata["strName"] = "Participant_Facility_Organization_Type";
 	$fdata["GoodName"] = "Participant_Facility_Organization_Type";
 	$fdata["ownerTable"] = "training_participants";
@@ -3650,7 +3774,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Participant_Organization_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 23;
+	$fdata["Index"] = 24;
 	$fdata["strName"] = "Participant_Organization_Name";
 	$fdata["GoodName"] = "Participant_Organization_Name";
 	$fdata["ownerTable"] = "training_participants";
@@ -3787,7 +3911,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Participants_Home_Address
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 24;
+	$fdata["Index"] = 25;
 	$fdata["strName"] = "Participants_Home_Address";
 	$fdata["GoodName"] = "Participants_Home_Address";
 	$fdata["ownerTable"] = "training_participants";
@@ -3924,7 +4048,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	PreTest_Score
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 25;
+	$fdata["Index"] = 26;
 	$fdata["strName"] = "PreTest_Score";
 	$fdata["GoodName"] = "PreTest_Score";
 	$fdata["ownerTable"] = "training_participants";
@@ -4061,7 +4185,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Skill_Test
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 26;
+	$fdata["Index"] = 27;
 	$fdata["strName"] = "Skill_Test";
 	$fdata["GoodName"] = "Skill_Test";
 	$fdata["ownerTable"] = "training_participants";
@@ -4198,7 +4322,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 //	Post_Test_Score
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 27;
+	$fdata["Index"] = 28;
 	$fdata["strName"] = "Post_Test_Score";
 	$fdata["GoodName"] = "Post_Test_Score";
 	$fdata["ownerTable"] = "training_participants";
@@ -4492,7 +4616,7 @@ function createSqlQuery_training_participants()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "TrainingID,  	CandidateID,  	StudentID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Email,  	Phone,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Profession,  	Participant_Field_of_Study,  	Participant_Facility_Organization_Type,  	Participant_Organization_Name,  	Participants_Home_Address,  	PreTest_Score,  	Skill_Test,  	Post_Test_Score";
+$proto0["m_strFieldList"] = "TrainingID,  	CandidateID,  	StudentID,  	Training_Organizer,  	Training_Type,  	Program_Area,  	Training_City_Town,  	Training_Venue,  	Training_Start_Date,  	Training_End_Date,  	Training_Round,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Email,  	Phone,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Profession,  	Participant_Field_of_Study,  	Participant_Facility_Organization_Type,  	Participant_Organization_Name,  	Participants_Home_Address,  	PreTest_Score,  	Skill_Test,  	Post_Test_Score";
 $proto0["m_strFrom"] = "FROM training_participants";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -4674,12 +4798,12 @@ $obj = new SQLFieldListItem($proto24);
 $proto0["m_fieldlist"][]=$obj;
 						$proto26=array();
 			$obj = new SQLField(array(
-	"m_strName" => "First_Name",
+	"m_strName" => "Training_Round",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto26["m_sql"] = "First_Name";
+$proto26["m_sql"] = "Training_Round";
 $proto26["m_srcTableName"] = "training_participants";
 $proto26["m_expr"]=$obj;
 $proto26["m_alias"] = "";
@@ -4688,12 +4812,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Middle_Name",
+	"m_strName" => "First_Name",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto28["m_sql"] = "Middle_Name";
+$proto28["m_sql"] = "First_Name";
 $proto28["m_srcTableName"] = "training_participants";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -4702,12 +4826,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Last_Name",
+	"m_strName" => "Middle_Name",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto30["m_sql"] = "Last_Name";
+$proto30["m_sql"] = "Middle_Name";
 $proto30["m_srcTableName"] = "training_participants";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -4716,12 +4840,12 @@ $obj = new SQLFieldListItem($proto30);
 $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Sex",
+	"m_strName" => "Last_Name",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto32["m_sql"] = "Sex";
+$proto32["m_sql"] = "Last_Name";
 $proto32["m_srcTableName"] = "training_participants";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -4730,12 +4854,12 @@ $obj = new SQLFieldListItem($proto32);
 $proto0["m_fieldlist"][]=$obj;
 						$proto34=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Email",
+	"m_strName" => "Sex",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto34["m_sql"] = "Email";
+$proto34["m_sql"] = "Sex";
 $proto34["m_srcTableName"] = "training_participants";
 $proto34["m_expr"]=$obj;
 $proto34["m_alias"] = "";
@@ -4744,12 +4868,12 @@ $obj = new SQLFieldListItem($proto34);
 $proto0["m_fieldlist"][]=$obj;
 						$proto36=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Phone",
+	"m_strName" => "Email",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto36["m_sql"] = "Phone";
+$proto36["m_sql"] = "Email";
 $proto36["m_srcTableName"] = "training_participants";
 $proto36["m_expr"]=$obj;
 $proto36["m_alias"] = "";
@@ -4758,12 +4882,12 @@ $obj = new SQLFieldListItem($proto36);
 $proto0["m_fieldlist"][]=$obj;
 						$proto38=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Disability_Status",
+	"m_strName" => "Phone",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto38["m_sql"] = "Disability_Status";
+$proto38["m_sql"] = "Phone";
 $proto38["m_srcTableName"] = "training_participants";
 $proto38["m_expr"]=$obj;
 $proto38["m_alias"] = "";
@@ -4772,12 +4896,12 @@ $obj = new SQLFieldListItem($proto38);
 $proto0["m_fieldlist"][]=$obj;
 						$proto40=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Disability_Type",
+	"m_strName" => "Disability_Status",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto40["m_sql"] = "Disability_Type";
+$proto40["m_sql"] = "Disability_Status";
 $proto40["m_srcTableName"] = "training_participants";
 $proto40["m_expr"]=$obj;
 $proto40["m_alias"] = "";
@@ -4786,12 +4910,12 @@ $obj = new SQLFieldListItem($proto40);
 $proto0["m_fieldlist"][]=$obj;
 						$proto42=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Disability_Type_Other",
+	"m_strName" => "Disability_Type",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto42["m_sql"] = "Disability_Type_Other";
+$proto42["m_sql"] = "Disability_Type";
 $proto42["m_srcTableName"] = "training_participants";
 $proto42["m_expr"]=$obj;
 $proto42["m_alias"] = "";
@@ -4800,12 +4924,12 @@ $obj = new SQLFieldListItem($proto42);
 $proto0["m_fieldlist"][]=$obj;
 						$proto44=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant_Profession",
+	"m_strName" => "Disability_Type_Other",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto44["m_sql"] = "Participant_Profession";
+$proto44["m_sql"] = "Disability_Type_Other";
 $proto44["m_srcTableName"] = "training_participants";
 $proto44["m_expr"]=$obj;
 $proto44["m_alias"] = "";
@@ -4814,12 +4938,12 @@ $obj = new SQLFieldListItem($proto44);
 $proto0["m_fieldlist"][]=$obj;
 						$proto46=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant_Field_of_Study",
+	"m_strName" => "Participant_Profession",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto46["m_sql"] = "Participant_Field_of_Study";
+$proto46["m_sql"] = "Participant_Profession";
 $proto46["m_srcTableName"] = "training_participants";
 $proto46["m_expr"]=$obj;
 $proto46["m_alias"] = "";
@@ -4828,12 +4952,12 @@ $obj = new SQLFieldListItem($proto46);
 $proto0["m_fieldlist"][]=$obj;
 						$proto48=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant_Facility_Organization_Type",
+	"m_strName" => "Participant_Field_of_Study",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto48["m_sql"] = "Participant_Facility_Organization_Type";
+$proto48["m_sql"] = "Participant_Field_of_Study";
 $proto48["m_srcTableName"] = "training_participants";
 $proto48["m_expr"]=$obj;
 $proto48["m_alias"] = "";
@@ -4842,12 +4966,12 @@ $obj = new SQLFieldListItem($proto48);
 $proto0["m_fieldlist"][]=$obj;
 						$proto50=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participant_Organization_Name",
+	"m_strName" => "Participant_Facility_Organization_Type",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto50["m_sql"] = "Participant_Organization_Name";
+$proto50["m_sql"] = "Participant_Facility_Organization_Type";
 $proto50["m_srcTableName"] = "training_participants";
 $proto50["m_expr"]=$obj;
 $proto50["m_alias"] = "";
@@ -4856,12 +4980,12 @@ $obj = new SQLFieldListItem($proto50);
 $proto0["m_fieldlist"][]=$obj;
 						$proto52=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Participants_Home_Address",
+	"m_strName" => "Participant_Organization_Name",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto52["m_sql"] = "Participants_Home_Address";
+$proto52["m_sql"] = "Participant_Organization_Name";
 $proto52["m_srcTableName"] = "training_participants";
 $proto52["m_expr"]=$obj;
 $proto52["m_alias"] = "";
@@ -4870,12 +4994,12 @@ $obj = new SQLFieldListItem($proto52);
 $proto0["m_fieldlist"][]=$obj;
 						$proto54=array();
 			$obj = new SQLField(array(
-	"m_strName" => "PreTest_Score",
+	"m_strName" => "Participants_Home_Address",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto54["m_sql"] = "PreTest_Score";
+$proto54["m_sql"] = "Participants_Home_Address";
 $proto54["m_srcTableName"] = "training_participants";
 $proto54["m_expr"]=$obj;
 $proto54["m_alias"] = "";
@@ -4884,12 +5008,12 @@ $obj = new SQLFieldListItem($proto54);
 $proto0["m_fieldlist"][]=$obj;
 						$proto56=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Skill_Test",
+	"m_strName" => "PreTest_Score",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto56["m_sql"] = "Skill_Test";
+$proto56["m_sql"] = "PreTest_Score";
 $proto56["m_srcTableName"] = "training_participants";
 $proto56["m_expr"]=$obj;
 $proto56["m_alias"] = "";
@@ -4898,75 +5022,90 @@ $obj = new SQLFieldListItem($proto56);
 $proto0["m_fieldlist"][]=$obj;
 						$proto58=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Post_Test_Score",
+	"m_strName" => "Skill_Test",
 	"m_strTable" => "training_participants",
 	"m_srcTableName" => "training_participants"
 ));
 
-$proto58["m_sql"] = "Post_Test_Score";
+$proto58["m_sql"] = "Skill_Test";
 $proto58["m_srcTableName"] = "training_participants";
 $proto58["m_expr"]=$obj;
 $proto58["m_alias"] = "";
 $obj = new SQLFieldListItem($proto58);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto60=array();
-$proto60["m_link"] = "SQLL_MAIN";
-			$proto61=array();
-$proto61["m_strName"] = "training_participants";
-$proto61["m_srcTableName"] = "training_participants";
-$proto61["m_columns"] = array();
-$proto61["m_columns"][] = "TrainingID";
-$proto61["m_columns"][] = "CandidateID";
-$proto61["m_columns"][] = "StudentID";
-$proto61["m_columns"][] = "Training_Organizer";
-$proto61["m_columns"][] = "Training_Type";
-$proto61["m_columns"][] = "Program_Area";
-$proto61["m_columns"][] = "Training_City_Town";
-$proto61["m_columns"][] = "Training_Venue";
-$proto61["m_columns"][] = "Training_Start_Date";
-$proto61["m_columns"][] = "Training_End_Date";
-$proto61["m_columns"][] = "First_Name";
-$proto61["m_columns"][] = "Middle_Name";
-$proto61["m_columns"][] = "Last_Name";
-$proto61["m_columns"][] = "Sex";
-$proto61["m_columns"][] = "Email";
-$proto61["m_columns"][] = "Phone";
-$proto61["m_columns"][] = "Disability_Status";
-$proto61["m_columns"][] = "Disability_Type";
-$proto61["m_columns"][] = "Disability_Type_Other";
-$proto61["m_columns"][] = "Participant_Profession";
-$proto61["m_columns"][] = "Participant_Field_of_Study";
-$proto61["m_columns"][] = "Participant_Facility_Organization_Type";
-$proto61["m_columns"][] = "Participant_Organization_Name";
-$proto61["m_columns"][] = "Participants_Home_Address";
-$proto61["m_columns"][] = "PreTest_Score";
-$proto61["m_columns"][] = "Skill_Test";
-$proto61["m_columns"][] = "Post_Test_Score";
-$obj = new SQLTable($proto61);
+						$proto60=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Post_Test_Score",
+	"m_strTable" => "training_participants",
+	"m_srcTableName" => "training_participants"
+));
 
-$proto60["m_table"] = $obj;
-$proto60["m_sql"] = "training_participants";
-$proto60["m_alias"] = "";
+$proto60["m_sql"] = "Post_Test_Score";
 $proto60["m_srcTableName"] = "training_participants";
-$proto62=array();
-$proto62["m_sql"] = "";
-$proto62["m_uniontype"] = "SQLL_UNKNOWN";
+$proto60["m_expr"]=$obj;
+$proto60["m_alias"] = "";
+$obj = new SQLFieldListItem($proto60);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto62=array();
+$proto62["m_link"] = "SQLL_MAIN";
+			$proto63=array();
+$proto63["m_strName"] = "training_participants";
+$proto63["m_srcTableName"] = "training_participants";
+$proto63["m_columns"] = array();
+$proto63["m_columns"][] = "TrainingID";
+$proto63["m_columns"][] = "CandidateID";
+$proto63["m_columns"][] = "StudentID";
+$proto63["m_columns"][] = "Training_Organizer";
+$proto63["m_columns"][] = "Training_Type";
+$proto63["m_columns"][] = "Program_Area";
+$proto63["m_columns"][] = "Training_City_Town";
+$proto63["m_columns"][] = "Training_Venue";
+$proto63["m_columns"][] = "Training_Start_Date";
+$proto63["m_columns"][] = "Training_End_Date";
+$proto63["m_columns"][] = "Training_Round";
+$proto63["m_columns"][] = "First_Name";
+$proto63["m_columns"][] = "Middle_Name";
+$proto63["m_columns"][] = "Last_Name";
+$proto63["m_columns"][] = "Sex";
+$proto63["m_columns"][] = "Email";
+$proto63["m_columns"][] = "Phone";
+$proto63["m_columns"][] = "Disability_Status";
+$proto63["m_columns"][] = "Disability_Type";
+$proto63["m_columns"][] = "Disability_Type_Other";
+$proto63["m_columns"][] = "Participant_Profession";
+$proto63["m_columns"][] = "Participant_Field_of_Study";
+$proto63["m_columns"][] = "Participant_Facility_Organization_Type";
+$proto63["m_columns"][] = "Participant_Organization_Name";
+$proto63["m_columns"][] = "Participants_Home_Address";
+$proto63["m_columns"][] = "PreTest_Score";
+$proto63["m_columns"][] = "Skill_Test";
+$proto63["m_columns"][] = "Post_Test_Score";
+$obj = new SQLTable($proto63);
+
+$proto62["m_table"] = $obj;
+$proto62["m_sql"] = "training_participants";
+$proto62["m_alias"] = "";
+$proto62["m_srcTableName"] = "training_participants";
+$proto64=array();
+$proto64["m_sql"] = "";
+$proto64["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto62["m_column"]=$obj;
-$proto62["m_contained"] = array();
-$proto62["m_strCase"] = "";
-$proto62["m_havingmode"] = false;
-$proto62["m_inBrackets"] = false;
-$proto62["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto62);
+$proto64["m_column"]=$obj;
+$proto64["m_contained"] = array();
+$proto64["m_strCase"] = "";
+$proto64["m_havingmode"] = false;
+$proto64["m_inBrackets"] = false;
+$proto64["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto64);
 
-$proto60["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto60);
+$proto62["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto62);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4982,7 +5121,7 @@ $queryData_training_participants = createSqlQuery_training_participants();
 	
 																								;
 
-																											
+																												
 
 $tdatatraining_participants[".sqlquery"] = $queryData_training_participants;
 

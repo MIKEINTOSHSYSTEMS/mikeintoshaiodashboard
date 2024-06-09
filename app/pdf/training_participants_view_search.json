@@ -246,6 +246,9 @@ pdfDocument = {
 				
 			{"text":{$Post_Test_Score_value},"hidden":"{$item_hide_integrated_search_field26}"},
 				
+				
+			{"text":{$Training_Round_value},"hidden":"{$item_hide_integrated_search_field27}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
