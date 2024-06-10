@@ -121,8 +121,8 @@ services:
       - derejanet
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mariadb #mysql
+    #command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_HOST: localhost
@@ -194,7 +194,7 @@ services:
 
 networks:
   derejanet:
-    driver: bridge
+    #driver: bridge
 
 volumes:
   derejaviz: 

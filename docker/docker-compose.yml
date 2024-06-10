@@ -34,9 +34,9 @@ services:
     networks:
       - merqderejadevnet
 
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+  db:  # Ensure this service is named 'db'
+    image: mariadb #mysql
+    #command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_HOST: localhost
@@ -46,6 +46,8 @@ services:
       MYSQL_PASSWORD: merqderejadev
     networks:
       - merqderejadevnet
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d  # to mount the init script
 
   phpmyadmin:
     image: phpmyadmin
@@ -54,16 +56,16 @@ services:
       - 3307:80
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOSTS=db
+      - PMA_HOSTS=db  # Ensure this matches the MySQL service name
       - PMA_USER=merqderejadev
       - PMA_PASSWORD=merqderejadev
     networks:
       - merqderejadevnet
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:8.8
     ports:
-      - "5434:80"
+      - "5454:80"
     environment:
       - PGADMIN_DEFAULT_EMAIL=dev@merqconsultancy.org
       - PGADMIN_DEFAULT_PASSWORD=merqderejadev
@@ -85,6 +87,7 @@ services:
 
   mongo-express:
     image: mongo-express
+    container_name: dereja_mongoexpress
     restart: always
     ports:
       - 8018:8081
@@ -98,13 +101,14 @@ services:
       #ME_CONFIG_SSL_CRT_PATH: /etc/ssl/certs/server.crt
       #ME_CONFIG_SSL_KEY_PATH: /etc/ssl/certs/server.key
     volumes: 
-    #- ./certs:/etc/ssl/certs
-    - ./mongodata/db:/data/db
+      #- ./certs:/etc/ssl/certs
+      - ./mongodata/db:/data/db
     networks: 
       - merqderejadevnet
 
 networks:
   merqderejadevnet:
+    #driver: bridge   #to use persistance network address multiple containers
 
 volumes:
   merqderejaviz: 
