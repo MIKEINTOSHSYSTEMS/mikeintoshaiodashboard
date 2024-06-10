@@ -28,6 +28,8 @@ COPY map_files/ /var/www/html/map_files/
 COPY src/ /var/www/html/src/
 COPY styles/ /var/www/html/styles/
 COPY test/ /var/www/html/test/
+COPY mysql-init/ /var/www/html/mysql-init/
+COPY derejaviz/ /var/www/html/derejaviz/
 
 # Copy additional files to the container
 COPY _config.yml /var/www/html/
@@ -41,6 +43,12 @@ COPY script.js /var/www/html/
 COPY style.css /var/www/html/
 COPY test.html /var/www/html/
 COPY test.php /var/www/html/
+COPY pwabuilder-sw.js /var/www/html/
+COPY manifest.json /var/www/html/
+COPY 404.php /var/www/html/
+
+# Copy custom nginx configurations
+COPY config/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy custom php.ini configuration
 COPY config/php.ini /usr/local/etc/php/php.ini

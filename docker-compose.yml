@@ -1,3 +1,5 @@
+# run "docker-compose -p derejame_sys up -d" to run with stack name
+
 version: '3.9'
 
 services:
@@ -31,18 +33,21 @@ services:
       - ./style.css:/var/www/html/style.css
       - ./test.html:/var/www/html/test.html
       - ./test.php:/var/www/html/test.php
+      - ./404.php:/var/www/html/404.php
+      - ./manifest.json:/var/www/html/manifest.json
+      - ./pwabuilder-sw.js:/var/www/html/pwabuilder-sw.js
     #ports:
-      #- "8080:80"
+      #- "8080:80" #uncomment to expose the php services
     expose:
         - "9000"
     depends_on:
       - db
     networks:
-      - merqderejadevnet
+      - derejanet
 
   nginx:
     image: nginx:latest
-    container_name: nginx
+    container_name: derejanginx
     ports:
       - "8080:80"
     volumes:
@@ -71,22 +76,25 @@ services:
       - ./style.css:/var/www/html/style.css
       - ./test.html:/var/www/html/test.html
       - ./test.php:/var/www/html/test.php
+      - ./404.php:/var/www/html/404.php
+      - ./manifest.json:/var/www/html/manifest.json
+      - ./pwabuilder-sw.js:/var/www/html/pwabuilder-sw.js
     depends_on:
       - php
     networks:
-      - merqderejadevnet
+      - derejanet
 
 
   metabase:
     image: metabase/metabase:latest
-    container_name: merq_derja_viz
+    container_name: derja_viz
     hostname: metabase
     volumes:
-      - ./merqderejaviz:/dev/random:ro
+      - ./derejaviz:/dev/random:ro
     ports:
       - 4000:3000
     environment:
-      MB_DB_FILE: ./merqderejaviz/merqdereja.db
+      MB_DB_FILE: ./derejaviz/merqdereja.db
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: merqderejadb
       MB_DB_PORT: 5432
@@ -97,7 +105,7 @@ services:
       MB_ADMIN_FIRST_NAME: MERQ
       MB_ADMIN_PASSWORD: merqderejadev0
     networks:
-      - merqderejadevnet
+      - derejanet
 
   postgres:
     image: postgres:latest
@@ -110,7 +118,7 @@ services:
     volumes:
       - ./src/merqderejadb:/docker-entrypoint-initdb.d/merqderejadb
     networks:
-      - merqderejadevnet
+      - derejanet
 
   db:
     image: mysql
@@ -124,8 +132,9 @@ services:
       MYSQL_PASSWORD: merqderejadev
     volumes:
       - ./src/dere_dev.sql:/docker-entrypoint-initdb.d/dere_dev.sql
+      - ./mysql-init:/docker-entrypoint-initdb.d  # to mount the init script
     networks:
-      - merqderejadevnet
+      - derejanet
 
   phpmyadmin:
     image: phpmyadmin
@@ -138,7 +147,7 @@ services:
       - PMA_USER=merqderejadev
       - PMA_PASSWORD=merqderejadev
     networks:
-      - merqderejadevnet
+      - derejanet
 
   pgadmin:
     image: dpage/pgadmin4
@@ -152,7 +161,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - merqderejadevnet
+      - derejanet
 
   mongo:
     image: mongo
@@ -161,13 +170,13 @@ services:
       MONGO_INITDB_ROOT_USERNAME: merqderejadev
       MONGO_INITDB_ROOT_PASSWORD: merqderejadev
     networks:
-      - merqderejadevnet
+      - derejanet
 
   mongo-express:
     image: mongo-express
     restart: always
     ports:
-      - 8081:8081
+      - 8018:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: merqderejadev
       ME_CONFIG_MONGODB_ADMINPASSWORD: merqderejadev
@@ -181,12 +190,13 @@ services:
       #- ./certs:/etc/ssl/certs
       - ./mongodata/db:/data/db
     networks: 
-      - merqderejadevnet
+      - derejanet
 
 networks:
-  merqderejadevnet:
+  derejanet:
+    driver: bridge
 
 volumes:
-  merqderejaviz: 
+  derejaviz: 
   pgadmin-data:
   mongodata:
