@@ -1214,7 +1214,9 @@ $tdatajobs[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
@@ -1307,51 +1309,11 @@ changeTextControlsToDate( "Jobs" );
 //if !@TABLE.bReportCrossTab
 
 $detailsTablesData["Jobs"] = array();
-//	Candidate_Employment_Tracker
-	
-	
-
-		$dIndex = 0;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="Candidate_Employment_Tracker";
-		$detailsParam["dOriginalTable"] = "Candidate_Employment_Tracker";
-
-
-
-		
-		$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "candidate_employment_tracker";
-	$detailsParam["dCaptionTable"] = GetTableCaption("Candidate_Employment_Tracker");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["Jobs"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["Jobs"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["Jobs"][$dIndex]["masterKeys"][]="JobID";
-
-	$detailsTablesData["Jobs"][$dIndex]["masterKeys"][]="JobPosition";
-
-	$detailsTablesData["Jobs"][$dIndex]["masterKeys"][]="JobType";
-
-				$detailsTablesData["Jobs"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="JobID";
-
-		
-	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="Job_Position";
-
-		
-	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="Job_Type";
 //	Job_Categories
 	
 	
 
-		$dIndex = 1;
+		$dIndex = 0;
 	$detailsParam = array();
 	$detailsParam["dDataSourceTable"]="Job_Categories";
 		$detailsParam["dOriginalTable"] = "Job_Categories";
@@ -1381,7 +1343,7 @@ $detailsTablesData["Jobs"] = array();
 	
 	
 
-		$dIndex = 2;
+		$dIndex = 1;
 	$detailsParam = array();
 	$detailsParam["dDataSourceTable"]="Job_Types";
 		$detailsParam["dOriginalTable"] = "Job_Types";
@@ -1407,36 +1369,6 @@ $detailsTablesData["Jobs"] = array();
 				$detailsTablesData["Jobs"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="TypeName";
-//	Candidate_Employment_Tracker_view
-	
-	
-
-		$dIndex = 3;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="Candidate_Employment_Tracker_view";
-		$detailsParam["dOriginalTable"] = "Candidate_Employment_Tracker";
-
-
-
-			$detailsParam["dType"]=PAGE_CHART;
-
-		$detailsParam["dShortTable"] = "candidate_employment_tracker_view";
-	$detailsParam["dCaptionTable"] = GetTableCaption("Candidate_Employment_Tracker_view");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["Jobs"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["Jobs"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["Jobs"][$dIndex]["masterKeys"][]="JobID";
-
-				$detailsTablesData["Jobs"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["Jobs"][$dIndex]["detailKeys"][]="JobID";
 //endif
 
 // tables which are master tables for current table (detail)

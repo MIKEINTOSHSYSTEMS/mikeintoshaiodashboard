@@ -192,6 +192,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Jobs CompanyName }","bold":true},{"text":{$CompanyName_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Jobs JobID }","bold":true},{"text":{$JobID_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

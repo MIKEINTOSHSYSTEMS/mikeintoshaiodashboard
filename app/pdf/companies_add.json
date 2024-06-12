@@ -129,6 +129,12 @@ pdfDocument = {
 									{BEGIN col_grid_0}
 						"*", 
 							{END col_grid_0}
+												{BEGIN col_grid_1}
+						"*", 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"*", 
+							{END col_grid_2}
 					 ],	
 		
 			heights: [
@@ -136,6 +142,26 @@ pdfDocument = {
 						
 			"%",
 						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
 			 
 				],
 	
@@ -162,34 +188,6 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field}","stack":[{"text":"{$jslabel Companies CompanyName }","bold":true},{"text":{$CompanyName_pdfvalue}}],"margin":[0,0,0,15]},
 				
-				
-			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Companies CompanyEmail }","bold":true},{"text":{$CompanyEmail_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Companies CompanyPhone }","bold":true},{"text":{$CompanyPhone_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Companies CompanyWebsite }","bold":true},{"text":{$CompanyWebsite_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Companies CompanySector }","bold":true},{"text":{$CompanySector_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Companies CompanyProfile }","bold":true},{"text":{$CompanyProfile_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			 {BEGIN details_jobs}
-			{$displayDetailTable_jobs }
-		{END details_jobs},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Companies CompanyJob }","bold":true},{"text":{$CompanyJob_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			 {BEGIN details_undefined}
-			{$displayDetailTable_undefined }
-		{END details_undefined},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
@@ -198,8 +196,365 @@ pdfDocument = {
       },
 
 {END cellblock_grid_c3}
+																							{BEGIN cellblock_grid_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Companies CompanyEmail }","bold":true},{"text":{$CompanyEmail_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c}
+																							{BEGIN cellblock_grid_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Companies CompanyPhone }","bold":true},{"text":{$CompanyPhone_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c4}
 											],
 				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_c9}
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel Companies CompanyWebsite }","bold":true},{"text":{$CompanyWebsite_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c9}
+																							{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Companies CompanySector }","bold":true},{"text":{$CompanySector_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+																							{BEGIN cellblock_grid_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Companies CompanyProfile }","bold":true},{"text":{$CompanyProfile_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c11}
+											],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel Companies CompanyJob }","bold":true},{"text":{$CompanyJob_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c6}
+																							{BEGIN cellblock_grid_c7}
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c7}
+																							{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+																							{BEGIN cellblock_grid_c13}
+{
+	cellId: 'c13',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c13}
+																							{BEGIN cellblock_grid_c14}
+{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c14}
+											],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c5}
+			colSpan: {$colspan_grid_c5},
+			{END colspan_grid_c5}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_jobs}
+			{$displayDetailTable_jobs }
+		{END details_jobs},
+				
+				
+			 {BEGIN details_undefined}
+			{$displayDetailTable_undefined }
+		{END details_undefined},
+				
+				
+			 {BEGIN details_candidates}
+			{$displayDetailTable_candidates }
+		{END details_candidates},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c5}
+																		{ 
+				cellId: 'c5',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c5',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+				{END row_grid_4}
 		
 		]
 	}
@@ -235,6 +590,9 @@ pdfDocument = {
 	
 			"text": [
 		
+				
+			{"text":""},
+				
 				
 			{"text":""},
 				

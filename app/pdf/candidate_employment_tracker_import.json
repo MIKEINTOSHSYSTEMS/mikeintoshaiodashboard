@@ -109,9 +109,6 @@ pdfDocument = {
 			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_import_field}"},
 				
 				
-			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_import_field1}"},
-				
-				
 			{"text":{$Referral_from_Dereja_service_pdfvalue},"hidden":"{$item_hide_import_field2}"},
 				
 				
@@ -146,6 +143,9 @@ pdfDocument = {
 				
 				
 			{"text":{$CurrentEmploymentStatus_pdfvalue},"hidden":"{$item_hide_import_field13}"},
+				
+				
+			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_import_field1}"},
 				
 		  ],
   "border": [ false, false, false, false ],

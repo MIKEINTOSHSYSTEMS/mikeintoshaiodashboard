@@ -509,8 +509,7 @@
 								</td>
 			{END cellblock_grid_c2}
 			 
-		
-							
+																
 
 {BEGIN cellblock_grid_c6}
 <td
@@ -524,7 +523,29 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
+				
+{BEGIN Job_Type_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" data-fieldname="Job_Type" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Job_Type}">
+		
+		{BEGIN Job_Type_label}{$label Candidate_Employment_Tracker Job_Type }{END Job_Type_label}
+	</label>
+	<div class="" >
+		{$Job_Type_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Job_Type_fieldblock}
+	
+								</td>
 			{END cellblock_grid_c6}
 			 
 		
@@ -641,32 +662,31 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN Job_Type_fieldblock}
+{BEGIN Sector_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Job_Type}  r-vertical-field" data-fieldname="Job_Type" data-signal-error-for="Job_Type{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="Job_Type" data-fieldname="Job_Type" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" data-fieldname="Sector" >
 
 		<div class="col-md-12">
 	
-	<label class="" for="{$labelfor_Job_Type}">
+	<label class="" for="{$labelfor_Sector}">
 		
-		{BEGIN Job_Type_label}{$label Candidate_Employment_Tracker Job_Type }{END Job_Type_label}
+		{BEGIN Sector_label}{$label Candidate_Employment_Tracker Sector }{END Sector_label}
 	</label>
 	<div class="" >
-		{$Job_Type_value}	</div>
+		{$Sector_value}	</div>
 
 		</div>
 		
 </div>
 
 
-{END Job_Type_fieldblock}
+{END Sector_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c14}
 			 
-		
-							
+																
 
 {BEGIN cellblock_grid_c15}
 <td
@@ -680,7 +700,29 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
+				
+{BEGIN Referral_from_Dereja_service_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_Referral_from_Dereja_service}">
+		
+		{BEGIN Referral_from_Dereja_service_label}{$label Candidate_Employment_Tracker Referral_from_Dereja_service }{END Referral_from_Dereja_service_label}
+	</label>
+	<div class="" >
+		{$Referral_from_Dereja_service_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END Referral_from_Dereja_service_fieldblock}
+	
+								</td>
 			{END cellblock_grid_c15}
 								</tr>
 	 
@@ -740,31 +782,32 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN Sector_fieldblock}
+{BEGIN Company_Phone_Number_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Sector}  r-vertical-field" data-fieldname="Sector" data-signal-error-for="Sector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Sector" data-fieldname="Sector" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number" >
 
 		<div class="col-md-12">
 	
-	<label class="" for="{$labelfor_Sector}">
+	<label class="" for="{$labelfor_Company_Phone_Number}">
 		
-		{BEGIN Sector_label}{$label Candidate_Employment_Tracker Sector }{END Sector_label}
+		{BEGIN Company_Phone_Number_label}{$label Candidate_Employment_Tracker Company_Phone_Number }{END Company_Phone_Number_label}
 	</label>
 	<div class="" >
-		{$Sector_value}	</div>
+		{$Company_Phone_Number_value}	</div>
 
 		</div>
 		
 </div>
 
 
-{END Sector_fieldblock}
+{END Company_Phone_Number_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c9}
 			 
-																
+		
+							
 
 {BEGIN cellblock_grid_c10}
 <td
@@ -778,29 +821,7 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN JobID_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_JobID}">
-		
-		{BEGIN JobID_label}{$label Candidate_Employment_Tracker JobID }{END JobID_label}
-	</label>
-	<div class="" >
-		{$JobID_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END JobID_fieldblock}
-	
-								</td>
+									</td>
 			{END cellblock_grid_c10}
 			 
 		
@@ -839,31 +860,32 @@
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN Company_Phone_Number_fieldblock}
+{BEGIN JobID_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Company_Phone_Number}  r-vertical-field" data-fieldname="Company_Phone_Number" data-signal-error-for="Company_Phone_Number{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Company_Phone_Number" data-fieldname="Company_Phone_Number" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" data-fieldname="JobID" data-signal-error-for="JobID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
 
 		<div class="col-md-12">
 	
-	<label class="" for="{$labelfor_Company_Phone_Number}">
+	<label class="" for="{$labelfor_JobID}">
 		
-		{BEGIN Company_Phone_Number_label}{$label Candidate_Employment_Tracker Company_Phone_Number }{END Company_Phone_Number_label}
+		{BEGIN JobID_label}{$label Candidate_Employment_Tracker JobID }{END JobID_label}
 	</label>
 	<div class="" >
-		{$Company_Phone_Number_value}	</div>
+		{$JobID_value}	</div>
 
 		</div>
 		
 </div>
 
 
-{END Company_Phone_Number_fieldblock}
+{END JobID_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c16}
 			 
-																
+		
+							
 
 {BEGIN cellblock_grid_c17}
 <td
@@ -877,29 +899,7 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN Referral_from_Dereja_service_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Referral_from_Dereja_service}  r-vertical-field" data-fieldname="Referral_from_Dereja_service" data-signal-error-for="Referral_from_Dereja_service{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Referral_from_Dereja_service" data-fieldname="Referral_from_Dereja_service" >
-
-		<div class="col-md-12">
-	
-	<label class="" for="{$labelfor_Referral_from_Dereja_service}">
-		
-		{BEGIN Referral_from_Dereja_service_label}{$label Candidate_Employment_Tracker Referral_from_Dereja_service }{END Referral_from_Dereja_service_label}
-	</label>
-	<div class="" >
-		{$Referral_from_Dereja_service_value}	</div>
-
-		</div>
-		
-</div>
-
-
-{END Referral_from_Dereja_service_fieldblock}
-	
-								</td>
+									</td>
 			{END cellblock_grid_c17}
 			 
 		

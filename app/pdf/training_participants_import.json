@@ -109,9 +109,6 @@ pdfDocument = {
 			{"text":{$TrainingID_pdfvalue},"hidden":"{$item_hide_import_field}"},
 				
 				
-			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_import_field1}"},
-				
-				
 			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_import_field2}"},
 				
 				
@@ -188,6 +185,9 @@ pdfDocument = {
 				
 				
 			{"text":{$Training_Round_pdfvalue},"hidden":"{$item_hide_import_field27}"},
+				
+				
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_import_field1}"},
 				
 		  ],
   "border": [ false, false, false, false ],

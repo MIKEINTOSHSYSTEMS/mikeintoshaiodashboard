@@ -731,6 +731,11 @@ pdfDocument = {
 			{$displayDetailTable_companysectors }
 		{END details_companysectors},
 				
+				
+			 {BEGIN details_candidates}
+			{$displayDetailTable_candidates }
+		{END details_candidates},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

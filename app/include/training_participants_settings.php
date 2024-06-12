@@ -28,7 +28,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelstraining_participants["English"]["TrainingID"] = "Training ID";
 	$fieldToolTipstraining_participants["English"]["TrainingID"] = "";
 	$placeHolderstraining_participants["English"]["TrainingID"] = "";
-	$fieldLabelstraining_participants["English"]["CandidateID"] = "Candidate ID";
+	$fieldLabelstraining_participants["English"]["CandidateID"] = "Candidate";
 	$fieldToolTipstraining_participants["English"]["CandidateID"] = "";
 	$placeHolderstraining_participants["English"]["CandidateID"] = "";
 	$fieldLabelstraining_participants["English"]["Training_Organizer"] = "Training Organizer";
@@ -581,7 +581,8 @@ $tdatatraining_participants[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "candidates";
-			$edata["autoCompleteFieldsOnEdit"] = 1;
+		$edata["listPageId"] = "list";
+		$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
 		$edata["autoCompleteFields"][] = array('masterF'=>"StudentID", 'lookupF'=>"StudentID");
 	$edata["autoCompleteFields"][] = array('masterF'=>"First_Name", 'lookupF'=>"First_Name");
@@ -901,7 +902,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "OrganizerID";
+	$edata["LinkField"] = "OrganizerName";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "OrganizerName";
 
@@ -1063,7 +1064,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "TypeID";
+	$edata["LinkField"] = "TypeName";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "TypeName";
 
@@ -1225,7 +1226,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "AreaID";
+	$edata["LinkField"] = "AreaName";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "AreaName";
 
@@ -1387,7 +1388,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "CityTownID";
+	$edata["LinkField"] = "CityTownName";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "CityTownName";
 
@@ -1549,7 +1550,7 @@ $tdatatraining_participants[".hideMobileList"] = array();
 
 	
 		
-	$edata["LinkField"] = "VenueID";
+	$edata["LinkField"] = "VenueName";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "VenueName";
 

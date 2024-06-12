@@ -170,11 +170,58 @@ pdfDocument = {
 			"%",
 						{END row_grid_6}
 			 
+								{BEGIN row_grid_7}
+						
+			"%",
+						{END row_grid_7}
+			 
 				],
 	
 		body: [
 				
 				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c}
+			colSpan: {$colspan_grid_c},
+			{END colspan_grid_c}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{BEGIN mastertable_block}
+			{$showmasterfile}
+		{END mastertable_block},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c}
+																		{ 
+				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
 				[
 																{BEGIN cellblock_grid_c3}
 {
@@ -903,8 +950,8 @@ pdfDocument = {
 
 {END cellblock_grid_c6}
 											],
-				{END row_grid_0}
-						{BEGIN row_grid_1}
+				{END row_grid_1}
+						{BEGIN row_grid_2}
 				[
 																{BEGIN cellblock_grid_c2}
 {
@@ -1518,8 +1565,8 @@ pdfDocument = {
 
 {END cellblock_grid_c5}
 											],
-				{END row_grid_1}
-						{BEGIN row_grid_2}
+				{END row_grid_2}
+						{BEGIN row_grid_3}
 				[
 																{BEGIN cellblock_grid_c1}
 {
@@ -1784,8 +1831,8 @@ pdfDocument = {
 
 {END cellblock_grid_c15}
 											],
-				{END row_grid_2}
-						{BEGIN row_grid_3}
+				{END row_grid_3}
+						{BEGIN row_grid_4}
 				[
 																{BEGIN cellblock_grid_c4}
 {
@@ -2020,8 +2067,8 @@ pdfDocument = {
 
 {END cellblock_grid_c16}
 											],
-				{END row_grid_3}
-						{BEGIN row_grid_4}
+				{END row_grid_4}
+						{BEGIN row_grid_5}
 				[
 																{BEGIN cellblock_grid_c22}
 {
@@ -2260,8 +2307,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_4}
-						{BEGIN row_grid_5}
+				{END row_grid_5}
+						{BEGIN row_grid_6}
 				[
 																{BEGIN cellblock_grid_c23}
 {
@@ -2421,8 +2468,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_5}
-						{BEGIN row_grid_6}
+				{END row_grid_6}
+						{BEGIN row_grid_7}
 				[
 																{BEGIN cellblock_grid_c18}
 {
@@ -2520,7 +2567,7 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_6}
+				{END row_grid_7}
 		
 		]
 	}

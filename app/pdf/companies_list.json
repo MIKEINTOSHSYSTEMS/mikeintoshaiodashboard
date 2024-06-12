@@ -638,6 +638,9 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_grid_alldetails_link}"},
 				
 				
+			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
+				
+				
 			{"text":"","hidden":"{$item_hide_grid_details_link}"},
 				
 				
@@ -907,6 +910,11 @@ pdfDocument = {
 	
 			"stack": [
 		
+				
+			 {BEGIN details_candidates}
+			{$displayDetailTable_candidates }
+		{END details_candidates},
+				
 				
 			 {BEGIN details_jobs}
 			{$displayDetailTable_jobs }

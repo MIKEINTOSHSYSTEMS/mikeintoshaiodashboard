@@ -1330,7 +1330,9 @@ $tdatacompanies[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
@@ -1498,6 +1500,36 @@ $detailsTablesData["Companies"] = array();
 
 		
 	$detailsTablesData["Companies"][$dIndex]["detailKeys"][]="CompanySectorName";
+//	candidates
+	
+	
+
+		$dIndex = 2;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="candidates";
+		$detailsParam["dOriginalTable"] = "candidates";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "candidates";
+	$detailsParam["dCaptionTable"] = GetTableCaption("candidates");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["Companies"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["Companies"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["Companies"][$dIndex]["masterKeys"][]="CompanyID";
+
+				$detailsTablesData["Companies"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["Companies"][$dIndex]["detailKeys"][]="CandidateID";
 //endif
 
 // tables which are master tables for current table (detail)

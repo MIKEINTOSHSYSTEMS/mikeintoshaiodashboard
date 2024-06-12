@@ -354,8 +354,10 @@ pdfDocument = {
 	
 			"stack": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Job_Type }","bold":true},{"text":{$Job_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -463,7 +465,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Job_Type }","bold":true},{"text":{$Job_Type_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Sector }","bold":true},{"text":{$Sector_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -489,8 +491,10 @@ pdfDocument = {
 	
 			"stack": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Referral_from_Dereja_service }","bold":true},{"text":{$Referral_from_Dereja_service_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -546,7 +550,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Sector }","bold":true},{"text":{$Sector_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Company_Phone_Number }","bold":true},{"text":{$Company_Phone_Number_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -572,10 +576,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker JobID }","bold":true},{"text":{$JobID_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -629,7 +631,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Company_Phone_Number }","bold":true},{"text":{$Company_Phone_Number_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker JobID }","bold":true},{"text":{$JobID_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -655,10 +657,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel Candidate_Employment_Tracker Referral_from_Dereja_service }","bold":true},{"text":{$Referral_from_Dereja_service_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      

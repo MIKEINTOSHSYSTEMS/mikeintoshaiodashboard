@@ -653,6 +653,13 @@
 					Company Sectors				</label>
 			</div>
 			{END print_details_companysectors}
+														{BEGIN print_details_candidates}
+			<div>
+				<label for="printDetailscandidates{$id}">
+					<input type="checkbox" value="candidates" id="printDetailscandidates{$id}" checked>
+					Candidates				</label>
+			</div>
+			{END print_details_candidates}
 						</div>
 </div>
 {END print_details}
@@ -1117,6 +1124,25 @@
 	 
 		
 		
+	{BEGIN candidates_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link2" {$item_grid_details_link2} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidates_link_attrs} data-short-details="candidates"
+		class="{$candidates_dlink_class}" 
+		title="{$caption candidates }"			>
+								
+									{BEGIN candidates_childcount}
+				<span class="details-badge badge candidates_badge" {$candidates_childnumber_attr}>
+					{$candidates_childnumber}				
+				</span>
+				{END candidates_childcount}
+						</a>
+	</span>
+	{END candidates_dtable_link}
+
+
+	 
+		
+		
 	{BEGIN jobs_dtable_link}
 	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$jobs_link_attrs} data-short-details="jobs"
@@ -1340,9 +1366,11 @@
 	>
 
 	 
-					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="jobs,,companysectors"
-			data-details-jobs			data-details-			data-details-companysectors	>
+						<div data-itemtype="details_preview" data-itemid="details_preview3" {$item_details_preview3} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="candidates,jobs,,companysectors"
+			data-details-candidates			data-details-jobs			data-details-			data-details-companysectors	>
+		<span data-details-inside data-short-table="candidates">
+			</span>
 		<span data-details-inside data-short-table="jobs">
 			</span>
 		<span data-details-inside data-short-table="">
@@ -1353,6 +1381,7 @@
 	</div>
 </div>
 	 
+			 
 			 
 			
 	</td>

@@ -196,6 +196,12 @@
 [data-cellid="grid_footcell_field65"][data-page="candidates_masterlist"][data-cellid="grid_footcell_field65"][data-page="candidates_masterlist"][data-cellid="grid_footcell_field65"][data-page="candidates_masterlist"] {
   white-space: nowrap;
 }
+[data-cellid="grid_headcell_icons"][data-page="candidates_masterlist"][data-cellid="grid_headcell_icons"][data-page="candidates_masterlist"][data-cellid="grid_headcell_icons"][data-page="candidates_masterlist"] {
+  width: 30px;
+}
+[data-cellid="grid_cell_icons"][data-page="candidates_masterlist"][data-cellid="grid_cell_icons"][data-page="candidates_masterlist"][data-cellid="grid_cell_icons"][data-page="candidates_masterlist"] {
+  white-space: nowrap;
+}
 [data-page="candidates_masterlist"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

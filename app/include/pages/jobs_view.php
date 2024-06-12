@@ -1,11 +1,7 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
-'details' => array( 'Candidate_Employment_Tracker' => array( 'displayPreview' => 2,
-'previewPageId' => '' ),
-'Job_Categories' => array( 'displayPreview' => 1 ),
-'Job_Types' => array( 'displayPreview' => 1 ),
-'Candidate_Employment_Tracker_view' => array( 'displayPreview' => 2,
-'previewPageId' => '' ) ),
+'details' => array( 'Job_Categories' => array( 'displayPreview' => 1 ),
+'Job_Types' => array( 'displayPreview' => 1 ) ),
 'master' => array( 'Companies' => array( 'preview' => true ) ),
 'fields' => array( 'gridFields' => array( 'JobID',
 'JobName',

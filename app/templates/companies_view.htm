@@ -255,9 +255,9 @@
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
 	{$grid_hiddenattr} 
-		data-form-width="1"
+		data-form-width="3"
 		
-		data-v-width="4"
+		data-v-width="6"
 	>
 	<tbody>
 										<tr {$row_grid_0} >
@@ -268,150 +268,374 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-				data-fullwidth
-		
+			data-single
+			
 			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
 				
-{BEGIN CompanyID_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyID}  r-vertical-field" data-fieldname="CompanyID" data-signal-error-for="CompanyID{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CompanyID" data-fieldname="CompanyID" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyID}">
-		
-		{BEGIN CompanyID_label}{$label Companies CompanyID }{END CompanyID_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$CompanyID_value}	</div>
-
-		
-</div>
-
-
-{END CompanyID_fieldblock}
-											
 {BEGIN CompanyName_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyName}  r-vertical-field" data-fieldname="CompanyName" data-signal-error-for="CompanyName{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CompanyName" data-fieldname="CompanyName" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyName}  r-vertical-field" data-fieldname="CompanyName" data-signal-error-for="CompanyName{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="CompanyName" data-fieldname="CompanyName" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyName}">
+	<label class="" for="{$labelfor_CompanyName}">
 		
 		{BEGIN CompanyName_label}{$label Companies CompanyName }{END CompanyName_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanyName_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanyName_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c3}
+			 
+																
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CompanyEmail_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyEmail}  r-vertical-field" data-fieldname="CompanyEmail" data-signal-error-for="CompanyEmail{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="CompanyEmail" data-fieldname="CompanyEmail" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyEmail}  r-vertical-field" data-fieldname="CompanyEmail" data-signal-error-for="CompanyEmail{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="CompanyEmail" data-fieldname="CompanyEmail" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyEmail}">
+	<label class="" for="{$labelfor_CompanyEmail}">
 		
 		{BEGIN CompanyEmail_label}{$label Companies CompanyEmail }{END CompanyEmail_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanyEmail_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanyEmail_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c}
+			 
+																
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CompanyPhone_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyPhone}  r-vertical-field" data-fieldname="CompanyPhone" data-signal-error-for="CompanyPhone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="CompanyPhone" data-fieldname="CompanyPhone" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyPhone}  r-vertical-field" data-fieldname="CompanyPhone" data-signal-error-for="CompanyPhone{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="CompanyPhone" data-fieldname="CompanyPhone" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyPhone}">
+	<label class="" for="{$labelfor_CompanyPhone}">
 		
 		{BEGIN CompanyPhone_label}{$label Companies CompanyPhone }{END CompanyPhone_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanyPhone_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanyPhone_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c9}
+<td
+	{$cell_grid_c9}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CompanyWebsite_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyWebsite}  r-vertical-field" data-fieldname="CompanyWebsite" data-signal-error-for="CompanyWebsite{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="CompanyWebsite" data-fieldname="CompanyWebsite" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyWebsite}  r-vertical-field" data-fieldname="CompanyWebsite" data-signal-error-for="CompanyWebsite{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="CompanyWebsite" data-fieldname="CompanyWebsite" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyWebsite}">
+	<label class="" for="{$labelfor_CompanyWebsite}">
 		
 		{BEGIN CompanyWebsite_label}{$label Companies CompanyWebsite }{END CompanyWebsite_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanyWebsite_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanyWebsite_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c9}
+			 
+																
+
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CompanySector_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanySector}  r-vertical-field" data-fieldname="CompanySector" data-signal-error-for="CompanySector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="CompanySector" data-fieldname="CompanySector" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanySector}  r-vertical-field" data-fieldname="CompanySector" data-signal-error-for="CompanySector{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="CompanySector" data-fieldname="CompanySector" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanySector}">
+	<label class="" for="{$labelfor_CompanySector}">
 		
 		{BEGIN CompanySector_label}{$label Companies CompanySector }{END CompanySector_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanySector_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanySector_fieldblock}
-											
+	
+								</td>
+			{END cellblock_grid_c10}
+			 
+																
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
 {BEGIN CompanyProfile_fieldblock}
 
 
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyProfile}  r-vertical-field" data-fieldname="CompanyProfile" data-signal-error-for="CompanyProfile{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="CompanyProfile" data-fieldname="CompanyProfile" >
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyProfile}  r-vertical-field" data-fieldname="CompanyProfile" data-signal-error-for="CompanyProfile{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="CompanyProfile" data-fieldname="CompanyProfile" >
 
+		<div class="col-md-12">
 	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyProfile}">
+	<label class="" for="{$labelfor_CompanyProfile}">
 		
 		{BEGIN CompanyProfile_label}{$label Companies CompanyProfile }{END CompanyProfile_label}
 	</label>
-	<div class="col-md-offset-3 col-md-6" >
+	<div class="" >
 		{$CompanyProfile_value}	</div>
 
+		</div>
 		
 </div>
 
 
 {END CompanyProfile_fieldblock}
-										</td>
-			{END cellblock_grid_c3}
-										</tr>
-										</tbody></table>
+	
+								</td>
+			{END cellblock_grid_c11}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN CompanyJob_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyJob}  r-vertical-field" data-fieldname="CompanyJob" data-signal-error-for="CompanyJob{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="CompanyJob" data-fieldname="CompanyJob" >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_CompanyJob}">
+		
+		{BEGIN CompanyJob_label}{$label Companies CompanyJob }{END CompanyJob_label}
+	</label>
+	<div class="" >
+		{$CompanyJob_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END CompanyJob_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c6}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c7}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c8" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c8}
+								</tr>
+	 
+	 
+		
+						<tr>
+						
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c12}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c13}
+			 
+		
+							
+
+{BEGIN cellblock_grid_c14}
+<td
+	{$cell_grid_c14}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c14" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+									</td>
+			{END cellblock_grid_c14}
+								</tr>
+	 
+	 
+																</tbody></table>
 				
 {BEGIN details_jobs}
 <div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
@@ -430,55 +654,7 @@
 	</div>
 </div>
 {END details_jobs}
-											<table 
-	data-body-align="left"
-	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_grid_0} >
-										
-
-{BEGIN cellblock_grid_c3}
-<td
-	{$cell_grid_c3}
-	class=" r-ori-vert"
-	
-				data-fullwidth
-		
-			data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="4"
-		
->
-	<div edit-form-cell class="clearfix">
-				
-{BEGIN CompanyJob_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_CompanyJob}  r-vertical-field" data-fieldname="CompanyJob" data-signal-error-for="CompanyJob{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="CompanyJob" data-fieldname="CompanyJob" >
-
-	
-	<label class="col-md-offset-3 col-md-6" for="{$labelfor_CompanyJob}">
-		
-		{BEGIN CompanyJob_label}{$label Companies CompanyJob }{END CompanyJob_label}
-	</label>
-	<div class="col-md-offset-3 col-md-6" >
-		{$CompanyJob_value}	</div>
-
-		
-</div>
-
-
-{END CompanyJob_fieldblock}
-										</td>
-			{END cellblock_grid_c3}
-										</tr>
-										</tbody></table>
-				
+											
 {BEGIN details_}
 <div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
 	<div class="panel panel-info details-grid">
@@ -497,23 +673,23 @@
 </div>
 {END details_}
 											
-{BEGIN details_companysectors}
+{BEGIN details_candidates}
 <div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
 	<div class="panel panel-info details-grid">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-							{$details_pagetitle_companysectors}			
+							{$details_pagetitle_candidates}			
 							<span>
-					{$detailslButtons_companysectors}
+					{$detailslButtons_candidates}
 																																										</span>
 			</h4>
 		</div>
 		<div class="panel-body">
-			{$displayDetailTable_companysectors}
+			{$displayDetailTable_candidates}
 		</div>
 	</div>
 </div>
-{END details_companysectors}
+{END details_candidates}
 	
 				{END grid_block}
 	</div>

@@ -493,6 +493,27 @@
 
 
 {END CompanyName_fieldblock}
+											
+{BEGIN JobID_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_JobID}  r-vertical-field" 
+	data-signal-error-for="JobID{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="JobID" data-fieldname="JobID" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_JobID}">
+		{BEGIN JobID_label}{$label Jobs JobID }{END JobID_label}
+	</label>
+	<div class="r-edit-field">
+		{$JobID_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="JobID">
+		<div class="text-muted" >
+		{$tooltip Jobs JobID }		</div>
+	</div>
+</div>
+
+
+{END JobID_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

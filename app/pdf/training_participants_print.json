@@ -343,35 +343,6 @@ pdfDocument = {
 	cellId: 'headcell_field1',
 	col:0,
 	row:0,
-			fieldName: 'CandidateID',
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"text":"{$jslabel training_participants CandidateID }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$CandidateID_align}',
-     
-      
-      },
-
-{END cellblock_grid_headcell_field1}
-																							{BEGIN cellblock_grid_headcell_field2}
-{
-	cellId: 'headcell_field2',
-	col:0,
-	row:0,
 			fieldName: 'StudentID',
 				style: 'headcell',
 		
@@ -386,7 +357,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants StudentID }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
+			{"text":"{$jslabel training_participants StudentID }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -395,10 +366,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field2}
-																							{BEGIN cellblock_grid_headcell_field3}
+{END cellblock_grid_headcell_field1}
+																							{BEGIN cellblock_grid_headcell_field2}
 {
-	cellId: 'headcell_field3',
+	cellId: 'headcell_field2',
 	col:0,
 	row:0,
 			fieldName: 'Training_Organizer',
@@ -415,7 +386,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Organizer }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
+			{"text":"{$jslabel training_participants Training_Organizer }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -424,10 +395,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field3}
-																							{BEGIN cellblock_grid_headcell_field4}
+{END cellblock_grid_headcell_field2}
+																							{BEGIN cellblock_grid_headcell_field3}
 {
-	cellId: 'headcell_field4',
+	cellId: 'headcell_field3',
 	col:0,
 	row:0,
 			fieldName: 'Training_Type',
@@ -444,7 +415,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Type }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
+			{"text":"{$jslabel training_participants Training_Type }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -453,10 +424,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field4}
-																							{BEGIN cellblock_grid_headcell_field5}
+{END cellblock_grid_headcell_field3}
+																							{BEGIN cellblock_grid_headcell_field4}
 {
-	cellId: 'headcell_field5',
+	cellId: 'headcell_field4',
 	col:0,
 	row:0,
 			fieldName: 'Program_Area',
@@ -473,7 +444,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Program_Area }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
+			{"text":"{$jslabel training_participants Program_Area }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -482,10 +453,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field5}
-																							{BEGIN cellblock_grid_headcell_field6}
+{END cellblock_grid_headcell_field4}
+																							{BEGIN cellblock_grid_headcell_field5}
 {
-	cellId: 'headcell_field6',
+	cellId: 'headcell_field5',
 	col:0,
 	row:0,
 			fieldName: 'Training_City_Town',
@@ -502,7 +473,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_City_Town }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
+			{"text":"{$jslabel training_participants Training_City_Town }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -511,10 +482,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field6}
-																							{BEGIN cellblock_grid_headcell_field7}
+{END cellblock_grid_headcell_field5}
+																							{BEGIN cellblock_grid_headcell_field6}
 {
-	cellId: 'headcell_field7',
+	cellId: 'headcell_field6',
 	col:0,
 	row:0,
 			fieldName: 'Training_Venue',
@@ -531,7 +502,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Venue }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
+			{"text":"{$jslabel training_participants Training_Venue }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -540,10 +511,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field7}
-																							{BEGIN cellblock_grid_headcell_field8}
+{END cellblock_grid_headcell_field6}
+																							{BEGIN cellblock_grid_headcell_field7}
 {
-	cellId: 'headcell_field8',
+	cellId: 'headcell_field7',
 	col:0,
 	row:0,
 			fieldName: 'Training_Start_Date',
@@ -560,7 +531,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Start_Date }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
+			{"text":"{$jslabel training_participants Training_Start_Date }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -569,10 +540,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field8}
-																							{BEGIN cellblock_grid_headcell_field9}
+{END cellblock_grid_headcell_field7}
+																							{BEGIN cellblock_grid_headcell_field8}
 {
-	cellId: 'headcell_field9',
+	cellId: 'headcell_field8',
 	col:0,
 	row:0,
 			fieldName: 'Training_End_Date',
@@ -589,7 +560,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_End_Date }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
+			{"text":"{$jslabel training_participants Training_End_Date }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -598,10 +569,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field9}
-																							{BEGIN cellblock_grid_headcell_field10}
+{END cellblock_grid_headcell_field8}
+																							{BEGIN cellblock_grid_headcell_field9}
 {
-	cellId: 'headcell_field10',
+	cellId: 'headcell_field9',
 	col:0,
 	row:0,
 			fieldName: 'First_Name',
@@ -618,7 +589,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants First_Name }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
+			{"text":"{$jslabel training_participants First_Name }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -627,10 +598,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field10}
-																							{BEGIN cellblock_grid_headcell_field11}
+{END cellblock_grid_headcell_field9}
+																							{BEGIN cellblock_grid_headcell_field10}
 {
-	cellId: 'headcell_field11',
+	cellId: 'headcell_field10',
 	col:0,
 	row:0,
 			fieldName: 'Middle_Name',
@@ -647,7 +618,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
+			{"text":"{$jslabel training_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -656,10 +627,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field11}
-																							{BEGIN cellblock_grid_headcell_field12}
+{END cellblock_grid_headcell_field10}
+																							{BEGIN cellblock_grid_headcell_field11}
 {
-	cellId: 'headcell_field12',
+	cellId: 'headcell_field11',
 	col:0,
 	row:0,
 			fieldName: 'Last_Name',
@@ -676,7 +647,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Last_Name }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
+			{"text":"{$jslabel training_participants Last_Name }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -685,10 +656,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field12}
-																							{BEGIN cellblock_grid_headcell_field13}
+{END cellblock_grid_headcell_field11}
+																							{BEGIN cellblock_grid_headcell_field12}
 {
-	cellId: 'headcell_field13',
+	cellId: 'headcell_field12',
 	col:0,
 	row:0,
 			fieldName: 'Sex',
@@ -705,7 +676,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Sex }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
+			{"text":"{$jslabel training_participants Sex }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -714,10 +685,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field13}
-																							{BEGIN cellblock_grid_headcell_field14}
+{END cellblock_grid_headcell_field12}
+																							{BEGIN cellblock_grid_headcell_field13}
 {
-	cellId: 'headcell_field14',
+	cellId: 'headcell_field13',
 	col:0,
 	row:0,
 			fieldName: 'Email',
@@ -734,7 +705,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Email }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
+			{"text":"{$jslabel training_participants Email }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -743,10 +714,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field14}
-																							{BEGIN cellblock_grid_headcell_field15}
+{END cellblock_grid_headcell_field13}
+																							{BEGIN cellblock_grid_headcell_field14}
 {
-	cellId: 'headcell_field15',
+	cellId: 'headcell_field14',
 	col:0,
 	row:0,
 			fieldName: 'Phone',
@@ -763,7 +734,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Phone }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
+			{"text":"{$jslabel training_participants Phone }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -772,10 +743,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field15}
-																							{BEGIN cellblock_grid_headcell_field16}
+{END cellblock_grid_headcell_field14}
+																							{BEGIN cellblock_grid_headcell_field15}
 {
-	cellId: 'headcell_field16',
+	cellId: 'headcell_field15',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Status',
@@ -792,7 +763,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -801,10 +772,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field16}
-																							{BEGIN cellblock_grid_headcell_field17}
+{END cellblock_grid_headcell_field15}
+																							{BEGIN cellblock_grid_headcell_field16}
 {
-	cellId: 'headcell_field17',
+	cellId: 'headcell_field16',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Type',
@@ -821,7 +792,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -830,10 +801,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field17}
-																							{BEGIN cellblock_grid_headcell_field18}
+{END cellblock_grid_headcell_field16}
+																							{BEGIN cellblock_grid_headcell_field17}
 {
-	cellId: 'headcell_field18',
+	cellId: 'headcell_field17',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Type_Other',
@@ -850,7 +821,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -859,10 +830,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field18}
-																							{BEGIN cellblock_grid_headcell_field19}
+{END cellblock_grid_headcell_field17}
+																							{BEGIN cellblock_grid_headcell_field18}
 {
-	cellId: 'headcell_field19',
+	cellId: 'headcell_field18',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Profession',
@@ -879,7 +850,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Profession }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Profession }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -888,10 +859,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field19}
-																							{BEGIN cellblock_grid_headcell_field20}
+{END cellblock_grid_headcell_field18}
+																							{BEGIN cellblock_grid_headcell_field19}
 {
-	cellId: 'headcell_field20',
+	cellId: 'headcell_field19',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Field_of_Study',
@@ -908,7 +879,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field48}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -917,10 +888,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field20}
-																							{BEGIN cellblock_grid_headcell_field21}
+{END cellblock_grid_headcell_field19}
+																							{BEGIN cellblock_grid_headcell_field20}
 {
-	cellId: 'headcell_field21',
+	cellId: 'headcell_field20',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Facility_Organization_Type',
@@ -937,7 +908,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Facility_Organization_Type }","hidden":"{$item_hide_simple_grid_field49}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Facility_Organization_Type }","hidden":"{$item_hide_simple_grid_field48}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -946,10 +917,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field21}
-																							{BEGIN cellblock_grid_headcell_field22}
+{END cellblock_grid_headcell_field20}
+																							{BEGIN cellblock_grid_headcell_field21}
 {
-	cellId: 'headcell_field22',
+	cellId: 'headcell_field21',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Organization_Name',
@@ -966,7 +937,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field50}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field49}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -975,10 +946,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field22}
-																							{BEGIN cellblock_grid_headcell_field23}
+{END cellblock_grid_headcell_field21}
+																							{BEGIN cellblock_grid_headcell_field22}
 {
-	cellId: 'headcell_field23',
+	cellId: 'headcell_field22',
 	col:0,
 	row:0,
 			fieldName: 'Participants_Home_Address',
@@ -995,7 +966,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participants_Home_Address }","hidden":"{$item_hide_simple_grid_field51}","bold":true},
+			{"text":"{$jslabel training_participants Participants_Home_Address }","hidden":"{$item_hide_simple_grid_field50}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1004,10 +975,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field23}
-																							{BEGIN cellblock_grid_headcell_field24}
+{END cellblock_grid_headcell_field22}
+																							{BEGIN cellblock_grid_headcell_field23}
 {
-	cellId: 'headcell_field24',
+	cellId: 'headcell_field23',
 	col:0,
 	row:0,
 			fieldName: 'PreTest_Score',
@@ -1024,7 +995,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants PreTest_Score }","hidden":"{$item_hide_simple_grid_field52}","bold":true},
+			{"text":"{$jslabel training_participants PreTest_Score }","hidden":"{$item_hide_simple_grid_field51}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1033,10 +1004,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field24}
-																							{BEGIN cellblock_grid_headcell_field25}
+{END cellblock_grid_headcell_field23}
+																							{BEGIN cellblock_grid_headcell_field24}
 {
-	cellId: 'headcell_field25',
+	cellId: 'headcell_field24',
 	col:0,
 	row:0,
 			fieldName: 'Skill_Test',
@@ -1053,7 +1024,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Skill_Test }","hidden":"{$item_hide_simple_grid_field53}","bold":true},
+			{"text":"{$jslabel training_participants Skill_Test }","hidden":"{$item_hide_simple_grid_field52}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1062,10 +1033,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field25}
-																							{BEGIN cellblock_grid_headcell_field26}
+{END cellblock_grid_headcell_field24}
+																							{BEGIN cellblock_grid_headcell_field25}
 {
-	cellId: 'headcell_field26',
+	cellId: 'headcell_field25',
 	col:0,
 	row:0,
 			fieldName: 'Post_Test_Score',
@@ -1082,7 +1053,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Post_Test_Score }","hidden":"{$item_hide_simple_grid_field54}","bold":true},
+			{"text":"{$jslabel training_participants Post_Test_Score }","hidden":"{$item_hide_simple_grid_field53}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1091,10 +1062,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field26}
-																							{BEGIN cellblock_grid_headcell_field27}
+{END cellblock_grid_headcell_field25}
+																							{BEGIN cellblock_grid_headcell_field26}
 {
-	cellId: 'headcell_field27',
+	cellId: 'headcell_field26',
 	col:0,
 	row:0,
 			fieldName: 'Training_Round',
@@ -1111,11 +1082,40 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Round }","hidden":"{$item_hide_simple_grid_field55}","bold":true},
+			{"text":"{$jslabel training_participants Training_Round }","hidden":"{$item_hide_simple_grid_field54}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": '{$Training_Round_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field26}
+																							{BEGIN cellblock_grid_headcell_field27}
+{
+	cellId: 'headcell_field27',
+	col:0,
+	row:0,
+			fieldName: 'CandidateID',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel training_participants CandidateID }","hidden":"{$item_hide_simple_grid_field55}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$CandidateID_align}',
      
       
       },
@@ -1164,35 +1164,6 @@ pdfDocument = {
 	cellId: 'cell_field1',
 	col:0,
 	row:0,
-			fieldName: 'CandidateID',
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"text": [
-		
-				
-			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$CandidateID_align}',
-     
-      
-      },
-
-{END cellblock_grid_cell_field1}
-																							{BEGIN cellblock_grid_cell_field2}
-{
-	cellId: 'cell_field2',
-	col:0,
-	row:0,
 			fieldName: 'StudentID',
 				style: 'bodycell',
 		
@@ -1216,10 +1187,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field2}
-																							{BEGIN cellblock_grid_cell_field3}
+{END cellblock_grid_cell_field1}
+																							{BEGIN cellblock_grid_cell_field2}
 {
-	cellId: 'cell_field3',
+	cellId: 'cell_field2',
 	col:0,
 	row:0,
 			fieldName: 'Training_Organizer',
@@ -1245,10 +1216,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field3}
-																							{BEGIN cellblock_grid_cell_field4}
+{END cellblock_grid_cell_field2}
+																							{BEGIN cellblock_grid_cell_field3}
 {
-	cellId: 'cell_field4',
+	cellId: 'cell_field3',
 	col:0,
 	row:0,
 			fieldName: 'Training_Type',
@@ -1274,10 +1245,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field4}
-																							{BEGIN cellblock_grid_cell_field5}
+{END cellblock_grid_cell_field3}
+																							{BEGIN cellblock_grid_cell_field4}
 {
-	cellId: 'cell_field5',
+	cellId: 'cell_field4',
 	col:0,
 	row:0,
 			fieldName: 'Program_Area',
@@ -1303,10 +1274,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field5}
-																							{BEGIN cellblock_grid_cell_field6}
+{END cellblock_grid_cell_field4}
+																							{BEGIN cellblock_grid_cell_field5}
 {
-	cellId: 'cell_field6',
+	cellId: 'cell_field5',
 	col:0,
 	row:0,
 			fieldName: 'Training_City_Town',
@@ -1332,10 +1303,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field6}
-																							{BEGIN cellblock_grid_cell_field7}
+{END cellblock_grid_cell_field5}
+																							{BEGIN cellblock_grid_cell_field6}
 {
-	cellId: 'cell_field7',
+	cellId: 'cell_field6',
 	col:0,
 	row:0,
 			fieldName: 'Training_Venue',
@@ -1361,10 +1332,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field7}
-																							{BEGIN cellblock_grid_cell_field8}
+{END cellblock_grid_cell_field6}
+																							{BEGIN cellblock_grid_cell_field7}
 {
-	cellId: 'cell_field8',
+	cellId: 'cell_field7',
 	col:0,
 	row:0,
 			fieldName: 'Training_Start_Date',
@@ -1390,10 +1361,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field8}
-																							{BEGIN cellblock_grid_cell_field9}
+{END cellblock_grid_cell_field7}
+																							{BEGIN cellblock_grid_cell_field8}
 {
-	cellId: 'cell_field9',
+	cellId: 'cell_field8',
 	col:0,
 	row:0,
 			fieldName: 'Training_End_Date',
@@ -1419,10 +1390,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field9}
-																							{BEGIN cellblock_grid_cell_field10}
+{END cellblock_grid_cell_field8}
+																							{BEGIN cellblock_grid_cell_field9}
 {
-	cellId: 'cell_field10',
+	cellId: 'cell_field9',
 	col:0,
 	row:0,
 			fieldName: 'First_Name',
@@ -1448,10 +1419,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field10}
-																							{BEGIN cellblock_grid_cell_field11}
+{END cellblock_grid_cell_field9}
+																							{BEGIN cellblock_grid_cell_field10}
 {
-	cellId: 'cell_field11',
+	cellId: 'cell_field10',
 	col:0,
 	row:0,
 			fieldName: 'Middle_Name',
@@ -1477,10 +1448,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field11}
-																							{BEGIN cellblock_grid_cell_field12}
+{END cellblock_grid_cell_field10}
+																							{BEGIN cellblock_grid_cell_field11}
 {
-	cellId: 'cell_field12',
+	cellId: 'cell_field11',
 	col:0,
 	row:0,
 			fieldName: 'Last_Name',
@@ -1506,10 +1477,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field12}
-																							{BEGIN cellblock_grid_cell_field13}
+{END cellblock_grid_cell_field11}
+																							{BEGIN cellblock_grid_cell_field12}
 {
-	cellId: 'cell_field13',
+	cellId: 'cell_field12',
 	col:0,
 	row:0,
 			fieldName: 'Sex',
@@ -1535,10 +1506,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field13}
-																							{BEGIN cellblock_grid_cell_field14}
+{END cellblock_grid_cell_field12}
+																							{BEGIN cellblock_grid_cell_field13}
 {
-	cellId: 'cell_field14',
+	cellId: 'cell_field13',
 	col:0,
 	row:0,
 			fieldName: 'Email',
@@ -1564,10 +1535,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field14}
-																							{BEGIN cellblock_grid_cell_field15}
+{END cellblock_grid_cell_field13}
+																							{BEGIN cellblock_grid_cell_field14}
 {
-	cellId: 'cell_field15',
+	cellId: 'cell_field14',
 	col:0,
 	row:0,
 			fieldName: 'Phone',
@@ -1593,10 +1564,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field15}
-																							{BEGIN cellblock_grid_cell_field16}
+{END cellblock_grid_cell_field14}
+																							{BEGIN cellblock_grid_cell_field15}
 {
-	cellId: 'cell_field16',
+	cellId: 'cell_field15',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Status',
@@ -1622,10 +1593,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field16}
-																							{BEGIN cellblock_grid_cell_field17}
+{END cellblock_grid_cell_field15}
+																							{BEGIN cellblock_grid_cell_field16}
 {
-	cellId: 'cell_field17',
+	cellId: 'cell_field16',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Type',
@@ -1651,10 +1622,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field17}
-																							{BEGIN cellblock_grid_cell_field18}
+{END cellblock_grid_cell_field16}
+																							{BEGIN cellblock_grid_cell_field17}
 {
-	cellId: 'cell_field18',
+	cellId: 'cell_field17',
 	col:0,
 	row:0,
 			fieldName: 'Disability_Type_Other',
@@ -1680,10 +1651,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field18}
-																							{BEGIN cellblock_grid_cell_field19}
+{END cellblock_grid_cell_field17}
+																							{BEGIN cellblock_grid_cell_field18}
 {
-	cellId: 'cell_field19',
+	cellId: 'cell_field18',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Profession',
@@ -1709,10 +1680,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field19}
-																							{BEGIN cellblock_grid_cell_field20}
+{END cellblock_grid_cell_field18}
+																							{BEGIN cellblock_grid_cell_field19}
 {
-	cellId: 'cell_field20',
+	cellId: 'cell_field19',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Field_of_Study',
@@ -1738,10 +1709,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field20}
-																							{BEGIN cellblock_grid_cell_field21}
+{END cellblock_grid_cell_field19}
+																							{BEGIN cellblock_grid_cell_field20}
 {
-	cellId: 'cell_field21',
+	cellId: 'cell_field20',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Facility_Organization_Type',
@@ -1767,10 +1738,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field21}
-																							{BEGIN cellblock_grid_cell_field22}
+{END cellblock_grid_cell_field20}
+																							{BEGIN cellblock_grid_cell_field21}
 {
-	cellId: 'cell_field22',
+	cellId: 'cell_field21',
 	col:0,
 	row:0,
 			fieldName: 'Participant_Organization_Name',
@@ -1796,10 +1767,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field22}
-																							{BEGIN cellblock_grid_cell_field23}
+{END cellblock_grid_cell_field21}
+																							{BEGIN cellblock_grid_cell_field22}
 {
-	cellId: 'cell_field23',
+	cellId: 'cell_field22',
 	col:0,
 	row:0,
 			fieldName: 'Participants_Home_Address',
@@ -1825,10 +1796,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field23}
-																							{BEGIN cellblock_grid_cell_field24}
+{END cellblock_grid_cell_field22}
+																							{BEGIN cellblock_grid_cell_field23}
 {
-	cellId: 'cell_field24',
+	cellId: 'cell_field23',
 	col:0,
 	row:0,
 			fieldName: 'PreTest_Score',
@@ -1854,10 +1825,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field24}
-																							{BEGIN cellblock_grid_cell_field25}
+{END cellblock_grid_cell_field23}
+																							{BEGIN cellblock_grid_cell_field24}
 {
-	cellId: 'cell_field25',
+	cellId: 'cell_field24',
 	col:0,
 	row:0,
 			fieldName: 'Skill_Test',
@@ -1883,10 +1854,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field25}
-																							{BEGIN cellblock_grid_cell_field26}
+{END cellblock_grid_cell_field24}
+																							{BEGIN cellblock_grid_cell_field25}
 {
-	cellId: 'cell_field26',
+	cellId: 'cell_field25',
 	col:0,
 	row:0,
 			fieldName: 'Post_Test_Score',
@@ -1912,10 +1883,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field26}
-																							{BEGIN cellblock_grid_cell_field27}
+{END cellblock_grid_cell_field25}
+																							{BEGIN cellblock_grid_cell_field26}
 {
-	cellId: 'cell_field27',
+	cellId: 'cell_field26',
 	col:0,
 	row:0,
 			fieldName: 'Training_Round',
@@ -1937,6 +1908,35 @@ pdfDocument = {
 		  ],
   "border": [ true, true, true, true ],
               "alignment": '{$Training_Round_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field26}
+																							{BEGIN cellblock_grid_cell_field27}
+{
+	cellId: 'cell_field27',
+	col:0,
+	row:0,
+			fieldName: 'CandidateID',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$CandidateID_align}',
      
       
       },

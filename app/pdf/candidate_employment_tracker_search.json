@@ -71,7 +71,55 @@ pdfDocument = {
 ,
 		
 								
-''
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+		
+		]
+	}
+}
 ,
 		
 								
@@ -118,46 +166,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
-				
-				
-			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
-				
-				
-			{"text":{$Referral_from_Dereja_service_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
-				
-				
-			{"text":{$Company_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
-				
-				
-			{"text":{$Company_Phone_Number_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
-				
-				
-			{"text":{$Sector_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
-				
-				
-			{"text":{$Job_Position_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
-				
-				
-			{"text":{$Job_Type_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
-				
-				
-			{"text":{$Job_Placement_Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
-				
-				
-			{"text":{$Employment_End_Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
-				
-				
-			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field10}"},
-				
-				
-			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field11}"},
-				
-				
-			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field12}"},
-				
-				
-			{"text":{$CurrentEmploymentStatus_pdfvalue},"hidden":"{$item_hide_integrated_search_field13}"},
+			{"text":{$JobID_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 		  ],
   "border": [ false, false, false, false ],

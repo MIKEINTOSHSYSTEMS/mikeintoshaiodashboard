@@ -278,6 +278,13 @@
 
  
 	 
+												{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}	
+				 
+	 
 												<table 
 	data-body-align="left"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" 
@@ -288,7 +295,7 @@
 		data-v-width="4"
 	>
 	<tbody>
-										<tr {$row_grid_0} >
+										<tr {$row_grid_1} >
 										
 
 {BEGIN cellblock_grid_c3}
@@ -1180,7 +1187,7 @@
 								</tr>
 	 
 	 
-														<tr {$row_grid_1} >
+														<tr {$row_grid_2} >
 										
 
 {BEGIN cellblock_grid_c2}
@@ -1952,7 +1959,7 @@
 								</tr>
 	 
 	 
-														<tr {$row_grid_2} >
+														<tr {$row_grid_3} >
 										
 
 {BEGIN cellblock_grid_c1}
@@ -2435,7 +2442,7 @@
 								</tr>
 	 
 	 
-														<tr {$row_grid_3} >
+														<tr {$row_grid_4} >
 										
 
 {BEGIN cellblock_grid_c4}

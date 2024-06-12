@@ -320,7 +320,7 @@ $tdatacandidates[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates[".ajaxCodeSnippetAdded"] = false;
 
@@ -332,7 +332,7 @@ $tdatacandidates[".addPageEvents"] = false;
 $tdatacandidates[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidates[".badgeColor"] = "D2AF80";
+$tdatacandidates[".badgeColor"] = "d2af80";
 
 
 $tdatacandidates[".allSearchFields"] = array();
@@ -9511,7 +9511,9 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
@@ -10722,6 +10724,24 @@ $masterTablesData["candidates"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="Companies";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Companies";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "companies";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["candidates"][0] = $masterParams;
+				$masterTablesData["candidates"][0]["masterKeys"] = array();
+	$masterTablesData["candidates"][0]["masterKeys"][]="CompanyID";
+				$masterTablesData["candidates"][0]["detailKeys"] = array();
+	$masterTablesData["candidates"][0]["detailKeys"][]="CandidateID";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
