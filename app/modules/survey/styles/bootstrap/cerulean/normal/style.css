@@ -4563,7 +4563,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #dc3545;
+  background-color: #FF851B;
   border-color: #cc2334;
 }
 .navbar-default .navbar-brand {
@@ -6823,9 +6823,9 @@ button.close {
   }
 }
 .navbar-default {
-  background-image: -webkit-linear-gradient(#e25865, #dc3545 60%, #d72536);
-  background-image: -o-linear-gradient(#e25865, #dc3545 60%, #d72536);
-  background-image: linear-gradient(#e25865, #dc3545 60%, #d72536);
+  background-image: -webkit-linear-gradient(#e25865, #FF851B 60%, #d72536);
+  background-image: -o-linear-gradient(#e25865, #FF851B 60%, #d72536);
+  background-image: linear-gradient(#e25865, #FF851B 60%, #d72536);
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe25865', endColorstr='#ffd72536', GradientType=0);
   border-bottom: 1px solid #bd2130;
@@ -6835,7 +6835,7 @@ button.close {
 }
 .navbar-default .badge {
   background-color: #fff;
-  color: #dc3545;
+  color: #FF851B; /*#dc3545/ MIKEINTOSH SYSTEMS*/
 }
 .navbar-inverse {
   background-image: -webkit-linear-gradient(#04519b, #044687 60%, #033769);
@@ -8036,7 +8036,7 @@ table.indenttables > * > .rightsindent5 > td.rightscell.rightscell.rightscell.ri
 }
 @media screen and (max-width: 767px) {
   .r-leftbar-top-page [data-logo-cell] {
-    background: #dc3545;
+    background: #FF851B;
   }
   .r-leftbar-top-page [data-logo-cell] > .navbar-header {
     display: block;
@@ -8184,7 +8184,7 @@ table.indenttables > * > .rightsindent5 > td.rightscell.rightscell.rightscell.ri
   position: relative;
   left: -8px;
   top: -8px;
-  background-color: #dc3545;
+  background-color: #FF851B;
   color: white;
 }
 [data-itemtype="notifications"].open > .dropdown-menu {
@@ -8256,7 +8256,7 @@ table.indenttables > * > .rightsindent5 > td.rightscell.rightscell.rightscell.ri
 }
 [data-itemtype="notifications"] .r-noti-new {
   flex: 0 0 auto;
-  color: #dc3545;
+  color: #FF851B;
   align-self: center;
 }
 [data-itemtype="notifications"] .r-noti-close {
@@ -9486,9 +9486,9 @@ td.bs-details-opened.bs-details-opened.bs-details-opened {
   color: rgba(255, 255, 255, 0.75);
 }
 .navbar.navbar-default {
-  background-image: -webkit-linear-gradient(#e25865, #dc3545 60%, #d72536);
-  background-image: -o-linear-gradient(#e25865, #dc3545 60%, #d72536);
-  background-image: linear-gradient(#e25865, #dc3545 60%, #d72536);
+  background-image: -webkit-linear-gradient(#e25865, #FF851B 60%, #d72536);
+  background-image: -o-linear-gradient(#e25865, #FF851B 60%, #d72536);
+  background-image: linear-gradient(#e25865, #FF851B 60%, #d72536);
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe25865', endColorstr='#ffd72536', GradientType=0);
 }
