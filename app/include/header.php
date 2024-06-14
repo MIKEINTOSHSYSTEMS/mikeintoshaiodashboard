@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--DESIGNED AND DEVELOPED BY MICHAEL KIFLE TEFERRA | AKA | MIKEINTOSH SYSTEMS-->
+    <!-- DESIGNED AND DEVELOPED BY MICHAEL KIFLE TEFERRA | AKA | MIKEINTOSH SYSTEMS -->
     <link rel="manifest" href="manifest.json">
     <style>
      /* Dark mode styles */
@@ -153,7 +153,7 @@
 
 /* Move the moon icon to the right */
 .toggle-icon.moon {
-    right: 4px;
+    right: 20px;
     transform: translateY(-50%) translateX(100%);
 }
 
@@ -177,7 +177,7 @@
     <div class="switch-container">
         <input type="checkbox" id="dark-mode-toggle" class="switch" />
         <label for="dark-mode-toggle" class="switch-label">
-            <span class="toggle-icon sun">🌞</span>
+            <span class="toggle-icon sun"></span><!--<span class="toggle-icon sun">🌞</span> LIGHT MODE-->
             <span class="toggle-icon moon">🌜</span>
         </label>
     </div>
