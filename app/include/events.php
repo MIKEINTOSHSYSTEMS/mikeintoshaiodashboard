@@ -41,6 +41,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["utilities_snippet2"] = true;
 		$this->events["utilities_snippet3"] = true;
 		$this->events["utilities_snippet4"] = true;
+		$this->events["survey_form_lists"] = true;
 
 
 
@@ -234,6 +235,22 @@ you to the file.
 	function event_utilities_snippet4(&$params)
 	{
 	echo '<IFRAME SRC="./modules/survey/login.php" WIDTH=100% HEIGHT=900px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_survey_form_lists(&$params)
+	{
+	echo '<IFRAME SRC="./modules/survey/lists/index.php" WIDTH=100% HEIGHT=3000px>
 
 If you can see this, your browser does not
 

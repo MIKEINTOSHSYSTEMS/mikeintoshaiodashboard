@@ -1110,6 +1110,9 @@ pdfDocument = {
 				
 			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item78}"},
 				
+				
+			{"text":"","background":"#778899","hidden":"{$item_hide_welcome_item80}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
@@ -1145,10 +1148,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","background":"#778899","hidden":"{$item_hide_welcome_item80}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
