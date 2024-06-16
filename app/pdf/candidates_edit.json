@@ -2594,10 +2594,12 @@ pdfDocument = {
 	
 			"stack": [
 		
-				'',
-	  ],
+				
+			{"hidden":"{$item_hide_integrated_edit_field63}","stack":[{"text":"{$jslabel candidates Date }","bold":true},{"text":{$Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'right',
      
       
       },

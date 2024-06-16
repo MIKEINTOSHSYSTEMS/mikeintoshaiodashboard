@@ -10414,6 +10414,7 @@ $proto121["m_columns"][] = "Career_Level_Of_Payment";
 $proto121["m_columns"][] = "Placement_Type";
 $proto121["m_columns"][] = "Placement_Duration";
 $proto121["m_columns"][] = "Remark";
+$proto121["m_columns"][] = "Date";
 $obj = new SQLTable($proto121);
 
 $proto120["m_table"] = $obj;

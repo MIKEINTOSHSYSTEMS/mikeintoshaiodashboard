@@ -1124,6 +1124,7 @@ $proto18["m_columns"][] = "Career_Level_Of_Payment";
 $proto18["m_columns"][] = "Placement_Type";
 $proto18["m_columns"][] = "Placement_Duration";
 $proto18["m_columns"][] = "Remark";
+$proto18["m_columns"][] = "Date";
 $obj = new SQLTable($proto18);
 
 $proto17["m_table"] = $obj;

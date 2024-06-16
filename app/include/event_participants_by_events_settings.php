@@ -3601,6 +3601,7 @@ $proto45["m_columns"][] = "Participant_Field_of_Study";
 $proto45["m_columns"][] = "Participant_Organization_Type";
 $proto45["m_columns"][] = "Participant_Organization_Name";
 $proto45["m_columns"][] = "Participant_Home_Address";
+$proto45["m_columns"][] = "Date";
 $obj = new SQLTable($proto45);
 
 $proto44["m_table"] = $obj;

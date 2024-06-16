@@ -132,6 +132,12 @@ pdfDocument = {
 												{BEGIN col_grid_1}
 						"*", 
 							{END col_grid_1}
+												{BEGIN col_grid_2}
+						"*", 
+							{END col_grid_2}
+												{BEGIN col_grid_3}
+						"*", 
+							{END col_grid_3}
 					 ],	
 		
 			heights: [
@@ -174,6 +180,11 @@ pdfDocument = {
 						
 			"%",
 						{END row_grid_7}
+			 
+								{BEGIN row_grid_8}
+						
+			"%",
+						{END row_grid_8}
 			 
 				],
 	
@@ -219,6 +230,18 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c',
+				row:  0,
+				col:  3,
+				text: ''
+			},
 							],
 				{END row_grid_0}
 						{BEGIN row_grid_1}
@@ -232,6 +255,9 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
+					{BEGIN colspan_grid_c3}
+			colSpan: {$colspan_grid_c3},
+			{END colspan_grid_c3}
 		
 						
 	
@@ -663,7 +689,19 @@ pdfDocument = {
       },
 
 {END cellblock_grid_c3}
-																							{BEGIN cellblock_grid_c6}
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c3',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c6}
 {
 	cellId: 'c6',
 	col:0,
@@ -962,6 +1000,9 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
+					{BEGIN colspan_grid_c2}
+			colSpan: {$colspan_grid_c2},
+			{END colspan_grid_c2}
 		
 						
 	
@@ -1333,7 +1374,19 @@ pdfDocument = {
       },
 
 {END cellblock_grid_c2}
-																							{BEGIN cellblock_grid_c5}
+																		{ 
+				cellId: 'c2',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c2',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c5}
 {
 	cellId: 'c5',
 	col:0,
@@ -1577,6 +1630,9 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
+					{BEGIN colspan_grid_c1}
+			colSpan: {$colspan_grid_c1},
+			{END colspan_grid_c1}
 		
 						
 	
@@ -1699,7 +1755,19 @@ pdfDocument = {
       },
 
 {END cellblock_grid_c1}
-																							{BEGIN cellblock_grid_c15}
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c1',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c15}
 {
 	cellId: 'c15',
 	col:0,
@@ -1843,6 +1911,9 @@ pdfDocument = {
 		
 	//	dynamic colspan/rowspan
 
+					{BEGIN colspan_grid_c4}
+			colSpan: {$colspan_grid_c4},
+			{END colspan_grid_c4}
 		
 						
 	
@@ -1950,7 +2021,19 @@ pdfDocument = {
       },
 
 {END cellblock_grid_c4}
-																							{BEGIN cellblock_grid_c16}
+																		{ 
+				cellId: 'c4',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c4',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+																			{BEGIN cellblock_grid_c16}
 {
 	cellId: 'c16',
 	col:0,
@@ -2306,6 +2389,18 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c22',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c22',
+				row:  0,
+				col:  3,
+				text: ''
+			},
 							],
 				{END row_grid_5}
 						{BEGIN row_grid_6}
@@ -2467,6 +2562,18 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c23',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c23',
+				row:  0,
+				col:  3,
+				text: ''
+			},
 							],
 				{END row_grid_6}
 						{BEGIN row_grid_7}
@@ -2566,8 +2673,126 @@ pdfDocument = {
 				col:  1,
 				text: ''
 			},
+														{ 
+				cellId: 'c18',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c18',
+				row:  0,
+				col:  3,
+				text: ''
+			},
 							],
 				{END row_grid_7}
+						{BEGIN row_grid_8}
+				[
+																{BEGIN cellblock_grid_c7}
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c7}
+																							{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+																							{BEGIN cellblock_grid_c9}
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c9}
+																							{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field63}","stack":[{"text":"{$jslabel candidates Date }","bold":true},{"text":{$Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+											],
+				{END row_grid_8}
 		
 		]
 	}

@@ -148,6 +148,9 @@ pdfDocument = {
 										{BEGIN col_grid_27}
 					"%",
 					{END col_grid_27}
+										{BEGIN col_grid_28}
+					"%",
+					{END col_grid_28}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -328,7 +331,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants TrainingID }","hidden":"{$item_hide_simple_grid_field28}","bold":true},
+			{"text":"{$jslabel training_participants TrainingID }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -357,7 +360,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants StudentID }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
+			{"text":"{$jslabel training_participants StudentID }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -386,7 +389,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Organizer }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
+			{"text":"{$jslabel training_participants Training_Organizer }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -415,7 +418,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Type }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
+			{"text":"{$jslabel training_participants Training_Type }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -444,7 +447,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Program_Area }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
+			{"text":"{$jslabel training_participants Program_Area }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -473,7 +476,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_City_Town }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
+			{"text":"{$jslabel training_participants Training_City_Town }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -502,7 +505,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Venue }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
+			{"text":"{$jslabel training_participants Training_Venue }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -531,7 +534,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Start_Date }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
+			{"text":"{$jslabel training_participants Training_Start_Date }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -560,7 +563,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_End_Date }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
+			{"text":"{$jslabel training_participants Training_End_Date }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -589,7 +592,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants First_Name }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
+			{"text":"{$jslabel training_participants First_Name }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -618,7 +621,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
+			{"text":"{$jslabel training_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -647,7 +650,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Last_Name }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
+			{"text":"{$jslabel training_participants Last_Name }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -676,7 +679,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Sex }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
+			{"text":"{$jslabel training_participants Sex }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -705,7 +708,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Email }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
+			{"text":"{$jslabel training_participants Email }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -734,7 +737,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Phone }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
+			{"text":"{$jslabel training_participants Phone }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -763,7 +766,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -792,7 +795,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -821,7 +824,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
+			{"text":"{$jslabel training_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -850,7 +853,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Profession }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Profession }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -879,7 +882,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field48}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -908,7 +911,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Facility_Organization_Type }","hidden":"{$item_hide_simple_grid_field48}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Facility_Organization_Type }","hidden":"{$item_hide_simple_grid_field49}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -937,7 +940,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field49}","bold":true},
+			{"text":"{$jslabel training_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field50}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -966,7 +969,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Participants_Home_Address }","hidden":"{$item_hide_simple_grid_field50}","bold":true},
+			{"text":"{$jslabel training_participants Participants_Home_Address }","hidden":"{$item_hide_simple_grid_field51}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -995,7 +998,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants PreTest_Score }","hidden":"{$item_hide_simple_grid_field51}","bold":true},
+			{"text":"{$jslabel training_participants PreTest_Score }","hidden":"{$item_hide_simple_grid_field52}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1024,7 +1027,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Skill_Test }","hidden":"{$item_hide_simple_grid_field52}","bold":true},
+			{"text":"{$jslabel training_participants Skill_Test }","hidden":"{$item_hide_simple_grid_field53}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1053,7 +1056,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Post_Test_Score }","hidden":"{$item_hide_simple_grid_field53}","bold":true},
+			{"text":"{$jslabel training_participants Post_Test_Score }","hidden":"{$item_hide_simple_grid_field54}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1082,7 +1085,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants Training_Round }","hidden":"{$item_hide_simple_grid_field54}","bold":true},
+			{"text":"{$jslabel training_participants Training_Round }","hidden":"{$item_hide_simple_grid_field55}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1111,7 +1114,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel training_participants CandidateID }","hidden":"{$item_hide_simple_grid_field55}","bold":true},
+			{"text":"{$jslabel training_participants CandidateID }","hidden":"{$item_hide_simple_grid_field56}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1121,6 +1124,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_field27}
+																							{BEGIN cellblock_grid_headcell_field28}
+{
+	cellId: 'headcell_field28',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel training_participants Date }","hidden":"{$item_hide_simple_grid_field57}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field28}
 											],
 				{END row_grid_0}
 		
@@ -1942,6 +1974,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_field27}
+																							{BEGIN cellblock_grid_cell_field28}
+{
+	cellId: 'cell_field28',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_simple_grid_field28}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field28}
 											],
 				{END row_grid_1}
 		
@@ -2679,6 +2740,32 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field27}
+																							{BEGIN cellblock_grid_footcell_field28}
+{
+	cellId: 'footcell_field28',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field28}
 											],
 				{END row_grid_2}
 		

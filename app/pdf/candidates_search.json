@@ -315,6 +315,9 @@ pdfDocument = {
 				
 			{"text":{$Placement_Duration_pdfvalue},"hidden":"{$item_hide_integrated_search_field65}"},
 				
+				
+			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field66}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

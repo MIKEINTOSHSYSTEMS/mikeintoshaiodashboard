@@ -139,6 +139,9 @@ pdfDocument = {
 										{BEGIN col_grid_24}
 					"%",
 					{END col_grid_24}
+										{BEGIN col_grid_25}
+					"%",
+					{END col_grid_25}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -384,7 +387,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants EventID }","hidden":"{$item_hide_simple_grid_field23}","bold":true},
+			{"text":"{$jslabel event_participants EventID }","hidden":"{$item_hide_simple_grid_field24}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -413,7 +416,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_Round }","hidden":"{$item_hide_simple_grid_field24}","bold":true},
+			{"text":"{$jslabel event_participants Event_Round }","hidden":"{$item_hide_simple_grid_field25}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -442,7 +445,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants CandidateID }","hidden":"{$item_hide_simple_grid_field25}","bold":true},
+			{"text":"{$jslabel event_participants CandidateID }","hidden":"{$item_hide_simple_grid_field26}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -471,7 +474,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_Start_Date }","hidden":"{$item_hide_simple_grid_field26}","bold":true},
+			{"text":"{$jslabel event_participants Event_Start_Date }","hidden":"{$item_hide_simple_grid_field27}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -500,7 +503,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_End_Date }","hidden":"{$item_hide_simple_grid_field27}","bold":true},
+			{"text":"{$jslabel event_participants Event_End_Date }","hidden":"{$item_hide_simple_grid_field28}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -529,7 +532,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants First_Name }","hidden":"{$item_hide_simple_grid_field28}","bold":true},
+			{"text":"{$jslabel event_participants First_Name }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -558,7 +561,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field29}","bold":true},
+			{"text":"{$jslabel event_participants Middle_Name }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -587,7 +590,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Last_Name }","hidden":"{$item_hide_simple_grid_field30}","bold":true},
+			{"text":"{$jslabel event_participants Last_Name }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -616,7 +619,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Phone }","hidden":"{$item_hide_simple_grid_field31}","bold":true},
+			{"text":"{$jslabel event_participants Phone }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -645,7 +648,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Email }","hidden":"{$item_hide_simple_grid_field32}","bold":true},
+			{"text":"{$jslabel event_participants Email }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -674,7 +677,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants StudentID }","hidden":"{$item_hide_simple_grid_field33}","bold":true},
+			{"text":"{$jslabel event_participants StudentID }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -703,7 +706,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Sex }","hidden":"{$item_hide_simple_grid_field34}","bold":true},
+			{"text":"{$jslabel event_participants Sex }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -732,7 +735,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field35}","bold":true},
+			{"text":"{$jslabel event_participants Disability_Status }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -761,7 +764,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field36}","bold":true},
+			{"text":"{$jslabel event_participants Disability_Type }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -790,7 +793,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field37}","bold":true},
+			{"text":"{$jslabel event_participants Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -819,7 +822,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Participant_Type }","hidden":"{$item_hide_simple_grid_field38}","bold":true},
+			{"text":"{$jslabel event_participants Participant_Type }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -848,7 +851,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field39}","bold":true},
+			{"text":"{$jslabel event_participants Participant_Field_of_Study }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -877,7 +880,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Participant_Organization_Type }","hidden":"{$item_hide_simple_grid_field40}","bold":true},
+			{"text":"{$jslabel event_participants Participant_Organization_Type }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -906,7 +909,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field41}","bold":true},
+			{"text":"{$jslabel event_participants Participant_Organization_Name }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -935,7 +938,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Participant_Home_Address }","hidden":"{$item_hide_simple_grid_field42}","bold":true},
+			{"text":"{$jslabel event_participants Participant_Home_Address }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -964,7 +967,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_Organizer }","hidden":"{$item_hide_simple_grid_field43}","bold":true},
+			{"text":"{$jslabel event_participants Event_Organizer }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -993,7 +996,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_Location }","hidden":"{$item_hide_simple_grid_field44}","bold":true},
+			{"text":"{$jslabel event_participants Event_Location }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1022,7 +1025,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel event_participants Event_Note }","hidden":"{$item_hide_simple_grid_field45}","bold":true},
+			{"text":"{$jslabel event_participants Event_Note }","hidden":"{$item_hide_simple_grid_field46}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1032,6 +1035,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_field22}
+																							{BEGIN cellblock_grid_headcell_field23}
+{
+	cellId: 'headcell_field23',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel event_participants Date }","hidden":"{$item_hide_simple_grid_field47}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field23}
 											],
 				{END row_grid_0}
 		
@@ -1776,6 +1808,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_field22}
+																							{BEGIN cellblock_grid_cell_field23}
+{
+	cellId: 'cell_field23',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_simple_grid_field23}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field23}
 											],
 				{END row_grid_1}
 		
@@ -2435,6 +2496,32 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field22}
+																							{BEGIN cellblock_grid_footcell_field23}
+{
+	cellId: 'footcell_field23',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field23}
 											],
 				{END row_grid_2}
 		

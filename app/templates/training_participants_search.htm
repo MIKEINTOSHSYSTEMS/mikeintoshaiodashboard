@@ -58,7 +58,7 @@
          
 
 			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
-				{$menu main}			</div>
+				{$menu DerejaMenuSet}			</div>
 		
     {END left_block}
 </div>				</div>
@@ -279,7 +279,6 @@
 	{$cell_grid_c3}
 	class=" r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
 			data-cellId="grid_c3" data-pageid="{$pageid}"
@@ -309,6 +308,28 @@
 </div>
 
 {END Training_Round_fieldblock}
+											
+{BEGIN Date_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Date}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="Date{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="Date" data-fieldname="Date" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Date}">
+		{$label training_participants Date }	</label>
+	<div class="r-search-option">
+		{$searchtype_Date}
+	</div>
+	<div class="r-search-field">
+		{$Date_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Date_editcontrol1}
+	</div>
+	
+</div>
+
+{END Date_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

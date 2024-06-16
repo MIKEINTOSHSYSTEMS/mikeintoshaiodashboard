@@ -23,6 +23,7 @@ $dalTableevent_participants["Participant_Field_of_Study"] = array("type"=>200,"v
 $dalTableevent_participants["Participant_Organization_Type"] = array("type"=>200,"varname"=>"Participant_Organization_Type", "name" => "Participant_Organization_Type", "autoInc" => "0");
 $dalTableevent_participants["Participant_Organization_Name"] = array("type"=>200,"varname"=>"Participant_Organization_Name", "name" => "Participant_Organization_Name", "autoInc" => "0");
 $dalTableevent_participants["Participant_Home_Address"] = array("type"=>200,"varname"=>"Participant_Home_Address", "name" => "Participant_Home_Address", "autoInc" => "0");
+$dalTableevent_participants["Date"] = array("type"=>7,"varname"=>"Date", "name" => "Date", "autoInc" => "0");
 $dalTableevent_participants["EventID"]["key"]=true;
 $dalTableevent_participants["CandidateID"]["key"]=true;
 

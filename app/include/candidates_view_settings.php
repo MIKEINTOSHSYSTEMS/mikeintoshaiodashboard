@@ -217,6 +217,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelscandidates_view["English"]["Placement_Duration"] = "Placement Duration";
 	$fieldToolTipscandidates_view["English"]["Placement_Duration"] = "";
 	$placeHolderscandidates_view["English"]["Placement_Duration"] = "";
+	$fieldLabelscandidates_view["English"]["Date"] = "Date";
+	$fieldToolTipscandidates_view["English"]["Date"] = "";
+	$placeHolderscandidates_view["English"]["Date"] = "";
 	if (count($fieldToolTipscandidates_view["English"]))
 		$tdatacandidates_view[".isUseToolTips"] = true;
 }
@@ -398,6 +401,7 @@ $tdatacandidates_view[".googleLikeFields"][] = "Career_Level_Of_Payment";
 $tdatacandidates_view[".googleLikeFields"][] = "Placement_Type";
 $tdatacandidates_view[".googleLikeFields"][] = "Placement_Duration";
 $tdatacandidates_view[".googleLikeFields"][] = "Remark";
+$tdatacandidates_view[".googleLikeFields"][] = "Date";
 
 
 
@@ -437,7 +441,7 @@ $tdatacandidates_view[".strOrderBy"] = $tstrOrderBy;
 $tdatacandidates_view[".orderindexes"] = array();
 
 
-$tdatacandidates_view[".sqlHead"] = "SELECT CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	Woreda,  	Kebele,  	House_No,  	Phone_Number,  	Phone_Number_Alternate,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Institution_Name,  	Education_Level,  	Department,  	Minor,  	Major,  	Enrollement_Type,  	Skills,  	Languages,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Intervention,  	Campaign,  	Attend_Employability_Skill,  	`DAAP_enrolled_1st Round`,  	DAAP_Completed,  	DAAP_Completed_Courses,  	Job_Fair_Clinic,  	Job_Fair,  	Exit_Exam_Score,  	Exit_Exam_Status,  	DAAP_enrolled_2nd_Round,  	Upload_on_Tracker,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source,  	Employment_Status,  	Employment_Company,  	Employer_Sector,  	Employment_Position,  	Salary,  	Career_Level_Of_Payment,  	Placement_Type,  	Placement_Duration,  	Remark";
+$tdatacandidates_view[".sqlHead"] = "SELECT CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	Woreda,  	Kebele,  	House_No,  	Phone_Number,  	Phone_Number_Alternate,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Institution_Name,  	Education_Level,  	Department,  	Minor,  	Major,  	Enrollement_Type,  	Skills,  	Languages,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Intervention,  	Campaign,  	Attend_Employability_Skill,  	`DAAP_enrolled_1st Round`,  	DAAP_Completed,  	DAAP_Completed_Courses,  	Job_Fair_Clinic,  	Job_Fair,  	Exit_Exam_Score,  	Exit_Exam_Status,  	DAAP_enrolled_2nd_Round,  	Upload_on_Tracker,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source,  	Employment_Status,  	Employment_Company,  	Employer_Sector,  	Employment_Position,  	Salary,  	Career_Level_Of_Payment,  	Placement_Type,  	Placement_Duration,  	Remark,  	`Date`";
 $tdatacandidates_view[".sqlFrom"] = "FROM candidates";
 $tdatacandidates_view[".sqlWhereExpr"] = "";
 $tdatacandidates_view[".sqlTail"] = "";
@@ -9996,6 +10000,144 @@ $tdatacandidates_view[".hideMobileList"] = array();
 
 	$tdatacandidates_view["Remark"] = $fdata;
 		$tdatacandidates_view[".searchableFields"][] = "Remark";
+//	Date
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 65;
+	$fdata["strName"] = "Date";
+	$fdata["GoodName"] = "Date";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("candidates_view","Date");
+	$fdata["FieldType"] = 7;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Date";
+
+		$fdata["sourceSingle"] = "Date";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "`Date`";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["report"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+	
+	
+	
+	
+	$fdata["EditFormats"]["search"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidates_view["Date"] = $fdata;
+		$tdatacandidates_view[".searchableFields"][] = "Date";
 
 
 $tables_data["candidates_view"]=&$tdatacandidates_view;
@@ -10130,7 +10272,7 @@ function createSqlQuery_candidates_view()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	Woreda,  	Kebele,  	House_No,  	Phone_Number,  	Phone_Number_Alternate,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Institution_Name,  	Education_Level,  	Department,  	Minor,  	Major,  	Enrollement_Type,  	Skills,  	Languages,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Intervention,  	Campaign,  	Attend_Employability_Skill,  	`DAAP_enrolled_1st Round`,  	DAAP_Completed,  	DAAP_Completed_Courses,  	Job_Fair_Clinic,  	Job_Fair,  	Exit_Exam_Score,  	Exit_Exam_Status,  	DAAP_enrolled_2nd_Round,  	Upload_on_Tracker,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source,  	Employment_Status,  	Employment_Company,  	Employer_Sector,  	Employment_Position,  	Salary,  	Career_Level_Of_Payment,  	Placement_Type,  	Placement_Duration,  	Remark";
+$proto0["m_strFieldList"] = "CandidateID,  	StudentID,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	DOB,  	Region,  	City,  	Sub_City,  	`Zone`,  	Woreda,  	Kebele,  	House_No,  	Phone_Number,  	Phone_Number_Alternate,  	Email_Address,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Institution_Type,  	Institution_Name,  	Education_Level,  	Department,  	Minor,  	Major,  	Enrollement_Type,  	Skills,  	Languages,  	English_Proficiency_Level,  	Industry_Specific_Skills,  	IT_Related_Skills,  	Certifications,  	Year_of_graduation,  	Field_Of_Study,  	GPA,  	Intervention,  	Campaign,  	Attend_Employability_Skill,  	`DAAP_enrolled_1st Round`,  	DAAP_Completed,  	DAAP_Completed_Courses,  	Job_Fair_Clinic,  	Job_Fair,  	Exit_Exam_Score,  	Exit_Exam_Status,  	DAAP_enrolled_2nd_Round,  	Upload_on_Tracker,  	Work_Experience,  	Joined_Dereja_Services,  	Dereja_Services,  	Dereja_Training_Services,  	Dereja_Event_Services,  	Dereja_web_profile_completion,  	Dereja_Information_Source,  	Employment_Status,  	Employment_Company,  	Employer_Sector,  	Employment_Position,  	Salary,  	Career_Level_Of_Payment,  	Placement_Type,  	Placement_Duration,  	Remark,  	`Date`";
 $proto0["m_strFrom"] = "FROM candidates";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -11066,100 +11208,115 @@ $proto132["m_alias"] = "";
 $obj = new SQLFieldListItem($proto132);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto134=array();
-$proto134["m_link"] = "SQLL_MAIN";
-			$proto135=array();
-$proto135["m_strName"] = "candidates";
-$proto135["m_srcTableName"] = "candidates_view";
-$proto135["m_columns"] = array();
-$proto135["m_columns"][] = "CandidateID";
-$proto135["m_columns"][] = "StudentID";
-$proto135["m_columns"][] = "First_Name";
-$proto135["m_columns"][] = "Middle_Name";
-$proto135["m_columns"][] = "Last_Name";
-$proto135["m_columns"][] = "Sex";
-$proto135["m_columns"][] = "DOB";
-$proto135["m_columns"][] = "Region";
-$proto135["m_columns"][] = "City";
-$proto135["m_columns"][] = "Sub_City";
-$proto135["m_columns"][] = "Zone";
-$proto135["m_columns"][] = "Woreda";
-$proto135["m_columns"][] = "Kebele";
-$proto135["m_columns"][] = "House_No";
-$proto135["m_columns"][] = "Phone_Number";
-$proto135["m_columns"][] = "Phone_Number_Alternate";
-$proto135["m_columns"][] = "Email_Address";
-$proto135["m_columns"][] = "Disability_Status";
-$proto135["m_columns"][] = "Disability_Type";
-$proto135["m_columns"][] = "Disability_Type_Other";
-$proto135["m_columns"][] = "Institution_Type";
-$proto135["m_columns"][] = "Institution_Name";
-$proto135["m_columns"][] = "Education_Level";
-$proto135["m_columns"][] = "Department";
-$proto135["m_columns"][] = "Minor";
-$proto135["m_columns"][] = "Major";
-$proto135["m_columns"][] = "Enrollement_Type";
-$proto135["m_columns"][] = "Skills";
-$proto135["m_columns"][] = "Languages";
-$proto135["m_columns"][] = "English_Proficiency_Level";
-$proto135["m_columns"][] = "Industry_Specific_Skills";
-$proto135["m_columns"][] = "IT_Related_Skills";
-$proto135["m_columns"][] = "Certifications";
-$proto135["m_columns"][] = "Year_of_graduation";
-$proto135["m_columns"][] = "Field_Of_Study";
-$proto135["m_columns"][] = "GPA";
-$proto135["m_columns"][] = "Intervention";
-$proto135["m_columns"][] = "Campaign";
-$proto135["m_columns"][] = "Attend_Employability_Skill";
-$proto135["m_columns"][] = "DAAP_enrolled_1st Round";
-$proto135["m_columns"][] = "DAAP_Completed";
-$proto135["m_columns"][] = "DAAP_Completed_Courses";
-$proto135["m_columns"][] = "Job_Fair_Clinic";
-$proto135["m_columns"][] = "Job_Fair";
-$proto135["m_columns"][] = "Exit_Exam_Score";
-$proto135["m_columns"][] = "Exit_Exam_Status";
-$proto135["m_columns"][] = "DAAP_enrolled_2nd_Round";
-$proto135["m_columns"][] = "Upload_on_Tracker";
-$proto135["m_columns"][] = "Work_Experience";
-$proto135["m_columns"][] = "Joined_Dereja_Services";
-$proto135["m_columns"][] = "Dereja_Services";
-$proto135["m_columns"][] = "Dereja_Training_Services";
-$proto135["m_columns"][] = "Dereja_Event_Services";
-$proto135["m_columns"][] = "Dereja_web_profile_completion";
-$proto135["m_columns"][] = "Dereja_Information_Source";
-$proto135["m_columns"][] = "Employment_Status";
-$proto135["m_columns"][] = "Employment_Company";
-$proto135["m_columns"][] = "Employer_Sector";
-$proto135["m_columns"][] = "Employment_Position";
-$proto135["m_columns"][] = "Salary";
-$proto135["m_columns"][] = "Career_Level_Of_Payment";
-$proto135["m_columns"][] = "Placement_Type";
-$proto135["m_columns"][] = "Placement_Duration";
-$proto135["m_columns"][] = "Remark";
-$obj = new SQLTable($proto135);
+						$proto134=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Date",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates_view"
+));
 
-$proto134["m_table"] = $obj;
-$proto134["m_sql"] = "candidates";
-$proto134["m_alias"] = "";
+$proto134["m_sql"] = "`Date`";
 $proto134["m_srcTableName"] = "candidates_view";
-$proto136=array();
-$proto136["m_sql"] = "";
-$proto136["m_uniontype"] = "SQLL_UNKNOWN";
+$proto134["m_expr"]=$obj;
+$proto134["m_alias"] = "";
+$obj = new SQLFieldListItem($proto134);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto136=array();
+$proto136["m_link"] = "SQLL_MAIN";
+			$proto137=array();
+$proto137["m_strName"] = "candidates";
+$proto137["m_srcTableName"] = "candidates_view";
+$proto137["m_columns"] = array();
+$proto137["m_columns"][] = "CandidateID";
+$proto137["m_columns"][] = "StudentID";
+$proto137["m_columns"][] = "First_Name";
+$proto137["m_columns"][] = "Middle_Name";
+$proto137["m_columns"][] = "Last_Name";
+$proto137["m_columns"][] = "Sex";
+$proto137["m_columns"][] = "DOB";
+$proto137["m_columns"][] = "Region";
+$proto137["m_columns"][] = "City";
+$proto137["m_columns"][] = "Sub_City";
+$proto137["m_columns"][] = "Zone";
+$proto137["m_columns"][] = "Woreda";
+$proto137["m_columns"][] = "Kebele";
+$proto137["m_columns"][] = "House_No";
+$proto137["m_columns"][] = "Phone_Number";
+$proto137["m_columns"][] = "Phone_Number_Alternate";
+$proto137["m_columns"][] = "Email_Address";
+$proto137["m_columns"][] = "Disability_Status";
+$proto137["m_columns"][] = "Disability_Type";
+$proto137["m_columns"][] = "Disability_Type_Other";
+$proto137["m_columns"][] = "Institution_Type";
+$proto137["m_columns"][] = "Institution_Name";
+$proto137["m_columns"][] = "Education_Level";
+$proto137["m_columns"][] = "Department";
+$proto137["m_columns"][] = "Minor";
+$proto137["m_columns"][] = "Major";
+$proto137["m_columns"][] = "Enrollement_Type";
+$proto137["m_columns"][] = "Skills";
+$proto137["m_columns"][] = "Languages";
+$proto137["m_columns"][] = "English_Proficiency_Level";
+$proto137["m_columns"][] = "Industry_Specific_Skills";
+$proto137["m_columns"][] = "IT_Related_Skills";
+$proto137["m_columns"][] = "Certifications";
+$proto137["m_columns"][] = "Year_of_graduation";
+$proto137["m_columns"][] = "Field_Of_Study";
+$proto137["m_columns"][] = "GPA";
+$proto137["m_columns"][] = "Intervention";
+$proto137["m_columns"][] = "Campaign";
+$proto137["m_columns"][] = "Attend_Employability_Skill";
+$proto137["m_columns"][] = "DAAP_enrolled_1st Round";
+$proto137["m_columns"][] = "DAAP_Completed";
+$proto137["m_columns"][] = "DAAP_Completed_Courses";
+$proto137["m_columns"][] = "Job_Fair_Clinic";
+$proto137["m_columns"][] = "Job_Fair";
+$proto137["m_columns"][] = "Exit_Exam_Score";
+$proto137["m_columns"][] = "Exit_Exam_Status";
+$proto137["m_columns"][] = "DAAP_enrolled_2nd_Round";
+$proto137["m_columns"][] = "Upload_on_Tracker";
+$proto137["m_columns"][] = "Work_Experience";
+$proto137["m_columns"][] = "Joined_Dereja_Services";
+$proto137["m_columns"][] = "Dereja_Services";
+$proto137["m_columns"][] = "Dereja_Training_Services";
+$proto137["m_columns"][] = "Dereja_Event_Services";
+$proto137["m_columns"][] = "Dereja_web_profile_completion";
+$proto137["m_columns"][] = "Dereja_Information_Source";
+$proto137["m_columns"][] = "Employment_Status";
+$proto137["m_columns"][] = "Employment_Company";
+$proto137["m_columns"][] = "Employer_Sector";
+$proto137["m_columns"][] = "Employment_Position";
+$proto137["m_columns"][] = "Salary";
+$proto137["m_columns"][] = "Career_Level_Of_Payment";
+$proto137["m_columns"][] = "Placement_Type";
+$proto137["m_columns"][] = "Placement_Duration";
+$proto137["m_columns"][] = "Remark";
+$proto137["m_columns"][] = "Date";
+$obj = new SQLTable($proto137);
+
+$proto136["m_table"] = $obj;
+$proto136["m_sql"] = "candidates";
+$proto136["m_alias"] = "";
+$proto136["m_srcTableName"] = "candidates_view";
+$proto138=array();
+$proto138["m_sql"] = "";
+$proto138["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto136["m_column"]=$obj;
-$proto136["m_contained"] = array();
-$proto136["m_strCase"] = "";
-$proto136["m_havingmode"] = false;
-$proto136["m_inBrackets"] = false;
-$proto136["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto136);
+$proto138["m_column"]=$obj;
+$proto138["m_contained"] = array();
+$proto138["m_strCase"] = "";
+$proto138["m_havingmode"] = false;
+$proto138["m_inBrackets"] = false;
+$proto138["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto138);
 
-$proto134["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto134);
+$proto136["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto136);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -11175,7 +11332,7 @@ $queryData_candidates_view = createSqlQuery_candidates_view();
 	
 																								;
 
-																																																																
+																																																																	
 
 $tdatacandidates_view[".sqlquery"] = $queryData_candidates_view;
 

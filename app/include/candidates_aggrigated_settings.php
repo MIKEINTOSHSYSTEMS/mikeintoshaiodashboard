@@ -235,7 +235,7 @@ $tdatacandidates_aggrigated[".listAjax"] = false;
 //	temporary
 //$tdatacandidates_aggrigated[".listAjax"] = false;
 
-	$tdatacandidates_aggrigated[".audit"] = false;
+	$tdatacandidates_aggrigated[".audit"] = true;
 
 	$tdatacandidates_aggrigated[".locking"] = false;
 
@@ -9608,6 +9608,7 @@ $proto129["m_columns"][] = "Career_Level_Of_Payment";
 $proto129["m_columns"][] = "Placement_Type";
 $proto129["m_columns"][] = "Placement_Duration";
 $proto129["m_columns"][] = "Remark";
+$proto129["m_columns"][] = "Date";
 $obj = new SQLTable($proto129);
 
 $proto128["m_table"] = $obj;

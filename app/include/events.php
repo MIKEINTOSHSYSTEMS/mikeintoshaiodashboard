@@ -250,7 +250,7 @@ you to the file.
 }
 	function event_survey_form_lists(&$params)
 	{
-	echo '<IFRAME SRC="./modules/survey/lists/index.php" WIDTH=100% HEIGHT=3000px>
+	echo '<IFRAME SRC="./modules/survey/lists/index.php" WIDTH=100% HEIGHT=4000px>
 
 If you can see this, your browser does not
 

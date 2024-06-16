@@ -561,13 +561,14 @@ pdfDocument = {
 										"%",
 										"%",
 										"%",
+										"%",
 															],
 							
 				body: [
 				{BEGIN standalone_page}
 					[
 						{
-							colSpan: 83,
+							colSpan: 84,
 							border:[false, false,false,false],
 							stack: [
 
@@ -697,7 +698,7 @@ pdfDocument = {
 
 																[
 	{
-		colSpan: 83,
+		colSpan: 84,
 		border: [ false, false, false, false ],
 		stack: [
 			{

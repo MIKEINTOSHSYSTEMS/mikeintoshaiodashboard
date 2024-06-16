@@ -256,6 +256,9 @@ pdfDocument = {
 										{BEGIN col_grid_63}
 					"%",
 					{END col_grid_63}
+										{BEGIN col_grid_64}
+					"%",
+					{END col_grid_64}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -401,7 +404,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view CandidateID }","hidden":"{$item_hide_simple_grid_field64}","bold":true},
+			{"text":"{$jslabel candidates_view CandidateID }","hidden":"{$item_hide_simple_grid_field65}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -430,7 +433,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view StudentID }","hidden":"{$item_hide_simple_grid_field65}","bold":true},
+			{"text":"{$jslabel candidates_view StudentID }","hidden":"{$item_hide_simple_grid_field66}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -459,7 +462,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view First_Name }","hidden":"{$item_hide_simple_grid_field66}","bold":true},
+			{"text":"{$jslabel candidates_view First_Name }","hidden":"{$item_hide_simple_grid_field67}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -488,7 +491,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Middle_Name }","hidden":"{$item_hide_simple_grid_field67}","bold":true},
+			{"text":"{$jslabel candidates_view Middle_Name }","hidden":"{$item_hide_simple_grid_field68}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -517,7 +520,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Last_Name }","hidden":"{$item_hide_simple_grid_field68}","bold":true},
+			{"text":"{$jslabel candidates_view Last_Name }","hidden":"{$item_hide_simple_grid_field69}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -546,7 +549,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Sex }","hidden":"{$item_hide_simple_grid_field69}","bold":true},
+			{"text":"{$jslabel candidates_view Sex }","hidden":"{$item_hide_simple_grid_field70}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -575,7 +578,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view DOB }","hidden":"{$item_hide_simple_grid_field70}","bold":true},
+			{"text":"{$jslabel candidates_view DOB }","hidden":"{$item_hide_simple_grid_field71}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -604,7 +607,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Region }","hidden":"{$item_hide_simple_grid_field71}","bold":true},
+			{"text":"{$jslabel candidates_view Region }","hidden":"{$item_hide_simple_grid_field72}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -633,7 +636,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view City }","hidden":"{$item_hide_simple_grid_field72}","bold":true},
+			{"text":"{$jslabel candidates_view City }","hidden":"{$item_hide_simple_grid_field73}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -662,7 +665,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Sub_City }","hidden":"{$item_hide_simple_grid_field73}","bold":true},
+			{"text":"{$jslabel candidates_view Sub_City }","hidden":"{$item_hide_simple_grid_field74}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -691,7 +694,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Zone }","hidden":"{$item_hide_simple_grid_field74}","bold":true},
+			{"text":"{$jslabel candidates_view Zone }","hidden":"{$item_hide_simple_grid_field75}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -720,7 +723,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view House_No }","hidden":"{$item_hide_simple_grid_field75}","bold":true},
+			{"text":"{$jslabel candidates_view House_No }","hidden":"{$item_hide_simple_grid_field76}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -749,7 +752,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Phone_Number }","hidden":"{$item_hide_simple_grid_field76}","bold":true},
+			{"text":"{$jslabel candidates_view Phone_Number }","hidden":"{$item_hide_simple_grid_field77}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -778,7 +781,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Phone_Number_Alternate }","hidden":"{$item_hide_simple_grid_field77}","bold":true},
+			{"text":"{$jslabel candidates_view Phone_Number_Alternate }","hidden":"{$item_hide_simple_grid_field78}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -807,7 +810,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Email_Address }","hidden":"{$item_hide_simple_grid_field78}","bold":true},
+			{"text":"{$jslabel candidates_view Email_Address }","hidden":"{$item_hide_simple_grid_field79}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -836,7 +839,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Disability_Status }","hidden":"{$item_hide_simple_grid_field79}","bold":true},
+			{"text":"{$jslabel candidates_view Disability_Status }","hidden":"{$item_hide_simple_grid_field80}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -865,7 +868,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Disability_Type }","hidden":"{$item_hide_simple_grid_field80}","bold":true},
+			{"text":"{$jslabel candidates_view Disability_Type }","hidden":"{$item_hide_simple_grid_field81}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -894,7 +897,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field81}","bold":true},
+			{"text":"{$jslabel candidates_view Disability_Type_Other }","hidden":"{$item_hide_simple_grid_field82}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -923,7 +926,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Institution_Type }","hidden":"{$item_hide_simple_grid_field82}","bold":true},
+			{"text":"{$jslabel candidates_view Institution_Type }","hidden":"{$item_hide_simple_grid_field83}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -952,7 +955,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Institution_Name }","hidden":"{$item_hide_simple_grid_field83}","bold":true},
+			{"text":"{$jslabel candidates_view Institution_Name }","hidden":"{$item_hide_simple_grid_field84}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -981,7 +984,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Education_Level }","hidden":"{$item_hide_simple_grid_field84}","bold":true},
+			{"text":"{$jslabel candidates_view Education_Level }","hidden":"{$item_hide_simple_grid_field85}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1010,7 +1013,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Department }","hidden":"{$item_hide_simple_grid_field85}","bold":true},
+			{"text":"{$jslabel candidates_view Department }","hidden":"{$item_hide_simple_grid_field86}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1039,7 +1042,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Minor }","hidden":"{$item_hide_simple_grid_field86}","bold":true},
+			{"text":"{$jslabel candidates_view Minor }","hidden":"{$item_hide_simple_grid_field87}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1068,7 +1071,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Major }","hidden":"{$item_hide_simple_grid_field87}","bold":true},
+			{"text":"{$jslabel candidates_view Major }","hidden":"{$item_hide_simple_grid_field88}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1097,7 +1100,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Enrollement_Type }","hidden":"{$item_hide_simple_grid_field88}","bold":true},
+			{"text":"{$jslabel candidates_view Enrollement_Type }","hidden":"{$item_hide_simple_grid_field89}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1126,7 +1129,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Skills }","hidden":"{$item_hide_simple_grid_field89}","bold":true},
+			{"text":"{$jslabel candidates_view Skills }","hidden":"{$item_hide_simple_grid_field90}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1155,7 +1158,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Languages }","hidden":"{$item_hide_simple_grid_field90}","bold":true},
+			{"text":"{$jslabel candidates_view Languages }","hidden":"{$item_hide_simple_grid_field91}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1184,7 +1187,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view English_Proficiency_Level }","hidden":"{$item_hide_simple_grid_field91}","bold":true},
+			{"text":"{$jslabel candidates_view English_Proficiency_Level }","hidden":"{$item_hide_simple_grid_field92}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1213,7 +1216,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Industry_Specific_Skills }","hidden":"{$item_hide_simple_grid_field92}","bold":true},
+			{"text":"{$jslabel candidates_view Industry_Specific_Skills }","hidden":"{$item_hide_simple_grid_field93}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1242,7 +1245,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view IT_Related_Skills }","hidden":"{$item_hide_simple_grid_field93}","bold":true},
+			{"text":"{$jslabel candidates_view IT_Related_Skills }","hidden":"{$item_hide_simple_grid_field94}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1271,7 +1274,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Certifications }","hidden":"{$item_hide_simple_grid_field94}","bold":true},
+			{"text":"{$jslabel candidates_view Certifications }","hidden":"{$item_hide_simple_grid_field95}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1300,7 +1303,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Year_of_graduation }","hidden":"{$item_hide_simple_grid_field95}","bold":true},
+			{"text":"{$jslabel candidates_view Year_of_graduation }","hidden":"{$item_hide_simple_grid_field96}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1329,7 +1332,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Field_Of_Study }","hidden":"{$item_hide_simple_grid_field96}","bold":true},
+			{"text":"{$jslabel candidates_view Field_Of_Study }","hidden":"{$item_hide_simple_grid_field97}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1358,7 +1361,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view GPA }","hidden":"{$item_hide_simple_grid_field97}","bold":true},
+			{"text":"{$jslabel candidates_view GPA }","hidden":"{$item_hide_simple_grid_field98}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1387,7 +1390,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Intervention }","hidden":"{$item_hide_simple_grid_field98}","bold":true},
+			{"text":"{$jslabel candidates_view Intervention }","hidden":"{$item_hide_simple_grid_field99}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1416,7 +1419,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Campaign }","hidden":"{$item_hide_simple_grid_field99}","bold":true},
+			{"text":"{$jslabel candidates_view Campaign }","hidden":"{$item_hide_simple_grid_field100}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1445,7 +1448,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Attend_Employability_Skill }","hidden":"{$item_hide_simple_grid_field100}","bold":true},
+			{"text":"{$jslabel candidates_view Attend_Employability_Skill }","hidden":"{$item_hide_simple_grid_field101}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1474,7 +1477,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view DAAP_enrolled_1st_Round }","hidden":"{$item_hide_simple_grid_field101}","bold":true},
+			{"text":"{$jslabel candidates_view DAAP_enrolled_1st_Round }","hidden":"{$item_hide_simple_grid_field102}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1503,7 +1506,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view DAAP_Completed }","hidden":"{$item_hide_simple_grid_field102}","bold":true},
+			{"text":"{$jslabel candidates_view DAAP_Completed }","hidden":"{$item_hide_simple_grid_field103}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1532,7 +1535,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view DAAP_Completed_Courses }","hidden":"{$item_hide_simple_grid_field103}","bold":true},
+			{"text":"{$jslabel candidates_view DAAP_Completed_Courses }","hidden":"{$item_hide_simple_grid_field104}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1561,7 +1564,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Job_Fair_Clinic }","hidden":"{$item_hide_simple_grid_field104}","bold":true},
+			{"text":"{$jslabel candidates_view Job_Fair_Clinic }","hidden":"{$item_hide_simple_grid_field105}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1590,7 +1593,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Job_Fair }","hidden":"{$item_hide_simple_grid_field105}","bold":true},
+			{"text":"{$jslabel candidates_view Job_Fair }","hidden":"{$item_hide_simple_grid_field106}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1619,7 +1622,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Exit_Exam_Score }","hidden":"{$item_hide_simple_grid_field106}","bold":true},
+			{"text":"{$jslabel candidates_view Exit_Exam_Score }","hidden":"{$item_hide_simple_grid_field107}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1648,7 +1651,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Exit_Exam_Status }","hidden":"{$item_hide_simple_grid_field107}","bold":true},
+			{"text":"{$jslabel candidates_view Exit_Exam_Status }","hidden":"{$item_hide_simple_grid_field108}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1677,7 +1680,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view DAAP_enrolled_2nd_Round }","hidden":"{$item_hide_simple_grid_field108}","bold":true},
+			{"text":"{$jslabel candidates_view DAAP_enrolled_2nd_Round }","hidden":"{$item_hide_simple_grid_field109}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1706,7 +1709,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Upload_on_Tracker }","hidden":"{$item_hide_simple_grid_field109}","bold":true},
+			{"text":"{$jslabel candidates_view Upload_on_Tracker }","hidden":"{$item_hide_simple_grid_field110}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1735,7 +1738,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Work_Experience }","hidden":"{$item_hide_simple_grid_field110}","bold":true},
+			{"text":"{$jslabel candidates_view Work_Experience }","hidden":"{$item_hide_simple_grid_field111}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1764,7 +1767,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Joined_Dereja_Services }","hidden":"{$item_hide_simple_grid_field111}","bold":true},
+			{"text":"{$jslabel candidates_view Joined_Dereja_Services }","hidden":"{$item_hide_simple_grid_field112}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1793,7 +1796,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Dereja_Services }","hidden":"{$item_hide_simple_grid_field112}","bold":true},
+			{"text":"{$jslabel candidates_view Dereja_Services }","hidden":"{$item_hide_simple_grid_field113}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1822,7 +1825,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Dereja_Training_Services }","hidden":"{$item_hide_simple_grid_field113}","bold":true},
+			{"text":"{$jslabel candidates_view Dereja_Training_Services }","hidden":"{$item_hide_simple_grid_field114}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1851,7 +1854,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Dereja_Event_Services }","hidden":"{$item_hide_simple_grid_field114}","bold":true},
+			{"text":"{$jslabel candidates_view Dereja_Event_Services }","hidden":"{$item_hide_simple_grid_field115}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1880,7 +1883,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Dereja_web_profile_completion }","hidden":"{$item_hide_simple_grid_field115}","bold":true},
+			{"text":"{$jslabel candidates_view Dereja_web_profile_completion }","hidden":"{$item_hide_simple_grid_field116}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1909,7 +1912,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Dereja_Information_Source }","hidden":"{$item_hide_simple_grid_field116}","bold":true},
+			{"text":"{$jslabel candidates_view Dereja_Information_Source }","hidden":"{$item_hide_simple_grid_field117}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1938,7 +1941,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Employment_Status }","hidden":"{$item_hide_simple_grid_field117}","bold":true},
+			{"text":"{$jslabel candidates_view Employment_Status }","hidden":"{$item_hide_simple_grid_field118}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1967,7 +1970,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Employment_Company }","hidden":"{$item_hide_simple_grid_field118}","bold":true},
+			{"text":"{$jslabel candidates_view Employment_Company }","hidden":"{$item_hide_simple_grid_field119}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -1996,7 +1999,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Employment_Position }","hidden":"{$item_hide_simple_grid_field119}","bold":true},
+			{"text":"{$jslabel candidates_view Employment_Position }","hidden":"{$item_hide_simple_grid_field120}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2025,7 +2028,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Remark }","hidden":"{$item_hide_simple_grid_field120}","bold":true},
+			{"text":"{$jslabel candidates_view Remark }","hidden":"{$item_hide_simple_grid_field121}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2054,7 +2057,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Woreda }","hidden":"{$item_hide_simple_grid_field121}","bold":true},
+			{"text":"{$jslabel candidates_view Woreda }","hidden":"{$item_hide_simple_grid_field122}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2083,7 +2086,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Kebele }","hidden":"{$item_hide_simple_grid_field122}","bold":true},
+			{"text":"{$jslabel candidates_view Kebele }","hidden":"{$item_hide_simple_grid_field123}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2112,7 +2115,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Employer_Sector }","hidden":"{$item_hide_simple_grid_field123}","bold":true},
+			{"text":"{$jslabel candidates_view Employer_Sector }","hidden":"{$item_hide_simple_grid_field124}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2141,7 +2144,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Salary }","hidden":"{$item_hide_simple_grid_field124}","bold":true},
+			{"text":"{$jslabel candidates_view Salary }","hidden":"{$item_hide_simple_grid_field125}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2170,7 +2173,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Career_Level_Of_Payment }","hidden":"{$item_hide_simple_grid_field125}","bold":true},
+			{"text":"{$jslabel candidates_view Career_Level_Of_Payment }","hidden":"{$item_hide_simple_grid_field126}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2199,7 +2202,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Placement_Type }","hidden":"{$item_hide_simple_grid_field126}","bold":true},
+			{"text":"{$jslabel candidates_view Placement_Type }","hidden":"{$item_hide_simple_grid_field127}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2228,7 +2231,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel candidates_view Placement_Duration }","hidden":"{$item_hide_simple_grid_field127}","bold":true},
+			{"text":"{$jslabel candidates_view Placement_Duration }","hidden":"{$item_hide_simple_grid_field128}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -2238,6 +2241,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_field63}
+																							{BEGIN cellblock_grid_headcell_field64}
+{
+	cellId: 'headcell_field64',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel candidates_view Date }","hidden":"{$item_hide_simple_grid_field129}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field64}
 											],
 				{END row_grid_0}
 		
@@ -4103,6 +4135,35 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_field63}
+																							{BEGIN cellblock_grid_cell_field64}
+{
+	cellId: 'cell_field64',
+	col:0,
+	row:0,
+			fieldName: 'Date',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				
+			{"text":{$Date_value},"hidden":"{$item_hide_simple_grid_field64}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$Date_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field64}
 											],
 				{END row_grid_1}
 		
@@ -5776,6 +5837,32 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field63}
+																							{BEGIN cellblock_grid_footcell_field64}
+{
+	cellId: 'footcell_field64',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field64}
 											],
 				{END row_grid_2}
 		

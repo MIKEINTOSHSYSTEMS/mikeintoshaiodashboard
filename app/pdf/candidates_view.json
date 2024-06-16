@@ -422,6 +422,82 @@ pdfDocument = {
 				{END row_section_1}
 						{BEGIN row_section_2}
 				[
+																{BEGIN cellblock_section_c5}
+{
+	cellId: 'c5',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section_c5}
+			colSpan: {$colspan_section_c5},
+			{END colspan_section_c5}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field63}","stack":[{"text":"{$jslabel candidates Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section_c5}
+																		{ 
+				cellId: 'c5',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+																			{BEGIN cellblock_section_c15}
+{
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_section_c15}
+			colSpan: {$colspan_section_c15},
+			{END colspan_section_c15}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field64}","stack":[{"text":"{$jslabel candidates Age }","bold":true},{"text":{$Age_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section_c15}
+																		{ 
+				cellId: 'c15',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+				{END row_section_2}
+						{BEGIN row_section_3}
+				[
 																{BEGIN cellblock_section_c12}
 {
 	cellId: 'c12',
@@ -513,8 +589,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_section_2}
-						{BEGIN row_section_3}
+				{END row_section_3}
+						{BEGIN row_section_4}
 				[
 																{BEGIN cellblock_section_c8}
 {
@@ -607,7 +683,7 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_section_3}
+				{END row_section_4}
 		
 						]
 					}
@@ -2553,14 +2629,11 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field63}","stack":[{"text":"{$jslabel candidates Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field64}","stack":[{"text":"{$jslabel candidates Age }","bold":true},{"text":{$Age_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field65}","stack":[{"text":"{$jslabel candidates Date }","bold":true},{"text":{$Date_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'right',
      
       
       },

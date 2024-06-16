@@ -64,6 +64,7 @@ $dalTablecandidates["Career_Level_Of_Payment"] = array("type"=>200,"varname"=>"C
 $dalTablecandidates["Placement_Type"] = array("type"=>200,"varname"=>"Placement_Type", "name" => "Placement_Type", "autoInc" => "0");
 $dalTablecandidates["Placement_Duration"] = array("type"=>200,"varname"=>"Placement_Duration", "name" => "Placement_Duration", "autoInc" => "0");
 $dalTablecandidates["Remark"] = array("type"=>200,"varname"=>"Remark", "name" => "Remark", "autoInc" => "0");
+$dalTablecandidates["Date"] = array("type"=>7,"varname"=>"Date", "name" => "Date", "autoInc" => "0");
 $dalTablecandidates["CandidateID"]["key"]=true;
 
 $dal_info["deredevatderejadevmerqconsulta__candidates"] = &$dalTablecandidates;

@@ -94,6 +94,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsevent_participants_view["English"]["Event_Note"] = "Event Note";
 	$fieldToolTipsevent_participants_view["English"]["Event_Note"] = "";
 	$placeHoldersevent_participants_view["English"]["Event_Note"] = "";
+	$fieldLabelsevent_participants_view["English"]["Date"] = "Date";
+	$fieldToolTipsevent_participants_view["English"]["Date"] = "";
+	$placeHoldersevent_participants_view["English"]["Date"] = "";
 	if (count($fieldToolTipsevent_participants_view["English"]))
 		$tdataevent_participants_view[".isUseToolTips"] = true;
 }
@@ -234,6 +237,7 @@ $tdataevent_participants_view[".googleLikeFields"][] = "Participant_Field_of_Stu
 $tdataevent_participants_view[".googleLikeFields"][] = "Participant_Organization_Type";
 $tdataevent_participants_view[".googleLikeFields"][] = "Participant_Organization_Name";
 $tdataevent_participants_view[".googleLikeFields"][] = "Participant_Home_Address";
+$tdataevent_participants_view[".googleLikeFields"][] = "Date";
 
 
 
@@ -273,7 +277,7 @@ $tdataevent_participants_view[".strOrderBy"] = $tstrOrderBy;
 $tdataevent_participants_view[".orderindexes"] = array();
 
 
-$tdataevent_participants_view[".sqlHead"] = "SELECT EventID,  	CandidateID,  	StudentID,  	Event_Start_Date,  	Event_End_Date,  	Event_Round,  	Event_Organizer,  	Event_Location,  	Event_Note,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Phone,  	Email,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Type,  	Participant_Field_of_Study,  	Participant_Organization_Type,  	Participant_Organization_Name,  	Participant_Home_Address";
+$tdataevent_participants_view[".sqlHead"] = "SELECT EventID,  	CandidateID,  	StudentID,  	Event_Start_Date,  	Event_End_Date,  	Event_Round,  	Event_Organizer,  	Event_Location,  	Event_Note,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Phone,  	Email,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Type,  	Participant_Field_of_Study,  	Participant_Organization_Type,  	Participant_Organization_Name,  	Participant_Home_Address,  	`Date`";
 $tdataevent_participants_view[".sqlFrom"] = "FROM event_participants";
 $tdataevent_participants_view[".sqlWhereExpr"] = "";
 $tdataevent_participants_view[".sqlTail"] = "";
@@ -3608,6 +3612,144 @@ $tdataevent_participants_view[".hideMobileList"] = array();
 
 	$tdataevent_participants_view["Participant_Home_Address"] = $fdata;
 		$tdataevent_participants_view[".searchableFields"][] = "Participant_Home_Address";
+//	Date
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 24;
+	$fdata["strName"] = "Date";
+	$fdata["GoodName"] = "Date";
+	$fdata["ownerTable"] = "event_participants";
+	$fdata["Label"] = GetFieldLabel("event_participants_view","Date");
+	$fdata["FieldType"] = 7;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Date";
+
+		$fdata["sourceSingle"] = "Date";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "`Date`";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "Short Date");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["report"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Date");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+		$edata["DateEditType"] = 13;
+	$edata["InitialYearFactor"] = 100;
+	$edata["LastYearFactor"] = 10;
+
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+	
+	
+	
+	
+	$fdata["EditFormats"]["search"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataevent_participants_view["Date"] = $fdata;
+		$tdataevent_participants_view[".searchableFields"][] = "Date";
 
 
 $tables_data["event_participants_view"]=&$tdataevent_participants_view;
@@ -3688,7 +3830,7 @@ function createSqlQuery_event_participants_view()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "EventID,  	CandidateID,  	StudentID,  	Event_Start_Date,  	Event_End_Date,  	Event_Round,  	Event_Organizer,  	Event_Location,  	Event_Note,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Phone,  	Email,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Type,  	Participant_Field_of_Study,  	Participant_Organization_Type,  	Participant_Organization_Name,  	Participant_Home_Address";
+$proto0["m_strFieldList"] = "EventID,  	CandidateID,  	StudentID,  	Event_Start_Date,  	Event_End_Date,  	Event_Round,  	Event_Organizer,  	Event_Location,  	Event_Note,  	First_Name,  	Middle_Name,  	Last_Name,  	Sex,  	Phone,  	Email,  	Disability_Status,  	Disability_Type,  	Disability_Type_Other,  	Participant_Type,  	Participant_Field_of_Study,  	Participant_Organization_Type,  	Participant_Organization_Name,  	Participant_Home_Address,  	`Date`";
 $proto0["m_strFrom"] = "FROM event_participants";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -4050,59 +4192,74 @@ $proto50["m_alias"] = "";
 $obj = new SQLFieldListItem($proto50);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto52=array();
-$proto52["m_link"] = "SQLL_MAIN";
-			$proto53=array();
-$proto53["m_strName"] = "event_participants";
-$proto53["m_srcTableName"] = "event_participants_view";
-$proto53["m_columns"] = array();
-$proto53["m_columns"][] = "EventID";
-$proto53["m_columns"][] = "CandidateID";
-$proto53["m_columns"][] = "StudentID";
-$proto53["m_columns"][] = "Event_Start_Date";
-$proto53["m_columns"][] = "Event_End_Date";
-$proto53["m_columns"][] = "Event_Round";
-$proto53["m_columns"][] = "Event_Organizer";
-$proto53["m_columns"][] = "Event_Location";
-$proto53["m_columns"][] = "Event_Note";
-$proto53["m_columns"][] = "First_Name";
-$proto53["m_columns"][] = "Middle_Name";
-$proto53["m_columns"][] = "Last_Name";
-$proto53["m_columns"][] = "Sex";
-$proto53["m_columns"][] = "Phone";
-$proto53["m_columns"][] = "Email";
-$proto53["m_columns"][] = "Disability_Status";
-$proto53["m_columns"][] = "Disability_Type";
-$proto53["m_columns"][] = "Disability_Type_Other";
-$proto53["m_columns"][] = "Participant_Type";
-$proto53["m_columns"][] = "Participant_Field_of_Study";
-$proto53["m_columns"][] = "Participant_Organization_Type";
-$proto53["m_columns"][] = "Participant_Organization_Name";
-$proto53["m_columns"][] = "Participant_Home_Address";
-$obj = new SQLTable($proto53);
+						$proto52=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Date",
+	"m_strTable" => "event_participants",
+	"m_srcTableName" => "event_participants_view"
+));
 
-$proto52["m_table"] = $obj;
-$proto52["m_sql"] = "event_participants";
-$proto52["m_alias"] = "";
+$proto52["m_sql"] = "`Date`";
 $proto52["m_srcTableName"] = "event_participants_view";
-$proto54=array();
-$proto54["m_sql"] = "";
-$proto54["m_uniontype"] = "SQLL_UNKNOWN";
+$proto52["m_expr"]=$obj;
+$proto52["m_alias"] = "";
+$obj = new SQLFieldListItem($proto52);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto54=array();
+$proto54["m_link"] = "SQLL_MAIN";
+			$proto55=array();
+$proto55["m_strName"] = "event_participants";
+$proto55["m_srcTableName"] = "event_participants_view";
+$proto55["m_columns"] = array();
+$proto55["m_columns"][] = "EventID";
+$proto55["m_columns"][] = "CandidateID";
+$proto55["m_columns"][] = "StudentID";
+$proto55["m_columns"][] = "Event_Start_Date";
+$proto55["m_columns"][] = "Event_End_Date";
+$proto55["m_columns"][] = "Event_Round";
+$proto55["m_columns"][] = "Event_Organizer";
+$proto55["m_columns"][] = "Event_Location";
+$proto55["m_columns"][] = "Event_Note";
+$proto55["m_columns"][] = "First_Name";
+$proto55["m_columns"][] = "Middle_Name";
+$proto55["m_columns"][] = "Last_Name";
+$proto55["m_columns"][] = "Sex";
+$proto55["m_columns"][] = "Phone";
+$proto55["m_columns"][] = "Email";
+$proto55["m_columns"][] = "Disability_Status";
+$proto55["m_columns"][] = "Disability_Type";
+$proto55["m_columns"][] = "Disability_Type_Other";
+$proto55["m_columns"][] = "Participant_Type";
+$proto55["m_columns"][] = "Participant_Field_of_Study";
+$proto55["m_columns"][] = "Participant_Organization_Type";
+$proto55["m_columns"][] = "Participant_Organization_Name";
+$proto55["m_columns"][] = "Participant_Home_Address";
+$proto55["m_columns"][] = "Date";
+$obj = new SQLTable($proto55);
+
+$proto54["m_table"] = $obj;
+$proto54["m_sql"] = "event_participants";
+$proto54["m_alias"] = "";
+$proto54["m_srcTableName"] = "event_participants_view";
+$proto56=array();
+$proto56["m_sql"] = "";
+$proto56["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto54["m_column"]=$obj;
-$proto54["m_contained"] = array();
-$proto54["m_strCase"] = "";
-$proto54["m_havingmode"] = false;
-$proto54["m_inBrackets"] = false;
-$proto54["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto54);
+$proto56["m_column"]=$obj;
+$proto56["m_contained"] = array();
+$proto56["m_strCase"] = "";
+$proto56["m_havingmode"] = false;
+$proto56["m_inBrackets"] = false;
+$proto56["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto56);
 
-$proto52["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto52);
+$proto54["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto54);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -4118,7 +4275,7 @@ $queryData_event_participants_view = createSqlQuery_event_participants_view();
 	
 																								;
 
-																							
+																								
 
 $tdataevent_participants_view[".sqlquery"] = $queryData_event_participants_view;
 

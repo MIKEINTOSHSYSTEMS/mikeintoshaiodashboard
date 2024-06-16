@@ -116,6 +116,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
 						</div>
 		{END searchCtrlBlock_CandidateID}
+																{BEGIN searchCtrlBlock_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Date}" {$filterRow_attrs_Date}>
+			<label>{$label event_participants Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Date}</span>
+						</div>
+		{END searchCtrlBlock_Date}
 																{BEGIN searchCtrlBlock_Event_Note}
 
 
@@ -944,6 +957,9 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Home_Address"]:before {
 		content: "{$label event_participants Participant_Home_Address}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Date"]:before {
+		content: "{$label event_participants Date}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -1012,7 +1028,7 @@
 	 
 		{BEGIN EventID_fieldheadercolumn}
 	{BEGIN EventID_fieldheader}
-	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID">
+	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID">
 	{$label event_participants EventID }	{$arrow_icon_EventID}
 	</SPAN>
 	{END EventID_fieldheader}
@@ -1037,7 +1053,7 @@
 	 
 		{BEGIN Event_Round_fieldheadercolumn}
 	{BEGIN Event_Round_fieldheader}
-	<SPAN {$Event_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round">
+	<SPAN {$Event_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round">
 	{$label event_participants Event_Round }	{$arrow_icon_Event_Round}
 	</SPAN>
 	{END Event_Round_fieldheader}
@@ -1062,7 +1078,7 @@
 	 
 		{BEGIN CandidateID_fieldheadercolumn}
 	{BEGIN CandidateID_fieldheader}
-	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
+	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
 	{$label event_participants CandidateID }	{$arrow_icon_CandidateID}
 	</SPAN>
 	{END CandidateID_fieldheader}
@@ -1087,7 +1103,7 @@
 	 
 		{BEGIN Event_Start_Date_fieldheadercolumn}
 	{BEGIN Event_Start_Date_fieldheader}
-	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
+	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
 	{$label event_participants Event_Start_Date }	{$arrow_icon_Event_Start_Date}
 	</SPAN>
 	{END Event_Start_Date_fieldheader}
@@ -1112,7 +1128,7 @@
 	 
 		{BEGIN Event_End_Date_fieldheadercolumn}
 	{BEGIN Event_End_Date_fieldheader}
-	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
+	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field28" {$item_simple_grid_field28} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
 	{$label event_participants Event_End_Date }	{$arrow_icon_Event_End_Date}
 	</SPAN>
 	{END Event_End_Date_fieldheader}
@@ -1137,7 +1153,7 @@
 	 
 		{BEGIN First_Name_fieldheadercolumn}
 	{BEGIN First_Name_fieldheader}
-	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field28" {$item_simple_grid_field28} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
+	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field29" {$item_simple_grid_field29} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
 	{$label event_participants First_Name }	{$arrow_icon_First_Name}
 	</SPAN>
 	{END First_Name_fieldheader}
@@ -1162,7 +1178,7 @@
 	 
 		{BEGIN Middle_Name_fieldheadercolumn}
 	{BEGIN Middle_Name_fieldheader}
-	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field29" {$item_simple_grid_field29} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
+	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field30" {$item_simple_grid_field30} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
 	{$label event_participants Middle_Name }	{$arrow_icon_Middle_Name}
 	</SPAN>
 	{END Middle_Name_fieldheader}
@@ -1187,7 +1203,7 @@
 	 
 		{BEGIN Last_Name_fieldheadercolumn}
 	{BEGIN Last_Name_fieldheader}
-	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field30" {$item_simple_grid_field30} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
+	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field31" {$item_simple_grid_field31} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
 	{$label event_participants Last_Name }	{$arrow_icon_Last_Name}
 	</SPAN>
 	{END Last_Name_fieldheader}
@@ -1212,7 +1228,7 @@
 	 
 		{BEGIN Phone_fieldheadercolumn}
 	{BEGIN Phone_fieldheader}
-	<SPAN {$Phone_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field31" {$item_simple_grid_field31} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone" data-fieldname="Phone">
+	<SPAN {$Phone_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field32" {$item_simple_grid_field32} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone" data-fieldname="Phone">
 	{$label event_participants Phone }	{$arrow_icon_Phone}
 	</SPAN>
 	{END Phone_fieldheader}
@@ -1237,7 +1253,7 @@
 	 
 		{BEGIN Email_fieldheadercolumn}
 	{BEGIN Email_fieldheader}
-	<SPAN {$Email_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field32" {$item_simple_grid_field32} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email" data-fieldname="Email">
+	<SPAN {$Email_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field33" {$item_simple_grid_field33} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email" data-fieldname="Email">
 	{$label event_participants Email }	{$arrow_icon_Email}
 	</SPAN>
 	{END Email_fieldheader}
@@ -1262,7 +1278,7 @@
 	 
 		{BEGIN StudentID_fieldheadercolumn}
 	{BEGIN StudentID_fieldheader}
-	<SPAN {$StudentID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field33" {$item_simple_grid_field33} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID">
+	<SPAN {$StudentID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field34" {$item_simple_grid_field34} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID">
 	{$label event_participants StudentID }	{$arrow_icon_StudentID}
 	</SPAN>
 	{END StudentID_fieldheader}
@@ -1287,7 +1303,7 @@
 	 
 		{BEGIN Sex_fieldheadercolumn}
 	{BEGIN Sex_fieldheader}
-	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field34" {$item_simple_grid_field34} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
+	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field35" {$item_simple_grid_field35} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
 	{$label event_participants Sex }	{$arrow_icon_Sex}
 	</SPAN>
 	{END Sex_fieldheader}
@@ -1312,7 +1328,7 @@
 	 
 		{BEGIN Disability_Status_fieldheadercolumn}
 	{BEGIN Disability_Status_fieldheader}
-	<SPAN {$Disability_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field35" {$item_simple_grid_field35} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status">
+	<SPAN {$Disability_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field36" {$item_simple_grid_field36} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status">
 	{$label event_participants Disability_Status }	{$arrow_icon_Disability_Status}
 	</SPAN>
 	{END Disability_Status_fieldheader}
@@ -1337,7 +1353,7 @@
 	 
 		{BEGIN Disability_Type_fieldheadercolumn}
 	{BEGIN Disability_Type_fieldheader}
-	<SPAN {$Disability_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field36" {$item_simple_grid_field36} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type">
+	<SPAN {$Disability_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field37" {$item_simple_grid_field37} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type">
 	{$label event_participants Disability_Type }	{$arrow_icon_Disability_Type}
 	</SPAN>
 	{END Disability_Type_fieldheader}
@@ -1362,7 +1378,7 @@
 	 
 		{BEGIN Disability_Type_Other_fieldheadercolumn}
 	{BEGIN Disability_Type_Other_fieldheader}
-	<SPAN {$Disability_Type_Other_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field37" {$item_simple_grid_field37} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other">
+	<SPAN {$Disability_Type_Other_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field38" {$item_simple_grid_field38} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other">
 	{$label event_participants Disability_Type_Other }	{$arrow_icon_Disability_Type_Other}
 	</SPAN>
 	{END Disability_Type_Other_fieldheader}
@@ -1387,7 +1403,7 @@
 	 
 		{BEGIN Participant_Type_fieldheadercolumn}
 	{BEGIN Participant_Type_fieldheader}
-	<SPAN {$Participant_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field38" {$item_simple_grid_field38} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Type" data-fieldname="Participant_Type">
+	<SPAN {$Participant_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field39" {$item_simple_grid_field39} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Type" data-fieldname="Participant_Type">
 	{$label event_participants Participant_Type }	{$arrow_icon_Participant_Type}
 	</SPAN>
 	{END Participant_Type_fieldheader}
@@ -1412,7 +1428,7 @@
 	 
 		{BEGIN Participant_Field_of_Study_fieldheadercolumn}
 	{BEGIN Participant_Field_of_Study_fieldheader}
-	<SPAN {$Participant_Field_of_Study_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field39" {$item_simple_grid_field39} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study">
+	<SPAN {$Participant_Field_of_Study_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field40" {$item_simple_grid_field40} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study">
 	{$label event_participants Participant_Field_of_Study }	{$arrow_icon_Participant_Field_of_Study}
 	</SPAN>
 	{END Participant_Field_of_Study_fieldheader}
@@ -1437,7 +1453,7 @@
 	 
 		{BEGIN Participant_Organization_Type_fieldheadercolumn}
 	{BEGIN Participant_Organization_Type_fieldheader}
-	<SPAN {$Participant_Organization_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field40" {$item_simple_grid_field40} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type">
+	<SPAN {$Participant_Organization_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field41" {$item_simple_grid_field41} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type">
 	{$label event_participants Participant_Organization_Type }	{$arrow_icon_Participant_Organization_Type}
 	</SPAN>
 	{END Participant_Organization_Type_fieldheader}
@@ -1462,7 +1478,7 @@
 	 
 		{BEGIN Participant_Organization_Name_fieldheadercolumn}
 	{BEGIN Participant_Organization_Name_fieldheader}
-	<SPAN {$Participant_Organization_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field41" {$item_simple_grid_field41} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name">
+	<SPAN {$Participant_Organization_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field42" {$item_simple_grid_field42} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name">
 	{$label event_participants Participant_Organization_Name }	{$arrow_icon_Participant_Organization_Name}
 	</SPAN>
 	{END Participant_Organization_Name_fieldheader}
@@ -1487,7 +1503,7 @@
 	 
 		{BEGIN Participant_Home_Address_fieldheadercolumn}
 	{BEGIN Participant_Home_Address_fieldheader}
-	<SPAN {$Participant_Home_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field42" {$item_simple_grid_field42} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address">
+	<SPAN {$Participant_Home_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field43" {$item_simple_grid_field43} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address">
 	{$label event_participants Participant_Home_Address }	{$arrow_icon_Participant_Home_Address}
 	</SPAN>
 	{END Participant_Home_Address_fieldheader}
@@ -1512,7 +1528,7 @@
 	 
 		{BEGIN Event_Organizer_fieldheadercolumn}
 	{BEGIN Event_Organizer_fieldheader}
-	<SPAN {$Event_Organizer_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field43" {$item_simple_grid_field43} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer">
+	<SPAN {$Event_Organizer_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field44" {$item_simple_grid_field44} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer">
 	{$label event_participants Event_Organizer }	{$arrow_icon_Event_Organizer}
 	</SPAN>
 	{END Event_Organizer_fieldheader}
@@ -1537,7 +1553,7 @@
 	 
 		{BEGIN Event_Location_fieldheadercolumn}
 	{BEGIN Event_Location_fieldheader}
-	<SPAN {$Event_Location_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field44" {$item_simple_grid_field44} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location">
+	<SPAN {$Event_Location_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field45" {$item_simple_grid_field45} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location">
 	{$label event_participants Event_Location }	{$arrow_icon_Event_Location}
 	</SPAN>
 	{END Event_Location_fieldheader}
@@ -1562,7 +1578,7 @@
 	 
 		{BEGIN Event_Note_fieldheadercolumn}
 	{BEGIN Event_Note_fieldheader}
-	<SPAN {$Event_Note_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field45" {$item_simple_grid_field45} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note">
+	<SPAN {$Event_Note_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field46" {$item_simple_grid_field46} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note">
 	{$label event_participants Event_Note }	{$arrow_icon_Event_Note}
 	</SPAN>
 	{END Event_Note_fieldheader}
@@ -1571,6 +1587,31 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field22}
+									{BEGIN cellblock_grid_headcell_field23}
+	<th
+	
+	{$cell_grid_headcell_field23}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Date_class}	"
+
+			data-field="Date"
+	
+	data-cellId="grid_headcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Date_fieldheadercolumn}
+	{BEGIN Date_fieldheader}
+	<SPAN {$Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field47" {$item_simple_grid_field47} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date">
+	{$label event_participants Date }	{$arrow_icon_Date}
+	</SPAN>
+	{END Date_fieldheader}
+{END Date_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field23}
 							</tr>
 															
 					{END grid_header}
@@ -2156,6 +2197,27 @@
 {END Event_Note_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field22}
+									{BEGIN cellblock_grid_cell_field23}
+	<td
+	
+	{$cell_grid_cell_field23}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Date_class}	"
+
+			data-field="Date"
+	
+	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date" data-default-width >
+{$Date_value}
+</span>
+{END Date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field23}
 							</tr>
 										
 											{END grid_row}
@@ -2542,6 +2604,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field22}
+									{BEGIN cellblock_grid_footcell_field23}
+	<td
+	
+	{$cell_grid_footcell_field23}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Date_class}	"
+
+	
+	data-cellId="grid_footcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field23}
 							</tr>
 					
 					</tfoot>

@@ -186,6 +186,9 @@ pdfDocument = {
 				
 			{"text":{$Event_Note_pdfvalue},"hidden":"{$item_hide_integrated_search_field22}"},
 				
+				
+			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field23}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

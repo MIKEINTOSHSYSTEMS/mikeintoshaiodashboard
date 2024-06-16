@@ -5084,6 +5084,7 @@ $proto61["m_columns"][] = "Participants_Home_Address";
 $proto61["m_columns"][] = "PreTest_Score";
 $proto61["m_columns"][] = "Skill_Test";
 $proto61["m_columns"][] = "Post_Test_Score";
+$proto61["m_columns"][] = "Date";
 $obj = new SQLTable($proto61);
 
 $proto60["m_table"] = $obj;

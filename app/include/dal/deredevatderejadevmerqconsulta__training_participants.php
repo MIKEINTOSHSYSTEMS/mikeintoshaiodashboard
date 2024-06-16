@@ -28,6 +28,7 @@ $dalTabletraining_participants["Participants_Home_Address"] = array("type"=>200,
 $dalTabletraining_participants["PreTest_Score"] = array("type"=>200,"varname"=>"PreTest_Score", "name" => "PreTest_Score", "autoInc" => "0");
 $dalTabletraining_participants["Skill_Test"] = array("type"=>200,"varname"=>"Skill_Test", "name" => "Skill_Test", "autoInc" => "0");
 $dalTabletraining_participants["Post_Test_Score"] = array("type"=>200,"varname"=>"Post_Test_Score", "name" => "Post_Test_Score", "autoInc" => "0");
+$dalTabletraining_participants["Date"] = array("type"=>7,"varname"=>"Date", "name" => "Date", "autoInc" => "0");
 $dalTabletraining_participants["TrainingID"]["key"]=true;
 $dalTabletraining_participants["CandidateID"]["key"]=true;
 
