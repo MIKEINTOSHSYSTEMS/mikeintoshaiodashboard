@@ -558,7 +558,7 @@ class AuditTrailTable
 		}
 		if($table=="webreports")
 		{
-			return false;
+			return true;
 		}
 		if($table=="webreport_style")
 		{
@@ -590,43 +590,43 @@ class AuditTrailTable
 		}
 		if($table=="kbarticles")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbcategories")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbcomments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbusers")
 		{
-			return false;
+			return true;
 		}
 		if($table=="main")
 		{
-			return false;
+			return true;
 		}
 		if($table=="faicons")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_comments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="derejame_audit")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dashboard_pages")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dashboards")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_view")
 		{
@@ -666,19 +666,19 @@ class AuditTrailTable
 		}
 		if($table=="users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="utilities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_aggrigated")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_by_sex_age_disability")
 		{
@@ -686,7 +686,7 @@ class AuditTrailTable
 		}
 		if($table=="indicator_targets")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_grouped_report")
 		{
@@ -698,7 +698,7 @@ class AuditTrailTable
 		}
 		if($table=="dereja_academy_lms")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Home")
 		{
@@ -706,11 +706,11 @@ class AuditTrailTable
 		}
 		if($table=="settings")
 		{
-			return false;
+			return true;
 		}
 		if($table=="database_backup")
 		{
-			return false;
+			return true;
 		}
 	}
 
@@ -1224,7 +1224,7 @@ class AuditTrailFile
 		}
 		if($table=="webreports")
 		{
-			return false;
+			return true;
 		}
 		if($table=="webreport_style")
 		{
@@ -1256,43 +1256,43 @@ class AuditTrailFile
 		}
 		if($table=="kbarticles")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbcategories")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbcomments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="kbusers")
 		{
-			return false;
+			return true;
 		}
 		if($table=="main")
 		{
-			return false;
+			return true;
 		}
 		if($table=="faicons")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_comments")
 		{
-			return false;
+			return true;
 		}
 		if($table=="derejame_audit")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dashboard_pages")
 		{
-			return false;
+			return true;
 		}
 		if($table=="dashboards")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_view")
 		{
@@ -1332,19 +1332,19 @@ class AuditTrailFile
 		}
 		if($table=="users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="admin_users")
 		{
-			return false;
+			return true;
 		}
 		if($table=="utilities")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_aggrigated")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_by_sex_age_disability")
 		{
@@ -1352,7 +1352,7 @@ class AuditTrailFile
 		}
 		if($table=="indicator_targets")
 		{
-			return false;
+			return true;
 		}
 		if($table=="candidates_grouped_report")
 		{
@@ -1364,7 +1364,7 @@ class AuditTrailFile
 		}
 		if($table=="dereja_academy_lms")
 		{
-			return false;
+			return true;
 		}
 		if($table=="Home")
 		{
@@ -1372,11 +1372,11 @@ class AuditTrailFile
 		}
 		if($table=="settings")
 		{
-			return false;
+			return true;
 		}
 		if($table=="database_backup")
 		{
-			return false;
+			return true;
 		}
 	}
 

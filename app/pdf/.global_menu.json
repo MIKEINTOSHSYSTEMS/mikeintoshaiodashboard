@@ -203,9 +203,6 @@ pdfDocument = {
 								
 			"%",
 			 
-								
-			"%",
-			 
 				],
 	
 		body: [
@@ -1128,42 +1125,6 @@ pdfDocument = {
 			},
 														{ 
 				cellId: 'c21',
-				row:  0,
-				col:  2,
-				text: ''
-			},
-							],
-						[
-																{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
-					colSpan: 3,
-		
-			
-	
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																		{ 
-				cellId: 'c2',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-														{ 
-				cellId: 'c2',
 				row:  0,
 				col:  2,
 				text: ''
