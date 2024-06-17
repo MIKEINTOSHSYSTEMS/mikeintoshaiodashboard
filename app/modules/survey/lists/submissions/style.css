@@ -1,0 +1,66 @@
+/* Geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 1.5;
+}
+body {
+  background: #fefefe;
+}
+a:focus {
+  outline: none;
+}
+.content {
+  margin: 30px;
+}
+.clearfix:after {
+  content: '.';
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* Abas */
+.tabs-content {
+  background: #ffffff;
+  font-family: sans-serif;
+}
+
+/* Menu das abas */
+.tabs-menu {
+  background: #0074a2;
+}
+.tabs-menu ul {
+   list-style: none;
+}
+.tabs-menu ul li {
+  float: left;
+}
+.tabs-menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tabs-menu ul li a.active-tab-menu {
+  background: #fd7e14;
+  color: #fcfcfc;
+}
+
+/* Conteúdo das abas */
+.tabs {
+  display: none;
+  padding: 30px;
+}
+.first-tab {
+  display: block;
+}

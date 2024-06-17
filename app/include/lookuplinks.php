@@ -215,6 +215,13 @@ function InitLookupLinks()
 			$lookupTableLinks["Companies"]["candidates.Employment_Company"] = array();
 		}
 		$lookupTableLinks["Companies"]["candidates.Employment_Company"]["edit"] = array("table" => "candidates", "field" => "Employment_Company", "page" => "edit");
+		if( !isset( $lookupTableLinks["CompanySectors"] ) ) {
+			$lookupTableLinks["CompanySectors"] = array();
+		}
+		if( !isset( $lookupTableLinks["CompanySectors"]["candidates.Employer_Sector"] )) {
+			$lookupTableLinks["CompanySectors"]["candidates.Employer_Sector"] = array();
+		}
+		$lookupTableLinks["CompanySectors"]["candidates.Employer_Sector"]["edit"] = array("table" => "candidates", "field" => "Employer_Sector", "page" => "edit");
 		if( !isset( $lookupTableLinks["Jobs"] ) ) {
 			$lookupTableLinks["Jobs"] = array();
 		}
@@ -432,6 +439,13 @@ function InitLookupLinks()
 			$lookupTableLinks["Jobs"]["companies.CompanyJob"] = array();
 		}
 		$lookupTableLinks["Jobs"]["companies.CompanyJob"]["edit"] = array("table" => "Companies", "field" => "CompanyJob", "page" => "edit");
+		if( !isset( $lookupTableLinks["Jobs"] ) ) {
+			$lookupTableLinks["Jobs"] = array();
+		}
+		if( !isset( $lookupTableLinks["Jobs"]["jobs.JobID"] )) {
+			$lookupTableLinks["Jobs"]["jobs.JobID"] = array();
+		}
+		$lookupTableLinks["Jobs"]["jobs.JobID"]["edit"] = array("table" => "Jobs", "field" => "JobID", "page" => "edit");
 		if( !isset( $lookupTableLinks["Job_Categories"] ) ) {
 			$lookupTableLinks["Job_Categories"] = array();
 		}

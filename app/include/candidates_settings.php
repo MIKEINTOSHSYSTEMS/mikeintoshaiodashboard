@@ -9197,9 +9197,10 @@ $tdatacandidates[".hideMobileList"] = array();
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "Companies";
 			$edata["freeInput"] = true;
-	$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 1;
+		$edata["autoCompleteFields"][] = array('masterF'=>"Employer_Sector", 'lookupF'=>"CompanySector");
+	$edata["LCType"] = 1;
 
 	
 		
@@ -9214,7 +9215,9 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	
 	
-	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
 	
 
 	
@@ -9346,7 +9349,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -9356,6 +9359,36 @@ $tdatacandidates[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "CompanySectors";
+		$edata["listPageId"] = "list";
+		$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 2;
+
+	
+		
+	$edata["LinkField"] = "CompanySectorName";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "CompanySectorName";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
+	
+
+	
+	
+	
+// End Lookup Settings
 
 
 	
@@ -9370,11 +9403,8 @@ $tdatacandidates[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=50";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -9400,7 +9430,7 @@ $tdatacandidates[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);

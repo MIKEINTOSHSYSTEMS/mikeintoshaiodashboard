@@ -185,6 +185,12 @@ pdfDocument = {
 			{"text":"","hidden":"{$item_hide_inline_add}"},
 				
 				
+			{"text":"","hidden":"{$item_hide_inline_save_all}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_inline_cancel_all}"},
+				
+				
 			{"text":"","hidden":"{$item_hide_delete}"},
 				
 		  ],
@@ -379,6 +385,9 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_grid_edit}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_inline_save}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},

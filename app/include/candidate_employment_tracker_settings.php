@@ -1016,11 +1016,11 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$edata["LookupTable"] = "CompanySectors";
 			$edata["autoCompleteFieldsOnEdit"] = 1;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 1;
 
 	
 		
-	$edata["LinkField"] = "CompanySectorName";
+	$edata["LinkField"] = "CompanySectorID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "CompanySectorName";
 
@@ -1038,8 +1038,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
@@ -2343,13 +2342,14 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
 	$edata["LookupTable"] = "Jobs";
-			$edata["autoCompleteFieldsOnEdit"] = 0;
+		$edata["listPageId"] = "list";
+		$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
-	$edata["LinkField"] = "JobPosition";
+	$edata["LinkField"] = "JobID";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "JobName";
 
@@ -2367,8 +2367,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 
