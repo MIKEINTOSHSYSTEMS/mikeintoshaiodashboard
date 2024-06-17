@@ -1,4 +1,4 @@
-/* Geral */
+/* General */
 * {
   margin: 0;
   padding: 0;
@@ -26,13 +26,13 @@ a:focus {
   visibility: hidden;
 }
 
-/* Abas */
+/* Tab Content */
 .tabs-content {
   background: #ffffff;
   font-family: sans-serif;
 }
 
-/* Menu das abas */
+/* Tab Menu Contents */
 .tabs-menu {
   background: #0074a2;
 }
@@ -56,7 +56,7 @@ a:focus {
   color: #fcfcfc;
 }
 
-/* Conteúdo das abas */
+/* Tab Contents Dynamics */
 .tabs {
   display: none;
   padding: 30px;
