@@ -248,7 +248,7 @@
             var blob = new Blob([csvContent], { type: 'text/csv' });
             var link = document.createElement("a");
             link.setAttribute("href", URL.createObjectURL(blob));
-            link.setAttribute("download", "selected_rows.csv");
+            link.setAttribute("download", "post_candidates.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

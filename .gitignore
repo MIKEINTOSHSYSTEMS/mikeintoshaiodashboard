@@ -1,2 +1,6 @@
 *.sql
+*.csv
+*.xls
+*.xlsx
+*.txt
 !mysql-init/init.sql

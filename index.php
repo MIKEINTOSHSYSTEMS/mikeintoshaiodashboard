@@ -988,6 +988,65 @@
             }, 3500); // Adjust the delay time as needed
         });
     </script>
+    <!-- Dereja Forms Managment System | Powered By MERQ Consultancy -->
+<link href="https://derejadev.merqconsultancy.org/backend/forms/themes/next/assets/css/form.popup.min.css" rel="stylesheet" type="text/css">
+<link href="./backend/forms/static_files/css/form.popup.css" rel="stylesheet" type="text/css">
+<style>
+    .ef-modal {
+        background: rgba(0, 0, 0, 0.47) !important; /* Overlay color */
+    }
+    .ef-modal-box {
+        margin: 60.00px auto !important; /* Pop-Up margin */
+        padding: 20.00px !important; /* Pop-Up pading */
+        width: 60.00% !important; /* Pop-Up width */
+        border-radius: 10.00px !important; /* Pop-Up radius */
+        background: rgb(255, 255, 255) !important; /* Pop-Up background */
+
+        /** Animation duration **/
+        -webkit-transition: all 0.6s !important;
+        -moz-transition: all 0.6s !important;
+        -o-transition: all 0.6s !important;
+        transition: all 0.6s !important;
+    }
+</style>
+<div class="ef-btn-wrapper ef-btn-wrapper-11">
+    <button id="ef-button-11" class="ef-button ef-button-11 ef-button-warning ef-button-right-placement">System Usability Scale Survey</button>
+</div>
+<div id="ef-content-11" class="ef-content-wrapper">
+    <div id="c11" class="ef-content">
+        Fill out my <a href="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=3lsD.Q">online form</a>.
+    </div>
+    <script type="text/javascript">
+        (function(d, t) {
+            var s = d.createElement(t), options = {
+                'id': '3lsD.Q',
+                'container': 'c11',
+                'height': '2311px',
+                'form': '//derejadev.merqconsultancy.org/backend/forms/app/embed'
+            };
+            s.type= 'text/javascript';
+            s.src = '//derejadev.merqconsultancy.org/backend/forms/static_files/js/form.widget.js';
+            s.onload = s.onreadystatechange = function() {
+                var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+                try { (new EasyForms()).initialize(options).display() } catch (e) { }
+            };
+            var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+        })(document, 'script');
+    </script>
+</div>
+<script src="//derejadev.merqconsultancy.org/backend/forms/static_files/js/form.popup.min.js"></script>
+<script type="text/javascript">
+    var modal11 = new EasyForms.Modal({
+        autoOpen: false,
+        cssClass: ['ef-effect-fade-in']
+    });
+    var btn11 = document.querySelector('.ef-button-11');
+    btn11.addEventListener('click', function(){
+        modal11.open();
+    });
+    modal11.setContent(document.getElementById('ef-content-11'));
+</script>
+<!-- End Dereja Forms Managment System | Powered By MERQ Consultancy -->
 </body>
 
 </html>

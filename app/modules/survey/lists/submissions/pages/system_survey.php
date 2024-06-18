@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainings Form Submissions</title>
+    <title>System Survey Form Submissions</title>
     <style>
         table {
             width: 100%;
@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-    <h1>Trainings Form Submissions</h1>
+    <h1>System Survey Form Submissions</h1>
 
     <?php
     // Enable error reporting
@@ -63,7 +63,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://derejadev.merqconsultancy.org/backend/forms/api/v1/forms/3/submissions',
+        CURLOPT_URL => 'https://derejadev.merqconsultancy.org/backend/forms/api/v1/forms/11/submissions',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -72,7 +72,8 @@
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'GET',
         CURLOPT_HTTPHEADER => array(
-            'X-Api-Key: BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk'
+            //'X-Api-Key: BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk'
+            'X-Api-Key: IbC8w14IiIXV7wtvOxbXEmhxESl9g8vnUqHqvlt4'
         ),
     ));
 
@@ -248,7 +249,7 @@
             var blob = new Blob([csvContent], { type: 'text/csv' });
             var link = document.createElement("a");
             link.setAttribute("href", URL.createObjectURL(blob));
-            link.setAttribute("download", "trainings_submissions.csv");
+            link.setAttribute("download", "System_Survey_Form_Submissions.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
