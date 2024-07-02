@@ -2113,6 +2113,110 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "82";
+	$menuNode["name"] = "Assessments";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "77";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower("");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "";
+	$menuNode["iconType"] = "0";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Assessments";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "83";
+	$menuNode["name"] = "Career Compass";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "82";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower("");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "";
+	$menuNode["iconType"] = "0";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Career Compass";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "84";
+	$menuNode["name"] = "Career Compass Assessments";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "utilities";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "83";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "Career_Compass_Assessments";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-compass";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Career Compass Assessments";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "85";
+	$menuNode["name"] = "Career Compass Submissions";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "utilities";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "83";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "Career_Compass_Submissions";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-list-ol";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Career Compass Submissions";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "86";
 	$menuNode["name"] = "Forms Management";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
@@ -2138,14 +2242,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "83";
+	$menuNode["id"] = "87";
 	$menuNode["name"] = "Survey Froms";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "utilities";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "82";
+	$menuNode["parent"] = "86";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2164,14 +2268,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "84";
+	$menuNode["id"] = "88";
 	$menuNode["name"] = "Form Submissions";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "utilities";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "82";
+	$menuNode["parent"] = "86";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2190,14 +2294,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "85";
+	$menuNode["id"] = "89";
 	$menuNode["name"] = "Forms Administration";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "dashboards";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "82";
+	$menuNode["parent"] = "86";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2216,14 +2320,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "86";
+	$menuNode["id"] = "90";
 	$menuNode["name"] = "Survey Management";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "utilities";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "82";
+	$menuNode["parent"] = "86";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2242,7 +2346,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "87";
+	$menuNode["id"] = "91";
 	$menuNode["name"] = "Settings";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
@@ -2268,14 +2372,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "88";
+	$menuNode["id"] = "92";
 	$menuNode["name"] = "KB Management";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "87";
+	$menuNode["parent"] = "91";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -2294,14 +2398,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "89";
+	$menuNode["id"] = "93";
 	$menuNode["name"] = "Main";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "main";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "88";
+	$menuNode["parent"] = "92";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2320,14 +2424,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "90";
+	$menuNode["id"] = "94";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "kbarticles";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "88";
+	$menuNode["parent"] = "92";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2346,14 +2450,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "91";
+	$menuNode["id"] = "95";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "kbcategories";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "88";
+	$menuNode["parent"] = "92";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2372,14 +2476,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "92";
+	$menuNode["id"] = "96";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "kbcomments";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "88";
+	$menuNode["parent"] = "92";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2398,14 +2502,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "93";
+	$menuNode["id"] = "97";
 	$menuNode["name"] = "Reports Administration";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "87";
+	$menuNode["parent"] = "91";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -2424,14 +2528,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "94";
+	$menuNode["id"] = "98";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "webreport_admin";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2450,14 +2554,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "95";
+	$menuNode["id"] = "99";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "webreport_sql";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2476,14 +2580,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "96";
+	$menuNode["id"] = "100";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "webreport_style";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2502,14 +2606,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "97";
+	$menuNode["id"] = "101";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "webreports";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2528,14 +2632,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "98";
+	$menuNode["id"] = "102";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "webreports_view";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("Report");//
@@ -2554,14 +2658,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "99";
+	$menuNode["id"] = "103";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "{04AFFBE6-86C0-47b0-ADD3-BA7FA19CA6FC}";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "93";
+	$menuNode["parent"] = "97";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("WebReports");//
@@ -2580,14 +2684,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "100";
+	$menuNode["id"] = "104";
 	$menuNode["name"] = "User Management";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "87";
+	$menuNode["parent"] = "91";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -2606,14 +2710,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "101";
+	$menuNode["id"] = "105";
 	$menuNode["name"] = "System Users";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "users";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "100";
+	$menuNode["parent"] = "104";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2632,14 +2736,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "102";
+	$menuNode["id"] = "106";
 	$menuNode["name"] = "System Users Audit Log";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "derejame_audit";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "100";
+	$menuNode["parent"] = "104";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2658,14 +2762,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "103";
+	$menuNode["id"] = "107";
 	$menuNode["name"] = "Msc";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "87";
+	$menuNode["parent"] = "91";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -2684,14 +2788,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "104";
+	$menuNode["id"] = "108";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "admin_comments";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "103";
+	$menuNode["parent"] = "107";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2710,14 +2814,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "105";
+	$menuNode["id"] = "109";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "faicons";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "103";
+	$menuNode["parent"] = "107";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2736,14 +2840,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "106";
+	$menuNode["id"] = "110";
 	$menuNode["name"] = "System Settings";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
 	$menuNode["table"] = "";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "87";
+	$menuNode["parent"] = "91";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "None";
 	$menuNode["pageType"] = strtolower("");//
@@ -2762,14 +2866,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "107";
+	$menuNode["id"] = "111";
 	$menuNode["name"] = "Fields Settings";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "settings";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "106";
+	$menuNode["parent"] = "110";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2788,14 +2892,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "108";
+	$menuNode["id"] = "112";
 	$menuNode["name"] = "";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "database_backup";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "106";
+	$menuNode["parent"] = "110";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2814,14 +2918,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "109";
+	$menuNode["id"] = "113";
 	$menuNode["name"] = "View Database Backups";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "database_backup";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "106";
+	$menuNode["parent"] = "110";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("Search");//
@@ -2840,7 +2944,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "110";
+	$menuNode["id"] = "114";
 	$menuNode["name"] = "Knowledge Base";
 	$menuNode["href"] = "./modules/knowledgebase/main_list.php";
 	$menuNode["type"] = "Leaf";
@@ -2866,7 +2970,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "111";
+	$menuNode["id"] = "115";
 	$menuNode["name"] = "Help Desk";
 	$menuNode["href"] = "./modules/helpdesk/menu.php";
 	$menuNode["type"] = "Leaf";

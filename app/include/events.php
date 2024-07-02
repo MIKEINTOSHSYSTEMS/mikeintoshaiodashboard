@@ -43,6 +43,8 @@ class class_GlobalEvents extends eventsBase
 		$this->events["utilities_snippet4"] = true;
 		$this->events["survey_form_lists"] = true;
 		$this->events["Form_Submissions"] = true;
+		$this->events["utilities_snippet5"] = true;
+		$this->events["career_compass_submissions"] = true;
 
 
 
@@ -268,6 +270,38 @@ you to the file.
 	function event_Form_Submissions(&$params)
 	{
 	echo '<IFRAME SRC="./modules/survey/lists/submissions/form_submissions.php" WIDTH=100% HEIGHT=1350px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_utilities_snippet5(&$params)
+	{
+	echo '<IFRAME SRC="./modules/survey/lists/assessments/career_compass/career_compass.php" WIDTH=100% HEIGHT=5000px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">MERQ Consultancy</A>
+
+you to the file.
+
+</IFRAME>';
+
+	;
+}
+	function event_career_compass_submissions(&$params)
+	{
+	echo '<IFRAME SRC="./modules/survey/lists/assessments/career_compass/views/careercompass.php" WIDTH=100% HEIGHT=1350px>
 
 If you can see this, your browser does not
 
