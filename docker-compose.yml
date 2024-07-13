@@ -39,7 +39,7 @@ services:
     #ports:
       #- "8080:80" #uncomment to expose the php services
     expose:
-        - "9000"
+      - "9000"
     depends_on:
       - db
     networks:
@@ -57,7 +57,7 @@ services:
       - ./assets:/var/www/html/assets
       - ./backend:/var/www/html/backend
       - ./dist:/var/www/html/dist
-      # - ./docker:/var/www/html/docker
+      #- ./docker:/var/www/html/docker
       - ./help:/var/www/html/help
       - ./map_files:/var/www/html/map_files
       - ./src:/var/www/html/src
@@ -90,11 +90,11 @@ services:
     container_name: derja_viz
     hostname: metabase
     volumes:
-      - ./derejaviz:/dev/random:ro
+      - derejaviz:/dev/random:ro
     ports:
-      - 4000:3000
+      - "4000:3000"
     environment:
-      MB_DB_FILE: ./derejaviz/merqdereja.db
+      MB_DB_FILE: /dev/random/merqdereja.db
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: merqderejadb
       MB_DB_PORT: 5432
@@ -104,6 +104,8 @@ services:
       MB_ADMIN_EMAIL: dev@merqconsultancy.org
       MB_ADMIN_FIRST_NAME: MERQ
       MB_ADMIN_PASSWORD: merqderejadev0
+    depends_on:
+      - postgres
     networks:
       - derejanet
 
@@ -121,8 +123,7 @@ services:
       - derejanet
 
   db:
-    image: mariadb #mysql
-    #command: --default-authentication-plugin=mysql_native_password
+    image: mariadb:latest
     restart: always
     environment:
       MYSQL_ROOT_HOST: localhost
@@ -132,30 +133,30 @@ services:
       MYSQL_PASSWORD: merqderejadev
     volumes:
       - ./src/dere_dev.sql:/docker-entrypoint-initdb.d/dere_dev.sql
-      - ./mysql-init:/docker-entrypoint-initdb.d  # to mount the init script
+      - ./mysql-init:/docker-entrypoint-initdb.d
     networks:
       - derejanet
 
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:latest
     restart: always
     ports:
-      - 3307:80
+      - "3307:80"
     environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOSTS=db
-      - PMA_USER=merqderejadev
-      - PMA_PASSWORD=merqderejadev
+      PMA_ARBITRARY: 1
+      PMA_HOSTS: db
+      PMA_USER: merqderejadev
+      PMA_PASSWORD: merqderejadev
     networks:
       - derejanet
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     ports:
       - "5434:80"
     environment:
-      - PGADMIN_DEFAULT_EMAIL=dev@merqconsultancy.org
-      - PGADMIN_DEFAULT_PASSWORD=merqderejadev
+      PGADMIN_DEFAULT_EMAIL: dev@merqconsultancy.org
+      PGADMIN_DEFAULT_PASSWORD: merqderejadev
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     depends_on:
@@ -164,19 +165,21 @@ services:
       - derejanet
 
   mongo:
-    image: mongo
+    image: mongo:latest
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: merqderejadev
       MONGO_INITDB_ROOT_PASSWORD: merqderejadev
+    volumes:
+      - mongodata:/data/db
     networks:
       - derejanet
 
   mongo-express:
-    image: mongo-express
+    image: mongo-express:latest
     restart: always
     ports:
-      - 8018:8081
+      - "8018:8081"
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: merqderejadev
       ME_CONFIG_MONGODB_ADMINPASSWORD: merqderejadev
@@ -184,17 +187,33 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: merqderejauser
       ME_CONFIG_BASICAUTH_PASSWORD: merqderejauser
       ME_CONFIG_SSL_ENABLED: 'false'
-      #ME_CONFIG_SSL_CRT_PATH: /etc/ssl/certs/server.crt
-      #ME_CONFIG_SSL_KEY_PATH: /etc/ssl/certs/server.key
-    volumes: 
-      #- ./certs:/etc/ssl/certs
-      - ./mongodata/db:/data/db
-    networks: 
+    networks:
+      - derejanet
+
+  chat:
+    image: derejame_chatbot
+    container_name: derejame_chatbot
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: ai_chatbot
+    ports:
+      - "8502:8502"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8502/_stcore/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./ai/chat:/ai/chat
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
       - derejanet
 
 networks:
   derejanet:
-    #driver: bridge
+    driver: bridge
 
 volumes:
   derejaviz: 

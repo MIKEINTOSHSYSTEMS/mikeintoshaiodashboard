@@ -4,3 +4,4 @@
 *.xlsx
 *.txt
 !mysql-init/init.sql
+/ai/venv
