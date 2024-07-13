@@ -16,5 +16,7 @@ services:
       retries: 3
     volumes:
       - ./chat:/chat
+      - ./chat/certs:/ai/chat/certs  # Mount the SSL certificates directory
+      - ./chat/.streamlit/config.toml:/root/.streamlit/config.toml  # Mount the config.toml file
     environment:
       - PYTHONUNBUFFERED=1

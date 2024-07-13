@@ -45,6 +45,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["Form_Submissions"] = true;
 		$this->events["utilities_snippet5"] = true;
 		$this->events["career_compass_submissions"] = true;
+		$this->events["utilities_snippet6"] = true;
 
 
 
@@ -313,6 +314,21 @@ you to the file.
 
 </IFRAME>';
 
+	;
+}
+	function event_utilities_snippet6(&$params)
+	{
+	echo '<IFRAME SRC="https://derejaviz.merqconsultancy.org:8502" WIDTH=100% HEIGHT=900px>
+
+If you can see this, your browser does not
+
+understand IFRAME. However, we willl still
+
+<A HREF="../test.php">link</A>
+
+you to the file.
+
+</IFRAME>';
 	;
 }
 
