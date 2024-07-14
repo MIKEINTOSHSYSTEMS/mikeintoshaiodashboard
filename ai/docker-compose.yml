@@ -20,3 +20,9 @@ services:
       - ./chat/.streamlit/config.toml:/root/.streamlit/config.toml  # Mount the config.toml file
     environment:
       - PYTHONUNBUFFERED=1
+    networks:
+      - derejame_chatbot
+
+networks:
+  derejame_chatbot:
+    driver: bridge

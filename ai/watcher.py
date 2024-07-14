@@ -25,6 +25,27 @@ class WatchHandler(FileSystemEventHandler):
             print(f"Detected deletion of {event.src_path}")
             os.system("docker-compose restart chat")
 
+    def on_modified(self, event):
+        if event.is_directory:
+            return None
+        elif event.src_path.endswith('.env'):
+            print(f"Detected modification in {event.src_path}")
+            os.system("docker-compose restart chat")
+
+    def on_created(self, event):
+        if event.is_directory:
+            return None
+        elif event.src_path.endswith('.env'):
+            print(f"Detected creation of {event.src_path}")
+            os.system("docker-compose restart chat")
+
+    def on_deleted(self, event):
+        if event.is_directory:
+            return None
+        elif event.src_path.endswith('.env'):
+            print(f"Detected deletion of {event.src_path}")
+            os.system("docker-compose restart chat")
+
 if __name__ == "__main__":
     path = './chat'  # Adjust path to match your Docker Compose service name
     event_handler = WatchHandler()

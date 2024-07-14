@@ -11,18 +11,34 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
+from sshtunnel import SSHTunnelForwarder
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Initialize database connection
 def init_database() -> SQLDatabase:
-    user = os.getenv('MYSQL_USER')
-    password = os.getenv('MYSQL_PASSWORD')
-    host = os.getenv('MYSQL_HOST')
-    port = os.getenv('MYSQL_PORT')
-    database = os.getenv('MYSQL_DATABASE')
-    db_uri = f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}"
+    ssh_host = os.getenv('SSH_HOST')
+    ssh_port = int(os.getenv('SSH_PORT'))
+    ssh_user = os.getenv('SSH_USER')
+    ssh_password = os.getenv('SSH_PASSWORD')
+    mysql_host = os.getenv('MYSQL_HOST')
+    mysql_port = int(os.getenv('MYSQL_PORT'))
+    mysql_user = os.getenv('MYSQL_USER')
+    mysql_password = os.getenv('MYSQL_PASSWORD')
+    mysql_database = os.getenv('MYSQL_DATABASE')
+
+    server = SSHTunnelForwarder(
+        (ssh_host, ssh_port),
+        ssh_username=ssh_user,
+        ssh_password=ssh_password,
+        remote_bind_address=(mysql_host, mysql_port)
+    )
+    server.start()
+
+    local_port = server.local_bind_port
+    db_uri = f"mysql+mysqlconnector://{mysql_user}:{mysql_password}@127.0.0.1:{local_port}/{mysql_database}"
+
     return SQLDatabase.from_uri(db_uri)
 
 # Function to handle SQLInterfaceError: Commands out of sync
