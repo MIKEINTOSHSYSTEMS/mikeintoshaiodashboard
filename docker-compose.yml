@@ -16,7 +16,7 @@ services:
       - ./assets:/var/www/html/assets
       - ./backend:/var/www/html/backend
       - ./dist:/var/www/html/dist
-      #- ./docker:/var/www/html/docker
+      # - ./docker:/var/www/html/docker
       - ./help:/var/www/html/help
       - ./map_files:/var/www/html/map_files
       - ./src:/var/www/html/src
@@ -39,8 +39,8 @@ services:
       - ./server.html:/var/www/html/server.html
       - ./manifest.json:/var/www/html/manifest.json
       - ./pwabuilder-sw.js:/var/www/html/pwabuilder-sw.js
-    #ports:
-      #- "8080:80" #uncomment to expose the php services
+    # ports:
+      # - "8080:80" # uncomment to expose the php services
     expose:
       - "9009"
     depends_on:
@@ -62,7 +62,7 @@ services:
       - ./assets:/var/www/html/assets
       - ./backend:/var/www/html/backend
       - ./dist:/var/www/html/dist
-      #- ./docker:/var/www/html/docker
+      # - ./docker:/var/www/html/docker
       - ./help:/var/www/html/help
       - ./map_files:/var/www/html/map_files
       - ./src:/var/www/html/src

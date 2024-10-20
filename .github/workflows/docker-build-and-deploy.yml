@@ -57,23 +57,31 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Cleanup previous containers
+        run: |
+          docker-compose down || true
+          docker system prune -f
+
+      - name: List running containers
+        run: docker ps -a
+
       - name: Deploy Docker Container
         run: |
           docker-compose pull && docker-compose up -d
 
       # Optional: Cleanup unused images and containers
-      # - name: Cleanup Docker
-      #   run: |
-      #     docker system prune -f
+      - name: Cleanup Docker
+        run: |
+          docker system prune -f
 
       # Uncomment the following step to deploy automatically to your server
-      #- name: SSH into Server and Pull Docker Image
-      #  uses: appleboy/ssh-action@master
-      #  with:
-      #    host: ${{ secrets.SERVER_HOST }}
-      #    username: ${{ secrets.SERVER_USERNAME }}
-      #    key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
-      #    script: |
-      #      cd /path/to/project
-      #      docker-compose pull
-      #      docker-compose up -d
+      # - name: SSH into Server and Pull Docker Image
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SERVER_HOST }}
+      #     username: ${{ secrets.SERVER_USERNAME }}
+      #     key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
+      #     script: |
+      #       cd /path/to/project
+      #       docker-compose pull
+      #       docker-compose up -d
