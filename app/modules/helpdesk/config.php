@@ -1,10 +1,10 @@
 <?php
 
 $config_hostname = "localhost";
-$config_hostuser = "dere_admin";
-$config_hostpass = "dere_admin";
+$config_hostuser = "me_dereja";
+$config_hostpass = "me_dereja";
 $config_hostport = 3306;
-$config_dbname = "dere_dev";
+$config_dbname = "me_dereja";
 
 $config_loginTable = "hd_users";
 $config_usernameField = "";

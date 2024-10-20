@@ -12,13 +12,13 @@ $use_mysqli_ext = function_exists('mysqli_connect');
 ini_set("display_errors","1");
 ini_set("display_startup_errors","1");
 
-$host = refine(@$_REQUEST["host"]);
-$login = refine(@$_REQUEST["login"]);
-$pwd = refine(@$_REQUEST["pwd"]);
+$host = @$_REQUEST["host"];
+$login = @$_REQUEST["login"];
+$pwd = @$_REQUEST["pwd"];
 $ssl = @$_REQUEST["ssl"];
-$port = refine(@$_REQUEST["port"]);
-$db = refine(@$_REQUEST["db"]);
-$todo = refine(@$_REQUEST["todo"]);
+$port = @$_REQUEST["port"];
+$db = @$_REQUEST["db"];
+$todo = @$_REQUEST["todo"];
 
 
 $mysqliFieldTypesMap = array(
@@ -189,7 +189,7 @@ if( $todo == "testconnect5" )
 $conn = db_connect($host, $login, $pwd, $port, $ssl);
 if(!$conn)
 {
-	echo db_error($conn);
+	echo htmlspecialchars( db_error($conn) );
 	exit();
 }
 
@@ -203,12 +203,12 @@ if( $todo == "exec" )
 {
 	if( $db && !select_db($db, $conn) )
 	{
-		echo db_error($conn);
+		echo htmlspecialchars( db_error($conn) );
 		return;
 	}
-	$res = db_query( refine($_REQUEST["sql"]), $conn );
+	$res = db_query( $_REQUEST["sql"], $conn );
 	if( !$res )
-		echo db_error($conn);
+		echo htmlspecialchars( db_error($conn) );
 	else
 		echo "1";
 	return;
@@ -228,7 +228,7 @@ if( $todo == "dbs" )
 else if( $todo == "queryfields" )
 {
 	select_db($db, $conn) or showerror($conn);
-	$sql = refine( @$_REQUEST["sql"] );
+	$sql = @$_REQUEST["sql"];
 	if( !$sql )
 		return;
 
@@ -254,7 +254,7 @@ else if( $todo == "tables" )
 }
 else if( $todo == "tablefields" )
 {
-	$table = refine( @$_REQUEST["table"] );
+	$table = @$_REQUEST["table"];
 	if( !$table )
 		return;
 
@@ -265,7 +265,7 @@ else if( $todo == "tablefields" )
 else if( $todo == "queryvalues" )
 {
 	select_db($db, $conn) or showerror($conn);
-	$sql = refine( @$_REQUEST["sql"] );
+	$sql = @$_REQUEST["sql"];
 	if( !$sql )
 		return;
 
@@ -278,7 +278,7 @@ else if( $todo == "queryvalues" )
 	}
 
 	echo '<?xml version="1.0" standalone="yes" ?>';
-	if( getFieldsNumberInLastQuery($res, $conn) == 1 ) //fix me!
+	if( getFieldsNumberInLastQuery($res, $conn) == 1 )
 	{
 		echo "<values>";
 		while( $row = db_fetch_numarray($res) )
@@ -305,7 +305,7 @@ else if( $todo == "queryvalues" )
 else if( $todo == "queryvaluesraw" )
 {
 	select_db($db, $conn) or showerror($conn);
-	$sql = refine( @$_REQUEST["sql"] );
+	$sql = @$_REQUEST["sql"];
 	if( !$sql )
 		return;
 
@@ -337,7 +337,7 @@ else if( $todo == "queryvaluesraw" )
 else if( $todo == "queryvaluesstr" )
 {
 	select_db($db, $conn) or showerror($conn);
-	$sql = refine( @$_REQUEST["sql"] );
+	$sql = @$_REQUEST["sql"];
 	if( !$sql )
 		return;
 	$res = db_query($sql, $conn);
@@ -472,25 +472,6 @@ function ptintQueryFieldsInfo($res, $conn)
 	}
 }
 
-function refine($str)
-{
-	if( get_magic_quotes_gpc() )
-		$ret = stripslashes($str);
-	else
-		$ret = $str;
-	return html_special_decode($ret);
-}
-// Pl
-function html_special_decode($str)
-{
-	$ret = $str;
-	$ret = str_replace("&gt;", ">", $ret);
-	$ret = str_replace("&lt;", "<", $ret);
-	$ret = str_replace("&quot;", "\"", $ret);
-	$ret = str_replace("&#039;", "'", $ret);
-	$ret = str_replace("&amp;", "&", $ret);
-	return $ret;
-}
 
 function showtablefields($table)
 {
@@ -567,10 +548,10 @@ function showtablefields($table)
 
 function showerror($conn)
 {
-	echo db_error($conn);
+	echo htmlspecialchars( db_error($conn) );
 	exit();
 }
-// as
+
 function show_schema()
 {
 	global $conn;
@@ -608,23 +589,17 @@ function show_schema()
 <?php
 }
 
-function refine5($str)
-{
-	if( get_magic_quotes_gpc() )
-		$ret = stripslashes($str);
-	else
-		$ret = $str;
-	return base64_decode($ret);
-}
 
 function connect5()
 {
-	$login = refine5(@$_REQUEST["login"]);
-	$pwd = refine5(@$_REQUEST["pwd"]);
-	$host = refine5(@$_REQUEST["host"]);
+	$login = base64_decode( @$_REQUEST["login"] );
+	$pwd = base64_decode( @$_REQUEST["pwd"] );
+	$host = base64_decode( @$_REQUEST["host"] );
+	
 	$ssl = @$_REQUEST["ssl"];
 	$port = @$_REQUEST["port"];
-	$db = refine5(@$_REQUEST["db"]);
+	$db = base64_decode( @$_REQUEST["db"] );
+	
 	$conn = db_connect($host, $login, $pwd, $port, $ssl);
 
 	if( $conn && strlen($db) )
@@ -634,10 +609,11 @@ function connect5()
 			db_close($conn);
 			return false;
 		}
+		db_query("set names utf8", $conn);
 	}
 	return $conn;
 }
-// smo
+
 function testconnect5()
 {
 	echo "start-script-output";
@@ -654,7 +630,7 @@ function testconnect5()
 
 function exec5()
 {
-	$query = refine5( @$_REQUEST["query"] );
+	$query = base64_decode( @$_REQUEST["query"] );
 	echo "start-script-output";
 	if( !($conn = connect5()) )
 	{
@@ -674,10 +650,10 @@ function exec5()
 
 function query5()
 {
-	$query = refine5( @$_REQUEST["query"] );
-	$reccount = refine( @$_REQUEST["reccount"] ) + 0;
-	$skip = refine( @$_REQUEST["skip"] ) + 0;
-	$blobsaschars = refine( $_REQUEST["blobsaschars"] );
+	$query = base64_decode( @$_REQUEST["query"] );
+	$reccount = @$_REQUEST["reccount"] + 0;
+	$skip = @$_REQUEST["skip"] + 0;
+	$blobsaschars = $_REQUEST["blobsaschars"];
 
 	echo "start-script-output";
 	if( !($conn = connect5()) || !($rs = db_query($query, $conn)) )
@@ -751,7 +727,9 @@ function xmlencode($str)
 	$str = str_replace("<", "&lt;", $str);
 	$str = str_replace(">", "&gt;", $str);
 	$str = str_replace("\"", "&quot;", $str);
+	return str_replace("'", "&apos;", $str);
 
+	/*
 	$out = "";
 	$len = strlen($str);
 	$ind = 0;
@@ -769,6 +747,7 @@ function xmlencode($str)
 		$out.= substr($str, $ind);
 
 	return str_replace("'", "&apos;", $out);
+	/**/
 }
 
 

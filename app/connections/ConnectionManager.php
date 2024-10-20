@@ -123,13 +123,13 @@ class ConnectionManager extends ConnectionManager_Base
 		$data["connId"] = "deredevatderejadevmerqconsulta";
 		$data["connName"] = "dere_dev at derejadev.merqcons";
 		$data["connStringType"] = "mysql";
-		$data["connectionString"] = "mysql;localhost;dere_admin;dere_admin;;dere_dev;https://derejadev.merqconsultancy.org/app/phprunner.php;0"; //currently unused
+		$data["connectionString"] = "mysql;localhost;me_dereja;me_dereja;;me_dereja;https://me.dereja.com/app/phprunner.php;0"; //currently unused
 
 		$this->_connectionsIdByName["dere_dev at derejadev.merqcons"] = "deredevatderejadevmerqconsulta";
 
 		$data["connInfo"] = array();
-		$data["ODBCUID"] = "dere_admin";
-		$data["ODBCPWD"] = "dere_admin";
+		$data["ODBCUID"] = "me_dereja";
+		$data["ODBCPWD"] = "me_dereja";
 		$data["leftWrap"] = "`";
 		$data["rightWrap"] = "`";
 
@@ -140,13 +140,13 @@ class ConnectionManager extends ConnectionManager_Base
 		//	Don't change any of these lines manually!
 		//	Use 'Server database connections' feature on the Output screen in PHPRunner instead.
 		$data["connInfo"][0] = "localhost";
-		$data["connInfo"][1] = "dere_admin";
-		$data["connInfo"][2] = "dere_admin";
+		$data["connInfo"][1] = "me_dereja";
+		$data["connInfo"][2] = "me_dereja";
 		$data["connInfo"][3] = "";
-		$data["connInfo"][4] = "dere_dev";
-		$data["connInfo"][5] = "https://derejadev.merqconsultancy.org/app/phprunner.php"; //currently unused
+		$data["connInfo"][4] = "me_dereja";
+		$data["connInfo"][5] = "https://me.dereja.com/app/phprunner.php"; //currently unused
 		$data["connInfo"][6] = "0"; //currently unused
-		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=localhost;Uid=dere_admin;Pwd=dere_admin;Database=dere_dev;OPTION=3";
+		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=localhost;Uid=me_dereja;Pwd=me_dereja;Database=me_dereja;OPTION=3";
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 0;

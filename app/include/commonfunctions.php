@@ -2043,37 +2043,37 @@ function GetUserPermissionsStatic( $table )
 	if( $table=="kbarticles" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="kbcategories" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="kbcomments" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="kbusers" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="main" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="faicons" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="admin_comments" )
 	{
 //	default permissions
-		return "".$extraPerm;
+		return "ADESPI".$extraPerm;
 	}
 	if( $table=="derejame_audit" )
 	{
