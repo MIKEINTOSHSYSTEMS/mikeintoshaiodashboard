@@ -9,13 +9,13 @@ if (!isset($_POST['password']) || $_POST['password'] !== $hardcodedPassword) {
 }
 
 // Database connection details
-$dbHost = '192.168.160.4';
+$dbHost = '192.168.160.40';
 $dbUser = 'merqderejadb';
 $dbPassword = 'merqderejadb';
 $dbName = 'merqderejadb';
 
 // Docker container name
-$containerName = 'merq_dereja_postgres';
+$containerName = 'derejame_postgres';
 
 // Directory to store backups
 $backupDir = './backups';

@@ -176,7 +176,7 @@ EXPOSE 8502
 HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
 
 # Start Streamlit when the container runs
-ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8502", "--server.address=192.168.160.10"]
+ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8502", "--server.address=0.0.0.0"]
 
 
 ################################################################################

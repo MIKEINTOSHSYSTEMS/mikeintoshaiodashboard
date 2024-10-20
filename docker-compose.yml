@@ -47,7 +47,7 @@ services:
       - db
     networks:
       derejanet:
-        ipv4_address: 192.168.160.1
+        ipv4_address: 192.168.160.10
 
   nginx:
     image: nginx:latest
@@ -88,7 +88,7 @@ services:
       - php
     networks:
       derejanet:
-        ipv4_address: 192.168.160.2
+        ipv4_address: 192.168.160.20
 
   metabase:
     image: metabase/metabase:latest
@@ -113,7 +113,7 @@ services:
       - postgres
     networks:
       derejanet:
-        ipv4_address: 192.168.160.3
+        ipv4_address: 192.168.160.30
 
   postgres:
     image: postgres:latest
@@ -127,7 +127,7 @@ services:
       - ./src/merqderejadb:/docker-entrypoint-initdb.d/merqderejadb
     networks:
       derejanet:
-        ipv4_address: 192.168.160.4
+        ipv4_address: 192.168.160.40
 
   db:
     image: mariadb:latest
@@ -143,7 +143,7 @@ services:
       - ./mysql-init:/docker-entrypoint-initdb.d
     networks:
       derejanet:
-        ipv4_address: 192.168.160.5
+        ipv4_address: 192.168.160.50
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -157,7 +157,7 @@ services:
       PMA_PASSWORD: merqderejadev
     networks:
       derejanet:
-        ipv4_address: 192.168.160.6
+        ipv4_address: 192.168.160.60
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -172,7 +172,7 @@ services:
       - postgres
     networks:
       derejanet:
-        ipv4_address: 192.168.160.7
+        ipv4_address: 192.168.160.70
 
   mongo:
     image: mongo:latest
@@ -184,7 +184,7 @@ services:
       - mongodata:/data/db
     networks:
       derejanet:
-        ipv4_address: 192.168.160.8
+        ipv4_address: 192.168.160.80
 
   mongo-express:
     image: mongo-express:latest
@@ -200,7 +200,7 @@ services:
       ME_CONFIG_SSL_ENABLED: 'false'
     networks:
       derejanet:
-        ipv4_address: 192.168.160.9
+        ipv4_address: 192.168.160.90
 
   chat:
     image: derejame_chatbot
@@ -222,7 +222,7 @@ services:
       - PYTHONUNBUFFERED=1
     networks:
       derejanet:
-        ipv4_address: 192.168.160.10
+        ipv4_address: 192.168.160.100
 
 networks:
   derejanet:
