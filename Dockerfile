@@ -151,7 +151,7 @@ EXPOSE 80
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim AS ai_chatbot
 
-WORKDIR /ai/chat
+WORKDIR /ai/chat/
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -189,12 +189,14 @@ FROM php_app AS final_stage
 # Copy supervisord configuration
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Copy requirements.txt from ai_chatbot stage
+COPY --from=ai_chatbot /ai/chat/requirements.txt /ai/chat/
+
 # Install Python and Streamlit in the final stage
-#RUN apt-get update && apt-get install -y python3 python3-pip && pip3 install streamlit sshtunnel
-RUN apt-get update && apt-get install -y python3 python3-pip && pip3 install -r requirements.txt
+RUN apt-get update && apt-get install -y python3 python3-pip && pip3 install -r /ai/chat/requirements.txt
 
 # Copy the chatbot application files
-COPY ai/chat /ai/chat
+COPY --from=ai_chatbot /ai/chat /ai/chat
 
 # Set permissions for supervisord.conf (if exists)
 RUN if [ -f /etc/supervisor/conf.d/supervisord.conf ]; then \
