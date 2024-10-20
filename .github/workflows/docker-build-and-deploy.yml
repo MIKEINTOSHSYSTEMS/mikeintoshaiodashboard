@@ -52,9 +52,19 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
       - name: Deploy Docker Container
         run: |
           docker-compose pull && docker-compose up -d
+
+      # Optional: Cleanup unused images and containers
+      # - name: Cleanup Docker
+      #   run: |
+      #     docker system prune -f
 
       # Uncomment the following step to deploy automatically to your server
       #- name: SSH into Server and Pull Docker Image
