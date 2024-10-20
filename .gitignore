@@ -6,3 +6,5 @@
 !mysql-init/init.sql
 !/ai/chat/requirements.txt
 /ai/venv
+/api/database/backups/
+/ssl/

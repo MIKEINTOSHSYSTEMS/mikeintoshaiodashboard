@@ -42,19 +42,17 @@ services:
     #ports:
       #- "8080:80" #uncomment to expose the php services
     expose:
-      - "9009"
+      - "9000"
     depends_on:
       - db
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.1
+      - derejanet
 
   nginx:
     image: nginx:latest
     container_name: derejame_nginx
     ports:
-      - "8008:80"
-      - "8843:443"
+      - "8080:80"
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./analytics:/var/www/html/analytics
@@ -87,8 +85,8 @@ services:
     depends_on:
       - php
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.2
+      - derejanet
+
 
   metabase:
     image: metabase/metabase:latest
@@ -112,8 +110,7 @@ services:
     depends_on:
       - postgres
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.3
+      - derejanet
 
   postgres:
     image: postgres:latest
@@ -126,8 +123,7 @@ services:
     volumes:
       - ./src/merqderejadb:/docker-entrypoint-initdb.d/merqderejadb
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.4
+      - derejanet
 
   db:
     image: mariadb:latest
@@ -142,8 +138,7 @@ services:
       - ./src/dere_dev.sql:/docker-entrypoint-initdb.d/dere_dev.sql
       - ./mysql-init:/docker-entrypoint-initdb.d
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.5
+      - derejanet
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -156,8 +151,7 @@ services:
       PMA_USER: merqderejadev
       PMA_PASSWORD: merqderejadev
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.6
+      - derejanet
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -171,8 +165,7 @@ services:
     depends_on:
       - postgres
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.7
+      - derejanet
 
   mongo:
     image: mongo:latest
@@ -183,8 +176,7 @@ services:
     volumes:
       - mongodata:/data/db
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.8
+      - derejanet
 
   mongo-express:
     image: mongo-express:latest
@@ -199,8 +191,7 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD: merqderejauser
       ME_CONFIG_SSL_ENABLED: 'false'
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.9
+      - derejanet
 
   chat:
     image: derejame_chatbot
@@ -221,15 +212,11 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     networks:
-      derejanet:
-        ipv4_address: 192.168.160.10
+      - derejanet
 
 networks:
   derejanet:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.160.0/24
 
 volumes:
   derejaviz: 
