@@ -154,8 +154,8 @@ services:
     environment:
       PMA_ARBITRARY: 1
       PMA_HOSTS: db
-      PMA_USER: merqderejadev
-      PMA_PASSWORD: merqderejadev
+      PMA_USER: me_dereja
+      PMA_PASSWORD: me_dereja
     networks:
       derejanet:
         ipv4_address: 192.168.160.60
@@ -213,10 +213,12 @@ services:
     ports:
       - "8502:8502"
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8502/_stcore/health"]
+      test: ["CMD", "curl", "--fail", "http://chat:8502/_stcore/health"]
       interval: 10s
       timeout: 5s
       retries: 3
+      start_period: 30s  # Delay health check for 30 seconds
+
     volumes:
       - ./ai/chat:/ai/chat
     environment:

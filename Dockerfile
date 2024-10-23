@@ -172,12 +172,11 @@ COPY ai/chat/ /ai/chat/
 # Expose the port Streamlit listens on
 EXPOSE 8502
 
-# Healthcheck for the Streamlit service
-HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
-
 # Start Streamlit when the container runs
 ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8502", "--server.address=0.0.0.0"]
 
+# Healthcheck for the Streamlit service 
+HEALTHCHECK CMD curl --fail http://localhost:8502/_stcore/health
 
 ################################################################################
 # Setup for Supervisor
