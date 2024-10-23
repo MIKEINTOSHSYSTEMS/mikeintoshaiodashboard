@@ -131,13 +131,14 @@ services:
 
   db:
     image: mariadb:latest
+    container_name: derejame_mariadb
     restart: always
     environment:
       MYSQL_ROOT_HOST: localhost
-      MYSQL_DATABASE: merqderejadev
+      MYSQL_DATABASE: me_dereja
       MYSQL_ROOT_PASSWORD: merqderejadmin
-      MYSQL_USER: merqderejadev
-      MYSQL_PASSWORD: merqderejadev
+      MYSQL_USER: me_dereja
+      MYSQL_PASSWORD: me_dereja
     volumes:
       - ./src/dere_dev.sql:/docker-entrypoint-initdb.d/dere_dev.sql
       - ./mysql-init:/docker-entrypoint-initdb.d

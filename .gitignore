@@ -7,4 +7,5 @@
 !/ai/chat/requirements.txt
 /ai/venv
 /api/database/backups/
+/api/database/web/backup/
 /ssl/
