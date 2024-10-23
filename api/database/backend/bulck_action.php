@@ -21,10 +21,10 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['bac
         }
     }
 
-    header("Location: main.php?msg=deleted");
+    header("Location: forms.php?msg=deleted");
     exit();
 }
 
-header("Location: main.php");
+header("Location: forms.php");
 exit();
 ?>

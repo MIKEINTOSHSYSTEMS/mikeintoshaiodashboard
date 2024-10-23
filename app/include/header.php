@@ -229,7 +229,7 @@
 </div>
 <div id="ef-content-11" class="ef-content-wrapper">
     <div id="c11" class="ef-content">
-        Fill out <a href="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=3lsD.Q">System Usability Scale Survey Form</a>.
+        Fill out <a href="https://me.dereja.com/backend/forms/app/form?id=3lsD.Q">System Usability Scale Survey Form</a>.
     </div>
     <script type="text/javascript">
         (function(d, t) {
@@ -237,10 +237,10 @@
                 'id': '3lsD.Q',
                 'container': 'c11',
                 'height': '2311px',
-                'form': '//derejadev.merqconsultancy.org/backend/forms/app/embed'
+                'form': '//me.dereja.com/backend/forms/app/embed'
             };
             s.type= 'text/javascript';
-            s.src = '//derejadev.merqconsultancy.org/backend/forms/static_files/js/form.widget.js';
+            s.src = '//me.dereja.com/backend/forms/static_files/js/form.widget.js';
             s.onload = s.onreadystatechange = function() {
                 var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
                 try { (new EasyForms()).initialize(options).display() } catch (e) { }
@@ -249,7 +249,7 @@
         })(document, 'script');
     </script>
 </div>
-<script src="//derejadev.merqconsultancy.org/backend/forms/static_files/js/form.popup.min.js"></script>
+<script src="//me.dereja.com/backend/forms/static_files/js/form.popup.min.js"></script>
 <script type="text/javascript">
     var modal11 = new EasyForms.Modal({
         autoOpen: false,

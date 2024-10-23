@@ -63,7 +63,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://derejadev.merqconsultancy.org/backend/forms/api/v1/forms/15/submissions',
+        CURLOPT_URL => 'https://me.dereja.com/backend/forms/api/v1/forms/15/submissions',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,

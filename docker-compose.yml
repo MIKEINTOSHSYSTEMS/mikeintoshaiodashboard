@@ -156,6 +156,7 @@ services:
       PMA_HOSTS: db
       PMA_USER: me_dereja
       PMA_PASSWORD: me_dereja
+      UPLOAD_LIMIT: 300M
     networks:
       derejanet:
         ipv4_address: 192.168.160.60

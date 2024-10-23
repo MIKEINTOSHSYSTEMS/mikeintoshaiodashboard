@@ -23,21 +23,21 @@
 function BeforeProcessList($pageObject)
 {
 
-		require "backup/index.php";
+		#require "backup/index.php";
 
-$html = <<<EOT
-<script>
-let text;
-if (confirm("The BACKUP file is: $file") == true) {
-  window.open("database_backup_search.php", "_self"); 
-} else {
-  window.open("database_backup_search.php", "_self");
-}
+#$html = <<<EOT
+#<script>
+#let text;
+#if (confirm("The BACKUP file is: $file") == true) {
+#  window.open("database_backup_search.php", "_self"); 
+#} else {
+#  window.open("database_backup_search.php", "_self");
+#}
 
-</script>
-EOT;
-echo $html;
-exit();
+#</script>
+#EOT;
+#echo $html;
+#exit();
 ;
 } // function BeforeProcessList
 

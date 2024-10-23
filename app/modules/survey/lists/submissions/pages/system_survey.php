@@ -63,7 +63,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://derejadev.merqconsultancy.org/backend/forms/api/v1/forms/11/submissions',
+        CURLOPT_URL => 'https://me.dereja.com/backend/forms/api/v1/forms/11/submissions',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -73,7 +73,7 @@
         CURLOPT_CUSTOMREQUEST => 'GET',
         CURLOPT_HTTPHEADER => array(
             //'X-Api-Key: BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk'
-            'X-Api-Key: IbC8w14IiIXV7wtvOxbXEmhxESl9g8vnUqHqvlt4'
+            'X-Api-Key: BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk'
         ),
     ));
 

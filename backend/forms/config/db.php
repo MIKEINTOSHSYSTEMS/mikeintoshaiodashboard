@@ -6,7 +6,7 @@ return [
     'schemaCacheDuration' => 86400,
     'schemaCache' => 'cache',
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;port=3306;dbname=me_derejaforms',
-    'username' => 'me_derejaforms',
-    'password' => 'me_derejaforms',
+    'dsn' => 'mysql:host=192.168.160.50;port=3306;dbname=me_derejaforms',
+    'username' => 'me_dereja',
+    'password' => 'me_dereja',
 ];

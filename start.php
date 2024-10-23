@@ -989,7 +989,7 @@
         });
     </script>
     <!-- Dereja Forms Managment System | Powered By MERQ Consultancy -->
-<link href="https://derejadev.merqconsultancy.org/backend/forms/themes/next/assets/css/form.popup.min.css" rel="stylesheet" type="text/css">
+<link href="https://me.dereja.com/backend/forms/themes/next/assets/css/form.popup.min.css" rel="stylesheet" type="text/css">
 <link href="./backend/forms/static_files/css/form.popup.css" rel="stylesheet" type="text/css">
 <style>
     .ef-modal {
@@ -1014,7 +1014,7 @@
 </div>
 <div id="ef-content-11" class="ef-content-wrapper">
     <div id="c11" class="ef-content">
-        Fill out my <a href="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=3lsD.Q">online form</a>.
+        Fill out my <a href="https://me.dereja.com/backend/forms/app/form?id=3lsD.Q">online form</a>.
     </div>
     <script type="text/javascript">
         (function(d, t) {

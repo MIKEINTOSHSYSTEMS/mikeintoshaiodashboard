@@ -83,7 +83,7 @@
   <section class="section section--active color1" data-letter="T">
     <article class="section__wrapper">
       <h1 class="section__title">Trainees Satisfaction</h1>
-      <input type="text" id="iframe1-url" value="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=12&b=0" readonly>
+      <input type="text" id="iframe1-url" value="https://me.dereja.com/backend/forms/app/form?id=12&b=0" readonly>
       <button class="copy-button" onclick="copyToClipboard('iframe1-url')"> <i class="fa-solid fa-share-nodes"> Copy Link to Share </i></button>
       <div class="iframe-container">
         <iframe id="iframe1" src="../../../../../../backend/forms/app/form?id=12&b=0"></iframe>
@@ -95,7 +95,7 @@
   <section class="section color2" data-letter="C">
     <article class="section__wrapper">
       <h1 class="section__title">Counsellors Satisfcation</h1>
-      <input type="text" id="iframe2-url" value="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=13&b=0" readonly>
+      <input type="text" id="iframe2-url" value="https://me.dereja.com/backend/forms/app/form?id=13&b=0" readonly>
       <button class="copy-button" onclick="copyToClipboard('iframe2-url')"><i class="fa-solid fa-share-nodes"> Copy Link to Share </i></button>
       <div class="iframe-container">
         <iframe id="iframe1" src="../../../../../../backend/forms/app/form?id=13&b=0"></iframe>
@@ -107,7 +107,7 @@
   <section class="section color3" data-letter="E">
     <article class="section__wrapper">
       <h1 class="section__title">Pre Assessment</h1>
-      <input type="text" id="iframe3-url" value="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=14&b=0" readonly>
+      <input type="text" id="iframe3-url" value="https://me.dereja.com/backend/forms/app/form?id=14&b=0" readonly>
       <button class="copy-button" onclick="copyToClipboard('iframe3-url')"><i class="fa-solid fa-share-nodes"> Copy Link to Share </i></button>
       <div class="iframe-container">
         <iframe id="iframe1" src="../../../../../../backend/forms/app/form?id=14&b=0"></iframe>
@@ -119,7 +119,7 @@
   <section class="section color4" data-letter="O">
     <article class="section__wrapper">
       <h1 class="section__title">Post Assessment</h1>
-      <input type="text" id="iframe4-url" value="https://derejadev.merqconsultancy.org/backend/forms/app/form?id=15&b=0" readonly>
+      <input type="text" id="iframe4-url" value="https://me.dereja.com/backend/forms/app/form?id=15&b=0" readonly>
       <button class="copy-button" onclick="copyToClipboard('iframe4-url')"><i class="fa-solid fa-share-nodes"> Copy Link to Share </i></button>
       <div class="iframe-container">
         <iframe id="iframe1" src="../../../../../../backend/forms/app/form?id=15&b=0"></iframe>

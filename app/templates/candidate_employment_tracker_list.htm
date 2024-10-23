@@ -61,243 +61,6 @@
 			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu DerejaMenuSet}			</div>
 		
- 
-
-			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
-				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
-
-	<div class="panel-heading">
-		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_CandidateID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
-			<label>{$label Candidate_Employment_Tracker CandidateID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
-						</div>
-		{END searchCtrlBlock_CandidateID}
-																{BEGIN searchCtrlBlock_JobID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_JobID}" {$filterRow_attrs_JobID}>
-			<label>{$label Candidate_Employment_Tracker JobID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_JobID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_JobID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_JobID}</span>
-						</div>
-		{END searchCtrlBlock_JobID}
-																{BEGIN searchCtrlBlock_CurrentEmploymentStatus}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_CurrentEmploymentStatus}" {$filterRow_attrs_CurrentEmploymentStatus}>
-			<label>{$label Candidate_Employment_Tracker CurrentEmploymentStatus }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_CurrentEmploymentStatus}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_CurrentEmploymentStatus}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_CurrentEmploymentStatus}</span>
-						</div>
-		{END searchCtrlBlock_CurrentEmploymentStatus}
-																{BEGIN searchCtrlBlock_Last_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Last_Name}" {$filterRow_attrs_Last_Name}>
-			<label>{$label Candidate_Employment_Tracker Last_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Last_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Last_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Last_Name}</span>
-						</div>
-		{END searchCtrlBlock_Last_Name}
-																{BEGIN searchCtrlBlock_Middle_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Middle_Name}" {$filterRow_attrs_Middle_Name}>
-			<label>{$label Candidate_Employment_Tracker Middle_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Middle_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Middle_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Middle_Name}</span>
-						</div>
-		{END searchCtrlBlock_Middle_Name}
-																{BEGIN searchCtrlBlock_First_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_First_Name}" {$filterRow_attrs_First_Name}>
-			<label>{$label Candidate_Employment_Tracker First_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_First_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_First_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_First_Name}</span>
-						</div>
-		{END searchCtrlBlock_First_Name}
-																{BEGIN searchCtrlBlock_Employment_End_Date}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Employment_End_Date}" {$filterRow_attrs_Employment_End_Date}>
-			<label>{$label Candidate_Employment_Tracker Employment_End_Date }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Employment_End_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Employment_End_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Employment_End_Date}</span>
-						</div>
-		{END searchCtrlBlock_Employment_End_Date}
-																{BEGIN searchCtrlBlock_Job_Placement_Date}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Job_Placement_Date}" {$filterRow_attrs_Job_Placement_Date}>
-			<label>{$label Candidate_Employment_Tracker Job_Placement_Date }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Job_Placement_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Job_Placement_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Placement_Date}</span>
-						</div>
-		{END searchCtrlBlock_Job_Placement_Date}
-																{BEGIN searchCtrlBlock_Job_Type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Job_Type}" {$filterRow_attrs_Job_Type}>
-			<label>{$label Candidate_Employment_Tracker Job_Type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Job_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Job_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Type}</span>
-						</div>
-		{END searchCtrlBlock_Job_Type}
-																{BEGIN searchCtrlBlock_Job_Position}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Job_Position}" {$filterRow_attrs_Job_Position}>
-			<label>{$label Candidate_Employment_Tracker Job_Position }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Job_Position}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Job_Position}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Position}</span>
-						</div>
-		{END searchCtrlBlock_Job_Position}
-																{BEGIN searchCtrlBlock_Sector}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Sector}" {$filterRow_attrs_Sector}>
-			<label>{$label Candidate_Employment_Tracker Sector }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Sector}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Sector}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Sector}</span>
-						</div>
-		{END searchCtrlBlock_Sector}
-																{BEGIN searchCtrlBlock_Company_Phone_Number}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Company_Phone_Number}" {$filterRow_attrs_Company_Phone_Number}>
-			<label>{$label Candidate_Employment_Tracker Company_Phone_Number }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Company_Phone_Number}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Company_Phone_Number}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Company_Phone_Number}</span>
-						</div>
-		{END searchCtrlBlock_Company_Phone_Number}
-																{BEGIN searchCtrlBlock_Company_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Company_Name}" {$filterRow_attrs_Company_Name}>
-			<label>{$label Candidate_Employment_Tracker Company_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Company_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Company_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Company_Name}</span>
-						</div>
-		{END searchCtrlBlock_Company_Name}
-																{BEGIN searchCtrlBlock_Referral_from_Dereja_service}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Referral_from_Dereja_service}" {$filterRow_attrs_Referral_from_Dereja_service}>
-			<label>{$label Candidate_Employment_Tracker Referral_from_Dereja_service }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Referral_from_Dereja_service}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Referral_from_Dereja_service}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Referral_from_Dereja_service}</span>
-						</div>
-		{END searchCtrlBlock_Referral_from_Dereja_service}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-
-				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-			</div>
-		
     {END left_block}
 </div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
@@ -606,11 +369,255 @@
 				<div class="row">
 			 
 				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"			data-horizontal
+	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_CandidateID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
+			<label>{$label Candidate_Employment_Tracker CandidateID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
+						</div>
+		{END searchCtrlBlock_CandidateID}
+																{BEGIN searchCtrlBlock_JobID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_JobID}" {$filterRow_attrs_JobID}>
+			<label>{$label Candidate_Employment_Tracker JobID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_JobID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_JobID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_JobID}</span>
+						</div>
+		{END searchCtrlBlock_JobID}
+																{BEGIN searchCtrlBlock_CurrentEmploymentStatus}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CurrentEmploymentStatus}" {$filterRow_attrs_CurrentEmploymentStatus}>
+			<label>{$label Candidate_Employment_Tracker CurrentEmploymentStatus }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CurrentEmploymentStatus}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CurrentEmploymentStatus}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CurrentEmploymentStatus}</span>
+						</div>
+		{END searchCtrlBlock_CurrentEmploymentStatus}
+																{BEGIN searchCtrlBlock_Last_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Last_Name}" {$filterRow_attrs_Last_Name}>
+			<label>{$label Candidate_Employment_Tracker Last_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Last_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Last_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Last_Name}</span>
+						</div>
+		{END searchCtrlBlock_Last_Name}
+																{BEGIN searchCtrlBlock_Middle_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Middle_Name}" {$filterRow_attrs_Middle_Name}>
+			<label>{$label Candidate_Employment_Tracker Middle_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Middle_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Middle_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Middle_Name}</span>
+						</div>
+		{END searchCtrlBlock_Middle_Name}
+																{BEGIN searchCtrlBlock_First_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_First_Name}" {$filterRow_attrs_First_Name}>
+			<label>{$label Candidate_Employment_Tracker First_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_First_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_First_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_First_Name}</span>
+						</div>
+		{END searchCtrlBlock_First_Name}
+																{BEGIN searchCtrlBlock_Employment_End_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Employment_End_Date}" {$filterRow_attrs_Employment_End_Date}>
+			<label>{$label Candidate_Employment_Tracker Employment_End_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Employment_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Employment_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Employment_End_Date}</span>
+						</div>
+		{END searchCtrlBlock_Employment_End_Date}
+																{BEGIN searchCtrlBlock_Job_Placement_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Job_Placement_Date}" {$filterRow_attrs_Job_Placement_Date}>
+			<label>{$label Candidate_Employment_Tracker Job_Placement_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Job_Placement_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Job_Placement_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Placement_Date}</span>
+						</div>
+		{END searchCtrlBlock_Job_Placement_Date}
+																{BEGIN searchCtrlBlock_Job_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Job_Type}" {$filterRow_attrs_Job_Type}>
+			<label>{$label Candidate_Employment_Tracker Job_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Job_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Job_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Type}</span>
+						</div>
+		{END searchCtrlBlock_Job_Type}
+																{BEGIN searchCtrlBlock_Job_Position}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Job_Position}" {$filterRow_attrs_Job_Position}>
+			<label>{$label Candidate_Employment_Tracker Job_Position }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Job_Position}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Job_Position}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Job_Position}</span>
+						</div>
+		{END searchCtrlBlock_Job_Position}
+																{BEGIN searchCtrlBlock_Sector}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Sector}" {$filterRow_attrs_Sector}>
+			<label>{$label Candidate_Employment_Tracker Sector }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Sector}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Sector}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Sector}</span>
+						</div>
+		{END searchCtrlBlock_Sector}
+																{BEGIN searchCtrlBlock_Company_Phone_Number}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Company_Phone_Number}" {$filterRow_attrs_Company_Phone_Number}>
+			<label>{$label Candidate_Employment_Tracker Company_Phone_Number }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Company_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Company_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Company_Phone_Number}</span>
+						</div>
+		{END searchCtrlBlock_Company_Phone_Number}
+																{BEGIN searchCtrlBlock_Company_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Company_Name}" {$filterRow_attrs_Company_Name}>
+			<label>{$label Candidate_Employment_Tracker Company_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Company_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Company_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Company_Name}</span>
+						</div>
+		{END searchCtrlBlock_Company_Name}
+																{BEGIN searchCtrlBlock_Referral_from_Dereja_service}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Referral_from_Dereja_service}" {$filterRow_attrs_Referral_from_Dereja_service}>
+			<label>{$label Candidate_Employment_Tracker Referral_from_Dereja_service }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Referral_from_Dereja_service}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Referral_from_Dereja_service}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Referral_from_Dereja_service}</span>
+						</div>
+		{END searchCtrlBlock_Referral_from_Dereja_service}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
 	class="			col-md-6
 	
 ">
-		{BEGIN firstAboveGridCell}
 		 
 		{BEGIN add_link}
 <span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
@@ -659,8 +666,7 @@
 							Update selected			</a>
 </span>
 {END updateselected_link}
-			{END firstAboveGridCell}	
-	</div>			 
+		</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
 	class="r-align-right			col-md-6
@@ -749,6 +755,15 @@
 </span>
 {END print_friendly}
 		</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c4" data-pageid="{$pageid}"	{$cell_above-grid_c4}
+	class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>

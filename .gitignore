@@ -8,4 +8,5 @@
 /ai/venv
 /api/database/backups/
 /api/database/web/backup/
+/api/database/backend/backup/
 /ssl/

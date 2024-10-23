@@ -63,7 +63,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://derejadev.merqconsultancy.org/backend/forms/api/v1/forms/12/submissions',
+        CURLOPT_URL => 'https://me.dereja.com/backend/forms/api/v1/forms/12/submissions',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -98,23 +98,32 @@
     $answersByLabel = array();
 
     // Collect all labels and their corresponding answers
-    foreach ($data as $submission) {
+foreach ($data as $submission) {
+    // Check if 'answers' exists and is an array
+    if (isset($submission['answers']) && is_array($submission['answers'])) {
         foreach ($submission['answers'] as $answer) {
-            $label = $answer['label'];
-            $answerValue = $answer['answer'];
+            if (isset($answer['label']) && isset($answer['answer'])) {
+                $label = $answer['label'];
+                $answerValue = $answer['answer'];
 
-            // If label already exists, append answer to the array
-            if (array_key_exists($label, $answersByLabel)) {
-                if (!is_array($answersByLabel[$label])) {
-                    $answersByLabel[$label] = array($answersByLabel[$label]);
+                // Check if label exists in the array and append if necessary
+                if (array_key_exists($label, $answersByLabel)) {
+                    if (!is_array($answersByLabel[$label])) {
+                        $answersByLabel[$label] = array($answersByLabel[$label]);
+                    }
+                    $answersByLabel[$label][] = $answerValue;
+                } else {
+                    // Initialize with the first answer
+                    $answersByLabel[$label] = $answerValue;
                 }
-                $answersByLabel[$label][] = $answerValue;
             } else {
-                // Otherwise, initialize a new array with the answer
-                $answersByLabel[$label] = $answerValue;
+                echo "Warning: Missing 'label' or 'answer' in answer entry.";
             }
         }
+    } else {
+        echo "Warning: 'answers' key is missing or not an array in the submission.";
     }
+}
 
     // Pagination variables
     $totalRows = count($data);

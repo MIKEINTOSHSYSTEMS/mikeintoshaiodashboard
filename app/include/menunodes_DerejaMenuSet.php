@@ -2841,6 +2841,110 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "110";
+	$menuNode["name"] = "Database Management";
+	$menuNode["href"] = "";
+	$menuNode["type"] = "Group";
+	$menuNode["table"] = "";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "91";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "None";
+	$menuNode["pageType"] = strtolower("");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-database";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Database Management";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "111";
+	$menuNode["name"] = "Main Database Backup";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "database_backup";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "110";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-database";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Main Database Backup";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "112";
+	$menuNode["name"] = "MB Database Backup";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "database_backup";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "110";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("Search");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-database";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "MB Database Backup";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "113";
+	$menuNode["name"] = "Forms Database Backup";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "database_backup";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "110";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "Forms_Database_Backup";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "fa-database";
+	$menuNode["iconType"] = "3";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Forms Database Backup";
+
+
+
+	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "114";
 	$menuNode["name"] = "System Settings";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Group";
@@ -2866,14 +2970,14 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "111";
+	$menuNode["id"] = "115";
 	$menuNode["name"] = "Fields Settings";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "settings";
 	$menuNode["style"] = "";
 	$menuNode["params"] = "";
-	$menuNode["parent"] = "110";
+	$menuNode["parent"] = "114";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
 	$menuNode["pageType"] = strtolower("List");//
@@ -2892,59 +2996,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "112";
-	$menuNode["name"] = "";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "database_backup";
-	$menuNode["style"] = "";
-	$menuNode["params"] = "";
-	$menuNode["parent"] = "110";
-	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("List");//
-	$menuNode["pageId"] = "";
-	$menuNode["openType"] = "None";
-
-	$menuNode["icon"] = "fa-database";
-	$menuNode["iconType"] = "3";
-	$menuNode["iconShow"] = "1";
-
-		$menuNode["color"] = "";
-
-	$menuNode["title"] = "Database Backup";
-
-
-
-	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
-	$menuNode = array();
-	$menuNode["id"] = "113";
-	$menuNode["name"] = "View Database Backups";
-	$menuNode["href"] = "mypage.htm";
-	$menuNode["type"] = "Leaf";
-	$menuNode["table"] = "database_backup";
-	$menuNode["style"] = "";
-	$menuNode["params"] = "";
-	$menuNode["parent"] = "110";
-	$menuNode["nameType"] = "Text";
-	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("Search");//
-	$menuNode["pageId"] = "";
-	$menuNode["openType"] = "None";
-
-	$menuNode["icon"] = "fa-cloud-download";
-	$menuNode["iconType"] = "3";
-	$menuNode["iconShow"] = "1";
-
-		$menuNode["color"] = "";
-
-	$menuNode["title"] = "View Database Backups";
-
-
-
-	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
-	$menuNode = array();
-	$menuNode["id"] = "114";
+	$menuNode["id"] = "116";
 	$menuNode["name"] = "-------";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Separator";
@@ -2970,7 +3022,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "115";
+	$menuNode["id"] = "117";
 	$menuNode["name"] = "Knowledge Base";
 	$menuNode["href"] = "./modules/knowledgebase/main_list.php";
 	$menuNode["type"] = "Leaf";
@@ -2996,7 +3048,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "116";
+	$menuNode["id"] = "118";
 	$menuNode["name"] = "Help Desk";
 	$menuNode["href"] = "./modules/helpdesk/menu.php";
 	$menuNode["type"] = "Leaf";
@@ -3022,7 +3074,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "117";
+	$menuNode["id"] = "119";
 	$menuNode["name"] = "-------";
 	$menuNode["href"] = "";
 	$menuNode["type"] = "Separator";
@@ -3048,7 +3100,7 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 
 	$menuNodesObject->menuNodes["DerejaMenuSet"][] = $menuNode;
 	$menuNode = array();
-	$menuNode["id"] = "118";
+	$menuNode["id"] = "120";
 	$menuNode["name"] = "MERQ-AI Data Assistant";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
