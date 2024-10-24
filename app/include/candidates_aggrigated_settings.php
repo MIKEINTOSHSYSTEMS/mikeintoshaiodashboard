@@ -5026,7 +5026,7 @@ $tdatacandidates_aggrigated[".hideMobileList"] = array();
 	$fdata["GoodName"] = "Year_of_graduation";
 	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("candidates_aggrigated","Year_of_graduation");
-	$fdata["FieldType"] = 7;
+	$fdata["FieldType"] = 200;
 
 
 	
@@ -5047,7 +5047,7 @@ $tdatacandidates_aggrigated[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "Short Date");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -5075,7 +5075,7 @@ $tdatacandidates_aggrigated[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Date");
+	$edata = array("EditFormat" => "Text field");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -5097,13 +5097,13 @@ $tdatacandidates_aggrigated[".hideMobileList"] = array();
 
 	
 	
-		$edata["DateEditType"] = 13;
-	$edata["InitialYearFactor"] = 100;
-	$edata["LastYearFactor"] = 10;
+	
+	
+			$edata["HTML5InuptType"] = "text";
 
-	
-	
-	
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=20";
+
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -5132,7 +5132,7 @@ $tdatacandidates_aggrigated[".hideMobileList"] = array();
 		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
 // the end of search options settings
 
 

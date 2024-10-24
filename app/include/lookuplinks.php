@@ -390,13 +390,6 @@ function InitLookupLinks()
 			$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Name"] = array();
 		}
 		$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Name"]["edit"] = array("table" => "Candidate_Employment_Tracker", "field" => "Company_Name", "page" => "edit");
-		if( !isset( $lookupTableLinks["Companies"] ) ) {
-			$lookupTableLinks["Companies"] = array();
-		}
-		if( !isset( $lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"] )) {
-			$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"] = array();
-		}
-		$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"]["edit"] = array("table" => "Candidate_Employment_Tracker", "field" => "Company_Phone_Number", "page" => "edit");
 		if( !isset( $lookupTableLinks["CompanySectors"] ) ) {
 			$lookupTableLinks["CompanySectors"] = array();
 		}
@@ -411,6 +404,13 @@ function InitLookupLinks()
 			$lookupTableLinks["Jobs"]["candidate_employment_tracker.Job_Position"] = array();
 		}
 		$lookupTableLinks["Jobs"]["candidate_employment_tracker.Job_Position"]["edit"] = array("table" => "Candidate_Employment_Tracker", "field" => "Job_Position", "page" => "edit");
+		if( !isset( $lookupTableLinks["Companies"] ) ) {
+			$lookupTableLinks["Companies"] = array();
+		}
+		if( !isset( $lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"] )) {
+			$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"] = array();
+		}
+		$lookupTableLinks["Companies"]["candidate_employment_tracker.Company_Phone_Number"]["edit"] = array("table" => "Candidate_Employment_Tracker", "field" => "Company_Phone_Number", "page" => "edit");
 		if( !isset( $lookupTableLinks["Job_Types"] ) ) {
 			$lookupTableLinks["Job_Types"] = array();
 		}

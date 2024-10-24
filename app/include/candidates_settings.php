@@ -96,7 +96,7 @@ if(mlang_getcurrentlang()=="English")
 	$placeHolderscandidates["English"]["Certifications"] = "";
 	$fieldLabelscandidates["English"]["Year_of_graduation"] = "Year Of Graduation";
 	$fieldToolTipscandidates["English"]["Year_of_graduation"] = "";
-	$placeHolderscandidates["English"]["Year_of_graduation"] = "";
+	$placeHolderscandidates["English"]["Year_of_graduation"] = "YYYY/YYYY";
 	$fieldLabelscandidates["English"]["Work_Experience"] = "Work Experience";
 	$fieldToolTipscandidates["English"]["Work_Experience"] = "";
 	$placeHolderscandidates["English"]["Work_Experience"] = "";
@@ -5701,7 +5701,7 @@ $tdatacandidates[".hideMobileList"] = array();
 	$fdata["GoodName"] = "Year_of_graduation";
 	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("candidates","Year_of_graduation");
-	$fdata["FieldType"] = 7;
+	$fdata["FieldType"] = 200;
 
 
 	
@@ -5721,7 +5721,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "Short Date");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -5749,7 +5749,7 @@ $tdatacandidates[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Date");
+	$edata = array("EditFormat" => "Text field");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -5771,13 +5771,13 @@ $tdatacandidates[".hideMobileList"] = array();
 
 	
 	
-		$edata["DateEditType"] = 13;
-	$edata["InitialYearFactor"] = 100;
-	$edata["LastYearFactor"] = 10;
+	
+	
+			$edata["HTML5InuptType"] = "text";
 
-	
-	
-	
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=20";
+
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -5806,14 +5806,15 @@ $tdatacandidates[".hideMobileList"] = array();
 		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
 // the end of search options settings
 
 
 //Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+	$fdata["filterTotals"] = 1;
+		$fdata["filterMultiSelect"] = 2;
+		$fdata["filterTotalFields"] = "CandidateID";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -10739,9 +10740,29 @@ $detailsTablesData["candidates"] = array();
 
 	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
 
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="Employment_Status";
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="Employment_Company";
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="Employer_Sector";
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="Employment_Position";
+
 				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+
+		
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CurrentEmploymentStatus";
+
+		
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="Company_Name";
+
+		
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="Sector";
+
+		
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="Job_Position";
 //	Job_Fair
 	
 	

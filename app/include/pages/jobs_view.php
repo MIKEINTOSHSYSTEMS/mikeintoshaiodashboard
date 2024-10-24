@@ -1,7 +1,9 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'details' => array( 'Job_Categories' => array( 'displayPreview' => 1 ),
-'Job_Types' => array( 'displayPreview' => 1 ) ),
+'Job_Types' => array( 'displayPreview' => 1 ),
+'Candidate_Employment_Tracker' => array( 'displayPreview' => 2,
+'previewPageId' => '' ) ),
 'master' => array( 'Companies' => array( 'preview' => true ) ),
 'fields' => array( 'gridFields' => array( 'JobID',
 'JobName',

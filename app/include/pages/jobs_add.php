@@ -1,6 +1,8 @@
 <?php
 			$optionsArray = array( 'details' => array( 'Job_Categories' => array( 'displayPreview' => 1 ),
-'Job_Types' => array( 'displayPreview' => 1 ) ),
+'Job_Types' => array( 'displayPreview' => 1 ),
+'Candidate_Employment_Tracker' => array( 'displayPreview' => 2,
+'previewPageId' => '' ) ),
 'master' => array( 'Companies' => array( 'preview' => true ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'JobName',

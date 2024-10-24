@@ -33,7 +33,7 @@ $dalTablecandidates["English_Proficiency_Level"] = array("type"=>200,"varname"=>
 $dalTablecandidates["Industry_Specific_Skills"] = array("type"=>200,"varname"=>"Industry_Specific_Skills", "name" => "Industry_Specific_Skills", "autoInc" => "0");
 $dalTablecandidates["IT_Related_Skills"] = array("type"=>200,"varname"=>"IT_Related_Skills", "name" => "IT_Related_Skills", "autoInc" => "0");
 $dalTablecandidates["Certifications"] = array("type"=>200,"varname"=>"Certifications", "name" => "Certifications", "autoInc" => "0");
-$dalTablecandidates["Year_of_graduation"] = array("type"=>7,"varname"=>"Year_of_graduation", "name" => "Year_of_graduation", "autoInc" => "0");
+$dalTablecandidates["Year_of_graduation"] = array("type"=>200,"varname"=>"Year_of_graduation", "name" => "Year_of_graduation", "autoInc" => "0");
 $dalTablecandidates["Field_Of_Study"] = array("type"=>200,"varname"=>"Field_Of_Study", "name" => "Field_Of_Study", "autoInc" => "0");
 $dalTablecandidates["GPA"] = array("type"=>5,"varname"=>"GPA", "name" => "GPA", "autoInc" => "0");
 $dalTablecandidates["Intervention"] = array("type"=>200,"varname"=>"Intervention", "name" => "Intervention", "autoInc" => "0");

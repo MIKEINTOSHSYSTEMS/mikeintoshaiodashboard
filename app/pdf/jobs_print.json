@@ -698,6 +698,11 @@ pdfDocument = {
 			{$displayDetailTable_job_types }
 		{END details_job_types},
 				
+				
+			 {BEGIN details_candidate_employment_tracker}
+			{$displayDetailTable_candidate_employment_tracker }
+		{END details_candidate_employment_tracker},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

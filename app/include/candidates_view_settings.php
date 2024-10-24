@@ -5412,7 +5412,7 @@ $tdatacandidates_view[".hideMobileList"] = array();
 	$fdata["GoodName"] = "Year_of_graduation";
 	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("candidates_view","Year_of_graduation");
-	$fdata["FieldType"] = 7;
+	$fdata["FieldType"] = 200;
 
 
 	
@@ -5433,7 +5433,7 @@ $tdatacandidates_view[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "Short Date");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -5461,7 +5461,7 @@ $tdatacandidates_view[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Date");
+	$edata = array("EditFormat" => "Text field");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -5483,13 +5483,13 @@ $tdatacandidates_view[".hideMobileList"] = array();
 
 	
 	
-		$edata["DateEditType"] = 13;
-	$edata["InitialYearFactor"] = 100;
-	$edata["LastYearFactor"] = 10;
+	
+	
+			$edata["HTML5InuptType"] = "text";
 
-	
-	
-	
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=20";
+
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -5518,7 +5518,7 @@ $tdatacandidates_view[".hideMobileList"] = array();
 		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
 // the end of search options settings
 
 
@@ -10324,9 +10324,29 @@ $detailsTablesData["candidates_view"] = array();
 
 	$detailsTablesData["candidates_view"][$dIndex]["masterKeys"][]="CandidateID";
 
+	$detailsTablesData["candidates_view"][$dIndex]["masterKeys"][]="Employment_Company";
+
+	$detailsTablesData["candidates_view"][$dIndex]["masterKeys"][]="Employer_Sector";
+
+	$detailsTablesData["candidates_view"][$dIndex]["masterKeys"][]="Employment_Position";
+
+	$detailsTablesData["candidates_view"][$dIndex]["masterKeys"][]="Employment_Status";
+
 				$detailsTablesData["candidates_view"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["candidates_view"][$dIndex]["detailKeys"][]="CandidateID";
+
+		
+	$detailsTablesData["candidates_view"][$dIndex]["detailKeys"][]="Company_Name";
+
+		
+	$detailsTablesData["candidates_view"][$dIndex]["detailKeys"][]="Sector";
+
+		
+	$detailsTablesData["candidates_view"][$dIndex]["detailKeys"][]="Job_Position";
+
+		
+	$detailsTablesData["candidates_view"][$dIndex]["detailKeys"][]="CurrentEmploymentStatus";
 //	event_participants
 	
 	

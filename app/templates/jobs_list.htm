@@ -654,6 +654,13 @@
 					Job Types				</label>
 			</div>
 			{END print_details_job_types}
+														{BEGIN print_details_candidate_employment_tracker}
+			<div>
+				<label for="printDetailscandidate_employment_tracker{$id}">
+					<input type="checkbox" value="candidate_employment_tracker" id="printDetailscandidate_employment_tracker{$id}" checked>
+					Candidate Employment Tracker				</label>
+			</div>
+			{END print_details_candidate_employment_tracker}
 						</div>
 </div>
 {END print_details}
@@ -1125,6 +1132,25 @@
 	{END job_types_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN candidate_employment_tracker_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidate_employment_tracker_link_attrs} data-short-details="candidate_employment_tracker"
+		class="{$candidate_employment_tracker_dlink_class}" 
+		title="{$caption Candidate_Employment_Tracker }"			>
+								
+									{BEGIN candidate_employment_tracker_childcount}
+				<span class="details-badge badge candidate_employment_tracker_badge" {$candidate_employment_tracker_childnumber_attr}>
+					{$candidate_employment_tracker_childnumber}				
+				</span>
+				{END candidate_employment_tracker_childcount}
+						</a>
+	</span>
+	{END candidate_employment_tracker_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -1292,17 +1318,20 @@
 	>
 
 	 
-				<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="job_categories,job_types"
-			data-details-job_categories			data-details-job_types	>
+					<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="job_categories,job_types,candidate_employment_tracker"
+			data-details-job_categories			data-details-job_types			data-details-candidate_employment_tracker	>
 		<span data-details-inside data-short-table="job_categories">
 			</span>
 		<span data-details-inside data-short-table="job_types">
+			</span>
+		<span data-details-inside data-short-table="candidate_employment_tracker">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			
 	</td>
 	{END cellblock_grid_cell_dpreview}

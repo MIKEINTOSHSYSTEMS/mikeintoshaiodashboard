@@ -6,11 +6,11 @@ $tdatacandidate_employment_tracker[".OwnerID"] = "";
 $tdatacandidate_employment_tracker[".OriginalTable"] = "Candidate_Employment_Tracker";
 
 
-$tdatacandidate_employment_tracker[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
+$tdatacandidate_employment_tracker[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
 $tdatacandidate_employment_tracker[".originalPagesByType"] = $tdatacandidate_employment_tracker[".pagesByType"];
-$tdatacandidate_employment_tracker[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatacandidate_employment_tracker[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
 $tdatacandidate_employment_tracker[".originalPages"] = $tdatacandidate_employment_tracker[".pages"];
-$tdatacandidate_employment_tracker[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
+$tdatacandidate_employment_tracker[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\"}" );
 $tdatacandidate_employment_tracker[".originalDefaultPages"] = $tdatacandidate_employment_tracker[".defaultPages"];
 
 //	field labels
@@ -164,7 +164,7 @@ $tdatacandidate_employment_tracker[".isUseAjaxSuggest"] = true;
 
 
 
-																		
+																					
 
 $tdatacandidate_employment_tracker[".ajaxCodeSnippetAdded"] = false;
 
@@ -176,7 +176,7 @@ $tdatacandidate_employment_tracker[".addPageEvents"] = false;
 $tdatacandidate_employment_tracker[".isUseTimeForSearch"] = false;
 
 
-$tdatacandidate_employment_tracker[".badgeColor"] = "d2af80";
+$tdatacandidate_employment_tracker[".badgeColor"] = "6493ea";
 
 
 $tdatacandidate_employment_tracker[".allSearchFields"] = array();
@@ -186,17 +186,17 @@ $tdatacandidate_employment_tracker[".requiredSearchFields"] = array();
 $tdatacandidate_employment_tracker[".googleLikeFields"] = array();
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "CandidateID";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Referral_from_Dereja_service";
+$tdatacandidate_employment_tracker[".googleLikeFields"][] = "CurrentEmploymentStatus";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Company_Name";
-$tdatacandidate_employment_tracker[".googleLikeFields"][] = "Company_Phone_Number";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Sector";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Job_Position";
+$tdatacandidate_employment_tracker[".googleLikeFields"][] = "Company_Phone_Number";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Job_Type";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Job_Placement_Date";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Employment_End_Date";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "First_Name";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Middle_Name";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "Last_Name";
-$tdatacandidate_employment_tracker[".googleLikeFields"][] = "CurrentEmploymentStatus";
 $tdatacandidate_employment_tracker[".googleLikeFields"][] = "JobID";
 
 
@@ -232,9 +232,9 @@ $tdatacandidate_employment_tracker[".strOrderBy"] = $tstrOrderBy;
 $tdatacandidate_employment_tracker[".orderindexes"] = array();
 
 
-$tdatacandidate_employment_tracker[".sqlHead"] = "SELECT CandidateID,  Referral_from_Dereja_service,  Company_Name,  Company_Phone_Number,  Sector,  Job_Position,  Job_Type,  Job_Placement_Date,  Employment_End_Date,  First_Name,  Middle_Name,  Last_Name,  CurrentEmploymentStatus,  JobID";
-$tdatacandidate_employment_tracker[".sqlFrom"] = "FROM Candidate_Employment_Tracker";
-$tdatacandidate_employment_tracker[".sqlWhereExpr"] = "";
+$tdatacandidate_employment_tracker[".sqlHead"] = "SELECT c.CandidateID,  cet.Referral_from_Dereja_service,  c.Employment_Status AS CurrentEmploymentStatus,  c.Employment_Company AS Company_Name,  c.Employer_Sector AS Sector,  c.Employment_Position AS Job_Position,  cet.Company_Phone_Number,  cet.Job_Type,  cet.Job_Placement_Date,  cet.Employment_End_Date,  c.First_Name,  c.Middle_Name,  c.Last_Name,  cet.JobID";
+$tdatacandidate_employment_tracker[".sqlFrom"] = "FROM candidates AS c  LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
+$tdatacandidate_employment_tracker[".sqlWhereExpr"] = "(c.Employment_Status = 'Employed')";
 $tdatacandidate_employment_tracker[".sqlTail"] = "";
 
 //fill array of tabs for list page
@@ -282,7 +282,6 @@ $tdatacandidate_employment_tracker[".arrGroupsPerPage"] = $arrGPP;
 $tdatacandidate_employment_tracker[".highlightSearchResults"] = true;
 
 $tableKeyscandidate_employment_tracker = array();
-$tableKeyscandidate_employment_tracker[] = "CandidateID";
 $tdatacandidate_employment_tracker[".Keys"] = $tableKeyscandidate_employment_tracker;
 
 
@@ -297,12 +296,13 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Index"] = 1;
 	$fdata["strName"] = "CandidateID";
 	$fdata["GoodName"] = "CandidateID";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","CandidateID");
 	$fdata["FieldType"] = 3;
 
 
-	
+		$fdata["AutoInc"] = true;
+
 	
 			
 
@@ -310,7 +310,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "CandidateID";
+	$fdata["FullName"] = "c.CandidateID";
 
 	
 	
@@ -484,7 +484,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Referral_from_Dereja_service";
+	$fdata["FullName"] = "cet.Referral_from_Dereja_service";
 
 	
 	
@@ -615,13 +615,164 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	$tdatacandidate_employment_tracker["Referral_from_Dereja_service"] = $fdata;
 		$tdatacandidate_employment_tracker[".searchableFields"][] = "Referral_from_Dereja_service";
-//	Company_Name
+//	CurrentEmploymentStatus
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 3;
+	$fdata["strName"] = "CurrentEmploymentStatus";
+	$fdata["GoodName"] = "CurrentEmploymentStatus";
+	$fdata["ownerTable"] = "candidates";
+	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","CurrentEmploymentStatus");
+	$fdata["FieldType"] = 200;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Employment_Status";
+
+		$fdata["sourceSingle"] = "CurrentEmploymentStatus";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "c.Employment_Status";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+		$edata["LookupType"] = 0;
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+	
+		$edata["LookupValues"] = array();
+	$edata["LookupValues"][] = "Employed";
+	$edata["LookupValues"][] = "Self  Employed";
+
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidate_employment_tracker["CurrentEmploymentStatus"] = $fdata;
+		$tdatacandidate_employment_tracker[".searchableFields"][] = "CurrentEmploymentStatus";
+//	Company_Name
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 4;
 	$fdata["strName"] = "Company_Name";
 	$fdata["GoodName"] = "Company_Name";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Company_Name");
 	$fdata["FieldType"] = 200;
 
@@ -630,11 +781,11 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "Company_Name";
+		$fdata["strField"] = "Employment_Company";
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Company_Name";
+	$fdata["FullName"] = "c.Employment_Company";
 
 	
 	
@@ -781,177 +932,13 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	$tdatacandidate_employment_tracker["Company_Name"] = $fdata;
 		$tdatacandidate_employment_tracker[".searchableFields"][] = "Company_Name";
-//	Company_Phone_Number
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 4;
-	$fdata["strName"] = "Company_Phone_Number";
-	$fdata["GoodName"] = "Company_Phone_Number";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
-	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Company_Phone_Number");
-	$fdata["FieldType"] = 200;
-
-
-	
-	
-			
-
-		$fdata["strField"] = "Company_Phone_Number";
-
-	
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Company_Phone_Number";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Lookup wizard");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-// Begin Lookup settings
-				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "Companies";
-			$edata["autoCompleteFieldsOnEdit"] = 1;
-	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
-
-	
-		
-	$edata["LinkField"] = "CompanyID";
-	$edata["LinkFieldType"] = 0;
-	$edata["DisplayField"] = "CompanyPhone";
-
-	
-
-	
-	$edata["LookupOrderBy"] = "";
-
-	
-	
-		$edata["AllowToAdd"] = true;
-			$edata["addPageId"] = "add";
-
-	
-
-	
-	
-		$edata["SelectSize"] = 1;
-
-// End Lookup Settings
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-	
-	
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatacandidate_employment_tracker["Company_Phone_Number"] = $fdata;
-		$tdatacandidate_employment_tracker[".searchableFields"][] = "Company_Phone_Number";
 //	Sector
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 5;
 	$fdata["strName"] = "Sector";
 	$fdata["GoodName"] = "Sector";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Sector");
 	$fdata["FieldType"] = 200;
 
@@ -960,11 +947,11 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "Sector";
+		$fdata["strField"] = "Employer_Sector";
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Sector";
+	$fdata["FullName"] = "c.Employer_Sector";
 
 	
 	
@@ -1114,7 +1101,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	$fdata["Index"] = 6;
 	$fdata["strName"] = "Job_Position";
 	$fdata["GoodName"] = "Job_Position";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Job_Position");
 	$fdata["FieldType"] = 200;
 
@@ -1123,11 +1110,11 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "Job_Position";
+		$fdata["strField"] = "Employment_Position";
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Job_Position";
+	$fdata["FullName"] = "c.Employment_Position";
 
 	
 	
@@ -1272,10 +1259,174 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	$tdatacandidate_employment_tracker["Job_Position"] = $fdata;
 		$tdatacandidate_employment_tracker[".searchableFields"][] = "Job_Position";
-//	Job_Type
+//	Company_Phone_Number
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 7;
+	$fdata["strName"] = "Company_Phone_Number";
+	$fdata["GoodName"] = "Company_Phone_Number";
+	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Company_Phone_Number");
+	$fdata["FieldType"] = 200;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Company_Phone_Number";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "cet.Company_Phone_Number";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Lookup wizard");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Companies";
+			$edata["autoCompleteFieldsOnEdit"] = 1;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "CompanyID";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "CompanyPhone";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Equals";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdatacandidate_employment_tracker["Company_Phone_Number"] = $fdata;
+		$tdatacandidate_employment_tracker[".searchableFields"][] = "Company_Phone_Number";
+//	Job_Type
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 8;
 	$fdata["strName"] = "Job_Type";
 	$fdata["GoodName"] = "Job_Type";
 	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
@@ -1291,7 +1442,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Job_Type";
+	$fdata["FullName"] = "cet.Job_Type";
 
 	
 	
@@ -1439,7 +1590,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 //	Job_Placement_Date
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 8;
+	$fdata["Index"] = 9;
 	$fdata["strName"] = "Job_Placement_Date";
 	$fdata["GoodName"] = "Job_Placement_Date";
 	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
@@ -1455,7 +1606,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Job_Placement_Date";
+	$fdata["FullName"] = "cet.Job_Placement_Date";
 
 	
 	
@@ -1576,7 +1727,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 //	Employment_End_Date
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 9;
+	$fdata["Index"] = 10;
 	$fdata["strName"] = "Employment_End_Date";
 	$fdata["GoodName"] = "Employment_End_Date";
 	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
@@ -1592,7 +1743,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Employment_End_Date";
+	$fdata["FullName"] = "cet.Employment_End_Date";
 
 	
 	
@@ -1713,10 +1864,10 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 //	First_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 10;
+	$fdata["Index"] = 11;
 	$fdata["strName"] = "First_Name";
 	$fdata["GoodName"] = "First_Name";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","First_Name");
 	$fdata["FieldType"] = 200;
 
@@ -1729,7 +1880,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "First_Name";
+	$fdata["FullName"] = "c.First_Name";
 
 	
 	
@@ -1850,10 +2001,10 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 //	Middle_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 11;
+	$fdata["Index"] = 12;
 	$fdata["strName"] = "Middle_Name";
 	$fdata["GoodName"] = "Middle_Name";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Middle_Name");
 	$fdata["FieldType"] = 200;
 
@@ -1866,7 +2017,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Middle_Name";
+	$fdata["FullName"] = "c.Middle_Name";
 
 	
 	
@@ -1987,10 +2138,10 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 //	Last_Name
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 12;
+	$fdata["Index"] = 13;
 	$fdata["strName"] = "Last_Name";
 	$fdata["GoodName"] = "Last_Name";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
+	$fdata["ownerTable"] = "candidates";
 	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","Last_Name");
 	$fdata["FieldType"] = 200;
 
@@ -2003,7 +2154,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "Last_Name";
+	$fdata["FullName"] = "c.Last_Name";
 
 	
 	
@@ -2121,157 +2272,6 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 
 	$tdatacandidate_employment_tracker["Last_Name"] = $fdata;
 		$tdatacandidate_employment_tracker[".searchableFields"][] = "Last_Name";
-//	CurrentEmploymentStatus
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 13;
-	$fdata["strName"] = "CurrentEmploymentStatus";
-	$fdata["GoodName"] = "CurrentEmploymentStatus";
-	$fdata["ownerTable"] = "Candidate_Employment_Tracker";
-	$fdata["Label"] = GetFieldLabel("Candidate_Employment_Tracker","CurrentEmploymentStatus");
-	$fdata["FieldType"] = 200;
-
-
-	
-	
-			
-
-		$fdata["strField"] = "CurrentEmploymentStatus";
-
-		$fdata["sourceSingle"] = "CurrentEmploymentStatus";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "CurrentEmploymentStatus";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Lookup wizard");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-// Begin Lookup settings
-		$edata["LookupType"] = 0;
-			$edata["autoCompleteFieldsOnEdit"] = 0;
-	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
-
-	
-	
-		$edata["LookupValues"] = array();
-	$edata["LookupValues"][] = "Employed";
-	$edata["LookupValues"][] = "Self  Employed";
-
-	
-		$edata["SelectSize"] = 1;
-
-// End Lookup Settings
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-	
-	
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatacandidate_employment_tracker["CurrentEmploymentStatus"] = $fdata;
-		$tdatacandidate_employment_tracker[".searchableFields"][] = "CurrentEmploymentStatus";
 //	JobID
 //	Custom field settings
 	$fdata = array();
@@ -2292,7 +2292,7 @@ $tdatacandidate_employment_tracker[".hideMobileList"] = array();
 		$fdata["sourceSingle"] = "JobID";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "JobID";
+	$fdata["FullName"] = "cet.JobID";
 
 	
 	
@@ -2475,8 +2475,16 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 					$masterTablesData["Candidate_Employment_Tracker"][0] = $masterParams;
 				$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"][]="Employment_Status";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"][]="Employment_Company";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"][]="Employer_Sector";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["masterKeys"][]="Employment_Position";
 				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="CurrentEmploymentStatus";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="Company_Name";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="Sector";
+				$masterTablesData["Candidate_Employment_Tracker"][0]["detailKeys"][]="Job_Position";
 		
 	//endif
 	
@@ -2494,8 +2502,16 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][1] = $masterParams;
 				$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"][]="Employment_Company";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"][]="Employer_Sector";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"][]="Employment_Position";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["masterKeys"][]="Employment_Status";
 				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="CandidateID";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Company_Name";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Sector";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="Job_Position";
+				$masterTablesData["Candidate_Employment_Tracker"][1]["detailKeys"][]="CurrentEmploymentStatus";
 		
 	//endif
 	
@@ -2555,6 +2571,28 @@ $masterTablesData["Candidate_Employment_Tracker"] = array();
 	$masterTablesData["Candidate_Employment_Tracker"][4]["detailKeys"][]="CandidateID";
 		
 	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="Jobs";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="Jobs";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "jobs";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["Candidate_Employment_Tracker"][5] = $masterParams;
+				$masterTablesData["Candidate_Employment_Tracker"][5]["masterKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][5]["masterKeys"][]="JobID";
+				$masterTablesData["Candidate_Employment_Tracker"][5]["masterKeys"][]="CompanyName";
+				$masterTablesData["Candidate_Employment_Tracker"][5]["masterKeys"][]="JobPosition";
+				$masterTablesData["Candidate_Employment_Tracker"][5]["detailKeys"] = array();
+	$masterTablesData["Candidate_Employment_Tracker"][5]["detailKeys"][]="JobID";
+				$masterTablesData["Candidate_Employment_Tracker"][5]["detailKeys"][]="Company_Name";
+				$masterTablesData["Candidate_Employment_Tracker"][5]["detailKeys"][]="Job_Position";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -2575,23 +2613,25 @@ function createSqlQuery_candidate_employment_tracker()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "CandidateID,  Referral_from_Dereja_service,  Company_Name,  Company_Phone_Number,  Sector,  Job_Position,  Job_Type,  Job_Placement_Date,  Employment_End_Date,  First_Name,  Middle_Name,  Last_Name,  CurrentEmploymentStatus,  JobID";
-$proto0["m_strFrom"] = "FROM Candidate_Employment_Tracker";
-$proto0["m_strWhere"] = "";
+$proto0["m_strFieldList"] = "c.CandidateID,  cet.Referral_from_Dereja_service,  c.Employment_Status AS CurrentEmploymentStatus,  c.Employment_Company AS Company_Name,  c.Employer_Sector AS Sector,  c.Employment_Position AS Job_Position,  cet.Company_Phone_Number,  cet.Job_Type,  cet.Job_Placement_Date,  cet.Employment_End_Date,  c.First_Name,  c.Middle_Name,  c.Last_Name,  cet.JobID";
+$proto0["m_strFrom"] = "FROM candidates AS c  LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
+$proto0["m_strWhere"] = "(c.Employment_Status = 'Employed')";
 $proto0["m_strOrderBy"] = "";
 	
 																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "c.Employment_Status = 'Employed'";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "Employment_Status",
+	"m_strTable" => "c",
+	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "= 'Employed'";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -2618,11 +2658,11 @@ $proto0["m_fieldlist"] = array();
 						$proto6=array();
 			$obj = new SQLField(array(
 	"m_strName" => "CandidateID",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto6["m_sql"] = "CandidateID";
+$proto6["m_sql"] = "c.CandidateID";
 $proto6["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto6["m_expr"]=$obj;
 $proto6["m_alias"] = "";
@@ -2632,11 +2672,11 @@ $proto0["m_fieldlist"][]=$obj;
 						$proto8=array();
 			$obj = new SQLField(array(
 	"m_strName" => "Referral_from_Dereja_service",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto8["m_sql"] = "Referral_from_Dereja_service";
+$proto8["m_sql"] = "cet.Referral_from_Dereja_service";
 $proto8["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto8["m_expr"]=$obj;
 $proto8["m_alias"] = "";
@@ -2645,68 +2685,68 @@ $obj = new SQLFieldListItem($proto8);
 $proto0["m_fieldlist"][]=$obj;
 						$proto10=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Company_Name",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Employment_Status",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto10["m_sql"] = "Company_Name";
+$proto10["m_sql"] = "c.Employment_Status";
 $proto10["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto10["m_expr"]=$obj;
-$proto10["m_alias"] = "";
+$proto10["m_alias"] = "CurrentEmploymentStatus";
 $obj = new SQLFieldListItem($proto10);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto12=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Company_Phone_Number",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Employment_Company",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto12["m_sql"] = "Company_Phone_Number";
+$proto12["m_sql"] = "c.Employment_Company";
 $proto12["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto12["m_expr"]=$obj;
-$proto12["m_alias"] = "";
+$proto12["m_alias"] = "Company_Name";
 $obj = new SQLFieldListItem($proto12);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto14=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Sector",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Employer_Sector",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto14["m_sql"] = "Sector";
+$proto14["m_sql"] = "c.Employer_Sector";
 $proto14["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto14["m_expr"]=$obj;
-$proto14["m_alias"] = "";
+$proto14["m_alias"] = "Sector";
 $obj = new SQLFieldListItem($proto14);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto16=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Job_Position",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Employment_Position",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto16["m_sql"] = "Job_Position";
+$proto16["m_sql"] = "c.Employment_Position";
 $proto16["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto16["m_expr"]=$obj;
-$proto16["m_alias"] = "";
+$proto16["m_alias"] = "Job_Position";
 $obj = new SQLFieldListItem($proto16);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto18=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Job_Type",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Company_Phone_Number",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto18["m_sql"] = "Job_Type";
+$proto18["m_sql"] = "cet.Company_Phone_Number";
 $proto18["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto18["m_expr"]=$obj;
 $proto18["m_alias"] = "";
@@ -2715,12 +2755,12 @@ $obj = new SQLFieldListItem($proto18);
 $proto0["m_fieldlist"][]=$obj;
 						$proto20=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Job_Placement_Date",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Job_Type",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto20["m_sql"] = "Job_Placement_Date";
+$proto20["m_sql"] = "cet.Job_Type";
 $proto20["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto20["m_expr"]=$obj;
 $proto20["m_alias"] = "";
@@ -2729,12 +2769,12 @@ $obj = new SQLFieldListItem($proto20);
 $proto0["m_fieldlist"][]=$obj;
 						$proto22=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Employment_End_Date",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Job_Placement_Date",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto22["m_sql"] = "Employment_End_Date";
+$proto22["m_sql"] = "cet.Job_Placement_Date";
 $proto22["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto22["m_expr"]=$obj;
 $proto22["m_alias"] = "";
@@ -2743,12 +2783,12 @@ $obj = new SQLFieldListItem($proto22);
 $proto0["m_fieldlist"][]=$obj;
 						$proto24=array();
 			$obj = new SQLField(array(
-	"m_strName" => "First_Name",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Employment_End_Date",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto24["m_sql"] = "First_Name";
+$proto24["m_sql"] = "cet.Employment_End_Date";
 $proto24["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto24["m_expr"]=$obj;
 $proto24["m_alias"] = "";
@@ -2757,12 +2797,12 @@ $obj = new SQLFieldListItem($proto24);
 $proto0["m_fieldlist"][]=$obj;
 						$proto26=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Middle_Name",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "First_Name",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto26["m_sql"] = "Middle_Name";
+$proto26["m_sql"] = "c.First_Name";
 $proto26["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto26["m_expr"]=$obj;
 $proto26["m_alias"] = "";
@@ -2771,12 +2811,12 @@ $obj = new SQLFieldListItem($proto26);
 $proto0["m_fieldlist"][]=$obj;
 						$proto28=array();
 			$obj = new SQLField(array(
-	"m_strName" => "Last_Name",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Middle_Name",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto28["m_sql"] = "Last_Name";
+$proto28["m_sql"] = "c.Middle_Name";
 $proto28["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto28["m_expr"]=$obj;
 $proto28["m_alias"] = "";
@@ -2785,12 +2825,12 @@ $obj = new SQLFieldListItem($proto28);
 $proto0["m_fieldlist"][]=$obj;
 						$proto30=array();
 			$obj = new SQLField(array(
-	"m_strName" => "CurrentEmploymentStatus",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strName" => "Last_Name",
+	"m_strTable" => "c",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto30["m_sql"] = "CurrentEmploymentStatus";
+$proto30["m_sql"] = "c.Last_Name";
 $proto30["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto30["m_expr"]=$obj;
 $proto30["m_alias"] = "";
@@ -2800,11 +2840,11 @@ $proto0["m_fieldlist"][]=$obj;
 						$proto32=array();
 			$obj = new SQLField(array(
 	"m_strName" => "JobID",
-	"m_strTable" => "Candidate_Employment_Tracker",
+	"m_strTable" => "cet",
 	"m_srcTableName" => "Candidate_Employment_Tracker"
 ));
 
-$proto32["m_sql"] = "JobID";
+$proto32["m_sql"] = "cet.JobID";
 $proto32["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto32["m_expr"]=$obj;
 $proto32["m_alias"] = "";
@@ -2815,28 +2855,80 @@ $proto0["m_fromlist"] = array();
 												$proto34=array();
 $proto34["m_link"] = "SQLL_MAIN";
 			$proto35=array();
-$proto35["m_strName"] = "Candidate_Employment_Tracker";
+$proto35["m_strName"] = "candidates";
 $proto35["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto35["m_columns"] = array();
 $proto35["m_columns"][] = "CandidateID";
-$proto35["m_columns"][] = "JobID";
-$proto35["m_columns"][] = "Referral_from_Dereja_service";
-$proto35["m_columns"][] = "Company_Name";
-$proto35["m_columns"][] = "Company_Phone_Number";
-$proto35["m_columns"][] = "Sector";
-$proto35["m_columns"][] = "Job_Position";
-$proto35["m_columns"][] = "Job_Type";
-$proto35["m_columns"][] = "Job_Placement_Date";
-$proto35["m_columns"][] = "Employment_End_Date";
+$proto35["m_columns"][] = "StudentID";
 $proto35["m_columns"][] = "First_Name";
 $proto35["m_columns"][] = "Middle_Name";
 $proto35["m_columns"][] = "Last_Name";
-$proto35["m_columns"][] = "CurrentEmploymentStatus";
+$proto35["m_columns"][] = "Sex";
+$proto35["m_columns"][] = "DOB";
+$proto35["m_columns"][] = "Region";
+$proto35["m_columns"][] = "City";
+$proto35["m_columns"][] = "Sub_City";
+$proto35["m_columns"][] = "Zone";
+$proto35["m_columns"][] = "Woreda";
+$proto35["m_columns"][] = "Kebele";
+$proto35["m_columns"][] = "House_No";
+$proto35["m_columns"][] = "Phone_Number";
+$proto35["m_columns"][] = "Phone_Number_Alternate";
+$proto35["m_columns"][] = "Email_Address";
+$proto35["m_columns"][] = "Disability_Status";
+$proto35["m_columns"][] = "Disability_Type";
+$proto35["m_columns"][] = "Disability_Type_Other";
+$proto35["m_columns"][] = "Institution_Type";
+$proto35["m_columns"][] = "Institution_Name";
+$proto35["m_columns"][] = "Education_Level";
+$proto35["m_columns"][] = "Department";
+$proto35["m_columns"][] = "Minor";
+$proto35["m_columns"][] = "Major";
+$proto35["m_columns"][] = "Enrollement_Type";
+$proto35["m_columns"][] = "Skills";
+$proto35["m_columns"][] = "Languages";
+$proto35["m_columns"][] = "English_Proficiency_Level";
+$proto35["m_columns"][] = "Industry_Specific_Skills";
+$proto35["m_columns"][] = "IT_Related_Skills";
+$proto35["m_columns"][] = "Certifications";
+$proto35["m_columns"][] = "Year_of_graduation";
+$proto35["m_columns"][] = "Field_Of_Study";
+$proto35["m_columns"][] = "GPA";
+$proto35["m_columns"][] = "Intervention";
+$proto35["m_columns"][] = "Campaign";
+$proto35["m_columns"][] = "Attend_Employability_Skill";
+$proto35["m_columns"][] = "DAAP_enrolled_1st Round";
+$proto35["m_columns"][] = "DAAP_Completed";
+$proto35["m_columns"][] = "DAAP_Completed_Courses";
+$proto35["m_columns"][] = "Job_Fair_Clinic";
+$proto35["m_columns"][] = "Job_Fair";
+$proto35["m_columns"][] = "Exit_Exam_Score";
+$proto35["m_columns"][] = "Exit_Exam_Status";
+$proto35["m_columns"][] = "DAAP_enrolled_2nd_Round";
+$proto35["m_columns"][] = "Upload_on_Tracker";
+$proto35["m_columns"][] = "Upload_on_Website";
+$proto35["m_columns"][] = "Work_Experience";
+$proto35["m_columns"][] = "Joined_Dereja_Services";
+$proto35["m_columns"][] = "Dereja_Services";
+$proto35["m_columns"][] = "Dereja_Training_Services";
+$proto35["m_columns"][] = "Dereja_Event_Services";
+$proto35["m_columns"][] = "Dereja_web_profile_completion";
+$proto35["m_columns"][] = "Dereja_Information_Source";
+$proto35["m_columns"][] = "Employment_Status";
+$proto35["m_columns"][] = "Employment_Company";
+$proto35["m_columns"][] = "Employer_Sector";
+$proto35["m_columns"][] = "Employment_Position";
+$proto35["m_columns"][] = "Salary";
+$proto35["m_columns"][] = "Career_Level_Of_Payment";
+$proto35["m_columns"][] = "Placement_Type";
+$proto35["m_columns"][] = "Placement_Duration";
+$proto35["m_columns"][] = "Remark";
+$proto35["m_columns"][] = "Date";
 $obj = new SQLTable($proto35);
 
 $proto34["m_table"] = $obj;
-$proto34["m_sql"] = "Candidate_Employment_Tracker";
-$proto34["m_alias"] = "";
+$proto34["m_sql"] = "candidates AS c";
+$proto34["m_alias"] = "c";
 $proto34["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto36=array();
 $proto36["m_sql"] = "";
@@ -2855,6 +2947,53 @@ $obj = new SQLLogicalExpr($proto36);
 
 $proto34["m_joinon"] = $obj;
 $obj = new SQLFromListItem($proto34);
+
+$proto0["m_fromlist"][]=$obj;
+												$proto38=array();
+$proto38["m_link"] = "SQLL_LEFTJOIN";
+			$proto39=array();
+$proto39["m_strName"] = "Candidate_Employment_Tracker";
+$proto39["m_srcTableName"] = "Candidate_Employment_Tracker";
+$proto39["m_columns"] = array();
+$proto39["m_columns"][] = "CandidateID";
+$proto39["m_columns"][] = "JobID";
+$proto39["m_columns"][] = "Referral_from_Dereja_service";
+$proto39["m_columns"][] = "Company_Name";
+$proto39["m_columns"][] = "Company_Phone_Number";
+$proto39["m_columns"][] = "Sector";
+$proto39["m_columns"][] = "Job_Position";
+$proto39["m_columns"][] = "Job_Type";
+$proto39["m_columns"][] = "Job_Placement_Date";
+$proto39["m_columns"][] = "Employment_End_Date";
+$proto39["m_columns"][] = "First_Name";
+$proto39["m_columns"][] = "Middle_Name";
+$proto39["m_columns"][] = "Last_Name";
+$proto39["m_columns"][] = "CurrentEmploymentStatus";
+$obj = new SQLTable($proto39);
+
+$proto38["m_table"] = $obj;
+$proto38["m_sql"] = "LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
+$proto38["m_alias"] = "cet";
+$proto38["m_srcTableName"] = "Candidate_Employment_Tracker";
+$proto40=array();
+$proto40["m_sql"] = "cet.CandidateID = c.CandidateID";
+$proto40["m_uniontype"] = "SQLL_UNKNOWN";
+						$obj = new SQLField(array(
+	"m_strName" => "CandidateID",
+	"m_strTable" => "cet",
+	"m_srcTableName" => "Candidate_Employment_Tracker"
+));
+
+$proto40["m_column"]=$obj;
+$proto40["m_contained"] = array();
+$proto40["m_strCase"] = "= c.CandidateID";
+$proto40["m_havingmode"] = false;
+$proto40["m_inBrackets"] = false;
+$proto40["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto40);
+
+$proto38["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto38);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
