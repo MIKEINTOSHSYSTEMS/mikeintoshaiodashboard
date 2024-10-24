@@ -360,6 +360,9 @@ pdfDocument = {
 				
 			{"text":{$Date_value},"hidden":"{$item_hide_integrated_search_field64}"},
 				
+				
+			{"text":{$Upload_on_Website_value},"hidden":"{$item_hide_integrated_search_field65}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

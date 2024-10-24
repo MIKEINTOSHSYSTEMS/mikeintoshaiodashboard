@@ -2902,8 +2902,8 @@ function getMenuNodes_DerejaMenuSet($menuNodesObject)
 	$menuNode["parent"] = "110";
 	$menuNode["nameType"] = "Text";
 	$menuNode["linkType"] = "Internal";
-	$menuNode["pageType"] = strtolower("Search");//
-	$menuNode["pageId"] = "";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "MB_Database_Backup";
 	$menuNode["openType"] = "None";
 
 	$menuNode["icon"] = "fa-database";

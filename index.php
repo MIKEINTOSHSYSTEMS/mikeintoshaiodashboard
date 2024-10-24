@@ -8,7 +8,7 @@
     <title>Dereja - M&E - System</title>
 <meta name="description" content="Welcome to Dereja M&E Dashboard, Data Exploration and Administration System">
 <meta name="keywords"
-    content="Monitoring, Evaluation, EthioJobs, Dereja, Reporting, Dashboard, and, Data, Data Management, Exploration, Portal, MIKEINTOSH, Systems, System">
+    content="Monitoring, Evaluation, EthioJobs, Dereja, Reporting, Dashboard, and, Data, Data Management, Exploration, Portal, MIKEINTOSH, Systems, System, MERQ Consultancy">
 <meta name="author" content="MERQ Consultancy">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <!--Replace with your tailwind.css once created-->

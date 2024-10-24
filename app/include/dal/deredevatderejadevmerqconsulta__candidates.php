@@ -48,6 +48,7 @@ $dalTablecandidates["Exit_Exam_Score"] = array("type"=>3,"varname"=>"Exit_Exam_S
 $dalTablecandidates["Exit_Exam_Status"] = array("type"=>200,"varname"=>"Exit_Exam_Status", "name" => "Exit_Exam_Status", "autoInc" => "0");
 $dalTablecandidates["DAAP_enrolled_2nd_Round"] = array("type"=>200,"varname"=>"DAAP_enrolled_2nd_Round", "name" => "DAAP_enrolled_2nd_Round", "autoInc" => "0");
 $dalTablecandidates["Upload_on_Tracker"] = array("type"=>200,"varname"=>"Upload_on_Tracker", "name" => "Upload_on_Tracker", "autoInc" => "0");
+$dalTablecandidates["Upload_on_Website"] = array("type"=>200,"varname"=>"Upload_on_Website", "name" => "Upload_on_Website", "autoInc" => "0");
 $dalTablecandidates["Work_Experience"] = array("type"=>200,"varname"=>"Work_Experience", "name" => "Work_Experience", "autoInc" => "0");
 $dalTablecandidates["Joined_Dereja_Services"] = array("type"=>200,"varname"=>"Joined_Dereja_Services", "name" => "Joined_Dereja_Services", "autoInc" => "0");
 $dalTablecandidates["Dereja_Services"] = array("type"=>200,"varname"=>"Dereja_Services", "name" => "Dereja_Services", "autoInc" => "0");

@@ -1993,6 +1993,9 @@ pdfDocument = {
 				
 			{"hidden":"{$item_hide_integrated_edit_field55}","stack":[{"text":"{$jslabel candidates Upload_on_Tracker }","bold":true},{"text":{$Upload_on_Tracker_pdfvalue}}],"margin":[0,0,0,15]},
 				
+				
+			{"hidden":"{$item_hide_integrated_edit_field64}","stack":[{"text":"{$jslabel candidates Upload_on_Website }","bold":true},{"text":{$Upload_on_Website_pdfvalue}}],"margin":[0,0,0,15]},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

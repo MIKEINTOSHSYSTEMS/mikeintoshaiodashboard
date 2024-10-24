@@ -306,6 +306,9 @@ pdfDocument = {
 				
 			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_export_field66}"},
 				
+				
+			{"text":{$Upload_on_Website_pdfvalue},"hidden":"{$item_hide_export_field67}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

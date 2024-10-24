@@ -300,6 +300,9 @@ pdfDocument = {
 				
 			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_import_field58}"},
 				
+				
+			{"text":{$Upload_on_Website_pdfvalue},"hidden":"{$item_hide_import_field65}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

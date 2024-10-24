@@ -6,11 +6,11 @@ $tdatadatabase_backup[".OwnerID"] = "";
 $tdatadatabase_backup[".OriginalTable"] = "backup";
 
 
-$tdatadatabase_backup[".pagesByType"] = my_json_decode( "{\"list\":[\"Main_Database_Backup\",\"Forms_Database_Backup\"],\"search\":[\"MB_Database_Backup\"]}" );
+$tdatadatabase_backup[".pagesByType"] = my_json_decode( "{\"list\":[\"Main_Database_Backup\",\"Forms_Database_Backup\",\"MB_Database_Backup\"],\"search\":[\"XMB_Database_BackupX\"]}" );
 $tdatadatabase_backup[".originalPagesByType"] = $tdatadatabase_backup[".pagesByType"];
-$tdatadatabase_backup[".pages"] = types2pages( my_json_decode( "{\"list\":[\"Main_Database_Backup\",\"Forms_Database_Backup\"],\"search\":[\"MB_Database_Backup\"]}" ) );
+$tdatadatabase_backup[".pages"] = types2pages( my_json_decode( "{\"list\":[\"Main_Database_Backup\",\"Forms_Database_Backup\",\"MB_Database_Backup\"],\"search\":[\"XMB_Database_BackupX\"]}" ) );
 $tdatadatabase_backup[".originalPages"] = $tdatadatabase_backup[".pages"];
-$tdatadatabase_backup[".defaultPages"] = my_json_decode( "{\"list\":\"Main_Database_Backup\",\"search\":\"MB_Database_Backup\"}" );
+$tdatadatabase_backup[".defaultPages"] = my_json_decode( "{\"list\":\"Main_Database_Backup\",\"search\":\"XMB_Database_BackupX\"}" );
 $tdatadatabase_backup[".originalDefaultPages"] = $tdatadatabase_backup[".defaultPages"];
 
 //	field labels
@@ -37,7 +37,7 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsdatabase_backup["English"]["backup_action"] = "Backup Action";
 	$fieldToolTipsdatabase_backup["English"]["backup_action"] = "";
 	$placeHoldersdatabase_backup["English"]["backup_action"] = "";
-	$pageTitlesdatabase_backup["English"]["MB_Database_Backup"] = "Database Backups";
+	$pageTitlesdatabase_backup["English"]["XMB_Database_BackupX"] = "Database Backups";
 	if (count($fieldToolTipsdatabase_backup["English"]))
 		$tdatadatabase_backup[".isUseToolTips"] = true;
 }

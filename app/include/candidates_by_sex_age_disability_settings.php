@@ -1108,6 +1108,7 @@ $proto18["m_columns"][] = "Exit_Exam_Score";
 $proto18["m_columns"][] = "Exit_Exam_Status";
 $proto18["m_columns"][] = "DAAP_enrolled_2nd_Round";
 $proto18["m_columns"][] = "Upload_on_Tracker";
+$proto18["m_columns"][] = "Upload_on_Website";
 $proto18["m_columns"][] = "Work_Experience";
 $proto18["m_columns"][] = "Joined_Dereja_Services";
 $proto18["m_columns"][] = "Dereja_Services";

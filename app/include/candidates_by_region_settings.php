@@ -10394,6 +10394,7 @@ $proto121["m_columns"][] = "Exit_Exam_Score";
 $proto121["m_columns"][] = "Exit_Exam_Status";
 $proto121["m_columns"][] = "DAAP_enrolled_2nd_Round";
 $proto121["m_columns"][] = "Upload_on_Tracker";
+$proto121["m_columns"][] = "Upload_on_Website";
 $proto121["m_columns"][] = "Work_Experience";
 $proto121["m_columns"][] = "Joined_Dereja_Services";
 $proto121["m_columns"][] = "Dereja_Services";
