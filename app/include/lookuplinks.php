@@ -187,6 +187,13 @@ function InitLookupLinks()
 			$lookupTableLinks["dereja_services"]["candidates.Dereja_Services"] = array();
 		}
 		$lookupTableLinks["dereja_services"]["candidates.Dereja_Services"]["edit"] = array("table" => "candidates", "field" => "Dereja_Services", "page" => "edit");
+		if( !isset( $lookupTableLinks["program_areas"] ) ) {
+			$lookupTableLinks["program_areas"] = array();
+		}
+		if( !isset( $lookupTableLinks["program_areas"]["candidates.Program_In_Dereja"] )) {
+			$lookupTableLinks["program_areas"]["candidates.Program_In_Dereja"] = array();
+		}
+		$lookupTableLinks["program_areas"]["candidates.Program_In_Dereja"]["edit"] = array("table" => "candidates", "field" => "Program_In_Dereja", "page" => "edit");
 		if( !isset( $lookupTableLinks["trainings"] ) ) {
 			$lookupTableLinks["trainings"] = array();
 		}
@@ -201,6 +208,13 @@ function InitLookupLinks()
 			$lookupTableLinks["events"]["candidates.Dereja_Event_Services"] = array();
 		}
 		$lookupTableLinks["events"]["candidates.Dereja_Event_Services"]["edit"] = array("table" => "candidates", "field" => "Dereja_Event_Services", "page" => "edit");
+		if( !isset( $lookupTableLinks["participant_organization_types"] ) ) {
+			$lookupTableLinks["participant_organization_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["participant_organization_types"]["candidates.Event_Participant_Type"] )) {
+			$lookupTableLinks["participant_organization_types"]["candidates.Event_Participant_Type"] = array();
+		}
+		$lookupTableLinks["participant_organization_types"]["candidates.Event_Participant_Type"]["edit"] = array("table" => "candidates", "field" => "Event_Participant_Type", "page" => "edit");
 		if( !isset( $lookupTableLinks["dereja_information_sources"] ) ) {
 			$lookupTableLinks["dereja_information_sources"] = array();
 		}

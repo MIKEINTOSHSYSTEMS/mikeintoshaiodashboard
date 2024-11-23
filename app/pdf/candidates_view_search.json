@@ -363,6 +363,24 @@ pdfDocument = {
 				
 			{"text":{$Upload_on_Website_value},"hidden":"{$item_hide_integrated_search_field65}"},
 				
+				
+			{"text":{$Training_Start_Date_value},"hidden":"{$item_hide_integrated_search_field66}"},
+				
+				
+			{"text":{$Training_End_Date_value},"hidden":"{$item_hide_integrated_search_field67}"},
+				
+				
+			{"text":{$Event_Start_Date_value},"hidden":"{$item_hide_integrated_search_field68}"},
+				
+				
+			{"text":{$Event_End_Date_value},"hidden":"{$item_hide_integrated_search_field69}"},
+				
+				
+			{"text":{$Event_Participant_Type_value},"hidden":"{$item_hide_integrated_search_field70}"},
+				
+				
+			{"text":{$Program_In_Dereja_value},"hidden":"{$item_hide_integrated_search_field71}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

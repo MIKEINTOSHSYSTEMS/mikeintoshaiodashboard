@@ -52,8 +52,14 @@ $dalTablecandidates["Upload_on_Website"] = array("type"=>200,"varname"=>"Upload_
 $dalTablecandidates["Work_Experience"] = array("type"=>200,"varname"=>"Work_Experience", "name" => "Work_Experience", "autoInc" => "0");
 $dalTablecandidates["Joined_Dereja_Services"] = array("type"=>200,"varname"=>"Joined_Dereja_Services", "name" => "Joined_Dereja_Services", "autoInc" => "0");
 $dalTablecandidates["Dereja_Services"] = array("type"=>200,"varname"=>"Dereja_Services", "name" => "Dereja_Services", "autoInc" => "0");
+$dalTablecandidates["Program_In_Dereja"] = array("type"=>200,"varname"=>"Program_In_Dereja", "name" => "Program_In_Dereja", "autoInc" => "0");
 $dalTablecandidates["Dereja_Training_Services"] = array("type"=>200,"varname"=>"Dereja_Training_Services", "name" => "Dereja_Training_Services", "autoInc" => "0");
+$dalTablecandidates["Training_Start_Date"] = array("type"=>7,"varname"=>"Training_Start_Date", "name" => "Training_Start_Date", "autoInc" => "0");
+$dalTablecandidates["Training_End_Date"] = array("type"=>7,"varname"=>"Training_End_Date", "name" => "Training_End_Date", "autoInc" => "0");
 $dalTablecandidates["Dereja_Event_Services"] = array("type"=>200,"varname"=>"Dereja_Event_Services", "name" => "Dereja_Event_Services", "autoInc" => "0");
+$dalTablecandidates["Event_Start_Date"] = array("type"=>7,"varname"=>"Event_Start_Date", "name" => "Event_Start_Date", "autoInc" => "0");
+$dalTablecandidates["Event_End_Date"] = array("type"=>7,"varname"=>"Event_End_Date", "name" => "Event_End_Date", "autoInc" => "0");
+$dalTablecandidates["Event_Participant_Type"] = array("type"=>200,"varname"=>"Event_Participant_Type", "name" => "Event_Participant_Type", "autoInc" => "0");
 $dalTablecandidates["Dereja_web_profile_completion"] = array("type"=>3,"varname"=>"Dereja_web_profile_completion", "name" => "Dereja_web_profile_completion", "autoInc" => "0");
 $dalTablecandidates["Dereja_Information_Source"] = array("type"=>200,"varname"=>"Dereja_Information_Source", "name" => "Dereja_Information_Source", "autoInc" => "0");
 $dalTablecandidates["Employment_Status"] = array("type"=>200,"varname"=>"Employment_Status", "name" => "Employment_Status", "autoInc" => "0");

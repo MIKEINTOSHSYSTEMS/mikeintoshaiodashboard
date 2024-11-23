@@ -78,11 +78,11 @@
         }
 
         #loader .spinner {
-            width: 120px;
-            height: 120px;
+            width: 70px;
+            height: 70px;
             border: 16px solid #f3f3f3;
             border-top: 16px solid #3498db;
-            border-radius: 50%;
+            border-radius: 100%;
             border-top-color: pink;
             border-right-color: yellow;
             border-bottom-color: orange;
@@ -152,13 +152,15 @@
                     <li class="mr-3">
                         <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="./index.php">Home</a>
                     </li>
+                    <!--
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
                             href="./app/menu.php">Menu</a>
                     </li>
+                    -->
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base</a>
+                            href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Knowledge Base</a>
                     </li>
                     <li class="mr-3">
                         <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
@@ -241,7 +243,7 @@
 
                         Please read more on:
 
-                        <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base</a>
+                        <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Knowledge Base</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -553,7 +555,7 @@
                             <br />
                             Read more here:
 
-                            <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=81">Knowledge Base </a>
+                            <a class="text-pink-500 underline" href="./app/utilities_list.php?page=knowledge_base&menuItemId=80">Knowledge Base </a>
                         </p>
                     </div>
                 </div>
@@ -585,7 +587,7 @@
                 </div>
                 <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
                     <div class="flex items-center justify-start">
-                        <button onclick="location.href='./app/dashboards_list.php?menuItemId=2'" type="button"
+                        <button onclick="location.href='./app/dashboards_list.php?menuItemId=1'" type="button"
                             class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                             View Dashboard
                         </button>
@@ -774,7 +776,7 @@
         <h3 class="my-4 text-3xl leading-tight">
             Need Help On Accessing The System!
         </h3>
-        <button id="navAction" onclick="location.href='./app/utilities_list.php?page=knowledge_base&menuItemId=81'" type="button"
+        <button id="navAction" onclick="location.href='./app/utilities_list.php?page=knowledge_base&menuItemId=80'" type="button"
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Access Knowledge Base
         </button>
@@ -807,7 +809,7 @@
                             <a href="./app/menu.php" class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Menu</b> </a> |
                         
                       
-                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=81" class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Help</b> </a> |
+                            <a href="./app/utilities_list.php?page=knowledge_base&menuItemId=80" class="no-underline hover:underline text-gray-800 hover:text-pink-500"><b>Help</b> </a> |
                        
                       
                             <a href="./app/login.php"

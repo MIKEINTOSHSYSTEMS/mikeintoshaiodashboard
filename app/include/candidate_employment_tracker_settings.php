@@ -232,9 +232,9 @@ $tdatacandidate_employment_tracker[".strOrderBy"] = $tstrOrderBy;
 $tdatacandidate_employment_tracker[".orderindexes"] = array();
 
 
-$tdatacandidate_employment_tracker[".sqlHead"] = "SELECT c.CandidateID,  cet.Referral_from_Dereja_service,  c.Employment_Status AS CurrentEmploymentStatus,  c.Employment_Company AS Company_Name,  c.Employer_Sector AS Sector,  c.Employment_Position AS Job_Position,  cet.Company_Phone_Number,  cet.Job_Type,  cet.Job_Placement_Date,  cet.Employment_End_Date,  c.First_Name,  c.Middle_Name,  c.Last_Name,  cet.JobID";
-$tdatacandidate_employment_tracker[".sqlFrom"] = "FROM candidates AS c  LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
-$tdatacandidate_employment_tracker[".sqlWhereExpr"] = "(c.Employment_Status = 'Employed')";
+$tdatacandidate_employment_tracker[".sqlHead"] = "SELECT c.CandidateID,       cet.Referral_from_Dereja_service,       c.Employment_Status AS CurrentEmploymentStatus,       c.Employment_Company AS Company_Name,       c.Employer_Sector AS Sector,       c.Employment_Position AS Job_Position,       cet.Company_Phone_Number,       cet.Job_Type,       cet.Job_Placement_Date,       cet.Employment_End_Date,       c.First_Name,       c.Middle_Name,       c.Last_Name,       cet.JobID";
+$tdatacandidate_employment_tracker[".sqlFrom"] = "FROM       candidates AS c   LEFT OUTER JOIN       Candidate_Employment_Tracker AS cet   ON       c.CandidateID = cet.CandidateID";
+$tdatacandidate_employment_tracker[".sqlWhereExpr"] = "c.Employment_Status IN ('Employed', 'Self-Employed', 'Self Employed', 'Self  Employed', 'Unemployed')";
 $tdatacandidate_employment_tracker[".sqlTail"] = "";
 
 //fill array of tabs for list page
@@ -2613,15 +2613,15 @@ function createSqlQuery_candidate_employment_tracker()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "c.CandidateID,  cet.Referral_from_Dereja_service,  c.Employment_Status AS CurrentEmploymentStatus,  c.Employment_Company AS Company_Name,  c.Employer_Sector AS Sector,  c.Employment_Position AS Job_Position,  cet.Company_Phone_Number,  cet.Job_Type,  cet.Job_Placement_Date,  cet.Employment_End_Date,  c.First_Name,  c.Middle_Name,  c.Last_Name,  cet.JobID";
-$proto0["m_strFrom"] = "FROM candidates AS c  LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
-$proto0["m_strWhere"] = "(c.Employment_Status = 'Employed')";
+$proto0["m_strFieldList"] = "c.CandidateID,       cet.Referral_from_Dereja_service,       c.Employment_Status AS CurrentEmploymentStatus,       c.Employment_Company AS Company_Name,       c.Employer_Sector AS Sector,       c.Employment_Position AS Job_Position,       cet.Company_Phone_Number,       cet.Job_Type,       cet.Job_Placement_Date,       cet.Employment_End_Date,       c.First_Name,       c.Middle_Name,       c.Last_Name,       cet.JobID";
+$proto0["m_strFrom"] = "FROM       candidates AS c   LEFT OUTER JOIN       Candidate_Employment_Tracker AS cet   ON       c.CandidateID = cet.CandidateID";
+$proto0["m_strWhere"] = "c.Employment_Status IN ('Employed', 'Self-Employed', 'Self Employed', 'Self  Employed', 'Unemployed')";
 $proto0["m_strOrderBy"] = "";
 	
 																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "c.Employment_Status = 'Employed'";
+$proto2["m_sql"] = "c.Employment_Status IN ('Employed', 'Self-Employed', 'Self Employed', 'Self  Employed', 'Unemployed')";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
 	"m_strName" => "Employment_Status",
@@ -2631,7 +2631,7 @@ $proto2["m_uniontype"] = "SQLL_UNKNOWN";
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "= 'Employed'";
+$proto2["m_strCase"] = "IN ('Employed', 'Self-Employed', 'Self Employed', 'Self  Employed', 'Unemployed')";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -2910,8 +2910,14 @@ $proto35["m_columns"][] = "Upload_on_Website";
 $proto35["m_columns"][] = "Work_Experience";
 $proto35["m_columns"][] = "Joined_Dereja_Services";
 $proto35["m_columns"][] = "Dereja_Services";
+$proto35["m_columns"][] = "Program_In_Dereja";
 $proto35["m_columns"][] = "Dereja_Training_Services";
+$proto35["m_columns"][] = "Training_Start_Date";
+$proto35["m_columns"][] = "Training_End_Date";
 $proto35["m_columns"][] = "Dereja_Event_Services";
+$proto35["m_columns"][] = "Event_Start_Date";
+$proto35["m_columns"][] = "Event_End_Date";
+$proto35["m_columns"][] = "Event_Participant_Type";
 $proto35["m_columns"][] = "Dereja_web_profile_completion";
 $proto35["m_columns"][] = "Dereja_Information_Source";
 $proto35["m_columns"][] = "Employment_Status";
@@ -2972,7 +2978,7 @@ $proto39["m_columns"][] = "CurrentEmploymentStatus";
 $obj = new SQLTable($proto39);
 
 $proto38["m_table"] = $obj;
-$proto38["m_sql"] = "LEFT OUTER JOIN Candidate_Employment_Tracker AS cet ON c.CandidateID = cet.CandidateID";
+$proto38["m_sql"] = "LEFT OUTER JOIN       Candidate_Employment_Tracker AS cet   ON       c.CandidateID = cet.CandidateID";
 $proto38["m_alias"] = "cet";
 $proto38["m_srcTableName"] = "Candidate_Employment_Tracker";
 $proto40=array();

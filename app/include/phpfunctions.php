@@ -1179,6 +1179,10 @@ function GetDefaultValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
+				if($table=="candidates" && $field=="Event_Participant_Type")
+	{
+		return Candidate;
+	}
 				if($table=="candidates" && $field=="Date")
 	{
 		return now();

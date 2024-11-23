@@ -82,6 +82,9 @@
             <div class="text">
                 <article>
                     <p>Uh oh! Looks like you got lost Or The page is under development! <br>Go back to the Homepage</p>
+                    <!--
+                    <button id="navAction" onclick="location.href='./index.php'" type="button">Home Page</button>  
+                    -->
                     <button id="navAction" onclick="location.href='./index.php'" type="button">Home Page</button>
                 </article>
             </div>

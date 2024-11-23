@@ -138,6 +138,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_8}
 			 
+								{BEGIN row_grid_9}
+						
+			"%",
+						{END row_grid_9}
+			 
 				],
 	
 		body: [
@@ -1705,10 +1710,7 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field26}","stack":[{"text":"{$jslabel candidates Dereja_Services }","bold":true},{"text":{$Dereja_Services_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field28}","stack":[{"text":"{$jslabel candidates Dereja_Event_Services }","bold":true},{"text":{$Dereja_Event_Services_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field27}","stack":[{"text":"{$jslabel candidates Dereja_Training_Services }","bold":true},{"text":{$Dereja_Training_Services_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field67}","stack":[{"text":"{$jslabel candidates Program_In_Dereja }","bold":true},{"text":{$Program_In_Dereja_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -1872,6 +1874,251 @@ pdfDocument = {
 											],
 				{END row_grid_3}
 						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c7}
+{
+	cellId: 'c7',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section11',
+			widths: ['*'],
+			body: [
+				[{text: 'Dereja Training Services', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section11_0}
+									"*", 
+								{END col_section11_0}
+															{BEGIN col_section11_1}
+									"*", 
+								{END col_section11_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section11_0}
+				[
+																{BEGIN cellblock_section11_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field27}","stack":[{"text":"{$jslabel candidates Dereja_Training_Services }","bold":true},{"text":{$Dereja_Training_Services_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section11_c1}
+																							{BEGIN cellblock_section11_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field68}","stack":[{"text":"{$jslabel candidates Training_Start_Date }","bold":true},{"text":{$Training_Start_Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field69}","stack":[{"text":"{$jslabel candidates Training_End_Date }","bold":true},{"text":{$Training_End_Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section11_c}
+											],
+				{END row_section11_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c7}
+																							{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
+			location: 'section12',
+			widths: ['*'],
+			body: [
+				[{text: 'Dereja Event Services', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section12_0}
+									"*", 
+								{END col_section12_0}
+															{BEGIN col_section12_1}
+									"*", 
+								{END col_section12_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section12_0}
+				[
+																{BEGIN cellblock_section12_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field28}","stack":[{"text":"{$jslabel candidates Dereja_Event_Services }","bold":true},{"text":{$Dereja_Event_Services_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field72}","stack":[{"text":"{$jslabel candidates Event_Participant_Type }","bold":true},{"text":{$Event_Participant_Type_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section12_c1}
+																							{BEGIN cellblock_section12_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field70}","stack":[{"text":"{$jslabel candidates Event_Start_Date }","bold":true},{"text":{$Event_Start_Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field71}","stack":[{"text":"{$jslabel candidates Event_End_Date }","bold":true},{"text":{$Event_End_Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section12_c}
+											],
+				{END row_section12_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
 				[
 																{BEGIN cellblock_grid_c4}
 {
@@ -2109,8 +2356,8 @@ pdfDocument = {
 
 {END cellblock_grid_c16}
 											],
-				{END row_grid_4}
-						{BEGIN row_grid_5}
+				{END row_grid_5}
+						{BEGIN row_grid_6}
 				[
 																{BEGIN cellblock_grid_c22}
 {
@@ -2349,8 +2596,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_5}
-						{BEGIN row_grid_6}
+				{END row_grid_6}
+						{BEGIN row_grid_7}
 				[
 																{BEGIN cellblock_grid_c23}
 {
@@ -2510,8 +2757,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_6}
-						{BEGIN row_grid_7}
+				{END row_grid_7}
+						{BEGIN row_grid_8}
 				[
 																{BEGIN cellblock_grid_c18}
 {
@@ -2609,8 +2856,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_7}
-						{BEGIN row_grid_8}
+				{END row_grid_8}
+						{BEGIN row_grid_9}
 				[
 																{BEGIN cellblock_grid_c13}
 {
@@ -2649,7 +2896,7 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_8}
+				{END row_grid_9}
 		
 		]
 	}

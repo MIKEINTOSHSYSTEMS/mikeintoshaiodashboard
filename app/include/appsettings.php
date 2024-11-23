@@ -614,10 +614,10 @@ $ajaxSearchStartsWith = true;
 
 
 $globalSettings["LandingPageType"] = 1;
-$globalSettings["LandingTable"] = "";
-$globalSettings["LandingPage"] = "login";
-$globalSettings["LandingURL"] = "login.php?page=login";
-$globalSettings["LandingPageId"] = "login";
+$globalSettings["LandingTable"] = "dashboards";
+$globalSettings["LandingPage"] = "list";
+$globalSettings["LandingURL"] = "dashboards_list.php?page=AIO_Dashboard";
+$globalSettings["LandingPageId"] = "AIO_Dashboard";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["English"] = "<p><img src=\"./images/derejalogo.svg\" alt=\"Dereja M&amp;E System\" width=\"80\" height=\"30\" />&nbsp;<strong><span style=\"color: #ff6600;\"> M<span style=\"color: #ff0000;\">&amp;</span>E</span> <span style=\"color: #ff0000;\">System</span></strong></p>";
@@ -751,9 +751,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "478_1729796633";
+$projectBuildKey = "479_1732109807";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "478";
+$projectBuildNumber = "479";
 
 $mlang_messages = array();
 $mlang_charsets = array();
