@@ -3662,6 +3662,14 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "settings" ] = "settings";
 	$projectEntities[ "database_backup" ] = array( "url" => "database_backup", "type" => 1 );
 	$projectEntitiesReverse[ "database_backup" ] = "database_backup";
+	$projectEntities[ "performance_indicators" ] = array( "url" => "performance_indicators", "type" => 0 );
+	$projectEntitiesReverse[ "performance_indicators" ] = "performance_indicators";
+	$projectEntities[ "performance_tracking" ] = array( "url" => "performance_tracking", "type" => 0 );
+	$projectEntitiesReverse[ "performance_tracking" ] = "performance_tracking";
+	$projectEntities[ "performance_years" ] = array( "url" => "performance_years", "type" => 0 );
+	$projectEntitiesReverse[ "performance_years" ] = "performance_years";
+	$projectEntities[ "Performance_Overview" ] = array( "url" => "performance_overview", "type" => 6 );
+	$projectEntitiesReverse[ "performance_overview" ] = "Performance_Overview";
 }
 
 function findTable( $table ) {

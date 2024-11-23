@@ -712,6 +712,22 @@ class AuditTrailTable
 		{
 			return true;
 		}
+		if($table=="performance_indicators")
+		{
+			return false;
+		}
+		if($table=="performance_tracking")
+		{
+			return false;
+		}
+		if($table=="performance_years")
+		{
+			return false;
+		}
+		if($table=="Performance_Overview")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1377,6 +1393,22 @@ class AuditTrailFile
 		if($table=="database_backup")
 		{
 			return true;
+		}
+		if($table=="performance_indicators")
+		{
+			return false;
+		}
+		if($table=="performance_tracking")
+		{
+			return false;
+		}
+		if($table=="performance_years")
+		{
+			return false;
+		}
+		if($table=="Performance_Overview")
+		{
+			return false;
 		}
 	}
 

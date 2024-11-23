@@ -91,6 +91,10 @@ $nonAdminTablesArr[] = "dereja_academy_lms";
 $nonAdminTablesArr[] = "Home";
 $nonAdminTablesArr[] = "settings";
 $nonAdminTablesArr[] = "database_backup";
+$nonAdminTablesArr[] = "performance_indicators";
+$nonAdminTablesArr[] = "performance_tracking";
+$nonAdminTablesArr[] = "performance_years";
+$nonAdminTablesArr[] = "Performance_Overview";
 
 $ug_connection = $cman->getForUserGroups();
 

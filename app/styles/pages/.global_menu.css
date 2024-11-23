@@ -304,6 +304,18 @@
 [data-page=".global_menu"][data-itemid="welcome_item80"] > .bs-welcome-header {
   background-color: #778899;
 }
+[data-page=".global_menu"][data-itemid="welcome_item81"] > .bs-welcome-header {
+  background-color: #E8926F;
+}
+[data-page=".global_menu"][data-itemid="welcome_item82"] > .bs-welcome-header {
+  background-color: #CFAE83;
+}
+[data-page=".global_menu"][data-itemid="welcome_item83"] > .bs-welcome-header {
+  background-color: #3CB371;
+}
+[data-page=".global_menu"][data-itemid="welcome_item84"] > .bs-welcome-header {
+  background-color: #BC8F8F;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

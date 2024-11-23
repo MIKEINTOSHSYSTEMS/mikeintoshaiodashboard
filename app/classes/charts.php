@@ -530,6 +530,14 @@ class Chart
 			return true;
 		if("backup" == $this->chrt_array['tables'][0])
 			return true;
+		if("performance_indicators" == $this->chrt_array['tables'][0])
+			return true;
+		if("performance_tracking" == $this->chrt_array['tables'][0])
+			return true;
+		if("performance_years" == $this->chrt_array['tables'][0])
+			return true;
+		if("" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

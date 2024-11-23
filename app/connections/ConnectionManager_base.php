@@ -317,6 +317,10 @@ class ConnectionManager_Base
 		$connectionsIds["dereja_academy_lms"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["settings"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["database_backup"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["performance_indicators"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["performance_tracking"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["performance_years"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Performance_Overview"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

@@ -1405,6 +1405,55 @@ function InitLookupLinks()
 			$lookupTableLinks["Jobs"]["candidates_grouped_report.Employment_Position"] = array();
 		}
 		$lookupTableLinks["Jobs"]["candidates_grouped_report.Employment_Position"]["search"] = array("table" => "candidates_grouped_report", "field" => "Employment_Position", "page" => "search");
+		if( !isset( $lookupTableLinks["performance_indicators"] ) ) {
+			$lookupTableLinks["performance_indicators"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_indicators"]["performance_tracking.indicator_id"] )) {
+			$lookupTableLinks["performance_indicators"]["performance_tracking.indicator_id"] = array();
+		}
+		$lookupTableLinks["performance_indicators"]["performance_tracking.indicator_id"]["edit"] = array("table" => "performance_tracking", "field" => "indicator_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_tracking"] ) ) {
+			$lookupTableLinks["performance_tracking"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_tracking"]["performance_years.tracking_id"] )) {
+			$lookupTableLinks["performance_tracking"]["performance_years.tracking_id"] = array();
+		}
+		$lookupTableLinks["performance_tracking"]["performance_years.tracking_id"]["edit"] = array("table" => "performance_years", "field" => "tracking_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_indicators"] ) ) {
+			$lookupTableLinks["performance_indicators"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_indicators"]["performance_overview.indicator_name"] )) {
+			$lookupTableLinks["performance_indicators"]["performance_overview.indicator_name"] = array();
+		}
+		$lookupTableLinks["performance_indicators"]["performance_overview.indicator_name"]["edit"] = array("table" => "Performance_Overview", "field" => "indicator_name", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_indicators"] ) ) {
+			$lookupTableLinks["performance_indicators"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_indicators"]["performance_overview.unit_of_measurement"] )) {
+			$lookupTableLinks["performance_indicators"]["performance_overview.unit_of_measurement"] = array();
+		}
+		$lookupTableLinks["performance_indicators"]["performance_overview.unit_of_measurement"]["edit"] = array("table" => "Performance_Overview", "field" => "unit_of_measurement", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_indicators"] ) ) {
+			$lookupTableLinks["performance_indicators"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_indicators"]["performance_overview.reporting_frequency"] )) {
+			$lookupTableLinks["performance_indicators"]["performance_overview.reporting_frequency"] = array();
+		}
+		$lookupTableLinks["performance_indicators"]["performance_overview.reporting_frequency"]["edit"] = array("table" => "Performance_Overview", "field" => "reporting_frequency", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_tracking"] ) ) {
+			$lookupTableLinks["performance_tracking"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_tracking"]["performance_overview.baseline_year"] )) {
+			$lookupTableLinks["performance_tracking"]["performance_overview.baseline_year"] = array();
+		}
+		$lookupTableLinks["performance_tracking"]["performance_overview.baseline_year"]["edit"] = array("table" => "Performance_Overview", "field" => "baseline_year", "page" => "edit");
+		if( !isset( $lookupTableLinks["performance_years"] ) ) {
+			$lookupTableLinks["performance_years"] = array();
+		}
+		if( !isset( $lookupTableLinks["performance_years"]["performance_overview.performance_year"] )) {
+			$lookupTableLinks["performance_years"]["performance_overview.performance_year"] = array();
+		}
+		$lookupTableLinks["performance_years"]["performance_overview.performance_year"]["edit"] = array("table" => "Performance_Overview", "field" => "performance_year", "page" => "edit");
 }
 
 ?>

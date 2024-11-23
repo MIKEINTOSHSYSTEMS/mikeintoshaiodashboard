@@ -1,0 +1,154 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Performance_Overview export}","hidden":"{$item_hide_export_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+			heights: [
+								
+			"%",
+			 
+				],
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":{$indicator_id_pdfvalue},"hidden":"{$item_hide_export_field}"},
+				
+				
+			{"text":{$indicator_name_pdfvalue},"hidden":"{$item_hide_export_field1}"},
+				
+				
+			{"text":{$unit_of_measurement_pdfvalue},"hidden":"{$item_hide_export_field2}"},
+				
+				
+			{"text":{$reporting_frequency_pdfvalue},"hidden":"{$item_hide_export_field3}"},
+				
+				
+			{"text":{$tracking_id_pdfvalue},"hidden":"{$item_hide_export_field4}"},
+				
+				
+			{"text":{$baseline_year_pdfvalue},"hidden":"{$item_hide_export_field5}"},
+				
+				
+			{"text":{$baseline_value_pdfvalue},"hidden":"{$item_hide_export_field6}"},
+				
+				
+			{"text":{$performance_year_pdfvalue},"hidden":"{$item_hide_export_field7}"},
+				
+				
+			{"text":{$target_pdfvalue},"hidden":"{$item_hide_export_field8}"},
+				
+				
+			{"text":{$actual_pdfvalue},"hidden":"{$item_hide_export_field9}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+					]
+}
+  

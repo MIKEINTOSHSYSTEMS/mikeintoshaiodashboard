@@ -355,6 +355,14 @@ function checkTableName($shortTName )
 		return true;
 	if ("database_backup" == $shortTName )
 		return true;
+	if ("performance_indicators" == $shortTName )
+		return true;
+	if ("performance_tracking" == $shortTName )
+		return true;
+	if ("performance_years" == $shortTName )
+		return true;
+	if ("performance_overview" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1089,6 +1097,42 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="database_backup";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("performance_indicators");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="performance_indicators";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("performance_tracking");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="performance_tracking";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("performance_years");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="performance_years";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Performance_Overview");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Performance_Overview";
+	}
 	return $arr;
 }
 
@@ -1174,6 +1218,10 @@ function GetTablesListWithoutSecurity()
 	$arr[]="Home";
 	$arr[]="settings";
 	$arr[]="database_backup";
+	$arr[]="performance_indicators";
+	$arr[]="performance_tracking";
+	$arr[]="performance_years";
+	$arr[]="Performance_Overview";
 	return $arr;
 }
 
@@ -2191,6 +2239,26 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="database_backup" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="performance_indicators" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="performance_tracking" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="performance_years" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Performance_Overview" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
