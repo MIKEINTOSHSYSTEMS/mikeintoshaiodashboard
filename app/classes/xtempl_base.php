@@ -172,6 +172,11 @@ class XTempl_Base
 				"chartName"=>"indicator_targets_view",
 				"table"=>"indicator_targets_view",
 				"ctype"=>"2DColumn"));
+			$this->assign_function("performance_indicators_view_chart","xt_showchart",
+			array(
+				"chartName"=>"performance_indicators_view",
+				"table"=>"performance_indicators_view",
+				"ctype"=>"Combined"));
 		}
 
 

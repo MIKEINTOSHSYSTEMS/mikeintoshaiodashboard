@@ -363,6 +363,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("performance_overview" == $shortTName )
 		return true;
+	if ("performance_indicators_view" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1133,6 +1135,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Performance_Overview";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("performance_indicators_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="performance_indicators_view";
+	}
 	return $arr;
 }
 
@@ -1222,6 +1233,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="performance_tracking";
 	$arr[]="performance_years";
 	$arr[]="Performance_Overview";
+	$arr[]="performance_indicators_view";
 	return $arr;
 }
 
@@ -1279,6 +1291,8 @@ function GetChartType($shorttable)
 		return "Combined";
 	if($shorttable=="indicator_targets_view")
 		return "2DColumn";
+	if($shorttable=="performance_indicators_view")
+		return "Combined";
 	return "";
 }
 
@@ -2262,6 +2276,11 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
+	}
+	if( $table=="performance_indicators_view" )
+	{
+//	default permissions
+		return "S".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

@@ -3670,6 +3670,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "performance_years" ] = "performance_years";
 	$projectEntities[ "Performance_Overview" ] = array( "url" => "performance_overview", "type" => 6 );
 	$projectEntitiesReverse[ "performance_overview" ] = "Performance_Overview";
+	$projectEntities[ "performance_indicators_view" ] = array( "url" => "performance_indicators_view", "type" => 3 );
+	$projectEntitiesReverse[ "performance_indicators_view" ] = "performance_indicators_view";
 }
 
 function findTable( $table ) {

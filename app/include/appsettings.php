@@ -751,9 +751,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "488_1732109807";
+$projectBuildKey = "490_1732109807";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "488";
+$projectBuildNumber = "490";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -860,6 +860,7 @@ $tableCaptions["English"]["performance_indicators"] = "Performance Indicators";
 $tableCaptions["English"]["performance_tracking"] = "Performance Tracking";
 $tableCaptions["English"]["performance_years"] = "Performance Years";
 $tableCaptions["English"]["Performance_Overview"] = "Performance Overview";
+$tableCaptions["English"]["performance_indicators_view"] = "Performance Indicators View";
 
 
 $globalEvents = new class_GlobalEvents;

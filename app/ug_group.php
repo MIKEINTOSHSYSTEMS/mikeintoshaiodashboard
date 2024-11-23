@@ -95,6 +95,7 @@ $nonAdminTablesArr[] = "performance_indicators";
 $nonAdminTablesArr[] = "performance_tracking";
 $nonAdminTablesArr[] = "performance_years";
 $nonAdminTablesArr[] = "Performance_Overview";
+$nonAdminTablesArr[] = "performance_indicators_view";
 
 $ug_connection = $cman->getForUserGroups();
 

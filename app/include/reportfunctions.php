@@ -757,6 +757,10 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="performance_indicators_view")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1337,6 +1341,10 @@ function getCaptionTable($table)
 	if($table=="Performance_Overview")
 	{
 		return "Performance Overview";
+	}
+	if($table=="performance_indicators_view")
+	{
+		return "Performance Indicators View";
 	}
 	return $table;
 }

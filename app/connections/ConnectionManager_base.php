@@ -321,6 +321,7 @@ class ConnectionManager_Base
 		$connectionsIds["performance_tracking"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["performance_years"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Performance_Overview"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["performance_indicators_view"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

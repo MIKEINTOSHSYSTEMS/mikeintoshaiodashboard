@@ -1,0 +1,14 @@
+[data-page="performance_indicators_view_chart"][data-itemid="chart"] {
+  width: 100%;
+  height: 530px;
+}
+[data-page="performance_indicators_view_chart"][data-itemid="text"] {
+  color: #ff9700;
+  font-style: italic;
+  font-weight: bold;
+}
+[data-page="performance_indicators_view_chart"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+
