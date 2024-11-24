@@ -48,7 +48,7 @@ COPY pwabuilder-sw.js /var/www/html/
 COPY manifest.json /var/www/html/
 COPY 404.php /var/www/html/
 COPY server.html /var/www/html/
-COPY start.php /var/www/html/
+#COPY start.php /var/www/html/
 
 # Copy AI chat files to the container
 COPY ai/ /var/www/html/ai/
