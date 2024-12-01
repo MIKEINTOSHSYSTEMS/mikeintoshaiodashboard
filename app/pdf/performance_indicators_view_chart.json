@@ -45,6 +45,31 @@ pdfDocument = {
 				
 				[
 																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_search_panel}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+						[
+																{
 	cellId: 'c2',
 	col:0,
 	row:0,
@@ -58,7 +83,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"Please use the left side search panel to display the chart","color":"#ff9700","hidden":"{$item_hide_text}","italics":true,"bold":true,"isHtml":true},
+			{"text":"Please use the search panel to display the chart","color":"#ff9700","hidden":"{$item_hide_text}","italics":true,"bold":true,"isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],

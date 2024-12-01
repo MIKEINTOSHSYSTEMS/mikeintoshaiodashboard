@@ -151,12 +151,12 @@ class XTempl_Base
 			array(
 				"chartName"=>"training_participants_by_trainings",
 				"table"=>"training_participants_by_trainings",
-				"ctype"=>"2DBar"));
+				"ctype"=>"2DColumn"));
 			$this->assign_function("candidates_reports_chart","xt_showchart",
 			array(
 				"chartName"=>"candidates_reports",
 				"table"=>"candidates_reports",
-				"ctype"=>"Line"));
+				"ctype"=>"2DColumn"));
 			$this->assign_function("candidates_by_gender_chart","xt_showchart",
 			array(
 				"chartName"=>"candidates_by_gender",

@@ -45,19 +45,23 @@
 [data-page="home_Home"][data-itemid="dashboard-item5"] > * > .tab-content > .tab-pane > .panel {
   border: none;
 }
-[data-page="home_Home"][data-itemid="dashboard-item7"] {
-  height: 500px;
-}
-[data-page="home_Home"][data-itemid="dashboard-item7"] > .panel,
-[data-page="home_Home"][data-itemid="dashboard-item7"] > * > .tab-content > .tab-pane > .panel {
-  border: none;
-}
 [data-page="home_Home"][data-itemid="dashboard-item8"] {
   height: 500px;
 }
 [data-page="home_Home"][data-itemid="dashboard-item8"] > .panel,
 [data-page="home_Home"][data-itemid="dashboard-item8"] > * > .tab-content > .tab-pane > .panel {
   border: none;
+}
+[data-page="home_Home"][data-itemid="dashboard-item7"] {
+  height: 500px;
+}
+[data-page="home_Home"][data-itemid="dashboard-item9"] {
+  height: 500px;
+}
+[data-page="home_Home"][data-itemid="dashboard-item9"] > .panel > .panel-heading,
+[data-page="home_Home"][data-itemid="dashboard-item9"] > * > .tab-content > .tab-pane > .panel > .panel-heading {
+  background-color: #FB7409;
+  background-image: none;
 }
 [data-page="home_Home"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;

@@ -9024,8 +9024,8 @@ $tdatacandidates_by_gender[".chartSeries"][] = array(
 			<attr value="appearance">';
 
 
-	$tdatacandidates_by_gender[".chartXml"] .= '<attr value="head">'.xmlencode("Candidates By Gender").'</attr>
-<attr value="foot">'.xmlencode("Gender").'</attr>
+	$tdatacandidates_by_gender[".chartXml"] .= '<attr value="head">'.xmlencode("Percentage of candidates enrolled to Dereja service by sex from total").'</attr>
+<attr value="foot">'.xmlencode("Gender/Sex").'</attr>
 <attr value="y_axis_label">'.xmlencode("GPA").'</attr>
 
 
@@ -10407,6 +10407,7 @@ $proto121["m_columns"][] = "Career_Level_Of_Payment";
 $proto121["m_columns"][] = "Placement_Type";
 $proto121["m_columns"][] = "Placement_Duration";
 $proto121["m_columns"][] = "Remark";
+$proto121["m_columns"][] = "candidate_data";
 $proto121["m_columns"][] = "Date";
 $obj = new SQLTable($proto121);
 

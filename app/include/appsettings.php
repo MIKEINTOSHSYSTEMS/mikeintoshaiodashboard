@@ -613,10 +613,10 @@ $ajaxSearchStartsWith = true;
 
 
 
-$globalSettings["LandingPageType"] = 1;
+$globalSettings["LandingPageType"] = 2;
 $globalSettings["LandingTable"] = "dashboards";
 $globalSettings["LandingPage"] = "list";
-$globalSettings["LandingURL"] = "dashboards_list.php?page=AIO_Dashboard";
+$globalSettings["LandingURL"] = "dashboards_list.php?menuItemId=1";
 $globalSettings["LandingPageId"] = "AIO_Dashboard";
 
 $globalSettings["ProjectLogo"] = array();
@@ -751,9 +751,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "490_1732109807";
+$projectBuildKey = "538_1732808665";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "490";
+$projectBuildNumber = "538";
 
 $mlang_messages = array();
 $mlang_charsets = array();

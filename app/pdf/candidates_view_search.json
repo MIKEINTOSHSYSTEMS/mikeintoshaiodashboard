@@ -334,9 +334,6 @@ pdfDocument = {
 			{"text":{$Employment_Position_value},"hidden":"{$item_hide_integrated_search_field55}"},
 				
 				
-			{"text":{$Remark_value},"hidden":"{$item_hide_integrated_search_field56}"},
-				
-				
 			{"text":{$Woreda_value},"hidden":"{$item_hide_integrated_search_field57}"},
 				
 				
@@ -380,6 +377,18 @@ pdfDocument = {
 				
 				
 			{"text":{$Program_In_Dereja_value},"hidden":"{$item_hide_integrated_search_field71}"},
+				
+				
+			{"text":{$Remark_value},"hidden":"{$item_hide_integrated_search_field56}"},
+				
+				
+			{"text":{$candidate_data_value},"hidden":"{$item_hide_integrated_search_field72}"},
+				
+				
+			{"text":{$Full_Name_value},"hidden":"{$item_hide_integrated_search_field73}"},
+				
+				
+			{"text":{$Age_value},"hidden":"{$item_hide_integrated_search_field74}"},
 				
 		  ],
   "border": [ false, false, false, false ],

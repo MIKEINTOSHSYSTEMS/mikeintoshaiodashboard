@@ -79,7 +79,7 @@ $tdatakbusers[".listAjax"] = false;
 //	temporary
 //$tdatakbusers[".listAjax"] = false;
 
-	$tdatakbusers[".audit"] = false;
+	$tdatakbusers[".audit"] = true;
 
 	$tdatakbusers[".locking"] = false;
 

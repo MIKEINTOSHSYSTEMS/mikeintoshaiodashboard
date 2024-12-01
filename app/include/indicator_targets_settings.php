@@ -73,7 +73,7 @@ $tdataindicator_targets[".listAjax"] = false;
 //	temporary
 //$tdataindicator_targets[".listAjax"] = false;
 
-	$tdataindicator_targets[".audit"] = false;
+	$tdataindicator_targets[".audit"] = true;
 
 	$tdataindicator_targets[".locking"] = false;
 

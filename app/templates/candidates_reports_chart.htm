@@ -61,11 +61,282 @@
 			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu DerejaMenuSet}			</div>
 		
- 
+    {END left_block}
+</div>				</div>
+			<div class="r-content-col" data-resize-left="leftbar">
+				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
+									{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
+				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
+				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="Show menu" class="btn-link   
+	 glyphicon glyphicon-triangle-left" href="#" >		
+				
+								</a>
+</span>
+			</span>
+		 
+				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="breadcrumb" {$item_breadcrumb} data-topcell-item-type="breadcrumb" >
+				{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
-			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
-				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
+<div  class="input-group">
+{BEGIN searchform_text}
+	<input type="search" class="form-control" {$searchfor_attrs} size="25">
+{END searchform_text}
+	<span class="input-group-btn">
+	{BEGIN searchform_showall}
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	{END searchform_showall}
+
+	{BEGIN searchform_search}
+	<button {$searchbutton_attrs} class="btn btn-primary" >
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	{END searchform_search}
+	</span>
+</div>
+		
+</span>			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
+				<a   href="candidates_reports_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
+				
+		Advanced search		
+		</a>
+	</li>
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Show search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Hide search panel		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
+				<div class="dropdown" data-itemtype="notifications" data-itemid="notifications" {$item_notifications} data-pageid="{$pageid}" id="notifications{$id}">
+	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+		<i class="fa fa-bell"></i>
+		<span class="badge badge-warning" ></span>
+	</button>
+	<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+		<div class="r-noti-header">
+			<span class="r-noti-h-text">
+				Notifications			</span>
+			<!--
+			<a class="r-noti-all">
+				see all
+			</a>
+			-->
+			<a class="r-noti-close" href="#">
+				<i class="fa fa-times"></i>
+			</a>
+		</div>
+		<div class="r-noti-messages">
+		</div>
+	</div>
+	
+<script type="text/x-tmpl" id="noti-message">
+	<a draggable="false" class="r-noti-message" 
+		{% if (o.url ) { %} 
+			href="{%=o.url%}" 
+		{% } %}
+		>
+		<span class="r-noti-img">
+			{% if (o.iconType == 'fa') { %}
+			<span class="fa {%=o.icon%}"></span>
+			{% } else if (o.iconType == 'bs') { %}
+			<span class="glyphicon {%=o.icon%}"></span>
+			{% } else if (o.icon) { %}
+			<img src="{%=o.icon%}">
+			{% } %}
+		</span>
+		<span class="r-noti-text">
+			<span class="r-noti-title">
+				{% if (o.title) { %}
+					<span class="r-noti-title-text">
+						{%=o.title%}
+					</span>
+				{% } %}
+				<span class="r-noti-when">
+					{%=o.time%}
+				</span>
+			</span>
+			<span class="r-noti-body">
+				{%=o.message%}
+			</span>
+		</span>
+		{% if (o.new) { %}
+		<span class="r-noti-new">
+			<span class="fa fa-circle"></span>
+		</span>
+		{% } %}
+	</a>
+</script>	
+
+</div>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Login			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		User Profile		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Log out		
+		</a>
+	</li>
+{END logoutbutton}
+							{BEGIN adminarea_link}
+	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
+				<a  href="admin_rights_list.php"  title="" >
+				
+		Admin Area		
+		</a>
+	</li>
+{END adminarea_link}
+							{BEGIN changepwd_link}
+	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
+				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
+				
+		Change password		
+		</a>
+	</li>
+{END changepwd_link}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+						{$locking}
+				</div>
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
+					{$header}
+					<div class="r-top">
+									{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}		</div>					</div>
+			</div>		
+{END top_block}
+						</div>
+											<div class="r-grid"
+	>
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+	<div class="panel panel-default"
+	>
+		<div class="panel-heading">
+							{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"			data-horizontal
+	 >
 
 	<div class="panel-heading">
 		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
@@ -116,6 +387,240 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_Attend_Employability_Skill}</span>
 						</div>
 		{END searchCtrlBlock_Attend_Employability_Skill}
+																{BEGIN searchCtrlBlock_candidate_data}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_candidate_data}" {$filterRow_attrs_candidate_data}>
+			<label>{$label candidates_reports candidate_data }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_candidate_data}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_candidate_data}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_candidate_data}</span>
+						</div>
+		{END searchCtrlBlock_candidate_data}
+																{BEGIN searchCtrlBlock_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Date}" {$filterRow_attrs_Date}>
+			<label>{$label candidates_reports Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Date}</span>
+						</div>
+		{END searchCtrlBlock_Date}
+																{BEGIN searchCtrlBlock_Placement_Duration}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Placement_Duration}" {$filterRow_attrs_Placement_Duration}>
+			<label>{$label candidates_reports Placement_Duration }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Placement_Duration}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Placement_Duration}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Placement_Duration}</span>
+						</div>
+		{END searchCtrlBlock_Placement_Duration}
+																{BEGIN searchCtrlBlock_Placement_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Placement_Type}" {$filterRow_attrs_Placement_Type}>
+			<label>{$label candidates_reports Placement_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Placement_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Placement_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Placement_Type}</span>
+						</div>
+		{END searchCtrlBlock_Placement_Type}
+																{BEGIN searchCtrlBlock_Career_Level_Of_Payment}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Career_Level_Of_Payment}" {$filterRow_attrs_Career_Level_Of_Payment}>
+			<label>{$label candidates_reports Career_Level_Of_Payment }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Career_Level_Of_Payment}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Career_Level_Of_Payment}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Career_Level_Of_Payment}</span>
+						</div>
+		{END searchCtrlBlock_Career_Level_Of_Payment}
+																{BEGIN searchCtrlBlock_Salary}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Salary}" {$filterRow_attrs_Salary}>
+			<label>{$label candidates_reports Salary }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Salary}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Salary}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Salary}</span>
+						</div>
+		{END searchCtrlBlock_Salary}
+																{BEGIN searchCtrlBlock_Employer_Sector}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Employer_Sector}" {$filterRow_attrs_Employer_Sector}>
+			<label>{$label candidates_reports Employer_Sector }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Employer_Sector}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Employer_Sector}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Employer_Sector}</span>
+						</div>
+		{END searchCtrlBlock_Employer_Sector}
+																{BEGIN searchCtrlBlock_Event_Participant_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Participant_Type}" {$filterRow_attrs_Event_Participant_Type}>
+			<label>{$label candidates_reports Event_Participant_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Participant_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Participant_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Participant_Type}</span>
+						</div>
+		{END searchCtrlBlock_Event_Participant_Type}
+																{BEGIN searchCtrlBlock_Event_End_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_End_Date}" {$filterRow_attrs_Event_End_Date}>
+			<label>{$label candidates_reports Event_End_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_End_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_End_Date}
+																{BEGIN searchCtrlBlock_Event_Start_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Start_Date}" {$filterRow_attrs_Event_Start_Date}>
+			<label>{$label candidates_reports Event_Start_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Start_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_Start_Date}
+																{BEGIN searchCtrlBlock_Training_End_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Training_End_Date}" {$filterRow_attrs_Training_End_Date}>
+			<label>{$label candidates_reports Training_End_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Training_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Training_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Training_End_Date}</span>
+						</div>
+		{END searchCtrlBlock_Training_End_Date}
+																{BEGIN searchCtrlBlock_Training_Start_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Training_Start_Date}" {$filterRow_attrs_Training_Start_Date}>
+			<label>{$label candidates_reports Training_Start_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Training_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Training_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Training_Start_Date}</span>
+						</div>
+		{END searchCtrlBlock_Training_Start_Date}
+																{BEGIN searchCtrlBlock_Program_In_Dereja}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Program_In_Dereja}" {$filterRow_attrs_Program_In_Dereja}>
+			<label>{$label candidates_reports Program_In_Dereja }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Program_In_Dereja}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Program_In_Dereja}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Program_In_Dereja}</span>
+						</div>
+		{END searchCtrlBlock_Program_In_Dereja}
+																{BEGIN searchCtrlBlock_Upload_on_Website}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Upload_on_Website}" {$filterRow_attrs_Upload_on_Website}>
+			<label>{$label candidates_reports Upload_on_Website }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Upload_on_Website}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Upload_on_Website}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Upload_on_Website}</span>
+						</div>
+		{END searchCtrlBlock_Upload_on_Website}
+																{BEGIN searchCtrlBlock_Kebele}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Kebele}" {$filterRow_attrs_Kebele}>
+			<label>{$label candidates_reports Kebele }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Kebele}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Kebele}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Kebele}</span>
+						</div>
+		{END searchCtrlBlock_Kebele}
+																{BEGIN searchCtrlBlock_Woreda}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Woreda}" {$filterRow_attrs_Woreda}>
+			<label>{$label candidates_reports Woreda }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Woreda}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Woreda}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Woreda}</span>
+						</div>
+		{END searchCtrlBlock_Woreda}
+																{BEGIN searchCtrlBlock_Age}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Age}" {$filterRow_attrs_Age}>
+			<label>{$label candidates_reports Age }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Age}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Age}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Age}</span>
+						</div>
+		{END searchCtrlBlock_Age}
+																{BEGIN searchCtrlBlock_Full_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Full_Name}" {$filterRow_attrs_Full_Name}>
+			<label>{$label candidates_reports Full_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Full_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Full_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Full_Name}</span>
+						</div>
+		{END searchCtrlBlock_Full_Name}
 																{BEGIN searchCtrlBlock_Zone}
 
 
@@ -855,272 +1360,9 @@
 	</div>
 </div>
 <!-- End Search panel content -->
-			</div>
-		
-    {END left_block}
-</div>				</div>
-			<div class="r-content-col" data-resize-left="leftbar">
-				<div data-resize-left="leftbar"  data-fixed class="r-topheader" data-resize-name="topbar">
-									{BEGIN supertop_block}
-<nav class="navbar navbar-default" 
-	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="leftbar" {$form_supertop} data-pageid="{$pageid}" >
+			{END firstAboveGridCell}	
+	</div>					</div>
 			 
-							 
-				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
-				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="Collapse" class="btn-link   
-	 glyphicon glyphicon-menu-hamburger" href="#" >		
-				
-								</a>
-</span>
-			</span>
-		 
-				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="collapse_button" {$item_collapse_button} data-topcell-item-type="collapse_button" >
-				<span data-itemtype="collapse_button" data-itemid="collapse_button" {$item_collapse_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="Show menu" class="btn-link   
-	 glyphicon glyphicon-triangle-left" href="#" >		
-				
-								</a>
-</span>
-			</span>
-		 
-				<span class="navbar-form  navbar-collapse" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="breadcrumb" {$item_breadcrumb} data-topcell-item-type="breadcrumb" >
-				{BEGIN breadcrumb}
-<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
-<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
-{BEGIN crumb}
-  <li class="{$crumb_item_class}">
-{BEGIN crumb_title_link}
-	<a {$crumb_attrs}>{$crumb_title}</a>
-{END crumb_title_link}
-{BEGIN crumb_title_span}
-	<span {$crumb_attrs}>{$crumb_title}</span>
-{END crumb_title_span}	
-	{$crumb_dropdown}
-  </li>
-{END crumb}
-</ol>
-{END breadcrumb}			</span>
-							 
-							 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
-				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
-
-<div  class="input-group">
-{BEGIN searchform_text}
-	<input type="search" class="form-control" {$searchfor_attrs} size="25">
-{END searchform_text}
-	<span class="input-group-btn">
-	{BEGIN searchform_showall}
-				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
-			<span class="glyphicon glyphicon-remove"></span>
-		</button>
-	{END searchform_showall}
-
-	{BEGIN searchform_search}
-	<button {$searchbutton_attrs} class="btn btn-primary" >
-		<span class="glyphicon glyphicon-search"></span>
-	</button>
-	{END searchform_search}
-	</span>
-</div>
-		
-</span>			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
-	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-										<span class="glyphicon glyphicon-cog"></span>
-												<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
-				<a   href="candidates_reports_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
-				
-		Advanced search		
-		</a>
-	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Show search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Hide search panel		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-					</ul>
-	</span>
-</span>
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="notifications" {$item_notifications} data-topcell-item-type="notifications" >
-				<div class="dropdown" data-itemtype="notifications" data-itemid="notifications" {$item_notifications} data-pageid="{$pageid}" id="notifications{$id}">
-	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-		<i class="fa fa-bell"></i>
-		<span class="badge badge-warning" ></span>
-	</button>
-	<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-		<div class="r-noti-header">
-			<span class="r-noti-h-text">
-				Notifications			</span>
-			<!--
-			<a class="r-noti-all">
-				see all
-			</a>
-			-->
-			<a class="r-noti-close" href="#">
-				<i class="fa fa-times"></i>
-			</a>
-		</div>
-		<div class="r-noti-messages">
-		</div>
-	</div>
-	
-<script type="text/x-tmpl" id="noti-message">
-	<a draggable="false" class="r-noti-message" 
-		{% if (o.url ) { %} 
-			href="{%=o.url%}" 
-		{% } %}
-		>
-		<span class="r-noti-img">
-			{% if (o.iconType == 'fa') { %}
-			<span class="fa {%=o.icon%}"></span>
-			{% } else if (o.iconType == 'bs') { %}
-			<span class="glyphicon {%=o.icon%}"></span>
-			{% } else if (o.icon) { %}
-			<img src="{%=o.icon%}">
-			{% } %}
-		</span>
-		<span class="r-noti-text">
-			<span class="r-noti-title">
-				{% if (o.title) { %}
-					<span class="r-noti-title-text">
-						{%=o.title%}
-					</span>
-				{% } %}
-				<span class="r-noti-when">
-					{%=o.time%}
-				</span>
-			</span>
-			<span class="r-noti-body">
-				{%=o.message%}
-			</span>
-		</span>
-		{% if (o.new) { %}
-		<span class="r-noti-new">
-			<span class="fa fa-circle"></span>
-		</span>
-		{% } %}
-	</a>
-</script>	
-
-</div>
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
-				{BEGIN guestloginbutton}
-<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" href="#" {$guestloginlink_attrs} >
-							Login			</a>
-</span>
-{END guestloginbutton}
-			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
-				{BEGIN loggedas_message}
-<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
-	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
-						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN userinfo_link}
-	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
-				<a  href="userinfo.php"  title="" >
-				
-		User Profile		
-		</a>
-	</li>
-{END userinfo_link}
-							{BEGIN logoutbutton}
-	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$logoutlink_attrs}  title="" >
-				
-		Log out		
-		</a>
-	</li>
-{END logoutbutton}
-							{BEGIN adminarea_link}
-	<li data-itemtype="adminarea_link" data-itemid="adminarea_link" {$item_adminarea_link} data-pageid="{$pageid}" data-small >
-				<a  href="admin_rights_list.php"  title="" >
-				
-		Admin Area		
-		</a>
-	</li>
-{END adminarea_link}
-							{BEGIN changepwd_link}
-	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
-				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
-				
-		Change password		
-		</a>
-	</li>
-{END changepwd_link}
-					</ul>
-	</span>
-</span>
-{END loggedas_message}
-			</span>
-								</nav>
-{END supertop_block}
-						{$locking}
-				</div>
-				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
-					{$header}
-					<div class="r-top">
-									{BEGIN top_block}
-<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="leftbar" {$form_top} data-pageid="{$pageid}" >		
-	 
-				<div class="row">
-			 
-				<div 
-	data-cellId="top_c2" data-pageid="{$pageid}"	{$cell_top_c2}
-	class=" r-ori-vert			col-md-12
-	
-">
-		 
-		{BEGIN mastertable_block}
-<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
-	{$showmasterfile}
-</div>
-{END mastertable_block}		</div>					</div>
-			</div>		
-{END top_block}
-						</div>
-											<div class="r-grid"
-	>
-	{BEGIN grid_tabs}
-  <ul class="nav nav-tabs bsgrid_tabs">
-	{$grid_tabs_content}
-  </ul>
-{END grid_tabs}
-	<div class="panel panel-default"
-	>
-		<div class="panel-heading">
-							{BEGIN above-grid_block}
-<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="leftbar" {$form_above-grid} data-pageid="{$pageid}" >		
-	 
 				<div class="row">
 			 
 				<div 
@@ -1128,7 +1370,6 @@
 	class="			col-md-12
 	
 ">
-		{BEGIN firstAboveGridCell}
 		 
 					<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" 
 	data-orders="candidate_employment_tracker,event_participants,training_participants"
@@ -1144,8 +1385,7 @@
 </div>
 	 
 			 
-					{END firstAboveGridCell}	
-	</div>					</div>
+				</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>

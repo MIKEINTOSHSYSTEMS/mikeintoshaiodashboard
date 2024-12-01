@@ -79,7 +79,7 @@ $tdataderejame_audit[".listAjax"] = false;
 //	temporary
 //$tdataderejame_audit[".listAjax"] = false;
 
-	$tdataderejame_audit[".audit"] = false;
+	$tdataderejame_audit[".audit"] = true;
 
 	$tdataderejame_audit[".locking"] = false;
 

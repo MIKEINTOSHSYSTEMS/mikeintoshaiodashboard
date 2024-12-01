@@ -6,7 +6,7 @@
   <!--
 <link rel="stylesheet" href="./style.css">
   -->
-  
+  <LINK rel="shortcut icon" type="image/png" href="/app/images/dereja.png" />		<link REL="stylesheet" href="styles/default.css?39558" type="text/css">
 
 </head>
 <body>
@@ -31,9 +31,9 @@
             <p class="website_name"><img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong></p>
             
             <div class="menu_links">
-                <a href="./index.php" class="link"> Home</a>
-                <a href="./app/menu.php" class="link"> Menu</a>
-                <a href="./app/modules/knowledgebase/main_list.php" class="link"> Help</a>
+                <a href="/" class="link"> Home</a>
+                <a href="/app/login.php" class="link"> Menu</a>
+                <a href="/app/modules/knowledgebase/main_list.php" class="link"> Help</a>
             </div>
             <div class="menu_icon">
                 <span class="icon"></span>
@@ -85,7 +85,7 @@
                     <!--
                     <button id="navAction" onclick="location.href='./index.php'" type="button">Home Page</button>  
                     -->
-                    <button id="navAction" onclick="location.href='./index.php'" type="button">Home Page</button>
+                    <button id="navAction" onclick="location.href='/'" type="button">Home Page</button>
                 </article>
             </div>
 

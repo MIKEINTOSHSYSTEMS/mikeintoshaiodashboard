@@ -61,373 +61,6 @@
 			<div data-cellId="left_c1" data-pageid="{$pageid}" class="clearfix  r-ori-vert " data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
 				{$menu DerejaMenuSet}			</div>
 		
- 
-
-			<div class="clearfix  r-ori-vert" data-cellId="left_c1" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
-				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
-
-	<div class="panel-heading">
-		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_CandidateID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
-			<label>{$label event_participants CandidateID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
-						</div>
-		{END searchCtrlBlock_CandidateID}
-																{BEGIN searchCtrlBlock_Date}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Date}" {$filterRow_attrs_Date}>
-			<label>{$label event_participants Date }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Date}</span>
-						</div>
-		{END searchCtrlBlock_Date}
-																{BEGIN searchCtrlBlock_Event_Note}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Note}" {$filterRow_attrs_Event_Note}>
-			<label>{$label event_participants Event_Note }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_Note}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Note}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Note}</span>
-						</div>
-		{END searchCtrlBlock_Event_Note}
-																{BEGIN searchCtrlBlock_Event_Location}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Location}" {$filterRow_attrs_Event_Location}>
-			<label>{$label event_participants Event_Location }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_Location}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Location}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Location}</span>
-						</div>
-		{END searchCtrlBlock_Event_Location}
-																{BEGIN searchCtrlBlock_Event_Organizer}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Organizer}" {$filterRow_attrs_Event_Organizer}>
-			<label>{$label event_participants Event_Organizer }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_Organizer}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Organizer}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Organizer}</span>
-						</div>
-		{END searchCtrlBlock_Event_Organizer}
-																{BEGIN searchCtrlBlock_Event_Round}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Round}" {$filterRow_attrs_Event_Round}>
-			<label>{$label event_participants Event_Round }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_Round}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Round}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Round}</span>
-						</div>
-		{END searchCtrlBlock_Event_Round}
-																{BEGIN searchCtrlBlock_Participant_Home_Address}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Participant_Home_Address}" {$filterRow_attrs_Participant_Home_Address}>
-			<label>{$label event_participants Participant_Home_Address }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Participant_Home_Address}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Participant_Home_Address}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Participant_Home_Address}</span>
-						</div>
-		{END searchCtrlBlock_Participant_Home_Address}
-																{BEGIN searchCtrlBlock_Participant_Organization_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Participant_Organization_Name}" {$filterRow_attrs_Participant_Organization_Name}>
-			<label>{$label event_participants Participant_Organization_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Participant_Organization_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Participant_Organization_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Participant_Organization_Name}</span>
-						</div>
-		{END searchCtrlBlock_Participant_Organization_Name}
-																{BEGIN searchCtrlBlock_Participant_Organization_Type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Participant_Organization_Type}" {$filterRow_attrs_Participant_Organization_Type}>
-			<label>{$label event_participants Participant_Organization_Type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Participant_Organization_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Participant_Organization_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Participant_Organization_Type}</span>
-						</div>
-		{END searchCtrlBlock_Participant_Organization_Type}
-																{BEGIN searchCtrlBlock_Participant_Field_of_Study}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Participant_Field_of_Study}" {$filterRow_attrs_Participant_Field_of_Study}>
-			<label>{$label event_participants Participant_Field_of_Study }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Participant_Field_of_Study}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Participant_Field_of_Study}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Participant_Field_of_Study}</span>
-						</div>
-		{END searchCtrlBlock_Participant_Field_of_Study}
-																{BEGIN searchCtrlBlock_Participant_Type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Participant_Type}" {$filterRow_attrs_Participant_Type}>
-			<label>{$label event_participants Participant_Type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Participant_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Participant_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Participant_Type}</span>
-						</div>
-		{END searchCtrlBlock_Participant_Type}
-																{BEGIN searchCtrlBlock_Disability_Type_Other}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Disability_Type_Other}" {$filterRow_attrs_Disability_Type_Other}>
-			<label>{$label event_participants Disability_Type_Other }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Disability_Type_Other}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Type_Other}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Type_Other}</span>
-						</div>
-		{END searchCtrlBlock_Disability_Type_Other}
-																{BEGIN searchCtrlBlock_Disability_Type}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Disability_Type}" {$filterRow_attrs_Disability_Type}>
-			<label>{$label event_participants Disability_Type }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Disability_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Type}</span>
-						</div>
-		{END searchCtrlBlock_Disability_Type}
-																{BEGIN searchCtrlBlock_Disability_Status}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Disability_Status}" {$filterRow_attrs_Disability_Status}>
-			<label>{$label event_participants Disability_Status }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Disability_Status}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Disability_Status}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Disability_Status}</span>
-						</div>
-		{END searchCtrlBlock_Disability_Status}
-																{BEGIN searchCtrlBlock_Sex}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Sex}" {$filterRow_attrs_Sex}>
-			<label>{$label event_participants Sex }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Sex}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Sex}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Sex}</span>
-						</div>
-		{END searchCtrlBlock_Sex}
-																{BEGIN searchCtrlBlock_StudentID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_StudentID}" {$filterRow_attrs_StudentID}>
-			<label>{$label event_participants StudentID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_StudentID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_StudentID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_StudentID}</span>
-						</div>
-		{END searchCtrlBlock_StudentID}
-																{BEGIN searchCtrlBlock_Email}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Email}" {$filterRow_attrs_Email}>
-			<label>{$label event_participants Email }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Email}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Email}</span>
-						</div>
-		{END searchCtrlBlock_Email}
-																{BEGIN searchCtrlBlock_Phone}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Phone}" {$filterRow_attrs_Phone}>
-			<label>{$label event_participants Phone }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Phone}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Phone}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Phone}</span>
-						</div>
-		{END searchCtrlBlock_Phone}
-																{BEGIN searchCtrlBlock_Last_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Last_Name}" {$filterRow_attrs_Last_Name}>
-			<label>{$label event_participants Last_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Last_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Last_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Last_Name}</span>
-						</div>
-		{END searchCtrlBlock_Last_Name}
-																{BEGIN searchCtrlBlock_Middle_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Middle_Name}" {$filterRow_attrs_Middle_Name}>
-			<label>{$label event_participants Middle_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Middle_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Middle_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Middle_Name}</span>
-						</div>
-		{END searchCtrlBlock_Middle_Name}
-																{BEGIN searchCtrlBlock_First_Name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_First_Name}" {$filterRow_attrs_First_Name}>
-			<label>{$label event_participants First_Name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_First_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_First_Name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_First_Name}</span>
-						</div>
-		{END searchCtrlBlock_First_Name}
-																{BEGIN searchCtrlBlock_Event_Start_Date}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Start_Date}" {$filterRow_attrs_Event_Start_Date}>
-			<label>{$label event_participants Event_Start_Date }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_Start_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Start_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Start_Date}</span>
-						</div>
-		{END searchCtrlBlock_Event_Start_Date}
-																{BEGIN searchCtrlBlock_Event_End_Date}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Event_End_Date}" {$filterRow_attrs_Event_End_Date}>
-			<label>{$label event_participants Event_End_Date }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Event_End_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_End_Date}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_End_Date}</span>
-						</div>
-		{END searchCtrlBlock_Event_End_Date}
-																{BEGIN searchCtrlBlock_EventID}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_EventID}" {$filterRow_attrs_EventID}>
-			<label>{$label event_participants EventID }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_EventID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_EventID}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_EventID}</span>
-						</div>
-		{END searchCtrlBlock_EventID}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-
-				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-			</div>
-		
     {END left_block}
 </div>				</div>
 			<div class="r-content-col" data-resize-left="leftbar">
@@ -506,14 +139,6 @@
 												<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-							{BEGIN editselected_link}
-	<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span}  title="" >
-				
-		Edit selected		
-		</a>
-	</li>
-{END editselected_link}
 							{BEGIN exportselected_link}
 	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span}  title="" >
@@ -522,14 +147,6 @@
 		</a>
 	</li>
 {END exportselected_link}
-							{BEGIN deleteselected_link}
-	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
-				
-		Delete selected		
-		</a>
-	</li>
-{END deleteselected_link}
 							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
 				<a   href="event_participants_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
 				
@@ -697,7 +314,7 @@
 {END supertop_block}
 						{$locking}
 				</div>
-				<div class="r-body" data-resize-top="topbar" data-body-width="compact">
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
@@ -736,11 +353,281 @@
 				<div class="row">
 			 
 				<div 
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"			data-horizontal
+	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_CandidateID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_CandidateID}" {$filterRow_attrs_CandidateID}>
+			<label>{$label event_participants CandidateID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_CandidateID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
+						</div>
+		{END searchCtrlBlock_CandidateID}
+																{BEGIN searchCtrlBlock_Full_Name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Full_Name}" {$filterRow_attrs_Full_Name}>
+			<label>{$label event_participants Full_Name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Full_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Full_Name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Full_Name}</span>
+						</div>
+		{END searchCtrlBlock_Full_Name}
+																{BEGIN searchCtrlBlock_DOB}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_DOB}" {$filterRow_attrs_DOB}>
+			<label>{$label event_participants DOB }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_DOB}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_DOB}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_DOB}</span>
+						</div>
+		{END searchCtrlBlock_DOB}
+																{BEGIN searchCtrlBlock_Sex}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Sex}" {$filterRow_attrs_Sex}>
+			<label>{$label event_participants Sex }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Sex}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Sex}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Sex}</span>
+						</div>
+		{END searchCtrlBlock_Sex}
+																{BEGIN searchCtrlBlock_Region}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Region}" {$filterRow_attrs_Region}>
+			<label>{$label event_participants Region }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Region}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Region}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Region}</span>
+						</div>
+		{END searchCtrlBlock_Region}
+																{BEGIN searchCtrlBlock_City}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_City}" {$filterRow_attrs_City}>
+			<label>{$label event_participants City }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_City}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_City}</span>
+						</div>
+		{END searchCtrlBlock_City}
+																{BEGIN searchCtrlBlock_Email_Address}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Email_Address}" {$filterRow_attrs_Email_Address}>
+			<label>{$label event_participants Email_Address }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Email_Address}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Email_Address}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Email_Address}</span>
+						</div>
+		{END searchCtrlBlock_Email_Address}
+																{BEGIN searchCtrlBlock_Phone_Number}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Phone_Number}" {$filterRow_attrs_Phone_Number}>
+			<label>{$label event_participants Phone_Number }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Phone_Number}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Phone_Number}</span>
+						</div>
+		{END searchCtrlBlock_Phone_Number}
+																{BEGIN searchCtrlBlock_Event_Title}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Title}" {$filterRow_attrs_Event_Title}>
+			<label>{$label event_participants Event_Title }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Title}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Title}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Title}</span>
+						</div>
+		{END searchCtrlBlock_Event_Title}
+																{BEGIN searchCtrlBlock_Event_Location}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Location}" {$filterRow_attrs_Event_Location}>
+			<label>{$label event_participants Event_Location }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Location}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Location}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Location}</span>
+						</div>
+		{END searchCtrlBlock_Event_Location}
+																{BEGIN searchCtrlBlock_Event_Organizer}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Organizer}" {$filterRow_attrs_Event_Organizer}>
+			<label>{$label event_participants Event_Organizer }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Organizer}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Organizer}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Organizer}</span>
+						</div>
+		{END searchCtrlBlock_Event_Organizer}
+																{BEGIN searchCtrlBlock_Event_Round}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Round}" {$filterRow_attrs_Event_Round}>
+			<label>{$label event_participants Event_Round }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Round}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Round}</span>
+						</div>
+		{END searchCtrlBlock_Event_Round}
+																{BEGIN searchCtrlBlock_Event_Note}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Note}" {$filterRow_attrs_Event_Note}>
+			<label>{$label event_participants Event_Note }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Note}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Note}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Note}</span>
+						</div>
+		{END searchCtrlBlock_Event_Note}
+																{BEGIN searchCtrlBlock_Event_Start_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Start_Date}" {$filterRow_attrs_Event_Start_Date}>
+			<label>{$label event_participants Event_Start_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Start_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Start_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_Start_Date}
+																{BEGIN searchCtrlBlock_Event_End_Date}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_End_Date}" {$filterRow_attrs_Event_End_Date}>
+			<label>{$label event_participants Event_End_Date }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_End_Date}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_End_Date}</span>
+						</div>
+		{END searchCtrlBlock_Event_End_Date}
+																{BEGIN searchCtrlBlock_EventID}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_EventID}" {$filterRow_attrs_EventID}>
+			<label>{$label event_participants EventID }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_EventID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_EventID}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_EventID}</span>
+						</div>
+		{END searchCtrlBlock_EventID}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
 	class="			col-md-6
 	
 ">
-		{BEGIN firstAboveGridCell}
 		 
 		{BEGIN add_link}
 <span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
@@ -773,24 +660,7 @@
 							Cancel			</a>
 </span>
 {END cancelall_link}
-	 
-		{BEGIN deleteselected_link}
-<span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-default   
-	" {$deleteselectedlink_attrs} {$deleteselectedlink_span} disabled >
-							Delete			</a>
-</span>
-{END deleteselected_link}
-	 
-		{BEGIN updateselected_link}
-<span data-itemtype="update_selected" data-itemid="update_selected" {$item_update_selected} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-default   
-	" href="event_participants_edit.php{$stateLink_full}" {$updateselectedlink_attrs} disabled >
-							Update selected			</a>
-</span>
-{END updateselected_link}
-			{END firstAboveGridCell}	
-	</div>			 
+		</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
 	class="r-align-right			col-md-6
@@ -836,17 +706,6 @@
 		</div>
 	</div>
 		
-		 
-	<div class="row">
-		<div class="col-md-4">
-			&nbsp;
-		</div>
-		<div class="col-md-8">
-			<label style="color: gray;" for="printSelection{$id}">
-			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
-			Print selected			</label>
-		</div>
-	</div>
 	</div>
 				 
 					</li>
@@ -879,6 +738,442 @@
 </span>
 {END print_friendly}
 		</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c4" data-pageid="{$pageid}"	{$cell_above-grid_c4}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<div data-itemtype="filter_panel" data-itemid="filter_panel" {$item_filter_panel} data-pageid="{$pageid}">
+	<div class="filterPanelContainer {$filterPanelStateClass}" 
+					data-horizontal
+			>
+	<!-- Begin Filter panel content -->
+
+
+
+
+
+
+{BEGIN filter_control_Sex}
+
+	<div class="dropdown filter-field filter-Sex-container" {BEGIN filter_selected_Sex} data-selected {END filter_selected_Sex}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Sex}
+			<a href="#" class="filter-clear filter-clear-Sex" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Sex}
+			<span class="r-filter-field">{$label event_participants Sex }				{BEGIN filter_selected_Sex}:{END filter_selected_Sex}
+			</span>
+			{BEGIN filter_selected_Sex}
+			<span class="r-filter-value">{$filtervalue_Sex}</span>
+			{END filter_selected_Sex}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Sex}
+		<li class=" filter-values filter-values-Sex  {$visibilityClass_Sex}">
+			{$Sex_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Sex}
+
+			{BEGIN filter_button_showmore_Sex}
+		<li class=" filter-show-more {$collapsedClass_Sex} {$showMoreBtnClass_Sex}">
+			<a class="filter-show-more-link filterShowMore_Sex" href="#">{$show_n_more_Sex}</a>
+		</li>
+		{END filter_button_showmore_Sex}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Sex}
+
+
+
+
+
+
+{BEGIN filter_control_City}
+
+	<div class="dropdown filter-field filter-City-container" {BEGIN filter_selected_City} data-selected {END filter_selected_City}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_City}
+			<a href="#" class="filter-clear filter-clear-City" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_City}
+			<span class="r-filter-field">{$label event_participants City }				{BEGIN filter_selected_City}:{END filter_selected_City}
+			</span>
+			{BEGIN filter_selected_City}
+			<span class="r-filter-value">{$filtervalue_City}</span>
+			{END filter_selected_City}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_City}
+		<li class=" filter-values filter-values-City  {$visibilityClass_City}">
+			{$City_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_City}
+
+			{BEGIN filter_button_showmore_City}
+		<li class=" filter-show-more {$collapsedClass_City} {$showMoreBtnClass_City}">
+			<a class="filter-show-more-link filterShowMore_City" href="#">{$show_n_more_City}</a>
+		</li>
+		{END filter_button_showmore_City}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_City}
+
+
+
+
+
+
+{BEGIN filter_control_Region}
+
+	<div class="dropdown filter-field filter-Region-container" {BEGIN filter_selected_Region} data-selected {END filter_selected_Region}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Region}
+			<a href="#" class="filter-clear filter-clear-Region" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Region}
+			<span class="r-filter-field">{$label event_participants Region }				{BEGIN filter_selected_Region}:{END filter_selected_Region}
+			</span>
+			{BEGIN filter_selected_Region}
+			<span class="r-filter-value">{$filtervalue_Region}</span>
+			{END filter_selected_Region}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Region}
+		<li class=" filter-values filter-values-Region  {$visibilityClass_Region}">
+			{$Region_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Region}
+
+			{BEGIN filter_button_showmore_Region}
+		<li class=" filter-show-more {$collapsedClass_Region} {$showMoreBtnClass_Region}">
+			<a class="filter-show-more-link filterShowMore_Region" href="#">{$show_n_more_Region}</a>
+		</li>
+		{END filter_button_showmore_Region}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Region}
+
+
+
+
+
+
+{BEGIN filter_control_Event_Title}
+
+	<div class="dropdown filter-field filter-Event_Title-container" {BEGIN filter_selected_Event_Title} data-selected {END filter_selected_Event_Title}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Event_Title}
+			<a href="#" class="filter-clear filter-clear-Event_Title" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Event_Title}
+			<span class="r-filter-field">{$label event_participants Event_Title }				{BEGIN filter_selected_Event_Title}:{END filter_selected_Event_Title}
+			</span>
+			{BEGIN filter_selected_Event_Title}
+			<span class="r-filter-value">{$filtervalue_Event_Title}</span>
+			{END filter_selected_Event_Title}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Event_Title}
+		<li class=" filter-values filter-values-Event_Title  {$visibilityClass_Event_Title}">
+			{$Event_Title_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Event_Title}
+
+			{BEGIN filter_button_showmore_Event_Title}
+		<li class=" filter-show-more {$collapsedClass_Event_Title} {$showMoreBtnClass_Event_Title}">
+			<a class="filter-show-more-link filterShowMore_Event_Title" href="#">{$show_n_more_Event_Title}</a>
+		</li>
+		{END filter_button_showmore_Event_Title}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Event_Title}
+
+
+
+
+
+
+{BEGIN filter_control_Event_Organizer}
+
+	<div class="dropdown filter-field filter-Event_Organizer-container" {BEGIN filter_selected_Event_Organizer} data-selected {END filter_selected_Event_Organizer}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Event_Organizer}
+			<a href="#" class="filter-clear filter-clear-Event_Organizer" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Event_Organizer}
+			<span class="r-filter-field">{$label event_participants Event_Organizer }				{BEGIN filter_selected_Event_Organizer}:{END filter_selected_Event_Organizer}
+			</span>
+			{BEGIN filter_selected_Event_Organizer}
+			<span class="r-filter-value">{$filtervalue_Event_Organizer}</span>
+			{END filter_selected_Event_Organizer}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Event_Organizer}
+		<li class=" filter-values filter-values-Event_Organizer  {$visibilityClass_Event_Organizer}">
+			{$Event_Organizer_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Event_Organizer}
+
+			{BEGIN filter_button_showmore_Event_Organizer}
+		<li class=" filter-show-more {$collapsedClass_Event_Organizer} {$showMoreBtnClass_Event_Organizer}">
+			<a class="filter-show-more-link filterShowMore_Event_Organizer" href="#">{$show_n_more_Event_Organizer}</a>
+		</li>
+		{END filter_button_showmore_Event_Organizer}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Event_Organizer}
+
+
+
+
+
+
+{BEGIN filter_control_Event_Round}
+
+	<div class="dropdown filter-field filter-Event_Round-container" {BEGIN filter_selected_Event_Round} data-selected {END filter_selected_Event_Round}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Event_Round}
+			<a href="#" class="filter-clear filter-clear-Event_Round" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Event_Round}
+			<span class="r-filter-field">{$label event_participants Event_Round }				{BEGIN filter_selected_Event_Round}:{END filter_selected_Event_Round}
+			</span>
+			{BEGIN filter_selected_Event_Round}
+			<span class="r-filter-value">{$filtervalue_Event_Round}</span>
+			{END filter_selected_Event_Round}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Event_Round}
+		<li class=" filter-values filter-values-Event_Round  {$visibilityClass_Event_Round}">
+			{$Event_Round_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Event_Round}
+
+			{BEGIN filter_button_showmore_Event_Round}
+		<li class=" filter-show-more {$collapsedClass_Event_Round} {$showMoreBtnClass_Event_Round}">
+			<a class="filter-show-more-link filterShowMore_Event_Round" href="#">{$show_n_more_Event_Round}</a>
+		</li>
+		{END filter_button_showmore_Event_Round}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Event_Round}
+
+
+
+
+
+
+{BEGIN filter_control_Event_End_Date}
+
+	<div class="dropdown filter-field filter-Event_End_Date-container" {BEGIN filter_selected_Event_End_Date} data-selected {END filter_selected_Event_End_Date}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Event_End_Date}
+			<a href="#" class="filter-clear filter-clear-Event_End_Date" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Event_End_Date}
+			<span class="r-filter-field">{$label event_participants Event_End_Date }				{BEGIN filter_selected_Event_End_Date}:{END filter_selected_Event_End_Date}
+			</span>
+			{BEGIN filter_selected_Event_End_Date}
+			<span class="r-filter-value">{$filtervalue_Event_End_Date}</span>
+			{END filter_selected_Event_End_Date}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Event_End_Date}
+		<li class=" filter-values filter-values-Event_End_Date  {$visibilityClass_Event_End_Date}">
+			{$Event_End_Date_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Event_End_Date}
+
+			{BEGIN filter_button_showmore_Event_End_Date}
+		<li class=" filter-show-more {$collapsedClass_Event_End_Date} {$showMoreBtnClass_Event_End_Date}">
+			<a class="filter-show-more-link filterShowMore_Event_End_Date" href="#">{$show_n_more_Event_End_Date}</a>
+		</li>
+		{END filter_button_showmore_Event_End_Date}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Event_End_Date}
+
+
+
+
+
+
+{BEGIN filter_control_Event_Start_Date}
+
+	<div class="dropdown filter-field filter-Event_Start_Date-container" {BEGIN filter_selected_Event_Start_Date} data-selected {END filter_selected_Event_Start_Date}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Event_Start_Date}
+			<a href="#" class="filter-clear filter-clear-Event_Start_Date" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Event_Start_Date}
+			<span class="r-filter-field">{$label event_participants Event_Start_Date }				{BEGIN filter_selected_Event_Start_Date}:{END filter_selected_Event_Start_Date}
+			</span>
+			{BEGIN filter_selected_Event_Start_Date}
+			<span class="r-filter-value">{$filtervalue_Event_Start_Date}</span>
+			{END filter_selected_Event_Start_Date}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Event_Start_Date}
+		<li class=" filter-values filter-values-Event_Start_Date  {$visibilityClass_Event_Start_Date}">
+			{$Event_Start_Date_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Event_Start_Date}
+
+			{BEGIN filter_button_showmore_Event_Start_Date}
+		<li class=" filter-show-more {$collapsedClass_Event_Start_Date} {$showMoreBtnClass_Event_Start_Date}">
+			<a class="filter-show-more-link filterShowMore_Event_Start_Date" href="#">{$show_n_more_Event_Start_Date}</a>
+		</li>
+		{END filter_button_showmore_Event_Start_Date}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Event_Start_Date}
+
+
+
+	<!-- End Filter panel content -->
+	</div>
+</div>		</div>					</div>
 			</div>		
 {END above-grid_block}
 			</div>
@@ -888,23 +1183,38 @@
 <div data-grid-message data-pageid="{$pageid}" class="alert {$message_class}" role="alert" {$grid_message_attrs}>{$message}</div>
 {END message_block}	<style>
 @media screen and (max-width: 767px) {
-		[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="EventID"]:before {
-		content: "{$label event_participants EventID}";
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Full_Name"]:before {
+		content: "{$label event_participants Full_Name}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="CandidateID"]:before {
-		content: "{$label event_participants CandidateID}";
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Sex"]:before {
+		content: "{$label event_participants Sex}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="StudentID"]:before {
-		content: "{$label event_participants StudentID}";
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="DOB"]:before {
+		content: "{$label event_participants DOB}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Region"]:before {
+		content: "{$label event_participants Region}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="City"]:before {
+		content: "{$label event_participants City}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Phone_Number"]:before {
+		content: "{$label event_participants Phone_Number}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Email_Address"]:before {
+		content: "{$label event_participants Email_Address}";
+	}
+				[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Title"]:before {
+		content: "{$label event_participants Event_Title}";
+	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Round"]:before {
+		content: "{$label event_participants Event_Round}";
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Start_Date"]:before {
 		content: "{$label event_participants Event_Start_Date}";
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_End_Date"]:before {
 		content: "{$label event_participants Event_End_Date}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Round"]:before {
-		content: "{$label event_participants Event_Round}";
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Organizer"]:before {
 		content: "{$label event_participants Event_Organizer}";
@@ -914,51 +1224,6 @@
 	}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Event_Note"]:before {
 		content: "{$label event_participants Event_Note}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="First_Name"]:before {
-		content: "{$label event_participants First_Name}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Middle_Name"]:before {
-		content: "{$label event_participants Middle_Name}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Last_Name"]:before {
-		content: "{$label event_participants Last_Name}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Sex"]:before {
-		content: "{$label event_participants Sex}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Phone"]:before {
-		content: "{$label event_participants Phone}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Email"]:before {
-		content: "{$label event_participants Email}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Disability_Status"]:before {
-		content: "{$label event_participants Disability_Status}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Disability_Type"]:before {
-		content: "{$label event_participants Disability_Type}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Disability_Type_Other"]:before {
-		content: "{$label event_participants Disability_Type_Other}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Type"]:before {
-		content: "{$label event_participants Participant_Type}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Field_of_Study"]:before {
-		content: "{$label event_participants Participant_Field_of_Study}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Organization_Type"]:before {
-		content: "{$label event_participants Participant_Organization_Type}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Organization_Name"]:before {
-		content: "{$label event_participants Participant_Organization_Name}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Participant_Home_Address"]:before {
-		content: "{$label event_participants Participant_Home_Address}";
-	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Date"]:before {
-		content: "{$label event_participants Date}";
 	}
 	}
 </style>
@@ -1018,21 +1283,21 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$EventID_class}	"
+		 r-ori-vert		 {$Full_Name_class}	"
 
-			data-field="EventID"
+			data-field="Full_Name"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN EventID_fieldheadercolumn}
-	{BEGIN EventID_fieldheader}
-	<SPAN {$EventID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID">
-	{$label event_participants EventID }	{$arrow_icon_EventID}
+		{BEGIN Full_Name_fieldheadercolumn}
+	{BEGIN Full_Name_fieldheader}
+	<SPAN {$Full_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Full_Name" data-fieldname="Full_Name">
+	{$label event_participants Full_Name }	{$arrow_icon_Full_Name}
 	</SPAN>
-	{END EventID_fieldheader}
-{END EventID_fieldheadercolumn}
+	{END Full_Name_fieldheader}
+{END Full_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -1043,21 +1308,21 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Round_class}	"
+		 r-ori-vert		 {$Sex_class}	"
 
-			data-field="Event_Round"
+			data-field="Sex"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_Round_fieldheadercolumn}
-	{BEGIN Event_Round_fieldheader}
-	<SPAN {$Event_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round">
-	{$label event_participants Event_Round }	{$arrow_icon_Event_Round}
+		{BEGIN Sex_fieldheadercolumn}
+	{BEGIN Sex_fieldheader}
+	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
+	{$label event_participants Sex }	{$arrow_icon_Sex}
 	</SPAN>
-	{END Event_Round_fieldheader}
-{END Event_Round_fieldheadercolumn}
+	{END Sex_fieldheader}
+{END Sex_fieldheadercolumn}
 
 	
 	</th>
@@ -1068,21 +1333,21 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$CandidateID_class}	"
+		 r-ori-vert		 {$DOB_class}	"
 
-			data-field="CandidateID"
+			data-field="DOB"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN CandidateID_fieldheadercolumn}
-	{BEGIN CandidateID_fieldheader}
-	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
-	{$label event_participants CandidateID }	{$arrow_icon_CandidateID}
+		{BEGIN DOB_fieldheadercolumn}
+	{BEGIN DOB_fieldheader}
+	<SPAN {$DOB_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DOB" data-fieldname="DOB">
+	{$label event_participants DOB }	{$arrow_icon_DOB}
 	</SPAN>
-	{END CandidateID_fieldheader}
-{END CandidateID_fieldheadercolumn}
+	{END DOB_fieldheader}
+{END DOB_fieldheadercolumn}
 
 	
 	</th>
@@ -1093,21 +1358,21 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Start_Date_class}	"
+		 r-ori-vert		 {$Email_Address_class}	"
 
-			data-field="Event_Start_Date"
+			data-field="Email_Address"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_Start_Date_fieldheadercolumn}
-	{BEGIN Event_Start_Date_fieldheader}
-	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
-	{$label event_participants Event_Start_Date }	{$arrow_icon_Event_Start_Date}
+		{BEGIN Email_Address_fieldheadercolumn}
+	{BEGIN Email_Address_fieldheader}
+	<SPAN {$Email_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email_Address" data-fieldname="Email_Address">
+	{$label event_participants Email_Address }	{$arrow_icon_Email_Address}
 	</SPAN>
-	{END Event_Start_Date_fieldheader}
-{END Event_Start_Date_fieldheadercolumn}
+	{END Email_Address_fieldheader}
+{END Email_Address_fieldheadercolumn}
 
 	
 	</th>
@@ -1118,21 +1383,21 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_End_Date_class}	"
+		 r-ori-vert		 {$Phone_Number_class}	"
 
-			data-field="Event_End_Date"
+			data-field="Phone_Number"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_End_Date_fieldheadercolumn}
-	{BEGIN Event_End_Date_fieldheader}
-	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field28" {$item_simple_grid_field28} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
-	{$label event_participants Event_End_Date }	{$arrow_icon_Event_End_Date}
+		{BEGIN Phone_Number_fieldheadercolumn}
+	{BEGIN Phone_Number_fieldheader}
+	<SPAN {$Phone_Number_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number" data-fieldname="Phone_Number">
+	{$label event_participants Phone_Number }	{$arrow_icon_Phone_Number}
 	</SPAN>
-	{END Event_End_Date_fieldheader}
-{END Event_End_Date_fieldheadercolumn}
+	{END Phone_Number_fieldheader}
+{END Phone_Number_fieldheadercolumn}
 
 	
 	</th>
@@ -1143,21 +1408,21 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$First_Name_class}	"
+		 r-ori-vert		 {$Region_class}	"
 
-			data-field="First_Name"
+			data-field="Region"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN First_Name_fieldheadercolumn}
-	{BEGIN First_Name_fieldheader}
-	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field29" {$item_simple_grid_field29} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
-	{$label event_participants First_Name }	{$arrow_icon_First_Name}
+		{BEGIN Region_fieldheadercolumn}
+	{BEGIN Region_fieldheader}
+	<SPAN {$Region_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Region" data-fieldname="Region">
+	{$label event_participants Region }	{$arrow_icon_Region}
 	</SPAN>
-	{END First_Name_fieldheader}
-{END First_Name_fieldheadercolumn}
+	{END Region_fieldheader}
+{END Region_fieldheadercolumn}
 
 	
 	</th>
@@ -1168,21 +1433,21 @@
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Middle_Name_class}	"
+		 r-ori-vert		 {$City_class}	"
 
-			data-field="Middle_Name"
+			data-field="City"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Middle_Name_fieldheadercolumn}
-	{BEGIN Middle_Name_fieldheader}
-	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field30" {$item_simple_grid_field30} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
-	{$label event_participants Middle_Name }	{$arrow_icon_Middle_Name}
+		{BEGIN City_fieldheadercolumn}
+	{BEGIN City_fieldheader}
+	<SPAN {$City_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="City" data-fieldname="City">
+	{$label event_participants City }	{$arrow_icon_City}
 	</SPAN>
-	{END Middle_Name_fieldheader}
-{END Middle_Name_fieldheadercolumn}
+	{END City_fieldheader}
+{END City_fieldheadercolumn}
 
 	
 	</th>
@@ -1193,21 +1458,21 @@
 	{$cell_grid_headcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Last_Name_class}	"
+		 r-ori-vert		 {$Event_Title_class}	"
 
-			data-field="Last_Name"
+			data-field="Event_Title"
 	
 	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Last_Name_fieldheadercolumn}
-	{BEGIN Last_Name_fieldheader}
-	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field31" {$item_simple_grid_field31} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
-	{$label event_participants Last_Name }	{$arrow_icon_Last_Name}
+		{BEGIN Event_Title_fieldheadercolumn}
+	{BEGIN Event_Title_fieldheader}
+	<SPAN {$Event_Title_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Title" data-fieldname="Event_Title">
+	{$label event_participants Event_Title }	{$arrow_icon_Event_Title}
 	</SPAN>
-	{END Last_Name_fieldheader}
-{END Last_Name_fieldheadercolumn}
+	{END Event_Title_fieldheader}
+{END Event_Title_fieldheadercolumn}
 
 	
 	</th>
@@ -1218,21 +1483,21 @@
 	{$cell_grid_headcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_class}	"
+		 r-ori-vert		 {$Event_Round_class}	"
 
-			data-field="Phone"
+			data-field="Event_Round"
 	
 	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Phone_fieldheadercolumn}
-	{BEGIN Phone_fieldheader}
-	<SPAN {$Phone_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field32" {$item_simple_grid_field32} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone" data-fieldname="Phone">
-	{$label event_participants Phone }	{$arrow_icon_Phone}
+		{BEGIN Event_Round_fieldheadercolumn}
+	{BEGIN Event_Round_fieldheader}
+	<SPAN {$Event_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round">
+	{$label event_participants Event_Round }	{$arrow_icon_Event_Round}
 	</SPAN>
-	{END Phone_fieldheader}
-{END Phone_fieldheadercolumn}
+	{END Event_Round_fieldheader}
+{END Event_Round_fieldheadercolumn}
 
 	
 	</th>
@@ -1243,21 +1508,21 @@
 	{$cell_grid_headcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Email_class}	"
+		 r-ori-vert		 {$Event_Start_Date_class}	"
 
-			data-field="Email"
+			data-field="Event_Start_Date"
 	
 	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Email_fieldheadercolumn}
-	{BEGIN Email_fieldheader}
-	<SPAN {$Email_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field33" {$item_simple_grid_field33} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email" data-fieldname="Email">
-	{$label event_participants Email }	{$arrow_icon_Email}
+		{BEGIN Event_Start_Date_fieldheadercolumn}
+	{BEGIN Event_Start_Date_fieldheader}
+	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field24" {$item_simple_grid_field24} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
+	{$label event_participants Event_Start_Date }	{$arrow_icon_Event_Start_Date}
 	</SPAN>
-	{END Email_fieldheader}
-{END Email_fieldheadercolumn}
+	{END Event_Start_Date_fieldheader}
+{END Event_Start_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -1268,21 +1533,21 @@
 	{$cell_grid_headcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$StudentID_class}	"
+		 r-ori-vert		 {$Event_End_Date_class}	"
 
-			data-field="StudentID"
+			data-field="Event_End_Date"
 	
 	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN StudentID_fieldheadercolumn}
-	{BEGIN StudentID_fieldheader}
-	<SPAN {$StudentID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field34" {$item_simple_grid_field34} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID">
-	{$label event_participants StudentID }	{$arrow_icon_StudentID}
+		{BEGIN Event_End_Date_fieldheadercolumn}
+	{BEGIN Event_End_Date_fieldheader}
+	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field25" {$item_simple_grid_field25} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
+	{$label event_participants Event_End_Date }	{$arrow_icon_Event_End_Date}
 	</SPAN>
-	{END StudentID_fieldheader}
-{END StudentID_fieldheadercolumn}
+	{END Event_End_Date_fieldheader}
+{END Event_End_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -1293,21 +1558,21 @@
 	{$cell_grid_headcell_field11}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sex_class}	"
+		 r-ori-vert		 {$Event_Organizer_class}	"
 
-			data-field="Sex"
+			data-field="Event_Organizer"
 	
 	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Sex_fieldheadercolumn}
-	{BEGIN Sex_fieldheader}
-	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field35" {$item_simple_grid_field35} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
-	{$label event_participants Sex }	{$arrow_icon_Sex}
+		{BEGIN Event_Organizer_fieldheadercolumn}
+	{BEGIN Event_Organizer_fieldheader}
+	<SPAN {$Event_Organizer_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field26" {$item_simple_grid_field26} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer">
+	{$label event_participants Event_Organizer }	{$arrow_icon_Event_Organizer}
 	</SPAN>
-	{END Sex_fieldheader}
-{END Sex_fieldheadercolumn}
+	{END Event_Organizer_fieldheader}
+{END Event_Organizer_fieldheadercolumn}
 
 	
 	</th>
@@ -1318,21 +1583,21 @@
 	{$cell_grid_headcell_field12}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Status_class}	"
+		 r-ori-vert		 {$Event_Location_class}	"
 
-			data-field="Disability_Status"
+			data-field="Event_Location"
 	
 	data-cellId="grid_headcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Status_fieldheadercolumn}
-	{BEGIN Disability_Status_fieldheader}
-	<SPAN {$Disability_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field36" {$item_simple_grid_field36} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status">
-	{$label event_participants Disability_Status }	{$arrow_icon_Disability_Status}
+		{BEGIN Event_Location_fieldheadercolumn}
+	{BEGIN Event_Location_fieldheader}
+	<SPAN {$Event_Location_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location">
+	{$label event_participants Event_Location }	{$arrow_icon_Event_Location}
 	</SPAN>
-	{END Disability_Status_fieldheader}
-{END Disability_Status_fieldheadercolumn}
+	{END Event_Location_fieldheader}
+{END Event_Location_fieldheadercolumn}
 
 	
 	</th>
@@ -1343,242 +1608,17 @@
 	{$cell_grid_headcell_field13}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_class}	"
+		 r-ori-vert		 {$Event_Note_class}	"
 
-			data-field="Disability_Type"
+			data-field="Event_Note"
 	
 	data-cellId="grid_headcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Type_fieldheadercolumn}
-	{BEGIN Disability_Type_fieldheader}
-	<SPAN {$Disability_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field37" {$item_simple_grid_field37} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type">
-	{$label event_participants Disability_Type }	{$arrow_icon_Disability_Type}
-	</SPAN>
-	{END Disability_Type_fieldheader}
-{END Disability_Type_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field13}
-									{BEGIN cellblock_grid_headcell_field14}
-	<th
-	
-	{$cell_grid_headcell_field14}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Disability_Type_Other_class}	"
-
-			data-field="Disability_Type_Other"
-	
-	data-cellId="grid_headcell_field14" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Disability_Type_Other_fieldheadercolumn}
-	{BEGIN Disability_Type_Other_fieldheader}
-	<SPAN {$Disability_Type_Other_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field38" {$item_simple_grid_field38} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other">
-	{$label event_participants Disability_Type_Other }	{$arrow_icon_Disability_Type_Other}
-	</SPAN>
-	{END Disability_Type_Other_fieldheader}
-{END Disability_Type_Other_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field14}
-									{BEGIN cellblock_grid_headcell_field15}
-	<th
-	
-	{$cell_grid_headcell_field15}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Type_class}	"
-
-			data-field="Participant_Type"
-	
-	data-cellId="grid_headcell_field15" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Participant_Type_fieldheadercolumn}
-	{BEGIN Participant_Type_fieldheader}
-	<SPAN {$Participant_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field39" {$item_simple_grid_field39} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Type" data-fieldname="Participant_Type">
-	{$label event_participants Participant_Type }	{$arrow_icon_Participant_Type}
-	</SPAN>
-	{END Participant_Type_fieldheader}
-{END Participant_Type_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field15}
-									{BEGIN cellblock_grid_headcell_field16}
-	<th
-	
-	{$cell_grid_headcell_field16}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Field_of_Study_class}	"
-
-			data-field="Participant_Field_of_Study"
-	
-	data-cellId="grid_headcell_field16" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Participant_Field_of_Study_fieldheadercolumn}
-	{BEGIN Participant_Field_of_Study_fieldheader}
-	<SPAN {$Participant_Field_of_Study_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field40" {$item_simple_grid_field40} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study">
-	{$label event_participants Participant_Field_of_Study }	{$arrow_icon_Participant_Field_of_Study}
-	</SPAN>
-	{END Participant_Field_of_Study_fieldheader}
-{END Participant_Field_of_Study_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field16}
-									{BEGIN cellblock_grid_headcell_field17}
-	<th
-	
-	{$cell_grid_headcell_field17}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Organization_Type_class}	"
-
-			data-field="Participant_Organization_Type"
-	
-	data-cellId="grid_headcell_field17" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Participant_Organization_Type_fieldheadercolumn}
-	{BEGIN Participant_Organization_Type_fieldheader}
-	<SPAN {$Participant_Organization_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field41" {$item_simple_grid_field41} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type">
-	{$label event_participants Participant_Organization_Type }	{$arrow_icon_Participant_Organization_Type}
-	</SPAN>
-	{END Participant_Organization_Type_fieldheader}
-{END Participant_Organization_Type_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field17}
-									{BEGIN cellblock_grid_headcell_field18}
-	<th
-	
-	{$cell_grid_headcell_field18}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Organization_Name_class}	"
-
-			data-field="Participant_Organization_Name"
-	
-	data-cellId="grid_headcell_field18" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Participant_Organization_Name_fieldheadercolumn}
-	{BEGIN Participant_Organization_Name_fieldheader}
-	<SPAN {$Participant_Organization_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field42" {$item_simple_grid_field42} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name">
-	{$label event_participants Participant_Organization_Name }	{$arrow_icon_Participant_Organization_Name}
-	</SPAN>
-	{END Participant_Organization_Name_fieldheader}
-{END Participant_Organization_Name_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field18}
-									{BEGIN cellblock_grid_headcell_field19}
-	<th
-	
-	{$cell_grid_headcell_field19}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Home_Address_class}	"
-
-			data-field="Participant_Home_Address"
-	
-	data-cellId="grid_headcell_field19" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Participant_Home_Address_fieldheadercolumn}
-	{BEGIN Participant_Home_Address_fieldheader}
-	<SPAN {$Participant_Home_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field43" {$item_simple_grid_field43} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address">
-	{$label event_participants Participant_Home_Address }	{$arrow_icon_Participant_Home_Address}
-	</SPAN>
-	{END Participant_Home_Address_fieldheader}
-{END Participant_Home_Address_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field19}
-									{BEGIN cellblock_grid_headcell_field20}
-	<th
-	
-	{$cell_grid_headcell_field20}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Organizer_class}	"
-
-			data-field="Event_Organizer"
-	
-	data-cellId="grid_headcell_field20" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Event_Organizer_fieldheadercolumn}
-	{BEGIN Event_Organizer_fieldheader}
-	<SPAN {$Event_Organizer_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field44" {$item_simple_grid_field44} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Organizer" data-fieldname="Event_Organizer">
-	{$label event_participants Event_Organizer }	{$arrow_icon_Event_Organizer}
-	</SPAN>
-	{END Event_Organizer_fieldheader}
-{END Event_Organizer_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field20}
-									{BEGIN cellblock_grid_headcell_field21}
-	<th
-	
-	{$cell_grid_headcell_field21}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Location_class}	"
-
-			data-field="Event_Location"
-	
-	data-cellId="grid_headcell_field21" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Event_Location_fieldheadercolumn}
-	{BEGIN Event_Location_fieldheader}
-	<SPAN {$Event_Location_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field45" {$item_simple_grid_field45} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location">
-	{$label event_participants Event_Location }	{$arrow_icon_Event_Location}
-	</SPAN>
-	{END Event_Location_fieldheader}
-{END Event_Location_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field21}
-									{BEGIN cellblock_grid_headcell_field22}
-	<th
-	
-	{$cell_grid_headcell_field22}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Note_class}	"
-
-			data-field="Event_Note"
-	
-	data-cellId="grid_headcell_field22" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
 		{BEGIN Event_Note_fieldheadercolumn}
 	{BEGIN Event_Note_fieldheader}
-	<SPAN {$Event_Note_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field46" {$item_simple_grid_field46} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note">
+	<SPAN {$Event_Note_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field27" {$item_simple_grid_field27} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Note" data-fieldname="Event_Note">
 	{$label event_participants Event_Note }	{$arrow_icon_Event_Note}
 	</SPAN>
 	{END Event_Note_fieldheader}
@@ -1586,32 +1626,7 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field22}
-									{BEGIN cellblock_grid_headcell_field23}
-	<th
-	
-	{$cell_grid_headcell_field23}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Date_class}	"
-
-			data-field="Date"
-	
-	data-cellId="grid_headcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Date_fieldheadercolumn}
-	{BEGIN Date_fieldheader}
-	<SPAN {$Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field47" {$item_simple_grid_field47} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date">
-	{$label event_participants Date }	{$arrow_icon_Date}
-	</SPAN>
-	{END Date_fieldheader}
-{END Date_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field23}
+	{END cellblock_grid_headcell_field13}
 							</tr>
 															
 					{END grid_header}
@@ -1637,28 +1652,6 @@
 	>
 
 	 
-		{BEGIN edit_column}
-{BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Edit" class="btn-link   
-	 glyphicon glyphicon-pencil" href="event_participants_edit.php?{$editlink}" {$editlink_attrs} title="Edit" >		
-				
-								</a>
-</span>
-{END edit_link}
-{END edit_column}
-	 
-		{BEGIN inlineedit_column}
-{BEGIN inlineedit_link}
-<span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Inline Edit" class="btn-link   
-	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Inline Edit" >		
-				
-								</a>
-</span>
-{END inlineedit_link}
-{END inlineedit_column}
-	 
 		{BEGIN inline_save}
 <span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Save" class="btn-link   
@@ -1676,17 +1669,6 @@
 								</a>
 </span>
 {END inline_cancel}
-	 
-		{BEGIN view_column}
-{BEGIN view_link}
-<span data-itemtype="grid_view" data-itemid="grid_view" {$item_grid_view} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="View record" class="btn-link   
-	 glyphicon glyphicon-search" href="event_participants_view.php?{$editlink}" {$viewlink_attrs} title="View" >		
-				
-								</a>
-</span>
-{END view_link}
-{END view_column}
 	
 	</td>
 	{END cellblock_grid_cell_icons}
@@ -1720,19 +1702,19 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$EventID_class}	"
+		 r-ori-vert		 {$Full_Name_class}	"
 
-			data-field="EventID"
+			data-field="Full_Name"
 	
 	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN EventID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="EventID" data-fieldname="EventID" data-default-width >
-{$EventID_value}
+		{BEGIN Full_Name_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Full_Name" data-fieldname="Full_Name" data-default-width >
+{$Full_Name_value}
 </span>
-{END EventID_fieldcolumn}	
+{END Full_Name_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field}
 									{BEGIN cellblock_grid_cell_field1}
@@ -1741,221 +1723,11 @@
 	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Round_class}	"
-
-			data-field="Event_Round"
-	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Event_Round_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round" data-default-width >
-{$Event_Round_value}
-</span>
-{END Event_Round_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field1}
-									{BEGIN cellblock_grid_cell_field2}
-	<td
-	
-	{$cell_grid_cell_field2}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$CandidateID_class}	"
-
-			data-field="CandidateID"
-	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN CandidateID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID" data-default-width >
-{$CandidateID_value}
-</span>
-{END CandidateID_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Start_Date_class}	"
-
-			data-field="Event_Start_Date"
-	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Event_Start_Date_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" data-default-width >
-{$Event_Start_Date_value}
-</span>
-{END Event_Start_Date_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_End_Date_class}	"
-
-			data-field="Event_End_Date"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Event_End_Date_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date" data-default-width >
-{$Event_End_Date_value}
-</span>
-{END Event_End_Date_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-									{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$First_Name_class}	"
-
-			data-field="First_Name"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN First_Name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name" data-default-width >
-{$First_Name_value}
-</span>
-{END First_Name_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field5}
-									{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Middle_Name_class}	"
-
-			data-field="Middle_Name"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Middle_Name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name" data-default-width >
-{$Middle_Name_value}
-</span>
-{END Middle_Name_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-									{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Last_Name_class}	"
-
-			data-field="Last_Name"
-	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Last_Name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name" data-default-width >
-{$Last_Name_value}
-</span>
-{END Last_Name_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field7}
-									{BEGIN cellblock_grid_cell_field8}
-	<td
-	
-	{$cell_grid_cell_field8}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Phone_class}	"
-
-			data-field="Phone"
-	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Phone_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone" data-fieldname="Phone" data-default-width >
-{$Phone_value}
-</span>
-{END Phone_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field8}
-									{BEGIN cellblock_grid_cell_field9}
-	<td
-	
-	{$cell_grid_cell_field9}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Email_class}	"
-
-			data-field="Email"
-	
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Email_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email" data-fieldname="Email" data-default-width >
-{$Email_value}
-</span>
-{END Email_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field9}
-									{BEGIN cellblock_grid_cell_field10}
-	<td
-	
-	{$cell_grid_cell_field10}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$StudentID_class}	"
-
-			data-field="StudentID"
-	
-	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN StudentID_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID" data-default-width >
-{$StudentID_value}
-</span>
-{END StudentID_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field10}
-									{BEGIN cellblock_grid_cell_field11}
-	<td
-	
-	{$cell_grid_cell_field11}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$Sex_class}	"
 
 			data-field="Sex"
 	
-	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1965,186 +1737,207 @@
 </span>
 {END Sex_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field11}
-									{BEGIN cellblock_grid_cell_field12}
+	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field12}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Status_class}	"
+		 r-ori-vert		 {$DOB_class}	"
 
-			data-field="Disability_Status"
+			data-field="DOB"
 	
-	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Status_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status" data-default-width >
-{$Disability_Status_value}
+		{BEGIN DOB_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DOB" data-fieldname="DOB" data-default-width >
+{$DOB_value}
 </span>
-{END Disability_Status_fieldcolumn}	
+{END DOB_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field12}
-									{BEGIN cellblock_grid_cell_field13}
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field13}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_class}	"
+		 r-ori-vert		 {$Email_Address_class}	"
 
-			data-field="Disability_Type"
+			data-field="Email_Address"
 	
-	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type" data-default-width >
-{$Disability_Type_value}
+		{BEGIN Email_Address_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email_Address" data-fieldname="Email_Address" data-default-width >
+{$Email_Address_value}
 </span>
-{END Disability_Type_fieldcolumn}	
+{END Email_Address_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field13}
-									{BEGIN cellblock_grid_cell_field14}
+	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
 	<td
 	
-	{$cell_grid_cell_field14}
+	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_Other_class}	"
+		 r-ori-vert		 {$Phone_Number_class}	"
 
-			data-field="Disability_Type_Other"
+			data-field="Phone_Number"
 	
-	data-cellId="grid_cell_field14" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Type_Other_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other" data-default-width >
-{$Disability_Type_Other_value}
+		{BEGIN Phone_Number_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number" data-fieldname="Phone_Number" data-default-width >
+{$Phone_Number_value}
 </span>
-{END Disability_Type_Other_fieldcolumn}	
+{END Phone_Number_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field14}
-									{BEGIN cellblock_grid_cell_field15}
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
 	<td
 	
-	{$cell_grid_cell_field15}
+	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Participant_Type_class}	"
+		 r-ori-vert		 {$Region_class}	"
 
-			data-field="Participant_Type"
+			data-field="Region"
 	
-	data-cellId="grid_cell_field15" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Participant_Type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Type" data-fieldname="Participant_Type" data-default-width >
-{$Participant_Type_value}
+		{BEGIN Region_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Region" data-fieldname="Region" data-default-width >
+{$Region_value}
 </span>
-{END Participant_Type_fieldcolumn}	
+{END Region_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field15}
-									{BEGIN cellblock_grid_cell_field16}
+	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
 	<td
 	
-	{$cell_grid_cell_field16}
+	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Participant_Field_of_Study_class}	"
+		 r-ori-vert		 {$City_class}	"
 
-			data-field="Participant_Field_of_Study"
+			data-field="City"
 	
-	data-cellId="grid_cell_field16" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Participant_Field_of_Study_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Field_of_Study" data-fieldname="Participant_Field_of_Study" data-default-width >
-{$Participant_Field_of_Study_value}
+		{BEGIN City_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="City" data-fieldname="City" data-default-width >
+{$City_value}
 </span>
-{END Participant_Field_of_Study_fieldcolumn}	
+{END City_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field16}
-									{BEGIN cellblock_grid_cell_field17}
+	{END cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field7}
 	<td
 	
-	{$cell_grid_cell_field17}
+	{$cell_grid_cell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Participant_Organization_Type_class}	"
+		 r-ori-vert		 {$Event_Title_class}	"
 
-			data-field="Participant_Organization_Type"
+			data-field="Event_Title"
 	
-	data-cellId="grid_cell_field17" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Participant_Organization_Type_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Type" data-fieldname="Participant_Organization_Type" data-default-width >
-{$Participant_Organization_Type_value}
+		{BEGIN Event_Title_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Title" data-fieldname="Event_Title" data-default-width >
+{$Event_Title_value}
 </span>
-{END Participant_Organization_Type_fieldcolumn}	
+{END Event_Title_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field17}
-									{BEGIN cellblock_grid_cell_field18}
+	{END cellblock_grid_cell_field7}
+									{BEGIN cellblock_grid_cell_field8}
 	<td
 	
-	{$cell_grid_cell_field18}
+	{$cell_grid_cell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Participant_Organization_Name_class}	"
+		 r-ori-vert		 {$Event_Round_class}	"
 
-			data-field="Participant_Organization_Name"
+			data-field="Event_Round"
 	
-	data-cellId="grid_cell_field18" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Participant_Organization_Name_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Organization_Name" data-fieldname="Participant_Organization_Name" data-default-width >
-{$Participant_Organization_Name_value}
+		{BEGIN Event_Round_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Round" data-fieldname="Event_Round" data-default-width >
+{$Event_Round_value}
 </span>
-{END Participant_Organization_Name_fieldcolumn}	
+{END Event_Round_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field18}
-									{BEGIN cellblock_grid_cell_field19}
+	{END cellblock_grid_cell_field8}
+									{BEGIN cellblock_grid_cell_field9}
 	<td
 	
-	{$cell_grid_cell_field19}
+	{$cell_grid_cell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Participant_Home_Address_class}	"
+		 r-ori-vert		 {$Event_Start_Date_class}	"
 
-			data-field="Participant_Home_Address"
+			data-field="Event_Start_Date"
 	
-	data-cellId="grid_cell_field19" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Participant_Home_Address_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Participant_Home_Address" data-fieldname="Participant_Home_Address" data-default-width >
-{$Participant_Home_Address_value}
+		{BEGIN Event_Start_Date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date" data-default-width >
+{$Event_Start_Date_value}
 </span>
-{END Participant_Home_Address_fieldcolumn}	
+{END Event_Start_Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field19}
-									{BEGIN cellblock_grid_cell_field20}
+	{END cellblock_grid_cell_field9}
+									{BEGIN cellblock_grid_cell_field10}
 	<td
 	
-	{$cell_grid_cell_field20}
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Event_End_Date_class}	"
+
+			data-field="Event_End_Date"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Event_End_Date_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date" data-default-width >
+{$Event_End_Date_value}
+</span>
+{END Event_End_Date_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+									{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_Organizer_class}	"
 
 			data-field="Event_Organizer"
 	
-	data-cellId="grid_cell_field20" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -2154,39 +1947,39 @@
 </span>
 {END Event_Organizer_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field20}
-									{BEGIN cellblock_grid_cell_field21}
+	{END cellblock_grid_cell_field11}
+									{BEGIN cellblock_grid_cell_field12}
 	<td
 	
-	{$cell_grid_cell_field21}
+	{$cell_grid_cell_field12}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_Location_class}	"
 
 			data-field="Event_Location"
 	
-	data-cellId="grid_cell_field21" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN Event_Location_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Location" data-fieldname="Event_Location" data-default-width >
 {$Event_Location_value}
 </span>
 {END Event_Location_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field21}
-									{BEGIN cellblock_grid_cell_field22}
+	{END cellblock_grid_cell_field12}
+									{BEGIN cellblock_grid_cell_field13}
 	<td
 	
-	{$cell_grid_cell_field22}
+	{$cell_grid_cell_field13}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_Note_class}	"
 
 			data-field="Event_Note"
 	
-	data-cellId="grid_cell_field22" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -2196,28 +1989,7 @@
 </span>
 {END Event_Note_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field22}
-									{BEGIN cellblock_grid_cell_field23}
-	<td
-	
-	{$cell_grid_cell_field23}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Date_class}	"
-
-			data-field="Date"
-	
-	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Date_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date" data-default-width >
-{$Date_value}
-</span>
-{END Date_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field23}
+	{END cellblock_grid_cell_field13}
 							</tr>
 										
 											{END grid_row}
@@ -2265,7 +2037,7 @@
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$EventID_class}	"
+		 r-ori-vert		 {$Full_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2280,7 +2052,7 @@
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Round_class}	"
+		 r-ori-vert		 {$Sex_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2295,7 +2067,7 @@
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$CandidateID_class}	"
+		 r-ori-vert		 {$DOB_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2310,7 +2082,7 @@
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Start_Date_class}	"
+		 r-ori-vert		 {$Email_Address_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2325,7 +2097,7 @@
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_End_Date_class}	"
+		 r-ori-vert		 {$Phone_Number_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2340,7 +2112,7 @@
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$First_Name_class}	"
+		 r-ori-vert		 {$Region_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2355,7 +2127,7 @@
 	{$cell_grid_footcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Middle_Name_class}	"
+		 r-ori-vert		 {$City_class}	"
 
 	
 	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2370,7 +2142,7 @@
 	{$cell_grid_footcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Last_Name_class}	"
+		 r-ori-vert		 {$Event_Title_class}	"
 
 	
 	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2385,7 +2157,7 @@
 	{$cell_grid_footcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_class}	"
+		 r-ori-vert		 {$Event_Round_class}	"
 
 	
 	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2400,7 +2172,7 @@
 	{$cell_grid_footcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Email_class}	"
+		 r-ori-vert		 {$Event_Start_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2415,7 +2187,7 @@
 	{$cell_grid_footcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$StudentID_class}	"
+		 r-ori-vert		 {$Event_End_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2430,7 +2202,7 @@
 	{$cell_grid_footcell_field11}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sex_class}	"
+		 r-ori-vert		 {$Event_Organizer_class}	"
 
 	
 	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2445,7 +2217,7 @@
 	{$cell_grid_footcell_field12}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Status_class}	"
+		 r-ori-vert		 {$Event_Location_class}	"
 
 	
 	data-cellId="grid_footcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2460,7 +2232,7 @@
 	{$cell_grid_footcell_field13}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_class}	"
+		 r-ori-vert		 {$Event_Note_class}	"
 
 	
 	data-cellId="grid_footcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
@@ -2469,156 +2241,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field13}
-									{BEGIN cellblock_grid_footcell_field14}
-	<td
-	
-	{$cell_grid_footcell_field14}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Disability_Type_Other_class}	"
-
-	
-	data-cellId="grid_footcell_field14" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field14}
-									{BEGIN cellblock_grid_footcell_field15}
-	<td
-	
-	{$cell_grid_footcell_field15}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Type_class}	"
-
-	
-	data-cellId="grid_footcell_field15" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field15}
-									{BEGIN cellblock_grid_footcell_field16}
-	<td
-	
-	{$cell_grid_footcell_field16}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Field_of_Study_class}	"
-
-	
-	data-cellId="grid_footcell_field16" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field16}
-									{BEGIN cellblock_grid_footcell_field17}
-	<td
-	
-	{$cell_grid_footcell_field17}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Organization_Type_class}	"
-
-	
-	data-cellId="grid_footcell_field17" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field17}
-									{BEGIN cellblock_grid_footcell_field18}
-	<td
-	
-	{$cell_grid_footcell_field18}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Organization_Name_class}	"
-
-	
-	data-cellId="grid_footcell_field18" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field18}
-									{BEGIN cellblock_grid_footcell_field19}
-	<td
-	
-	{$cell_grid_footcell_field19}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Participant_Home_Address_class}	"
-
-	
-	data-cellId="grid_footcell_field19" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field19}
-									{BEGIN cellblock_grid_footcell_field20}
-	<td
-	
-	{$cell_grid_footcell_field20}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Organizer_class}	"
-
-	
-	data-cellId="grid_footcell_field20" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field20}
-									{BEGIN cellblock_grid_footcell_field21}
-	<td
-	
-	{$cell_grid_footcell_field21}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Location_class}	"
-
-	
-	data-cellId="grid_footcell_field21" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field21}
-									{BEGIN cellblock_grid_footcell_field22}
-	<td
-	
-	{$cell_grid_footcell_field22}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Event_Note_class}	"
-
-	
-	data-cellId="grid_footcell_field22" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field22}
-									{BEGIN cellblock_grid_footcell_field23}
-	<td
-	
-	{$cell_grid_footcell_field23}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Date_class}	"
-
-	
-	data-cellId="grid_footcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="event_participants_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field23}
 							</tr>
 					
 					</tfoot>

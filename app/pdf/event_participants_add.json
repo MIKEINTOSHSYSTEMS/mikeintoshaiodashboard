@@ -174,11 +174,6 @@ pdfDocument = {
 			"%",
 						{END row_grid_5}
 			 
-								{BEGIN row_grid_6}
-						
-			"%",
-						{END row_grid_6}
-			 
 				],
 	
 		body: [
@@ -255,10 +250,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel event_participants First_Name }","bold":true},{"text":{$First_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -282,10 +275,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel event_participants Middle_Name }","bold":true},{"text":{$Middle_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -309,10 +300,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel event_participants Last_Name }","bold":true},{"text":{$Last_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -498,10 +487,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel event_participants StudentID }","bold":true},{"text":{$StudentID_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -552,10 +539,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel event_participants Phone }","bold":true},{"text":{$Phone_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -579,10 +564,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel event_participants Email }","bold":true},{"text":{$Email_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -637,10 +620,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field14}","stack":[{"text":"{$jslabel event_participants Participant_Type }","bold":true},{"text":{$Participant_Type_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -770,10 +751,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field17}","stack":[{"text":"{$jslabel event_participants Participant_Organization_Name }","bold":true},{"text":{$Participant_Organization_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -797,10 +776,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field18}","stack":[{"text":"{$jslabel event_participants Participant_Home_Address }","bold":true},{"text":{$Participant_Home_Address_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -824,10 +801,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel event_participants Disability_Status }","bold":true},{"text":{$Disability_Status_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -851,10 +826,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field12}","stack":[{"text":"{$jslabel event_participants Disability_Type }","bold":true},{"text":{$Disability_Type_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -865,141 +838,6 @@ pdfDocument = {
 											],
 				{END row_grid_4}
 						{BEGIN row_grid_5}
-				[
-																{BEGIN cellblock_grid_c14}
-{
-	cellId: 'c14',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field21}","stack":[{"text":"{$jslabel event_participants Event_Location }","bold":true},{"text":{$Event_Location_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c14}
-																							{BEGIN cellblock_grid_c31}
-{
-	cellId: 'c31',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field16}","stack":[{"text":"{$jslabel event_participants Participant_Organization_Type }","bold":true},{"text":{$Participant_Organization_Type_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c31}
-																							{BEGIN cellblock_grid_c15}
-{
-	cellId: 'c15',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c15}
-																							{BEGIN cellblock_grid_c16}
-{
-	cellId: 'c16',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c16}
-																							{BEGIN cellblock_grid_c17}
-{
-	cellId: 'c17',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			{"hidden":"{$item_hide_integrated_edit_field13}","stack":[{"text":"{$jslabel event_participants Disability_Type_Other }","bold":true},{"text":{$Disability_Type_Other_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_c17}
-											],
-				{END row_grid_5}
-						{BEGIN row_grid_6}
 				[
 																{BEGIN cellblock_grid_c32}
 {
@@ -1044,10 +882,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field15}","stack":[{"text":"{$jslabel event_participants Participant_Field_of_Study }","bold":true},{"text":{$Participant_Field_of_Study_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -1097,7 +933,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field23}","stack":[{"text":"{$jslabel event_participants Date }","bold":true},{"text":{$Date_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel event_participants Event_Location }","bold":true},{"text":{$Event_Location_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -1133,7 +969,7 @@ pdfDocument = {
 
 {END cellblock_grid_c36}
 											],
-				{END row_grid_6}
+				{END row_grid_5}
 		
 		]
 	}

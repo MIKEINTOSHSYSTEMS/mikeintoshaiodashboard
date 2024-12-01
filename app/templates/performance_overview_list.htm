@@ -56,192 +56,7 @@
 		
      
      
-         
-
-			<div class="clearfix  r-ori-vert" data-cellId="left_c" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
-				<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
-
-	<div class="panel-heading">
-		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_indicator_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_indicator_id}" {$filterRow_attrs_indicator_id}>
-			<label>{$label Performance_Overview indicator_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_indicator_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_indicator_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_id}</span>
-						</div>
-		{END searchCtrlBlock_indicator_id}
-																{BEGIN searchCtrlBlock_indicator_name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_indicator_name}" {$filterRow_attrs_indicator_name}>
-			<label>{$label Performance_Overview indicator_name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_indicator_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_indicator_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_name}</span>
-						</div>
-		{END searchCtrlBlock_indicator_name}
-																{BEGIN searchCtrlBlock_unit_of_measurement}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unit_of_measurement}" {$filterRow_attrs_unit_of_measurement}>
-			<label>{$label Performance_Overview unit_of_measurement }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unit_of_measurement}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unit_of_measurement}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unit_of_measurement}</span>
-						</div>
-		{END searchCtrlBlock_unit_of_measurement}
-																{BEGIN searchCtrlBlock_reporting_frequency}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_reporting_frequency}" {$filterRow_attrs_reporting_frequency}>
-			<label>{$label Performance_Overview reporting_frequency }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_reporting_frequency}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_reporting_frequency}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_reporting_frequency}</span>
-						</div>
-		{END searchCtrlBlock_reporting_frequency}
-																{BEGIN searchCtrlBlock_tracking_id}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_tracking_id}" {$filterRow_attrs_tracking_id}>
-			<label>{$label Performance_Overview tracking_id }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_tracking_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_tracking_id}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_tracking_id}</span>
-						</div>
-		{END searchCtrlBlock_tracking_id}
-																{BEGIN searchCtrlBlock_baseline_year}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_baseline_year}" {$filterRow_attrs_baseline_year}>
-			<label>{$label Performance_Overview baseline_year }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_baseline_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_baseline_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_year}</span>
-						</div>
-		{END searchCtrlBlock_baseline_year}
-																{BEGIN searchCtrlBlock_performance_year}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_performance_year}" {$filterRow_attrs_performance_year}>
-			<label>{$label Performance_Overview performance_year }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_performance_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_performance_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_performance_year}</span>
-						</div>
-		{END searchCtrlBlock_performance_year}
-																{BEGIN searchCtrlBlock_actual}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_actual}" {$filterRow_attrs_actual}>
-			<label>{$label Performance_Overview actual }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_actual}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_actual}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_actual}</span>
-						</div>
-		{END searchCtrlBlock_actual}
-																{BEGIN searchCtrlBlock_target}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_target}" {$filterRow_attrs_target}>
-			<label>{$label Performance_Overview target }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_target}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_target}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_target}</span>
-						</div>
-		{END searchCtrlBlock_target}
-																{BEGIN searchCtrlBlock_baseline_value}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_baseline_value}" {$filterRow_attrs_baseline_value}>
-			<label>{$label Performance_Overview baseline_value }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_baseline_value}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_baseline_value}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_value}</span>
-						</div>
-		{END searchCtrlBlock_baseline_value}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-
-				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-			</div>
-		
-     
+             
      
          
 
@@ -518,13 +333,204 @@
 				<div class="row">
 			 
 				<div 
+	data-cellId="above-grid_c3" data-pageid="{$pageid}"	{$cell_above-grid_c3}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"			data-horizontal
+	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_indicator_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_indicator_id}" {$filterRow_attrs_indicator_id}>
+			<label>{$label Performance_Overview indicator_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_indicator_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_indicator_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_id}</span>
+						</div>
+		{END searchCtrlBlock_indicator_id}
+																{BEGIN searchCtrlBlock_indicator_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_indicator_name}" {$filterRow_attrs_indicator_name}>
+			<label>{$label Performance_Overview indicator_name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_indicator_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_indicator_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_name}</span>
+						</div>
+		{END searchCtrlBlock_indicator_name}
+																{BEGIN searchCtrlBlock_unit_of_measurement}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_unit_of_measurement}" {$filterRow_attrs_unit_of_measurement}>
+			<label>{$label Performance_Overview unit_of_measurement }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_unit_of_measurement}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_unit_of_measurement}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_unit_of_measurement}</span>
+						</div>
+		{END searchCtrlBlock_unit_of_measurement}
+																{BEGIN searchCtrlBlock_reporting_frequency}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_reporting_frequency}" {$filterRow_attrs_reporting_frequency}>
+			<label>{$label Performance_Overview reporting_frequency }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_reporting_frequency}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_reporting_frequency}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_reporting_frequency}</span>
+						</div>
+		{END searchCtrlBlock_reporting_frequency}
+																{BEGIN searchCtrlBlock_tracking_id}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_tracking_id}" {$filterRow_attrs_tracking_id}>
+			<label>{$label Performance_Overview tracking_id }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_tracking_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_tracking_id}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_tracking_id}</span>
+						</div>
+		{END searchCtrlBlock_tracking_id}
+																{BEGIN searchCtrlBlock_baseline_year}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_baseline_year}" {$filterRow_attrs_baseline_year}>
+			<label>{$label Performance_Overview baseline_year }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_baseline_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_baseline_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_year}</span>
+						</div>
+		{END searchCtrlBlock_baseline_year}
+																{BEGIN searchCtrlBlock_performance_year}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_performance_year}" {$filterRow_attrs_performance_year}>
+			<label>{$label Performance_Overview performance_year }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_performance_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_performance_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_performance_year}</span>
+						</div>
+		{END searchCtrlBlock_performance_year}
+																{BEGIN searchCtrlBlock_actual}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_actual}" {$filterRow_attrs_actual}>
+			<label>{$label Performance_Overview actual }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_actual}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_actual}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_actual}</span>
+						</div>
+		{END searchCtrlBlock_actual}
+																{BEGIN searchCtrlBlock_target}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_target}" {$filterRow_attrs_target}>
+			<label>{$label Performance_Overview target }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_target}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_target}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_target}</span>
+						</div>
+		{END searchCtrlBlock_target}
+																{BEGIN searchCtrlBlock_baseline_value}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_baseline_value}" {$filterRow_attrs_baseline_value}>
+			<label>{$label Performance_Overview baseline_value }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_baseline_value}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_baseline_value}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_value}</span>
+						</div>
+		{END searchCtrlBlock_baseline_value}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
 	class=" r-ori-vert			col-md-6
 	
 ">
-		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
-	</div>			 
+			</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
 	class="r-align-right			col-md-6

@@ -79,7 +79,7 @@ $tdatasettings[".listAjax"] = false;
 //	temporary
 //$tdatasettings[".listAjax"] = false;
 
-	$tdatasettings[".audit"] = false;
+	$tdatasettings[".audit"] = true;
 
 	$tdatasettings[".locking"] = false;
 

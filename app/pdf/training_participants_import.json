@@ -109,19 +109,10 @@ pdfDocument = {
 			{"text":{$TrainingID_pdfvalue},"hidden":"{$item_hide_import_field}"},
 				
 				
-			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_import_field2}"},
-				
-				
 			{"text":{$Training_Organizer_pdfvalue},"hidden":"{$item_hide_import_field3}"},
 				
 				
 			{"text":{$Training_Type_pdfvalue},"hidden":"{$item_hide_import_field4}"},
-				
-				
-			{"text":{$Program_Area_pdfvalue},"hidden":"{$item_hide_import_field5}"},
-				
-				
-			{"text":{$Training_City_Town_pdfvalue},"hidden":"{$item_hide_import_field6}"},
 				
 				
 			{"text":{$Training_Venue_pdfvalue},"hidden":"{$item_hide_import_field7}"},
@@ -133,64 +124,46 @@ pdfDocument = {
 			{"text":{$Training_End_Date_pdfvalue},"hidden":"{$item_hide_import_field9}"},
 				
 				
-			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_import_field10}"},
-				
-				
-			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_import_field11}"},
-				
-				
-			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_import_field12}"},
-				
-				
 			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_import_field13}"},
-				
-				
-			{"text":{$Email_pdfvalue},"hidden":"{$item_hide_import_field14}"},
-				
-				
-			{"text":{$Phone_pdfvalue},"hidden":"{$item_hide_import_field15}"},
-				
-				
-			{"text":{$Disability_Status_pdfvalue},"hidden":"{$item_hide_import_field16}"},
-				
-				
-			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_import_field17}"},
-				
-				
-			{"text":{$Disability_Type_Other_pdfvalue},"hidden":"{$item_hide_import_field18}"},
-				
-				
-			{"text":{$Participant_Profession_pdfvalue},"hidden":"{$item_hide_import_field19}"},
-				
-				
-			{"text":{$Participant_Field_of_Study_pdfvalue},"hidden":"{$item_hide_import_field20}"},
-				
-				
-			{"text":{$Participant_Facility_Organization_Type_pdfvalue},"hidden":"{$item_hide_import_field21}"},
-				
-				
-			{"text":{$Participant_Organization_Name_pdfvalue},"hidden":"{$item_hide_import_field22}"},
-				
-				
-			{"text":{$Participants_Home_Address_pdfvalue},"hidden":"{$item_hide_import_field23}"},
-				
-				
-			{"text":{$PreTest_Score_pdfvalue},"hidden":"{$item_hide_import_field24}"},
-				
-				
-			{"text":{$Skill_Test_pdfvalue},"hidden":"{$item_hide_import_field25}"},
-				
-				
-			{"text":{$Post_Test_Score_pdfvalue},"hidden":"{$item_hide_import_field26}"},
-				
-				
-			{"text":{$Training_Round_pdfvalue},"hidden":"{$item_hide_import_field27}"},
 				
 				
 			{"text":{$CandidateID_pdfvalue},"hidden":"{$item_hide_import_field1}"},
 				
 				
-			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_import_field28}"},
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_import_field2}"},
+				
+				
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_import_field5}"},
+				
+				
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_import_field6}"},
+				
+				
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_import_field10}"},
+				
+				
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_import_field11}"},
+				
+				
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_import_field12}"},
+				
+				
+			{"text":{$TrainingTitle_pdfvalue},"hidden":"{$item_hide_import_field14}"},
+				
+				
+			{"text":{$Training_City_pdfvalue},"hidden":"{$item_hide_import_field15}"},
+				
+				
+			{"text":{$Trainer_Name_pdfvalue},"hidden":"{$item_hide_import_field16}"},
+				
+				
+			{"text":{$TrainingRound_pdfvalue},"hidden":"{$item_hide_import_field17}"},
+				
+				
+			{"text":{$TrainingNote_pdfvalue},"hidden":"{$item_hide_import_field18}"},
+				
+				
+			{"text":{$program_areas_pdfvalue},"hidden":"{$item_hide_import_field19}"},
 				
 		  ],
   "border": [ false, false, false, false ],

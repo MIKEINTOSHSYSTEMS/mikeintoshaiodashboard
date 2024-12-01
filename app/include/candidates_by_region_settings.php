@@ -405,7 +405,7 @@ $tdatacandidates_by_region[".orderindexes"] = array();
 
 $tdatacandidates_by_region[".sqlHead"] = "SELECT CandidateID,  StudentID,  First_Name,  Middle_Name,  Last_Name,  Sex,  DOB,  Region,  City,  Sub_City,  `Zone`,  House_No,  Phone_Number,  Phone_Number_Alternate,  Email_Address,  Disability_Status,  Disability_Type,  Disability_Type_Other,  Institution_Type,  Institution_Name,  Education_Level,  Department,  Minor,  Major,  Enrollement_Type,  Skills,  Languages,  English_Proficiency_Level,  Industry_Specific_Skills,  IT_Related_Skills,  Certifications,  Year_of_graduation,  Field_Of_Study,  GPA,  Intervention,  Campaign,  Attend_Employability_Skill,  `DAAP_enrolled_1st Round`,  DAAP_Completed,  DAAP_Completed_Courses,  Job_Fair_Clinic,  Job_Fair,  Exit_Exam_Score,  Exit_Exam_Status,  DAAP_enrolled_2nd_Round,  Upload_on_Tracker,  Work_Experience,  Joined_Dereja_Services,  Dereja_Services,  Dereja_Training_Services,  Dereja_Event_Services,  Dereja_web_profile_completion,  Dereja_Information_Source,  Employment_Status,  Employment_Company,  Employment_Position,  Remark";
 $tdatacandidates_by_region[".sqlFrom"] = "FROM candidates";
-$tdatacandidates_by_region[".sqlWhereExpr"] = "";
+$tdatacandidates_by_region[".sqlWhereExpr"] = "(Region IS NOT NULL)";
 $tdatacandidates_by_region[".sqlTail"] = "";
 
 //fill array of tabs for list page
@@ -2909,7 +2909,7 @@ $tdatacandidates_by_region[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -9034,22 +9034,22 @@ $tdatacandidates_by_region[".chartSeries"][] = array(
 			<attr value="appearance">';
 
 
-	$tdatacandidates_by_region[".chartXml"] .= '<attr value="head">'.xmlencode("Number of Candidates Grouped By Region").'</attr>
+	$tdatacandidates_by_region[".chartXml"] .= '<attr value="head">'.xmlencode("Number of candidates located by region").'</attr>
 <attr value="foot">'.xmlencode("Candidates By Location").'</attr>
 <attr value="y_axis_label">'.xmlencode("Sex").'</attr>
 
 
 <attr value="slegend">true</attr>
-<attr value="sgrid">true</attr>
+<attr value="sgrid">false</attr>
 <attr value="sname">true</attr>
 <attr value="sval">true</attr>
 <attr value="sanim">true</attr>
 <attr value="sstacked">false</attr>
-<attr value="slog">true</attr>
+<attr value="slog">false</attr>
 <attr value="aqua">0</attr>
 <attr value="cview">0</attr>
 <attr value="is3d">1</attr>
-<attr value="isstacked">1</attr>
+<attr value="isstacked">0</attr>
 <attr value="linestyle">0</attr>
 <attr value="autoupdate">0</attr>
 <attr value="autoupmin">30</attr>';
@@ -9503,21 +9503,23 @@ $proto0=array();
 $proto0["m_strHead"] = "SELECT";
 $proto0["m_strFieldList"] = "CandidateID,  StudentID,  First_Name,  Middle_Name,  Last_Name,  Sex,  DOB,  Region,  City,  Sub_City,  `Zone`,  House_No,  Phone_Number,  Phone_Number_Alternate,  Email_Address,  Disability_Status,  Disability_Type,  Disability_Type_Other,  Institution_Type,  Institution_Name,  Education_Level,  Department,  Minor,  Major,  Enrollement_Type,  Skills,  Languages,  English_Proficiency_Level,  Industry_Specific_Skills,  IT_Related_Skills,  Certifications,  Year_of_graduation,  Field_Of_Study,  GPA,  Intervention,  Campaign,  Attend_Employability_Skill,  `DAAP_enrolled_1st Round`,  DAAP_Completed,  DAAP_Completed_Courses,  Job_Fair_Clinic,  Job_Fair,  Exit_Exam_Score,  Exit_Exam_Status,  DAAP_enrolled_2nd_Round,  Upload_on_Tracker,  Work_Experience,  Joined_Dereja_Services,  Dereja_Services,  Dereja_Training_Services,  Dereja_Event_Services,  Dereja_web_profile_completion,  Dereja_Information_Source,  Employment_Status,  Employment_Company,  Employment_Position,  Remark";
 $proto0["m_strFrom"] = "FROM candidates";
-$proto0["m_strWhere"] = "";
+$proto0["m_strWhere"] = "(Region IS NOT NULL)";
 $proto0["m_strOrderBy"] = "";
 	
 																								;
 			$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "";
+$proto2["m_sql"] = "Region IS NOT NULL";
 $proto2["m_uniontype"] = "SQLL_UNKNOWN";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => ""
+						$obj = new SQLField(array(
+	"m_strName" => "Region",
+	"m_strTable" => "candidates",
+	"m_srcTableName" => "candidates_by_region"
 ));
 
 $proto2["m_column"]=$obj;
 $proto2["m_contained"] = array();
-$proto2["m_strCase"] = "";
+$proto2["m_strCase"] = "IS NOT NULL";
 $proto2["m_havingmode"] = false;
 $proto2["m_inBrackets"] = false;
 $proto2["m_useAlias"] = false;
@@ -10417,6 +10419,7 @@ $proto121["m_columns"][] = "Career_Level_Of_Payment";
 $proto121["m_columns"][] = "Placement_Type";
 $proto121["m_columns"][] = "Placement_Duration";
 $proto121["m_columns"][] = "Remark";
+$proto121["m_columns"][] = "candidate_data";
 $proto121["m_columns"][] = "Date";
 $obj = new SQLTable($proto121);
 

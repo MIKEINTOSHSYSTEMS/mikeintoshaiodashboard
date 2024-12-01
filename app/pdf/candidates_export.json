@@ -232,9 +232,6 @@ pdfDocument = {
 			{"text":{$Employment_Position_pdfvalue},"hidden":"{$item_hide_export_field42}"},
 				
 				
-			{"text":{$Remark_pdfvalue},"hidden":"{$item_hide_export_field43}"},
-				
-				
 			{"text":{$Phone_Number_Alternate_pdfvalue},"hidden":"{$item_hide_export_field12}"},
 				
 				
@@ -326,6 +323,12 @@ pdfDocument = {
 				
 				
 			{"text":{$Event_Participant_Type_pdfvalue},"hidden":"{$item_hide_export_field73}"},
+				
+				
+			{"text":{$Remark_pdfvalue},"hidden":"{$item_hide_export_field43}"},
+				
+				
+			{"text":{$candidate_data_pdfvalue},"hidden":"{$item_hide_export_field74}"},
 				
 		  ],
   "border": [ false, false, false, false ],

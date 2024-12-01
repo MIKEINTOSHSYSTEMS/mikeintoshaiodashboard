@@ -72,10 +72,10 @@
 							 
 				<span class="navbar-form  navbar-header" data-cellId="supertop_c1" data-pageid="{$pageid}" data-itemid="expand_menu_button" {$item_expand_menu_button} data-topcell-item-type="expand_menu_button" >
 				<span data-itemtype="expand_menu_button" data-itemid="expand_menu_button" {$item_expand_menu_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="Collapse" class="btn btn-primary   
-	" href="#" >
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-										</a>
+	<a type="button" title="Collapse" class="btn-link   
+	 glyphicon glyphicon-menu-hamburger" href="#" >		
+				
+								</a>
 </span>
 			</span>
 		 
@@ -448,19 +448,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_CandidateID}</span>
 						</div>
 		{END searchCtrlBlock_CandidateID}
-																{BEGIN searchCtrlBlock_Event_Participant_Type}
+																{BEGIN searchCtrlBlock_Remark}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_Event_Participant_Type}" {$filterRow_attrs_Event_Participant_Type}>
-			<label>{$label candidates Event_Participant_Type }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_Remark}" {$filterRow_attrs_Remark}>
+			<label>{$label candidates Remark }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_Event_Participant_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Event_Participant_Type}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Participant_Type}</span>
+								<span class="rnr-searchtype">{$searchtype_Remark}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Remark}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Remark}</span>
 						</div>
-		{END searchCtrlBlock_Event_Participant_Type}
+		{END searchCtrlBlock_Remark}
 																{BEGIN searchCtrlBlock_Event_End_Date}
 
 
@@ -851,19 +851,6 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_Phone_Number_Alternate}</span>
 						</div>
 		{END searchCtrlBlock_Phone_Number_Alternate}
-																{BEGIN searchCtrlBlock_Remark}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_Remark}" {$filterRow_attrs_Remark}>
-			<label>{$label candidates Remark }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Remark}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Remark}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Remark}</span>
-						</div>
-		{END searchCtrlBlock_Remark}
 																{BEGIN searchCtrlBlock_Employment_Position}
 
 
@@ -1345,6 +1332,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_Dereja_Event_Services}</span>
 						</div>
 		{END searchCtrlBlock_Dereja_Event_Services}
+																{BEGIN searchCtrlBlock_Event_Participant_Type}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Event_Participant_Type}" {$filterRow_attrs_Event_Participant_Type}>
+			<label>{$label candidates Event_Participant_Type }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Event_Participant_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Event_Participant_Type}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Event_Participant_Type}</span>
+						</div>
+		{END searchCtrlBlock_Event_Participant_Type}
 																{BEGIN searchCtrlBlock_Department}
 
 
@@ -1654,6 +1654,16 @@
 	>
 	<button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><i class="glyphicon glyphicon-th-list"></i> <span class="caret"></span></button>
 	<ul role="menu" class="dropdown-menu dropdown-left">
+							<li>
+		<a>
+					  	<div class="checkbox">
+				<label>
+					<input type="checkbox" id="hide_candidate_data" checked="checked" value="1" data-field="candidate_data" data-fieldname="candidate_data">
+					<span>{$label candidates candidate_data }</span>
+				</label>
+			</div>
+					</a>
+		</li>
 							<li>
 		<a>
 					  	<div class="checkbox">
@@ -4055,87 +4065,6 @@ Sort by&nbsp;{$sortByDropdown}
 
 
 
-{BEGIN filter_control_Employment_Company}
-
-	<div class="dropdown filter-field filter-Employment_Company-container" {BEGIN filter_selected_Employment_Company} data-selected {END filter_selected_Employment_Company}>
-		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-						{BEGIN clearLink_Employment_Company}
-			<a href="#" class="filter-clear filter-clear-Employment_Company" title="Clear">
-				<span class="glyphicon glyphicon-remove"></span>
-			</a>
-			{END clearLink_Employment_Company}
-			<span class="r-filter-field">{$label candidates Employment_Company }				{BEGIN filter_selected_Employment_Company}:{END filter_selected_Employment_Company}
-			</span>
-			{BEGIN filter_selected_Employment_Company}
-			<span class="r-filter-value">{$filtervalue_Employment_Company}</span>
-			{END filter_selected_Employment_Company}
-			
-			<span class="caret"></span>
-		</div>
-		<ul class="dropdown-menu">
-					{BEGIN filterCtrlBlock_Employment_Company}
-		<li class=" filter-values filter-values-Employment_Company  {$visibilityClass_Employment_Company}">
-			{$Employment_Company_filter}
-						
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					</li>
-		{END filterCtrlBlock_Employment_Company}
-
-			{BEGIN filter_button_showmore_Employment_Company}
-		<li class=" filter-show-more {$collapsedClass_Employment_Company} {$showMoreBtnClass_Employment_Company}">
-			<a class="filter-show-more-link filterShowMore_Employment_Company" href="#">{$show_n_more_Employment_Company}</a>
-		</li>
-		{END filter_button_showmore_Employment_Company}
-	
-
-
-	
-
-			</ul>
-	</div>
-
-{END filter_control_Employment_Company}
-
-
-
-
-
-
 {BEGIN filter_control_Attend_Employability_Skill}
 
 	<div class="dropdown filter-field filter-Attend_Employability_Skill-container" {BEGIN filter_selected_Attend_Employability_Skill} data-selected {END filter_selected_Attend_Employability_Skill}>
@@ -4622,6 +4551,87 @@ Sort by&nbsp;{$sortByDropdown}
 
 
 
+{BEGIN filter_control_Dereja_Training_Services}
+
+	<div class="dropdown filter-field filter-Dereja_Training_Services-container" {BEGIN filter_selected_Dereja_Training_Services} data-selected {END filter_selected_Dereja_Training_Services}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+						{BEGIN clearLink_Dereja_Training_Services}
+			<a href="#" class="filter-clear filter-clear-Dereja_Training_Services" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_Dereja_Training_Services}
+			<span class="r-filter-field">{$label candidates Dereja_Training_Services }				{BEGIN filter_selected_Dereja_Training_Services}:{END filter_selected_Dereja_Training_Services}
+			</span>
+			{BEGIN filter_selected_Dereja_Training_Services}
+			<span class="r-filter-value">{$filtervalue_Dereja_Training_Services}</span>
+			{END filter_selected_Dereja_Training_Services}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_Dereja_Training_Services}
+		<li class=" filter-values filter-values-Dereja_Training_Services  {$visibilityClass_Dereja_Training_Services}">
+			{$Dereja_Training_Services_filter}
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_Dereja_Training_Services}
+
+			{BEGIN filter_button_showmore_Dereja_Training_Services}
+		<li class=" filter-show-more {$collapsedClass_Dereja_Training_Services} {$showMoreBtnClass_Dereja_Training_Services}">
+			<a class="filter-show-more-link filterShowMore_Dereja_Training_Services" href="#">{$show_n_more_Dereja_Training_Services}</a>
+		</li>
+		{END filter_button_showmore_Dereja_Training_Services}
+	
+
+
+	
+
+			</ul>
+	</div>
+
+{END filter_control_Dereja_Training_Services}
+
+
+
+
+
+
 {BEGIN filter_control_Dereja_Event_Services}
 
 	<div class="dropdown filter-field filter-Dereja_Event_Services-container" {BEGIN filter_selected_Dereja_Event_Services} data-selected {END filter_selected_Dereja_Event_Services}>
@@ -4703,27 +4713,27 @@ Sort by&nbsp;{$sortByDropdown}
 
 
 
-{BEGIN filter_control_Dereja_Training_Services}
+{BEGIN filter_control_Event_Participant_Type}
 
-	<div class="dropdown filter-field filter-Dereja_Training_Services-container" {BEGIN filter_selected_Dereja_Training_Services} data-selected {END filter_selected_Dereja_Training_Services}>
+	<div class="dropdown filter-field filter-Event_Participant_Type-container" {BEGIN filter_selected_Event_Participant_Type} data-selected {END filter_selected_Event_Participant_Type}>
 		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-						{BEGIN clearLink_Dereja_Training_Services}
-			<a href="#" class="filter-clear filter-clear-Dereja_Training_Services" title="Clear">
+						{BEGIN clearLink_Event_Participant_Type}
+			<a href="#" class="filter-clear filter-clear-Event_Participant_Type" title="Clear">
 				<span class="glyphicon glyphicon-remove"></span>
 			</a>
-			{END clearLink_Dereja_Training_Services}
-			<span class="r-filter-field">{$label candidates Dereja_Training_Services }				{BEGIN filter_selected_Dereja_Training_Services}:{END filter_selected_Dereja_Training_Services}
+			{END clearLink_Event_Participant_Type}
+			<span class="r-filter-field">{$label candidates Event_Participant_Type }				{BEGIN filter_selected_Event_Participant_Type}:{END filter_selected_Event_Participant_Type}
 			</span>
-			{BEGIN filter_selected_Dereja_Training_Services}
-			<span class="r-filter-value">{$filtervalue_Dereja_Training_Services}</span>
-			{END filter_selected_Dereja_Training_Services}
+			{BEGIN filter_selected_Event_Participant_Type}
+			<span class="r-filter-value">{$filtervalue_Event_Participant_Type}</span>
+			{END filter_selected_Event_Participant_Type}
 			
 			<span class="caret"></span>
 		</div>
 		<ul class="dropdown-menu">
-					{BEGIN filterCtrlBlock_Dereja_Training_Services}
-		<li class=" filter-values filter-values-Dereja_Training_Services  {$visibilityClass_Dereja_Training_Services}">
-			{$Dereja_Training_Services_filter}
+					{BEGIN filterCtrlBlock_Event_Participant_Type}
+		<li class=" filter-values filter-values-Event_Participant_Type  {$visibilityClass_Event_Participant_Type}">
+			{$Event_Participant_Type_filter}
 						
 					
 					
@@ -4762,13 +4772,13 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					</li>
-		{END filterCtrlBlock_Dereja_Training_Services}
+		{END filterCtrlBlock_Event_Participant_Type}
 
-			{BEGIN filter_button_showmore_Dereja_Training_Services}
-		<li class=" filter-show-more {$collapsedClass_Dereja_Training_Services} {$showMoreBtnClass_Dereja_Training_Services}">
-			<a class="filter-show-more-link filterShowMore_Dereja_Training_Services" href="#">{$show_n_more_Dereja_Training_Services}</a>
+			{BEGIN filter_button_showmore_Event_Participant_Type}
+		<li class=" filter-show-more {$collapsedClass_Event_Participant_Type} {$showMoreBtnClass_Event_Participant_Type}">
+			<a class="filter-show-more-link filterShowMore_Event_Participant_Type" href="#">{$show_n_more_Event_Participant_Type}</a>
 		</li>
-		{END filter_button_showmore_Dereja_Training_Services}
+		{END filter_button_showmore_Event_Participant_Type}
 	
 
 
@@ -4777,7 +4787,7 @@ Sort by&nbsp;{$sortByDropdown}
 			</ul>
 	</div>
 
-{END filter_control_Dereja_Training_Services}
+{END filter_control_Event_Participant_Type}
 
 
 
@@ -5663,6 +5673,9 @@ Sort by&nbsp;{$sortByDropdown}
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Date"]:before {
 		content: "{$label candidates Date}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="candidate_data"]:before {
+		content: "{$label candidates candidate_data}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -5736,21 +5749,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$CandidateID_class}	"
+		 r-ori-vert		 {$candidate_data_class}	"
 
-			data-field="CandidateID"
+			data-field="candidate_data"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN CandidateID_fieldheadercolumn}
-	{BEGIN CandidateID_fieldheader}
-	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field74" {$item_simple_grid_field74} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
-	{$label candidates CandidateID }	{$arrow_icon_CandidateID}
+		{BEGIN candidate_data_fieldheadercolumn}
+	{BEGIN candidate_data_fieldheader}
+	<SPAN {$candidate_data_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="grid_field2" {$item_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="candidate_data" data-fieldname="candidate_data">
+	{$label candidates candidate_data }	{$arrow_icon_candidate_data}
 	</SPAN>
-	{END CandidateID_fieldheader}
-{END CandidateID_fieldheadercolumn}
+	{END candidate_data_fieldheader}
+{END candidate_data_fieldheadercolumn}
 
 	
 	</th>
@@ -5761,21 +5774,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Full_Name_class}	"
+		 r-ori-vert		 {$CandidateID_class}	"
 
-			data-field="Full_Name"
+			data-field="CandidateID"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Full_Name_fieldheadercolumn}
-	{BEGIN Full_Name_fieldheader}
-	<SPAN {$Full_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field75" {$item_simple_grid_field75} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Full_Name" data-fieldname="Full_Name">
-	{$label candidates Full_Name }	{$arrow_icon_Full_Name}
+		{BEGIN CandidateID_fieldheadercolumn}
+	{BEGIN CandidateID_fieldheader}
+	<SPAN {$CandidateID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field43" {$item_simple_grid_field43} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="CandidateID" data-fieldname="CandidateID">
+	{$label candidates CandidateID }	{$arrow_icon_CandidateID}
 	</SPAN>
-	{END Full_Name_fieldheader}
-{END Full_Name_fieldheadercolumn}
+	{END CandidateID_fieldheader}
+{END CandidateID_fieldheadercolumn}
 
 	
 	</th>
@@ -5786,21 +5799,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$First_Name_class}	"
+		 r-ori-vert		 {$Full_Name_class}	"
 
-			data-field="First_Name"
+			data-field="Full_Name"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN First_Name_fieldheadercolumn}
-	{BEGIN First_Name_fieldheader}
-	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field76" {$item_simple_grid_field76} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
-	{$label candidates First_Name }	{$arrow_icon_First_Name}
+		{BEGIN Full_Name_fieldheadercolumn}
+	{BEGIN Full_Name_fieldheader}
+	<SPAN {$Full_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field74" {$item_simple_grid_field74} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Full_Name" data-fieldname="Full_Name">
+	{$label candidates Full_Name }	{$arrow_icon_Full_Name}
 	</SPAN>
-	{END First_Name_fieldheader}
-{END First_Name_fieldheadercolumn}
+	{END Full_Name_fieldheader}
+{END Full_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -5811,21 +5824,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Middle_Name_class}	"
+		 r-ori-vert		 {$First_Name_class}	"
 
-			data-field="Middle_Name"
+			data-field="First_Name"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Middle_Name_fieldheadercolumn}
-	{BEGIN Middle_Name_fieldheader}
-	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field77" {$item_simple_grid_field77} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
-	{$label candidates Middle_Name }	{$arrow_icon_Middle_Name}
+		{BEGIN First_Name_fieldheadercolumn}
+	{BEGIN First_Name_fieldheader}
+	<SPAN {$First_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field75" {$item_simple_grid_field75} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="First_Name" data-fieldname="First_Name">
+	{$label candidates First_Name }	{$arrow_icon_First_Name}
 	</SPAN>
-	{END Middle_Name_fieldheader}
-{END Middle_Name_fieldheadercolumn}
+	{END First_Name_fieldheader}
+{END First_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -5836,21 +5849,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Last_Name_class}	"
+		 r-ori-vert		 {$Middle_Name_class}	"
 
-			data-field="Last_Name"
+			data-field="Middle_Name"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Last_Name_fieldheadercolumn}
-	{BEGIN Last_Name_fieldheader}
-	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field78" {$item_simple_grid_field78} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
-	{$label candidates Last_Name }	{$arrow_icon_Last_Name}
+		{BEGIN Middle_Name_fieldheadercolumn}
+	{BEGIN Middle_Name_fieldheader}
+	<SPAN {$Middle_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field76" {$item_simple_grid_field76} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Middle_Name" data-fieldname="Middle_Name">
+	{$label candidates Middle_Name }	{$arrow_icon_Middle_Name}
 	</SPAN>
-	{END Last_Name_fieldheader}
-{END Last_Name_fieldheadercolumn}
+	{END Middle_Name_fieldheader}
+{END Middle_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -5861,21 +5874,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sex_class}	"
+		 r-ori-vert		 {$Last_Name_class}	"
 
-			data-field="Sex"
+			data-field="Last_Name"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Sex_fieldheadercolumn}
-	{BEGIN Sex_fieldheader}
-	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field79" {$item_simple_grid_field79} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
-	{$label candidates Sex }	{$arrow_icon_Sex}
+		{BEGIN Last_Name_fieldheadercolumn}
+	{BEGIN Last_Name_fieldheader}
+	<SPAN {$Last_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field77" {$item_simple_grid_field77} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Last_Name" data-fieldname="Last_Name">
+	{$label candidates Last_Name }	{$arrow_icon_Last_Name}
 	</SPAN>
-	{END Sex_fieldheader}
-{END Sex_fieldheadercolumn}
+	{END Last_Name_fieldheader}
+{END Last_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -5886,21 +5899,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DOB_class}	"
+		 r-ori-vert		 {$Sex_class}	"
 
-			data-field="DOB"
+			data-field="Sex"
 	
 	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN DOB_fieldheadercolumn}
-	{BEGIN DOB_fieldheader}
-	<SPAN {$DOB_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field80" {$item_simple_grid_field80} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DOB" data-fieldname="DOB">
-	{$label candidates DOB }	{$arrow_icon_DOB}
+		{BEGIN Sex_fieldheadercolumn}
+	{BEGIN Sex_fieldheader}
+	<SPAN {$Sex_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field78" {$item_simple_grid_field78} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sex" data-fieldname="Sex">
+	{$label candidates Sex }	{$arrow_icon_Sex}
 	</SPAN>
-	{END DOB_fieldheader}
-{END DOB_fieldheadercolumn}
+	{END Sex_fieldheader}
+{END Sex_fieldheadercolumn}
 
 	
 	</th>
@@ -5911,21 +5924,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Age_class}	"
+		 r-ori-vert		 {$DOB_class}	"
 
-			data-field="Age"
+			data-field="DOB"
 	
 	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Age_fieldheadercolumn}
-	{BEGIN Age_fieldheader}
-	<SPAN {$Age_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field81" {$item_simple_grid_field81} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Age" data-fieldname="Age">
-	{$label candidates Age }	{$arrow_icon_Age}
+		{BEGIN DOB_fieldheadercolumn}
+	{BEGIN DOB_fieldheader}
+	<SPAN {$DOB_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field79" {$item_simple_grid_field79} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DOB" data-fieldname="DOB">
+	{$label candidates DOB }	{$arrow_icon_DOB}
 	</SPAN>
-	{END Age_fieldheader}
-{END Age_fieldheadercolumn}
+	{END DOB_fieldheader}
+{END DOB_fieldheadercolumn}
 
 	
 	</th>
@@ -5936,21 +5949,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Region_class}	"
+		 r-ori-vert		 {$Age_class}	"
 
-			data-field="Region"
+			data-field="Age"
 	
 	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Region_fieldheadercolumn}
-	{BEGIN Region_fieldheader}
-	<SPAN {$Region_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field82" {$item_simple_grid_field82} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Region" data-fieldname="Region">
-	{$label candidates Region }	{$arrow_icon_Region}
+		{BEGIN Age_fieldheadercolumn}
+	{BEGIN Age_fieldheader}
+	<SPAN {$Age_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field80" {$item_simple_grid_field80} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Age" data-fieldname="Age">
+	{$label candidates Age }	{$arrow_icon_Age}
 	</SPAN>
-	{END Region_fieldheader}
-{END Region_fieldheadercolumn}
+	{END Age_fieldheader}
+{END Age_fieldheadercolumn}
 
 	
 	</th>
@@ -5961,21 +5974,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$City_class}	"
+		 r-ori-vert		 {$Region_class}	"
 
-			data-field="City"
+			data-field="Region"
 	
 	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN City_fieldheadercolumn}
-	{BEGIN City_fieldheader}
-	<SPAN {$City_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field83" {$item_simple_grid_field83} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="City" data-fieldname="City">
-	{$label candidates City }	{$arrow_icon_City}
+		{BEGIN Region_fieldheadercolumn}
+	{BEGIN Region_fieldheader}
+	<SPAN {$Region_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field81" {$item_simple_grid_field81} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Region" data-fieldname="Region">
+	{$label candidates Region }	{$arrow_icon_Region}
 	</SPAN>
-	{END City_fieldheader}
-{END City_fieldheadercolumn}
+	{END Region_fieldheader}
+{END Region_fieldheadercolumn}
 
 	
 	</th>
@@ -5986,21 +5999,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sub_City_class}	"
+		 r-ori-vert		 {$City_class}	"
 
-			data-field="Sub_City"
+			data-field="City"
 	
 	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Sub_City_fieldheadercolumn}
-	{BEGIN Sub_City_fieldheader}
-	<SPAN {$Sub_City_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field84" {$item_simple_grid_field84} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sub_City" data-fieldname="Sub_City">
-	{$label candidates Sub_City }	{$arrow_icon_Sub_City}
+		{BEGIN City_fieldheadercolumn}
+	{BEGIN City_fieldheader}
+	<SPAN {$City_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field82" {$item_simple_grid_field82} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="City" data-fieldname="City">
+	{$label candidates City }	{$arrow_icon_City}
 	</SPAN>
-	{END Sub_City_fieldheader}
-{END Sub_City_fieldheadercolumn}
+	{END City_fieldheader}
+{END City_fieldheadercolumn}
 
 	
 	</th>
@@ -6011,21 +6024,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field11}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Zone_class}	"
+		 r-ori-vert		 {$Sub_City_class}	"
 
-			data-field="Zone"
+			data-field="Sub_City"
 	
 	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Zone_fieldheadercolumn}
-	{BEGIN Zone_fieldheader}
-	<SPAN {$Zone_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field85" {$item_simple_grid_field85} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Zone" data-fieldname="Zone">
-	{$label candidates Zone }	{$arrow_icon_Zone}
+		{BEGIN Sub_City_fieldheadercolumn}
+	{BEGIN Sub_City_fieldheader}
+	<SPAN {$Sub_City_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field83" {$item_simple_grid_field83} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Sub_City" data-fieldname="Sub_City">
+	{$label candidates Sub_City }	{$arrow_icon_Sub_City}
 	</SPAN>
-	{END Zone_fieldheader}
-{END Zone_fieldheadercolumn}
+	{END Sub_City_fieldheader}
+{END Sub_City_fieldheadercolumn}
 
 	
 	</th>
@@ -6036,21 +6049,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field12}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Woreda_class}	"
+		 r-ori-vert		 {$Zone_class}	"
 
-			data-field="Woreda"
+			data-field="Zone"
 	
 	data-cellId="grid_headcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Woreda_fieldheadercolumn}
-	{BEGIN Woreda_fieldheader}
-	<SPAN {$Woreda_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field86" {$item_simple_grid_field86} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Woreda" data-fieldname="Woreda">
-	{$label candidates Woreda }	{$arrow_icon_Woreda}
+		{BEGIN Zone_fieldheadercolumn}
+	{BEGIN Zone_fieldheader}
+	<SPAN {$Zone_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field84" {$item_simple_grid_field84} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Zone" data-fieldname="Zone">
+	{$label candidates Zone }	{$arrow_icon_Zone}
 	</SPAN>
-	{END Woreda_fieldheader}
-{END Woreda_fieldheadercolumn}
+	{END Zone_fieldheader}
+{END Zone_fieldheadercolumn}
 
 	
 	</th>
@@ -6061,21 +6074,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field13}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Kebele_class}	"
+		 r-ori-vert		 {$Woreda_class}	"
 
-			data-field="Kebele"
+			data-field="Woreda"
 	
 	data-cellId="grid_headcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Kebele_fieldheadercolumn}
-	{BEGIN Kebele_fieldheader}
-	<SPAN {$Kebele_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field87" {$item_simple_grid_field87} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Kebele" data-fieldname="Kebele">
-	{$label candidates Kebele }	{$arrow_icon_Kebele}
+		{BEGIN Woreda_fieldheadercolumn}
+	{BEGIN Woreda_fieldheader}
+	<SPAN {$Woreda_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field85" {$item_simple_grid_field85} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Woreda" data-fieldname="Woreda">
+	{$label candidates Woreda }	{$arrow_icon_Woreda}
 	</SPAN>
-	{END Kebele_fieldheader}
-{END Kebele_fieldheadercolumn}
+	{END Woreda_fieldheader}
+{END Woreda_fieldheadercolumn}
 
 	
 	</th>
@@ -6086,21 +6099,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field14}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$House_No_class}	"
+		 r-ori-vert		 {$Kebele_class}	"
 
-			data-field="House_No"
+			data-field="Kebele"
 	
 	data-cellId="grid_headcell_field14" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN House_No_fieldheadercolumn}
-	{BEGIN House_No_fieldheader}
-	<SPAN {$House_No_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field88" {$item_simple_grid_field88} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="House_No" data-fieldname="House_No">
-	{$label candidates House_No }	{$arrow_icon_House_No}
+		{BEGIN Kebele_fieldheadercolumn}
+	{BEGIN Kebele_fieldheader}
+	<SPAN {$Kebele_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field86" {$item_simple_grid_field86} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Kebele" data-fieldname="Kebele">
+	{$label candidates Kebele }	{$arrow_icon_Kebele}
 	</SPAN>
-	{END House_No_fieldheader}
-{END House_No_fieldheadercolumn}
+	{END Kebele_fieldheader}
+{END Kebele_fieldheadercolumn}
 
 	
 	</th>
@@ -6111,21 +6124,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field15}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_Number_class}	"
+		 r-ori-vert		 {$House_No_class}	"
 
-			data-field="Phone_Number"
+			data-field="House_No"
 	
 	data-cellId="grid_headcell_field15" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Phone_Number_fieldheadercolumn}
-	{BEGIN Phone_Number_fieldheader}
-	<SPAN {$Phone_Number_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field89" {$item_simple_grid_field89} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number" data-fieldname="Phone_Number">
-	{$label candidates Phone_Number }	{$arrow_icon_Phone_Number}
+		{BEGIN House_No_fieldheadercolumn}
+	{BEGIN House_No_fieldheader}
+	<SPAN {$House_No_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field87" {$item_simple_grid_field87} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="House_No" data-fieldname="House_No">
+	{$label candidates House_No }	{$arrow_icon_House_No}
 	</SPAN>
-	{END Phone_Number_fieldheader}
-{END Phone_Number_fieldheadercolumn}
+	{END House_No_fieldheader}
+{END House_No_fieldheadercolumn}
 
 	
 	</th>
@@ -6136,21 +6149,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field16}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_Number_Alternate_class}	"
+		 r-ori-vert		 {$Phone_Number_class}	"
 
-			data-field="Phone_Number_Alternate"
+			data-field="Phone_Number"
 	
 	data-cellId="grid_headcell_field16" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Phone_Number_Alternate_fieldheadercolumn}
-	{BEGIN Phone_Number_Alternate_fieldheader}
-	<SPAN {$Phone_Number_Alternate_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field90" {$item_simple_grid_field90} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number_Alternate" data-fieldname="Phone_Number_Alternate">
-	{$label candidates Phone_Number_Alternate }	{$arrow_icon_Phone_Number_Alternate}
+		{BEGIN Phone_Number_fieldheadercolumn}
+	{BEGIN Phone_Number_fieldheader}
+	<SPAN {$Phone_Number_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field88" {$item_simple_grid_field88} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number" data-fieldname="Phone_Number">
+	{$label candidates Phone_Number }	{$arrow_icon_Phone_Number}
 	</SPAN>
-	{END Phone_Number_Alternate_fieldheader}
-{END Phone_Number_Alternate_fieldheadercolumn}
+	{END Phone_Number_fieldheader}
+{END Phone_Number_fieldheadercolumn}
 
 	
 	</th>
@@ -6161,21 +6174,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field17}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Email_Address_class}	"
+		 r-ori-vert		 {$Phone_Number_Alternate_class}	"
 
-			data-field="Email_Address"
+			data-field="Phone_Number_Alternate"
 	
 	data-cellId="grid_headcell_field17" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Email_Address_fieldheadercolumn}
-	{BEGIN Email_Address_fieldheader}
-	<SPAN {$Email_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field91" {$item_simple_grid_field91} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email_Address" data-fieldname="Email_Address">
-	{$label candidates Email_Address }	{$arrow_icon_Email_Address}
+		{BEGIN Phone_Number_Alternate_fieldheadercolumn}
+	{BEGIN Phone_Number_Alternate_fieldheader}
+	<SPAN {$Phone_Number_Alternate_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field89" {$item_simple_grid_field89} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Phone_Number_Alternate" data-fieldname="Phone_Number_Alternate">
+	{$label candidates Phone_Number_Alternate }	{$arrow_icon_Phone_Number_Alternate}
 	</SPAN>
-	{END Email_Address_fieldheader}
-{END Email_Address_fieldheadercolumn}
+	{END Phone_Number_Alternate_fieldheader}
+{END Phone_Number_Alternate_fieldheadercolumn}
 
 	
 	</th>
@@ -6186,21 +6199,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field18}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$StudentID_class}	"
+		 r-ori-vert		 {$Email_Address_class}	"
 
-			data-field="StudentID"
+			data-field="Email_Address"
 	
 	data-cellId="grid_headcell_field18" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN StudentID_fieldheadercolumn}
-	{BEGIN StudentID_fieldheader}
-	<SPAN {$StudentID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field92" {$item_simple_grid_field92} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID">
-	{$label candidates StudentID }	{$arrow_icon_StudentID}
+		{BEGIN Email_Address_fieldheadercolumn}
+	{BEGIN Email_Address_fieldheader}
+	<SPAN {$Email_Address_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field90" {$item_simple_grid_field90} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Email_Address" data-fieldname="Email_Address">
+	{$label candidates Email_Address }	{$arrow_icon_Email_Address}
 	</SPAN>
-	{END StudentID_fieldheader}
-{END StudentID_fieldheadercolumn}
+	{END Email_Address_fieldheader}
+{END Email_Address_fieldheadercolumn}
 
 	
 	</th>
@@ -6211,21 +6224,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field19}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Education_Level_class}	"
+		 r-ori-vert		 {$StudentID_class}	"
 
-			data-field="Education_Level"
+			data-field="StudentID"
 	
 	data-cellId="grid_headcell_field19" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Education_Level_fieldheadercolumn}
-	{BEGIN Education_Level_fieldheader}
-	<SPAN {$Education_Level_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field93" {$item_simple_grid_field93} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Education_Level" data-fieldname="Education_Level">
-	{$label candidates Education_Level }	{$arrow_icon_Education_Level}
+		{BEGIN StudentID_fieldheadercolumn}
+	{BEGIN StudentID_fieldheader}
+	<SPAN {$StudentID_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field91" {$item_simple_grid_field91} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="StudentID" data-fieldname="StudentID">
+	{$label candidates StudentID }	{$arrow_icon_StudentID}
 	</SPAN>
-	{END Education_Level_fieldheader}
-{END Education_Level_fieldheadercolumn}
+	{END StudentID_fieldheader}
+{END StudentID_fieldheadercolumn}
 
 	
 	</th>
@@ -6236,21 +6249,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field20}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Institution_Type_class}	"
+		 r-ori-vert		 {$Education_Level_class}	"
 
-			data-field="Institution_Type"
+			data-field="Education_Level"
 	
 	data-cellId="grid_headcell_field20" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Institution_Type_fieldheadercolumn}
-	{BEGIN Institution_Type_fieldheader}
-	<SPAN {$Institution_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field94" {$item_simple_grid_field94} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Institution_Type" data-fieldname="Institution_Type">
-	{$label candidates Institution_Type }	{$arrow_icon_Institution_Type}
+		{BEGIN Education_Level_fieldheadercolumn}
+	{BEGIN Education_Level_fieldheader}
+	<SPAN {$Education_Level_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field92" {$item_simple_grid_field92} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Education_Level" data-fieldname="Education_Level">
+	{$label candidates Education_Level }	{$arrow_icon_Education_Level}
 	</SPAN>
-	{END Institution_Type_fieldheader}
-{END Institution_Type_fieldheadercolumn}
+	{END Education_Level_fieldheader}
+{END Education_Level_fieldheadercolumn}
 
 	
 	</th>
@@ -6261,21 +6274,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field21}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Institution_Name_class}	"
+		 r-ori-vert		 {$Institution_Type_class}	"
 
-			data-field="Institution_Name"
+			data-field="Institution_Type"
 	
 	data-cellId="grid_headcell_field21" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Institution_Name_fieldheadercolumn}
-	{BEGIN Institution_Name_fieldheader}
-	<SPAN {$Institution_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field95" {$item_simple_grid_field95} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Institution_Name" data-fieldname="Institution_Name">
-	{$label candidates Institution_Name }	{$arrow_icon_Institution_Name}
+		{BEGIN Institution_Type_fieldheadercolumn}
+	{BEGIN Institution_Type_fieldheader}
+	<SPAN {$Institution_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field93" {$item_simple_grid_field93} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Institution_Type" data-fieldname="Institution_Type">
+	{$label candidates Institution_Type }	{$arrow_icon_Institution_Type}
 	</SPAN>
-	{END Institution_Name_fieldheader}
-{END Institution_Name_fieldheadercolumn}
+	{END Institution_Type_fieldheader}
+{END Institution_Type_fieldheadercolumn}
 
 	
 	</th>
@@ -6286,21 +6299,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field22}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Field_Of_Study_class}	"
+		 r-ori-vert		 {$Institution_Name_class}	"
 
-			data-field="Field_Of_Study"
+			data-field="Institution_Name"
 	
 	data-cellId="grid_headcell_field22" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Field_Of_Study_fieldheadercolumn}
-	{BEGIN Field_Of_Study_fieldheader}
-	<SPAN {$Field_Of_Study_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field96" {$item_simple_grid_field96} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Field_Of_Study" data-fieldname="Field_Of_Study">
-	{$label candidates Field_Of_Study }	{$arrow_icon_Field_Of_Study}
+		{BEGIN Institution_Name_fieldheadercolumn}
+	{BEGIN Institution_Name_fieldheader}
+	<SPAN {$Institution_Name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field94" {$item_simple_grid_field94} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Institution_Name" data-fieldname="Institution_Name">
+	{$label candidates Institution_Name }	{$arrow_icon_Institution_Name}
 	</SPAN>
-	{END Field_Of_Study_fieldheader}
-{END Field_Of_Study_fieldheadercolumn}
+	{END Institution_Name_fieldheader}
+{END Institution_Name_fieldheadercolumn}
 
 	
 	</th>
@@ -6311,21 +6324,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field23}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Department_class}	"
+		 r-ori-vert		 {$Field_Of_Study_class}	"
 
-			data-field="Department"
+			data-field="Field_Of_Study"
 	
 	data-cellId="grid_headcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Department_fieldheadercolumn}
-	{BEGIN Department_fieldheader}
-	<SPAN {$Department_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field97" {$item_simple_grid_field97} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Department" data-fieldname="Department">
-	{$label candidates Department }	{$arrow_icon_Department}
+		{BEGIN Field_Of_Study_fieldheadercolumn}
+	{BEGIN Field_Of_Study_fieldheader}
+	<SPAN {$Field_Of_Study_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field95" {$item_simple_grid_field95} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Field_Of_Study" data-fieldname="Field_Of_Study">
+	{$label candidates Field_Of_Study }	{$arrow_icon_Field_Of_Study}
 	</SPAN>
-	{END Department_fieldheader}
-{END Department_fieldheadercolumn}
+	{END Field_Of_Study_fieldheader}
+{END Field_Of_Study_fieldheadercolumn}
 
 	
 	</th>
@@ -6336,21 +6349,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field24}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Minor_class}	"
+		 r-ori-vert		 {$Department_class}	"
 
-			data-field="Minor"
+			data-field="Department"
 	
 	data-cellId="grid_headcell_field24" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Minor_fieldheadercolumn}
-	{BEGIN Minor_fieldheader}
-	<SPAN {$Minor_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field98" {$item_simple_grid_field98} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Minor" data-fieldname="Minor">
-	{$label candidates Minor }	{$arrow_icon_Minor}
+		{BEGIN Department_fieldheadercolumn}
+	{BEGIN Department_fieldheader}
+	<SPAN {$Department_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field96" {$item_simple_grid_field96} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Department" data-fieldname="Department">
+	{$label candidates Department }	{$arrow_icon_Department}
 	</SPAN>
-	{END Minor_fieldheader}
-{END Minor_fieldheadercolumn}
+	{END Department_fieldheader}
+{END Department_fieldheadercolumn}
 
 	
 	</th>
@@ -6361,21 +6374,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field25}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Major_class}	"
+		 r-ori-vert		 {$Minor_class}	"
 
-			data-field="Major"
+			data-field="Minor"
 	
 	data-cellId="grid_headcell_field25" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Major_fieldheadercolumn}
-	{BEGIN Major_fieldheader}
-	<SPAN {$Major_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field99" {$item_simple_grid_field99} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Major" data-fieldname="Major">
-	{$label candidates Major }	{$arrow_icon_Major}
+		{BEGIN Minor_fieldheadercolumn}
+	{BEGIN Minor_fieldheader}
+	<SPAN {$Minor_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field97" {$item_simple_grid_field97} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Minor" data-fieldname="Minor">
+	{$label candidates Minor }	{$arrow_icon_Minor}
 	</SPAN>
-	{END Major_fieldheader}
-{END Major_fieldheadercolumn}
+	{END Minor_fieldheader}
+{END Minor_fieldheadercolumn}
 
 	
 	</th>
@@ -6386,21 +6399,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field26}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Enrollement_Type_class}	"
+		 r-ori-vert		 {$Major_class}	"
 
-			data-field="Enrollement_Type"
+			data-field="Major"
 	
 	data-cellId="grid_headcell_field26" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Enrollement_Type_fieldheadercolumn}
-	{BEGIN Enrollement_Type_fieldheader}
-	<SPAN {$Enrollement_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field100" {$item_simple_grid_field100} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Enrollement_Type" data-fieldname="Enrollement_Type">
-	{$label candidates Enrollement_Type }	{$arrow_icon_Enrollement_Type}
+		{BEGIN Major_fieldheadercolumn}
+	{BEGIN Major_fieldheader}
+	<SPAN {$Major_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field98" {$item_simple_grid_field98} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Major" data-fieldname="Major">
+	{$label candidates Major }	{$arrow_icon_Major}
 	</SPAN>
-	{END Enrollement_Type_fieldheader}
-{END Enrollement_Type_fieldheadercolumn}
+	{END Major_fieldheader}
+{END Major_fieldheadercolumn}
 
 	
 	</th>
@@ -6411,21 +6424,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field27}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Skills_class}	"
+		 r-ori-vert		 {$Enrollement_Type_class}	"
 
-			data-field="Skills"
+			data-field="Enrollement_Type"
 	
 	data-cellId="grid_headcell_field27" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Skills_fieldheadercolumn}
-	{BEGIN Skills_fieldheader}
-	<SPAN {$Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field101" {$item_simple_grid_field101} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Skills" data-fieldname="Skills">
-	{$label candidates Skills }	{$arrow_icon_Skills}
+		{BEGIN Enrollement_Type_fieldheadercolumn}
+	{BEGIN Enrollement_Type_fieldheader}
+	<SPAN {$Enrollement_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field99" {$item_simple_grid_field99} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Enrollement_Type" data-fieldname="Enrollement_Type">
+	{$label candidates Enrollement_Type }	{$arrow_icon_Enrollement_Type}
 	</SPAN>
-	{END Skills_fieldheader}
-{END Skills_fieldheadercolumn}
+	{END Enrollement_Type_fieldheader}
+{END Enrollement_Type_fieldheadercolumn}
 
 	
 	</th>
@@ -6436,21 +6449,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field28}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Languages_class}	"
+		 r-ori-vert		 {$Skills_class}	"
 
-			data-field="Languages"
+			data-field="Skills"
 	
 	data-cellId="grid_headcell_field28" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Languages_fieldheadercolumn}
-	{BEGIN Languages_fieldheader}
-	<SPAN {$Languages_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field102" {$item_simple_grid_field102} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Languages" data-fieldname="Languages">
-	{$label candidates Languages }	{$arrow_icon_Languages}
+		{BEGIN Skills_fieldheadercolumn}
+	{BEGIN Skills_fieldheader}
+	<SPAN {$Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field100" {$item_simple_grid_field100} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Skills" data-fieldname="Skills">
+	{$label candidates Skills }	{$arrow_icon_Skills}
 	</SPAN>
-	{END Languages_fieldheader}
-{END Languages_fieldheadercolumn}
+	{END Skills_fieldheader}
+{END Skills_fieldheadercolumn}
 
 	
 	</th>
@@ -6461,21 +6474,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field29}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$English_Proficiency_Level_class}	"
+		 r-ori-vert		 {$Languages_class}	"
 
-			data-field="English_Proficiency_Level"
+			data-field="Languages"
 	
 	data-cellId="grid_headcell_field29" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN English_Proficiency_Level_fieldheadercolumn}
-	{BEGIN English_Proficiency_Level_fieldheader}
-	<SPAN {$English_Proficiency_Level_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field103" {$item_simple_grid_field103} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="English_Proficiency_Level" data-fieldname="English_Proficiency_Level">
-	{$label candidates English_Proficiency_Level }	{$arrow_icon_English_Proficiency_Level}
+		{BEGIN Languages_fieldheadercolumn}
+	{BEGIN Languages_fieldheader}
+	<SPAN {$Languages_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field101" {$item_simple_grid_field101} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Languages" data-fieldname="Languages">
+	{$label candidates Languages }	{$arrow_icon_Languages}
 	</SPAN>
-	{END English_Proficiency_Level_fieldheader}
-{END English_Proficiency_Level_fieldheadercolumn}
+	{END Languages_fieldheader}
+{END Languages_fieldheadercolumn}
 
 	
 	</th>
@@ -6486,21 +6499,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field30}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Industry_Specific_Skills_class}	"
+		 r-ori-vert		 {$English_Proficiency_Level_class}	"
 
-			data-field="Industry_Specific_Skills"
+			data-field="English_Proficiency_Level"
 	
 	data-cellId="grid_headcell_field30" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Industry_Specific_Skills_fieldheadercolumn}
-	{BEGIN Industry_Specific_Skills_fieldheader}
-	<SPAN {$Industry_Specific_Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field104" {$item_simple_grid_field104} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Industry_Specific_Skills" data-fieldname="Industry_Specific_Skills">
-	{$label candidates Industry_Specific_Skills }	{$arrow_icon_Industry_Specific_Skills}
+		{BEGIN English_Proficiency_Level_fieldheadercolumn}
+	{BEGIN English_Proficiency_Level_fieldheader}
+	<SPAN {$English_Proficiency_Level_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field102" {$item_simple_grid_field102} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="English_Proficiency_Level" data-fieldname="English_Proficiency_Level">
+	{$label candidates English_Proficiency_Level }	{$arrow_icon_English_Proficiency_Level}
 	</SPAN>
-	{END Industry_Specific_Skills_fieldheader}
-{END Industry_Specific_Skills_fieldheadercolumn}
+	{END English_Proficiency_Level_fieldheader}
+{END English_Proficiency_Level_fieldheadercolumn}
 
 	
 	</th>
@@ -6511,21 +6524,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field31}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IT_Related_Skills_class}	"
+		 r-ori-vert		 {$Industry_Specific_Skills_class}	"
 
-			data-field="IT_Related_Skills"
+			data-field="Industry_Specific_Skills"
 	
 	data-cellId="grid_headcell_field31" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IT_Related_Skills_fieldheadercolumn}
-	{BEGIN IT_Related_Skills_fieldheader}
-	<SPAN {$IT_Related_Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field105" {$item_simple_grid_field105} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IT_Related_Skills" data-fieldname="IT_Related_Skills">
-	{$label candidates IT_Related_Skills }	{$arrow_icon_IT_Related_Skills}
+		{BEGIN Industry_Specific_Skills_fieldheadercolumn}
+	{BEGIN Industry_Specific_Skills_fieldheader}
+	<SPAN {$Industry_Specific_Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field103" {$item_simple_grid_field103} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Industry_Specific_Skills" data-fieldname="Industry_Specific_Skills">
+	{$label candidates Industry_Specific_Skills }	{$arrow_icon_Industry_Specific_Skills}
 	</SPAN>
-	{END IT_Related_Skills_fieldheader}
-{END IT_Related_Skills_fieldheadercolumn}
+	{END Industry_Specific_Skills_fieldheader}
+{END Industry_Specific_Skills_fieldheadercolumn}
 
 	
 	</th>
@@ -6536,21 +6549,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field32}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Certifications_class}	"
+		 r-ori-vert		 {$IT_Related_Skills_class}	"
 
-			data-field="Certifications"
+			data-field="IT_Related_Skills"
 	
 	data-cellId="grid_headcell_field32" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Certifications_fieldheadercolumn}
-	{BEGIN Certifications_fieldheader}
-	<SPAN {$Certifications_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field106" {$item_simple_grid_field106} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Certifications" data-fieldname="Certifications">
-	{$label candidates Certifications }	{$arrow_icon_Certifications}
+		{BEGIN IT_Related_Skills_fieldheadercolumn}
+	{BEGIN IT_Related_Skills_fieldheader}
+	<SPAN {$IT_Related_Skills_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field104" {$item_simple_grid_field104} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IT_Related_Skills" data-fieldname="IT_Related_Skills">
+	{$label candidates IT_Related_Skills }	{$arrow_icon_IT_Related_Skills}
 	</SPAN>
-	{END Certifications_fieldheader}
-{END Certifications_fieldheadercolumn}
+	{END IT_Related_Skills_fieldheader}
+{END IT_Related_Skills_fieldheadercolumn}
 
 	
 	</th>
@@ -6561,21 +6574,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field33}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Year_of_graduation_class}	"
+		 r-ori-vert		 {$Certifications_class}	"
 
-			data-field="Year_of_graduation"
+			data-field="Certifications"
 	
 	data-cellId="grid_headcell_field33" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Year_of_graduation_fieldheadercolumn}
-	{BEGIN Year_of_graduation_fieldheader}
-	<SPAN {$Year_of_graduation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field107" {$item_simple_grid_field107} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Year_of_graduation" data-fieldname="Year_of_graduation">
-	{$label candidates Year_of_graduation }	{$arrow_icon_Year_of_graduation}
+		{BEGIN Certifications_fieldheadercolumn}
+	{BEGIN Certifications_fieldheader}
+	<SPAN {$Certifications_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field105" {$item_simple_grid_field105} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Certifications" data-fieldname="Certifications">
+	{$label candidates Certifications }	{$arrow_icon_Certifications}
 	</SPAN>
-	{END Year_of_graduation_fieldheader}
-{END Year_of_graduation_fieldheadercolumn}
+	{END Certifications_fieldheader}
+{END Certifications_fieldheadercolumn}
 
 	
 	</th>
@@ -6586,21 +6599,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field34}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Work_Experience_class}	"
+		 r-ori-vert		 {$Year_of_graduation_class}	"
 
-			data-field="Work_Experience"
+			data-field="Year_of_graduation"
 	
 	data-cellId="grid_headcell_field34" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Work_Experience_fieldheadercolumn}
-	{BEGIN Work_Experience_fieldheader}
-	<SPAN {$Work_Experience_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field108" {$item_simple_grid_field108} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Work_Experience" data-fieldname="Work_Experience">
-	{$label candidates Work_Experience }	{$arrow_icon_Work_Experience}
+		{BEGIN Year_of_graduation_fieldheadercolumn}
+	{BEGIN Year_of_graduation_fieldheader}
+	<SPAN {$Year_of_graduation_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field106" {$item_simple_grid_field106} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Year_of_graduation" data-fieldname="Year_of_graduation">
+	{$label candidates Year_of_graduation }	{$arrow_icon_Year_of_graduation}
 	</SPAN>
-	{END Work_Experience_fieldheader}
-{END Work_Experience_fieldheadercolumn}
+	{END Year_of_graduation_fieldheader}
+{END Year_of_graduation_fieldheadercolumn}
 
 	
 	</th>
@@ -6611,21 +6624,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field35}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Intervention_class}	"
+		 r-ori-vert		 {$Work_Experience_class}	"
 
-			data-field="Intervention"
+			data-field="Work_Experience"
 	
 	data-cellId="grid_headcell_field35" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Intervention_fieldheadercolumn}
-	{BEGIN Intervention_fieldheader}
-	<SPAN {$Intervention_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field109" {$item_simple_grid_field109} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Intervention" data-fieldname="Intervention">
-	{$label candidates Intervention }	{$arrow_icon_Intervention}
+		{BEGIN Work_Experience_fieldheadercolumn}
+	{BEGIN Work_Experience_fieldheader}
+	<SPAN {$Work_Experience_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field107" {$item_simple_grid_field107} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Work_Experience" data-fieldname="Work_Experience">
+	{$label candidates Work_Experience }	{$arrow_icon_Work_Experience}
 	</SPAN>
-	{END Intervention_fieldheader}
-{END Intervention_fieldheadercolumn}
+	{END Work_Experience_fieldheader}
+{END Work_Experience_fieldheadercolumn}
 
 	
 	</th>
@@ -6636,21 +6649,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field36}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Joined_Dereja_Services_class}	"
+		 r-ori-vert		 {$Intervention_class}	"
 
-			data-field="Joined_Dereja_Services"
+			data-field="Intervention"
 	
 	data-cellId="grid_headcell_field36" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Joined_Dereja_Services_fieldheadercolumn}
-	{BEGIN Joined_Dereja_Services_fieldheader}
-	<SPAN {$Joined_Dereja_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field110" {$item_simple_grid_field110} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Joined_Dereja_Services" data-fieldname="Joined_Dereja_Services">
-	{$label candidates Joined_Dereja_Services }	{$arrow_icon_Joined_Dereja_Services}
+		{BEGIN Intervention_fieldheadercolumn}
+	{BEGIN Intervention_fieldheader}
+	<SPAN {$Intervention_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field108" {$item_simple_grid_field108} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Intervention" data-fieldname="Intervention">
+	{$label candidates Intervention }	{$arrow_icon_Intervention}
 	</SPAN>
-	{END Joined_Dereja_Services_fieldheader}
-{END Joined_Dereja_Services_fieldheadercolumn}
+	{END Intervention_fieldheader}
+{END Intervention_fieldheadercolumn}
 
 	
 	</th>
@@ -6661,21 +6674,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field37}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Services_class}	"
+		 r-ori-vert		 {$Joined_Dereja_Services_class}	"
 
-			data-field="Dereja_Services"
+			data-field="Joined_Dereja_Services"
 	
 	data-cellId="grid_headcell_field37" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Dereja_Services_fieldheadercolumn}
-	{BEGIN Dereja_Services_fieldheader}
-	<SPAN {$Dereja_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field111" {$item_simple_grid_field111} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Services" data-fieldname="Dereja_Services">
-	{$label candidates Dereja_Services }	{$arrow_icon_Dereja_Services}
+		{BEGIN Joined_Dereja_Services_fieldheadercolumn}
+	{BEGIN Joined_Dereja_Services_fieldheader}
+	<SPAN {$Joined_Dereja_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field109" {$item_simple_grid_field109} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Joined_Dereja_Services" data-fieldname="Joined_Dereja_Services">
+	{$label candidates Joined_Dereja_Services }	{$arrow_icon_Joined_Dereja_Services}
 	</SPAN>
-	{END Dereja_Services_fieldheader}
-{END Dereja_Services_fieldheadercolumn}
+	{END Joined_Dereja_Services_fieldheader}
+{END Joined_Dereja_Services_fieldheadercolumn}
 
 	
 	</th>
@@ -6686,21 +6699,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field38}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Program_In_Dereja_class}	"
+		 r-ori-vert		 {$Dereja_Services_class}	"
 
-			data-field="Program_In_Dereja"
+			data-field="Dereja_Services"
 	
 	data-cellId="grid_headcell_field38" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Program_In_Dereja_fieldheadercolumn}
-	{BEGIN Program_In_Dereja_fieldheader}
-	<SPAN {$Program_In_Dereja_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field112" {$item_simple_grid_field112} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Program_In_Dereja" data-fieldname="Program_In_Dereja">
-	{$label candidates Program_In_Dereja }	{$arrow_icon_Program_In_Dereja}
+		{BEGIN Dereja_Services_fieldheadercolumn}
+	{BEGIN Dereja_Services_fieldheader}
+	<SPAN {$Dereja_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field110" {$item_simple_grid_field110} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Services" data-fieldname="Dereja_Services">
+	{$label candidates Dereja_Services }	{$arrow_icon_Dereja_Services}
 	</SPAN>
-	{END Program_In_Dereja_fieldheader}
-{END Program_In_Dereja_fieldheadercolumn}
+	{END Dereja_Services_fieldheader}
+{END Dereja_Services_fieldheadercolumn}
 
 	
 	</th>
@@ -6711,21 +6724,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field39}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Training_Services_class}	"
+		 r-ori-vert		 {$Program_In_Dereja_class}	"
 
-			data-field="Dereja_Training_Services"
+			data-field="Program_In_Dereja"
 	
 	data-cellId="grid_headcell_field39" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Dereja_Training_Services_fieldheadercolumn}
-	{BEGIN Dereja_Training_Services_fieldheader}
-	<SPAN {$Dereja_Training_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field113" {$item_simple_grid_field113} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Training_Services" data-fieldname="Dereja_Training_Services">
-	{$label candidates Dereja_Training_Services }	{$arrow_icon_Dereja_Training_Services}
+		{BEGIN Program_In_Dereja_fieldheadercolumn}
+	{BEGIN Program_In_Dereja_fieldheader}
+	<SPAN {$Program_In_Dereja_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field111" {$item_simple_grid_field111} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Program_In_Dereja" data-fieldname="Program_In_Dereja">
+	{$label candidates Program_In_Dereja }	{$arrow_icon_Program_In_Dereja}
 	</SPAN>
-	{END Dereja_Training_Services_fieldheader}
-{END Dereja_Training_Services_fieldheadercolumn}
+	{END Program_In_Dereja_fieldheader}
+{END Program_In_Dereja_fieldheadercolumn}
 
 	
 	</th>
@@ -6736,21 +6749,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field40}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Training_Start_Date_class}	"
+		 r-ori-vert		 {$Dereja_Training_Services_class}	"
 
-			data-field="Training_Start_Date"
+			data-field="Dereja_Training_Services"
 	
 	data-cellId="grid_headcell_field40" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Training_Start_Date_fieldheadercolumn}
-	{BEGIN Training_Start_Date_fieldheader}
-	<SPAN {$Training_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field114" {$item_simple_grid_field114} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_Start_Date" data-fieldname="Training_Start_Date">
-	{$label candidates Training_Start_Date }	{$arrow_icon_Training_Start_Date}
+		{BEGIN Dereja_Training_Services_fieldheadercolumn}
+	{BEGIN Dereja_Training_Services_fieldheader}
+	<SPAN {$Dereja_Training_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field112" {$item_simple_grid_field112} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Training_Services" data-fieldname="Dereja_Training_Services">
+	{$label candidates Dereja_Training_Services }	{$arrow_icon_Dereja_Training_Services}
 	</SPAN>
-	{END Training_Start_Date_fieldheader}
-{END Training_Start_Date_fieldheadercolumn}
+	{END Dereja_Training_Services_fieldheader}
+{END Dereja_Training_Services_fieldheadercolumn}
 
 	
 	</th>
@@ -6761,21 +6774,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field41}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Training_End_Date_class}	"
+		 r-ori-vert		 {$Training_Start_Date_class}	"
 
-			data-field="Training_End_Date"
+			data-field="Training_Start_Date"
 	
 	data-cellId="grid_headcell_field41" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Training_End_Date_fieldheadercolumn}
-	{BEGIN Training_End_Date_fieldheader}
-	<SPAN {$Training_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field115" {$item_simple_grid_field115} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_End_Date" data-fieldname="Training_End_Date">
-	{$label candidates Training_End_Date }	{$arrow_icon_Training_End_Date}
+		{BEGIN Training_Start_Date_fieldheadercolumn}
+	{BEGIN Training_Start_Date_fieldheader}
+	<SPAN {$Training_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field113" {$item_simple_grid_field113} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_Start_Date" data-fieldname="Training_Start_Date">
+	{$label candidates Training_Start_Date }	{$arrow_icon_Training_Start_Date}
 	</SPAN>
-	{END Training_End_Date_fieldheader}
-{END Training_End_Date_fieldheadercolumn}
+	{END Training_Start_Date_fieldheader}
+{END Training_Start_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -6786,21 +6799,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field42}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Event_Services_class}	"
+		 r-ori-vert		 {$Training_End_Date_class}	"
 
-			data-field="Dereja_Event_Services"
+			data-field="Training_End_Date"
 	
 	data-cellId="grid_headcell_field42" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Dereja_Event_Services_fieldheadercolumn}
-	{BEGIN Dereja_Event_Services_fieldheader}
-	<SPAN {$Dereja_Event_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field116" {$item_simple_grid_field116} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Event_Services" data-fieldname="Dereja_Event_Services">
-	{$label candidates Dereja_Event_Services }	{$arrow_icon_Dereja_Event_Services}
+		{BEGIN Training_End_Date_fieldheadercolumn}
+	{BEGIN Training_End_Date_fieldheader}
+	<SPAN {$Training_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field114" {$item_simple_grid_field114} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Training_End_Date" data-fieldname="Training_End_Date">
+	{$label candidates Training_End_Date }	{$arrow_icon_Training_End_Date}
 	</SPAN>
-	{END Dereja_Event_Services_fieldheader}
-{END Dereja_Event_Services_fieldheadercolumn}
+	{END Training_End_Date_fieldheader}
+{END Training_End_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -6811,21 +6824,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field43}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Start_Date_class}	"
+		 r-ori-vert		 {$Dereja_Event_Services_class}	"
 
-			data-field="Event_Start_Date"
+			data-field="Dereja_Event_Services"
 	
 	data-cellId="grid_headcell_field43" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_Start_Date_fieldheadercolumn}
-	{BEGIN Event_Start_Date_fieldheader}
-	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field117" {$item_simple_grid_field117} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
-	{$label candidates Event_Start_Date }	{$arrow_icon_Event_Start_Date}
+		{BEGIN Dereja_Event_Services_fieldheadercolumn}
+	{BEGIN Dereja_Event_Services_fieldheader}
+	<SPAN {$Dereja_Event_Services_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field115" {$item_simple_grid_field115} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Event_Services" data-fieldname="Dereja_Event_Services">
+	{$label candidates Dereja_Event_Services }	{$arrow_icon_Dereja_Event_Services}
 	</SPAN>
-	{END Event_Start_Date_fieldheader}
-{END Event_Start_Date_fieldheadercolumn}
+	{END Dereja_Event_Services_fieldheader}
+{END Dereja_Event_Services_fieldheadercolumn}
 
 	
 	</th>
@@ -6836,21 +6849,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field44}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_End_Date_class}	"
+		 r-ori-vert		 {$Event_Start_Date_class}	"
 
-			data-field="Event_End_Date"
+			data-field="Event_Start_Date"
 	
 	data-cellId="grid_headcell_field44" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_End_Date_fieldheadercolumn}
-	{BEGIN Event_End_Date_fieldheader}
-	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field118" {$item_simple_grid_field118} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
-	{$label candidates Event_End_Date }	{$arrow_icon_Event_End_Date}
+		{BEGIN Event_Start_Date_fieldheadercolumn}
+	{BEGIN Event_Start_Date_fieldheader}
+	<SPAN {$Event_Start_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field116" {$item_simple_grid_field116} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Start_Date" data-fieldname="Event_Start_Date">
+	{$label candidates Event_Start_Date }	{$arrow_icon_Event_Start_Date}
 	</SPAN>
-	{END Event_End_Date_fieldheader}
-{END Event_End_Date_fieldheadercolumn}
+	{END Event_Start_Date_fieldheader}
+{END Event_Start_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -6861,21 +6874,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field45}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Participant_Type_class}	"
+		 r-ori-vert		 {$Event_End_Date_class}	"
 
-			data-field="Event_Participant_Type"
+			data-field="Event_End_Date"
 	
 	data-cellId="grid_headcell_field45" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Event_Participant_Type_fieldheadercolumn}
-	{BEGIN Event_Participant_Type_fieldheader}
-	<SPAN {$Event_Participant_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field119" {$item_simple_grid_field119} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Participant_Type" data-fieldname="Event_Participant_Type">
-	{$label candidates Event_Participant_Type }	{$arrow_icon_Event_Participant_Type}
+		{BEGIN Event_End_Date_fieldheadercolumn}
+	{BEGIN Event_End_Date_fieldheader}
+	<SPAN {$Event_End_Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field117" {$item_simple_grid_field117} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_End_Date" data-fieldname="Event_End_Date">
+	{$label candidates Event_End_Date }	{$arrow_icon_Event_End_Date}
 	</SPAN>
-	{END Event_Participant_Type_fieldheader}
-{END Event_Participant_Type_fieldheadercolumn}
+	{END Event_End_Date_fieldheader}
+{END Event_End_Date_fieldheadercolumn}
 
 	
 	</th>
@@ -6886,21 +6899,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field46}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_web_profile_completion_class}	"
+		 r-ori-vert		 {$Event_Participant_Type_class}	"
 
-			data-field="Dereja_web_profile_completion"
+			data-field="Event_Participant_Type"
 	
 	data-cellId="grid_headcell_field46" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Dereja_web_profile_completion_fieldheadercolumn}
-	{BEGIN Dereja_web_profile_completion_fieldheader}
-	<SPAN {$Dereja_web_profile_completion_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field120" {$item_simple_grid_field120} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_web_profile_completion" data-fieldname="Dereja_web_profile_completion">
-	{$label candidates Dereja_web_profile_completion }	{$arrow_icon_Dereja_web_profile_completion}
+		{BEGIN Event_Participant_Type_fieldheadercolumn}
+	{BEGIN Event_Participant_Type_fieldheader}
+	<SPAN {$Event_Participant_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field118" {$item_simple_grid_field118} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Event_Participant_Type" data-fieldname="Event_Participant_Type">
+	{$label candidates Event_Participant_Type }	{$arrow_icon_Event_Participant_Type}
 	</SPAN>
-	{END Dereja_web_profile_completion_fieldheader}
-{END Dereja_web_profile_completion_fieldheadercolumn}
+	{END Event_Participant_Type_fieldheader}
+{END Event_Participant_Type_fieldheadercolumn}
 
 	
 	</th>
@@ -6911,21 +6924,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field47}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Information_Source_class}	"
+		 r-ori-vert		 {$Dereja_web_profile_completion_class}	"
 
-			data-field="Dereja_Information_Source"
+			data-field="Dereja_web_profile_completion"
 	
 	data-cellId="grid_headcell_field47" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Dereja_Information_Source_fieldheadercolumn}
-	{BEGIN Dereja_Information_Source_fieldheader}
-	<SPAN {$Dereja_Information_Source_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field121" {$item_simple_grid_field121} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Information_Source" data-fieldname="Dereja_Information_Source">
-	{$label candidates Dereja_Information_Source }	{$arrow_icon_Dereja_Information_Source}
+		{BEGIN Dereja_web_profile_completion_fieldheadercolumn}
+	{BEGIN Dereja_web_profile_completion_fieldheader}
+	<SPAN {$Dereja_web_profile_completion_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field119" {$item_simple_grid_field119} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_web_profile_completion" data-fieldname="Dereja_web_profile_completion">
+	{$label candidates Dereja_web_profile_completion }	{$arrow_icon_Dereja_web_profile_completion}
 	</SPAN>
-	{END Dereja_Information_Source_fieldheader}
-{END Dereja_Information_Source_fieldheadercolumn}
+	{END Dereja_web_profile_completion_fieldheader}
+{END Dereja_web_profile_completion_fieldheadercolumn}
 
 	
 	</th>
@@ -6936,21 +6949,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field48}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Status_class}	"
+		 r-ori-vert		 {$Dereja_Information_Source_class}	"
 
-			data-field="Disability_Status"
+			data-field="Dereja_Information_Source"
 	
 	data-cellId="grid_headcell_field48" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Status_fieldheadercolumn}
-	{BEGIN Disability_Status_fieldheader}
-	<SPAN {$Disability_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field122" {$item_simple_grid_field122} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status">
-	{$label candidates Disability_Status }	{$arrow_icon_Disability_Status}
+		{BEGIN Dereja_Information_Source_fieldheadercolumn}
+	{BEGIN Dereja_Information_Source_fieldheader}
+	<SPAN {$Dereja_Information_Source_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field120" {$item_simple_grid_field120} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Dereja_Information_Source" data-fieldname="Dereja_Information_Source">
+	{$label candidates Dereja_Information_Source }	{$arrow_icon_Dereja_Information_Source}
 	</SPAN>
-	{END Disability_Status_fieldheader}
-{END Disability_Status_fieldheadercolumn}
+	{END Dereja_Information_Source_fieldheader}
+{END Dereja_Information_Source_fieldheadercolumn}
 
 	
 	</th>
@@ -6961,21 +6974,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field49}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_class}	"
+		 r-ori-vert		 {$Disability_Status_class}	"
 
-			data-field="Disability_Type"
+			data-field="Disability_Status"
 	
 	data-cellId="grid_headcell_field49" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Type_fieldheadercolumn}
-	{BEGIN Disability_Type_fieldheader}
-	<SPAN {$Disability_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field123" {$item_simple_grid_field123} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type">
-	{$label candidates Disability_Type }	{$arrow_icon_Disability_Type}
+		{BEGIN Disability_Status_fieldheadercolumn}
+	{BEGIN Disability_Status_fieldheader}
+	<SPAN {$Disability_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field121" {$item_simple_grid_field121} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Status" data-fieldname="Disability_Status">
+	{$label candidates Disability_Status }	{$arrow_icon_Disability_Status}
 	</SPAN>
-	{END Disability_Type_fieldheader}
-{END Disability_Type_fieldheadercolumn}
+	{END Disability_Status_fieldheader}
+{END Disability_Status_fieldheadercolumn}
 
 	
 	</th>
@@ -6986,21 +6999,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field50}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_Other_class}	"
+		 r-ori-vert		 {$Disability_Type_class}	"
 
-			data-field="Disability_Type_Other"
+			data-field="Disability_Type"
 	
 	data-cellId="grid_headcell_field50" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Disability_Type_Other_fieldheadercolumn}
-	{BEGIN Disability_Type_Other_fieldheader}
-	<SPAN {$Disability_Type_Other_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field124" {$item_simple_grid_field124} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other">
-	{$label candidates Disability_Type_Other }	{$arrow_icon_Disability_Type_Other}
+		{BEGIN Disability_Type_fieldheadercolumn}
+	{BEGIN Disability_Type_fieldheader}
+	<SPAN {$Disability_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field122" {$item_simple_grid_field122} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type" data-fieldname="Disability_Type">
+	{$label candidates Disability_Type }	{$arrow_icon_Disability_Type}
 	</SPAN>
-	{END Disability_Type_Other_fieldheader}
-{END Disability_Type_Other_fieldheadercolumn}
+	{END Disability_Type_fieldheader}
+{END Disability_Type_fieldheadercolumn}
 
 	
 	</th>
@@ -7011,21 +7024,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field51}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$GPA_class}	"
+		 r-ori-vert		 {$Disability_Type_Other_class}	"
 
-			data-field="GPA"
+			data-field="Disability_Type_Other"
 	
 	data-cellId="grid_headcell_field51" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN GPA_fieldheadercolumn}
-	{BEGIN GPA_fieldheader}
-	<SPAN {$GPA_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field125" {$item_simple_grid_field125} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="GPA" data-fieldname="GPA">
-	{$label candidates GPA }	{$arrow_icon_GPA}
+		{BEGIN Disability_Type_Other_fieldheadercolumn}
+	{BEGIN Disability_Type_Other_fieldheader}
+	<SPAN {$Disability_Type_Other_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field123" {$item_simple_grid_field123} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Disability_Type_Other" data-fieldname="Disability_Type_Other">
+	{$label candidates Disability_Type_Other }	{$arrow_icon_Disability_Type_Other}
 	</SPAN>
-	{END GPA_fieldheader}
-{END GPA_fieldheadercolumn}
+	{END Disability_Type_Other_fieldheader}
+{END Disability_Type_Other_fieldheadercolumn}
 
 	
 	</th>
@@ -7036,21 +7049,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field52}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Status_class}	"
+		 r-ori-vert		 {$GPA_class}	"
 
-			data-field="Employment_Status"
+			data-field="GPA"
 	
 	data-cellId="grid_headcell_field52" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Employment_Status_fieldheadercolumn}
-	{BEGIN Employment_Status_fieldheader}
-	<SPAN {$Employment_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field126" {$item_simple_grid_field126} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Status" data-fieldname="Employment_Status">
-	{$label candidates Employment_Status }	{$arrow_icon_Employment_Status}
+		{BEGIN GPA_fieldheadercolumn}
+	{BEGIN GPA_fieldheader}
+	<SPAN {$GPA_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field124" {$item_simple_grid_field124} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="GPA" data-fieldname="GPA">
+	{$label candidates GPA }	{$arrow_icon_GPA}
 	</SPAN>
-	{END Employment_Status_fieldheader}
-{END Employment_Status_fieldheadercolumn}
+	{END GPA_fieldheader}
+{END GPA_fieldheadercolumn}
 
 	
 	</th>
@@ -7061,21 +7074,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field53}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Company_class}	"
+		 r-ori-vert		 {$Employment_Status_class}	"
 
-			data-field="Employment_Company"
+			data-field="Employment_Status"
 	
 	data-cellId="grid_headcell_field53" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Employment_Company_fieldheadercolumn}
-	{BEGIN Employment_Company_fieldheader}
-	<SPAN {$Employment_Company_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field127" {$item_simple_grid_field127} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Company" data-fieldname="Employment_Company">
-	{$label candidates Employment_Company }	{$arrow_icon_Employment_Company}
+		{BEGIN Employment_Status_fieldheadercolumn}
+	{BEGIN Employment_Status_fieldheader}
+	<SPAN {$Employment_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field125" {$item_simple_grid_field125} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Status" data-fieldname="Employment_Status">
+	{$label candidates Employment_Status }	{$arrow_icon_Employment_Status}
 	</SPAN>
-	{END Employment_Company_fieldheader}
-{END Employment_Company_fieldheadercolumn}
+	{END Employment_Status_fieldheader}
+{END Employment_Status_fieldheadercolumn}
 
 	
 	</th>
@@ -7086,21 +7099,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field54}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Position_class}	"
+		 r-ori-vert		 {$Employment_Company_class}	"
 
-			data-field="Employment_Position"
+			data-field="Employment_Company"
 	
 	data-cellId="grid_headcell_field54" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Employment_Position_fieldheadercolumn}
-	{BEGIN Employment_Position_fieldheader}
-	<SPAN {$Employment_Position_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field128" {$item_simple_grid_field128} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Position" data-fieldname="Employment_Position">
-	{$label candidates Employment_Position }	{$arrow_icon_Employment_Position}
+		{BEGIN Employment_Company_fieldheadercolumn}
+	{BEGIN Employment_Company_fieldheader}
+	<SPAN {$Employment_Company_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field126" {$item_simple_grid_field126} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Company" data-fieldname="Employment_Company">
+	{$label candidates Employment_Company }	{$arrow_icon_Employment_Company}
 	</SPAN>
-	{END Employment_Position_fieldheader}
-{END Employment_Position_fieldheadercolumn}
+	{END Employment_Company_fieldheader}
+{END Employment_Company_fieldheadercolumn}
 
 	
 	</th>
@@ -7111,21 +7124,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field55}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Campaign_class}	"
+		 r-ori-vert		 {$Employment_Position_class}	"
 
-			data-field="Campaign"
+			data-field="Employment_Position"
 	
 	data-cellId="grid_headcell_field55" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Campaign_fieldheadercolumn}
-	{BEGIN Campaign_fieldheader}
-	<SPAN {$Campaign_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field129" {$item_simple_grid_field129} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Campaign" data-fieldname="Campaign">
-	{$label candidates Campaign }	{$arrow_icon_Campaign}
+		{BEGIN Employment_Position_fieldheadercolumn}
+	{BEGIN Employment_Position_fieldheader}
+	<SPAN {$Employment_Position_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field127" {$item_simple_grid_field127} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employment_Position" data-fieldname="Employment_Position">
+	{$label candidates Employment_Position }	{$arrow_icon_Employment_Position}
 	</SPAN>
-	{END Campaign_fieldheader}
-{END Campaign_fieldheadercolumn}
+	{END Employment_Position_fieldheader}
+{END Employment_Position_fieldheadercolumn}
 
 	
 	</th>
@@ -7136,21 +7149,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field56}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Attend_Employability_Skill_class}	"
+		 r-ori-vert		 {$Campaign_class}	"
 
-			data-field="Attend_Employability_Skill"
+			data-field="Campaign"
 	
 	data-cellId="grid_headcell_field56" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Attend_Employability_Skill_fieldheadercolumn}
-	{BEGIN Attend_Employability_Skill_fieldheader}
-	<SPAN {$Attend_Employability_Skill_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field130" {$item_simple_grid_field130} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Attend_Employability_Skill" data-fieldname="Attend_Employability_Skill">
-	{$label candidates Attend_Employability_Skill }	{$arrow_icon_Attend_Employability_Skill}
+		{BEGIN Campaign_fieldheadercolumn}
+	{BEGIN Campaign_fieldheader}
+	<SPAN {$Campaign_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field128" {$item_simple_grid_field128} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Campaign" data-fieldname="Campaign">
+	{$label candidates Campaign }	{$arrow_icon_Campaign}
 	</SPAN>
-	{END Attend_Employability_Skill_fieldheader}
-{END Attend_Employability_Skill_fieldheadercolumn}
+	{END Campaign_fieldheader}
+{END Campaign_fieldheadercolumn}
 
 	
 	</th>
@@ -7161,21 +7174,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field57}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_enrolled_1st_Round_class}	"
+		 r-ori-vert		 {$Attend_Employability_Skill_class}	"
 
-			data-field="DAAP_enrolled_1st_Round"
+			data-field="Attend_Employability_Skill"
 	
 	data-cellId="grid_headcell_field57" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN DAAP_enrolled_1st_Round_fieldheadercolumn}
-	{BEGIN DAAP_enrolled_1st_Round_fieldheader}
-	<SPAN {$DAAP_enrolled_1st_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field131" {$item_simple_grid_field131} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_enrolled_1st_Round" data-fieldname="DAAP_enrolled_1st Round">
-	{$label candidates DAAP_enrolled_1st_Round }	{$arrow_icon_DAAP_enrolled_1st_Round}
+		{BEGIN Attend_Employability_Skill_fieldheadercolumn}
+	{BEGIN Attend_Employability_Skill_fieldheader}
+	<SPAN {$Attend_Employability_Skill_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field129" {$item_simple_grid_field129} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Attend_Employability_Skill" data-fieldname="Attend_Employability_Skill">
+	{$label candidates Attend_Employability_Skill }	{$arrow_icon_Attend_Employability_Skill}
 	</SPAN>
-	{END DAAP_enrolled_1st_Round_fieldheader}
-{END DAAP_enrolled_1st_Round_fieldheadercolumn}
+	{END Attend_Employability_Skill_fieldheader}
+{END Attend_Employability_Skill_fieldheadercolumn}
 
 	
 	</th>
@@ -7186,21 +7199,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field58}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_Completed_class}	"
+		 r-ori-vert		 {$DAAP_enrolled_1st_Round_class}	"
 
-			data-field="DAAP_Completed"
+			data-field="DAAP_enrolled_1st_Round"
 	
 	data-cellId="grid_headcell_field58" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN DAAP_Completed_fieldheadercolumn}
-	{BEGIN DAAP_Completed_fieldheader}
-	<SPAN {$DAAP_Completed_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field132" {$item_simple_grid_field132} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_Completed" data-fieldname="DAAP_Completed">
-	{$label candidates DAAP_Completed }	{$arrow_icon_DAAP_Completed}
+		{BEGIN DAAP_enrolled_1st_Round_fieldheadercolumn}
+	{BEGIN DAAP_enrolled_1st_Round_fieldheader}
+	<SPAN {$DAAP_enrolled_1st_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field130" {$item_simple_grid_field130} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_enrolled_1st_Round" data-fieldname="DAAP_enrolled_1st Round">
+	{$label candidates DAAP_enrolled_1st_Round }	{$arrow_icon_DAAP_enrolled_1st_Round}
 	</SPAN>
-	{END DAAP_Completed_fieldheader}
-{END DAAP_Completed_fieldheadercolumn}
+	{END DAAP_enrolled_1st_Round_fieldheader}
+{END DAAP_enrolled_1st_Round_fieldheadercolumn}
 
 	
 	</th>
@@ -7211,21 +7224,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field59}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_Completed_Courses_class}	"
+		 r-ori-vert		 {$DAAP_Completed_class}	"
 
-			data-field="DAAP_Completed_Courses"
+			data-field="DAAP_Completed"
 	
 	data-cellId="grid_headcell_field59" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN DAAP_Completed_Courses_fieldheadercolumn}
-	{BEGIN DAAP_Completed_Courses_fieldheader}
-	<SPAN {$DAAP_Completed_Courses_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field133" {$item_simple_grid_field133} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_Completed_Courses" data-fieldname="DAAP_Completed_Courses">
-	{$label candidates DAAP_Completed_Courses }	{$arrow_icon_DAAP_Completed_Courses}
+		{BEGIN DAAP_Completed_fieldheadercolumn}
+	{BEGIN DAAP_Completed_fieldheader}
+	<SPAN {$DAAP_Completed_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field131" {$item_simple_grid_field131} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_Completed" data-fieldname="DAAP_Completed">
+	{$label candidates DAAP_Completed }	{$arrow_icon_DAAP_Completed}
 	</SPAN>
-	{END DAAP_Completed_Courses_fieldheader}
-{END DAAP_Completed_Courses_fieldheadercolumn}
+	{END DAAP_Completed_fieldheader}
+{END DAAP_Completed_fieldheadercolumn}
 
 	
 	</th>
@@ -7236,21 +7249,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field60}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Job_Fair_Clinic_class}	"
+		 r-ori-vert		 {$DAAP_Completed_Courses_class}	"
 
-			data-field="Job_Fair_Clinic"
+			data-field="DAAP_Completed_Courses"
 	
 	data-cellId="grid_headcell_field60" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Job_Fair_Clinic_fieldheadercolumn}
-	{BEGIN Job_Fair_Clinic_fieldheader}
-	<SPAN {$Job_Fair_Clinic_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field134" {$item_simple_grid_field134} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Fair_Clinic" data-fieldname="Job_Fair_Clinic">
-	{$label candidates Job_Fair_Clinic }	{$arrow_icon_Job_Fair_Clinic}
+		{BEGIN DAAP_Completed_Courses_fieldheadercolumn}
+	{BEGIN DAAP_Completed_Courses_fieldheader}
+	<SPAN {$DAAP_Completed_Courses_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field132" {$item_simple_grid_field132} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_Completed_Courses" data-fieldname="DAAP_Completed_Courses">
+	{$label candidates DAAP_Completed_Courses }	{$arrow_icon_DAAP_Completed_Courses}
 	</SPAN>
-	{END Job_Fair_Clinic_fieldheader}
-{END Job_Fair_Clinic_fieldheadercolumn}
+	{END DAAP_Completed_Courses_fieldheader}
+{END DAAP_Completed_Courses_fieldheadercolumn}
 
 	
 	</th>
@@ -7261,21 +7274,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field61}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Job_Fair_class}	"
+		 r-ori-vert		 {$Job_Fair_Clinic_class}	"
 
-			data-field="Job_Fair"
+			data-field="Job_Fair_Clinic"
 	
 	data-cellId="grid_headcell_field61" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Job_Fair_fieldheadercolumn}
-	{BEGIN Job_Fair_fieldheader}
-	<SPAN {$Job_Fair_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field135" {$item_simple_grid_field135} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Fair" data-fieldname="Job_Fair">
-	{$label candidates Job_Fair }	{$arrow_icon_Job_Fair}
+		{BEGIN Job_Fair_Clinic_fieldheadercolumn}
+	{BEGIN Job_Fair_Clinic_fieldheader}
+	<SPAN {$Job_Fair_Clinic_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field133" {$item_simple_grid_field133} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Fair_Clinic" data-fieldname="Job_Fair_Clinic">
+	{$label candidates Job_Fair_Clinic }	{$arrow_icon_Job_Fair_Clinic}
 	</SPAN>
-	{END Job_Fair_fieldheader}
-{END Job_Fair_fieldheadercolumn}
+	{END Job_Fair_Clinic_fieldheader}
+{END Job_Fair_Clinic_fieldheadercolumn}
 
 	
 	</th>
@@ -7286,21 +7299,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field62}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Exit_Exam_Score_class}	"
+		 r-ori-vert		 {$Job_Fair_class}	"
 
-			data-field="Exit_Exam_Score"
+			data-field="Job_Fair"
 	
 	data-cellId="grid_headcell_field62" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Exit_Exam_Score_fieldheadercolumn}
-	{BEGIN Exit_Exam_Score_fieldheader}
-	<SPAN {$Exit_Exam_Score_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field136" {$item_simple_grid_field136} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Exit_Exam_Score" data-fieldname="Exit_Exam_Score">
-	{$label candidates Exit_Exam_Score }	{$arrow_icon_Exit_Exam_Score}
+		{BEGIN Job_Fair_fieldheadercolumn}
+	{BEGIN Job_Fair_fieldheader}
+	<SPAN {$Job_Fair_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field134" {$item_simple_grid_field134} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Job_Fair" data-fieldname="Job_Fair">
+	{$label candidates Job_Fair }	{$arrow_icon_Job_Fair}
 	</SPAN>
-	{END Exit_Exam_Score_fieldheader}
-{END Exit_Exam_Score_fieldheadercolumn}
+	{END Job_Fair_fieldheader}
+{END Job_Fair_fieldheadercolumn}
 
 	
 	</th>
@@ -7311,21 +7324,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field63}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Exit_Exam_Status_class}	"
+		 r-ori-vert		 {$Exit_Exam_Score_class}	"
 
-			data-field="Exit_Exam_Status"
+			data-field="Exit_Exam_Score"
 	
 	data-cellId="grid_headcell_field63" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Exit_Exam_Status_fieldheadercolumn}
-	{BEGIN Exit_Exam_Status_fieldheader}
-	<SPAN {$Exit_Exam_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field137" {$item_simple_grid_field137} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Exit_Exam_Status" data-fieldname="Exit_Exam_Status">
-	{$label candidates Exit_Exam_Status }	{$arrow_icon_Exit_Exam_Status}
+		{BEGIN Exit_Exam_Score_fieldheadercolumn}
+	{BEGIN Exit_Exam_Score_fieldheader}
+	<SPAN {$Exit_Exam_Score_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field135" {$item_simple_grid_field135} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Exit_Exam_Score" data-fieldname="Exit_Exam_Score">
+	{$label candidates Exit_Exam_Score }	{$arrow_icon_Exit_Exam_Score}
 	</SPAN>
-	{END Exit_Exam_Status_fieldheader}
-{END Exit_Exam_Status_fieldheadercolumn}
+	{END Exit_Exam_Score_fieldheader}
+{END Exit_Exam_Score_fieldheadercolumn}
 
 	
 	</th>
@@ -7336,21 +7349,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field64}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_enrolled_2nd_Round_class}	"
+		 r-ori-vert		 {$Exit_Exam_Status_class}	"
 
-			data-field="DAAP_enrolled_2nd_Round"
+			data-field="Exit_Exam_Status"
 	
 	data-cellId="grid_headcell_field64" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN DAAP_enrolled_2nd_Round_fieldheadercolumn}
-	{BEGIN DAAP_enrolled_2nd_Round_fieldheader}
-	<SPAN {$DAAP_enrolled_2nd_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field138" {$item_simple_grid_field138} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_enrolled_2nd_Round" data-fieldname="DAAP_enrolled_2nd_Round">
-	{$label candidates DAAP_enrolled_2nd_Round }	{$arrow_icon_DAAP_enrolled_2nd_Round}
+		{BEGIN Exit_Exam_Status_fieldheadercolumn}
+	{BEGIN Exit_Exam_Status_fieldheader}
+	<SPAN {$Exit_Exam_Status_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field136" {$item_simple_grid_field136} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Exit_Exam_Status" data-fieldname="Exit_Exam_Status">
+	{$label candidates Exit_Exam_Status }	{$arrow_icon_Exit_Exam_Status}
 	</SPAN>
-	{END DAAP_enrolled_2nd_Round_fieldheader}
-{END DAAP_enrolled_2nd_Round_fieldheadercolumn}
+	{END Exit_Exam_Status_fieldheader}
+{END Exit_Exam_Status_fieldheadercolumn}
 
 	
 	</th>
@@ -7361,21 +7374,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field65}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Upload_on_Tracker_class}	"
+		 r-ori-vert		 {$DAAP_enrolled_2nd_Round_class}	"
 
-			data-field="Upload_on_Tracker"
+			data-field="DAAP_enrolled_2nd_Round"
 	
 	data-cellId="grid_headcell_field65" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Upload_on_Tracker_fieldheadercolumn}
-	{BEGIN Upload_on_Tracker_fieldheader}
-	<SPAN {$Upload_on_Tracker_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field139" {$item_simple_grid_field139} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Upload_on_Tracker" data-fieldname="Upload_on_Tracker">
-	{$label candidates Upload_on_Tracker }	{$arrow_icon_Upload_on_Tracker}
+		{BEGIN DAAP_enrolled_2nd_Round_fieldheadercolumn}
+	{BEGIN DAAP_enrolled_2nd_Round_fieldheader}
+	<SPAN {$DAAP_enrolled_2nd_Round_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field137" {$item_simple_grid_field137} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="DAAP_enrolled_2nd_Round" data-fieldname="DAAP_enrolled_2nd_Round">
+	{$label candidates DAAP_enrolled_2nd_Round }	{$arrow_icon_DAAP_enrolled_2nd_Round}
 	</SPAN>
-	{END Upload_on_Tracker_fieldheader}
-{END Upload_on_Tracker_fieldheadercolumn}
+	{END DAAP_enrolled_2nd_Round_fieldheader}
+{END DAAP_enrolled_2nd_Round_fieldheadercolumn}
 
 	
 	</th>
@@ -7386,21 +7399,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field66}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Upload_on_Website_class}	"
+		 r-ori-vert		 {$Upload_on_Tracker_class}	"
 
-			data-field="Upload_on_Website"
+			data-field="Upload_on_Tracker"
 	
 	data-cellId="grid_headcell_field66" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Upload_on_Website_fieldheadercolumn}
-	{BEGIN Upload_on_Website_fieldheader}
-	<SPAN {$Upload_on_Website_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field140" {$item_simple_grid_field140} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Upload_on_Website" data-fieldname="Upload_on_Website">
-	{$label candidates Upload_on_Website }	{$arrow_icon_Upload_on_Website}
+		{BEGIN Upload_on_Tracker_fieldheadercolumn}
+	{BEGIN Upload_on_Tracker_fieldheader}
+	<SPAN {$Upload_on_Tracker_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field138" {$item_simple_grid_field138} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Upload_on_Tracker" data-fieldname="Upload_on_Tracker">
+	{$label candidates Upload_on_Tracker }	{$arrow_icon_Upload_on_Tracker}
 	</SPAN>
-	{END Upload_on_Website_fieldheader}
-{END Upload_on_Website_fieldheadercolumn}
+	{END Upload_on_Tracker_fieldheader}
+{END Upload_on_Tracker_fieldheadercolumn}
 
 	
 	</th>
@@ -7411,21 +7424,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field67}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employer_Sector_class}	"
+		 r-ori-vert		 {$Upload_on_Website_class}	"
 
-			data-field="Employer_Sector"
+			data-field="Upload_on_Website"
 	
 	data-cellId="grid_headcell_field67" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Employer_Sector_fieldheadercolumn}
-	{BEGIN Employer_Sector_fieldheader}
-	<SPAN {$Employer_Sector_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field141" {$item_simple_grid_field141} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employer_Sector" data-fieldname="Employer_Sector">
-	{$label candidates Employer_Sector }	{$arrow_icon_Employer_Sector}
+		{BEGIN Upload_on_Website_fieldheadercolumn}
+	{BEGIN Upload_on_Website_fieldheader}
+	<SPAN {$Upload_on_Website_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field139" {$item_simple_grid_field139} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Upload_on_Website" data-fieldname="Upload_on_Website">
+	{$label candidates Upload_on_Website }	{$arrow_icon_Upload_on_Website}
 	</SPAN>
-	{END Employer_Sector_fieldheader}
-{END Employer_Sector_fieldheadercolumn}
+	{END Upload_on_Website_fieldheader}
+{END Upload_on_Website_fieldheadercolumn}
 
 	
 	</th>
@@ -7436,21 +7449,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field68}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Salary_class}	"
+		 r-ori-vert		 {$Employer_Sector_class}	"
 
-			data-field="Salary"
+			data-field="Employer_Sector"
 	
 	data-cellId="grid_headcell_field68" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Salary_fieldheadercolumn}
-	{BEGIN Salary_fieldheader}
-	<SPAN {$Salary_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field142" {$item_simple_grid_field142} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Salary" data-fieldname="Salary">
-	{$label candidates Salary }	{$arrow_icon_Salary}
+		{BEGIN Employer_Sector_fieldheadercolumn}
+	{BEGIN Employer_Sector_fieldheader}
+	<SPAN {$Employer_Sector_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field140" {$item_simple_grid_field140} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Employer_Sector" data-fieldname="Employer_Sector">
+	{$label candidates Employer_Sector }	{$arrow_icon_Employer_Sector}
 	</SPAN>
-	{END Salary_fieldheader}
-{END Salary_fieldheadercolumn}
+	{END Employer_Sector_fieldheader}
+{END Employer_Sector_fieldheadercolumn}
 
 	
 	</th>
@@ -7461,21 +7474,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field69}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Career_Level_Of_Payment_class}	"
+		 r-ori-vert		 {$Salary_class}	"
 
-			data-field="Career_Level_Of_Payment"
+			data-field="Salary"
 	
 	data-cellId="grid_headcell_field69" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Career_Level_Of_Payment_fieldheadercolumn}
-	{BEGIN Career_Level_Of_Payment_fieldheader}
-	<SPAN {$Career_Level_Of_Payment_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field143" {$item_simple_grid_field143} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Career_Level_Of_Payment" data-fieldname="Career_Level_Of_Payment">
-	{$label candidates Career_Level_Of_Payment }	{$arrow_icon_Career_Level_Of_Payment}
+		{BEGIN Salary_fieldheadercolumn}
+	{BEGIN Salary_fieldheader}
+	<SPAN {$Salary_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field141" {$item_simple_grid_field141} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Salary" data-fieldname="Salary">
+	{$label candidates Salary }	{$arrow_icon_Salary}
 	</SPAN>
-	{END Career_Level_Of_Payment_fieldheader}
-{END Career_Level_Of_Payment_fieldheadercolumn}
+	{END Salary_fieldheader}
+{END Salary_fieldheadercolumn}
 
 	
 	</th>
@@ -7486,21 +7499,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field70}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Placement_Type_class}	"
+		 r-ori-vert		 {$Career_Level_Of_Payment_class}	"
 
-			data-field="Placement_Type"
+			data-field="Career_Level_Of_Payment"
 	
 	data-cellId="grid_headcell_field70" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Placement_Type_fieldheadercolumn}
-	{BEGIN Placement_Type_fieldheader}
-	<SPAN {$Placement_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field144" {$item_simple_grid_field144} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Placement_Type" data-fieldname="Placement_Type">
-	{$label candidates Placement_Type }	{$arrow_icon_Placement_Type}
+		{BEGIN Career_Level_Of_Payment_fieldheadercolumn}
+	{BEGIN Career_Level_Of_Payment_fieldheader}
+	<SPAN {$Career_Level_Of_Payment_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field142" {$item_simple_grid_field142} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Career_Level_Of_Payment" data-fieldname="Career_Level_Of_Payment">
+	{$label candidates Career_Level_Of_Payment }	{$arrow_icon_Career_Level_Of_Payment}
 	</SPAN>
-	{END Placement_Type_fieldheader}
-{END Placement_Type_fieldheadercolumn}
+	{END Career_Level_Of_Payment_fieldheader}
+{END Career_Level_Of_Payment_fieldheadercolumn}
 
 	
 	</th>
@@ -7511,21 +7524,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field71}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Placement_Duration_class}	"
+		 r-ori-vert		 {$Placement_Type_class}	"
 
-			data-field="Placement_Duration"
+			data-field="Placement_Type"
 	
 	data-cellId="grid_headcell_field71" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Placement_Duration_fieldheadercolumn}
-	{BEGIN Placement_Duration_fieldheader}
-	<SPAN {$Placement_Duration_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field145" {$item_simple_grid_field145} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Placement_Duration" data-fieldname="Placement_Duration">
-	{$label candidates Placement_Duration }	{$arrow_icon_Placement_Duration}
+		{BEGIN Placement_Type_fieldheadercolumn}
+	{BEGIN Placement_Type_fieldheader}
+	<SPAN {$Placement_Type_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field143" {$item_simple_grid_field143} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Placement_Type" data-fieldname="Placement_Type">
+	{$label candidates Placement_Type }	{$arrow_icon_Placement_Type}
 	</SPAN>
-	{END Placement_Duration_fieldheader}
-{END Placement_Duration_fieldheadercolumn}
+	{END Placement_Type_fieldheader}
+{END Placement_Type_fieldheadercolumn}
 
 	
 	</th>
@@ -7536,21 +7549,21 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field72}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Remark_class}	"
+		 r-ori-vert		 {$Placement_Duration_class}	"
 
-			data-field="Remark"
+			data-field="Placement_Duration"
 	
 	data-cellId="grid_headcell_field72" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Remark_fieldheadercolumn}
-	{BEGIN Remark_fieldheader}
-	<SPAN {$Remark_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field146" {$item_simple_grid_field146} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Remark" data-fieldname="Remark">
-	{$label candidates Remark }	{$arrow_icon_Remark}
+		{BEGIN Placement_Duration_fieldheadercolumn}
+	{BEGIN Placement_Duration_fieldheader}
+	<SPAN {$Placement_Duration_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field144" {$item_simple_grid_field144} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Placement_Duration" data-fieldname="Placement_Duration">
+	{$label candidates Placement_Duration }	{$arrow_icon_Placement_Duration}
 	</SPAN>
-	{END Remark_fieldheader}
-{END Remark_fieldheadercolumn}
+	{END Placement_Duration_fieldheader}
+{END Placement_Duration_fieldheadercolumn}
 
 	
 	</th>
@@ -7561,17 +7574,42 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_headcell_field73}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Date_class}	"
+		 r-ori-vert		 {$Remark_class}	"
 
-			data-field="Date"
+			data-field="Remark"
 	
 	data-cellId="grid_headcell_field73" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
+		{BEGIN Remark_fieldheadercolumn}
+	{BEGIN Remark_fieldheader}
+	<SPAN {$Remark_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="grid_field3" {$item_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Remark" data-fieldname="Remark">
+	{$label candidates Remark }	{$arrow_icon_Remark}
+	</SPAN>
+	{END Remark_fieldheader}
+{END Remark_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field73}
+									{BEGIN cellblock_grid_headcell_field74}
+	<th
+	
+	{$cell_grid_headcell_field74}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Date_class}	"
+
+			data-field="Date"
+	
+	data-cellId="grid_headcell_field74" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
 		{BEGIN Date_fieldheadercolumn}
 	{BEGIN Date_fieldheader}
-	<SPAN {$Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field147" {$item_simple_grid_field147} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date">
+	<SPAN {$Date_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field145" {$item_simple_grid_field145} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Date" data-fieldname="Date">
 	{$label candidates Date }	{$arrow_icon_Date}
 	</SPAN>
 	{END Date_fieldheader}
@@ -7579,7 +7617,7 @@ Sort by&nbsp;{$sortByDropdown}
 
 	
 	</th>
-	{END cellblock_grid_headcell_field73}
+	{END cellblock_grid_headcell_field74}
 							</tr>
 																				
 					{END grid_header}
@@ -7729,6 +7767,44 @@ Sort by&nbsp;{$sortByDropdown}
 	 
 		
 		
+	{BEGIN training_participants_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link11" {$item_grid_details_link11} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$training_participants_link_attrs} data-short-details="training_participants"
+		class="{$training_participants_dlink_class}" 
+		title="{$caption training_participants }"			>
+								
+									{BEGIN training_participants_childcount}
+				<span class="details-badge badge training_participants_badge" {$training_participants_childnumber_attr}>
+					{$training_participants_childnumber}				
+				</span>
+				{END training_participants_childcount}
+						</a>
+	</span>
+	{END training_participants_dtable_link}
+
+
+	 
+		
+		
+	{BEGIN candidates_reports_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link9" {$item_grid_details_link9} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidates_reports_link_attrs} data-short-details="candidates_reports"
+		class="{$candidates_reports_dlink_class}" 
+		title="{$caption candidates_reports }"			>
+								
+									{BEGIN candidates_reports_childcount}
+				<span class="details-badge badge candidates_reports_badge" {$candidates_reports_childnumber_attr}>
+					{$candidates_reports_childnumber}				
+				</span>
+				{END candidates_reports_childcount}
+						</a>
+	</span>
+	{END candidates_reports_dtable_link}
+
+
+	 
+		
+		
 	{BEGIN job_fair_dtable_link}
 	<span data-itemtype="grid_details_link" data-itemid="grid_details_link1" {$item_grid_details_link1} data-pageid="{$pageid}" data-record-id="{$recId}">
 	<a  {$job_fair_link_attrs} data-short-details="job_fair"
@@ -7764,158 +7840,6 @@ Sort by&nbsp;{$sortByDropdown}
 	{END website_data_dtable_link}
 
 
-	 
-		
-		
-	{BEGIN event_participants_view_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link3" {$item_grid_details_link3} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$event_participants_view_link_attrs} data-short-details="event_participants_view"
-		class="{$event_participants_view_dlink_class}" 
-		title="{$caption event_participants_view }"			>
-								
-									{BEGIN event_participants_view_childcount}
-				<span class="details-badge badge event_participants_view_badge" {$event_participants_view_childnumber_attr}>
-					{$event_participants_view_childnumber}				
-				</span>
-				{END event_participants_view_childcount}
-						</a>
-	</span>
-	{END event_participants_view_dtable_link}
-
-
-	 
-		
-		
-	{BEGIN training_participants_view_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link4" {$item_grid_details_link4} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$training_participants_view_link_attrs} data-short-details="training_participants_view"
-		class="{$training_participants_view_dlink_class}" 
-		title="{$caption training_participants_view }"			>
-								
-									{BEGIN training_participants_view_childcount}
-				<span class="details-badge badge training_participants_view_badge" {$training_participants_view_childnumber_attr}>
-					{$training_participants_view_childnumber}				
-				</span>
-				{END training_participants_view_childcount}
-						</a>
-	</span>
-	{END training_participants_view_dtable_link}
-
-
-	 
-		
-		
-	{BEGIN regions_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link5" {$item_grid_details_link5} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$regions_link_attrs} data-short-details="regions"
-		class="{$regions_dlink_class}" 
-		title="{$caption regions }"			>
-								
-									{BEGIN regions_childcount}
-				<span class="details-badge badge regions_badge" {$regions_childnumber_attr}>
-					{$regions_childnumber}				
-				</span>
-				{END regions_childcount}
-						</a>
-	</span>
-	{END regions_dtable_link}
-
-
-	 
-		
-		
-	{BEGIN _dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link6" {$item_grid_details_link6} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$_link_attrs} data-short-details=""
-		class="{$_dlink_class}" 
-		title="{$caption event_participants_view1 }"			>
-								
-									{BEGIN _childcount}
-				<span class="details-badge badge _badge" {$_childnumber_attr}>
-					{$_childnumber}				
-				</span>
-				{END _childcount}
-						</a>
-	</span>
-	{END _dtable_link}
-
-
-	 
-		
-		
-	{BEGIN _dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link7" {$item_grid_details_link7} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$_link_attrs} data-short-details=""
-		class="{$_dlink_class}" 
-		title="{$caption training_participants_view1 }"			>
-								
-									{BEGIN _childcount}
-				<span class="details-badge badge _badge" {$_childnumber_attr}>
-					{$_childnumber}				
-				</span>
-				{END _childcount}
-						</a>
-	</span>
-	{END _dtable_link}
-
-
-	 
-		
-		
-	{BEGIN candidates_by_gender_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link8" {$item_grid_details_link8} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$candidates_by_gender_link_attrs} data-short-details="candidates_by_gender"
-		class="{$candidates_by_gender_dlink_class}" 
-		title="{$caption candidates_by_gender }"			>
-								
-									{BEGIN candidates_by_gender_childcount}
-				<span class="details-badge badge candidates_by_gender_badge" {$candidates_by_gender_childnumber_attr}>
-					{$candidates_by_gender_childnumber}				
-				</span>
-				{END candidates_by_gender_childcount}
-						</a>
-	</span>
-	{END candidates_by_gender_dtable_link}
-
-
-	 
-		
-		
-	{BEGIN candidates_reports_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link9" {$item_grid_details_link9} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$candidates_reports_link_attrs} data-short-details="candidates_reports"
-		class="{$candidates_reports_dlink_class}" 
-		title="{$caption candidates_reports }"			>
-								
-									{BEGIN candidates_reports_childcount}
-				<span class="details-badge badge candidates_reports_badge" {$candidates_reports_childnumber_attr}>
-					{$candidates_reports_childnumber}				
-				</span>
-				{END candidates_reports_childcount}
-						</a>
-	</span>
-	{END candidates_reports_dtable_link}
-
-
-	 
-		
-		
-	{BEGIN candidates_by_region_dtable_link}
-	<span data-itemtype="grid_details_link" data-itemid="grid_details_link10" {$item_grid_details_link10} data-pageid="{$pageid}" data-record-id="{$recId}">
-	<a  {$candidates_by_region_link_attrs} data-short-details="candidates_by_region"
-		class="{$candidates_by_region_dlink_class}" 
-		title="{$caption candidates_by_region }"			>
-								
-									{BEGIN candidates_by_region_childcount}
-				<span class="details-badge badge candidates_by_region_badge" {$candidates_by_region_childnumber_attr}>
-					{$candidates_by_region_childnumber}				
-				</span>
-				{END candidates_by_region_childcount}
-						</a>
-	</span>
-	{END candidates_by_region_dtable_link}
-
-
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -7925,11 +7849,32 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
+		 r-ori-vert		 {$candidate_data_class}	"
+
+			data-field="candidate_data"
+	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN candidate_data_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field1" {$item_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="candidate_data" data-fieldname="candidate_data" data-default-width >
+{$candidate_data_value}
+</span>
+{END candidate_data_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field1}
+	<td
+	
+	{$cell_grid_cell_field1}
+	{$recordattrs}
+	class="
 		 r-ori-vert		 {$CandidateID_class}	"
 
 			data-field="CandidateID"
 	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -7939,18 +7884,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END CandidateID_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field}
-									{BEGIN cellblock_grid_cell_field1}
+	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field1}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Full_Name_class}	"
 
 			data-field="Full_Name"
 	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -7960,18 +7905,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Full_Name_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field1}
-									{BEGIN cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field2}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$First_Name_class}	"
 
 			data-field="First_Name"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -7981,18 +7926,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END First_Name_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
+	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
 	<td
 	
-	{$cell_grid_cell_field3}
+	{$cell_grid_cell_field4}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Middle_Name_class}	"
 
 			data-field="Middle_Name"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8002,18 +7947,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Middle_Name_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Last_Name_class}	"
 
 			data-field="Last_Name"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8023,18 +7968,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Last_Name_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field4}
-									{BEGIN cellblock_grid_cell_field5}
+	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
 	<td
 	
-	{$cell_grid_cell_field5}
+	{$cell_grid_cell_field6}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Sex_class}	"
 
 			data-field="Sex"
 	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8044,18 +7989,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Sex_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field5}
-									{BEGIN cellblock_grid_cell_field6}
+	{END cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field7}
 	<td
 	
-	{$cell_grid_cell_field6}
+	{$cell_grid_cell_field7}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$DOB_class}	"
 
 			data-field="DOB"
 	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8065,18 +8010,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END DOB_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field6}
-									{BEGIN cellblock_grid_cell_field7}
+	{END cellblock_grid_cell_field7}
+									{BEGIN cellblock_grid_cell_field8}
 	<td
 	
-	{$cell_grid_cell_field7}
+	{$cell_grid_cell_field8}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Age_class}	"
 
 			data-field="Age"
 	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8086,18 +8031,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Age_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field7}
-									{BEGIN cellblock_grid_cell_field8}
+	{END cellblock_grid_cell_field8}
+									{BEGIN cellblock_grid_cell_field9}
 	<td
 	
-	{$cell_grid_cell_field8}
+	{$cell_grid_cell_field9}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Region_class}	"
 
 			data-field="Region"
 	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8107,18 +8052,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Region_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field8}
-									{BEGIN cellblock_grid_cell_field9}
+	{END cellblock_grid_cell_field9}
+									{BEGIN cellblock_grid_cell_field10}
 	<td
 	
-	{$cell_grid_cell_field9}
+	{$cell_grid_cell_field10}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$City_class}	"
 
 			data-field="City"
 	
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8128,18 +8073,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END City_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field9}
-									{BEGIN cellblock_grid_cell_field10}
+	{END cellblock_grid_cell_field10}
+									{BEGIN cellblock_grid_cell_field11}
 	<td
 	
-	{$cell_grid_cell_field10}
+	{$cell_grid_cell_field11}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Sub_City_class}	"
 
 			data-field="Sub_City"
 	
-	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8149,18 +8094,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Sub_City_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field10}
-									{BEGIN cellblock_grid_cell_field11}
+	{END cellblock_grid_cell_field11}
+									{BEGIN cellblock_grid_cell_field12}
 	<td
 	
-	{$cell_grid_cell_field11}
+	{$cell_grid_cell_field12}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Zone_class}	"
 
 			data-field="Zone"
 	
-	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8170,18 +8115,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Zone_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field11}
-									{BEGIN cellblock_grid_cell_field12}
+	{END cellblock_grid_cell_field12}
+									{BEGIN cellblock_grid_cell_field13}
 	<td
 	
-	{$cell_grid_cell_field12}
+	{$cell_grid_cell_field13}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Woreda_class}	"
 
 			data-field="Woreda"
 	
-	data-cellId="grid_cell_field12" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8191,18 +8136,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Woreda_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field12}
-									{BEGIN cellblock_grid_cell_field13}
+	{END cellblock_grid_cell_field13}
+									{BEGIN cellblock_grid_cell_field14}
 	<td
 	
-	{$cell_grid_cell_field13}
+	{$cell_grid_cell_field14}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Kebele_class}	"
 
 			data-field="Kebele"
 	
-	data-cellId="grid_cell_field13" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field14" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8212,18 +8157,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Kebele_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field13}
-									{BEGIN cellblock_grid_cell_field14}
+	{END cellblock_grid_cell_field14}
+									{BEGIN cellblock_grid_cell_field15}
 	<td
 	
-	{$cell_grid_cell_field14}
+	{$cell_grid_cell_field15}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$House_No_class}	"
 
 			data-field="House_No"
 	
-	data-cellId="grid_cell_field14" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field15" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8233,18 +8178,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END House_No_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field14}
-									{BEGIN cellblock_grid_cell_field15}
+	{END cellblock_grid_cell_field15}
+									{BEGIN cellblock_grid_cell_field16}
 	<td
 	
-	{$cell_grid_cell_field15}
+	{$cell_grid_cell_field16}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Phone_Number_class}	"
 
 			data-field="Phone_Number"
 	
-	data-cellId="grid_cell_field15" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field16" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8254,18 +8199,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Phone_Number_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field15}
-									{BEGIN cellblock_grid_cell_field16}
+	{END cellblock_grid_cell_field16}
+									{BEGIN cellblock_grid_cell_field17}
 	<td
 	
-	{$cell_grid_cell_field16}
+	{$cell_grid_cell_field17}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Phone_Number_Alternate_class}	"
 
 			data-field="Phone_Number_Alternate"
 	
-	data-cellId="grid_cell_field16" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field17" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8275,18 +8220,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Phone_Number_Alternate_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field16}
-									{BEGIN cellblock_grid_cell_field17}
+	{END cellblock_grid_cell_field17}
+									{BEGIN cellblock_grid_cell_field18}
 	<td
 	
-	{$cell_grid_cell_field17}
+	{$cell_grid_cell_field18}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Email_Address_class}	"
 
 			data-field="Email_Address"
 	
-	data-cellId="grid_cell_field17" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field18" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8296,18 +8241,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Email_Address_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field17}
-									{BEGIN cellblock_grid_cell_field18}
+	{END cellblock_grid_cell_field18}
+									{BEGIN cellblock_grid_cell_field19}
 	<td
 	
-	{$cell_grid_cell_field18}
+	{$cell_grid_cell_field19}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$StudentID_class}	"
 
 			data-field="StudentID"
 	
-	data-cellId="grid_cell_field18" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field19" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8317,18 +8262,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END StudentID_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field18}
-									{BEGIN cellblock_grid_cell_field19}
+	{END cellblock_grid_cell_field19}
+									{BEGIN cellblock_grid_cell_field20}
 	<td
 	
-	{$cell_grid_cell_field19}
+	{$cell_grid_cell_field20}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Education_Level_class}	"
 
 			data-field="Education_Level"
 	
-	data-cellId="grid_cell_field19" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field20" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8338,18 +8283,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Education_Level_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field19}
-									{BEGIN cellblock_grid_cell_field20}
+	{END cellblock_grid_cell_field20}
+									{BEGIN cellblock_grid_cell_field21}
 	<td
 	
-	{$cell_grid_cell_field20}
+	{$cell_grid_cell_field21}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Institution_Type_class}	"
 
 			data-field="Institution_Type"
 	
-	data-cellId="grid_cell_field20" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field21" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8359,18 +8304,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Institution_Type_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field20}
-									{BEGIN cellblock_grid_cell_field21}
+	{END cellblock_grid_cell_field21}
+									{BEGIN cellblock_grid_cell_field22}
 	<td
 	
-	{$cell_grid_cell_field21}
+	{$cell_grid_cell_field22}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Institution_Name_class}	"
 
 			data-field="Institution_Name"
 	
-	data-cellId="grid_cell_field21" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field22" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8380,18 +8325,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Institution_Name_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field21}
-									{BEGIN cellblock_grid_cell_field22}
+	{END cellblock_grid_cell_field22}
+									{BEGIN cellblock_grid_cell_field23}
 	<td
 	
-	{$cell_grid_cell_field22}
+	{$cell_grid_cell_field23}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Field_Of_Study_class}	"
 
 			data-field="Field_Of_Study"
 	
-	data-cellId="grid_cell_field22" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8401,18 +8346,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Field_Of_Study_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field22}
-									{BEGIN cellblock_grid_cell_field23}
+	{END cellblock_grid_cell_field23}
+									{BEGIN cellblock_grid_cell_field24}
 	<td
 	
-	{$cell_grid_cell_field23}
+	{$cell_grid_cell_field24}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Department_class}	"
 
 			data-field="Department"
 	
-	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field24" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8422,18 +8367,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Department_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field23}
-									{BEGIN cellblock_grid_cell_field24}
+	{END cellblock_grid_cell_field24}
+									{BEGIN cellblock_grid_cell_field25}
 	<td
 	
-	{$cell_grid_cell_field24}
+	{$cell_grid_cell_field25}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Minor_class}	"
 
 			data-field="Minor"
 	
-	data-cellId="grid_cell_field24" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field25" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8443,18 +8388,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Minor_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field24}
-									{BEGIN cellblock_grid_cell_field25}
+	{END cellblock_grid_cell_field25}
+									{BEGIN cellblock_grid_cell_field26}
 	<td
 	
-	{$cell_grid_cell_field25}
+	{$cell_grid_cell_field26}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Major_class}	"
 
 			data-field="Major"
 	
-	data-cellId="grid_cell_field25" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field26" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8464,18 +8409,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Major_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field25}
-									{BEGIN cellblock_grid_cell_field26}
+	{END cellblock_grid_cell_field26}
+									{BEGIN cellblock_grid_cell_field27}
 	<td
 	
-	{$cell_grid_cell_field26}
+	{$cell_grid_cell_field27}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Enrollement_Type_class}	"
 
 			data-field="Enrollement_Type"
 	
-	data-cellId="grid_cell_field26" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field27" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8485,18 +8430,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Enrollement_Type_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field26}
-									{BEGIN cellblock_grid_cell_field27}
+	{END cellblock_grid_cell_field27}
+									{BEGIN cellblock_grid_cell_field28}
 	<td
 	
-	{$cell_grid_cell_field27}
+	{$cell_grid_cell_field28}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Skills_class}	"
 
 			data-field="Skills"
 	
-	data-cellId="grid_cell_field27" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field28" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8506,18 +8451,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Skills_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field27}
-									{BEGIN cellblock_grid_cell_field28}
+	{END cellblock_grid_cell_field28}
+									{BEGIN cellblock_grid_cell_field29}
 	<td
 	
-	{$cell_grid_cell_field28}
+	{$cell_grid_cell_field29}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Languages_class}	"
 
 			data-field="Languages"
 	
-	data-cellId="grid_cell_field28" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field29" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8527,18 +8472,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Languages_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field28}
-									{BEGIN cellblock_grid_cell_field29}
+	{END cellblock_grid_cell_field29}
+									{BEGIN cellblock_grid_cell_field30}
 	<td
 	
-	{$cell_grid_cell_field29}
+	{$cell_grid_cell_field30}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$English_Proficiency_Level_class}	"
 
 			data-field="English_Proficiency_Level"
 	
-	data-cellId="grid_cell_field29" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field30" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8548,18 +8493,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END English_Proficiency_Level_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field29}
-									{BEGIN cellblock_grid_cell_field30}
+	{END cellblock_grid_cell_field30}
+									{BEGIN cellblock_grid_cell_field31}
 	<td
 	
-	{$cell_grid_cell_field30}
+	{$cell_grid_cell_field31}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Industry_Specific_Skills_class}	"
 
 			data-field="Industry_Specific_Skills"
 	
-	data-cellId="grid_cell_field30" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field31" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8569,18 +8514,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Industry_Specific_Skills_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field30}
-									{BEGIN cellblock_grid_cell_field31}
+	{END cellblock_grid_cell_field31}
+									{BEGIN cellblock_grid_cell_field32}
 	<td
 	
-	{$cell_grid_cell_field31}
+	{$cell_grid_cell_field32}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$IT_Related_Skills_class}	"
 
 			data-field="IT_Related_Skills"
 	
-	data-cellId="grid_cell_field31" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field32" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8590,18 +8535,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END IT_Related_Skills_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field31}
-									{BEGIN cellblock_grid_cell_field32}
+	{END cellblock_grid_cell_field32}
+									{BEGIN cellblock_grid_cell_field33}
 	<td
 	
-	{$cell_grid_cell_field32}
+	{$cell_grid_cell_field33}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Certifications_class}	"
 
 			data-field="Certifications"
 	
-	data-cellId="grid_cell_field32" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field33" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8611,18 +8556,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Certifications_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field32}
-									{BEGIN cellblock_grid_cell_field33}
+	{END cellblock_grid_cell_field33}
+									{BEGIN cellblock_grid_cell_field34}
 	<td
 	
-	{$cell_grid_cell_field33}
+	{$cell_grid_cell_field34}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Year_of_graduation_class}	"
 
 			data-field="Year_of_graduation"
 	
-	data-cellId="grid_cell_field33" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field34" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8632,18 +8577,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Year_of_graduation_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field33}
-									{BEGIN cellblock_grid_cell_field34}
+	{END cellblock_grid_cell_field34}
+									{BEGIN cellblock_grid_cell_field35}
 	<td
 	
-	{$cell_grid_cell_field34}
+	{$cell_grid_cell_field35}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Work_Experience_class}	"
 
 			data-field="Work_Experience"
 	
-	data-cellId="grid_cell_field34" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field35" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8653,18 +8598,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Work_Experience_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field34}
-									{BEGIN cellblock_grid_cell_field35}
+	{END cellblock_grid_cell_field35}
+									{BEGIN cellblock_grid_cell_field36}
 	<td
 	
-	{$cell_grid_cell_field35}
+	{$cell_grid_cell_field36}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Intervention_class}	"
 
 			data-field="Intervention"
 	
-	data-cellId="grid_cell_field35" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field36" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8674,18 +8619,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Intervention_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field35}
-									{BEGIN cellblock_grid_cell_field36}
+	{END cellblock_grid_cell_field36}
+									{BEGIN cellblock_grid_cell_field37}
 	<td
 	
-	{$cell_grid_cell_field36}
+	{$cell_grid_cell_field37}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Joined_Dereja_Services_class}	"
 
 			data-field="Joined_Dereja_Services"
 	
-	data-cellId="grid_cell_field36" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field37" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8695,18 +8640,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Joined_Dereja_Services_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field36}
-									{BEGIN cellblock_grid_cell_field37}
+	{END cellblock_grid_cell_field37}
+									{BEGIN cellblock_grid_cell_field38}
 	<td
 	
-	{$cell_grid_cell_field37}
+	{$cell_grid_cell_field38}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Dereja_Services_class}	"
 
 			data-field="Dereja_Services"
 	
-	data-cellId="grid_cell_field37" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field38" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8716,18 +8661,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Dereja_Services_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field37}
-									{BEGIN cellblock_grid_cell_field38}
+	{END cellblock_grid_cell_field38}
+									{BEGIN cellblock_grid_cell_field39}
 	<td
 	
-	{$cell_grid_cell_field38}
+	{$cell_grid_cell_field39}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Program_In_Dereja_class}	"
 
 			data-field="Program_In_Dereja"
 	
-	data-cellId="grid_cell_field38" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field39" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8737,18 +8682,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Program_In_Dereja_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field38}
-									{BEGIN cellblock_grid_cell_field39}
+	{END cellblock_grid_cell_field39}
+									{BEGIN cellblock_grid_cell_field40}
 	<td
 	
-	{$cell_grid_cell_field39}
+	{$cell_grid_cell_field40}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Dereja_Training_Services_class}	"
 
 			data-field="Dereja_Training_Services"
 	
-	data-cellId="grid_cell_field39" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field40" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8758,18 +8703,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Dereja_Training_Services_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field39}
-									{BEGIN cellblock_grid_cell_field40}
+	{END cellblock_grid_cell_field40}
+									{BEGIN cellblock_grid_cell_field41}
 	<td
 	
-	{$cell_grid_cell_field40}
+	{$cell_grid_cell_field41}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Training_Start_Date_class}	"
 
 			data-field="Training_Start_Date"
 	
-	data-cellId="grid_cell_field40" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field41" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8779,18 +8724,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Training_Start_Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field40}
-									{BEGIN cellblock_grid_cell_field41}
+	{END cellblock_grid_cell_field41}
+									{BEGIN cellblock_grid_cell_field42}
 	<td
 	
-	{$cell_grid_cell_field41}
+	{$cell_grid_cell_field42}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Training_End_Date_class}	"
 
 			data-field="Training_End_Date"
 	
-	data-cellId="grid_cell_field41" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field42" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8800,18 +8745,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Training_End_Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field41}
-									{BEGIN cellblock_grid_cell_field42}
+	{END cellblock_grid_cell_field42}
+									{BEGIN cellblock_grid_cell_field43}
 	<td
 	
-	{$cell_grid_cell_field42}
+	{$cell_grid_cell_field43}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Dereja_Event_Services_class}	"
 
 			data-field="Dereja_Event_Services"
 	
-	data-cellId="grid_cell_field42" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field43" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8821,18 +8766,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Dereja_Event_Services_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field42}
-									{BEGIN cellblock_grid_cell_field43}
+	{END cellblock_grid_cell_field43}
+									{BEGIN cellblock_grid_cell_field44}
 	<td
 	
-	{$cell_grid_cell_field43}
+	{$cell_grid_cell_field44}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_Start_Date_class}	"
 
 			data-field="Event_Start_Date"
 	
-	data-cellId="grid_cell_field43" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field44" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8842,18 +8787,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Event_Start_Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field43}
-									{BEGIN cellblock_grid_cell_field44}
+	{END cellblock_grid_cell_field44}
+									{BEGIN cellblock_grid_cell_field45}
 	<td
 	
-	{$cell_grid_cell_field44}
+	{$cell_grid_cell_field45}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_End_Date_class}	"
 
 			data-field="Event_End_Date"
 	
-	data-cellId="grid_cell_field44" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field45" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8863,18 +8808,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Event_End_Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field44}
-									{BEGIN cellblock_grid_cell_field45}
+	{END cellblock_grid_cell_field45}
+									{BEGIN cellblock_grid_cell_field46}
 	<td
 	
-	{$cell_grid_cell_field45}
+	{$cell_grid_cell_field46}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Event_Participant_Type_class}	"
 
 			data-field="Event_Participant_Type"
 	
-	data-cellId="grid_cell_field45" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field46" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8884,18 +8829,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Event_Participant_Type_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field45}
-									{BEGIN cellblock_grid_cell_field46}
+	{END cellblock_grid_cell_field46}
+									{BEGIN cellblock_grid_cell_field47}
 	<td
 	
-	{$cell_grid_cell_field46}
+	{$cell_grid_cell_field47}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Dereja_web_profile_completion_class}	"
 
 			data-field="Dereja_web_profile_completion"
 	
-	data-cellId="grid_cell_field46" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field47" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8905,18 +8850,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Dereja_web_profile_completion_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field46}
-									{BEGIN cellblock_grid_cell_field47}
+	{END cellblock_grid_cell_field47}
+									{BEGIN cellblock_grid_cell_field48}
 	<td
 	
-	{$cell_grid_cell_field47}
+	{$cell_grid_cell_field48}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Dereja_Information_Source_class}	"
 
 			data-field="Dereja_Information_Source"
 	
-	data-cellId="grid_cell_field47" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field48" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8926,18 +8871,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Dereja_Information_Source_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field47}
-									{BEGIN cellblock_grid_cell_field48}
+	{END cellblock_grid_cell_field48}
+									{BEGIN cellblock_grid_cell_field49}
 	<td
 	
-	{$cell_grid_cell_field48}
+	{$cell_grid_cell_field49}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Disability_Status_class}	"
 
 			data-field="Disability_Status"
 	
-	data-cellId="grid_cell_field48" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field49" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8947,18 +8892,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Disability_Status_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field48}
-									{BEGIN cellblock_grid_cell_field49}
+	{END cellblock_grid_cell_field49}
+									{BEGIN cellblock_grid_cell_field50}
 	<td
 	
-	{$cell_grid_cell_field49}
+	{$cell_grid_cell_field50}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Disability_Type_class}	"
 
 			data-field="Disability_Type"
 	
-	data-cellId="grid_cell_field49" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field50" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8968,18 +8913,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Disability_Type_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field49}
-									{BEGIN cellblock_grid_cell_field50}
+	{END cellblock_grid_cell_field50}
+									{BEGIN cellblock_grid_cell_field51}
 	<td
 	
-	{$cell_grid_cell_field50}
+	{$cell_grid_cell_field51}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Disability_Type_Other_class}	"
 
 			data-field="Disability_Type_Other"
 	
-	data-cellId="grid_cell_field50" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field51" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -8989,18 +8934,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Disability_Type_Other_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field50}
-									{BEGIN cellblock_grid_cell_field51}
+	{END cellblock_grid_cell_field51}
+									{BEGIN cellblock_grid_cell_field52}
 	<td
 	
-	{$cell_grid_cell_field51}
+	{$cell_grid_cell_field52}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$GPA_class}	"
 
 			data-field="GPA"
 	
-	data-cellId="grid_cell_field51" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field52" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9010,18 +8955,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END GPA_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field51}
-									{BEGIN cellblock_grid_cell_field52}
+	{END cellblock_grid_cell_field52}
+									{BEGIN cellblock_grid_cell_field53}
 	<td
 	
-	{$cell_grid_cell_field52}
+	{$cell_grid_cell_field53}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Employment_Status_class}	"
 
 			data-field="Employment_Status"
 	
-	data-cellId="grid_cell_field52" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field53" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9031,18 +8976,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Employment_Status_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field52}
-									{BEGIN cellblock_grid_cell_field53}
+	{END cellblock_grid_cell_field53}
+									{BEGIN cellblock_grid_cell_field54}
 	<td
 	
-	{$cell_grid_cell_field53}
+	{$cell_grid_cell_field54}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Employment_Company_class}	"
 
 			data-field="Employment_Company"
 	
-	data-cellId="grid_cell_field53" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field54" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9052,18 +8997,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Employment_Company_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field53}
-									{BEGIN cellblock_grid_cell_field54}
+	{END cellblock_grid_cell_field54}
+									{BEGIN cellblock_grid_cell_field55}
 	<td
 	
-	{$cell_grid_cell_field54}
+	{$cell_grid_cell_field55}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Employment_Position_class}	"
 
 			data-field="Employment_Position"
 	
-	data-cellId="grid_cell_field54" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field55" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9073,18 +9018,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Employment_Position_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field54}
-									{BEGIN cellblock_grid_cell_field55}
+	{END cellblock_grid_cell_field55}
+									{BEGIN cellblock_grid_cell_field56}
 	<td
 	
-	{$cell_grid_cell_field55}
+	{$cell_grid_cell_field56}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Campaign_class}	"
 
 			data-field="Campaign"
 	
-	data-cellId="grid_cell_field55" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field56" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9094,18 +9039,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Campaign_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field55}
-									{BEGIN cellblock_grid_cell_field56}
+	{END cellblock_grid_cell_field56}
+									{BEGIN cellblock_grid_cell_field57}
 	<td
 	
-	{$cell_grid_cell_field56}
+	{$cell_grid_cell_field57}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Attend_Employability_Skill_class}	"
 
 			data-field="Attend_Employability_Skill"
 	
-	data-cellId="grid_cell_field56" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field57" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9115,18 +9060,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Attend_Employability_Skill_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field56}
-									{BEGIN cellblock_grid_cell_field57}
+	{END cellblock_grid_cell_field57}
+									{BEGIN cellblock_grid_cell_field58}
 	<td
 	
-	{$cell_grid_cell_field57}
+	{$cell_grid_cell_field58}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$DAAP_enrolled_1st_Round_class}	"
 
 			data-field="DAAP_enrolled_1st_Round"
 	
-	data-cellId="grid_cell_field57" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field58" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9136,18 +9081,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END DAAP_enrolled_1st_Round_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field57}
-									{BEGIN cellblock_grid_cell_field58}
+	{END cellblock_grid_cell_field58}
+									{BEGIN cellblock_grid_cell_field59}
 	<td
 	
-	{$cell_grid_cell_field58}
+	{$cell_grid_cell_field59}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$DAAP_Completed_class}	"
 
 			data-field="DAAP_Completed"
 	
-	data-cellId="grid_cell_field58" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field59" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9157,18 +9102,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END DAAP_Completed_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field58}
-									{BEGIN cellblock_grid_cell_field59}
+	{END cellblock_grid_cell_field59}
+									{BEGIN cellblock_grid_cell_field60}
 	<td
 	
-	{$cell_grid_cell_field59}
+	{$cell_grid_cell_field60}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$DAAP_Completed_Courses_class}	"
 
 			data-field="DAAP_Completed_Courses"
 	
-	data-cellId="grid_cell_field59" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field60" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9178,18 +9123,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END DAAP_Completed_Courses_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field59}
-									{BEGIN cellblock_grid_cell_field60}
+	{END cellblock_grid_cell_field60}
+									{BEGIN cellblock_grid_cell_field61}
 	<td
 	
-	{$cell_grid_cell_field60}
+	{$cell_grid_cell_field61}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Job_Fair_Clinic_class}	"
 
 			data-field="Job_Fair_Clinic"
 	
-	data-cellId="grid_cell_field60" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field61" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9199,18 +9144,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Job_Fair_Clinic_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field60}
-									{BEGIN cellblock_grid_cell_field61}
+	{END cellblock_grid_cell_field61}
+									{BEGIN cellblock_grid_cell_field62}
 	<td
 	
-	{$cell_grid_cell_field61}
+	{$cell_grid_cell_field62}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Job_Fair_class}	"
 
 			data-field="Job_Fair"
 	
-	data-cellId="grid_cell_field61" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field62" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9220,18 +9165,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Job_Fair_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field61}
-									{BEGIN cellblock_grid_cell_field62}
+	{END cellblock_grid_cell_field62}
+									{BEGIN cellblock_grid_cell_field63}
 	<td
 	
-	{$cell_grid_cell_field62}
+	{$cell_grid_cell_field63}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Exit_Exam_Score_class}	"
 
 			data-field="Exit_Exam_Score"
 	
-	data-cellId="grid_cell_field62" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field63" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9241,18 +9186,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Exit_Exam_Score_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field62}
-									{BEGIN cellblock_grid_cell_field63}
+	{END cellblock_grid_cell_field63}
+									{BEGIN cellblock_grid_cell_field64}
 	<td
 	
-	{$cell_grid_cell_field63}
+	{$cell_grid_cell_field64}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Exit_Exam_Status_class}	"
 
 			data-field="Exit_Exam_Status"
 	
-	data-cellId="grid_cell_field63" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field64" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9262,18 +9207,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Exit_Exam_Status_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field63}
-									{BEGIN cellblock_grid_cell_field64}
+	{END cellblock_grid_cell_field64}
+									{BEGIN cellblock_grid_cell_field65}
 	<td
 	
-	{$cell_grid_cell_field64}
+	{$cell_grid_cell_field65}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$DAAP_enrolled_2nd_Round_class}	"
 
 			data-field="DAAP_enrolled_2nd_Round"
 	
-	data-cellId="grid_cell_field64" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field65" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9283,18 +9228,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END DAAP_enrolled_2nd_Round_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field64}
-									{BEGIN cellblock_grid_cell_field65}
+	{END cellblock_grid_cell_field65}
+									{BEGIN cellblock_grid_cell_field66}
 	<td
 	
-	{$cell_grid_cell_field65}
+	{$cell_grid_cell_field66}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Upload_on_Tracker_class}	"
 
 			data-field="Upload_on_Tracker"
 	
-	data-cellId="grid_cell_field65" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field66" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9304,18 +9249,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Upload_on_Tracker_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field65}
-									{BEGIN cellblock_grid_cell_field66}
+	{END cellblock_grid_cell_field66}
+									{BEGIN cellblock_grid_cell_field67}
 	<td
 	
-	{$cell_grid_cell_field66}
+	{$cell_grid_cell_field67}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Upload_on_Website_class}	"
 
 			data-field="Upload_on_Website"
 	
-	data-cellId="grid_cell_field66" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field67" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9325,18 +9270,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Upload_on_Website_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field66}
-									{BEGIN cellblock_grid_cell_field67}
+	{END cellblock_grid_cell_field67}
+									{BEGIN cellblock_grid_cell_field68}
 	<td
 	
-	{$cell_grid_cell_field67}
+	{$cell_grid_cell_field68}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Employer_Sector_class}	"
 
 			data-field="Employer_Sector"
 	
-	data-cellId="grid_cell_field67" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field68" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9346,18 +9291,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Employer_Sector_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field67}
-									{BEGIN cellblock_grid_cell_field68}
+	{END cellblock_grid_cell_field68}
+									{BEGIN cellblock_grid_cell_field69}
 	<td
 	
-	{$cell_grid_cell_field68}
+	{$cell_grid_cell_field69}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Salary_class}	"
 
 			data-field="Salary"
 	
-	data-cellId="grid_cell_field68" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field69" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9367,18 +9312,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Salary_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field68}
-									{BEGIN cellblock_grid_cell_field69}
+	{END cellblock_grid_cell_field69}
+									{BEGIN cellblock_grid_cell_field70}
 	<td
 	
-	{$cell_grid_cell_field69}
+	{$cell_grid_cell_field70}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Career_Level_Of_Payment_class}	"
 
 			data-field="Career_Level_Of_Payment"
 	
-	data-cellId="grid_cell_field69" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field70" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9388,18 +9333,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Career_Level_Of_Payment_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field69}
-									{BEGIN cellblock_grid_cell_field70}
+	{END cellblock_grid_cell_field70}
+									{BEGIN cellblock_grid_cell_field71}
 	<td
 	
-	{$cell_grid_cell_field70}
+	{$cell_grid_cell_field71}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Placement_Type_class}	"
 
 			data-field="Placement_Type"
 	
-	data-cellId="grid_cell_field70" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field71" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9409,18 +9354,18 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Placement_Type_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field70}
-									{BEGIN cellblock_grid_cell_field71}
+	{END cellblock_grid_cell_field71}
+									{BEGIN cellblock_grid_cell_field72}
 	<td
 	
-	{$cell_grid_cell_field71}
+	{$cell_grid_cell_field72}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$Placement_Duration_class}	"
 
 			data-field="Placement_Duration"
 	
-	data-cellId="grid_cell_field71" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field72" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9430,27 +9375,6 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Placement_Duration_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field71}
-									{BEGIN cellblock_grid_cell_field72}
-	<td
-	
-	{$cell_grid_cell_field72}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$Remark_class}	"
-
-			data-field="Remark"
-	
-	data-cellId="grid_cell_field72" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Remark_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field43" {$item_simple_grid_field43} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Remark" data-fieldname="Remark" data-default-width >
-{$Remark_value}
-</span>
-{END Remark_fieldcolumn}	
-	</td>
 	{END cellblock_grid_cell_field72}
 									{BEGIN cellblock_grid_cell_field73}
 	<td
@@ -9458,11 +9382,32 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_cell_field73}
 	{$recordattrs}
 	class="
+		 r-ori-vert		 {$Remark_class}	"
+
+			data-field="Remark"
+	
+	data-cellId="grid_cell_field73" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Remark_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field" {$item_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Remark" data-fieldname="Remark" data-default-width >
+{$Remark_value}
+</span>
+{END Remark_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field73}
+									{BEGIN cellblock_grid_cell_field74}
+	<td
+	
+	{$cell_grid_cell_field74}
+	{$recordattrs}
+	class="
 		 r-ori-vert		 {$Date_class}	"
 
 			data-field="Date"
 	
-	data-cellId="grid_cell_field73" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field74" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -9472,7 +9417,7 @@ Sort by&nbsp;{$sortByDropdown}
 </span>
 {END Date_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field73}
+	{END cellblock_grid_cell_field74}
 							</tr>
 											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 				
@@ -9490,46 +9435,25 @@ Sort by&nbsp;{$sortByDropdown}
 	>
 
 	 
-															<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants,candidate_employment_tracker,job_fair,website_data,event_participants_view,training_participants_view,regions,,,candidates_by_gender,candidates_reports,candidates_by_region"
-			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-job_fair			data-details-website_data			data-details-event_participants_view			data-details-training_participants_view			data-details-regions			data-details-			data-details-			data-details-candidates_by_gender			data-details-candidates_reports			data-details-candidates_by_region	>
+								<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker,candidates_reports,job_fair,website_data"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-candidates_reports			data-details-job_fair			data-details-website_data	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
 			</span>
 		<span data-details-inside data-short-table="candidate_employment_tracker">
 			</span>
+		<span data-details-inside data-short-table="candidates_reports">
+			</span>
 		<span data-details-inside data-short-table="job_fair">
 			</span>
 		<span data-details-inside data-short-table="website_data">
-			</span>
-		<span data-details-inside data-short-table="event_participants_view">
-			</span>
-		<span data-details-inside data-short-table="training_participants_view">
-			</span>
-		<span data-details-inside data-short-table="regions">
-			</span>
-		<span data-details-inside data-short-table="">
-			</span>
-		<span data-details-inside data-short-table="">
-			</span>
-		<span data-details-inside data-short-table="candidates_by_gender">
-			</span>
-		<span data-details-inside data-short-table="candidates_reports">
-			</span>
-		<span data-details-inside data-short-table="candidates_by_region">
 			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
 			 
 			 
 			 
@@ -9599,7 +9523,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$CandidateID_class}	"
+		 r-ori-vert		 {$candidate_data_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9614,7 +9538,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Full_Name_class}	"
+		 r-ori-vert		 {$CandidateID_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9629,7 +9553,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$First_Name_class}	"
+		 r-ori-vert		 {$Full_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9644,7 +9568,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Middle_Name_class}	"
+		 r-ori-vert		 {$First_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9659,7 +9583,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Last_Name_class}	"
+		 r-ori-vert		 {$Middle_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9674,7 +9598,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sex_class}	"
+		 r-ori-vert		 {$Last_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9689,7 +9613,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field6}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DOB_class}	"
+		 r-ori-vert		 {$Sex_class}	"
 
 	
 	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9704,7 +9628,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field7}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Age_class}	"
+		 r-ori-vert		 {$DOB_class}	"
 
 	
 	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9719,7 +9643,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field8}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Region_class}	"
+		 r-ori-vert		 {$Age_class}	"
 
 	
 	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9734,7 +9658,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field9}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$City_class}	"
+		 r-ori-vert		 {$Region_class}	"
 
 	
 	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9749,7 +9673,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field10}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Sub_City_class}	"
+		 r-ori-vert		 {$City_class}	"
 
 	
 	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9764,7 +9688,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field11}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Zone_class}	"
+		 r-ori-vert		 {$Sub_City_class}	"
 
 	
 	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9779,7 +9703,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field12}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Woreda_class}	"
+		 r-ori-vert		 {$Zone_class}	"
 
 	
 	data-cellId="grid_footcell_field12" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9794,7 +9718,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field13}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Kebele_class}	"
+		 r-ori-vert		 {$Woreda_class}	"
 
 	
 	data-cellId="grid_footcell_field13" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9809,7 +9733,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field14}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$House_No_class}	"
+		 r-ori-vert		 {$Kebele_class}	"
 
 	
 	data-cellId="grid_footcell_field14" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9824,7 +9748,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field15}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_Number_class}	"
+		 r-ori-vert		 {$House_No_class}	"
 
 	
 	data-cellId="grid_footcell_field15" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9839,7 +9763,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field16}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Phone_Number_Alternate_class}	"
+		 r-ori-vert		 {$Phone_Number_class}	"
 
 	
 	data-cellId="grid_footcell_field16" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9854,7 +9778,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field17}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Email_Address_class}	"
+		 r-ori-vert		 {$Phone_Number_Alternate_class}	"
 
 	
 	data-cellId="grid_footcell_field17" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9869,7 +9793,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field18}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$StudentID_class}	"
+		 r-ori-vert		 {$Email_Address_class}	"
 
 	
 	data-cellId="grid_footcell_field18" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9884,7 +9808,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field19}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Education_Level_class}	"
+		 r-ori-vert		 {$StudentID_class}	"
 
 	
 	data-cellId="grid_footcell_field19" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9899,7 +9823,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field20}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Institution_Type_class}	"
+		 r-ori-vert		 {$Education_Level_class}	"
 
 	
 	data-cellId="grid_footcell_field20" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9914,7 +9838,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field21}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Institution_Name_class}	"
+		 r-ori-vert		 {$Institution_Type_class}	"
 
 	
 	data-cellId="grid_footcell_field21" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9929,7 +9853,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field22}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Field_Of_Study_class}	"
+		 r-ori-vert		 {$Institution_Name_class}	"
 
 	
 	data-cellId="grid_footcell_field22" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9944,7 +9868,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field23}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Department_class}	"
+		 r-ori-vert		 {$Field_Of_Study_class}	"
 
 	
 	data-cellId="grid_footcell_field23" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9959,7 +9883,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field24}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Minor_class}	"
+		 r-ori-vert		 {$Department_class}	"
 
 	
 	data-cellId="grid_footcell_field24" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9974,7 +9898,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field25}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Major_class}	"
+		 r-ori-vert		 {$Minor_class}	"
 
 	
 	data-cellId="grid_footcell_field25" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -9989,7 +9913,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field26}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Enrollement_Type_class}	"
+		 r-ori-vert		 {$Major_class}	"
 
 	
 	data-cellId="grid_footcell_field26" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10004,7 +9928,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field27}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Skills_class}	"
+		 r-ori-vert		 {$Enrollement_Type_class}	"
 
 	
 	data-cellId="grid_footcell_field27" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10019,7 +9943,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field28}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Languages_class}	"
+		 r-ori-vert		 {$Skills_class}	"
 
 	
 	data-cellId="grid_footcell_field28" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10034,7 +9958,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field29}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$English_Proficiency_Level_class}	"
+		 r-ori-vert		 {$Languages_class}	"
 
 	
 	data-cellId="grid_footcell_field29" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10049,7 +9973,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field30}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Industry_Specific_Skills_class}	"
+		 r-ori-vert		 {$English_Proficiency_Level_class}	"
 
 	
 	data-cellId="grid_footcell_field30" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10064,7 +9988,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field31}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$IT_Related_Skills_class}	"
+		 r-ori-vert		 {$Industry_Specific_Skills_class}	"
 
 	
 	data-cellId="grid_footcell_field31" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10079,7 +10003,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field32}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Certifications_class}	"
+		 r-ori-vert		 {$IT_Related_Skills_class}	"
 
 	
 	data-cellId="grid_footcell_field32" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10094,7 +10018,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field33}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Year_of_graduation_class}	"
+		 r-ori-vert		 {$Certifications_class}	"
 
 	
 	data-cellId="grid_footcell_field33" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10109,7 +10033,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field34}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Work_Experience_class}	"
+		 r-ori-vert		 {$Year_of_graduation_class}	"
 
 	
 	data-cellId="grid_footcell_field34" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10124,7 +10048,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field35}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Intervention_class}	"
+		 r-ori-vert		 {$Work_Experience_class}	"
 
 	
 	data-cellId="grid_footcell_field35" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10139,7 +10063,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field36}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Joined_Dereja_Services_class}	"
+		 r-ori-vert		 {$Intervention_class}	"
 
 	
 	data-cellId="grid_footcell_field36" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10154,7 +10078,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field37}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Services_class}	"
+		 r-ori-vert		 {$Joined_Dereja_Services_class}	"
 
 	
 	data-cellId="grid_footcell_field37" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10169,7 +10093,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field38}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Program_In_Dereja_class}	"
+		 r-ori-vert		 {$Dereja_Services_class}	"
 
 	
 	data-cellId="grid_footcell_field38" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10184,7 +10108,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field39}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Training_Services_class}	"
+		 r-ori-vert		 {$Program_In_Dereja_class}	"
 
 	
 	data-cellId="grid_footcell_field39" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10199,7 +10123,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field40}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Training_Start_Date_class}	"
+		 r-ori-vert		 {$Dereja_Training_Services_class}	"
 
 	
 	data-cellId="grid_footcell_field40" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10214,7 +10138,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field41}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Training_End_Date_class}	"
+		 r-ori-vert		 {$Training_Start_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field41" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10229,7 +10153,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field42}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Event_Services_class}	"
+		 r-ori-vert		 {$Training_End_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field42" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10244,7 +10168,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field43}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Start_Date_class}	"
+		 r-ori-vert		 {$Dereja_Event_Services_class}	"
 
 	
 	data-cellId="grid_footcell_field43" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10259,7 +10183,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field44}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_End_Date_class}	"
+		 r-ori-vert		 {$Event_Start_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field44" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10274,7 +10198,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field45}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Event_Participant_Type_class}	"
+		 r-ori-vert		 {$Event_End_Date_class}	"
 
 	
 	data-cellId="grid_footcell_field45" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10289,7 +10213,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field46}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_web_profile_completion_class}	"
+		 r-ori-vert		 {$Event_Participant_Type_class}	"
 
 	
 	data-cellId="grid_footcell_field46" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10304,7 +10228,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field47}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Dereja_Information_Source_class}	"
+		 r-ori-vert		 {$Dereja_web_profile_completion_class}	"
 
 	
 	data-cellId="grid_footcell_field47" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10319,7 +10243,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field48}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Status_class}	"
+		 r-ori-vert		 {$Dereja_Information_Source_class}	"
 
 	
 	data-cellId="grid_footcell_field48" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10334,7 +10258,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field49}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_class}	"
+		 r-ori-vert		 {$Disability_Status_class}	"
 
 	
 	data-cellId="grid_footcell_field49" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10349,7 +10273,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field50}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Disability_Type_Other_class}	"
+		 r-ori-vert		 {$Disability_Type_class}	"
 
 	
 	data-cellId="grid_footcell_field50" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10364,7 +10288,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field51}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$GPA_class}	"
+		 r-ori-vert		 {$Disability_Type_Other_class}	"
 
 	
 	data-cellId="grid_footcell_field51" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10379,7 +10303,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field52}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Status_class}	"
+		 r-ori-vert		 {$GPA_class}	"
 
 	
 	data-cellId="grid_footcell_field52" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10394,7 +10318,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field53}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Company_class}	"
+		 r-ori-vert		 {$Employment_Status_class}	"
 
 	
 	data-cellId="grid_footcell_field53" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10409,7 +10333,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field54}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employment_Position_class}	"
+		 r-ori-vert		 {$Employment_Company_class}	"
 
 	
 	data-cellId="grid_footcell_field54" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10424,7 +10348,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field55}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Campaign_class}	"
+		 r-ori-vert		 {$Employment_Position_class}	"
 
 	
 	data-cellId="grid_footcell_field55" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10439,7 +10363,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field56}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Attend_Employability_Skill_class}	"
+		 r-ori-vert		 {$Campaign_class}	"
 
 	
 	data-cellId="grid_footcell_field56" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10454,7 +10378,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field57}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_enrolled_1st_Round_class}	"
+		 r-ori-vert		 {$Attend_Employability_Skill_class}	"
 
 	
 	data-cellId="grid_footcell_field57" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10469,7 +10393,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field58}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_Completed_class}	"
+		 r-ori-vert		 {$DAAP_enrolled_1st_Round_class}	"
 
 	
 	data-cellId="grid_footcell_field58" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10484,7 +10408,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field59}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_Completed_Courses_class}	"
+		 r-ori-vert		 {$DAAP_Completed_class}	"
 
 	
 	data-cellId="grid_footcell_field59" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10499,7 +10423,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field60}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Job_Fair_Clinic_class}	"
+		 r-ori-vert		 {$DAAP_Completed_Courses_class}	"
 
 	
 	data-cellId="grid_footcell_field60" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10514,7 +10438,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field61}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Job_Fair_class}	"
+		 r-ori-vert		 {$Job_Fair_Clinic_class}	"
 
 	
 	data-cellId="grid_footcell_field61" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10529,7 +10453,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field62}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Exit_Exam_Score_class}	"
+		 r-ori-vert		 {$Job_Fair_class}	"
 
 	
 	data-cellId="grid_footcell_field62" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10544,7 +10468,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field63}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Exit_Exam_Status_class}	"
+		 r-ori-vert		 {$Exit_Exam_Score_class}	"
 
 	
 	data-cellId="grid_footcell_field63" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10559,7 +10483,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field64}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$DAAP_enrolled_2nd_Round_class}	"
+		 r-ori-vert		 {$Exit_Exam_Status_class}	"
 
 	
 	data-cellId="grid_footcell_field64" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10574,7 +10498,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field65}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Upload_on_Tracker_class}	"
+		 r-ori-vert		 {$DAAP_enrolled_2nd_Round_class}	"
 
 	
 	data-cellId="grid_footcell_field65" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10589,7 +10513,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field66}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Upload_on_Website_class}	"
+		 r-ori-vert		 {$Upload_on_Tracker_class}	"
 
 	
 	data-cellId="grid_footcell_field66" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10604,7 +10528,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field67}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Employer_Sector_class}	"
+		 r-ori-vert		 {$Upload_on_Website_class}	"
 
 	
 	data-cellId="grid_footcell_field67" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10619,7 +10543,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field68}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Salary_class}	"
+		 r-ori-vert		 {$Employer_Sector_class}	"
 
 	
 	data-cellId="grid_footcell_field68" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10634,7 +10558,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field69}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Career_Level_Of_Payment_class}	"
+		 r-ori-vert		 {$Salary_class}	"
 
 	
 	data-cellId="grid_footcell_field69" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10649,7 +10573,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field70}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Placement_Type_class}	"
+		 r-ori-vert		 {$Career_Level_Of_Payment_class}	"
 
 	
 	data-cellId="grid_footcell_field70" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10664,7 +10588,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field71}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Placement_Duration_class}	"
+		 r-ori-vert		 {$Placement_Type_class}	"
 
 	
 	data-cellId="grid_footcell_field71" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10679,7 +10603,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field72}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Remark_class}	"
+		 r-ori-vert		 {$Placement_Duration_class}	"
 
 	
 	data-cellId="grid_footcell_field72" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10694,7 +10618,7 @@ Sort by&nbsp;{$sortByDropdown}
 	{$cell_grid_footcell_field73}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$Date_class}	"
+		 r-ori-vert		 {$Remark_class}	"
 
 	
 	data-cellId="grid_footcell_field73" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
@@ -10703,6 +10627,21 @@ Sort by&nbsp;{$sortByDropdown}
 	
 	</td>
 	{END cellblock_grid_footcell_field73}
+									{BEGIN cellblock_grid_footcell_field74}
+	<td
+	
+	{$cell_grid_footcell_field74}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Date_class}	"
+
+	
+	data-cellId="grid_footcell_field74" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="candidates_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field74}
 							</tr>
 					
 					</tfoot>

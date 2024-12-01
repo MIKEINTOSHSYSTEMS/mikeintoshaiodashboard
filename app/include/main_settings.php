@@ -94,7 +94,7 @@ $tdatamain[".listAjax"] = false;
 //	temporary
 //$tdatamain[".listAjax"] = false;
 
-	$tdatamain[".audit"] = false;
+	$tdatamain[".audit"] = true;
 
 	$tdatamain[".locking"] = false;
 

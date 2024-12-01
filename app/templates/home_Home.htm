@@ -244,7 +244,7 @@
 {END supertop_block}
 						{$locking}
 				</div>
-				<div class="r-body" data-resize-top="topbar" data-body-width="full">
+				<div class="r-body" data-resize-top="topbar" data-body-width="standard">
 					{$header}
 					<div class="r-top">
 									{BEGIN top_block}
@@ -329,7 +329,7 @@
 											
 			<tr 
 			{$row_grid_1} 
-						data-row-width="3"
+						data-row-width="2"
 						>
 									<td 
 	class=" r-ori-vert			"
@@ -349,24 +349,8 @@
 </div></td>
 									<td 
 	class=" r-ori-vert			"
-			 
+	colspan="2"		 
 	data-cellId="grid_c3" data-pageid="{$pageid}">
- 
-<div 
-	data-dashtype="1" 
-	id="dashelement_candidates_by_sex_age_disability_chart{$pageid}"
-	data-tablocation="above" 
-
-	
-	
-	data-itemtype="dashboard-item" data-itemid="dashboard-item7" {$item_dashboard-item7} data-pageid="{$pageid}" data-page="home_Home" 
->
-	{$db_candidates_by_sex_age_disability_chart}
-</div></td>
-									<td 
-	class=" r-ori-vert			"
-			 
-	data-cellId="grid_c5" data-pageid="{$pageid}">
  
 <div 
 	data-dashtype="1" 
@@ -391,15 +375,15 @@
 	data-cellId="grid_c6" data-pageid="{$pageid}">
  
 <div 
-	data-dashtype="0" 
-	id="dashelement_indicator_targets_grid{$pageid}"
+	data-dashtype="2" 
+	id="dashelement_candidates_view_report{$pageid}"
 	data-tablocation="above" 
 
 	
 	
-	data-itemtype="dashboard-item" data-itemid="dashboard-item4" {$item_dashboard-item4} data-pageid="{$pageid}" data-page="home_Home" 
+	data-itemtype="dashboard-item" data-itemid="dashboard-item7" {$item_dashboard-item7} data-pageid="{$pageid}" data-page="home_Home" 
 >
-	{$db_indicator_targets_grid}
+	{$db_candidates_view_report}
 </div></td>
 									<td 
 	class=" r-ori-vert			"
@@ -417,6 +401,55 @@
 >
 	{$db_candidates_grid}
 </div></td>
+							</tr>
+											
+			<tr 
+			{$row_grid_3} 
+						data-row-width="1"
+						>
+									<td 
+	class=" r-ori-vert			"
+	colspan="3"		 
+	data-cellId="grid_c8" data-pageid="{$pageid}">
+ 
+<div 
+	data-dashtype="0" 
+	id="dashelement_Performance_Overview_grid{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item9" {$item_dashboard-item9} data-pageid="{$pageid}" data-page="home_Home" 
+>
+	{$db_Performance_Overview_grid}
+</div></td>
+							</tr>
+											
+			<tr 
+			{$row_grid_4} 
+						data-row-width="2"
+						>
+									<td 
+	class=" r-ori-vert			"
+			 
+	data-cellId="grid_c10" data-pageid="{$pageid}">
+ 
+<div 
+	data-dashtype="0" 
+	id="dashelement_indicator_targets_grid{$pageid}"
+	data-tablocation="above" 
+
+	
+	
+	data-itemtype="dashboard-item" data-itemid="dashboard-item4" {$item_dashboard-item4} data-pageid="{$pageid}" data-page="home_Home" 
+>
+	{$db_indicator_targets_grid}
+</div></td>
+									<td 
+	class=" r-ori-vert			"
+	colspan="2"		 
+	data-cellId="grid_c11" data-pageid="{$pageid}">
+</td>
 							</tr>
 		
 	</tbody>

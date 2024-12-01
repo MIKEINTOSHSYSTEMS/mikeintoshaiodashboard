@@ -93,6 +93,12 @@ pdfDocument = {
 								
 			"%",
 			 
+								
+			"%",
+			 
+								
+			"%",
+			 
 				],
 	
 		body: [
@@ -199,29 +205,7 @@ pdfDocument = {
 			
 		
 	//	static colspan/rowspan
-		
-			
-	
-	
-			"stack": [
-		
-				
-			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-																							{
-	cellId: 'c5',
-	col:0,
-	row:0,
-			
-		
-	//	static colspan/rowspan
+					colSpan: 2,
 		
 			
 	
@@ -238,7 +222,13 @@ pdfDocument = {
       
       },
 
-											],
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
 						[
 																{
 	cellId: 'c6',
@@ -254,7 +244,7 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":"","hidden":"{$item_hide_dashboard-item4}"},
+			{"text":"","hidden":"{$item_hide_dashboard-item7}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -289,6 +279,97 @@ pdfDocument = {
 
 																		{ 
 				cellId: 'c7',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 3,
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item9}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c8',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c8',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+							],
+						[
+																{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_dashboard-item4}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+	
+	
+			"stack": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c11',
 				row:  0,
 				col:  1,
 				text: ''

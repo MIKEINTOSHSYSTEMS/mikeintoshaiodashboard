@@ -97,7 +97,7 @@ $tdatadereja_academy_lms[".listAjax"] = false;
 //	temporary
 //$tdatadereja_academy_lms[".listAjax"] = false;
 
-	$tdatadereja_academy_lms[".audit"] = false;
+	$tdatadereja_academy_lms[".audit"] = true;
 
 	$tdatadereja_academy_lms[".locking"] = false;
 

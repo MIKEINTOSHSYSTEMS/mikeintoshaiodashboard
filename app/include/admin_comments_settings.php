@@ -79,7 +79,7 @@ $tdataadmin_comments[".listAjax"] = false;
 //	temporary
 //$tdataadmin_comments[".listAjax"] = false;
 
-	$tdataadmin_comments[".audit"] = false;
+	$tdataadmin_comments[".audit"] = true;
 
 	$tdataadmin_comments[".locking"] = false;
 

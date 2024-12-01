@@ -118,49 +118,7 @@ pdfDocument = {
 			{"text":{$Event_End_Date_pdfvalue},"hidden":"{$item_hide_export_field3}"},
 				
 				
-			{"text":{$First_Name_pdfvalue},"hidden":"{$item_hide_export_field4}"},
-				
-				
-			{"text":{$Middle_Name_pdfvalue},"hidden":"{$item_hide_export_field5}"},
-				
-				
-			{"text":{$Last_Name_pdfvalue},"hidden":"{$item_hide_export_field6}"},
-				
-				
-			{"text":{$Phone_pdfvalue},"hidden":"{$item_hide_export_field7}"},
-				
-				
-			{"text":{$Email_pdfvalue},"hidden":"{$item_hide_export_field8}"},
-				
-				
-			{"text":{$StudentID_pdfvalue},"hidden":"{$item_hide_export_field9}"},
-				
-				
 			{"text":{$Sex_pdfvalue},"hidden":"{$item_hide_export_field10}"},
-				
-				
-			{"text":{$Disability_Status_pdfvalue},"hidden":"{$item_hide_export_field11}"},
-				
-				
-			{"text":{$Disability_Type_pdfvalue},"hidden":"{$item_hide_export_field12}"},
-				
-				
-			{"text":{$Disability_Type_Other_pdfvalue},"hidden":"{$item_hide_export_field13}"},
-				
-				
-			{"text":{$Participant_Type_pdfvalue},"hidden":"{$item_hide_export_field14}"},
-				
-				
-			{"text":{$Participant_Field_of_Study_pdfvalue},"hidden":"{$item_hide_export_field15}"},
-				
-				
-			{"text":{$Participant_Organization_Type_pdfvalue},"hidden":"{$item_hide_export_field16}"},
-				
-				
-			{"text":{$Participant_Organization_Name_pdfvalue},"hidden":"{$item_hide_export_field17}"},
-				
-				
-			{"text":{$Participant_Home_Address_pdfvalue},"hidden":"{$item_hide_export_field18}"},
 				
 				
 			{"text":{$Event_Round_pdfvalue},"hidden":"{$item_hide_export_field19}"},
@@ -169,13 +127,31 @@ pdfDocument = {
 			{"text":{$Event_Organizer_pdfvalue},"hidden":"{$item_hide_export_field20}"},
 				
 				
-			{"text":{$Event_Location_pdfvalue},"hidden":"{$item_hide_export_field21}"},
-				
-				
 			{"text":{$Event_Note_pdfvalue},"hidden":"{$item_hide_export_field22}"},
 				
 				
-			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_export_field23}"},
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_export_field4}"},
+				
+				
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_export_field5}"},
+				
+				
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_export_field6}"},
+				
+				
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_export_field7}"},
+				
+				
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_export_field8}"},
+				
+				
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_export_field9}"},
+				
+				
+			{"text":{$Event_Title_pdfvalue},"hidden":"{$item_hide_export_field11}"},
+				
+				
+			{"text":{$Event_Location_pdfvalue},"hidden":"{$item_hide_export_field12}"},
 				
 		  ],
   "border": [ false, false, false, false ],

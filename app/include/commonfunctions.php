@@ -1282,9 +1282,9 @@ function GetChartType($shorttable)
 	if($shorttable=="event_participants_by_events")
 		return "2DColumn";
 	if($shorttable=="training_participants_by_trainings")
-		return "2DBar";
+		return "2DColumn";
 	if($shorttable=="candidates_reports")
-		return "Line";
+		return "2DColumn";
 	if($shorttable=="candidates_by_gender")
 		return "2DDoughnut";
 	if($shorttable=="candidates_by_sex_age_disability")

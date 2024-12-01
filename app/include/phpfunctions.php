@@ -1187,14 +1187,6 @@ function GetDefaultValue($field, $ptype, $table="")
 	{
 		return now();
 	}
-				if($table=="event_participants" && $field=="Date")
-	{
-		return now();
-	}
-				if($table=="training_participants" && $field=="Date")
-	{
-		return now();
-	}
 				if($table=="kbcomments" && $field=="moderated")
 	{
 		return 0;
@@ -1222,6 +1214,10 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
+				if($table=="candidates" && $field=="Date")
+	{
+		return now();
+	}
 	return "";
 }
 

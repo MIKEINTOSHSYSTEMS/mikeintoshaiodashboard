@@ -85,7 +85,7 @@ $tdatawebreports[".listAjax"] = false;
 //	temporary
 //$tdatawebreports[".listAjax"] = false;
 
-	$tdatawebreports[".audit"] = false;
+	$tdatawebreports[".audit"] = true;
 
 	$tdatawebreports[".locking"] = false;
 

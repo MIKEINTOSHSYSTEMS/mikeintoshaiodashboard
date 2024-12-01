@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html><head></head><body><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -205,6 +205,7 @@
 
 
 <!-- Dereja Forms Managment System | Powered By MERQ Consultancy -->
+
 <link href="../../backend/forms/static_files/css/form.popup.css" rel="stylesheet" type="text/css">
 <style>
     .ef-modal {
@@ -224,6 +225,7 @@
         transition: all 0.6s !important;
     }
 </style>
+<!--
 <div class="ef-btn-wrapper ef-btn-wrapper-11" align="right">
     <button id="ef-button-11" class="ef-button ef-button-11 ef-button-warning ef-button-inline-placement">System Usability Scale Survey</button>
 </div>
@@ -249,6 +251,7 @@
         })(document, 'script');
     </script>
 </div>
+-->
 <script src="//me.dereja.com/backend/forms/static_files/js/form.popup.min.js"></script>
 <script type="text/javascript">
     var modal11 = new EasyForms.Modal({

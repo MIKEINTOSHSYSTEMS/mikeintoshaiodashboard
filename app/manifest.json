@@ -1,6 +1,6 @@
 {
-    "name": "Dereja Monitoring and Evaluation System",
-    "short_name": "Dereja ME",
+    "name": "MyPwaApp",
+    "short_name": "MyPwaApp",
     "lang": "en",
     "start_url": "./",
     "background_color": "none",

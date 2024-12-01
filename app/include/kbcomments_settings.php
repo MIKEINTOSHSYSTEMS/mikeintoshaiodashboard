@@ -79,7 +79,7 @@ $tdatakbcomments[".listAjax"] = false;
 //	temporary
 //$tdatakbcomments[".listAjax"] = false;
 
-	$tdatakbcomments[".audit"] = false;
+	$tdatakbcomments[".audit"] = true;
 
 	$tdatakbcomments[".locking"] = false;
 

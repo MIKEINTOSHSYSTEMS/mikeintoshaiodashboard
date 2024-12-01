@@ -2016,6 +2016,129 @@ pdfDocument = {
 		
 		table: {
 			tableForm: true,
+			location: 'section6',
+			widths: ['*'],
+			body: [
+				[{text: 'Candidate Profile Tracking ', style: 'tableHeader'}],
+				[{
+					table: {
+						tableForm: true,
+						widths: [
+															{BEGIN col_section6_0}
+									"*", 
+								{END col_section6_0}
+															{BEGIN col_section6_1}
+									"*", 
+								{END col_section6_1}
+							 						
+						],
+						body: [
+								
+				{BEGIN row_section6_0}
+				[
+																{BEGIN cellblock_section6_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field29}","stack":[{"text":"{$jslabel candidates Dereja_web_profile_completion }","bold":true},{"text":{$Dereja_web_profile_completion_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section6_c1}
+																							{BEGIN cellblock_section6_c}
+{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field55}","stack":[{"text":"{$jslabel candidates Upload_on_Tracker }","bold":true},{"text":{$Upload_on_Tracker_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field66}","stack":[{"text":"{$jslabel candidates Upload_on_Website }","bold":true},{"text":{$Upload_on_Website_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section6_c}
+											],
+				{END row_section6_0}
+		
+						]
+					}
+				}]
+
+			]
+		},
+		margin: [0,0,0,15],
+	},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+											],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+																{BEGIN cellblock_grid_c9}
+{
+	cellId: 'c9',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+						 
+		{
+		layout: 'panel',
+		
+		table: {
+			tableForm: true,
 			location: 'section12',
 			widths: ['*'],
 			body: [
@@ -2115,14 +2238,10 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_c8}
-											],
-				{END row_grid_4}
-						{BEGIN row_grid_5}
-				[
-																{BEGIN cellblock_grid_c4}
+{END cellblock_grid_c9}
+																							{BEGIN cellblock_grid_c10}
 {
-	cellId: 'c4',
+	cellId: 'c10',
 	col:0,
 	row:0,
 			
@@ -2142,27 +2261,30 @@ pdfDocument = {
 		
 		table: {
 			tableForm: true,
-			location: 'section6',
+			location: 'section9',
 			widths: ['*'],
 			body: [
-				[{text: 'Candidate Profile Tracking ', style: 'tableHeader'}],
+				[{text: 'Candidate Details Website Data', style: 'tableHeader'}],
 				[{
 					table: {
 						tableForm: true,
 						widths: [
-															{BEGIN col_section6_0}
+															{BEGIN col_section9_0}
 									"*", 
-								{END col_section6_0}
-															{BEGIN col_section6_1}
+								{END col_section9_0}
+															{BEGIN col_section9_1}
 									"*", 
-								{END col_section6_1}
+								{END col_section9_1}
+															{BEGIN col_section9_2}
+									"*", 
+								{END col_section9_2}
 							 						
 						],
 						body: [
 								
-				{BEGIN row_section6_0}
+				{BEGIN row_section9_0}
 				[
-																{BEGIN cellblock_section6_c1}
+																{BEGIN cellblock_section9_c1}
 {
 	cellId: 'c1',
 	col:0,
@@ -2179,7 +2301,9 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"hidden":"{$item_hide_integrated_edit_field29}","stack":[{"text":"{$jslabel candidates Dereja_web_profile_completion }","bold":true},{"text":{$Dereja_web_profile_completion_pdfvalue}}],"margin":[0,0,0,15]},
+			 {BEGIN details_job_fair}
+			{$displayDetailTable_job_fair }
+		{END details_job_fair},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -2188,8 +2312,8 @@ pdfDocument = {
       
       },
 
-{END cellblock_section6_c1}
-																							{BEGIN cellblock_section6_c}
+{END cellblock_section9_c1}
+																							{BEGIN cellblock_section9_c}
 {
 	cellId: 'c',
 	col:0,
@@ -2205,11 +2329,35 @@ pdfDocument = {
 	
 			"stack": [
 		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_section9_c}
+																							{BEGIN cellblock_section9_c2}
+{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
 				
-			{"hidden":"{$item_hide_integrated_edit_field55}","stack":[{"text":"{$jslabel candidates Upload_on_Tracker }","bold":true},{"text":{$Upload_on_Tracker_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
-			{"hidden":"{$item_hide_integrated_edit_field66}","stack":[{"text":"{$jslabel candidates Upload_on_Website }","bold":true},{"text":{$Upload_on_Website_pdfvalue}}],"margin":[0,0,0,15]},
+			 {BEGIN details_website_data}
+			{$displayDetailTable_website_data }
+		{END details_website_data},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -2218,9 +2366,9 @@ pdfDocument = {
       
       },
 
-{END cellblock_section6_c}
+{END cellblock_section9_c2}
 											],
-				{END row_section6_0}
+				{END row_section9_0}
 		
 						]
 					}
@@ -2232,6 +2380,35 @@ pdfDocument = {
 	},
 				
 		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+											],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
      
@@ -2356,8 +2533,8 @@ pdfDocument = {
 
 {END cellblock_grid_c16}
 											],
-				{END row_grid_5}
-						{BEGIN row_grid_6}
+				{END row_grid_6}
+						{BEGIN row_grid_7}
 				[
 																{BEGIN cellblock_grid_c22}
 {
@@ -2596,8 +2773,8 @@ pdfDocument = {
 				text: ''
 			},
 							],
-				{END row_grid_6}
-						{BEGIN row_grid_7}
+				{END row_grid_7}
+						{BEGIN row_grid_8}
 				[
 																{BEGIN cellblock_grid_c23}
 {
@@ -2611,167 +2788,6 @@ pdfDocument = {
 					{BEGIN colspan_grid_c23}
 			colSpan: {$colspan_grid_c23},
 			{END colspan_grid_c23}
-		
-						
-	
-	
-	
-			"stack": [
-		
-						 
-		{
-		layout: 'panel',
-		
-		table: {
-			tableForm: true,
-			location: 'section9',
-			widths: ['*'],
-			body: [
-				[{text: 'Candidate Details Website Data', style: 'tableHeader'}],
-				[{
-					table: {
-						tableForm: true,
-						widths: [
-															{BEGIN col_section9_0}
-									"*", 
-								{END col_section9_0}
-															{BEGIN col_section9_1}
-									"*", 
-								{END col_section9_1}
-															{BEGIN col_section9_2}
-									"*", 
-								{END col_section9_2}
-							 						
-						],
-						body: [
-								
-				{BEGIN row_section9_0}
-				[
-																{BEGIN cellblock_section9_c1}
-{
-	cellId: 'c1',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			 {BEGIN details_job_fair}
-			{$displayDetailTable_job_fair }
-		{END details_job_fair},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_section9_c1}
-																							{BEGIN cellblock_section9_c}
-{
-	cellId: 'c',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				'',
-	  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_section9_c}
-																							{BEGIN cellblock_section9_c2}
-{
-	cellId: 'c2',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-		
-						
-	
-	
-	
-			"stack": [
-		
-				
-			 {BEGIN details_website_data}
-			{$displayDetailTable_website_data }
-		{END details_website_data},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_section9_c2}
-											],
-				{END row_section9_0}
-		
-						]
-					}
-				}]
-
-			]
-		},
-		margin: [0,0,0,15],
-	},
-				
-		  ],
-  "border": [ false, false, false, false ],
-              "alignment": 'center',
-     
-      
-      },
-
-{END cellblock_grid_c23}
-																		{ 
-				cellId: 'c23',
-				row:  0,
-				col:  1,
-				text: ''
-			},
-							],
-				{END row_grid_7}
-						{BEGIN row_grid_8}
-				[
-																{BEGIN cellblock_grid_c18}
-{
-	cellId: 'c18',
-	col:0,
-	row:0,
-			
-		
-	//	dynamic colspan/rowspan
-
-					{BEGIN colspan_grid_c18}
-			colSpan: {$colspan_grid_c18},
-			{END colspan_grid_c18}
 		
 						
 	
@@ -2848,9 +2864,9 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_c18}
+{END cellblock_grid_c23}
 																		{ 
-				cellId: 'c18',
+				cellId: 'c23',
 				row:  0,
 				col:  1,
 				text: ''
@@ -2880,6 +2896,19 @@ pdfDocument = {
 		
 				
 			{"hidden":"{$item_hide_integrated_edit_field65}","stack":[{"text":"{$jslabel candidates Date }","bold":true},{"text":{$Date_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field73}","stack":[{"text":"{$jslabel candidates candidate_data }","bold":true},{"text":{$candidate_data_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			 {BEGIN details_training_participants}
+			{$displayDetailTable_training_participants }
+		{END details_training_participants},
+				
+				
+			 {BEGIN details_event_participants}
+			{$displayDetailTable_event_participants }
+		{END details_event_participants},
 				
 		  ],
   "border": [ false, false, false, false ],

@@ -86,7 +86,7 @@ $tdatakbarticles[".listAjax"] = false;
 //	temporary
 //$tdatakbarticles[".listAjax"] = false;
 
-	$tdatakbarticles[".audit"] = false;
+	$tdatakbarticles[".audit"] = true;
 
 	$tdatakbarticles[".locking"] = false;
 

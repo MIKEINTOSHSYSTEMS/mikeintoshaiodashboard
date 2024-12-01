@@ -424,6 +424,48 @@ pdfDocument = {
 			fillColor: '#fa8072'
 		},
 
+			group_20: {
+			fillColor: '#fff8dc'
+		},
+		nbgroup_20: {
+			fillColor: '#fff8dc'
+		},
+		header_20: {
+			fillColor: '#fff8dc',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Age: {
+			fillColor: '#fff8dc',
+			fontSize: 15,
+			bold: true
+		},
+		group_Age: {
+			fillColor: '#fff8dc'
+		},
+
+			group_21: {
+			fillColor: '#adff2f'
+		},
+		nbgroup_21: {
+			fillColor: '#adff2f'
+		},
+		header_21: {
+			fillColor: '#adff2f',
+			fontSize: 15,
+			bold: true
+		},
+		/* new style styles */
+		header_Disability_Status: {
+			fillColor: '#adff2f',
+			fontSize: 15,
+			bold: true
+		},
+		group_Disability_Status: {
+			fillColor: '#adff2f'
+		},
+
 		
 	blackshade: {
 		fontSize: 15,
@@ -503,79 +545,13 @@ pdfDocument = {
 										"%",
 										"%",
 										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
-										"%",
 															],
 							
 				body: [
 				{BEGIN standalone_page}
 					[
 						{
-							colSpan: 91,
+							colSpan: 25,
 							border:[false, false,false,false],
 							stack: [
 
@@ -705,7 +681,7 @@ pdfDocument = {
 
 																[
 	{
-		colSpan: 91,
+		colSpan: 25,
 		border: [ false, false, false, false ],
 		stack: [
 			{

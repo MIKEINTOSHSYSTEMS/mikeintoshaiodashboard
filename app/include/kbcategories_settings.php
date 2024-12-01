@@ -70,7 +70,7 @@ $tdatakbcategories[".listAjax"] = false;
 //	temporary
 //$tdatakbcategories[".listAjax"] = false;
 
-	$tdatakbcategories[".audit"] = false;
+	$tdatakbcategories[".audit"] = true;
 
 	$tdatakbcategories[".locking"] = false;
 

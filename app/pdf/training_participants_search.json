@@ -166,10 +166,40 @@ pdfDocument = {
 			"stack": [
 		
 				
-			{"text":{$Training_Round_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
+			{"text":{$Full_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field}"},
 				
 				
-			{"text":{$Date_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
+			{"text":{$DOB_pdfvalue},"hidden":"{$item_hide_integrated_search_field1}"},
+				
+				
+			{"text":{$Region_pdfvalue},"hidden":"{$item_hide_integrated_search_field2}"},
+				
+				
+			{"text":{$City_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
+				
+				
+			{"text":{$Phone_Number_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
+				
+				
+			{"text":{$Email_Address_pdfvalue},"hidden":"{$item_hide_integrated_search_field5}"},
+				
+				
+			{"text":{$TrainingTitle_pdfvalue},"hidden":"{$item_hide_integrated_search_field6}"},
+				
+				
+			{"text":{$Training_City_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
+				
+				
+			{"text":{$Trainer_Name_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
+				
+				
+			{"text":{$TrainingRound_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
+				
+				
+			{"text":{$TrainingNote_pdfvalue},"hidden":"{$item_hide_integrated_search_field10}"},
+				
+				
+			{"text":{$program_areas_pdfvalue},"hidden":"{$item_hide_integrated_search_field11}"},
 				
 		  ],
   "border": [ false, false, false, false ],

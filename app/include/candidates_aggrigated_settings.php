@@ -9615,6 +9615,7 @@ $proto129["m_columns"][] = "Career_Level_Of_Payment";
 $proto129["m_columns"][] = "Placement_Type";
 $proto129["m_columns"][] = "Placement_Duration";
 $proto129["m_columns"][] = "Remark";
+$proto129["m_columns"][] = "candidate_data";
 $proto129["m_columns"][] = "Date";
 $obj = new SQLTable($proto129);
 

@@ -76,7 +76,7 @@ $tdatadashboard_pages[".listAjax"] = false;
 //	temporary
 //$tdatadashboard_pages[".listAjax"] = false;
 
-	$tdatadashboard_pages[".audit"] = false;
+	$tdatadashboard_pages[".audit"] = true;
 
 	$tdatadashboard_pages[".locking"] = false;
 

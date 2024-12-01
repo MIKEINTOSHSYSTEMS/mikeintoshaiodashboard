@@ -64,7 +64,7 @@ $tdatafaicons[".listAjax"] = false;
 //	temporary
 //$tdatafaicons[".listAjax"] = false;
 
-	$tdatafaicons[".audit"] = false;
+	$tdatafaicons[".audit"] = true;
 
 	$tdatafaicons[".locking"] = false;
 

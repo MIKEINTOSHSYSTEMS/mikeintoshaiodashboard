@@ -26,6 +26,19 @@ class RestManager
 
 		$connectionsData = array();
 
+		$data = array();
+		$data["connId"] = "deredevatderejadevmerqconsulta";
+		$data["connName"] = "ListFormSubmissioins";
+
+		$this->_connectionsIdByName["ListFormSubmissioins"] = "deredevatderejadevmerqconsulta";
+
+		$data["url"] = "https://derejadev.merqconsultancy.org/backend/forms/api/v1";
+		$data["authType"] = "api";
+				$data["apiKey"] = "BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk";
+		$data["keyLocation"] = 1;
+		$data["keyParameter"] = "X-Api-Key";
+		
+	$connectionsData["deredevatderejadevmerqconsulta"] = $data;
 		$this->_connectionsData = &$connectionsData;
 	}
 

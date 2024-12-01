@@ -75,7 +75,7 @@ $tdatadashboards[".listAjax"] = false;
 //	temporary
 //$tdatadashboards[".listAjax"] = false;
 
-	$tdatadashboards[".audit"] = false;
+	$tdatadashboards[".audit"] = true;
 
 	$tdatadashboards[".locking"] = false;
 
