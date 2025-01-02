@@ -32,7 +32,7 @@
             
             <div class="menu_links">
                 <a href="/" class="link"> Home</a>
-                <a href="/app/login.php" class="link"> Menu</a>
+                <a href="/app/dashboards_list.php?menuItemId=1" class="link"> Dashboard</a>
                 <a href="/app/modules/knowledgebase/main_list.php" class="link"> Help</a>
             </div>
             <div class="menu_icon">
