@@ -177,6 +177,9 @@ pdfDocument = {
 				
 			{"text":{$reporting_frequency_pdfvalue},"hidden":"{$item_hide_integrated_search_field3}"},
 				
+				
+			{"text":{$actual_setting_pdfvalue},"hidden":"{$item_hide_integrated_search_field4}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

@@ -176,7 +176,7 @@ class XTempl_Base
 			array(
 				"chartName"=>"performance_indicators_view",
 				"table"=>"performance_indicators_view",
-				"ctype"=>"Combined"));
+				"ctype"=>"2DColumn"));
 		}
 
 

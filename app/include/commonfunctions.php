@@ -1292,7 +1292,7 @@ function GetChartType($shorttable)
 	if($shorttable=="indicator_targets_view")
 		return "2DColumn";
 	if($shorttable=="performance_indicators_view")
-		return "Combined";
+		return "2DColumn";
 	return "";
 }
 

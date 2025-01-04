@@ -37,6 +37,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsperformance_indicators["English"]["reporting_frequency"] = "Reporting Frequency";
 	$fieldToolTipsperformance_indicators["English"]["reporting_frequency"] = "";
 	$placeHoldersperformance_indicators["English"]["reporting_frequency"] = "";
+	$fieldLabelsperformance_indicators["English"]["actual_setting"] = "Actual Setting";
+	$fieldToolTipsperformance_indicators["English"]["actual_setting"] = "";
+	$placeHoldersperformance_indicators["English"]["actual_setting"] = "";
 	if (count($fieldToolTipsperformance_indicators["English"]))
 		$tdataperformance_indicators[".isUseToolTips"] = true;
 }
@@ -158,6 +161,7 @@ $tdataperformance_indicators[".googleLikeFields"][] = "indicator_id";
 $tdataperformance_indicators[".googleLikeFields"][] = "indicator_name";
 $tdataperformance_indicators[".googleLikeFields"][] = "unit_of_measurement";
 $tdataperformance_indicators[".googleLikeFields"][] = "reporting_frequency";
+$tdataperformance_indicators[".googleLikeFields"][] = "actual_setting";
 
 
 
@@ -192,7 +196,7 @@ $tdataperformance_indicators[".strOrderBy"] = $tstrOrderBy;
 $tdataperformance_indicators[".orderindexes"] = array();
 
 
-$tdataperformance_indicators[".sqlHead"] = "SELECT indicator_id,  	indicator_name,  	unit_of_measurement,  	reporting_frequency";
+$tdataperformance_indicators[".sqlHead"] = "SELECT indicator_id,  	indicator_name,  	unit_of_measurement,  	reporting_frequency,  	actual_setting";
 $tdataperformance_indicators[".sqlFrom"] = "FROM performance_indicators";
 $tdataperformance_indicators[".sqlWhereExpr"] = "";
 $tdataperformance_indicators[".sqlTail"] = "";
@@ -795,6 +799,146 @@ $tdataperformance_indicators[".hideMobileList"] = array();
 
 	$tdataperformance_indicators["reporting_frequency"] = $fdata;
 		$tdataperformance_indicators[".searchableFields"][] = "reporting_frequency";
+//	actual_setting
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 5;
+	$fdata["strName"] = "actual_setting";
+	$fdata["GoodName"] = "actual_setting";
+	$fdata["ownerTable"] = "performance_indicators";
+	$fdata["Label"] = GetFieldLabel("performance_indicators","actual_setting");
+	$fdata["FieldType"] = 201;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "actual_setting";
+
+		$fdata["sourceSingle"] = "actual_setting";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "actual_setting";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text area");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 0;
+
+	
+	
+	
+				$edata["nRows"] = 100;
+			$edata["nCols"] = 200;
+
+	
+	
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+//	End validation
+
+		$edata["CreateThumbnail"] = true;
+	$edata["StrThumbnail"] = "th";
+			$edata["ThumbnailSize"] = 600;
+
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataperformance_indicators["actual_setting"] = $fdata;
+		$tdataperformance_indicators[".searchableFields"][] = "actual_setting";
 
 
 $tables_data["performance_indicators"]=&$tdataperformance_indicators;
@@ -869,7 +1013,7 @@ function createSqlQuery_performance_indicators()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "indicator_id,  	indicator_name,  	unit_of_measurement,  	reporting_frequency";
+$proto0["m_strFieldList"] = "indicator_id,  	indicator_name,  	unit_of_measurement,  	reporting_frequency,  	actual_setting";
 $proto0["m_strFrom"] = "FROM performance_indicators";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -965,40 +1109,55 @@ $proto12["m_alias"] = "";
 $obj = new SQLFieldListItem($proto12);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto14=array();
-$proto14["m_link"] = "SQLL_MAIN";
-			$proto15=array();
-$proto15["m_strName"] = "performance_indicators";
-$proto15["m_srcTableName"] = "performance_indicators";
-$proto15["m_columns"] = array();
-$proto15["m_columns"][] = "indicator_id";
-$proto15["m_columns"][] = "indicator_name";
-$proto15["m_columns"][] = "unit_of_measurement";
-$proto15["m_columns"][] = "reporting_frequency";
-$obj = new SQLTable($proto15);
+						$proto14=array();
+			$obj = new SQLField(array(
+	"m_strName" => "actual_setting",
+	"m_strTable" => "performance_indicators",
+	"m_srcTableName" => "performance_indicators"
+));
 
-$proto14["m_table"] = $obj;
-$proto14["m_sql"] = "performance_indicators";
-$proto14["m_alias"] = "";
+$proto14["m_sql"] = "actual_setting";
 $proto14["m_srcTableName"] = "performance_indicators";
-$proto16=array();
-$proto16["m_sql"] = "";
-$proto16["m_uniontype"] = "SQLL_UNKNOWN";
+$proto14["m_expr"]=$obj;
+$proto14["m_alias"] = "";
+$obj = new SQLFieldListItem($proto14);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto16=array();
+$proto16["m_link"] = "SQLL_MAIN";
+			$proto17=array();
+$proto17["m_strName"] = "performance_indicators";
+$proto17["m_srcTableName"] = "performance_indicators";
+$proto17["m_columns"] = array();
+$proto17["m_columns"][] = "indicator_id";
+$proto17["m_columns"][] = "indicator_name";
+$proto17["m_columns"][] = "unit_of_measurement";
+$proto17["m_columns"][] = "reporting_frequency";
+$proto17["m_columns"][] = "actual_setting";
+$obj = new SQLTable($proto17);
+
+$proto16["m_table"] = $obj;
+$proto16["m_sql"] = "performance_indicators";
+$proto16["m_alias"] = "";
+$proto16["m_srcTableName"] = "performance_indicators";
+$proto18=array();
+$proto18["m_sql"] = "";
+$proto18["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto16["m_column"]=$obj;
-$proto16["m_contained"] = array();
-$proto16["m_strCase"] = "";
-$proto16["m_havingmode"] = false;
-$proto16["m_inBrackets"] = false;
-$proto16["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto16);
+$proto18["m_column"]=$obj;
+$proto18["m_contained"] = array();
+$proto18["m_strCase"] = "";
+$proto18["m_havingmode"] = false;
+$proto18["m_inBrackets"] = false;
+$proto18["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto18);
 
-$proto14["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto14);
+$proto16["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto16);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -1014,12 +1173,13 @@ $queryData_performance_indicators = createSqlQuery_performance_indicators();
 	
 																								;
 
-				
+					
 
 $tdataperformance_indicators[".sqlquery"] = $queryData_performance_indicators;
 
 
 
-$tdataperformance_indicators[".hasEvents"] = false;
+include_once(getabspath("include/performance_indicators_events.php"));
+$tdataperformance_indicators[".hasEvents"] = true;
 
 ?>

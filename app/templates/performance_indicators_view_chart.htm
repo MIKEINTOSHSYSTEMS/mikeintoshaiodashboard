@@ -56,7 +56,114 @@
 		
      
      
-             
+         
+
+			<div class="clearfix  r-ori-vert" data-cellId="left_c" data-pageid="{$pageid}" data-itemid="search_panel" {$item_search_panel} data-topcell-item-type="search_panel" >
+				<!-- Begin Search panel content -->
+<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
+
+	<div class="panel-heading">
+		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
+			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Search in			<span class="caret"></span>
+			</button>
+		</div>
+
+
+		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
+			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
+			</button>
+			<ul class="dropdown-menu dropdown-left">
+				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
+				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
+				<li role="separator" class="divider"></li>
+				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
+			</ul>
+		</div>
+
+
+		</div>
+	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
+
+
+		
+		{BEGIN searchCtrlBlock}
+		<div class="srchPanelRow form-group" {$filterRow_attrs}>
+			<label>{$fLabel}</label>	{$delCtrlButt}
+				<span class="rnr-searchtype">{$searchtype}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol}</span>
+				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
+		</div>
+		{END searchCtrlBlock}
+																		{BEGIN searchCtrlBlock_indicator_name}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_indicator_name}" {$filterRow_attrs_indicator_name}>
+			<label>{$label performance_indicators_view indicator_name }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_indicator_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_indicator_name}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_name}</span>
+						</div>
+		{END searchCtrlBlock_indicator_name}
+																{BEGIN searchCtrlBlock_reporting_frequency}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_reporting_frequency}" {$filterRow_attrs_reporting_frequency}>
+			<label>{$label performance_indicators_view reporting_frequency }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_reporting_frequency}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_reporting_frequency}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_reporting_frequency}</span>
+						</div>
+		{END searchCtrlBlock_reporting_frequency}
+																{BEGIN searchCtrlBlock_performance_year}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_performance_year}" {$filterRow_attrs_performance_year}>
+			<label>{$label performance_indicators_view performance_year }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_performance_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_performance_year}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_performance_year}</span>
+						</div>
+		{END searchCtrlBlock_performance_year}
+																{BEGIN searchCtrlBlock_unit_of_measurement}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_unit_of_measurement}" {$filterRow_attrs_unit_of_measurement}>
+			<label>{$label performance_indicators_view unit_of_measurement }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_unit_of_measurement}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_unit_of_measurement}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_unit_of_measurement}</span>
+						</div>
+		{END searchCtrlBlock_unit_of_measurement}
+		
+
+	</div>
+
+	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
+		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
+
+				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</button>
+	</div>
+</div>
+<!-- End Search panel content -->
+			</div>
+		
+     
      
          
 
@@ -118,7 +225,7 @@
 {END searchform_text}
 	<span class="input-group-btn">
 	{BEGIN searchform_showall}
-				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Reset">
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Show all">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
 	{END searchform_showall}
@@ -335,163 +442,7 @@
 	
 ">
 		{BEGIN firstAboveGridCell}
-		 
-		<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"			data-horizontal
-	 >
-
-	<div class="panel-heading">
-		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Search in			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Show options</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>all conditions</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>any condition</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>hide</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_indicator_name}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_indicator_name}" {$filterRow_attrs_indicator_name}>
-			<label>{$label performance_indicators_view indicator_name }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_indicator_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_indicator_name}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_name}</span>
-						</div>
-		{END searchCtrlBlock_indicator_name}
-																{BEGIN searchCtrlBlock_unit_of_measurement}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_unit_of_measurement}" {$filterRow_attrs_unit_of_measurement}>
-			<label>{$label performance_indicators_view unit_of_measurement }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_unit_of_measurement}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_unit_of_measurement}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_unit_of_measurement}</span>
-						</div>
-		{END searchCtrlBlock_unit_of_measurement}
-																{BEGIN searchCtrlBlock_reporting_frequency}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_reporting_frequency}" {$filterRow_attrs_reporting_frequency}>
-			<label>{$label performance_indicators_view reporting_frequency }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_reporting_frequency}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_reporting_frequency}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_reporting_frequency}</span>
-						</div>
-		{END searchCtrlBlock_reporting_frequency}
-																{BEGIN searchCtrlBlock_baseline_year}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_baseline_year}" {$filterRow_attrs_baseline_year}>
-			<label>{$label performance_indicators_view baseline_year }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_baseline_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_baseline_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_year}</span>
-						</div>
-		{END searchCtrlBlock_baseline_year}
-																{BEGIN searchCtrlBlock_performance_year}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_performance_year}" {$filterRow_attrs_performance_year}>
-			<label>{$label performance_indicators_view performance_year }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_performance_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_performance_year}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_performance_year}</span>
-						</div>
-		{END searchCtrlBlock_performance_year}
-																{BEGIN searchCtrlBlock_baseline_value}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_baseline_value}" {$filterRow_attrs_baseline_value}>
-			<label>{$label performance_indicators_view baseline_value }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_baseline_value}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_baseline_value}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_baseline_value}</span>
-						</div>
-		{END searchCtrlBlock_baseline_value}
-																{BEGIN searchCtrlBlock_target}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_target}" {$filterRow_attrs_target}>
-			<label>{$label performance_indicators_view target }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_target}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_target}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_target}</span>
-						</div>
-		{END searchCtrlBlock_target}
-																{BEGIN searchCtrlBlock_actual}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_actual}" {$filterRow_attrs_actual}>
-			<label>{$label performance_indicators_view actual }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_actual}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_actual}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_actual}</span>
-						</div>
-		{END searchCtrlBlock_actual}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Search</button>
-
-				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Reset</button>
-	</div>
-</div>
-<!-- End Search panel content -->
-			{END firstAboveGridCell}	
+				{END firstAboveGridCell}	
 	</div>					</div>
 			 
 				<div class="row">
@@ -519,6 +470,222 @@
 					data-horizontal
 			>
 	<!-- Begin Filter panel content -->
+
+
+
+
+
+
+{BEGIN filter_control_indicator_name}
+
+	<div class="dropdown filter-field filter-indicator_name-container" {BEGIN filter_selected_indicator_name} data-selected {END filter_selected_indicator_name}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+							<input class="filter-selectAll-indicator_name" type="checkbox" name="selectAll" {$selectAll_attrs_indicator_name} />
+						{BEGIN clearLink_indicator_name}
+			<a href="#" class="filter-clear filter-clear-indicator_name" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_indicator_name}
+			<span class="r-filter-field">{$label performance_indicators_view indicator_name }				{BEGIN filter_selected_indicator_name}:{END filter_selected_indicator_name}
+			</span>
+			{BEGIN filter_selected_indicator_name}
+			<span class="r-filter-value">{$filtervalue_indicator_name}</span>
+			{END filter_selected_indicator_name}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_indicator_name}
+		<li class=" filter-values filter-values-indicator_name  {$visibilityClass_indicator_name}">
+			{$indicator_name_filter}
+						
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_indicator_name}
+
+			{BEGIN filter_button_showmore_indicator_name}
+		<li class=" filter-show-more {$collapsedClass_indicator_name} {$showMoreBtnClass_indicator_name}">
+			<a class="filter-show-more-link filterShowMore_indicator_name" href="#">{$show_n_more_indicator_name}</a>
+		</li>
+		{END filter_button_showmore_indicator_name}
+	
+
+
+			{BEGIN filter_button_apply_indicator_name}
+		<li class="filter-multiselect  filter-field-btn {$collapsedClass_indicator_name}">
+			<a href="#" class="filter-btn-apply filter-apply-indicator_name" {$filterbutton_attrs_indicator_name}>Apply</a>
+		</li>
+		{END filter_button_apply_indicator_name}
+	
+
+			</ul>
+	</div>
+
+{END filter_control_indicator_name}
+
+
+
+
+
+
+{BEGIN filter_control_reporting_frequency}
+
+	<div class="dropdown filter-field filter-reporting_frequency-container" {BEGIN filter_selected_reporting_frequency} data-selected {END filter_selected_reporting_frequency}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+							<input class="filter-selectAll-reporting_frequency" type="checkbox" name="selectAll" {$selectAll_attrs_reporting_frequency} />
+						{BEGIN clearLink_reporting_frequency}
+			<a href="#" class="filter-clear filter-clear-reporting_frequency" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_reporting_frequency}
+			<span class="r-filter-field">{$label performance_indicators_view reporting_frequency }				{BEGIN filter_selected_reporting_frequency}:{END filter_selected_reporting_frequency}
+			</span>
+			{BEGIN filter_selected_reporting_frequency}
+			<span class="r-filter-value">{$filtervalue_reporting_frequency}</span>
+			{END filter_selected_reporting_frequency}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_reporting_frequency}
+		<li class=" filter-values filter-values-reporting_frequency  {$visibilityClass_reporting_frequency}">
+			{$reporting_frequency_filter}
+						
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_reporting_frequency}
+
+			{BEGIN filter_button_showmore_reporting_frequency}
+		<li class=" filter-show-more {$collapsedClass_reporting_frequency} {$showMoreBtnClass_reporting_frequency}">
+			<a class="filter-show-more-link filterShowMore_reporting_frequency" href="#">{$show_n_more_reporting_frequency}</a>
+		</li>
+		{END filter_button_showmore_reporting_frequency}
+	
+
+
+			{BEGIN filter_button_apply_reporting_frequency}
+		<li class="filter-multiselect  filter-field-btn {$collapsedClass_reporting_frequency}">
+			<a href="#" class="filter-btn-apply filter-apply-reporting_frequency" {$filterbutton_attrs_reporting_frequency}>Apply</a>
+		</li>
+		{END filter_button_apply_reporting_frequency}
+	
+
+			</ul>
+	</div>
+
+{END filter_control_reporting_frequency}
+
+
+
+
+
+
+{BEGIN filter_control_performance_year}
+
+	<div class="dropdown filter-field filter-performance_year-container" {BEGIN filter_selected_performance_year} data-selected {END filter_selected_performance_year}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+							<input class="filter-selectAll-performance_year" type="checkbox" name="selectAll" {$selectAll_attrs_performance_year} />
+						{BEGIN clearLink_performance_year}
+			<a href="#" class="filter-clear filter-clear-performance_year" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_performance_year}
+			<span class="r-filter-field">{$label performance_indicators_view performance_year }				{BEGIN filter_selected_performance_year}:{END filter_selected_performance_year}
+			</span>
+			{BEGIN filter_selected_performance_year}
+			<span class="r-filter-value">{$filtervalue_performance_year}</span>
+			{END filter_selected_performance_year}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_performance_year}
+		<li class=" filter-values filter-values-performance_year  {$visibilityClass_performance_year}">
+			{$performance_year_filter}
+						
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_performance_year}
+
+			{BEGIN filter_button_showmore_performance_year}
+		<li class=" filter-show-more {$collapsedClass_performance_year} {$showMoreBtnClass_performance_year}">
+			<a class="filter-show-more-link filterShowMore_performance_year" href="#">{$show_n_more_performance_year}</a>
+		</li>
+		{END filter_button_showmore_performance_year}
+	
+
+
+			{BEGIN filter_button_apply_performance_year}
+		<li class="filter-multiselect  filter-field-btn {$collapsedClass_performance_year}">
+			<a href="#" class="filter-btn-apply filter-apply-performance_year" {$filterbutton_attrs_performance_year}>Apply</a>
+		</li>
+		{END filter_button_apply_performance_year}
+	
+
+			</ul>
+	</div>
+
+{END filter_control_performance_year}
+
+
+
+
+
+
+{BEGIN filter_control_unit_of_measurement}
+
+	<div class="dropdown filter-field filter-unit_of_measurement-container" {BEGIN filter_selected_unit_of_measurement} data-selected {END filter_selected_unit_of_measurement}>
+		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+							<input class="filter-selectAll-unit_of_measurement" type="checkbox" name="selectAll" {$selectAll_attrs_unit_of_measurement} />
+						{BEGIN clearLink_unit_of_measurement}
+			<a href="#" class="filter-clear filter-clear-unit_of_measurement" title="Clear">
+				<span class="glyphicon glyphicon-remove"></span>
+			</a>
+			{END clearLink_unit_of_measurement}
+			<span class="r-filter-field">{$label performance_indicators_view unit_of_measurement }				{BEGIN filter_selected_unit_of_measurement}:{END filter_selected_unit_of_measurement}
+			</span>
+			{BEGIN filter_selected_unit_of_measurement}
+			<span class="r-filter-value">{$filtervalue_unit_of_measurement}</span>
+			{END filter_selected_unit_of_measurement}
+			
+			<span class="caret"></span>
+		</div>
+		<ul class="dropdown-menu">
+					{BEGIN filterCtrlBlock_unit_of_measurement}
+		<li class=" filter-values filter-values-unit_of_measurement  {$visibilityClass_unit_of_measurement}">
+			{$unit_of_measurement_filter}
+						
+					
+					
+					
+					</li>
+		{END filterCtrlBlock_unit_of_measurement}
+
+			{BEGIN filter_button_showmore_unit_of_measurement}
+		<li class=" filter-show-more {$collapsedClass_unit_of_measurement} {$showMoreBtnClass_unit_of_measurement}">
+			<a class="filter-show-more-link filterShowMore_unit_of_measurement" href="#">{$show_n_more_unit_of_measurement}</a>
+		</li>
+		{END filter_button_showmore_unit_of_measurement}
+	
+
+
+			{BEGIN filter_button_apply_unit_of_measurement}
+		<li class="filter-multiselect  filter-field-btn {$collapsedClass_unit_of_measurement}">
+			<a href="#" class="filter-btn-apply filter-apply-unit_of_measurement" {$filterbutton_attrs_unit_of_measurement}>Apply</a>
+		</li>
+		{END filter_button_apply_unit_of_measurement}
+	
+
+			</ul>
+	</div>
+
+{END filter_control_unit_of_measurement}
 
 
 

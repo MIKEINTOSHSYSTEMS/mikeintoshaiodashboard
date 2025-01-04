@@ -1,8 +1,7 @@
 <?php
 			$optionsArray = array( 'details' => array( 'performance_years' => array( 'displayPreview' => 2,
 'previewPageId' => '' ) ),
-'master' => array( 'performance_indicators' => array( 'preview' => false ),
-'performance_indicators_view' => array( 'preview' => false ) ),
+'master' => array( 'performance_indicators' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'indicator_id',
 'baseline_year',

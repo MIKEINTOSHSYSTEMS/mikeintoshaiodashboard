@@ -1,8 +1,7 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'details' => array( 'performance_years' => array( 'displayPreview' => 1 ) ),
-'master' => array( 'performance_indicators' => array( 'preview' => true ),
-'performance_indicators_view' => array( 'preview' => true ) ),
+'master' => array( 'performance_indicators' => array( 'preview' => true ) ),
 'totals' => array( 'tracking_id' => array( 'totalsType' => '' ),
 'indicator_id' => array( 'totalsType' => '' ),
 'baseline_year' => array( 'totalsType' => '' ),

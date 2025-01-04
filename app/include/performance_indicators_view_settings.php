@@ -25,6 +25,12 @@ if(mlang_getcurrentlang()=="English")
 	$fieldToolTipsperformance_indicators_view["English"] = array();
 	$placeHoldersperformance_indicators_view["English"] = array();
 	$pageTitlesperformance_indicators_view["English"] = array();
+	$fieldLabelsperformance_indicators_view["English"]["target"] = "Target";
+	$fieldToolTipsperformance_indicators_view["English"]["target"] = "";
+	$placeHoldersperformance_indicators_view["English"]["target"] = "";
+	$fieldLabelsperformance_indicators_view["English"]["actual"] = "Actual";
+	$fieldToolTipsperformance_indicators_view["English"]["actual"] = "";
+	$placeHoldersperformance_indicators_view["English"]["actual"] = "";
 	$fieldLabelsperformance_indicators_view["English"]["indicator_id"] = "Indicator Id";
 	$fieldToolTipsperformance_indicators_view["English"]["indicator_id"] = "";
 	$placeHoldersperformance_indicators_view["English"]["indicator_id"] = "";
@@ -49,12 +55,6 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsperformance_indicators_view["English"]["performance_year"] = "Performance Year";
 	$fieldToolTipsperformance_indicators_view["English"]["performance_year"] = "";
 	$placeHoldersperformance_indicators_view["English"]["performance_year"] = "";
-	$fieldLabelsperformance_indicators_view["English"]["target"] = "Target";
-	$fieldToolTipsperformance_indicators_view["English"]["target"] = "";
-	$placeHoldersperformance_indicators_view["English"]["target"] = "";
-	$fieldLabelsperformance_indicators_view["English"]["actual"] = "Actual";
-	$fieldToolTipsperformance_indicators_view["English"]["actual"] = "";
-	$placeHoldersperformance_indicators_view["English"]["actual"] = "";
 	if (count($fieldToolTipsperformance_indicators_view["English"]))
 		$tdataperformance_indicators_view[".isUseToolTips"] = true;
 }
@@ -181,8 +181,6 @@ $tdataperformance_indicators_view[".googleLikeFields"][] = "tracking_id";
 $tdataperformance_indicators_view[".googleLikeFields"][] = "baseline_year";
 $tdataperformance_indicators_view[".googleLikeFields"][] = "baseline_value";
 $tdataperformance_indicators_view[".googleLikeFields"][] = "performance_year";
-$tdataperformance_indicators_view[".googleLikeFields"][] = "target";
-$tdataperformance_indicators_view[".googleLikeFields"][] = "actual";
 
 
 
@@ -198,7 +196,7 @@ $tdataperformance_indicators_view[".geocodingEnabled"] = false;
 
 
 // chart settings
-$tdataperformance_indicators_view[".chartType"] = "Combined";
+$tdataperformance_indicators_view[".chartType"] = "2DColumn";
 // end of chart settings
 
 $tdataperformance_indicators_view[".isDisplayLoading"] = true;
@@ -206,7 +204,6 @@ $tdataperformance_indicators_view[".isDisplayLoading"] = true;
 
 $tdataperformance_indicators_view[".searchIsRequiredForFilters"] = true;
 
-$tdataperformance_indicators_view[".noRecordsFirstPage"] = true;
 
 
 
@@ -256,7 +253,6 @@ $tdataperformance_indicators_view[".arrGroupsPerPage"] = $arrGPP;
 $tdataperformance_indicators_view[".highlightSearchResults"] = true;
 
 $tableKeysperformance_indicators_view = array();
-$tableKeysperformance_indicators_view[] = "indicator_id";
 $tdataperformance_indicators_view[".Keys"] = $tableKeysperformance_indicators_view;
 
 
@@ -503,7 +499,8 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 	$edata["DependentLookups"][] = "reporting_frequency";
 
 	
-	
+		$edata["Multiselect"] = true;
+
 		$edata["SelectSize"] = 1;
 
 // End Lookup Settings
@@ -548,7 +545,7 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -557,8 +554,9 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 //Filters settings
 	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+		$fdata["filterMultiSelect"] = 2;
+		$fdata["filterTotalFields"] = "indicator_id";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -714,7 +712,7 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -723,8 +721,9 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 //Filters settings
 	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+		$fdata["filterMultiSelect"] = 2;
+		$fdata["filterTotalFields"] = "indicator_id";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -880,7 +879,7 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -889,8 +888,9 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 //Filters settings
 	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+		$fdata["filterMultiSelect"] = 2;
+		$fdata["filterTotalFields"] = "indicator_id";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -1183,7 +1183,7 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1441,7 +1441,8 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 	
 
 	
-	
+		$edata["Multiselect"] = true;
+
 		$edata["SelectSize"] = 1;
 
 // End Lookup Settings
@@ -1486,7 +1487,7 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1495,8 +1496,9 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 //Filters settings
 	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+		$fdata["filterMultiSelect"] = 2;
+		$fdata["filterTotalFields"] = "indicator_id";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -1796,14 +1798,10 @@ $tdataperformance_indicators_view[".hideMobileList"] = array();
 
 $tdataperformance_indicators_view[".groupChart"] = true;
 $tdataperformance_indicators_view[".chartLabelInterval"] = 0;
-$tdataperformance_indicators_view[".chartLabelField"] = "performance_year";
+$tdataperformance_indicators_view[".chartLabelField"] = "indicator_name";
 $tdataperformance_indicators_view[".chartSeries"] = array();
 $tdataperformance_indicators_view[".chartSeries"][] = array(
 	"field" => "target",
-	"total" => "AVG"
-);
-$tdataperformance_indicators_view[".chartSeries"][] = array(
-	"field" => "baseline_value",
 	"total" => "AVG"
 );
 $tdataperformance_indicators_view[".chartSeries"][] = array(
@@ -1815,7 +1813,7 @@ $tdataperformance_indicators_view[".chartSeries"][] = array(
 			<attr value="0">performance_indicators_view</attr>
 		</attr>
 		<attr value="chart_type">
-			<attr value="type">combined</attr>
+			<attr value="type">2d_column</attr>
 		</attr>
 
 		<attr value="parameters">';
@@ -1823,20 +1821,17 @@ $tdataperformance_indicators_view[".chartSeries"][] = array(
 			<attr value="name">target</attr>';
 	$tdataperformance_indicators_view[".chartXml"] .= '</attr>';
 	$tdataperformance_indicators_view[".chartXml"] .= '<attr value="1">
-			<attr value="name">baseline_value</attr>';
-	$tdataperformance_indicators_view[".chartXml"] .= '</attr>';
-	$tdataperformance_indicators_view[".chartXml"] .= '<attr value="2">
 			<attr value="name">actual</attr>';
 	$tdataperformance_indicators_view[".chartXml"] .= '</attr>';
-	$tdataperformance_indicators_view[".chartXml"] .= '<attr value="3">
-		<attr value="name">performance_year</attr>
+	$tdataperformance_indicators_view[".chartXml"] .= '<attr value="2">
+		<attr value="name">indicator_name</attr>
 	</attr>';
 	$tdataperformance_indicators_view[".chartXml"] .= '</attr>
 			<attr value="appearance">';
 
 
 	$tdataperformance_indicators_view[".chartXml"] .= '<attr value="head">'.xmlencode("Indicators Performance Chart").'</attr>
-<attr value="foot">'.xmlencode("Performance Year").'</attr>
+<attr value="foot">'.xmlencode("Indicator by Performance Year").'</attr>
 <attr value="y_axis_label">'.xmlencode("Indicator Value").'</attr>
 
 
@@ -1849,8 +1844,8 @@ $tdataperformance_indicators_view[".chartSeries"][] = array(
 <attr value="slog">false</attr>
 <attr value="aqua">0</attr>
 <attr value="cview">0</attr>
-<attr value="is3d">0</attr>
-<attr value="isstacked">0</attr>
+<attr value="is3d">1</attr>
+<attr value="isstacked">1</attr>
 <attr value="linestyle">0</attr>
 <attr value="autoupdate">0</attr>
 <attr value="autoupmin">60</attr>';
@@ -1932,36 +1927,6 @@ changeTextControlsToDate( "performance_indicators_view" );
 //if !@TABLE.bReportCrossTab
 
 $detailsTablesData["performance_indicators_view"] = array();
-//	performance_tracking
-	
-	
-
-		$dIndex = 0;
-	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="performance_tracking";
-		$detailsParam["dOriginalTable"] = "performance_tracking";
-
-
-
-		
-		$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "performance_tracking";
-	$detailsParam["dCaptionTable"] = GetTableCaption("performance_tracking");
-	$detailsParam["masterKeys"] =array();
-	$detailsParam["detailKeys"] =array();
-
-
-		
-	$detailsTablesData["performance_indicators_view"][$dIndex] = $detailsParam;
-
-	
-		$detailsTablesData["performance_indicators_view"][$dIndex]["masterKeys"] = array();
-
-	$detailsTablesData["performance_indicators_view"][$dIndex]["masterKeys"][]="indicator_id";
-
-				$detailsTablesData["performance_indicators_view"][$dIndex]["detailKeys"] = array();
-
-	$detailsTablesData["performance_indicators_view"][$dIndex]["detailKeys"][]="indicator_id";
 //endif
 
 // tables which are master tables for current table (detail)
@@ -2180,6 +2145,7 @@ $proto27["m_columns"][] = "indicator_id";
 $proto27["m_columns"][] = "indicator_name";
 $proto27["m_columns"][] = "unit_of_measurement";
 $proto27["m_columns"][] = "reporting_frequency";
+$proto27["m_columns"][] = "actual_setting";
 $obj = new SQLTable($proto27);
 
 $proto26["m_table"] = $obj;

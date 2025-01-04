@@ -134,7 +134,7 @@ $tdataperformance_tracking[".isUseAjaxSuggest"] = true;
 
 
 
-									
+						
 
 $tdataperformance_tracking[".ajaxCodeSnippetAdded"] = false;
 
@@ -893,25 +893,6 @@ $masterTablesData["performance_tracking"] = array();
 	$masterTablesData["performance_tracking"][0]["masterKeys"][]="indicator_id";
 				$masterTablesData["performance_tracking"][0]["detailKeys"] = array();
 	$masterTablesData["performance_tracking"][0]["detailKeys"][]="indicator_id";
-		
-	//endif
-	
-	//if !@t.bReportCrossTab
-			$strOriginalDetailsTable="performance_indicators";
-	$masterParams = array();
-	$masterParams["mDataSourceTable"]="performance_indicators_view";
-	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
-	$masterParams["mShortTable"]= "performance_indicators_view";
-	$masterParams["masterKeys"]= array();
-	$masterParams["detailKeys"]= array();
-
-	$masterParams["type"] = PAGE_LIST;
-			$masterParams["type"] = PAGE_CHART;
-			$masterTablesData["performance_tracking"][1] = $masterParams;
-				$masterTablesData["performance_tracking"][1]["masterKeys"] = array();
-	$masterTablesData["performance_tracking"][1]["masterKeys"][]="indicator_id";
-				$masterTablesData["performance_tracking"][1]["detailKeys"] = array();
-	$masterTablesData["performance_tracking"][1]["detailKeys"][]="indicator_id";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

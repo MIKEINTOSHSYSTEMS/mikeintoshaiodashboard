@@ -22,6 +22,8 @@ class class_GlobalEvents extends eventsBase
 	function __construct()
 	{
 	// fill list of events
+		$this->events["BeforeProcessMenu"]=true;
+
 
 //	onscreen events
 		$this->events["regions_map"] = true;
@@ -52,6 +54,51 @@ class class_GlobalEvents extends eventsBase
 		}
 
 //	handlers
+
+		
+		
+				// Welcome page: Before process
+function BeforeProcessMenu($pageObject)
+{
+
+		
+
+//**********  Redirect to another page  ************
+header("Location: dashboards_list.php?menuItemId=1");
+exit();
+
+
+
+// Place event code here.
+// Use "Add Action" button to add code snippets.
+;
+} // function BeforeProcessMenu
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 //	onscreen events
 	function event_catefory_list(&$params)

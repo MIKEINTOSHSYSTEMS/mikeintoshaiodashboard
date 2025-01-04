@@ -111,6 +111,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_indicator_id}</span>
 						</div>
 		{END searchCtrlBlock_indicator_id}
+																{BEGIN searchCtrlBlock_actual_setting}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_actual_setting}" {$filterRow_attrs_actual_setting}>
+			<label>{$label performance_indicators actual_setting }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_actual_setting}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_actual_setting}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_actual_setting}</span>
+						</div>
+		{END searchCtrlBlock_actual_setting}
 																{BEGIN searchCtrlBlock_unit_of_measurement}
 
 
@@ -619,6 +632,9 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="reporting_frequency"]:before {
 		content: "{$label performance_indicators reporting_frequency}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="actual_setting"]:before {
+		content: "{$label performance_indicators actual_setting}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-condensed table-striped table-hover table-bordered r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -702,7 +718,7 @@
 	 
 		{BEGIN indicator_id_fieldheadercolumn}
 	{BEGIN indicator_id_fieldheader}
-	<SPAN {$indicator_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="indicator_id" data-fieldname="indicator_id">
+	<SPAN {$indicator_id_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="indicator_id" data-fieldname="indicator_id">
 	{$label performance_indicators indicator_id }	{$arrow_icon_indicator_id}
 	</SPAN>
 	{END indicator_id_fieldheader}
@@ -727,7 +743,7 @@
 	 
 		{BEGIN indicator_name_fieldheadercolumn}
 	{BEGIN indicator_name_fieldheader}
-	<SPAN {$indicator_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="indicator_name" data-fieldname="indicator_name">
+	<SPAN {$indicator_name_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="indicator_name" data-fieldname="indicator_name">
 	{$label performance_indicators indicator_name }	{$arrow_icon_indicator_name}
 	</SPAN>
 	{END indicator_name_fieldheader}
@@ -752,7 +768,7 @@
 	 
 		{BEGIN unit_of_measurement_fieldheadercolumn}
 	{BEGIN unit_of_measurement_fieldheader}
-	<SPAN {$unit_of_measurement_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_of_measurement" data-fieldname="unit_of_measurement">
+	<SPAN {$unit_of_measurement_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="unit_of_measurement" data-fieldname="unit_of_measurement">
 	{$label performance_indicators unit_of_measurement }	{$arrow_icon_unit_of_measurement}
 	</SPAN>
 	{END unit_of_measurement_fieldheader}
@@ -777,7 +793,7 @@
 	 
 		{BEGIN reporting_frequency_fieldheadercolumn}
 	{BEGIN reporting_frequency_fieldheader}
-	<SPAN {$reporting_frequency_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reporting_frequency" data-fieldname="reporting_frequency">
+	<SPAN {$reporting_frequency_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="reporting_frequency" data-fieldname="reporting_frequency">
 	{$label performance_indicators reporting_frequency }	{$arrow_icon_reporting_frequency}
 	</SPAN>
 	{END reporting_frequency_fieldheader}
@@ -786,6 +802,31 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$actual_setting_class}	"
+
+			data-field="actual_setting"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN actual_setting_fieldheadercolumn}
+	{BEGIN actual_setting_fieldheader}
+	<SPAN {$actual_setting_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="actual_setting" data-fieldname="actual_setting">
+	{$label performance_indicators actual_setting }	{$arrow_icon_actual_setting}
+	</SPAN>
+	{END actual_setting_fieldheader}
+{END actual_setting_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
 							</tr>
 																				
 					{END grid_header}
@@ -978,6 +1019,27 @@
 {END reporting_frequency_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$actual_setting_class}	"
+
+			data-field="actual_setting"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN actual_setting_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="actual_setting" data-fieldname="actual_setting" data-default-width >
+{$actual_setting_value}
+</span>
+{END actual_setting_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
 							</tr>
 											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 				
@@ -1122,6 +1184,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field3}
+									{BEGIN cellblock_grid_footcell_field4}
+	<td
+	
+	{$cell_grid_footcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$actual_setting_class}	"
+
+	
+	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="performance_indicators_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field4}
 							</tr>
 					
 					</tfoot>

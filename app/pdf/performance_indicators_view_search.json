@@ -189,12 +189,6 @@ pdfDocument = {
 				
 			{"text":{$performance_year_pdfvalue},"hidden":"{$item_hide_integrated_search_field7}"},
 				
-				
-			{"text":{$target_pdfvalue},"hidden":"{$item_hide_integrated_search_field8}"},
-				
-				
-			{"text":{$actual_pdfvalue},"hidden":"{$item_hide_integrated_search_field9}"},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
