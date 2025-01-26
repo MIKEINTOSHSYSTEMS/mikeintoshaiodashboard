@@ -365,7 +365,7 @@ you to the file.
 }
 	function event_utilities_snippet6(&$params)
 	{
-	echo '<IFRAME SRC="https://derejaviz.merqconsultancy.org:8502" WIDTH=100% HEIGHT=900px>
+	echo '<IFRAME SRC="https://me.dereja.com:8502" WIDTH=100% HEIGHT=900px>
 
 If you can see this, your browser does not
 

@@ -260,5 +260,8 @@ array( 'section' => 'foot',
 'imageItem' => array( 'type' => 'page_image' ),
 'imageBgColor' => '#f2f2f2',
 'controlsBgColor' => 'white',
-'imagePosition' => 'right' );
+'imagePosition' => 'right',
+'pageCSS' => '.alert {
+    display: none;
+}' );
 		?>

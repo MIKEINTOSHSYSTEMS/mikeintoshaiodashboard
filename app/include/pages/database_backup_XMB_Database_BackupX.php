@@ -166,5 +166,8 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'imageItem' => array( 'type' => 'page_image' ),
 'imageBgColor' => '#f2f2f2',
 'controlsBgColor' => 'white',
-'imagePosition' => 'right' );
+'imagePosition' => 'right',
+'pageCSS' => '.alert {
+    display: none;
+}' );
 		?>

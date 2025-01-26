@@ -285,16 +285,22 @@
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class=" r-ori-vert			col-md-6
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class="r-align-center r-ori-vert			col-md-12
 	
 ">
 		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
-	</div>			 
+		 
+		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
+{$event utilities_snippet6}
+</span>			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
 				<div 
-	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
-	class="r-align-right r-ori-vert			col-md-6
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class="r-align-right r-ori-vert			col-md-12
 	
 ">
 			</div>					</div>
@@ -421,10 +427,7 @@
 	class="r-align-center r-ori-vert			col-md-12
 	
 ">
-		 
-		<span data-itemtype="snippet" data-itemid="snippet" {$item_snippet} data-pageid="{$pageid}" >
-{$event utilities_snippet6}
-</span>		</div>					</div>
+			</div>					</div>
 			</div>		
 {END below-grid_block}
 		</div>

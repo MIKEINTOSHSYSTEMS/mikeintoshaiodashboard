@@ -105,7 +105,6 @@ pdfDocument = {
 		
 		widths: [
 								"*", 
-											"*", 
 					 ],	
 		
 	
@@ -113,7 +112,7 @@ pdfDocument = {
 				
 				[
 																{
-	cellId: 'c1',
+	cellId: 'c2',
 	col:0,
 	row:0,
 			
@@ -125,16 +124,20 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"{$event utilities_snippet6}","hidden":"{$item_hide_snippet}","isHtml":true},
+				
+		  ],
   "border": [ false, false, false, false ],
-              "alignment": 'left',
+              "alignment": 'center',
      
       
       },
 
-																							{
-	cellId: 'c2',
+											],
+						[
+																{
+	cellId: 'c',
 	col:0,
 	row:0,
 			
@@ -310,10 +313,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"{$event utilities_snippet6}","hidden":"{$item_hide_snippet}","isHtml":true},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',
      
