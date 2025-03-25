@@ -585,11 +585,10 @@ $globalSettings["useCustomSMTPSettings"] = true;
 
 $globalSettings["strSMTPUser"] = "dereja@cloud.merqconsultancy.org";
 $globalSettings["strSMTPServer"] = "cloud.merqconsultancy.org";
-$globalSettings["strSMTPPort"] = "465";
+$globalSettings["strSMTPPort"] = "587";
 $globalSettings["strSMTPPassword"] = "Merq@Dereja7";
 $globalSettings["strFromEmail"] = "dereja@cloud.merqconsultancy.org";
 
-$globalSettings["SMTPSecure"] = "ssl";
 //
 
 /*
@@ -751,9 +750,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "544_1737901186";
+$projectBuildKey = "570_1742918909";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "544";
+$projectBuildNumber = "570";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -861,6 +860,10 @@ $tableCaptions["English"]["performance_tracking"] = "Performance Tracking";
 $tableCaptions["English"]["performance_years"] = "Performance Years";
 $tableCaptions["English"]["Performance_Overview"] = "Performance Overview";
 $tableCaptions["English"]["performance_indicators_view"] = "Performance Indicators View";
+$tableCaptions["English"]["dereja_schema_fields"] = "Dereja Schema Fields";
+$tableCaptions["English"]["dereja_tables"] = "Dereja Tables";
+$tableCaptions["English"]["candidate_custom_fields"] = "Candidate Custom Fields";
+$tableCaptions["English"]["candidate_custom_data"] = "Candidate Custom Data";
 
 
 $globalEvents = new class_GlobalEvents;
@@ -944,6 +947,10 @@ if(mlang_getcurrentlang()=="English")
 $globalSettings["showDetailedError"] = true;
 
 
+$globalSettings["restCreate"] = true;
+$globalSettings["restAuth"] = REST_APIKEY;
+$globalSettings["APIkey"] = "";
+$globalSettings["APIkeyField"] = "api_key";
 
 $globalSettings["mapMarkerCount"] = 50;
 
