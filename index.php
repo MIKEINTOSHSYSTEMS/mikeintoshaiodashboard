@@ -134,7 +134,7 @@
   <img src="./assets/dereja_logo.svg"> M&E System
                     -->
                   
-                    <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
+                    <img src="app/images/derejalogo.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
                 </a>
             </div>
             <div class="block lg:hidden pr-4">
@@ -799,7 +799,7 @@
                                             <img src="./assets/dereja_logo.svg">
                         M&E System
                     -->
-                <img src="https://www.dereja.com/_nuxt/img/Logo-black.7a2b5f8.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
+                <img src="app/images/derejalogo.svg" alt="Dereja M&amp;E System" width="80" height="30" class="mCS_img_loaded">&nbsp;<strong><span style="color: #ff6600;"> M<span style="color: #ff0000;">&amp;</span>E</span> <span style="color: #ff0000;">System</span></strong>
                     </a>
                 </div>
                 <div class="flex-1">
