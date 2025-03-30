@@ -322,6 +322,11 @@ class ConnectionManager_Base
 		$connectionsIds["performance_years"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Performance_Overview"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["performance_indicators_view"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_schema_fields"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["dereja_tables"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidate_custom_fields"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["candidate_custom_data"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Employment_Status"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

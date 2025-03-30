@@ -128,7 +128,7 @@ $tdatatraining_city_towns[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatatraining_city_towns[".ajaxCodeSnippetAdded"] = false;
 

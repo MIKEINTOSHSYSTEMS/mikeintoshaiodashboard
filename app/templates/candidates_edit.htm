@@ -3776,8 +3776,29 @@
 								</td>
 			{END cellblock_grid_c10}
 								</tr>
-			</tbody></table>
-{END grid_block}
+	 
+	 
+																</tbody></table>
+				
+{BEGIN details_candidate_custom_data}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_candidate_custom_data}			
+							<span>
+					{$detailslButtons_candidate_custom_data}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_candidate_custom_data}
+		</div>
+	</div>
+</div>
+{END details_candidate_custom_data}
+	
+				{END grid_block}
 	</div>
 <div class="r-below">
 					{BEGIN below-grid_block}

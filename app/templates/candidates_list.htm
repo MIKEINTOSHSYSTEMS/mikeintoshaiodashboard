@@ -1614,6 +1614,13 @@
 					Candidates By Region				</label>
 			</div>
 			{END print_details_candidates_by_region}
+														{BEGIN print_details_candidate_custom_data}
+			<div>
+				<label for="printDetailscandidate_custom_data{$id}">
+					<input type="checkbox" value="candidate_custom_data" id="printDetailscandidate_custom_data{$id}" checked>
+					Candidate Custom Data				</label>
+			</div>
+			{END print_details_candidate_custom_data}
 						</div>
 </div>
 {END print_details}
@@ -2502,7 +2509,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Sex}
 
@@ -2548,7 +2554,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Kebele  {$visibilityClass_Kebele}">
 			{$Kebele_filter}
 						
-					
 					
 					
 					
@@ -2664,7 +2669,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Woreda}
 
@@ -2710,7 +2714,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Zone  {$visibilityClass_Zone}">
 			{$Zone_filter}
 						
-					
 					
 					
 					
@@ -2826,7 +2829,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Sub_City}
 
@@ -2872,7 +2874,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-DOB  {$visibilityClass_DOB}">
 			{$DOB_filter}
 						
-					
 					
 					
 					
@@ -2988,7 +2989,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Age}
 
@@ -3034,7 +3034,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Disability_Status  {$visibilityClass_Disability_Status}">
 			{$Disability_Status_filter}
 						
-					
 					
 					
 					
@@ -3150,7 +3149,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Disability_Type}
 
@@ -3231,7 +3229,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Region}
 
@@ -3249,87 +3246,6 @@ Sort by&nbsp;{$sortByDropdown}
 	</div>
 
 {END filter_control_Region}
-
-
-
-
-
-
-{BEGIN filter_control_City}
-
-	<div class="dropdown filter-field filter-City-container" {BEGIN filter_selected_City} data-selected {END filter_selected_City}>
-		<div class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-						{BEGIN clearLink_City}
-			<a href="#" class="filter-clear filter-clear-City" title="Clear">
-				<span class="glyphicon glyphicon-remove"></span>
-			</a>
-			{END clearLink_City}
-			<span class="r-filter-field">{$label candidates City }				{BEGIN filter_selected_City}:{END filter_selected_City}
-			</span>
-			{BEGIN filter_selected_City}
-			<span class="r-filter-value">{$filtervalue_City}</span>
-			{END filter_selected_City}
-			
-			<span class="caret"></span>
-		</div>
-		<ul class="dropdown-menu">
-					{BEGIN filterCtrlBlock_City}
-		<li class=" filter-values filter-values-City  {$visibilityClass_City}">
-			{$City_filter}
-						
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					</li>
-		{END filterCtrlBlock_City}
-
-			{BEGIN filter_button_showmore_City}
-		<li class=" filter-show-more {$collapsedClass_City} {$showMoreBtnClass_City}">
-			<a class="filter-show-more-link filterShowMore_City" href="#">{$show_n_more_City}</a>
-		</li>
-		{END filter_button_showmore_City}
-	
-
-
-	
-
-			</ul>
-	</div>
-
-{END filter_control_City}
 
 
 
@@ -3358,7 +3274,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Institution_Type  {$visibilityClass_Institution_Type}">
 			{$Institution_Type_filter}
 						
-					
 					
 					
 					
@@ -3474,7 +3389,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Institution_Name}
 
@@ -3520,7 +3434,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Department  {$visibilityClass_Department}">
 			{$Department_filter}
 						
-					
 					
 					
 					
@@ -3636,7 +3549,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Field_Of_Study}
 
@@ -3682,7 +3594,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Education_Level  {$visibilityClass_Education_Level}">
 			{$Education_Level_filter}
 						
-					
 					
 					
 					
@@ -3798,7 +3709,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Enrollement_Type}
 
@@ -3844,7 +3754,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Campaign  {$visibilityClass_Campaign}">
 			{$Campaign_filter}
 						
-					
 					
 					
 					
@@ -3960,7 +3869,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Intervention}
 
@@ -4006,7 +3914,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Employment_Status  {$visibilityClass_Employment_Status}">
 			{$Employment_Status_filter}
 						
-					
 					
 					
 					
@@ -4122,7 +4029,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Attend_Employability_Skill}
 
@@ -4168,7 +4074,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Job_Fair  {$visibilityClass_Job_Fair}">
 			{$Job_Fair_filter}
 						
-					
 					
 					
 					
@@ -4284,7 +4189,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_DAAP_Completed}
 
@@ -4330,7 +4234,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-DAAP_enrolled_1st_Round  {$visibilityClass_DAAP_enrolled_1st_Round}">
 			{$DAAP_enrolled_1st_Round_filter}
 						
-					
 					
 					
 					
@@ -4446,7 +4349,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Joined_Dereja_Services}
 
@@ -4492,7 +4394,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Dereja_Services  {$visibilityClass_Dereja_Services}">
 			{$Dereja_Services_filter}
 						
-					
 					
 					
 					
@@ -4608,7 +4509,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Dereja_Training_Services}
 
@@ -4654,7 +4554,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Dereja_Event_Services  {$visibilityClass_Dereja_Event_Services}">
 			{$Dereja_Event_Services_filter}
 						
-					
 					
 					
 					
@@ -4770,7 +4669,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Event_Participant_Type}
 
@@ -4816,7 +4714,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-DAAP_enrolled_2nd_Round  {$visibilityClass_DAAP_enrolled_2nd_Round}">
 			{$DAAP_enrolled_2nd_Round_filter}
 						
-					
 					
 					
 					
@@ -4932,7 +4829,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_DAAP_Completed_Courses}
 
@@ -4978,7 +4874,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Job_Fair_Clinic  {$visibilityClass_Job_Fair_Clinic}">
 			{$Job_Fair_Clinic_filter}
 						
-					
 					
 					
 					
@@ -5094,7 +4989,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Languages}
 
@@ -5140,7 +5034,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Exit_Exam_Score  {$visibilityClass_Exit_Exam_Score}">
 			{$Exit_Exam_Score_filter}
 						
-					
 					
 					
 					
@@ -5256,7 +5149,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Exit_Exam_Status}
 
@@ -5337,7 +5229,6 @@ Sort by&nbsp;{$sortByDropdown}
 					
 					
 					
-					
 					</li>
 		{END filterCtrlBlock_Upload_on_Tracker}
 
@@ -5383,7 +5274,6 @@ Sort by&nbsp;{$sortByDropdown}
 		<li class=" filter-values filter-values-Upload_on_Website  {$visibilityClass_Upload_on_Website}">
 			{$Upload_on_Website_filter}
 						
-					
 					
 					
 					
@@ -7840,6 +7730,25 @@ Sort by&nbsp;{$sortByDropdown}
 	{END website_data_dtable_link}
 
 
+	 
+		
+		
+	{BEGIN candidate_custom_data_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link12" {$item_grid_details_link12} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$candidate_custom_data_link_attrs} data-short-details="candidate_custom_data"
+		class="{$candidate_custom_data_dlink_class}" 
+		title="{$caption candidate_custom_data }"			>
+								
+									{BEGIN candidate_custom_data_childcount}
+				<span class="details-badge badge candidate_custom_data_badge" {$candidate_custom_data_childnumber_attr}>
+					{$candidate_custom_data_childnumber}				
+				</span>
+				{END candidate_custom_data_childcount}
+						</a>
+	</span>
+	{END candidate_custom_data_dtable_link}
+
+
 	
 	</td>
 	{END cellblock_grid_cell_details}
@@ -9435,9 +9344,9 @@ Sort by&nbsp;{$sortByDropdown}
 	>
 
 	 
-								<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="event_participants,training_participants,candidate_employment_tracker,candidates_reports,job_fair,website_data"
-			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-candidates_reports			data-details-job_fair			data-details-website_data	>
+									<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
+	data-orders="event_participants,training_participants,candidate_employment_tracker,candidates_reports,job_fair,website_data,candidate_custom_data"
+			data-details-event_participants			data-details-training_participants			data-details-candidate_employment_tracker			data-details-candidates_reports			data-details-job_fair			data-details-website_data			data-details-candidate_custom_data	>
 		<span data-details-inside data-short-table="event_participants">
 			</span>
 		<span data-details-inside data-short-table="training_participants">
@@ -9450,10 +9359,13 @@ Sort by&nbsp;{$sortByDropdown}
 			</span>
 		<span data-details-inside data-short-table="website_data">
 			</span>
+		<span data-details-inside data-short-table="candidate_custom_data">
+			</span>
 		<div data-details-preview>
 	</div>
 </div>
 	 
+			 
 			 
 			 
 			 

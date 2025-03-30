@@ -134,7 +134,7 @@ $tdataregions[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdataregions[".ajaxCodeSnippetAdded"] = false;
 
@@ -673,7 +673,7 @@ $tdataregions[".hideMobileList"] = array();
 
 	
 	
-	
+			
 
 		$fdata["strField"] = "Lng";
 

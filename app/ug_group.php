@@ -96,6 +96,11 @@ $nonAdminTablesArr[] = "performance_tracking";
 $nonAdminTablesArr[] = "performance_years";
 $nonAdminTablesArr[] = "Performance_Overview";
 $nonAdminTablesArr[] = "performance_indicators_view";
+$nonAdminTablesArr[] = "dereja_schema_fields";
+$nonAdminTablesArr[] = "dereja_tables";
+$nonAdminTablesArr[] = "candidate_custom_fields";
+$nonAdminTablesArr[] = "candidate_custom_data";
+$nonAdminTablesArr[] = "Employment_Status";
 
 $ug_connection = $cman->getForUserGroups();
 

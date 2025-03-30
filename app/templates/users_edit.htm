@@ -550,6 +550,27 @@
 
 
 {END usertype_fieldblock}
+											
+{BEGIN api_key_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_api_key}  r-vertical-field" 
+	data-signal-error-for="api_key{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="api_key" data-fieldname="api_key" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_api_key}">
+		{BEGIN api_key_label}{$label users api_key }{END api_key_label}
+	</label>
+	<div class="r-edit-field">
+		{$api_key_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="api_key">
+		<div class="text-muted" >
+		{$tooltip users api_key }		</div>
+	</div>
+</div>
+
+
+{END api_key_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

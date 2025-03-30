@@ -365,6 +365,16 @@ function checkTableName($shortTName )
 		return true;
 	if ("performance_indicators_view" == $shortTName )
 		return true;
+	if ("dereja_schema_fields" == $shortTName )
+		return true;
+	if ("dereja_tables" == $shortTName )
+		return true;
+	if ("candidate_custom_fields" == $shortTName )
+		return true;
+	if ("candidate_custom_data" == $shortTName )
+		return true;
+	if ("employment_status" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1144,6 +1154,51 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="performance_indicators_view";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dereja_schema_fields");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dereja_schema_fields";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dereja_tables");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dereja_tables";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidate_custom_fields");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidate_custom_fields";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("candidate_custom_data");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="candidate_custom_data";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Employment_Status");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Employment_Status";
+	}
 	return $arr;
 }
 
@@ -1234,6 +1289,11 @@ function GetTablesListWithoutSecurity()
 	$arr[]="performance_years";
 	$arr[]="Performance_Overview";
 	$arr[]="performance_indicators_view";
+	$arr[]="dereja_schema_fields";
+	$arr[]="dereja_tables";
+	$arr[]="candidate_custom_fields";
+	$arr[]="candidate_custom_data";
+	$arr[]="Employment_Status";
 	return $arr;
 }
 
@@ -2281,6 +2341,31 @@ function GetUserPermissionsStatic( $table )
 	{
 //	default permissions
 		return "S".$extraPerm;
+	}
+	if( $table=="dereja_schema_fields" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="dereja_tables" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidate_custom_fields" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="candidate_custom_data" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Employment_Status" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
 	}
 	// grant nothing by default
 	return "";

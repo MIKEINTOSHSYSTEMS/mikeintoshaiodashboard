@@ -1543,6 +1543,16 @@ class CrossTableWebReport
 			$isDB = true;
 		if("performance_indicators" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("dereja_schema_fields" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("dereja_tables" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("candidate_custom_fields" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("candidate_custom_data" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("Employment_Status" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

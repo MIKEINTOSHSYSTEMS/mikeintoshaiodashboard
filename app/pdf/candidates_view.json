@@ -2910,6 +2910,11 @@ pdfDocument = {
 			{$displayDetailTable_event_participants }
 		{END details_event_participants},
 				
+				
+			 {BEGIN details_candidate_custom_data}
+			{$displayDetailTable_candidate_custom_data }
+		{END details_candidate_custom_data},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'right',

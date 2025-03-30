@@ -3765,7 +3765,7 @@
 							{$details_pagetitle_training_participants}			
 							<span>
 					{$detailslButtons_training_participants}
-																															</span>
+																																										</span>
 			</h4>
 		</div>
 		<div class="panel-body">
@@ -3783,7 +3783,7 @@
 							{$details_pagetitle_event_participants}			
 							<span>
 					{$detailslButtons_event_participants}
-																															</span>
+																																										</span>
 			</h4>
 		</div>
 		<div class="panel-body">
@@ -3792,6 +3792,24 @@
 	</div>
 </div>
 {END details_event_participants}
+											
+{BEGIN details_candidate_custom_data}
+<div data-itemtype="details_preview" data-itemid="details_preview4" {$item_details_preview4} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_candidate_custom_data}			
+							<span>
+					{$detailslButtons_candidate_custom_data}
+																																										</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_candidate_custom_data}
+		</div>
+	</div>
+</div>
+{END details_candidate_custom_data}
 	
 				{END grid_block}
 	</div>

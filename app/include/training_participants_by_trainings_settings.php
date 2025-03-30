@@ -183,7 +183,7 @@ $tdatatraining_participants_by_trainings[".isUseAjaxSuggest"] = true;
 
 
 
-									
+																		
 
 $tdatatraining_participants_by_trainings[".ajaxCodeSnippetAdded"] = false;
 

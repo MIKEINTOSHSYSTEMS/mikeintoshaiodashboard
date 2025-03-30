@@ -24,6 +24,8 @@ class class_GlobalEvents extends eventsBase
 	// fill list of events
 		$this->events["BeforeProcessMenu"]=true;
 
+		$this->events["BeforeRegister"]=true;
+
 
 //	onscreen events
 		$this->events["regions_map"] = true;
@@ -48,6 +50,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["utilities_snippet5"] = true;
 		$this->events["career_compass_submissions"] = true;
 		$this->events["utilities_snippet6"] = true;
+		$this->events["_global__snippet_apikey"] = true;
 
 
 
@@ -81,6 +84,51 @@ exit();
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// Before registration
+function BeforeRegister(&$userdata, &$message, $pageObject)
+{
+
+		
+
+// Place event code here.
+
+$api_key = getPasswordHash ($userdata["id"].$userdata["username"]);
+$userdata["api_key"] = $api_key;
+$_SESSION["apikey"] = $api_key;
+
+return true;
+
+;
+} // function BeforeRegister
+
 		
 		
 		
@@ -376,6 +424,13 @@ understand IFRAME. However, we willl still
 you to the file.
 
 </IFRAME>';
+	;
+}
+	function event__global__snippet_apikey(&$params)
+	{
+	
+// Put your code here.
+echo "Your API Key is: ".$_SESSION["apikey"];
 	;
 }
 

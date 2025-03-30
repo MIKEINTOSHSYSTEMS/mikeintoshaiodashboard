@@ -196,6 +196,11 @@ pdfDocument = {
 			"%",
 						{END row_grid_10}
 			 
+								{BEGIN row_grid_11}
+						
+			"%",
+						{END row_grid_11}
+			 
 				],
 	
 		body: [
@@ -3071,10 +3076,8 @@ pdfDocument = {
 	
 			"stack": [
 		
-				
-			{"hidden":"{$item_hide_integrated_edit_field72}","stack":[{"text":"{$jslabel candidates Full_Name }","bold":true},{"text":{$Full_Name_pdfvalue}}],"margin":[0,0,0,15]},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -3138,6 +3141,60 @@ pdfDocument = {
 {END cellblock_grid_c10}
 											],
 				{END row_grid_10}
+						{BEGIN row_grid_11}
+				[
+																{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c12}
+			colSpan: {$colspan_grid_c12},
+			{END colspan_grid_c12}
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			 {BEGIN details_candidate_custom_data}
+			{$displayDetailTable_candidate_custom_data }
+		{END details_candidate_custom_data},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+																		{ 
+				cellId: 'c12',
+				row:  0,
+				col:  1,
+				text: ''
+			},
+														{ 
+				cellId: 'c12',
+				row:  0,
+				col:  2,
+				text: ''
+			},
+														{ 
+				cellId: 'c12',
+				row:  0,
+				col:  3,
+				text: ''
+			},
+							],
+				{END row_grid_11}
 		
 		]
 	}

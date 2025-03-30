@@ -149,7 +149,7 @@ $tdatawebreports_view[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatawebreports_view[".ajaxCodeSnippetAdded"] = false;
 

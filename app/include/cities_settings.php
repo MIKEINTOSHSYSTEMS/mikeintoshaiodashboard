@@ -131,7 +131,7 @@ $tdatacities[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdatacities[".ajaxCodeSnippetAdded"] = false;
 

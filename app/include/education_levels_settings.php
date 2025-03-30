@@ -128,7 +128,7 @@ $tdataeducation_levels[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataeducation_levels[".ajaxCodeSnippetAdded"] = false;
 

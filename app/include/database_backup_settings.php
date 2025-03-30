@@ -135,7 +135,7 @@ $tdatadatabase_backup[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatadatabase_backup[".ajaxCodeSnippetAdded"] = false;
 

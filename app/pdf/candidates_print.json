@@ -4901,6 +4901,11 @@ pdfDocument = {
 			{$displayDetailTable_candidates_by_region }
 		{END details_candidates_by_region},
 				
+				
+			 {BEGIN details_candidate_custom_data}
+			{$displayDetailTable_candidate_custom_data }
+		{END details_candidate_custom_data},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',

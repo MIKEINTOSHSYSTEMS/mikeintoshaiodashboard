@@ -2953,6 +2953,9 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_grid_details_link2}"},
 				
+				
+			{"text":"","hidden":"{$item_hide_grid_details_link12}"},
+				
 		  ],
   "border": [ true, true, true, true ],
               "alignment": 'left',
@@ -5189,6 +5192,11 @@ pdfDocument = {
 			 {BEGIN details_website_data}
 			{$displayDetailTable_website_data }
 		{END details_website_data},
+				
+				
+			 {BEGIN details_candidate_custom_data}
+			{$displayDetailTable_candidate_custom_data }
+		{END details_candidate_custom_data},
 				
 		  ],
   "border": [ true, true, true, true ],

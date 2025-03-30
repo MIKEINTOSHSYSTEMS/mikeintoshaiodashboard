@@ -153,7 +153,7 @@ $tdataperformance_indicators_view[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataperformance_indicators_view[".ajaxCodeSnippetAdded"] = false;
 

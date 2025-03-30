@@ -1399,7 +1399,7 @@ $tdataaio_reporting_dashboard[".hasEvents"] = false;
 $tdataaio_reporting_dashboard[".tableType"] = "dashboard";
 
 
-	
+		
 $tdataaio_reporting_dashboard[".addPageEvents"] = false;
 
 $tdataaio_reporting_dashboard[".isUseAjaxSuggest"] = true;

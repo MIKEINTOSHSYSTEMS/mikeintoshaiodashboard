@@ -161,7 +161,7 @@ $tdatadereja_academy_lms[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatadereja_academy_lms[".ajaxCodeSnippetAdded"] = false;
 

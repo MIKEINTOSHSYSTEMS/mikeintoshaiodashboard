@@ -761,6 +761,26 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="dereja_schema_fields")
+		{
+			return 1;
+		}
+		if($table=="dereja_tables")
+		{
+			return 1;
+		}
+		if($table=="candidate_custom_fields")
+		{
+			return 1;
+		}
+		if($table=="candidate_custom_data")
+		{
+			return 1;
+		}
+		if($table=="Employment_Status")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1345,6 +1365,26 @@ function getCaptionTable($table)
 	if($table=="performance_indicators_view")
 	{
 		return "Performance Indicators View";
+	}
+	if($table=="dereja_schema_fields")
+	{
+		return "Dereja Schema Fields";
+	}
+	if($table=="dereja_tables")
+	{
+		return "Dereja Tables";
+	}
+	if($table=="candidate_custom_fields")
+	{
+		return "Candidate Custom Fields";
+	}
+	if($table=="candidate_custom_data")
+	{
+		return "Candidate Custom Data";
+	}
+	if($table=="Employment_Status")
+	{
+		return "Employment Status";
 	}
 	return $table;
 }
@@ -2986,6 +3026,66 @@ function GetTablesListReport()
 		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
 		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
 			$arr[]="performance_years";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("dereja_schema_fields");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="dereja_schema_fields";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="dereja_schema_fields";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("dereja_tables");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="dereja_tables";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="dereja_tables";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("candidate_custom_fields");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="candidate_custom_fields";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="candidate_custom_fields";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("candidate_custom_data");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="candidate_custom_data";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="candidate_custom_data";
+	}
+	if( Security::permissionsAvailable() ) {
+		$strPerm = GetUserPermissions("Employment_Status");
+		$securityFlag = strpos($strPerm, "P") !== false || strpos($strPerm, "S") !== false;
+	}
+	if($securityFlag)
+	{
+		$value="Employment_Status";
+		if(substr($value,-6)!="_audit" && substr($value,-8)!="_locking" && substr($value,-9)!="_ugrights" && substr($value,-9)!="_uggroups"
+		&& substr($value,-10)!="_ugmembers" && $value!="admin_rights" && $value!="admin_users"
+		&& $value!="admin_members" && $value!="webreports" && $value!="webreport_style" && $value!="webreport_settings" && $value!="webreport_admin" && $value!="webreport_sql")
+			$arr[]="Employment_Status";
 	}
 	return $arr;
 }

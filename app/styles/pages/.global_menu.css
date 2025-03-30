@@ -319,6 +319,21 @@
 [data-page=".global_menu"][data-itemid="welcome_item85"] > .bs-welcome-header {
   background-color: #B22222;
 }
+[data-page=".global_menu"][data-itemid="welcome_item86"] > .bs-welcome-header {
+  background-color: #DB7093;
+}
+[data-page=".global_menu"][data-itemid="welcome_item87"] > .bs-welcome-header {
+  background-color: #8FBC8B;
+}
+[data-page=".global_menu"][data-itemid="welcome_item88"] > .bs-welcome-header {
+  background-color: #EDCA00;
+}
+[data-page=".global_menu"][data-itemid="welcome_item89"] > .bs-welcome-header {
+  background-color: #4169E1;
+}
+[data-page=".global_menu"][data-itemid="welcome_item90"] > .bs-welcome-header {
+  background-color: #E67349;
+}
 [data-page=".global_menu"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

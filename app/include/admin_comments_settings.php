@@ -143,7 +143,7 @@ $tdataadmin_comments[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataadmin_comments[".ajaxCodeSnippetAdded"] = false;
 

@@ -292,7 +292,7 @@
 	{$grid_hiddenattr} 
 		data-form-width="4"
 		
-		data-v-width="8"
+		data-v-width="7"
 	>
 	<tbody>
 										<tr {$row_grid_1} >
@@ -306,7 +306,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c3" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -1198,7 +1198,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c2" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -1970,7 +1970,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c1" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -2432,7 +2432,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c11" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -2749,7 +2749,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c13" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -3079,7 +3079,7 @@
 			data-single
 			
 	ocolspan="3"		data-cellId="grid_c4" data-pageid="{$pageid}"
-		data-v-cell="6"
+		data-v-cell="5"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -3238,7 +3238,7 @@
 				data-fullwidth
 		
 	ocolspan="4"		data-cellId="grid_c22" data-pageid="{$pageid}"
-		data-v-cell="8"
+		data-v-cell="7"
 		
 >
 	<div edit-form-cell class="clearfix">
@@ -3663,7 +3663,7 @@
 	{$grid_hiddenattr} 
 		data-form-width="4"
 		
-		data-v-width="8"
+		data-v-width="7"
 	>
 	<tbody>
 										<tr {$row_grid_10} >
@@ -3706,7 +3706,8 @@
 								</td>
 			{END cellblock_grid_c7}
 			 
-																
+		
+							
 
 {BEGIN cellblock_grid_c8}
 <td
@@ -3716,33 +3717,11 @@
 			data-single
 			
 			data-cellId="grid_c8" data-pageid="{$pageid}"
-		data-v-cell="2"
+		data-v-cell="1"
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN Full_Name_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_Full_Name}  r-vertical-field" 
-	data-signal-error-for="Full_Name{$id}" 
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field72" {$item_integrated_edit_field72} data-pageid="{$pageid}" data-field="Full_Name" data-fieldname="Full_Name" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_Full_Name}">
-		{BEGIN Full_Name_label}{$label candidates Full_Name }{END Full_Name_label}
-	</label>
-	<div class="r-edit-field">
-		{$Full_Name_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="Full_Name">
-		<div class="text-muted" >
-		{$tooltip candidates Full_Name }		</div>
-	</div>
-</div>
-
-
-{END Full_Name_fieldblock}
-	
-								</td>
+									</td>
 			{END cellblock_grid_c8}
 			 
 																
@@ -3823,8 +3802,29 @@
 								</td>
 			{END cellblock_grid_c10}
 								</tr>
-			</tbody></table>
-{END grid_block}
+	 
+	 
+																</tbody></table>
+				
+{BEGIN details_candidate_custom_data}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_candidate_custom_data}			
+							<span>
+					{$detailslButtons_candidate_custom_data}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_candidate_custom_data}
+		</div>
+	</div>
+</div>
+{END details_candidate_custom_data}
+	
+				{END grid_block}
 	</div>
 <div class="r-below">
 					{BEGIN below-grid_block}

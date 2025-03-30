@@ -250,6 +250,13 @@ function InitLookupLinks()
 			$lookupTableLinks["dereja_information_sources"]["candidates.Dereja_Information_Source"] = array();
 		}
 		$lookupTableLinks["dereja_information_sources"]["candidates.Dereja_Information_Source"]["edit"] = array("table" => "candidates", "field" => "Dereja_Information_Source", "page" => "edit");
+		if( !isset( $lookupTableLinks["Employment_Status"] ) ) {
+			$lookupTableLinks["Employment_Status"] = array();
+		}
+		if( !isset( $lookupTableLinks["Employment_Status"]["candidates.Employment_Status"] )) {
+			$lookupTableLinks["Employment_Status"]["candidates.Employment_Status"] = array();
+		}
+		$lookupTableLinks["Employment_Status"]["candidates.Employment_Status"]["edit"] = array("table" => "candidates", "field" => "Employment_Status", "page" => "edit");
 		if( !isset( $lookupTableLinks["Companies"] ) ) {
 			$lookupTableLinks["Companies"] = array();
 		}
@@ -1468,6 +1475,27 @@ function InitLookupLinks()
 			$lookupTableLinks["Jobs"]["candidates_grouped_report.Employment_Position"] = array();
 		}
 		$lookupTableLinks["Jobs"]["candidates_grouped_report.Employment_Position"]["search"] = array("table" => "candidates_grouped_report", "field" => "Employment_Position", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_schema_fields"] ) ) {
+			$lookupTableLinks["dereja_schema_fields"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_schema_fields"]["settings.tablename"] )) {
+			$lookupTableLinks["dereja_schema_fields"]["settings.tablename"] = array();
+		}
+		$lookupTableLinks["dereja_schema_fields"]["settings.tablename"]["edit"] = array("table" => "settings", "field" => "tablename", "page" => "edit");
+		if( !isset( $lookupTableLinks["dereja_schema_fields"] ) ) {
+			$lookupTableLinks["dereja_schema_fields"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_schema_fields"]["settings.field"] )) {
+			$lookupTableLinks["dereja_schema_fields"]["settings.field"] = array();
+		}
+		$lookupTableLinks["dereja_schema_fields"]["settings.field"]["edit"] = array("table" => "settings", "field" => "field", "page" => "edit");
+		if( !isset( $lookupTableLinks["dereja_schema_fields"] ) ) {
+			$lookupTableLinks["dereja_schema_fields"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_schema_fields"]["settings.label"] )) {
+			$lookupTableLinks["dereja_schema_fields"]["settings.label"] = array();
+		}
+		$lookupTableLinks["dereja_schema_fields"]["settings.label"]["edit"] = array("table" => "settings", "field" => "label", "page" => "edit");
 		if( !isset( $lookupTableLinks["performance_indicators"] ) ) {
 			$lookupTableLinks["performance_indicators"] = array();
 		}
@@ -1552,6 +1580,27 @@ function InitLookupLinks()
 			$lookupTableLinks["performance_years"]["performance_indicators_view.performance_year"] = array();
 		}
 		$lookupTableLinks["performance_years"]["performance_indicators_view.performance_year"]["search"] = array("table" => "performance_indicators_view", "field" => "performance_year", "page" => "search");
+		if( !isset( $lookupTableLinks["dereja_tables"] ) ) {
+			$lookupTableLinks["dereja_tables"] = array();
+		}
+		if( !isset( $lookupTableLinks["dereja_tables"]["dereja_schema_fields.table_name"] )) {
+			$lookupTableLinks["dereja_tables"]["dereja_schema_fields.table_name"] = array();
+		}
+		$lookupTableLinks["dereja_tables"]["dereja_schema_fields.table_name"]["edit"] = array("table" => "dereja_schema_fields", "field" => "table_name", "page" => "edit");
+		if( !isset( $lookupTableLinks["candidates"] ) ) {
+			$lookupTableLinks["candidates"] = array();
+		}
+		if( !isset( $lookupTableLinks["candidates"]["candidate_custom_data.CandidateID"] )) {
+			$lookupTableLinks["candidates"]["candidate_custom_data.CandidateID"] = array();
+		}
+		$lookupTableLinks["candidates"]["candidate_custom_data.CandidateID"]["edit"] = array("table" => "candidate_custom_data", "field" => "CandidateID", "page" => "edit");
+		if( !isset( $lookupTableLinks["candidate_custom_fields"] ) ) {
+			$lookupTableLinks["candidate_custom_fields"] = array();
+		}
+		if( !isset( $lookupTableLinks["candidate_custom_fields"]["candidate_custom_data.CustomFieldID"] )) {
+			$lookupTableLinks["candidate_custom_fields"]["candidate_custom_data.CustomFieldID"] = array();
+		}
+		$lookupTableLinks["candidate_custom_fields"]["candidate_custom_data.CustomFieldID"]["edit"] = array("table" => "candidate_custom_data", "field" => "CustomFieldID", "page" => "edit");
 }
 
 ?>

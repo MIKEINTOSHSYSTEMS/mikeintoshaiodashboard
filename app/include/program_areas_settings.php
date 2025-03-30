@@ -128,7 +128,7 @@ $tdataprogram_areas[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataprogram_areas[".ajaxCodeSnippetAdded"] = false;
 

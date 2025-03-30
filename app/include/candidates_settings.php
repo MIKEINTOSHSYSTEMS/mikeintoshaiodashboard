@@ -347,7 +347,7 @@ $tdatacandidates[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdatacandidates[".ajaxCodeSnippetAdded"] = false;
 
@@ -10234,27 +10234,41 @@ $tdatacandidates[".hideMobileList"] = array();
 	
 
 // Begin Lookup settings
-		$edata["LookupType"] = 0;
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "Employment_Status";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
 		$edata["LCType"] = 0;
 
 	
-	
-		$edata["LookupValues"] = array();
-	$edata["LookupValues"][] = "Employed";
-	$edata["LookupValues"][] = "Self-employed";
-	$edata["LookupValues"][] = "Wage Employed";
-	$edata["LookupValues"][] = "Not Employed";
-	$edata["LookupValues"][] = "Unemployed";
+			$edata["LookupUnique"] = true;
 
+	$edata["LinkField"] = "employment_status";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "employment_status";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "employment_status";
+
+		$edata["LookupDesc"] = true;
+
+	
+		$edata["AllowToAdd"] = true;
+			$edata["addPageId"] = "add";
+
+	
+
+	
 	
 		$edata["SelectSize"] = 1;
 
 // End Lookup Settings
 
 
-	
+		$edata["IsRequired"] = true;
+
 	
 	
 	
@@ -10274,7 +10288,8 @@ $tdatacandidates[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-	
+						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+		
 	
 //	End validation
 
@@ -12230,6 +12245,36 @@ $detailsTablesData["candidates"] = array();
 
 		$detailsParam["dShortTable"] = "candidates_by_region";
 	$detailsParam["dCaptionTable"] = GetTableCaption("candidates_by_region");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["candidates"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["candidates"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["masterKeys"][]="CandidateID";
+
+				$detailsTablesData["candidates"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["candidates"][$dIndex]["detailKeys"][]="CandidateID";
+//	candidate_custom_data
+	
+	
+
+		$dIndex = 12;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="candidate_custom_data";
+		$detailsParam["dOriginalTable"] = "candidate_custom_data";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "candidate_custom_data";
+	$detailsParam["dCaptionTable"] = GetTableCaption("candidate_custom_data");
 	$detailsParam["masterKeys"] =array();
 	$detailsParam["detailKeys"] =array();
 

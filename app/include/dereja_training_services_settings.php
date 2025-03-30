@@ -131,7 +131,7 @@ $tdatadereja_training_services[".isUseAjaxSuggest"] = true;
 
 
 
-									
+																		
 
 $tdatadereja_training_services[".ajaxCodeSnippetAdded"] = false;
 

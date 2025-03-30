@@ -103,6 +103,16 @@ pdfDocument = {
 			"%",
 						{END row_grid_2}
 			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
 				],
 	
 		body: [
@@ -175,7 +185,7 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel _global designation }","bold":true},{"text":{$designation_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"text":"","hidden":"{$item_hide_changepassword_link}"},
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel _global api_key }","bold":true},{"text":{$api_key_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -188,6 +198,68 @@ pdfDocument = {
 											],
 				{END row_grid_1}
 						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_fields2}
+{
+	cellId: 'fields2',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_fields2}
+											],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_fields1}
+{
+	cellId: 'fields1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+						
+	
+	
+	
+			"stack": [
+		
+				
+			{"text":"","hidden":"{$item_hide_changepassword_link}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_fields1}
+											],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
 				[
 																{BEGIN cellblock_grid_buttons}
 {
@@ -220,7 +292,7 @@ pdfDocument = {
 
 {END cellblock_grid_buttons}
 											],
-				{END row_grid_2}
+				{END row_grid_4}
 		
 		]
 	}

@@ -296,7 +296,7 @@ $tdatacandidates_grouped_report[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_grouped_report[".ajaxCodeSnippetAdded"] = false;
 

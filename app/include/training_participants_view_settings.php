@@ -209,7 +209,7 @@ $tdatatraining_participants_view[".isUseAjaxSuggest"] = true;
 
 
 
-									
+																		
 
 $tdatatraining_participants_view[".ajaxCodeSnippetAdded"] = false;
 

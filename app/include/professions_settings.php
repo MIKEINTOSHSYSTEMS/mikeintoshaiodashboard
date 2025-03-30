@@ -128,7 +128,7 @@ $tdataprofessions[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataprofessions[".ajaxCodeSnippetAdded"] = false;
 

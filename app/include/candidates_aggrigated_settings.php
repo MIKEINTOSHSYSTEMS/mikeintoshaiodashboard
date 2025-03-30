@@ -299,7 +299,7 @@ $tdatacandidates_aggrigated[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_aggrigated[".ajaxCodeSnippetAdded"] = false;
 

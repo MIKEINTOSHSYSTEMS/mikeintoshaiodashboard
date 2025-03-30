@@ -348,7 +348,7 @@ $tdatacandidates_reports[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdatacandidates_reports[".ajaxCodeSnippetAdded"] = false;
 

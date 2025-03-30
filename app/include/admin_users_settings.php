@@ -161,7 +161,7 @@ $tdataadmin_users[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataadmin_users[".ajaxCodeSnippetAdded"] = false;
 
@@ -2378,6 +2378,7 @@ $proto33["m_columns"][] = "usertype";
 $proto33["m_columns"][] = "reset_token";
 $proto33["m_columns"][] = "reset_date";
 $proto33["m_columns"][] = "designation";
+$proto33["m_columns"][] = "api_key";
 $obj = new SQLTable($proto33);
 
 $proto32["m_table"] = $obj;
@@ -2416,7 +2417,7 @@ $queryData_admin_users = createSqlQuery_admin_users();
 	
 																								;
 
-																																							
+																																									
 
 $tdataadmin_users[".sqlquery"] = $queryData_admin_users;
 

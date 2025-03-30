@@ -1125,6 +1125,21 @@ pdfDocument = {
 				
 			{"text":"","background":"#B22222","hidden":"{$item_hide_welcome_item85}"},
 				
+				
+			{"text":"","background":"#DB7093","hidden":"{$item_hide_welcome_item86}"},
+				
+				
+			{"text":"","background":"#8FBC8B","hidden":"{$item_hide_welcome_item87}"},
+				
+				
+			{"text":"","background":"#EDCA00","hidden":"{$item_hide_welcome_item88}"},
+				
+				
+			{"text":"","background":"#4169E1","hidden":"{$item_hide_welcome_item89}"},
+				
+				
+			{"text":"","background":"#E67349","hidden":"{$item_hide_welcome_item90}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'center',

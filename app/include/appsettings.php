@@ -750,9 +750,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "570_1742918909";
+$projectBuildKey = "577_1742918909";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "570";
+$projectBuildNumber = "577";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -864,6 +864,7 @@ $tableCaptions["English"]["dereja_schema_fields"] = "Dereja Schema Fields";
 $tableCaptions["English"]["dereja_tables"] = "Dereja Tables";
 $tableCaptions["English"]["candidate_custom_fields"] = "Candidate Custom Fields";
 $tableCaptions["English"]["candidate_custom_data"] = "Candidate Custom Data";
+$tableCaptions["English"]["Employment_Status"] = "Employment Status";
 
 
 $globalEvents = new class_GlobalEvents;

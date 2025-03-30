@@ -732,6 +732,26 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="dereja_schema_fields")
+		{
+			return false;
+		}
+		if($table=="dereja_tables")
+		{
+			return false;
+		}
+		if($table=="candidate_custom_fields")
+		{
+			return false;
+		}
+		if($table=="candidate_custom_data")
+		{
+			return false;
+		}
+		if($table=="Employment_Status")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1415,6 +1435,26 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="performance_indicators_view")
+		{
+			return false;
+		}
+		if($table=="dereja_schema_fields")
+		{
+			return false;
+		}
+		if($table=="dereja_tables")
+		{
+			return false;
+		}
+		if($table=="candidate_custom_fields")
+		{
+			return false;
+		}
+		if($table=="candidate_custom_data")
+		{
+			return false;
+		}
+		if($table=="Employment_Status")
 		{
 			return false;
 		}

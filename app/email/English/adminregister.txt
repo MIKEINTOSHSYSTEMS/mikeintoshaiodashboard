@@ -13,4 +13,5 @@ Ext Security Id:&nbsp;<b>%ext_security_id_value%</b><br/>
 Userpic:&nbsp;<b>%userpic_value%</b><br/>
 Usertype:&nbsp;<b>%usertype_value%</b><br/>
 Please Select Your Designation:&nbsp;<b>%designation_value%</b><br/>
+Api Key:&nbsp;<b>%api_key_value%</b><br/>
 </p>

@@ -141,6 +141,9 @@ pdfDocument = {
 				
 			{"text":{$usertype_pdfvalue},"hidden":"{$item_hide_export_field11}"},
 				
+				
+			{"text":{$api_key_pdfvalue},"hidden":"{$item_hide_export_field12}"},
+				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

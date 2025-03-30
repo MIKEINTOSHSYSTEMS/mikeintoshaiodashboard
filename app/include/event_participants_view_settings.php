@@ -194,7 +194,7 @@ $tdataevent_participants_view[".isUseAjaxSuggest"] = true;
 
 
 
-									
+																		
 
 $tdataevent_participants_view[".ajaxCodeSnippetAdded"] = false;
 

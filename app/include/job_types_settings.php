@@ -128,7 +128,7 @@ $tdatajob_types[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdatajob_types[".ajaxCodeSnippetAdded"] = false;
 

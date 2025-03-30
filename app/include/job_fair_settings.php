@@ -149,7 +149,7 @@ $tdatajob_fair[".isUseAjaxSuggest"] = true;
 
 
 
-						
+												
 
 $tdatajob_fair[".ajaxCodeSnippetAdded"] = false;
 

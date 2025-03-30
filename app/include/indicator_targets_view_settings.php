@@ -138,7 +138,7 @@ $tdataindicator_targets_view[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdataindicator_targets_view[".ajaxCodeSnippetAdded"] = false;
 

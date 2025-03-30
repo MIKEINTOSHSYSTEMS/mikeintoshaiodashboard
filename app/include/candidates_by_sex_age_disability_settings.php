@@ -135,7 +135,7 @@ $tdatacandidates_by_sex_age_disability[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatacandidates_by_sex_age_disability[".ajaxCodeSnippetAdded"] = false;
 

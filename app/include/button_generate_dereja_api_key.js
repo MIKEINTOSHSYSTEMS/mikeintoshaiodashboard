@@ -1,0 +1,5 @@
+
+Runner.buttonEvents["generate_dereja_api_key"]=function(pageObj,proxy,pageid){pageObj.buttonNames[pageObj.buttonNames.length]='generate_dereja_api_key';if(!pageObj.buttonEventBefore['generate_dereja_api_key']){pageObj.buttonEventBefore['generate_dereja_api_key']=function(params,ctrl,pageObj,proxy,pageid,rowData,row,submit){var ajax=ctrl;ajax.setMessage("Generating API key...");return true;}}
+if(!pageObj.buttonEventAfter['generate_dereja_api_key']){pageObj.buttonEventAfter['generate_dereja_api_key']=function(result,ctrl,pageObj,proxy,pageid,rowData,row,params){var ajax=ctrl;if(result.api_key){alert("Your API Key: "+result.api_key+"\n\nSave it securely. It won't be shown again!");}else{ctrl.setMessage("Error: "+(result.error||"Failed to generate key."));}}}
+$('a[id="generate_dereja_api_key"]').each(function(){if($(this).closest('.gridRowAdd').length){return;}
+this.id="generate_dereja_api_key"+"_"+Runner.genId();var button_generate_dereja_api_key=new Runner.form.Button({id:this.id,btnName:"generate_dereja_api_key"});button_generate_dereja_api_key.init({args:[pageObj,proxy,pageid]});});};

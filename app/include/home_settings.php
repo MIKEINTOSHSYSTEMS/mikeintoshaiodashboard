@@ -1800,7 +1800,7 @@ $tdatahome[".hasEvents"] = false;
 $tdatahome[".tableType"] = "dashboard";
 
 
-	
+		
 $tdatahome[".addPageEvents"] = false;
 
 $tdatahome[".isUseAjaxSuggest"] = true;

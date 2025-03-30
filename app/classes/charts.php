@@ -540,6 +540,16 @@ class Chart
 			return true;
 		if("performance_indicators" == $this->chrt_array['tables'][0])
 			return true;
+		if("dereja_schema_fields" == $this->chrt_array['tables'][0])
+			return true;
+		if("dereja_tables" == $this->chrt_array['tables'][0])
+			return true;
+		if("candidate_custom_fields" == $this->chrt_array['tables'][0])
+			return true;
+		if("candidate_custom_data" == $this->chrt_array['tables'][0])
+			return true;
+		if("Employment_Status" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

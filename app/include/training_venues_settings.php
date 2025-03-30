@@ -128,7 +128,7 @@ $tdatatraining_venues[".isUseAjaxSuggest"] = true;
 
 
 
-			
+						
 
 $tdatatraining_venues[".ajaxCodeSnippetAdded"] = false;
 

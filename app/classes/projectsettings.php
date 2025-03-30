@@ -3672,6 +3672,16 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "performance_overview" ] = "Performance_Overview";
 	$projectEntities[ "performance_indicators_view" ] = array( "url" => "performance_indicators_view", "type" => 3 );
 	$projectEntitiesReverse[ "performance_indicators_view" ] = "performance_indicators_view";
+	$projectEntities[ "dereja_schema_fields" ] = array( "url" => "dereja_schema_fields", "type" => 0 );
+	$projectEntitiesReverse[ "dereja_schema_fields" ] = "dereja_schema_fields";
+	$projectEntities[ "dereja_tables" ] = array( "url" => "dereja_tables", "type" => 0 );
+	$projectEntitiesReverse[ "dereja_tables" ] = "dereja_tables";
+	$projectEntities[ "candidate_custom_fields" ] = array( "url" => "candidate_custom_fields", "type" => 0 );
+	$projectEntitiesReverse[ "candidate_custom_fields" ] = "candidate_custom_fields";
+	$projectEntities[ "candidate_custom_data" ] = array( "url" => "candidate_custom_data", "type" => 0 );
+	$projectEntitiesReverse[ "candidate_custom_data" ] = "candidate_custom_data";
+	$projectEntities[ "Employment_Status" ] = array( "url" => "employment_status", "type" => 0 );
+	$projectEntitiesReverse[ "employment_status" ] = "Employment_Status";
 }
 
 function findTable( $table ) {
