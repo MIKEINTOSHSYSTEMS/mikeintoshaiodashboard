@@ -781,6 +781,26 @@ function testAdvSearch($table)
 		{
 			return 1;
 		}
+		if($table=="Courses")
+		{
+			return 1;
+		}
+		if($table=="Categories")
+		{
+			return 1;
+		}
+		if($table=="Branches")
+		{
+			return 1;
+		}
+		if($table=="Groups")
+		{
+			return 1;
+		}
+		if($table=="Course_Users_Status")
+		{
+			return 1;
+		}
 	}
 	elseif(is_wr_db())
 	{
@@ -1385,6 +1405,26 @@ function getCaptionTable($table)
 	if($table=="Employment_Status")
 	{
 		return "Employment Status";
+	}
+	if($table=="Courses")
+	{
+		return "Courses";
+	}
+	if($table=="Categories")
+	{
+		return "Categories";
+	}
+	if($table=="Branches")
+	{
+		return "Branches";
+	}
+	if($table=="Groups")
+	{
+		return "Groups";
+	}
+	if($table=="Course_Users_Status")
+	{
+		return "Course Users Status";
 	}
 	return $table;
 }

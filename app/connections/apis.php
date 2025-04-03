@@ -16,6 +16,11 @@ class RestManager
 	protected function _setTablesConnectionIds()
 	{
 		$connectionsIds = array();
+		$connectionsIds["Courses"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Categories"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Branches"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Groups"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Course_Users_Status"] = "deredevatderejadevmerqconsulta";
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}
 
@@ -28,16 +33,13 @@ class RestManager
 
 		$data = array();
 		$data["connId"] = "deredevatderejadevmerqconsulta";
-		$data["connName"] = "ListFormSubmissioins";
+		$data["connName"] = "DerejaAcademy";
 
-		$this->_connectionsIdByName["ListFormSubmissioins"] = "deredevatderejadevmerqconsulta";
+		$this->_connectionsIdByName["DerejaAcademy"] = "deredevatderejadevmerqconsulta";
 
-		$data["url"] = "https://derejadev.merqconsultancy.org/backend/forms/api/v1";
-		$data["authType"] = "api";
-				$data["apiKey"] = "BlBh6jVCnHGS9YJnf_wmWCHrXBYiZJ35ehrQtNIk";
-		$data["keyLocation"] = 1;
-		$data["keyParameter"] = "X-Api-Key";
-		
+		$data["url"] = "https://me.dereja.com/api/academy/lib/main.php";
+		$data["authType"] = "none";
+				
 	$connectionsData["deredevatderejadevmerqconsulta"] = $data;
 		$this->_connectionsData = &$connectionsData;
 	}

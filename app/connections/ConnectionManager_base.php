@@ -327,6 +327,11 @@ class ConnectionManager_Base
 		$connectionsIds["candidate_custom_fields"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["candidate_custom_data"] = "deredevatderejadevmerqconsulta";
 		$connectionsIds["Employment_Status"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Courses"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Categories"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Branches"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Groups"] = "deredevatderejadevmerqconsulta";
+		$connectionsIds["Course_Users_Status"] = "deredevatderejadevmerqconsulta";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

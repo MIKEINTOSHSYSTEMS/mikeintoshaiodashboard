@@ -1553,6 +1553,16 @@ class CrossTableWebReport
 			$isDB = true;
 		if("Employment_Status" == $this->xml_array['tables'][0])
 			$isDB = true;
+		if("" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("" == $this->xml_array['tables'][0])
+			$isDB = true;
+		if("" == $this->xml_array['tables'][0])
+			$isDB = true;
 		return $isDB;
 	}
 	

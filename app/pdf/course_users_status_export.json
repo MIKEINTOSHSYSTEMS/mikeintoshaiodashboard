@@ -1,0 +1,175 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":"{$jspagetitlelabel Course_Users_Status export}","hidden":"{$item_hide_export_header}","fontSize":30},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+				
+								
+{
+	table: {
+	
+				
+		location: 'grid',
+		
+		
+		widths: [
+								"%", 
+					 ],	
+		
+			heights: [
+								
+			"%",
+			 
+				],
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+	
+	
+			"text": [
+		
+				
+			{"text":{$id_pdfvalue},"hidden":"{$item_hide_export_field}"},
+				
+				
+			{"text":{$name_pdfvalue},"hidden":"{$item_hide_export_field1}"},
+				
+				
+			{"text":{$code_pdfvalue},"hidden":"{$item_hide_export_field2}"},
+				
+				
+			{"text":{$category_id_pdfvalue},"hidden":"{$item_hide_export_field3}"},
+				
+				
+			{"text":{$role_pdfvalue},"hidden":"{$item_hide_export_field4}"},
+				
+				
+			{"text":{$enrolled_on_pdfvalue},"hidden":"{$item_hide_export_field5}"},
+				
+				
+			{"text":{$enrolled_on_timestamp_pdfvalue},"hidden":"{$item_hide_export_field6}"},
+				
+				
+			{"text":{$completed_on_pdfvalue},"hidden":"{$item_hide_export_field7}"},
+				
+				
+			{"text":{$completed_on_timestamp_pdfvalue},"hidden":"{$item_hide_export_field8}"},
+				
+				
+			{"text":{$completion_percentage_pdfvalue},"hidden":"{$item_hide_export_field9}"},
+				
+				
+			{"text":{$total_time_pdfvalue},"hidden":"{$item_hide_export_field12}"},
+				
+				
+			{"text":{$total_time_seconds_pdfvalue},"hidden":"{$item_hide_export_field13}"},
+				
+				
+			{"text":{$creation_date_pdfvalue},"hidden":"{$item_hide_export_field10}"},
+				
+				
+			{"text":{$last_update_on_pdfvalue},"hidden":"{$item_hide_export_field11}"},
+				
+				
+			{"text":{$creator_id_pdfvalue},"hidden":"{$item_hide_export_field14}"},
+				
+				
+			{"text":{$course_id_pdfvalue},"hidden":"{$item_hide_export_field15}"},
+				
+				
+			{"text":{$course_name_pdfvalue},"hidden":"{$item_hide_export_field16}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+					]
+}
+  

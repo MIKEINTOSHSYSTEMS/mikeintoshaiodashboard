@@ -101,6 +101,11 @@ $nonAdminTablesArr[] = "dereja_tables";
 $nonAdminTablesArr[] = "candidate_custom_fields";
 $nonAdminTablesArr[] = "candidate_custom_data";
 $nonAdminTablesArr[] = "Employment_Status";
+$nonAdminTablesArr[] = "Courses";
+$nonAdminTablesArr[] = "Categories";
+$nonAdminTablesArr[] = "Branches";
+$nonAdminTablesArr[] = "Groups";
+$nonAdminTablesArr[] = "Course_Users_Status";
 
 $ug_connection = $cman->getForUserGroups();
 

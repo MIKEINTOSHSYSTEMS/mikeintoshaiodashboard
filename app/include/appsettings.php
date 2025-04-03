@@ -750,9 +750,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "577_1742918909";
+$projectBuildKey = "586_1743699248";
 $wizardBuildKey = "39558";
-$projectBuildNumber = "577";
+$projectBuildNumber = "586";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -865,6 +865,11 @@ $tableCaptions["English"]["dereja_tables"] = "Dereja Tables";
 $tableCaptions["English"]["candidate_custom_fields"] = "Candidate Custom Fields";
 $tableCaptions["English"]["candidate_custom_data"] = "Candidate Custom Data";
 $tableCaptions["English"]["Employment_Status"] = "Employment Status";
+$tableCaptions["English"]["Courses"] = "Courses";
+$tableCaptions["English"]["Categories"] = "Categories";
+$tableCaptions["English"]["Branches"] = "Branches";
+$tableCaptions["English"]["Groups"] = "Groups";
+$tableCaptions["English"]["Course_Users_Status"] = "Course Users Status";
 
 
 $globalEvents = new class_GlobalEvents;

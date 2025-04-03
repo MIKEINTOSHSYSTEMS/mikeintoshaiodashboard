@@ -3682,6 +3682,16 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "candidate_custom_data" ] = "candidate_custom_data";
 	$projectEntities[ "Employment_Status" ] = array( "url" => "employment_status", "type" => 0 );
 	$projectEntitiesReverse[ "employment_status" ] = "Employment_Status";
+	$projectEntities[ "Courses" ] = array( "url" => "courses", "type" => 7 );
+	$projectEntitiesReverse[ "courses" ] = "Courses";
+	$projectEntities[ "Categories" ] = array( "url" => "categories", "type" => 7 );
+	$projectEntitiesReverse[ "categories" ] = "Categories";
+	$projectEntities[ "Branches" ] = array( "url" => "branches", "type" => 7 );
+	$projectEntitiesReverse[ "branches" ] = "Branches";
+	$projectEntities[ "Groups" ] = array( "url" => "groups", "type" => 7 );
+	$projectEntitiesReverse[ "groups" ] = "Groups";
+	$projectEntities[ "Course_Users_Status" ] = array( "url" => "course_users_status", "type" => 7 );
+	$projectEntitiesReverse[ "course_users_status" ] = "Course_Users_Status";
 }
 
 function findTable( $table ) {

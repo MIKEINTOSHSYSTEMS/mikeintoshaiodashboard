@@ -375,6 +375,16 @@ function checkTableName($shortTName )
 		return true;
 	if ("employment_status" == $shortTName )
 		return true;
+	if ("courses" == $shortTName )
+		return true;
+	if ("categories" == $shortTName )
+		return true;
+	if ("branches" == $shortTName )
+		return true;
+	if ("groups" == $shortTName )
+		return true;
+	if ("course_users_status" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -1199,6 +1209,51 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="Employment_Status";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Courses");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Courses";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Categories");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Categories";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Branches");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Branches";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Groups");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Groups";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("Course_Users_Status");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="Course_Users_Status";
+	}
 	return $arr;
 }
 
@@ -1294,6 +1349,11 @@ function GetTablesListWithoutSecurity()
 	$arr[]="candidate_custom_fields";
 	$arr[]="candidate_custom_data";
 	$arr[]="Employment_Status";
+	$arr[]="Courses";
+	$arr[]="Categories";
+	$arr[]="Branches";
+	$arr[]="Groups";
+	$arr[]="Course_Users_Status";
 	return $arr;
 }
 
@@ -2363,6 +2423,31 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="Employment_Status" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Courses" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Categories" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Branches" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Groups" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="Course_Users_Status" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

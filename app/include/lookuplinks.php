@@ -1601,6 +1601,20 @@ function InitLookupLinks()
 			$lookupTableLinks["candidate_custom_fields"]["candidate_custom_data.CustomFieldID"] = array();
 		}
 		$lookupTableLinks["candidate_custom_fields"]["candidate_custom_data.CustomFieldID"]["edit"] = array("table" => "candidate_custom_data", "field" => "CustomFieldID", "page" => "edit");
+		if( !isset( $lookupTableLinks["Courses"] ) ) {
+			$lookupTableLinks["Courses"] = array();
+		}
+		if( !isset( $lookupTableLinks["Courses"]["course_users_status.id"] )) {
+			$lookupTableLinks["Courses"]["course_users_status.id"] = array();
+		}
+		$lookupTableLinks["Courses"]["course_users_status.id"]["edit"] = array("table" => "Course_Users_Status", "field" => "id", "page" => "edit");
+		if( !isset( $lookupTableLinks["Categories"] ) ) {
+			$lookupTableLinks["Categories"] = array();
+		}
+		if( !isset( $lookupTableLinks["Categories"]["course_users_status.category_id"] )) {
+			$lookupTableLinks["Categories"]["course_users_status.category_id"] = array();
+		}
+		$lookupTableLinks["Categories"]["course_users_status.category_id"]["edit"] = array("table" => "Course_Users_Status", "field" => "category_id", "page" => "edit");
 }
 
 ?>

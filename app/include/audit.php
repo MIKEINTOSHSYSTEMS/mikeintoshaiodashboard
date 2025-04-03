@@ -752,6 +752,26 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="Courses")
+		{
+			return false;
+		}
+		if($table=="Categories")
+		{
+			return false;
+		}
+		if($table=="Branches")
+		{
+			return false;
+		}
+		if($table=="Groups")
+		{
+			return false;
+		}
+		if($table=="Course_Users_Status")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1455,6 +1475,26 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="Employment_Status")
+		{
+			return false;
+		}
+		if($table=="Courses")
+		{
+			return false;
+		}
+		if($table=="Categories")
+		{
+			return false;
+		}
+		if($table=="Branches")
+		{
+			return false;
+		}
+		if($table=="Groups")
+		{
+			return false;
+		}
+		if($table=="Course_Users_Status")
 		{
 			return false;
 		}
