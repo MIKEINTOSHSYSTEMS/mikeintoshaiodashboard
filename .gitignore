@@ -10,3 +10,4 @@
 /api/database/web/backup/
 /api/database/backend/backup/
 /ssl/
+/api/academy/lib/.env
