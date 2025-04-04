@@ -35,6 +35,7 @@ if ($mysqli->connect_error) {
 $command = "mysqldump --host=$dbHost --user=$dbUser --password='$dbPassword' $dbName > $backupFilePath";
 system($command, $return_var);
 
+if ($return_var === 0) {
 $backupDetails = [
     'name' => $backupFile,
     'date' => date('Y-m-d H:i:s', filemtime($backupFilePath)),
@@ -42,8 +43,9 @@ $backupDetails = [
     'path' => $backupFilePath
 ];
 
-if ($return_var === 0) {
-    echo json_encode(['success' => true, 'newBackup' => $backupDetails]);
+//if ($return_var === 0) {
+    //echo json_encode(['success' => true, 'newBackup' => $backupDetails]);
+    echo json_encode(['success' => true, 'newBackup' => $backupDetails, 'redirect' => 'main.php']);
 } else {
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Error creating backup.']);
