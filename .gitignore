@@ -4,6 +4,7 @@
 *.xlsx
 *.txt
 *.log
+*.code-workspace
 !mysql-init/init.sql
 !/ai/chat/requirements.txt
 /ai/venv
@@ -11,4 +12,5 @@
 /api/database/web/backup/
 /api/database/backend/backup/
 /ssl/
+/.vscode/
 /api/academy/lib/.env

@@ -273,6 +273,11 @@ $pagedBackups = ($perPage > 0) ? array_slice($backups, $offset, $perPage) : $bac
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <button id="uploadButton" class="btn btn-info ms-2">
+                            <i class="fas fa-upload"></i> Upload Backup
+                        </button>
+                    </li>                    
+                    <li class="nav-item">
                         <button id="backupButton" class="btn btn-success ms-2">
                             <i class="fas fa-plus-circle"></i> Backup Now
                         </button>
@@ -517,6 +522,34 @@ $pagedBackups = ($perPage > 0) ? array_slice($backups, $offset, $perPage) : $bac
             </div>
         </div>
     </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Database Backup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="backupFile" class="form-label">Select backup file (.sql or .gz)</label>
+                            <input class="form-control" type="file" id="backupFile" name="backupFile" accept=".sql,.gz" required>
+                            <div class="form-text">Maximum file size: 100MB</div>
+                        </div>
+                        <div class="progress-container mt-3" id="uploadProgressContainer" style="display: none;">
+                            <div class="progress-bar bg-info" id="uploadProgressBar" style="width: 0%">0%</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -886,6 +919,104 @@ function formatSchedule($schedule) {
             firstRadio.dispatchEvent(new Event('change'));
         }
     });
+
+// Upload functionality
+const uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'));
+
+document.getElementById('uploadButton').addEventListener('click', function() {
+    uploadModal.show();
+});
+
+document.getElementById('uploadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const fileInput = document.getElementById('backupFile');
+    const file = fileInput.files[0];
+    
+    if (!file) {
+        alert('Please select a file to upload');
+        return;
+    }
+    
+    // Validate file type
+    const validExtensions = ['.sql', '.gz'];
+    const fileName = file.name.toLowerCase();
+    const isValidFile = validExtensions.some(ext => fileName.endsWith(ext));
+    
+    if (!isValidFile) {
+        alert('Please upload a valid .sql or .gz file');
+        return;
+    }
+    
+    // Validate file size (100MB max)
+    if (file.size > 100 * 1024 * 1024) {
+        alert('File size exceeds 100MB limit');
+        return;
+    }
+    
+    const password = prompt("Please enter your password to proceed with the upload:");
+    if (!password) return;
+    
+    const formData = new FormData();
+    formData.append('backupFile', file);
+    formData.append('password', password);
+    
+    const progressBar = document.getElementById('uploadProgressBar');
+    const progressContainer = document.getElementById('uploadProgressContainer');
+    
+    progressContainer.style.display = 'block';
+    progressBar.style.width = '0%';
+    progressBar.textContent = '0%';
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'upload_backup.php', true);
+    
+    xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+            const percentComplete = Math.round((e.loaded / e.total) * 100);
+            progressBar.style.width = percentComplete + '%';
+            progressBar.textContent = percentComplete + '%';
+        }
+    };
+    
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        try {
+            const response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                progressBar.style.width = '100%';
+                progressBar.textContent = 'Upload complete!';
+                progressBar.style.backgroundColor = '#4caf50';
+                
+                // Show success message to user
+                alert(response.message);
+                
+                setTimeout(() => {
+                    uploadModal.hide();
+                    window.location.reload();
+                }, 1000);
+            } else {
+                progressBar.style.width = '100%';
+                progressBar.textContent = 'Upload failed';
+                progressBar.style.backgroundColor = '#f44336';
+                alert('Error: ' + response.message);
+            }
+        } catch (e) {
+            progressBar.style.width = '100%';
+            progressBar.textContent = 'Upload failed';
+            progressBar.style.backgroundColor = '#f44336';
+            alert('Error parsing server response');
+        }
+    } else {
+        progressBar.style.width = '100%';
+        progressBar.textContent = 'Upload failed';
+        progressBar.style.backgroundColor = '#f44336';
+        alert('Error occurred during upload. Status: ' + xhr.status);
+    }
+};
+    xhr.send(formData);
+});
+
 </script>
 </body>
 </html>
